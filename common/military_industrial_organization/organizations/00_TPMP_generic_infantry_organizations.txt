@@ -408,6 +408,319 @@ TPMP_generic_advanced_infantry_organization = {
 	}
 
 	trait = {
+		token = generic_mio_trait_advanced_infantry_1a
+		name = generic_mio_trait_production_infantry_1a
+		icon = GFX_generic_mio_department_icon_facilities
+		
+		position = { x=2 y=0 }
+
+		production_bonus = {
+			production_cost_factor = 0.03
+		}
+		equipment_bonus = {
+			soft_attack = 0.10
+		}
+		
+		limit_to_equipment_type = { TPMP_cat_eq_all_inf }
+	}
+
+
+	trait = {
+		token = generic_mio_trait_advanced_infantry_2a
+		name = generic_mio_trait_production_infantry_2a
+		icon = GFX_generic_mio_department_icon_facilities
+		
+		position = { x=1 y= 1}
+		any_parent = { generic_mio_trait_advanced_infantry_1a }
+
+		production_bonus = {
+			production_cost_factor = 0.03
+		}
+		equipment_bonus = {
+			breakthrough = 0.15
+			soft_attack = 0.03
+			reliability = -0.03
+		}
+		
+		limit_to_equipment_type = { TPMP_cat_eq_all_inf }
+	}
+
+	trait = {
+		token = generic_mio_trait_advanced_infantry_3a
+		name = generic_mio_trait_production_infantry_3a
+		icon = GFX_generic_mio_department_icon_facilities
+		
+		position = { x=0 y=2 }
+		any_parent = { generic_mio_trait_advanced_infantry_2a }
+
+		equipment_bonus = {
+			breakthrough = 0.15
+		}
+		
+		limit_to_equipment_type = { TPMP_cat_eq_all_inf }
+	}
+
+
+	trait = {
+		token = generic_mio_trait_advanced_infantry_3b
+		name = generic_mio_trait_production_infantry_3b
+		icon = GFX_generic_mio_department_icon_facilities
+		
+		position = { x=2 y=2 }
+		any_parent = { generic_mio_trait_advanced_infantry_2a generic_mio_trait_advanced_infantry_2b }
+
+		
+		equipment_bonus = {
+			defense = 0.10
+		}
+		
+		limit_to_equipment_type = { TPMP_cat_eq_all_inf }
+	}
+
+
+	trait = {
+		token = generic_mio_trait_advanced_infantry_4a
+		name = generic_mio_trait_production_infantry_4a
+		icon = GFX_generic_mio_department_icon_facilities
+		
+		position = { x=1 y=3 }
+		any_parent = { generic_mio_trait_advanced_infantry_3b }
+		mutually_exclusive = { 
+					generic_mio_trait_advanced_infantry_4b
+					generic_mio_trait_advanced_infantry_4c  }
+
+		production_bonus = {
+			production_cost_factor = -0.03
+		}
+		equipment_bonus = {
+			reliability = -0.10	
+		}
+		
+		limit_to_equipment_type = { TPMP_cat_eq_all_inf }
+	}
+
+	trait = {
+		token = generic_mio_trait_advanced_infantry_4b
+		name = generic_mio_trait_production_infantry_4b
+		icon = GFX_generic_mio_department_icon_facilities
+		
+		position = { x=2 y=3 }
+		any_parent = { generic_mio_trait_advanced_infantry_3b }
+		mutually_exclusive = { generic_mio_trait_advanced_infantry_4a
+					
+					generic_mio_trait_advanced_infantry_4c  }
+
+		production_bonus = {
+			production_cost_factor = 0.03
+		}
+		equipment_bonus = {
+			reliability = 0.03
+			soft_attack = 0.03
+		}
+		
+		limit_to_equipment_type = { TPMP_cat_eq_all_inf }
+	}
+	
+	trait = {
+		token = generic_mio_trait_advanced_infantry_4c
+		name = generic_mio_trait_production_infantry_4c
+		icon = GFX_generic_mio_department_icon_facilities
+		
+		position = { x=3 y=3 }
+		any_parent = { generic_mio_trait_advanced_infantry_3b }
+		mutually_exclusive = { generic_mio_trait_advanced_infantry_4a
+					generic_mio_trait_advanced_infantry_4b
+					  }
+
+		production_bonus = {
+			production_cost_factor = 0.03
+		}
+		equipment_bonus = {
+			hard_attack = 0.10
+			defense = 0.03
+		}
+		
+		limit_to_equipment_type = { TPMP_cat_eq_all_inf }
+	}
+	
+	trait = {
+		token = generic_mio_trait_advanced_infantry_5a
+		name = generic_mio_trait_production_infantry_5a
+		icon = GFX_generic_mio_department_icon_facilities
+		
+		position = { x=1 y=4 }
+		any_parent = { generic_mio_trait_advanced_infantry_4a }
+
+		
+		equipment_bonus = {
+			breakthrough = 0.10
+			defense = 0.05
+		}
+		
+		limit_to_equipment_type = { TPMP_cat_eq_all_inf }
+	}
+	
+	
+	trait = {
+		token = generic_mio_trait_advanced_infantry_5b
+		name = generic_mio_trait_production_infantry_5b
+		icon = GFX_generic_mio_department_icon_facilities
+		
+		position = { x=2 y=4 }
+		any_parent = { generic_mio_trait_advanced_infantry_4b }
+
+		equipment_bonus = {
+			defense = 0.05
+			breakthrough = 0.15
+		}
+		
+		limit_to_equipment_type = { TPMP_cat_eq_all_inf }
+	}	
+	
+	
+	
+	
+	trait = {
+		token = generic_mio_trait_advanced_infantry_5c
+		name = generic_mio_trait_production_infantry_5c
+		icon = GFX_generic_mio_department_icon_facilities
+		
+		position = { x=3 y=4 }
+		any_parent = { generic_mio_trait_advanced_infantry_4c }
+
+		equipment_bonus = {
+			hard_attack = 0.05
+			breakthrough = 0.10
+		}
+		
+		limit_to_equipment_type = { TPMP_cat_eq_all_inf }
+	}	
+	
+	trait = {
+		token = generic_mio_trait_advanced_infantry_2b
+		name = generic_mio_trait_production_infantry_2b
+		icon = GFX_generic_mio_department_icon_facilities
+		
+		position = { x=3 y=1 }
+		any_parent = { generic_mio_trait_advanced_infantry_1a }
+
+		equipment_bonus = {
+			defense = 0.05
+			reliability = 0.03
+		}
+		
+		limit_to_equipment_type = { TPMP_cat_eq_all_inf }
+	}		
+	
+	trait = {
+		token = generic_mio_trait_advanced_infantry_3c
+		name = generic_mio_trait_production_infantry_3c
+		icon = GFX_generic_mio_department_icon_facilities
+		
+		position = { x=4 y=2 }
+		any_parent = { generic_mio_trait_advanced_infantry_2b }
+
+		equipment_bonus = {
+			defense = 0.05
+		}
+		
+		limit_to_equipment_type = { TPMP_cat_eq_all_inf }
+	}			
+	
+	
+	
+	trait = {
+		token = generic_mio_trait_advanced_infantry_1b
+		name = generic_mio_trait_production_infantry_1b
+		icon = GFX_generic_mio_department_icon_facilities
+		
+		position = { x=5 y=0 }
+
+		equipment_bonus = {
+			soft_attack = 0.05
+			hard_attack = 0.15
+		}
+		
+		limit_to_equipment_type = { TPMP_cat_eq_all_inf }
+	}		
+	
+	
+	trait = {
+		token = generic_mio_trait_advanced_infantry_2c
+		name = generic_mio_trait_production_infantry_2c
+		icon = GFX_generic_mio_department_icon_facilities
+		
+		position = { x=5 y=1 }
+		any_parent = { generic_mio_trait_advanced_infantry_1b }
+
+		equipment_bonus = {
+			ap_attack = 0.05
+			hard_attack = 0.25
+		}
+		
+		limit_to_equipment_type = { TPMP_cat_eq_all_inf }
+	}	
+	
+	trait = {
+		token = generic_mio_trait_advanced_infantry_4d
+		name = generic_mio_trait_production_infantry_4d
+		icon = GFX_generic_mio_department_icon_facilities
+		
+		position = { x=5 y=3 }
+		any_parent = { generic_mio_trait_advanced_infantry_2c }
+
+		equipment_bonus = {
+			max_organisation = 0.25
+			max_strength = 0.25
+			hardness = 0.25
+		}
+		
+		limit_to_equipment_type = { TPMP_cat_eq_all_inf }
+	}		
+	
+	
+	trait = {
+		token = generic_mio_trait_advanced_infantry_3d
+		name = generic_mio_trait_production_infantry_3d
+		icon = GFX_generic_mio_department_icon_facilities
+		
+		position = { x=6 y=2 }
+		any_parent = { generic_mio_trait_advanced_infantry_2c }
+
+		equipment_bonus = {
+			ap_attack = 0.10
+		}
+		
+		limit_to_equipment_type = { TPMP_cat_eq_all_inf }
+	}		
+		
+	
+	trait = {
+		token = generic_mio_trait_advanced_infantry_5d
+		name = generic_mio_trait_production_infantry_5d
+		icon = GFX_generic_mio_department_icon_facilities
+		
+		position = { x=6 y=4 }
+		any_parent = { generic_mio_trait_advanced_infantry_3d }
+
+		equipment_bonus = {
+			air_attack = 0.15
+		}
+		
+		limit_to_equipment_type = { TPMP_cat_eq_all_inf }
+	}			
+	
+	
+	
+	
+
+
+
+
+
+
+
+	trait = {
 		token = generic_mio_trait_MIO_advanced_1a
 		name = generic_mio_trait_MIO_advanced_1a
 		icon = GFX_generic_mio_department_icon_facilities
@@ -560,7 +873,6 @@ TPMP_generic_production_infantry_organization = {
 		icon = GFX_generic_mio_department_icon_facilities
 		
 		position = { x=3 y=0 }
-		mutually_exclusive = { generic_mio_trait_standard_infantry_1b }
 
 		production_bonus = {
 			production_cost_factor = -0.03
