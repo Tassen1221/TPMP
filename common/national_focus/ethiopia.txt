@@ -724,7 +724,7 @@ focus_tree = {
 				name = ETH_tactical_training 
 				cost_reduction = 0.50
 				uses = 2 
-				category = land_doctrine
+				category = cat_land_doctrine
 			}
 			custom_effect_tooltip = ETH_tactical_training_tt # Tooltip for Effect in Dynamic Modifier
 			add_to_variable = { ETH_army_army_defence_factor = 0.10 } # Modifier to improve
@@ -1148,9 +1148,9 @@ focus_tree = {
 				name = ETH_new_weapons_and_tactics_bonus
 				bonus = 0.5
 				uses = 3
-				category = infantry_weapons
-				category = armor
-				category = artillery
+				category = cat_infantry_tech
+				category = cat_armour_tech
+				category = cat_artillery_tech
 			}
 		}
 	}
@@ -1310,7 +1310,7 @@ focus_tree = {
 				name = ETH_tactical_training 
 				cost_reduction = 0.50
 				uses = 2 
-				category = land_doctrine
+				category = cat_land_doctrine
 			}
 			custom_effect_tooltip = ETH_medal_gain_tt
 			multiply_variable = { ETH.ETH_medal_xp_gain = 1.75 }
@@ -3909,7 +3909,7 @@ focus_tree = {
 				name = ETH_learning_from_the_enemy_armor
 				bonus = 0.25
 				uses = 1
-				category = cat_light_armor
+				category = cat_light_chassis_tech
 			}
 			add_tech_bonus = {
 				name = ETH_learning_from_the_enemy_air
@@ -5548,8 +5548,8 @@ focus_tree = {
 			add_tech_bonus = {
 				bonus = 0.25
 				uses = 2
-				category = cat_anti_tank # optional 
-				category = cat_anti_air # optional 	
+				category = cat_anti_tank_tech # optional 
+				category = cat_anti_air_tech # optional 	
 			}
 			add_offsite_building = {
 				type = arms_factory
@@ -6001,7 +6001,7 @@ focus_tree = {
 				name = land_doc_bonus
 				cost_reduction = 0.5
 				uses = 2
-				category = cat_mass_assault
+				category = cat_army_doctrine
 			}
 			add_ideas = ETH_peoples_army_idea
 		}
@@ -6288,7 +6288,7 @@ focus_tree = {
 					name = ETH_red_army_engineers
 					bonus = 0.5
 					uses = 2
-					category = support_tech
+					category = cat_support_tech
 				}
 			}
 			IF = {
@@ -6690,7 +6690,7 @@ focus_tree = {
 				name = ETH_mass_transit
 				bonus = 1
 				uses = 1
-				category = train_tech
+				category = cat_train_tech
 			}
 			ETH_BOP_decentralization_large_effect = yes
 			add_ideas = ETH_mass_transit_idea

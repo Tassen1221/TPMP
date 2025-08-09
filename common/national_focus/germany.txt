@@ -1853,11 +1853,11 @@ focus_tree = {
 				NOT = { is_core_of = ROOT }
 				is_fully_controlled_by = ROOT
 				OR = {
-					steel > 240
-					aluminium > 190
-					oil > 140
-					tungsten > 90
-					chromium > 90
+					steel > 249
+					aluminium > 199
+					oil > 149
+					tungsten > 99
+					chromium > 99
 				}
 			}
 		}
@@ -1986,11 +1986,11 @@ focus_tree = {
 					is_fully_controlled_by = ROOT
 					is_on_continent = europe
 					OR = {
-						steel > 190
-						aluminium > 100
-						oil > 90
-						tungsten > 90
-						chromium > 90
+						steel > 199
+						aluminium > 99
+						oil > 99
+						tungsten > 99
+						chromium > 99
 					}
 				}
 				random_select_amount = 5
@@ -2162,13 +2162,13 @@ focus_tree = {
 			OR = {
 				has_resources_in_country = {
 					resource = oil
-					amount > 149
+					amount > 1499
 					extracted = yes
 				}
 				any_subject_country = {
 					has_resources_in_country = {
 						resource = oil
-						amount > 149
+						amount > 1499
 						extracted = yes
 					}
 				}
@@ -2257,13 +2257,13 @@ focus_tree = {
 			OR = {
 				has_resources_in_country = {
 					resource = rubber
-					amount > 99
+					amount > 999
 					extracted = yes
 				}
 				any_subject_country = {
 					has_resources_in_country = {
 						resource = rubber
-						amount > 99
+						amount > 999
 						extracted = yes
 					}
 				}
@@ -2296,7 +2296,7 @@ focus_tree = {
 			modify_building_resources = {
         	   building = synthetic_refinery
         	   resource = rubber
-        	   amount = 2
+        	   amount = 20
         	}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
@@ -2345,13 +2345,13 @@ focus_tree = {
 			OR = {
 				has_resources_in_country = {
 					resource = steel
-					amount > 799 #This needs to correspond to the Bypass values in the previous focuses
+					amount > 7999 #This needs to correspond to the Bypass values in the previous focuses
 					extracted = yes
 				}
 				any_subject_country = {
 					has_resources_in_country = {
 						resource = steel
-						amount > 799 #This needs to correspond to the Bypass values in the previous focuses
+						amount > 7999 #This needs to correspond to the Bypass values in the previous focuses
 						extracted = yes
 					}
 				}
@@ -2359,13 +2359,13 @@ focus_tree = {
 			OR = {
 				has_resources_in_country = {
 					resource = aluminium
-					amount > 199 #This needs to correspond to the Bypass values in the previous focuses
+					amount > 1999 #This needs to correspond to the Bypass values in the previous focuses
 					extracted = yes
 				}
 				any_subject_country = {
 					has_resources_in_country = {
 						resource = aluminium
-						amount > 199 #This needs to correspond to the Bypass values in the previous focuses
+						amount > 1999 #This needs to correspond to the Bypass values in the previous focuses
 						extracted = yes
 					}
 				}
@@ -2373,13 +2373,13 @@ focus_tree = {
 			OR = {
 				has_resources_in_country = {
 					resource = oil
-					amount > 149 #This needs to correspond to the Bypass values in the previous focuses
+					amount > 1499 #This needs to correspond to the Bypass values in the previous focuses
 					extracted = yes
 				}
 				any_subject_country = {
 					has_resources_in_country = {
 						resource = oil
-						amount > 149 #This needs to correspond to the Bypass values in the previous focuses
+						amount > 1499 #This needs to correspond to the Bypass values in the previous focuses
 						extracted = yes
 					}
 				}
@@ -2387,13 +2387,13 @@ focus_tree = {
 			OR = {
 				has_resources_in_country = {
 					resource = tungsten
-					amount > 99 #This needs to correspond to the Bypass values in the previous focuses
+					amount > 999 #This needs to correspond to the Bypass values in the previous focuses
 					extracted = yes
 				}
 				any_subject_country = {
 					has_resources_in_country = {
 						resource = tungsten
-						amount > 99 #This needs to correspond to the Bypass values in the previous focuses
+						amount > 999 #This needs to correspond to the Bypass values in the previous focuses
 						extracted = yes
 					}
 				}
@@ -2401,13 +2401,13 @@ focus_tree = {
 			OR = {
 				has_resources_in_country = {
 					resource = chromium
-					amount > 99 #This needs to correspond to the Bypass values in the previous focuses
+					amount > 999 #This needs to correspond to the Bypass values in the previous focuses
 					extracted = yes
 				}
 				any_subject_country = {
 					has_resources_in_country = {
 						resource = chromium
-						amount > 99 #This needs to correspond to the Bypass values in the previous focuses
+						amount > 999 #This needs to correspond to the Bypass values in the previous focuses
 						extracted = yes
 					}
 				}
@@ -2415,13 +2415,13 @@ focus_tree = {
 			OR = {
 				has_resources_in_country = {
 					resource = rubber
-					amount > 49 #This needs to correspond to the Bypass values in the previous focuses
+					amount > 499 #This needs to correspond to the Bypass values in the previous focuses
 					extracted = yes
 				}
 				any_subject_country = {
 					has_resources_in_country = {
 						resource = rubber
-						amount > 49 #This needs to correspond to the Bypass values in the previous focuses
+						amount > 499 #This needs to correspond to the Bypass values in the previous focuses
 						extracted = yes
 					}
 				}
@@ -3171,7 +3171,7 @@ focus_tree = {
 				name = GER_artillery_bombardment
 				bonus = 0.5
 				uses = 2
-				category = artillery
+				category = cat_artillery_tech
 			}
 			add_tech_bonus = {
 				name = GER_artillery_bombardment
@@ -9235,7 +9235,7 @@ mio:GER_blohm_und_voss_organization = {
 				ahead_reduction = 2
 				uses = 1
 				category = armor
-				category = artillery
+				category = cat_artillery_tech
 				category = naval_equipment
 				category = air_equipment
 			}
@@ -18516,32 +18516,32 @@ mio:GER_blohm_und_voss_organization = {
 						OR = {
 							has_resources_amount = {
 								resource = oil
-								amount > 190
+								amount > 199
 								delivered = no
 							}
 							has_resources_amount = {
 								resource = aluminium
-								amount > 190
+								amount > 199
 								delivered = no
 							}
 							has_resources_amount = {
 								resource = rubber
-								amount > 190
+								amount > 199
 								delivered = no
 							}
 							has_resources_amount = {
 								resource = tungsten
-								amount > 190
+								amount > 199
 								delivered = no
 							}
 							has_resources_amount = {
 								resource = steel
-								amount > 190
+								amount > 199
 								delivered = no
 							}
 							has_resources_amount = {
 								resource = chromium
-								amount > 190
+								amount > 199
 								delivered = no
 							}
 						}
@@ -18559,32 +18559,32 @@ mio:GER_blohm_und_voss_organization = {
 						OR = {
 							has_resources_amount = {
 								resource = oil
-								amount > 190
+								amount > 199
 								delivered = no
 							}
 							has_resources_amount = {
 								resource = aluminium
-								amount > 190
+								amount > 199
 								delivered = no
 							}
 							has_resources_amount = {
 								resource = rubber
-								amount > 190
+								amount > 199
 								delivered = no
 							}
 							has_resources_amount = {
 								resource = tungsten
-								amount > 190
+								amount > 199
 								delivered = no
 							}
 							has_resources_amount = {
 								resource = steel
-								amount > 190
+								amount > 199
 								delivered = no
 							}
 							has_resources_amount = {
 								resource = chromium
-								amount > 190
+								amount > 199
 								delivered = no
 							}
 						}

@@ -1853,13 +1853,13 @@
 				name = SAF_invite_soviet_advisers
 				cost_reduction = 0.25
 				uses = 2
-				category = cat_mass_assault
+				category = cat_army_doctrine
 			}
 			add_doctrine_cost_reduction = {
 				name = SAF_invite_soviet_advisers
 				cost_reduction = 0.5
 				uses = 2
-				category = land_doctrine
+				category = cat_land_doctrine
 			}
 		}
 	}
@@ -2647,7 +2647,7 @@
 				name = SAF_special_service_battalion
 				cost_reduction = 0.25
 				uses = 1
-				category = land_doctrine
+				category = cat_land_doctrine
 			}
 		}
 	}
@@ -2684,7 +2684,7 @@
 				name = SAF_improve_the_three_oh_three
 				bonus = 1.0
 				uses = 1
-				category = infantry_weapons
+				category = cat_infantry_tech
 			}
 		}
 	}
@@ -2763,7 +2763,7 @@
 				name = SAF__south_african_military_college
 				cost_reduction = 0.5
 				uses = 1
-				category = land_doctrine
+				category = cat_land_doctrine
 			}
 		}
 	}
@@ -2800,7 +2800,7 @@
 				name = SAF_expand_the_south_african_artillery
 				bonus = 1.0
 				uses = 1
-				category = artillery
+				category = cat_artillery_tech
 			}
 		}
 	}
@@ -2837,7 +2837,7 @@
 				name = SAF_sa_engineer_corps
 				bonus = 1.0
 				uses = 1
-				category = support_tech
+				category = cat_support_tech
 			}
 		}
 	}
@@ -2874,8 +2874,8 @@
 				name = SAF_equipment_effort
 				bonus = 1.0
 				uses = 1
-				category = infantry_weapons
-				category = artillery
+				category = cat_infantry_tech
+				category = cat_artillery_tech
 			}
 		}
 	}
@@ -2912,7 +2912,7 @@
 				name = SAF_mechanization_effort
 				bonus = 1.0
 				uses = 1
-				category = cat_mechanized_equipment
+				category = cat_mechanized_tech
 			}
 		}
 	}
@@ -2949,16 +2949,16 @@
 				name = SAF_south_african_special_forces
 				bonus = 1.0
 				uses = 1
-				category = para_tech
-				category = marine_tech
-				category = mountaineers_tech
+				category = cat_para_tech
+				category = cat_marine_tech
+				category = cat_mountaineers_tech
 			}
 			if = {
 				limit = { has_dlc = "Arms Against Tyranny" }
 				add_doctrine_cost_reduction = {
 					cost_reduction = 0.5
 					uses = 2
-					category = special_forces_doctrine
+					category = cat_special_forces_doctrine
 				}
 			}
 		}
@@ -2996,7 +2996,7 @@
 				name = SAF_armor_effort
 				bonus = 1.0
 				uses = 1
-				category = armor
+				category = cat_armour_tech
 			}
 		}
 	}
@@ -3663,7 +3663,7 @@
 				name = SAF_prepare_overseas_offensive
 				bonus = 1.0
 				uses = 1
-				category = marine_tech
+				category = cat_marine_tech
 				category = tp_tech
 			}
 		}

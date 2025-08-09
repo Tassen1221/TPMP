@@ -20,6 +20,9 @@ NDefines.NCountry.MAX_WAR_SUPPORT = 1.5
 
 NDefines.NCountry.BASE_RESEARCH_SLOTS = 4
 
+NDefines.NCountry.SPECIAL_FORCES_CAP_BASE = 0.5			-- Max ammount of special forces battalions is total number of non-special forces battalions multiplied by this and modified by a country modifier
+NDefines.NCountry.SPECIAL_FORCES_CAP_MIN = 240			-- You can have a minimum of this many special forces battalions, regardless of the number of non-special forces battalions you have, this can also be modified by a country modifier
+
 NDefines.NMilitary.VPS_FOR_HISTORY_ENTRY = 1			-- Minimum VPs required to receive an entry in divisional history
 NDefines.NMilitary.VPS_FOR_HIGH_HISTORY_ENTRY = 5		-- VPs required for high-level history entry
 NDefines.NMilitary.COST_INCREASE_PER_ACTIVE_MEDAL = 1		-- Additional cost factor per active medal
@@ -68,6 +71,9 @@ NDefines.NMilitary.STRATEGIC_SPEED_INFRA_BASE = 5.0		-- Base speed of strategic 
 NDefines.NMilitary.STRATEGIC_SPEED_INFRA_MAX = 10.0		-- Additional speed of strategic redeployment on max-level infrastructure
 NDefines.NMilitary.STRATEGIC_SPEED_RAIL_BASE = 15.0		-- Base speed of strategic redeployment when on railways
 NDefines.NMilitary.STRATEGIC_SPEED_RAIL_MAX = 25.0		-- Additional speed of strategic redeployment on max-level railways
+
+NDefines.NMilitary.RIVER_CROSSING_PENALTY = -0.3		-- small river crossing
+NDefines.NMilitary.RIVER_CROSSING_PENALTY_LARGE = -0.5	-- large river crossing
 
 NDefines.NMilitary.COMBAT_OVER_WIDTH_PENALTY = -1		-- over combat width penalty per %.
 NDefines.NMilitary.COMBAT_OVER_WIDTH_PENALTY_MAX = -0.15	-- over combat width max (when you cant join no more).
@@ -149,7 +155,7 @@ NDefines.NCharacter.GENIUS_ADVISOR_MIN_RANK = 7
 
 NDefines.NProduction.BASE_FACTORY_MAX_EFFICIENCY_FACTOR = 50	-- Base max efficiency for factories expressed in %.
 
-NDefines.NProduction.BASE_FACTORY_SPEED_MIL = 4			-- Base factory speed multiplier (how much hoi3 style IC each factory gives).
+NDefines.NProduction.BASE_FACTORY_SPEED_MIL = 5			-- Base factory speed multiplier (how much hoi3 style IC each factory gives).
 NDefines.NProduction.BASE_FACTORY_SPEED_NAV = 4			-- vanilla is 2.5
 
 NDefines.NProduction.INFRA_MAX_CONSTRUCTION_COST_EFFECT = 1	-- Building in a state with higher infrastructure will reduce the cost of shared buildings.
@@ -389,12 +395,13 @@ NDefines.NCountry.GIE_DIVISION_ATTACK_BONUS_AGAINST_OCCUPIER = 0.1 -- Attack bon
 NDefines.NProject.RECRUIT_SCIENTIST_COST = {			-- Amount of pp to hire a scientist based on available scientist
 		20,			-- pp cost if no available scientist
 	}
-NDefines.NProject.BREAKTHROUGH_DAILY_TECHNOLOGY_GAIN = 10	-- Amount in 1/100th percentage. E.g. 25 = 0.25%
+NDefines.NProject.BREAKTHROUGH_DAILY_TECHNOLOGY_GAIN = 5	-- Amount in 1/100th percentage. E.g. 25 = 0.25%
 NDefines.NProject.BREAKTHROUGH_DAILY_SCIENTIST_SKILL_GAIN = 20	-- Amount in 1/100th percentage gained per skill when doing basic research. E.g. 5 = 0.05% per skill level.
 
-NDefines.NTechnology.BASE_TECH_COST = 120			-- Base cost for a tech. multiplied with tech cost and ahead of time penalties. 100 in vanilla
+NDefines.NTechnology.BASE_TECH_COST = 100			-- Base cost for a tech. multiplied with tech cost and ahead of time penalties. 100 in vanilla
 NDefines.NTechnology.BASE_YEAR_AHEAD_PENALTY_FACTOR = 4.0	-- Base year ahead penalty. Vanilla is 2
 
-
+NDefines.NIndustrialOrganisation.ASSIGN_DESIGN_TEAM_PP_COST_PER_DAY = 0			-- Cost in Political Power daily generation when one MIO is assigned to a research slot. If 0, cost is entirely disabled.
+NDefines.NIndustrialOrganisation.DESIGN_TEAM_RESEARCH_BONUS = 0.1				-- Research bonus for applying a Design Team that matches the technology
 NDefines.NIndustrialOrganisation.ENABLE_TASK_CAPACITY = true					-- Enable limited task capacity for MIOs
 NDefines.NIndustrialOrganisation.DEFAULT_INITIAL_TASK_CAPACITY = 2

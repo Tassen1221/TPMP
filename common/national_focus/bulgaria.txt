@@ -862,8 +862,8 @@ focus_tree = {
 				name = BUL_reorganize_the_military_industry
 			    bonus = 1.0
 			    uses = 1
-			    category = infantry_weapons
-				category = artillery
+			    category = cat_infantry_tech
+				category = cat_artillery_tech
 			}
 		}
 	}
@@ -1075,8 +1075,8 @@ focus_tree = {
 				name = BUL_darzhavna_voenna_fabrika
 			    bonus = 0.5
 			    uses = 2
-				category = infantry_weapons
-				category = support_tech
+				category = cat_infantry_tech
+				category = cat_support_tech
 			}
 			IF = {
 				limit = {
@@ -1120,7 +1120,7 @@ focus_tree = {
 				name = BUL_found_dvf_sopot
 			    bonus = 0.5
 			    uses = 2
-				category = artillery
+				category = cat_artillery_tech
 			}
 			IF = {
 				limit = {
@@ -1220,7 +1220,7 @@ focus_tree = {
 				name = BUL_rebuild_the_army
 			    cost_reduction = 0.5
 			    uses = 2
-				category = land_doctrine
+				category = cat_land_doctrine
 			}
 			if = {
 				limit = { has_idea = BUL_bulgarian_army_02 }
@@ -1267,7 +1267,7 @@ focus_tree = {
 				name = BUL_vasil_levsky_national_military_university
 			    cost_reduction = 0.35
 			    uses = 2
-				category = land_doctrine
+				category = cat_land_doctrine
 				category = naval_doctrine
 				category = air_doctrine
 			}
@@ -1348,7 +1348,7 @@ focus_tree = {
 				name = BUL_national_military_academy
 			    cost_reduction = 0.5
 			    uses = 1
-				category = land_doctrine
+				category = cat_land_doctrine
 			}
 			if = {
 				limit = { has_idea = BUL_bulgarian_army_01}
@@ -1387,13 +1387,13 @@ focus_tree = {
 			    bonus = 0.5
 			    ahead_reduction = 2
 			    uses = 2
-				category = support_tech
+				category = cat_support_tech
 			}
 			add_tech_bonus = {
 				name = BUL_war_logistics
 			    bonus = 1
 			    uses = 1
-				category = motorized_equipment
+				category = cat_motorized_tech
 			}
 		}
 	}
@@ -1641,7 +1641,7 @@ focus_tree = {
 				name = BUL_improve_coastal_defenses
 			    bonus = 1.0
 			    uses = 1
-				category = artillery
+				category = cat_artillery_tech
 			}
 		}
 	}
@@ -2332,7 +2332,7 @@ focus_tree = {
 				name = BUL_strike_from_the_seas
 			    bonus = 0.5
 			    uses = 2
-			    category = marine_tech
+			    category = cat_marine_tech
 			    category = tp_tech
 			}
 		}
@@ -3457,7 +3457,7 @@ focus_tree = {
 				name = BUL_darzhavna_samoletna_fabrika
 			    cost_reduction = 0.5
 			    uses = 2
-				category = land_doctrine
+				category = cat_land_doctrine
 				category = air_doctrine
 				category = naval_doctrine
 			}
@@ -3765,7 +3765,7 @@ focus_tree = {
 						name = armor
 						bonus = 0.5
 						uses = 2
-						category = armor
+						category = cat_armour_tech
 					}
 				}
 			}

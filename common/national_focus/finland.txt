@@ -6364,7 +6364,7 @@ focus_tree = {
 				name = FIN_german_military_advisors
 				cost_reduction = 0.25
 				uses = 3
-				category = land_doctrine
+				category = cat_land_doctrine
 				category = air_doctrine
 				category = naval_doctrine
 			}
@@ -6554,7 +6554,7 @@ focus_tree = {
 				name = FIN_modernize_the_army
 				cost_reduction = 0.75
 				uses = 3
-				category = land_doctrine
+				category = cat_land_doctrine
 				category = air_doctrine
 				category = naval_doctrine
 			}
@@ -7775,7 +7775,7 @@ focus_tree = {
 				name = FIN_military_research
 				cost_reduction = 0.75
 				uses = 1
-				category = land_doctrine
+				category = cat_land_doctrine
 			}
 			add_doctrine_cost_reduction = {
 				name = FIN_military_research
@@ -7794,8 +7794,8 @@ focus_tree = {
 				name = FIN_military_research
 				bonus = 0.5
 				uses = 2
-				category = infantry_weapons
-				category = motorized_equipment
+				category = cat_infantry_tech
+				category = cat_motorized_tech
 				category = light_air
 				category = dd_tech
 			}
@@ -7829,7 +7829,7 @@ focus_tree = {
 				name = FIN_bring_foreign_armor_experts
 				bonus = 0.5
 				uses = 2
-				category = armor
+				category = cat_armour_tech
 			}
 
 			if = {
@@ -8429,7 +8429,7 @@ focus_tree = {
 				name = FIN_advanced_jaeger_training_program
 				cost_reduction = 0.5
 				uses = 3
-				category = special_forces_doctrine
+				category = cat_special_forces_doctrine
 			}
 		}
 	}
@@ -10777,7 +10777,7 @@ focus_tree = {
 				name = FIN_integrate_oy_tikkakoski
 				bonus = 0.5
 				uses = 2
-				category = infantry_weapons
+				category = cat_infantry_tech
 			}
 
 			random_core_state = {
@@ -10849,7 +10849,7 @@ focus_tree = {
 				name = FIN_national_firepower
 				bonus = 0.5
 				uses = 2
-				category = artillery
+				category = cat_artillery_tech
 			}
 
 			random_core_state = {
@@ -10927,10 +10927,10 @@ focus_tree = {
 				name = FIN_increase_military_budget
 				bonus = 0.5
 				uses = 2
-				category = infantry_weapons
-				category = artillery
-				category = motorized_equipment
-				category = support_tech
+				category = cat_infantry_tech
+				category = cat_artillery_tech
+				category = cat_motorized_tech
+				category = cat_support_tech
 				category = air_equipment
 				category = naval_equipment
 			}
@@ -10976,16 +10976,16 @@ focus_tree = {
 				name = FIN_suomen_maavoimat
 				bonus = 1
 				uses = 1
-				category = infantry_weapons
-				category = support_tech
-				category = artillery
-				category = motorized_equipment
+				category = cat_infantry_tech
+				category = cat_support_tech
+				category = cat_artillery_tech
+				category = cat_motorized_tech
 			}
 			add_doctrine_cost_reduction = {
 				name = FIN_suomen_maavoimat
 				cost_reduction = 0.75
 				uses = 1
-				category = land_doctrine
+				category = cat_land_doctrine
 			}
 
 			random_core_state = {
@@ -11210,7 +11210,7 @@ focus_tree = {
 				name = FIN_salvaged_and_retooled
 				bonus = 0.5
 				uses = 1
-				category = cat_mechanized_equipment
+				category = cat_mechanized_tech
 			}
 
 			if = {
@@ -11221,7 +11221,7 @@ focus_tree = {
 					name = FIN_salvaged_and_retooled
 					bonus = 0.5
 					uses = 2
-					category = cat_light_armor
+					category = cat_light_chassis_tech
 				}
 				if = {
 					limit = {
@@ -11362,7 +11362,7 @@ focus_tree = {
 				name = FIN_foreign_armor
 				bonus = 0.5
 				uses = 2
-				category = armor
+				category = cat_armour_tech
 			}
 
 			if = {
@@ -11861,7 +11861,7 @@ focus_tree = {
 				name = FIN_national_armor_focus
 				bonus = 0.5
 				uses = 1 # was 2
-				category = armor
+				category = cat_armour_tech
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
@@ -14175,7 +14175,7 @@ focus_tree = {
 				name = FIN_marine_jaeger_divisions
 				bonus = 1.0
 				uses = 1
-				category = marine_tech
+				category = cat_marine_tech
 				category = tp_tech
 			}
 
