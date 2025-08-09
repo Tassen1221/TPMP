@@ -9702,13 +9702,6 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY }
 
 		completion_reward = {
-			mio:DEN_haerens_tekniske_korps_organization = {
-				add_mio_size = 1
-				add_mio_funds_gain_factor = 0.35
-				add_mio_research_bonus = 0.05
-
-				unlock_mio_trait_tooltip = DEN_mio_trait_big_guns
-			}
 
 			add_tech_bonus = {
 				name = DEN_expand_haerens_tekniske_korps
@@ -9802,18 +9795,6 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY }
 
 		completion_reward = {
-			mio:DEN_DISA_organization = {
-				add_mio_size = 1
-				add_mio_funds_gain_factor = 0.35
-				add_mio_research_bonus = 0.05
-
-				unlock_mio_trait_tooltip = DEN_mio_trait_weibel_development
-				unlock_mio_trait_tooltip = DEN_mio_trait_madsen_heavy_machine_gun
-			}
-
-			mio:DEN_haerens_tekniske_korps_organization = {
-				unlock_mio_trait_tooltip = DEN_mio_trait_madsen_20_mm
-			}
 
 			add_tech_bonus = {
 				name = DEN_expand_dansk_industri_syndikat
@@ -9868,10 +9849,6 @@ focus_tree = {
 
 		completion_reward = {
 
-			mio:DEN_haerens_tekniske_korps_organization = {
-				add_mio_size = 1
-			}
-
 			add_tech_bonus = {
 				name = DEN_new_artillery_tactics
 				bonus = 0.25
@@ -9912,13 +9889,6 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY }
 
 		completion_reward = {
-			mio:DEN_triangel_organization = {
-				add_mio_size = 1
-				add_mio_funds_gain_factor = 0.35
-				add_mio_research_bonus = 0.05
-
-				unlock_mio_trait_tooltip = DEN_mio_trait_truck_mass_production
-			}
 
 			if = {
 				limit = {
@@ -10037,11 +10007,6 @@ focus_tree = {
 		completion_reward = {
 			add_command_power = 50
 			army_experience = 50
-
-			mio:DEN_DISA_organization = {
-				add_mio_size = 1
-			}
-
 			add_doctrine_cost_reduction = {
 				name = DEN_generalkommandoen
 				cost_reduction = 0.5
@@ -10102,11 +10067,6 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY }
 
 		completion_reward = {
-			mio:generic_tank_organization = {
-				add_mio_size = 1
-				add_mio_funds_gain_factor = 0.35
-				add_mio_research_bonus = 0.05
-			}
 
 
 			DEN_improve_haeren_NS = yes
@@ -10182,12 +10142,6 @@ focus_tree = {
 			add_command_power = 25
 			navy_experience = 25
 
-			mio:DEN_orlogsvaerftet_organization = {
-				add_mio_size = 1
-				add_mio_funds_gain_factor = 0.2
-				add_mio_research_bonus = 0.05
-			}
-
 			if = {
 				limit = {
 					NOT = { has_completed_focus = DEN_seek_independence  }
@@ -10213,7 +10167,6 @@ focus_tree = {
 						fixed_ship_engine_slot = sub_ship_engine_2
 						rear_1_custom_slot = empty
 					}
-					design_team = mio:DEN_orlogsvaerftet_organization
 				}
 				add_equipment_production = {
 					equipment = {
@@ -10225,7 +10178,6 @@ focus_tree = {
 					requested_factories = 1
 					progress = 0.30
 					amount = 2
-					industrial_manufacturer = mio:DEN_orlogsvaerftet_organization
 				}
 				add_equipment_production = {
 					equipment = {
@@ -10237,7 +10189,6 @@ focus_tree = {
 					requested_factories = 1
 					progress = 0.20
 					amount = 2
-					industrial_manufacturer = mio:DEN_orlogsvaerftet_organization
 				}
 				add_tech_bonus = {
 					name = DEN_expand_ubadsvabnet
@@ -10313,13 +10264,6 @@ focus_tree = {
 
 		completion_reward = {
 			add_manpower = 1500
-
-			mio:DEN_burmeister_wain_organization = {
-				add_mio_size = 1
-				add_mio_funds_gain_factor = 0.1
-
-				unlock_mio_trait_tooltip = DEN_mio_trait_refit_civilian_ships
-			}
 			
 			custom_effect_tooltip = DEN_refit_civilian_ships_decision_tt
 			set_country_flag = refit_convoy_ships_flag
@@ -10453,13 +10397,7 @@ focus_tree = {
 
 		completion_reward = {
 			add_manpower = 1500
-			
-			mio:DEN_orlogsvaerftet_organization = {
-				add_mio_size = 1
-				add_mio_funds_gain_factor = 0.1
-
-				unlock_mio_trait_tooltip = DEN_mio_trait_burmeister_wain_engines
-			}
+		
 
 			DEN_improve_sovaernet_NS = yes
 			add_to_variable = {
@@ -10510,7 +10448,6 @@ focus_tree = {
 							rear_1_custom_slot = ship_medium_battery_1
 						}
 						obsolete = yes
-						design_team = mio:DEN_burmeister_wain_organization
 					}
 					add_equipment_production = {
 						equipment = {
@@ -10522,7 +10459,6 @@ focus_tree = {
 						requested_factories = 1
 						progress = 0.25
 						amount = 1
-						industrial_manufacturer = mio:DEN_burmeister_wain_organization
 					}
 				}
 				else = {
@@ -10543,7 +10479,6 @@ focus_tree = {
 							mid_2_custom_slot = ship_torpedo_1
 							rear_1_custom_slot = ship_light_medium_battery_1
 						}
-						design_team = mio:DEN_orlogsvaerftet_organization
 					}
 					add_equipment_production = {
 						equipment = {
@@ -10555,7 +10490,6 @@ focus_tree = {
 						requested_factories = 1
 						progress = 0.25
 						amount = 1
-						industrial_manufacturer = mio:DEN_orlogsvaerftet_organization
 					}
 				}
 				if = {
@@ -10580,7 +10514,6 @@ focus_tree = {
 							rear_1_custom_slot = empty
 						}
 						obsolete = yes
-						design_team = mio:DEN_orlogsvaerftet_organization
 					}
 					add_equipment_production = {
 						equipment = {
@@ -10592,7 +10525,6 @@ focus_tree = {
 						requested_factories = 1
 						progress = 0.25
 						amount = 1
-						industrial_manufacturer = mio:DEN_orlogsvaerftet_organization
 					}
 				}
 				else = {
@@ -10611,7 +10543,7 @@ focus_tree = {
 							mid_1_custom_slot = ship_light_battery_1
 							rear_1_custom_slot = empty
 						}
-						design_team = mio:DEN_orlogsvaerftet_organization
+						
 					}
 					add_equipment_production = {
 						equipment = {
@@ -10623,7 +10555,7 @@ focus_tree = {
 						requested_factories = 1
 						progress = 0.25
 						amount = 1
-						industrial_manufacturer = mio:DEN_orlogsvaerftet_organization
+						
 					}
 				}
 				add_tech_bonus = {
@@ -10848,15 +10780,6 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			mio:DEN_burmeister_wain_organization = {
-				add_mio_size = 1
-				add_mio_funds_gain_factor = 0.2
-				add_mio_research_bonus = 0.05
-			}
-
-			mio:DEN_orlogsvaerftet_organization = {
-				unlock_mio_trait_tooltip = DEN_mio_trait_ship_production
-			}
 
 			add_to_variable = { DEN_industrial_capabilities_ship_repair = 0.1 }
 			custom_effect_tooltip = DEN_appropriate_odense_staalskibsvaerft_modifier_tt
@@ -11177,14 +11100,6 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY }
 
 		completion_reward = {
-
-			mio:DEN_orlogsvaerftet_organization = {
-				add_mio_size = 1
-			}
-
-			mio:DEN_burmeister_wain_organization = {
-				add_mio_size = 1
-			}
 
 			add_doctrine_cost_reduction = {
 				name = DEN_naval_power_projection
@@ -11573,10 +11488,6 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY }
 
 		completion_reward = {
-			mio:DEN_flyvemaskinevaerksted_organization = {
-				add_mio_size = 1
-				add_mio_funds_gain_factor = 0.1
-			}
 
 			if = {
 				limit = {
@@ -11682,10 +11593,6 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_INTERNATIONAL_TRADE FOCUS_FILTER_INDUSTRY FOCUS_FILTER_HISTORICAL }
 
 		completion_reward = {
-			mio:DEN_flyvertroppernes_organization = {
-				add_mio_size = 1
-				add_mio_funds_gain_factor = 0.1
-			}
 
 			add_tech_bonus = {
 				name = DEN_foreign_designs
@@ -11755,21 +11662,6 @@ focus_tree = {
 			add_command_power = 25
 			air_experience = 25
 
-			mio:DEN_flyvertroppernes_organization = {
-				add_mio_size = 1
-				add_mio_funds_gain_factor = 0.2
-				add_mio_research_bonus = 0.05
-
-				unlock_mio_trait_tooltip = DEN_mio_trait_standardized_production_flyvertroppernes
-			}
-			mio:DEN_flyvemaskinevaerksted_organization = {
-				add_mio_size = 1
-				add_mio_funds_gain_factor = 0.2
-				add_mio_research_bonus = 0.05
-
-				unlock_mio_trait_tooltip = DEN_mio_trait_standardized_production_flyvemaskinevaerksted
-			}
-
 			DEN_improve_flyvevabnet_NS = yes
 			
 			add_to_variable = { 
@@ -11833,11 +11725,6 @@ focus_tree = {
 			}
 			add_to_variable = {DEN_flyvevabnet_air_agility = 0.05
 				tooltip = air_agility_factor_tt
-			}
-
-			mio:DEN_flyvemaskinevaerksted_organization = {
-				unlock_mio_trait_tooltip = DEN_mio_trait_sub_detection
-				unlock_mio_trait_tooltip = DEN_mio_trait_naval_detection
 			}
 
 			add_doctrine_cost_reduction = {
@@ -12026,10 +11913,6 @@ focus_tree = {
 		completion_reward = {
 			air_experience = 25
 
-			mio:DEN_flyvemaskinevaerksted_organization = {
-				add_mio_size = 1
-			}
-
 			add_ideas = DEN_rule_the_north_sea
 
 			DEN_improve_flyvevabnet_NS = yes
@@ -12087,10 +11970,6 @@ focus_tree = {
 		completion_reward = {
 			air_experience = 25
 
-			mio:DEN_flyvemaskinevaerksted_organization = {
-				add_mio_size = 1
-			}
-
 			DEN_improve_flyvevabnet_NS = yes
 			add_to_variable = {
 				DEN_flyvevabnet_escort_efficiency = 0.05
@@ -12143,10 +12022,6 @@ focus_tree = {
 		completion_reward = {
 			air_experience = 25
 
-			mio:DEN_flyvertroppernes_organization = {
-				add_mio_size = 1
-			}
-
 			DEN_improve_flyvevabnet_NS = yes
 			add_to_variable = {
 				DEN_flyvevabnet_cas_efficiency = 0.05
@@ -12198,10 +12073,6 @@ focus_tree = {
 
 		completion_reward = {
 			air_experience = 25
-
-			mio:DEN_flyvertroppernes_organization = {
-				add_mio_size = 1
-			}
 
 			DEN_improve_flyvevabnet_NS = yes
 			add_to_variable = {
