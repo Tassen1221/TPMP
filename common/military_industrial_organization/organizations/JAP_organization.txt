@@ -1,25 +1,5 @@
 #####################
 
-###  ##  #  # # #  ## 
- #  #  # ## # # # #   
- #  #### # ## ##   #  
- #  #  # #  # # #   # 
- #  #  # #  # # # ## 
-
- #################### 
-
-# JAP_osaka_army_arsenal_organization = {
-# 	include = generic_tank_organization
-# 	icon = GFX_idea_osaka_army_arsenal
-# 	allowed = {	
-# 		tag = JAP
-# 		has_dlc = "Arms Against Tyranny"
-# 	}
-# } 
-
-
-#####################
-
  ## #  # ### ###   ## 
 #   #  #  #  #  # #   
  #  ####  #  ###   #  
@@ -196,81 +176,5 @@ JAP_yokosuka_organization = {
 	allowed = {	
 		tag = JAP
 		has_dlc = "Arms Against Tyranny"
-	}
-}
-
-
-
-################################### 
-
-#   #  ##  ### ### ###  ### ### #   
-## ## #  #  #  #   #  #  #  #   #   
-# # # ####  #  ##  ###   #  ##  #   
-#   # #  #  #  #   #  #  #  #   #   
-#   # #  #  #  ### #  # ### ### ### 
-
-
-###################################
-
-JAP_tokyo_arsenal_organization = {
-	include = generic_infantry_equipment_organization
-	icon = GFX_idea_tokyo_arsenal
-	allowed = {	
-		tag = JAP
-		has_dlc = "Arms Against Tyranny"
-	}
-}
-
-JAP_osaka_army_arsenal_artillery_organization = {
-	include = generic_artillery_organization
-	icon = GFX_idea_osaka_army_arsenal
-	allowed = {	
-		tag = JAP
-		has_dlc = "Arms Against Tyranny"
-	}
-} 
-
-JAP_nissan_organization = {
-	include = generic_motorized_mechanized_organization 
-	icon = GFX_idea_nissan
-	allowed = {	 
-		OR = {
-			tag = JAP 
-			AND = {
-				tag = ETH
-				has_dlc = "By Blood Alone"
-			}
-		}
-	}
-	
-	visible = {
-		IF = {
-			limit = {
-				FROM = { original_tag = ETH }
-			}
-			FROM = { has_completed_focus = ETH_invite_foreign_industrialists }
-		}
-	}
-	
-	available = {
-		# When in a Foreign MIO, countries need to be at peace with original country
-		IF = {
-			limit = {
-				FROM = { NOT = { original_tag = JAP } }
-			}
-			FROM = { NOT = { has_war_with = JAP } }
-		}
-
-		IF = {
-			limit = {
-				FROM = { original_tag = ETH }
-			}
-			custom_trigger_tooltip = {
-				tooltip = has_invited_mio_tt
-				FROM = {
-					has_country_flag = has_invited_JAP_nissan_organization_flag
-				}
-			}
-		}
 	}
 }

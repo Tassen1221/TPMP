@@ -1,5 +1,5 @@
 TPMP_generic_standard_infantry_organization = {
-	icon = GFX_idea_generic_tank_manufacturer_1
+	icon = GFX_idea_generic_infantry_equipment_manufacturer_1
 
 	allowed = {
 		always = yes
@@ -109,7 +109,7 @@ TPMP_generic_standard_infantry_organization = {
 		icon = GFX_generic_mio_department_icon_facilities
 		
 		position = { x=3 y=1 }
-		any_parent = { generic_mio_trait_standard_infantry_1b }
+		any_parent = { generic_mio_trait_standard_infantry_1c }
 		mutually_exclusive = { generic_mio_trait_standard_infantry_2a generic_mio_trait_standard_infantry_2c }
 		
 		equipment_bonus = {
@@ -166,7 +166,7 @@ TPMP_generic_standard_infantry_organization = {
 		icon = GFX_generic_mio_department_icon_facilities
 		
 		position = { x=1 y=2 }
-		any_parent = { generic_mio_trait_standard_infantry_2b }
+		any_parent = { generic_mio_trait_standard_infantry_1b }
 		
 		equipment_bonus = {
 			defense = 0.05
@@ -379,7 +379,7 @@ TPMP_generic_standard_infantry_organization = {
 }
 
 TPMP_generic_advanced_infantry_organization = {
-	icon = GFX_idea_generic_tank_manufacturer_1
+	icon = GFX_idea_generic_infantry_equipment_manufacturer_1
 
 	allowed = {
 		always = yes
@@ -402,14 +402,17 @@ TPMP_generic_advanced_infantry_organization = {
 	}
 	
 	initial_trait = {
-		name = generic_mio_initial_trait_standard_infantry
+		name = generic_mio_initial_trait_advanced_infantry
 		
+		organization_modifier = {
+			military_industrial_organization_research_bonus = 0.05
+		}
 		limit_to_equipment_type = { TPMP_cat_eq_all_inf }
 	}
 
 	trait = {
 		token = generic_mio_trait_advanced_infantry_1a
-		name = generic_mio_trait_production_infantry_1a
+		name = generic_mio_trait_advanced_infantry_1a
 		icon = GFX_generic_mio_department_icon_facilities
 		
 		position = { x=2 y=0 }
@@ -423,11 +426,9 @@ TPMP_generic_advanced_infantry_organization = {
 		
 		limit_to_equipment_type = { TPMP_cat_eq_all_inf }
 	}
-
-
 	trait = {
 		token = generic_mio_trait_advanced_infantry_2a
-		name = generic_mio_trait_production_infantry_2a
+		name = generic_mio_trait_advanced_infantry_2a
 		icon = GFX_generic_mio_department_icon_facilities
 		
 		position = { x=1 y= 1}
@@ -444,10 +445,9 @@ TPMP_generic_advanced_infantry_organization = {
 		
 		limit_to_equipment_type = { TPMP_cat_eq_all_inf }
 	}
-
 	trait = {
 		token = generic_mio_trait_advanced_infantry_3a
-		name = generic_mio_trait_production_infantry_3a
+		name = generic_mio_trait_advanced_infantry_3a
 		icon = GFX_generic_mio_department_icon_facilities
 		
 		position = { x=0 y=2 }
@@ -456,14 +456,11 @@ TPMP_generic_advanced_infantry_organization = {
 		equipment_bonus = {
 			breakthrough = 0.15
 		}
-		
 		limit_to_equipment_type = { TPMP_cat_eq_all_inf }
 	}
-
-
 	trait = {
 		token = generic_mio_trait_advanced_infantry_3b
-		name = generic_mio_trait_production_infantry_3b
+		name = generic_mio_trait_advanced_infantry_3b
 		icon = GFX_generic_mio_department_icon_facilities
 		
 		position = { x=2 y=2 }
@@ -476,11 +473,9 @@ TPMP_generic_advanced_infantry_organization = {
 		
 		limit_to_equipment_type = { TPMP_cat_eq_all_inf }
 	}
-
-
 	trait = {
 		token = generic_mio_trait_advanced_infantry_4a
-		name = generic_mio_trait_production_infantry_4a
+		name = generic_mio_trait_advanced_infantry_4a
 		icon = GFX_generic_mio_department_icon_facilities
 		
 		position = { x=1 y=3 }
@@ -498,10 +493,9 @@ TPMP_generic_advanced_infantry_organization = {
 		
 		limit_to_equipment_type = { TPMP_cat_eq_all_inf }
 	}
-
 	trait = {
 		token = generic_mio_trait_advanced_infantry_4b
-		name = generic_mio_trait_production_infantry_4b
+		name = generic_mio_trait_advanced_infantry_4b
 		icon = GFX_generic_mio_department_icon_facilities
 		
 		position = { x=2 y=3 }
@@ -520,10 +514,9 @@ TPMP_generic_advanced_infantry_organization = {
 		
 		limit_to_equipment_type = { TPMP_cat_eq_all_inf }
 	}
-	
 	trait = {
 		token = generic_mio_trait_advanced_infantry_4c
-		name = generic_mio_trait_production_infantry_4c
+		name = generic_mio_trait_advanced_infantry_4c
 		icon = GFX_generic_mio_department_icon_facilities
 		
 		position = { x=3 y=3 }
@@ -542,10 +535,9 @@ TPMP_generic_advanced_infantry_organization = {
 		
 		limit_to_equipment_type = { TPMP_cat_eq_all_inf }
 	}
-	
 	trait = {
 		token = generic_mio_trait_advanced_infantry_5a
-		name = generic_mio_trait_production_infantry_5a
+		name = generic_mio_trait_advanced_infantry_5a
 		icon = GFX_generic_mio_department_icon_facilities
 		
 		position = { x=1 y=4 }
@@ -559,11 +551,9 @@ TPMP_generic_advanced_infantry_organization = {
 		
 		limit_to_equipment_type = { TPMP_cat_eq_all_inf }
 	}
-	
-	
 	trait = {
 		token = generic_mio_trait_advanced_infantry_5b
-		name = generic_mio_trait_production_infantry_5b
+		name = generic_mio_trait_advanced_infantry_5b
 		icon = GFX_generic_mio_department_icon_facilities
 		
 		position = { x=2 y=4 }
@@ -576,13 +566,9 @@ TPMP_generic_advanced_infantry_organization = {
 		
 		limit_to_equipment_type = { TPMP_cat_eq_all_inf }
 	}	
-	
-	
-	
-	
 	trait = {
 		token = generic_mio_trait_advanced_infantry_5c
-		name = generic_mio_trait_production_infantry_5c
+		name = generic_mio_trait_advanced_infantry_5c
 		icon = GFX_generic_mio_department_icon_facilities
 		
 		position = { x=3 y=4 }
@@ -595,10 +581,9 @@ TPMP_generic_advanced_infantry_organization = {
 		
 		limit_to_equipment_type = { TPMP_cat_eq_all_inf }
 	}	
-	
 	trait = {
 		token = generic_mio_trait_advanced_infantry_2b
-		name = generic_mio_trait_production_infantry_2b
+		name = generic_mio_trait_advanced_infantry_2b
 		icon = GFX_generic_mio_department_icon_facilities
 		
 		position = { x=3 y=1 }
@@ -611,10 +596,9 @@ TPMP_generic_advanced_infantry_organization = {
 		
 		limit_to_equipment_type = { TPMP_cat_eq_all_inf }
 	}		
-	
 	trait = {
 		token = generic_mio_trait_advanced_infantry_3c
-		name = generic_mio_trait_production_infantry_3c
+		name = generic_mio_trait_advanced_infantry_3c
 		icon = GFX_generic_mio_department_icon_facilities
 		
 		position = { x=4 y=2 }
@@ -626,12 +610,9 @@ TPMP_generic_advanced_infantry_organization = {
 		
 		limit_to_equipment_type = { TPMP_cat_eq_all_inf }
 	}			
-	
-	
-	
 	trait = {
 		token = generic_mio_trait_advanced_infantry_1b
-		name = generic_mio_trait_production_infantry_1b
+		name = generic_mio_trait_advanced_infantry_1b
 		icon = GFX_generic_mio_department_icon_facilities
 		
 		position = { x=5 y=0 }
@@ -642,12 +623,10 @@ TPMP_generic_advanced_infantry_organization = {
 		}
 		
 		limit_to_equipment_type = { TPMP_cat_eq_all_inf }
-	}		
-	
-	
+	}			
 	trait = {
 		token = generic_mio_trait_advanced_infantry_2c
-		name = generic_mio_trait_production_infantry_2c
+		name = generic_mio_trait_advanced_infantry_2c
 		icon = GFX_generic_mio_department_icon_facilities
 		
 		position = { x=5 y=1 }
@@ -660,10 +639,9 @@ TPMP_generic_advanced_infantry_organization = {
 		
 		limit_to_equipment_type = { TPMP_cat_eq_all_inf }
 	}	
-	
 	trait = {
 		token = generic_mio_trait_advanced_infantry_4d
-		name = generic_mio_trait_production_infantry_4d
+		name = generic_mio_trait_advanced_infantry_4d
 		icon = GFX_generic_mio_department_icon_facilities
 		
 		position = { x=5 y=3 }
@@ -677,11 +655,9 @@ TPMP_generic_advanced_infantry_organization = {
 		
 		limit_to_equipment_type = { TPMP_cat_eq_all_inf }
 	}		
-	
-	
 	trait = {
 		token = generic_mio_trait_advanced_infantry_3d
-		name = generic_mio_trait_production_infantry_3d
+		name = generic_mio_trait_advanced_infantry_3d
 		icon = GFX_generic_mio_department_icon_facilities
 		
 		position = { x=6 y=2 }
@@ -693,11 +669,9 @@ TPMP_generic_advanced_infantry_organization = {
 		
 		limit_to_equipment_type = { TPMP_cat_eq_all_inf }
 	}		
-		
-	
 	trait = {
 		token = generic_mio_trait_advanced_infantry_5d
-		name = generic_mio_trait_production_infantry_5d
+		name = generic_mio_trait_advanced_infantry_5d
 		icon = GFX_generic_mio_department_icon_facilities
 		
 		position = { x=6 y=4 }
@@ -710,16 +684,6 @@ TPMP_generic_advanced_infantry_organization = {
 		limit_to_equipment_type = { TPMP_cat_eq_all_inf }
 	}			
 	
-	
-	
-	
-
-
-
-
-
-
-
 	trait = {
 		token = generic_mio_trait_MIO_advanced_1a
 		name = generic_mio_trait_MIO_advanced_1a
@@ -829,7 +793,7 @@ TPMP_generic_advanced_infantry_organization = {
 		icon = GFX_generic_mio_trait_icon_efficiency_cap
 		
 		position = { x=9 y=4 }
-		any_parent = { generic_mio_trait_MIO_advanced_5a }
+		any_parent = { generic_mio_trait_MIO_advanced_4b }
 		
 		production_bonus = {
 			production_efficiency_cap_factor = 0.03
@@ -839,7 +803,7 @@ TPMP_generic_advanced_infantry_organization = {
 }
 
 TPMP_generic_production_infantry_organization = {
-	icon = GFX_idea_generic_tank_manufacturer_1
+	icon = GFX_idea_generic_infantry_equipment_manufacturer_1
 
 	allowed = {
 		always = yes
@@ -864,6 +828,9 @@ TPMP_generic_production_infantry_organization = {
 	initial_trait = {
 		name = generic_mio_initial_trait_production_infantry
 		
+		production_bonus = {
+			production_cost_factor = -0.03
+		}
 		limit_to_equipment_type = { TPMP_cat_eq_all_inf }
 	}
 	
@@ -879,7 +846,6 @@ TPMP_generic_production_infantry_organization = {
 		}
 		limit_to_equipment_type = { TPMP_cat_eq_all_inf }
 	}
-
 	trait = {
 		token = generic_mio_trait_production_infantry_2a
 		name = generic_mio_trait_production_infantry_2a
@@ -896,7 +862,6 @@ TPMP_generic_production_infantry_organization = {
 		}
 		limit_to_equipment_type = { TPMP_cat_eq_all_inf }
 	}
-
 	trait = {
 		token = generic_mio_trait_production_infantry_3a
 		name = generic_mio_trait_production_infantry_3a
@@ -912,7 +877,6 @@ TPMP_generic_production_infantry_organization = {
 		}
 		limit_to_equipment_type = { TPMP_cat_eq_all_inf }
 	}
-
 	trait = {
 		token = generic_mio_trait_production_infantry_3b
 		name = generic_mio_trait_production_infantry_3b
@@ -928,7 +892,6 @@ TPMP_generic_production_infantry_organization = {
 		}
 		limit_to_equipment_type = { TPMP_cat_eq_all_inf }
 	}
-
 	trait = {
 		token = generic_mio_trait_production_infantry_4a
 		name = generic_mio_trait_production_infantry_4a
@@ -946,7 +909,6 @@ TPMP_generic_production_infantry_organization = {
 		}
 		limit_to_equipment_type = { TPMP_cat_eq_all_inf }
 	}
-
 	trait = {
 		token = generic_mio_trait_production_infantry_5a
 		name = generic_mio_trait_production_infantry_5a
@@ -961,7 +923,6 @@ TPMP_generic_production_infantry_organization = {
 		
 		limit_to_equipment_type = { TPMP_cat_eq_all_inf }
 	}
-
 	trait = {
 		token = generic_mio_trait_production_infantry_3c
 		name = generic_mio_trait_production_infantry_3c
@@ -977,7 +938,6 @@ TPMP_generic_production_infantry_organization = {
 		
 		limit_to_equipment_type = { TPMP_cat_eq_all_inf }
 	}
-
 	trait = {
 		token = generic_mio_trait_production_infantry_2b
 		name = generic_mio_trait_production_infantry_2b
@@ -992,8 +952,6 @@ TPMP_generic_production_infantry_organization = {
 		
 		limit_to_equipment_type = { TPMP_cat_eq_all_inf }
 	}
-
-
 	trait = {
 		token = generic_mio_trait_production_infantry_3d
 		name = generic_mio_trait_production_infantry_3d
@@ -1009,8 +967,6 @@ TPMP_generic_production_infantry_organization = {
 		
 		limit_to_equipment_type = { TPMP_cat_eq_all_inf }
 	}
-
-
 	trait = {
 		token = generic_mio_trait_production_infantry_4b
 		name = generic_mio_trait_production_infantry_4b
@@ -1029,7 +985,6 @@ TPMP_generic_production_infantry_organization = {
 		
 		limit_to_equipment_type = { TPMP_cat_eq_all_inf }
 	}
-
 	trait = {
 		token = generic_mio_trait_production_infantry_4c
 		name = generic_mio_trait_production_infantry_4c
@@ -1045,9 +1000,6 @@ TPMP_generic_production_infantry_organization = {
 		
 		limit_to_equipment_type = { TPMP_cat_eq_all_inf }
 	}
-
-
-
 	trait = {
 		token = generic_mio_trait_production_infantry_5b
 		name = generic_mio_trait_production_infantry_5b
@@ -1066,16 +1018,9 @@ TPMP_generic_production_infantry_organization = {
 		limit_to_equipment_type = { TPMP_cat_eq_all_inf }
 	}
 
-
-
-
-
-
-
-
 	trait = {
 		token = generic_mio_trait_MIO_production_1a
-		name = generic_mio_trait_MIO_advanced_1a
+		name = generic_mio_trait_MIO_production_1a
 		icon = GFX_generic_mio_department_icon_facilities
 		
 		position = { x=8 y=0 }
@@ -1090,7 +1035,7 @@ TPMP_generic_production_infantry_organization = {
 	}
 	trait = {
 		token = generic_mio_trait_MIO_production_2a
-		name = generic_mio_trait_MIO_advanced_2a
+		name = generic_mio_trait_MIO_production_2a
 		icon = GFX_generic_mio_department_icon_facilities
 		
 		position = { x=7 y=1 }
@@ -1103,7 +1048,7 @@ TPMP_generic_production_infantry_organization = {
 	}
 	trait = {
 		token = generic_mio_trait_MIO_production_2b
-		name = generic_mio_trait_MIO_advanced_2b
+		name = generic_mio_trait_MIO_production_2b
 		icon = GFX_generic_mio_department_icon_facilities
 		
 		position = { x=8 y=1 }
@@ -1116,7 +1061,7 @@ TPMP_generic_production_infantry_organization = {
 	}
 	trait = {
 		token = generic_mio_trait_MIO_production_2c
-		name = generic_mio_trait_MIO_advanced_2c
+		name = generic_mio_trait_MIO_production_2c
 		icon = GFX_generic_mio_trait_icon_resources
 		
 		position = { x=9 y=1 }
@@ -1129,7 +1074,7 @@ TPMP_generic_production_infantry_organization = {
 	}
 	trait = {
 		token = generic_mio_trait_MIO_production_3a
-		name = generic_mio_trait_MIO_advanced_3a
+		name = generic_mio_trait_MIO_production_3a
 		icon = GFX_generic_mio_trait_icon_efficiency_gain
 		
 		position = { x=7 y=2 }
@@ -1143,7 +1088,7 @@ TPMP_generic_production_infantry_organization = {
 	}
 	trait = {
 		token = generic_mio_trait_MIO_production_3b
-		name = generic_mio_trait_MIO_advanced_3b
+		name = generic_mio_trait_MIO_production_3b
 		icon = GFX_generic_mio_trait_icon_production_capacity
 		
 		position = { x=8 y=2 }
@@ -1157,7 +1102,7 @@ TPMP_generic_production_infantry_organization = {
 	}
 	trait = {
 		token = generic_mio_trait_MIO_production_3c
-		name = generic_mio_trait_MIO_advanced_3c
+		name = generic_mio_trait_MIO_production_3c
 		icon = GFX_generic_mio_department_icon_facilities
 		
 		position = { x=9 y=2 }
@@ -1171,7 +1116,7 @@ TPMP_generic_production_infantry_organization = {
 	}
 	trait = {
 		token = generic_mio_trait_MIO_production_4a
-		name = generic_mio_trait_MIO_advanced_4a
+		name = generic_mio_trait_MIO_production_4a
 		icon = GFX_generic_mio_trait_icon_efficiency_gain
 		
 		position = { x=8 y=3 }
@@ -1187,7 +1132,7 @@ TPMP_generic_production_infantry_organization = {
 	}
 	trait = {
 		token = generic_mio_trait_MIO_production_5a
-		name = generic_mio_trait_MIO_advanced_5a
+		name = generic_mio_trait_MIO_production_5a
 		icon = GFX_generic_mio_trait_icon_efficiency_cap
 		
 		position = { x=8 y=4 }
