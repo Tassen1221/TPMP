@@ -1603,18 +1603,6 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 
 		completion_reward = {
-			unlock_mio_policy_tooltip = {
-				policy = mio_policy_NOR_general_permanent_industrial_revolution
-			}
-			mio:NOR_thunes_mekaniske_verksted_organization ={
-				add_mio_funds = 1000
-			}
-			mio:NOR_akers_mekaniske_verksted_organization = {
-				add_mio_funds = 1000
-			}
-			mio:NOR_norsk_spraengstofindustri_organization = {
-				add_mio_funds = 1000 
-			}
 		}
 	}
 
@@ -1939,13 +1927,6 @@ focus_tree = {
 			army_experience = 30
 			navy_experience = 30
 			air_experience = 30 
-			every_military_industrial_organization = {
-				limit = {
-					is_mio_available = yes 
-				}
-				tooltip = every_mio_tt
-				add_mio_funds = 800
-			} 
 			if = {
 				limit = {
 					has_government = democratic  
@@ -2468,14 +2449,6 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 
 		completion_reward = {
-			unlock_military_industrial_organization_tooltip = mio:SOV_rubin_design_bureau_organization
-			mio:SOV_rubin_design_bureau_organization = {
-				add_mio_size = 3
-			}
-			unlock_military_industrial_organization_tooltip = mio:SOV_gaz_organization
-			mio:SOV_gaz_organization = {
-				add_mio_size = 3
-			}
 		}
 	}
 	
@@ -2590,10 +2563,6 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 
 		completion_reward = {
-			unlock_military_industrial_organization_tooltip = mio:ENG_de_havilland_organization
-			mio:ENG_de_havilland_organization = {
-				add_mio_funds = 1000 
-			}
 		}
 	}
 
@@ -5629,8 +5598,6 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 
 		completion_reward = {
-			unlock_military_industrial_organization_tooltip = mio:GER_messerschmitt_organization
-			unlock_military_industrial_organization_tooltip = mio:GER_heinkel_organization
 		}
 	}
 
@@ -6003,10 +5970,6 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 
 		completion_reward = {
-			unlock_military_industrial_organization_tooltip = mio:NOR_cadillac_organization
-			mio:NOR_cadillac_organization = {
-				add_mio_size = 2
-			}
 		}
 	}
 
@@ -8939,21 +8902,6 @@ focus_tree = {
 		available_if_capitulated = yes
 
 		completion_reward = {
-			mio:NOR_marinens_flyvebaatfabrikk_organization = {
-				unlock_mio_trait_tooltip = DEN_mio_trait_standardized_production_flyvertroppernes
-			}		
-			mio:ENG_de_havilland_organization = {
-				add_mio_funds = 500 
-			}
-			mio:NOR_marinens_flyvebaatfabrikk_organization ={
-				add_mio_funds = 1000
-			}
-			mio:GER_messerschmitt_organization = {
-				add_mio_funds = 500
-			}
-			mio:GER_heinkel_organization = {
-				add_mio_funds = 500
-			}
 		}
 	}
 
@@ -8992,9 +8940,6 @@ focus_tree = {
 				value = 0.25
 				tooltip = production_speed_anti_air_building_factor_tt
 			}
-			mio:NOR_raufoss_ammunisjonsfabrikker_organization = {
-				unlock_mio_trait_tooltip = SWE_bofors_fly_swatter
-			}	
 			add_equipment_subsidy = {
 				cic = 250
 				equipment_type = anti_air_equipment
