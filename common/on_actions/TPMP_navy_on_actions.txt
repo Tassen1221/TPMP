@@ -32,34 +32,34 @@ on_actions = {
 
 			#Removing DD Penalty
 			
-			# if = {
-			# 	limit = {
-			# 		check_variable = {
-			# 			var = fleet_limit_penalty_var
-			# 			value = 0
-			# 			compare = greater_than_or_equals
-			# 		}
-			# 	}
-			# 	set_variable = { fleet_limit_penalty_var = 0 }
-			# 	set_technology = {
-			# 		TPMP_DD_fleet_limit_penalty_tech = 0
-			# 		popup = no
-			# 	}
-			# 	set_technology = {
-			# 		TPMP_DD_fleet_limit_no_penalty_tech = 1
-			# 		popup = no
-			# 	}
-			# }
-			# else = {
-			# 	set_technology = {
-			# 		TPMP_DD_fleet_limit_penalty_tech = 1
-			# 		popup = no
-			# 	}
-			# 	set_technology = {
-			# 		TPMP_DD_fleet_limit_no_penalty_tech = 0
-			# 		popup = no
-			# 	}
-			# }
+			if = {
+				limit = {
+					check_variable = {
+						var = fleet_limit_penalty_var
+						value = 0
+						compare = greater_than_or_equals
+					}
+				}
+				set_variable = { fleet_limit_penalty_var = 0 }
+				# set_technology = {
+				# 	TPMP_DD_fleet_limit_penalty_tech = 0
+				# 	popup = no
+				# }
+				# set_technology = {
+				# 	TPMP_DD_fleet_limit_no_penalty_tech = 1
+				# 	popup = no
+				# }
+			}
+			else = {
+				# set_technology = {
+				# 	TPMP_DD_fleet_limit_penalty_tech = 1
+				# 	popup = no
+				# }
+				# set_technology = {
+				# 	TPMP_DD_fleet_limit_no_penalty_tech = 0
+				# 	popup = no
+				# }
+			}
 
 			#Old method of applying exceeding fleet limit penalty
 			
