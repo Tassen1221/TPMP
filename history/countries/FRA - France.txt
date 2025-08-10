@@ -58,29 +58,6 @@ if = {
 	}
 }
 
-if = {
-	limit = {
-		OR = {
-			has_dlc = "Together for Victory"
-			has_dlc = "Man the Guns"
-		}
-	}
-	set_autonomy = {
-		target = SYR
-		autonomous_state = autonomy_colony
-		freedom_level = 0.5
-	}
-	set_autonomy = {
-		target = LEB
-		autonomous_state = autonomy_colony
-		freedom_level = 0.5
-	}
-	else = {
-		puppet = SYR
-		puppet = LEB
-	}
-}
-
 set_research_slots = 3
 IF = {
 	limit = {
