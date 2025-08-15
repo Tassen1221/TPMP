@@ -162,6 +162,11 @@ NDefines.NProduction.INFRA_MAX_CONSTRUCTION_COST_EFFECT = 1	-- Building in a sta
 
 NDefines.NProduction.PRODUCTION_RESOURCE_LACK_PENALTY = -0.005	-- Penalty decrease while lack of resource per factory
 
+NDefines.NProduction.BASE_FACTORY_EFFICIENCY_VARIANT_CHANGE_FACTOR = 90		-- Base factor for changing production variants in %.
+NDefines.NProduction.BASE_FACTORY_EFFICIENCY_PARENT_CHANGE_FACTOR = 30		-- Base factor for changing production parent<->children in %.
+NDefines.NProduction.BASE_FACTORY_EFFICIENCY_FAMILY_CHANGE_FACTOR = 70		-- Base factor for changing production with same family in %.
+NDefines.NProduction.BASE_FACTORY_EFFICIENCY_ARCHETYPE_CHANGE_FACTOR = 30 	-- Base factor for changing production with same archetype in %.
+
 NDefines.NProduction.EQUIPMENT_MODULE_ADD_XP_COST = 0		-- XP cost for adding a new equipment module in an empty slot when creating an equipment variant.
 NDefines.NProduction.EQUIPMENT_MODULE_REPLACE_XP_COST = 0	-- XP cost for replacing one equipment module with an unrelated module when creating an equipment variant.
 NDefines.NProduction.EQUIPMENT_MODULE_CONVERT_XP_COST = 0	-- XP cost for converting one equipment module to a related module when creating an equipment variant.
@@ -368,6 +373,9 @@ NDefines.NSupply.FLOATING_HARBOR_ADDED_PENALTY_PER_PROVINCE = 0.5
 NDefines.NSupply.FLOATING_HARBOR_BASE_SUPPLY = 15.0		-- supply given by a floating harbor
 NDefines.NSupply.FLOATING_HARBOR_BASE_DURATION = 30		-- duration of a full hp floating harbor
 NDefines.NSupply.FLOATING_HARBOR_DURATION_RATIO_AT_MIN_HP = 0.0					-- duration mult for a harbor that was reduced to 0 hp
+
+NDefines.NSupply.SUPPLY_FLOW_DROP_REDUCTION_AT_MAX_INFRA = 0.50 -- max infrastructure level will reduce the supply flow drop off by this ratio
+NDefines.NSupply.SUPPLY_FLOW_PENALTY_CROSSING_RIVERS = 0.20	-- crossing rivers introduces additional penalty
 
 -- The range bonus added to a fully motorized hub. This supply is added on top of the XXX_INITIAL_SUPPLY_FLOW defined above.
 NDefines.NSupply.SUPPLY_HUB_FULL_MOTORIZATION_BONUS = 3.0

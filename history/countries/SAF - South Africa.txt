@@ -34,6 +34,11 @@ set_technology = {
 	fuel_silos = 1
 }
 
+add_ideas = {
+	defence_contracts
+	militia_system
+}
+
 if = {
 	limit = {
 		NOT = { has_dlc = "No Step Back" }
@@ -232,4 +237,23 @@ recruit_character = SAF_abram_fischer
 	recruit_character = SAF_jan_smuts
 	promote_character = SAF_jan_smuts
 	retire_character = SAF_j_b_m_hertzog
+}
+
+create_equipment_variant = {
+	name = "Line Infantry Equipment 1"
+	type = line_infantry_equipment_1
+	parent_version = 0
+	modules = {
+		soldier_type_slot_0 = bolt_action_1
+		soldier_type_slot_1 = bolt_action_1
+		soldier_type_slot_2 = bolt_action_1
+		soldier_type_slot_3 = bolt_action_1
+		soldier_type_slot_4 = bolt_action_1
+		soldier_type_slot_5 = bolt_action_1
+		soldier_type_slot_6 = bolt_action_1
+		soldier_type_slot_7 = bolt_action_1
+		soldier_type_slot_8 = bolt_action_1
+		soldier_type_slot_9 = bolt_action_1
+		uniform_type_slot = helmet
+	}
 }

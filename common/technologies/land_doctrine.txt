@@ -619,7 +619,7 @@ technologies = {
 		doctrine_name = "INFANTRY_DOCTRINE"
 		category_infantry = {
 			max_organisation = 7
-			default_morale = 0.1
+			default_morale = 0.05
 			defense = 0.05
 		}
 
@@ -853,21 +853,17 @@ technologies = {
 	infantry_doctrine_5c = {
 		land_reinforce_rate = 0.02
 		category_leg_infantry = {
-			default_morale = 0.1
+			default_morale = 0.05
 		}
 		infantry = {
 			combat_width = -0.2
-			need = {
-				infantry_equipment = -10
-			}		
+			soft_attack = -0.1
+			hard_attack = -0.1
+			# need = {
+			# 	infantry_equipment = -10
+			# }		
 		}
-		militia = {
-			combat_width = -0.2
-			need = {
-				infantry_equipment = -5
-			}		
-		}
-		custom_modifier_tooltip = infantry_doctrine_5c_tt
+		# custom_modifier_tooltip = infantry_doctrine_5c_tt
 
 
 		XOR = {

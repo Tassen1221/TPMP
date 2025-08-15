@@ -1084,7 +1084,9 @@ technologies = {
 #    ##  #  #  #  ### #   ###  ##  #  #  #  ###  ##  #  #      #  ###  ##  #  # #  #  ##  ###  ##   ##    #       
 
 	basic_fortification_tech = {
-			
+		bunker_max_level_terrain_limit = 1
+		coastal_bunker_max_level_terrain_limit = 1	
+
 		path = {
 			leads_to_tech = coastal_fort_tech_1 
 			research_cost_coeff = 1
@@ -1093,9 +1095,6 @@ technologies = {
 			leads_to_tech = land_fort_tech_1 
 			research_cost_coeff = 1
 		}
-
-		bunker_max_level_terrain_limit = 1
-		coastal_bunker_max_level_terrain_limit = 1
 
 		on_research_complete = {
 			if = {
@@ -1128,17 +1127,41 @@ technologies = {
 
 
 	land_fort_tech_1 = {
-
 		enable_equipment_modules = {
 			lc_bunker_emplacement #Module for Land Cruiser
 		}
 			
+		bunker_max_level_terrain_limit = 1
+
 		path = {
 			leads_to_tech = land_fort_tech_2 
 			research_cost_coeff = 1
 		}
+		
+		research_cost = 1.5
+		start_year = 1936
+		folder = {
+			name = electronics_folder
+			position = { x = 0 y = 2 }
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		categories = {
+			cat_fortification
+		}
+		
 
+	}
+	land_fort_tech_2 = {
 		bunker_max_level_terrain_limit = 1
+
+		path = {
+			leads_to_tech = land_fort_tech_3
+			research_cost_coeff = 1
+		}
 		
 		research_cost = 1.5
 		start_year = 1938
@@ -1157,9 +1180,7 @@ technologies = {
 		
 
 	}
-
-	land_fort_tech_2 = {
-
+	land_fort_tech_3 = {
 		bunker_max_level_terrain_limit = 1
 		
 		research_cost = 1.5
@@ -1180,16 +1201,13 @@ technologies = {
 
 	}
 
-
 	coastal_fort_tech_1 = {
-
+		coastal_bunker_max_level_terrain_limit = 1
 			
 		path = {
 			leads_to_tech = coastal_fort_tech_2 
 			research_cost_coeff = 1
 		}
-
-		coastal_bunker_max_level_terrain_limit = 1
 		
 		research_cost = 1.5
 		start_year = 1936
@@ -1208,10 +1226,36 @@ technologies = {
 		
 
 	}
-
 	coastal_fort_tech_2 = {
+		coastal_bunker_max_level_terrain_limit = 1
 
-		coastal_bunker_max_level_terrain_limit = 2
+		path = {
+			leads_to_tech = coastal_fort_tech_3
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 1.5
+		start_year = 1938
+		folder = {
+			name = electronics_folder
+			position = { x = 2 y = 6 }
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		categories = {
+			cat_fortification
+		}
+	}
+	coastal_fort_tech_3 = {
+		coastal_bunker_max_level_terrain_limit = 1
+
+		path = {
+			leads_to_tech = coastal_fort_tech_2 
+			research_cost_coeff = 1
+		}
 		
 		research_cost = 1.5
 		start_year = 1940
@@ -1227,8 +1271,6 @@ technologies = {
 		categories = {
 			cat_fortification
 		}
-		
-
 	}
 
 

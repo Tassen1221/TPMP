@@ -18196,13 +18196,9 @@ SPR_recovering_from_civil_war = {
 		}
 
 		available = {
-			FROM = {
-				compliance > 35
-			}
 			has_equipment = {
-			    infantry_equipment > 2000
+			    infantry_equipment > 200
 			}
-			has_army_experience > 10
 		}
 
 		state_target = yes
@@ -18254,9 +18250,8 @@ SPR_recovering_from_civil_war = {
 		complete_effect = {
 			add_equipment_to_stockpile = {
 			    type = infantry_equipment
-			    amount = -2000
+			    amount = -200
 			}
-			army_experience = -10
 		}
 
 		remove_effect = {
