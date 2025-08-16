@@ -2912,7 +2912,7 @@ focus_tree = {
 			#	name = GER_develop_modern_maneuver_warfare
 			#	cost_reduction = 0.25
 			#	uses = 1
-			#	category = land_doctrine
+			#	category = cat_land_doctrine
 			#}
 			custom_effect_tooltip = available_chief_of_army
 			show_ideas_tooltip = walther_von_brauchitsch
@@ -3001,7 +3001,7 @@ focus_tree = {
 				name = GER_the_prussian_legacy
 				cost_reduction = 0.5
 				uses = 2
-				category = cat_grand_battle_plan
+				category = cat_infantry_doctrine
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
@@ -3116,7 +3116,7 @@ focus_tree = {
 				name = GER_lessons_of_the_great_war
 				cost_reduction = 0.25
 				uses = 2
-				category = land_doctrine
+				category = cat_land_doctrine
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
@@ -3177,7 +3177,7 @@ focus_tree = {
 				name = GER_artillery_bombardment
 				bonus = 0.5
 				uses = 1
-				category = infantry_weapons
+				category = cat_infantry_tech
 			}
 
 			add_breakthrough_progress = {
@@ -3286,13 +3286,13 @@ focus_tree = {
 				name = GER_stormtroopers
 				cost_reduction = 0.25
 				uses = 1
-				category = land_doctrine
+				category = cat_land_doctrine
 			}
 			add_tech_bonus = {
 				name = GER_stormtroopers
 				bonus = 0.5
 				uses = 1
-				category = infantry_weapons
+				category = cat_infantry_tech
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
@@ -3364,7 +3364,7 @@ focus_tree = {
 				name = GER_all_terrain_military_motorcycle
 				uses = 1
 				bonus = 0.5
-				category = military_police_tech
+				category = cat_military_police_tech
 			}
 
 			if = {
@@ -3490,7 +3490,7 @@ focus_tree = {
 				name = GER_instill_auftragstaktik
 				cost_reduction = 0.25
 				uses = 1
-				category = land_doctrine
+				category = cat_land_doctrine
 			}
 			
 			custom_effect_tooltip = generic_skip_one_line_tt
@@ -3659,7 +3659,7 @@ focus_tree = {
 				name = GER_establish_the_skijager
 				bonus = 0.5
 				uses = 1
-				category = mountaineers_tech
+				category = cat_mountaineers_tech
 			}
 		}
 	}
@@ -3685,7 +3685,7 @@ focus_tree = {
 				ahead_reduction = 1
 				bonus = 1
 				uses = 1
-				category = cat_mechanized_equipment
+				category = cat_mechanized_tech
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
@@ -3805,7 +3805,7 @@ focus_tree = {
 				name = GER_nationalize_ford_factories
 				bonus = 0.5
 				uses = 1
-				category = cat_mechanized_equipment
+				category = cat_mechanized_tech
 			}
 			if = {
 				limit = {
@@ -3815,7 +3815,7 @@ focus_tree = {
 					name = GER_nationalize_ford_factories
 					bonus = 1
 					uses = 1
-					category = cat_armored_cars
+					category = cat_armored_car_tech
 				}
 			}
 
@@ -3914,7 +3914,7 @@ focus_tree = {
 				name = GER_kriegslokomotiven
 				bonus = 0.5
 				uses = 1
-				category = train_tech
+				category = cat_train_tech
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
@@ -4244,7 +4244,7 @@ focus_tree = {
 				name = GER_adopt_new_panzer_doctrine
 				cost_reduction = 0.5
 				uses = 1
-				category = cat_mobile_warfare
+				category = cat_tank_doctrine
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
@@ -4288,7 +4288,7 @@ focus_tree = {
 				name = GER_adopt_new_panzer_doctrine
 				cost_reduction = 0.25
 				uses = 2
-				category = land_doctrine
+				category = cat_land_doctrine
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
@@ -4327,7 +4327,7 @@ focus_tree = {
 				#ahead_reduction = 1
 				bonus = 1
 				uses = 1
-				category = cat_medium_armor
+				category = cat_medium_chassis_tech
 			}
 
 
@@ -4468,13 +4468,13 @@ focus_tree = {
 				ahead_reduction = 1
 				bonus = 1
 				uses = 1
-				category = cat_heavy_armor
+				category = cat_heavy_chassis_tech
 			}
 			add_tech_bonus = {
 				name = GER_expand_kummersdorfs_capacity
 				bonus = 1
 				uses = 1
-				category = cat_medium_armor
+				category = cat_medium_chassis_tech
 			}
 			add_breakthrough_progress = {
 				specialization = specialization_land
@@ -5259,14 +5259,14 @@ focus_tree = {
 					name = GER_fallschirmjager
 					cost_reduction = 0.25
 					uses = 2
-					category = cat_paratroopers_doctrine
+					category = cat_special_forces_doctrine
 				}
 			}
 			add_tech_bonus = {
 				name = GER_fallschirmjager
 				bonus = 1
 				uses = 1
-				category = para_tech
+				category = cat_para_tech
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
@@ -6993,14 +6993,14 @@ focus_tree = {
 					name = GER_marinestosstrupp
 					cost_reduction = 0.25
 					uses = 2
-					category = cat_marines_doctrine
+					category = cat_special_forces_doctrine
 				}
 			}
 			add_tech_bonus = {
 				name = GER_marinestosstrupp
 				bonus = 1
 				uses = 1
-				category = marine_tech
+				category = cat_armour_tech
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
@@ -9123,7 +9123,7 @@ mio:GER_blohm_und_voss_organization = {
 			add_doctrine_cost_reduction = {
 				cost_reduction = 0.5
 				uses = 2
-				category = land_doctrine
+				category = cat_land_doctrine
 				name = GER_autonomy_in_the_kriegsschulen
 			}
 
@@ -9184,7 +9184,7 @@ mio:GER_blohm_und_voss_organization = {
 				name = GER_expand_the_truppenschulen
 				bonus = 0.75
 				uses = 2
-				category = support_tech
+				category = cat_support_tech
 			}
 
 			if = {
@@ -9234,7 +9234,7 @@ mio:GER_blohm_und_voss_organization = {
 				#bonus = 1
 				ahead_reduction = 2
 				uses = 1
-				category = armor
+				category = cat_armour_tech
 				category = cat_artillery_tech
 				category = naval_equipment
 				category = air_equipment
@@ -12476,7 +12476,7 @@ mio:GER_blohm_und_voss_organization = {
 			add_tech_bonus = {
 				bonus = 0.75
 				uses = 1
-				category = marine_tech
+				category = cat_armour_tech
 				name = GER_crossing_the_atlantic
 			}
 
@@ -14372,7 +14372,7 @@ mio:GER_blohm_und_voss_organization = {
 						name = armor_bonus
 						bonus = 2.0
 						uses = 1
-						category = armor
+						category = cat_armour_tech
 					}
 				}
 				custom_effect_tooltip = generic_skip_one_line_tt
@@ -14382,13 +14382,13 @@ mio:GER_blohm_und_voss_organization = {
 					add_tech_bonus = {
 						name = med_armor_bonus
 						ahead_reduction = 1
-						category = cat_medium_armor
+						category = cat_medium_chassis_tech
 					}
 					add_tech_bonus = {
 						name = armor_bonus
 						bonus = 1.0
 						uses = 2
-						category = armor
+						category = cat_armour_tech
 					}
 				}
 				custom_effect_tooltip = generic_skip_one_line_tt
@@ -17265,7 +17265,7 @@ mio:GER_blohm_und_voss_organization = {
 			add_tech_bonus = {
 				bonus = 1
 				uses = 1
-				category = marine_tech
+				category = cat_armour_tech
 				name = GER_blitzkrieg_across_the_pacific
 			}
 			add_tech_bonus = {
@@ -19138,7 +19138,7 @@ mio:GER_blohm_und_voss_organization = {
 				name = GER_expand_ss_security_duties
 				bonus = 0.5
 				uses = 1
-				category = military_police_tech
+				category = cat_military_police_tech
 			}
 		}
 	}
@@ -26220,7 +26220,7 @@ mio:GER_blohm_und_voss_organization = {
 				name = GER_prussian_artillery
 				cost_reduction = 0.25
 				uses = 2
-				category = land_doctrine
+				category = cat_land_doctrine
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
