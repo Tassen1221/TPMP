@@ -2084,10 +2084,10 @@ focus_tree = {
 		}
 
 		icon = GFX_goal_generic_national_unity
-		x = 29
+		x = 27
 		y = 0
 		offset = {
-			x = -2
+			x = 0
 			y = 0
 			trigger = {
 				OR = {
@@ -2138,10 +2138,10 @@ focus_tree = {
 			
 		} 
 		icon = GFX_goal_generic_position_armies
-		x = -2
+		x = 0
 		y = 1
 		offset = {
-			x = 2
+			x = 0
 			y = 0
 			trigger = {
 				OR = {
@@ -8327,7 +8327,7 @@ focus_tree = {
 			}
 		}
 
-		x = 14
+		x = 8
 		y = 0
 		relative_position_id = ENG_revisit_colonial_policy
 
@@ -8339,7 +8339,7 @@ focus_tree = {
 			}
 		}
 		offset = {
-			x = -5
+			x = 0
 			y = 0
 			trigger = {
 				has_dlc = "Man the Guns"
@@ -8362,7 +8362,7 @@ focus_tree = {
 			}
 		}
 		offset = {
-			x = -4
+			x = -3
 			y = 0
 			trigger = {
 				has_game_rule = {
@@ -8373,7 +8373,7 @@ focus_tree = {
 			}
 		}
 		offset = {
-			x = -1
+			x = -4
 			y = 0
 			trigger = {
 				has_game_rule = {
@@ -8456,12 +8456,12 @@ focus_tree = {
 		continue_if_invalid = yes
 
 		icon = GFX_focus_eng_global_defense
-		x = -4
+		x = -3
 		y = 1
 		relative_position_id = ENG_steady_as_she_goes
 
 		offset = {
-			x = 4
+			x = 3
 			y = 0
 			trigger = {
 				has_game_rule = {
@@ -8978,7 +8978,9 @@ focus_tree = {
 		available = { 
 			is_subject = no
 		}
-
+		allow_branch = {
+			always = no
+		}
 		continue_if_invalid = yes
 
 		icon = GFX_goal_generic_major_war
@@ -9064,7 +9066,9 @@ focus_tree = {
 		available = { 
 			is_subject = no
 		}
-
+		allow_branch = {
+			always = no
+		}
 		continue_if_invalid = yes
 
 		icon = GFX_goal_generic_major_war
@@ -9109,7 +9113,7 @@ focus_tree = {
 		mutually_exclusive = { focus = ENG_global_defense }
 		icon = GFX_focus_generic_home_defense
 
-		x = 5
+		x = 3
 		y = 1
 		offset = {
 			x = -5
@@ -9119,7 +9123,7 @@ focus_tree = {
 			}
 		}
 		offset = {
-			x = -5
+			x = -3
 			y = 0
 			trigger = {
 				has_game_rule = {
@@ -9280,54 +9284,54 @@ focus_tree = {
 
 	# START IRAQ/IRAN/USSR INTERVENTION #
 
-	focus = {
-		id = uk_iraq_focus
-		available = {
-			IRQ = {
-				OR = { 
-					communism > 0.2
-			 		fascism > 0.2
-			 	} 
-			}
-		} #UK at war with fascist/commie. iraq is fascist/commie
+	# focus = {
+		# id = uk_iraq_focus
+		# available = {
+			# IRQ = {
+				# OR = { 
+					# communism > 0.2
+			 		# fascism > 0.2
+			 	# } 
+			# }
+		# } #UK at war with fascist/commie. iraq is fascist/commie
 
-		bypass = {
-			IRQ = { exists = no }
-		}
+		# bypass = {
+			# IRQ = { exists = no }
+		# }
 
-		will_lead_to_war_with = IRQ
-		prerequisite = { focus = ENG_home_defence }
-		icon = GFX_goal_generic_occupy_states_ongoing_war
-		x = -6
-		y = 1
-		offset = {
-			x = 1
-			y = 0
-			trigger = {
-				NOT = { has_dlc = "Man the Guns" }
-			}
-		}
-		relative_position_id = ENG_home_defence
-		cost = 10
-		ai_will_do = {
-			factor = 1
-		}	
-		completion_reward = {
-			create_wargoal = {
-				type = take_state_focus
-				target = IRQ
-				generator = { 291 }
-				expire = 0
-			}
-		}
-	}
+		# will_lead_to_war_with = IRQ
+		# prerequisite = { focus = ENG_home_defence }
+		# icon = GFX_goal_generic_occupy_states_ongoing_war
+		# x = -2
+		# y = 1
+		# offset = {
+			# x = 1
+			# y = 0
+			# trigger = {
+				# NOT = { has_dlc = "Man the Guns" }
+			# }
+		# }
+		# relative_position_id = ENG_home_defence
+		# cost = 10
+		# ai_will_do = {
+			# factor = 1
+		# }	
+		# completion_reward = {
+			# create_wargoal = {
+				# type = take_state_focus
+				# target = IRQ
+				# generator = { 291 }
+				# expire = 0
+			# }
+		# }
+	# }
 	focus = {
 		id = uk_iran_focus
-		prerequisite = { focus = uk_iraq_focus }
+		prerequisite = { focus = ENG_home_defence }
 		icon = GFX_goal_generic_forceful_treaty
-		x = 0
+		x = -2
 		y = 1
-		relative_position_id = uk_iraq_focus
+		relative_position_id = ENG_home_defence
 		cost = 10
 
 		ai_will_do = {
@@ -9396,17 +9400,7 @@ focus_tree = {
 		prerequisite = { focus = uk_iran_focus focus = ENG_no_further_appeasement }
 
 		allow_branch = {
-			if = {
-				limit = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-				}
-				NOT = {
-					has_completed_focus = ENG_a_change_in_course
-				}
-			}
+			always = no
 		}
 
 		offset = {
@@ -9488,7 +9482,7 @@ focus_tree = {
 
 		prerequisite = { focus = ENG_home_defence }
 		icon = GFX_goal_generic_construct_military
-		x = 4
+		x = 2
 		y = 1
 		offset = {
 			x = 1
@@ -9625,6 +9619,9 @@ focus_tree = {
 				 	} 
 				}				
 			}			
+		}
+		allow_branch = {
+			always = no
 		}
 		prerequisite = { focus = ENG_home_defence }
 		icon = GFX_goal_generic_position_armies
@@ -9822,7 +9819,7 @@ focus_tree = {
 
 		icon = GFX_goal_generic_construction
 
-		x = -1
+		x = 0
 		y = 1
 		offset = {
 			x = 1
@@ -9880,6 +9877,9 @@ focus_tree = {
 				 	} 
 				}								
 			}			
+		}
+		allow_branch = {
+			always = no
 		}
 		prerequisite = { focus = ENG_home_defence }
 		icon = GFX_goal_generic_position_armies
