@@ -132,8 +132,19 @@ focus_tree = {
         }
 
         allow_branch = {
-			always = no
-		}
+        	if = {
+				limit = {
+					has_game_rule = {
+						rule = obsolete_focus_branches_visibility
+						option = HIDE
+					}
+				}
+	            NOT = {
+	            	has_completed_focus = RAJ_provincial_autonomy
+	            	has_completed_focus = RAJ_his_majestys_loyal_government
+	            }
+	        }
+        }
 
         offset = {
             x = 46
@@ -248,8 +259,20 @@ focus_tree = {
         }
 
         allow_branch = {
-			always = no
-		}
+        	if = {
+				limit = {
+					has_game_rule = {
+						rule = obsolete_focus_branches_visibility
+						option = HIDE
+					}
+				}
+	            NOT = {
+	            	has_completed_focus = RAJ_provincial_autonomy
+	            	has_completed_focus = RAJ_his_majestys_loyal_government
+	            	has_completed_focus = RAJ_look_to_the_future
+	            }
+	        }
+        }
 
         offset = {
             x = 7
@@ -317,8 +340,20 @@ focus_tree = {
         }
 
         allow_branch = {
-			always = no
-		}
+        	if = {
+				limit = {
+					has_game_rule = {
+						rule = obsolete_focus_branches_visibility
+						option = HIDE
+					}
+				}
+	            NOT = {
+					has_completed_focus = RAJ_provincial_autonomy
+					has_completed_focus = RAJ_his_majestys_loyal_government
+	            	has_completed_focus = RAJ_look_to_the_past
+				}
+			}
+        }
 
         offset = {
             x = -15
@@ -7587,9 +7622,21 @@ focus_tree = {
 
         }
 
-       allow_branch = {
-			always = no
-		}
+        allow_branch = {
+        	if = {
+				limit = {
+					has_game_rule = {
+						rule = obsolete_focus_branches_visibility
+						option = HIDE
+					}
+				}
+	            NOT = {
+	            	has_completed_focus = RAJ_great_depression_price_controls
+	            	has_completed_focus = RAJ_his_majestys_loyal_government
+	            	has_completed_focus = RAJ_mahatma
+	            }
+	        }
+        }
 
         cancel_if_invalid = yes
         continue_if_invalid = no
@@ -8843,8 +8890,21 @@ focus_tree = {
         }
 
         allow_branch = {
-			always = no
-		}
+        	if = {
+				limit = {
+					has_game_rule = {
+						rule = obsolete_focus_branches_visibility
+						option = HIDE
+					}
+				}
+	            NOT = {
+	            	has_completed_focus = RAJ_great_depression_price_controls
+	            	has_completed_focus = RAJ_his_majestys_loyal_government
+	            	has_completed_focus = RAJ_mahatma
+	            	has_completed_focus = RAJ_red_in_the_shadows
+	            }
+	        }
+        }
 
         cancel_if_invalid = yes
         continue_if_invalid = no
@@ -9061,8 +9121,21 @@ focus_tree = {
         }
 
         allow_branch = {
-			always = no
-		}
+        	if = {
+				limit = {
+					has_game_rule = {
+						rule = obsolete_focus_branches_visibility
+						option = HIDE
+					}
+				}
+	            NOT = {
+	            	has_completed_focus = RAJ_great_depression_price_controls
+	            	has_completed_focus = RAJ_his_majestys_loyal_government
+	            	has_completed_focus = RAJ_mahatma
+	            	has_completed_focus = RAJ_forward_bloc
+	            }
+	        }
+        }
 
         cancel_if_invalid = yes
         continue_if_invalid = no
@@ -16827,8 +16900,19 @@ focus = {
 	mutually_exclusive = { focus = RAJ_great_depression_price_controls focus = RAJ_provincial_autonomy }
 
 	allow_branch = {
-			always = no
+		if = {
+			limit = {
+				has_game_rule = {
+					rule = obsolete_focus_branches_visibility
+					option = HIDE
+				}
+			}
+			NOT = {
+				has_completed_focus = RAJ_provincial_autonomy
+				has_completed_focus = RAJ_great_depression_price_controls
+			}
 		}
+	}
 
 	offset = {
 		x = -40

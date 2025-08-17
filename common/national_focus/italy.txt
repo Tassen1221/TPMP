@@ -8166,7 +8166,7 @@ focus_tree = {
 		id = ITA_the_abyssinian_fiasco
 		icon = GFX_focus_generic_anti_fascist_diplomacy
 		mutually_exclusive = { focus = ITA_solid_progress focus = ITA_struggle_in_ethiopia }
-		x = 11
+		x = 29
 		y = 0
 		relative_position_id = ITA_naval_power_projection
 		cost = 5
@@ -8307,7 +8307,16 @@ focus_tree = {
 		}
 
 		allow_branch = {
-			always = no
+			has_dlc = "By Blood Alone"
+			if = {
+				limit = {
+					has_game_rule = {
+						rule = obsolete_focus_branches_visibility
+						option = HIDE
+					}
+				}
+				NOT = { has_completed_focus = ITA_defy_the_duce }
+			}
 		}
 
 		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_BALANCE_OF_POWER}
@@ -8537,7 +8546,16 @@ focus_tree = {
 		mutually_exclusive = { focus = ITA_culto_del_duce focus = ITA_defy_the_duce }
 
 		allow_branch = {
-			always = no
+			has_dlc = "By Blood Alone"
+			if = {
+				limit = {
+					has_game_rule = {
+						rule = obsolete_focus_branches_visibility
+						option = HIDE
+					}
+				}
+				NOT = { has_completed_focus = ITA_defy_the_duce	}
+			}
 		}
 
 		x = 20
@@ -10548,7 +10566,17 @@ focus_tree = {
 		relative_position_id = ITA_convene_the_grand_council
 
 		allow_branch = {
-			always = no
+			has_dlc = "By Blood Alone"
+			if = {
+				limit = {
+					has_game_rule = {
+						rule = obsolete_focus_branches_visibility
+						option = HIDE
+					}
+				}
+				NOT = { has_completed_focus = ITA_culto_del_duce }
+				NOT = { has_completed_focus = ITA_defy_the_duce }
+			}
 		}
 
 		x = 0
@@ -12528,7 +12556,18 @@ focus_tree = {
 		cost = 5
 
 		allow_branch = {
-			always = no
+			has_dlc = "By Blood Alone"
+			has_dlc = "No Step Back"
+			if = {
+				limit = {
+					has_game_rule = {
+						rule = obsolete_focus_branches_visibility
+						option = HIDE
+					}
+				}
+				NOT = { has_completed_focus = ITA_culto_del_duce }
+				NOT = { has_completed_focus = ITA_defy_the_duce }
+			}
 		}
 
 		available = {
@@ -13626,9 +13665,7 @@ focus_tree = {
 			}
 			is_subject = no
 		}
-		allow_branch = {
-			always = no
-		}
+
 		search_filters = {FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH}
 
 		completion_reward = {
@@ -14756,7 +14793,7 @@ focus_tree = {
 			}
 		}
 
-		x = 23
+		x = 50
 		y = 1
 		offset = {
 			x = -29
@@ -18411,8 +18448,19 @@ focus_tree = {
 		cost = 5
 
 		allow_branch = {
-			always = no
+			has_dlc = "By Blood Alone"
+			if = {
+				limit = {
+					has_game_rule = {
+						rule = obsolete_focus_branches_visibility
+						option = HIDE
+					}
+				}
+				NOT = { has_completed_focus = ITA_culto_del_duce }
+				NOT = { has_completed_focus = ITA_convene_the_grand_council }
+			}
 		}
+
 		offset = {
 			x = 14
 			y = 0
@@ -18470,7 +18518,17 @@ focus_tree = {
 		cost = 5
 
 		allow_branch = {
-			always = no
+			has_dlc = "By Blood Alone"
+			if = {
+				limit = {
+					has_game_rule = {
+						rule = obsolete_focus_branches_visibility
+						option = HIDE
+					}
+				}
+				NOT = { has_completed_focus = ITA_culto_del_duce }
+				NOT = { has_completed_focus = ITA_convene_the_grand_council }
+			}
 		}
 
 		available = {
@@ -18577,7 +18635,17 @@ focus_tree = {
 		cost = 5
 
 		allow_branch = {
-			always = no
+			has_dlc = "By Blood Alone"
+			if = {
+				limit = {
+					has_game_rule = {
+						rule = obsolete_focus_branches_visibility
+						option = HIDE
+					}
+				}
+				NOT = { has_completed_focus = ITA_culto_del_duce }
+				NOT = { has_completed_focus = ITA_convene_the_grand_council }
+			}
 		}
 		
 		available = {

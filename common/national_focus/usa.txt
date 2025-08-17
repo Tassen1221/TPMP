@@ -64,7 +64,7 @@ focus_tree = {
 	focus = {
 		id = USA_continue_the_new_deal
 		icon = GFX_focus_generic_self_management
-		x = 7
+		x = 14
 		y = 0
 		offset = {
 			x = -12
@@ -156,7 +156,18 @@ focus_tree = {
 			factor = 1
 		}
 		allow_branch = {
-			always = no
+			has_dlc = "Man the Guns"
+			if = {
+				limit = {
+					has_game_rule = {
+						rule = obsolete_focus_branches_visibility
+						option = HIDE
+					}
+				}
+				NOT = {
+					has_completed_focus = USA_reestablish_the_gold_standard
+				}
+			}
 		}
 		available = {
 
@@ -1559,7 +1570,17 @@ focus_tree = {
 		continue_if_invalid = yes
 
 		allow_branch = {
-			always = no
+			if = {
+				limit = {
+					has_game_rule = {
+						rule = obsolete_focus_branches_visibility
+						option = HIDE
+					}
+				}
+				NOT = {
+					has_completed_focus = USA_neutrality_act
+				}
+			}
 		}
 
 		available = {
@@ -2994,7 +3015,17 @@ focus_tree = {
 		mutually_exclusive = { focus = USA_continue_the_new_deal }
 
 		allow_branch = {
-			always = no
+			if = {
+				limit = {
+					has_game_rule = {
+						rule = obsolete_focus_branches_visibility
+						option = HIDE
+					}
+				}
+				NOT = {
+					has_completed_focus = USA_continue_the_new_deal
+				}
+			}
 		}
 
 		available = {
@@ -3216,7 +3247,18 @@ focus_tree = {
 			factor = 1
 		}
 		allow_branch = {
-			always = no
+			has_dlc = "Man the Guns"
+			if = {
+				limit = {
+					has_game_rule = {
+						rule = obsolete_focus_branches_visibility
+						option = HIDE
+					}
+				}
+				NOT = {
+					has_completed_focus = USA_continue_the_new_deal
+				}
+			}
 		}
 		available = {
 
@@ -4634,10 +4676,10 @@ focus_tree = {
  	focus = {
 		id = USA_war_plans_division
 		icon = GFX_goal_generic_position_armies
-		x = 18
+		x = 42
 		y = 0
 		offset = {
-			x = -2
+			x = -26
 			y = 0
 			trigger = {
 				NOT = { has_dlc = "Man the Guns" }
