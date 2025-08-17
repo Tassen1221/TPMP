@@ -64,7 +64,7 @@ focus_tree = {
 	focus = {
 		id = USA_continue_the_new_deal
 		icon = GFX_focus_generic_self_management
-		x = 14
+		x = 7
 		y = 0
 		offset = {
 			x = -12
@@ -156,18 +156,7 @@ focus_tree = {
 			factor = 1
 		}
 		allow_branch = {
-			has_dlc = "Man the Guns"
-			if = {
-				limit = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-				}
-				NOT = {
-					has_completed_focus = USA_reestablish_the_gold_standard
-				}
-			}
+			always = no
 		}
 		available = {
 
@@ -1570,17 +1559,7 @@ focus_tree = {
 		continue_if_invalid = yes
 
 		allow_branch = {
-			if = {
-				limit = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-				}
-				NOT = {
-					has_completed_focus = USA_neutrality_act
-				}
-			}
+			always = no
 		}
 
 		available = {
@@ -3015,17 +2994,7 @@ focus_tree = {
 		mutually_exclusive = { focus = USA_continue_the_new_deal }
 
 		allow_branch = {
-			if = {
-				limit = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-				}
-				NOT = {
-					has_completed_focus = USA_continue_the_new_deal
-				}
-			}
+			always = no
 		}
 
 		available = {
@@ -3247,18 +3216,7 @@ focus_tree = {
 			factor = 1
 		}
 		allow_branch = {
-			has_dlc = "Man the Guns"
-			if = {
-				limit = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-				}
-				NOT = {
-					has_completed_focus = USA_continue_the_new_deal
-				}
-			}
+			always = no
 		}
 		available = {
 

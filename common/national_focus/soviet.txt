@@ -8047,16 +8047,7 @@ mio:SOV_sevastopol_marine_plant_organization = {
 			}
 		}
 		allow_branch = {
-			if = {
-				limit = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-				}
-				NOT = { has_completed_focus = SOV_the_centre } 
-				NOT = { has_completed_focus = SOV_beaten_but_not_defeated }
-			}
+			always = no
 		}
 		
 		search_filters = {FOCUS_FILTER_POLITICAL}
@@ -9286,18 +9277,8 @@ mio:SOV_sevastopol_marine_plant_organization = {
 		id = SOV_the_right_opposition
 		icon = GFX_focus_SOV_bukharinists
 		prerequisite = { focus = SOV_the_path_of_marxism_leninism }
-		allow_branch = { 
-			has_dlc = "No Step Back"
-			if = {
-				limit = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-				}
-				NOT = { has_completed_focus = SOV_the_centre }
-				NOT = { has_completed_focus = SOV_beaten_but_not_defeated }
-			}
+		allow_branch = {
+			always = no
 		}
 		mutually_exclusive = { focus = SOV_the_left_opposition focus = SOV_the_centre}
 		x = 15
@@ -9311,6 +9292,7 @@ mio:SOV_sevastopol_marine_plant_organization = {
 				check_variable = { SOV_great_purge_counter < 1 }
 			}
 		}
+
 		                
 		search_filters = {FOCUS_FILTER_POLITICAL}
 
@@ -15219,17 +15201,8 @@ ai_will_do = {
 				has_completed_focus = SOV_the_hands_do #Stalinist branch hides
 			}
 		}
-		allow_branch = { 
-			has_dlc = "No Step Back" 
-			if = {
-				limit = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-				}
-				NOT = { has_completed_focus = SOV_the_path_of_marxism_leninism }
-			}
+		allow_branch = {
+			always = no
 		}
 		mutually_exclusive = { focus = SOV_the_path_of_marxism_leninism }
 

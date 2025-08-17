@@ -2930,18 +2930,7 @@ focus_tree = {
 		mutually_exclusive = { focus = uk_empire_focus }
 
 		allow_branch = {
-			has_dlc = "Man the Guns"
-			if = {
-				limit = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-				}
-				NOT = {
-					has_completed_focus = uk_empire_focus
-				}
-			}
+			always = no
 		}
 
 		available = { 
@@ -10001,18 +9990,7 @@ focus_tree = {
 		mutually_exclusive = { focus = ENG_steady_as_she_goes }
 
 		allow_branch = {
-			has_dlc = "Man the Guns"
-			if = {
-				limit = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-				}
-				NOT = {
-					has_completed_focus = ENG_steady_as_she_goes
-				}
-			}
+			always = no
 		}
 
 		available = {
@@ -10283,6 +10261,10 @@ focus_tree = {
 			has_country_flag = edward_viii_married_wallis_simpson
 			is_subject = no
 			has_war = no
+		}
+
+		allow_branch = {
+			always = no
 		}
 
 		icon = GFX_focus_eng_the_kings_party
@@ -10578,6 +10560,9 @@ focus_tree = {
 				}
 				has_completed_focus = ENG_organize_the_blackshirts
 			}
+		}
+		allow_branch = {
+			always = no
 		}
 
 		available = {
@@ -11903,7 +11888,9 @@ focus_tree = {
 				}
 			}
 		}
-
+		allow_branch = {
+			always = no
+		}
 		offset = {
 			x = -5
 			y = 0
