@@ -1662,19 +1662,7 @@
 		relative_position_id = FRA_form_the_popular_front
 		
 		allow_branch = {
-			has_dlc = "La Resistance"
-			if = {
-				limit = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-				}
-				NOT = {
-					has_completed_focus = FRA_revive_the_national_bloc
-					has_completed_focus = FRA_review_foreign_policy
-				}
-			}
+			always = no
 		}
 
 		prerequisite = { focus = FRA_form_the_popular_front }
@@ -3473,6 +3461,10 @@
 		x = 0
 		y = 1
 		
+		allow_branch = {
+			always = no
+		}
+		
 		prerequisite = {
 			focus = FRA_france_undividable
 		}
@@ -3764,7 +3756,11 @@
 		mutually_exclusive = { focus = FRA_buy_time }
 		relative_position_id = FRA_review_foreign_policy
 		cost = 10
-
+		
+		allow_branch = {
+			always = no
+		}
+		
 		ai_will_do = {
 			factor = 1
 		}
@@ -4016,19 +4012,7 @@
 		y = 1
 
 		allow_branch = {
-			has_dlc = "Death or Dishonor"
-			if = {
-				limit = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-				}
-				NOT = {
-					has_completed_focus = FRA_invite_communist_ministers
-					has_completed_focus = FRA_utilize_the_leagues
-				}
-			}
+			always = no
 		}
 
 		prerequisite = {
@@ -4428,7 +4412,11 @@
 		mutually_exclusive = { focus = FRA_go_with_britain }
 		relative_position_id = FRA_buy_time
 		cost = 10
-
+		
+		allow_branch = {
+			always = no
+		}
+		
 		ai_will_do = {
 			factor = 1
 		}
@@ -5218,19 +5206,7 @@
 		}
 
 		allow_branch = {
-			has_dlc = "La Resistance"
-			if = {
-				limit = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-				}
-				NOT = {
-					has_completed_focus = FRA_form_the_popular_front
-					has_completed_focus = FRA_review_foreign_policy
-				}
-			}
+			always = no
 		}
 
 		prerequisite = {
@@ -5293,18 +5269,7 @@
 		relative_position_id = FRA_utilize_the_leagues
 
 		allow_branch = {
-			has_dlc = "La Resistance"
-			if = {
-				limit = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-				}
-				NOT = { has_completed_focus = FRA_form_the_popular_front }
-				NOT = { has_completed_focus = FRA_review_foreign_policy }
-				NOT = {	has_completed_focus = FRA_the_council_of_rambouillet }
-			}
+			always = no
 		}
 
 		prerequisite = {
@@ -7202,18 +7167,7 @@
 		relative_position_id = FRA_utilize_the_leagues
 
 		allow_branch = {
-			has_dlc = "La Resistance"
-			if = {
-				limit = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-				}
-				NOT = {	has_completed_focus = FRA_form_the_popular_front }
-				NOT = { has_completed_focus = FRA_review_foreign_policy }
-				NOT = {	has_completed_focus = FRA_national_regeneration }
-			}
+			always = no
 		}
 
 		prerequisite = {
@@ -8498,16 +8452,7 @@
 			x = -10
 			y = 0
 			trigger = {
-				has_dlc = "La Resistance"
-				has_game_rule = {
-					rule = obsolete_focus_branches_visibility
-					option = HIDE
-				}
-				has_completed_focus = FRA_revive_the_national_bloc
-			}
-		}
-		offset = {
-			x = -6
+			x = 0
 			y = 0
 			trigger = {
 				has_dlc = "La Resistance"

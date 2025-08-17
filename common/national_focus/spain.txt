@@ -313,6 +313,9 @@ focus_tree = {
 
 	focus = {
 		id = SPA_sin_paquito
+		allow_branch = {
+			always = no
+		}
 		available = {
 		}
 		bypass = {
@@ -383,23 +386,7 @@ focus_tree = {
 		mutually_exclusive = { focus = SPA_a_great_spain }
 		cancel_if_invalid = yes
 		allow_branch = {
-			if = {
-				limit = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-				}
-				OR = {
-					NOT = {
-						has_global_flag = spanish_civil_war
-					}
-					AND = {
-						NOT = { has_completed_focus = SPA_a_great_spain }
-						has_global_flag = spanish_civil_war
-					}
-				}
-			}
+			always = no
 		}
 		
 		icon = GFX_goal_generic_national_unity
@@ -5673,6 +5660,9 @@ focus_tree = {
 
 	focus = {
 		id = SPA_supremacy_of_the_communion
+		allow_branch = {
+			always = no
+		}
 		available = {
 			has_global_flag = spanish_civil_war
 			hidden_trigger = { always = no }
