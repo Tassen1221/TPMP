@@ -14435,6 +14435,10 @@ mio:GER_blohm_und_voss_organization = {
 			}
 		}
 
+		allow_branch = {
+			always = no
+		}
+
 		ai_will_do = {
 			factor = 0.01
 			modifier = {
@@ -14563,6 +14567,10 @@ mio:GER_blohm_und_voss_organization = {
 					is_alone_or_in_faction_at_peace_with_GER = yes
 				}
 			}
+		}
+
+		allow_branch = {
+			always = no
 		}
 
 		ai_will_do = {
@@ -14810,6 +14818,10 @@ mio:GER_blohm_und_voss_organization = {
 					}
 				}
 			}
+		}
+
+		allow_branch = {
+			always = no
 		}
 
 		ai_will_do = {
@@ -20728,18 +20740,7 @@ mio:GER_blohm_und_voss_organization = {
 		}
 
 		allow_branch = {
-			has_dlc = "Gotterdammerung" 
-			if = {
-				limit = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-				}
-				NOT = {
-					has_completed_focus = GER_remilitarize_the_rhineland
-				}
-			}
+			always = no
 		}
 
 		offset = {
@@ -21060,19 +21061,7 @@ mio:GER_blohm_und_voss_organization = {
 		}
 
 		allow_branch = {
-			has_dlc = "Gotterdammerung"
-			if = {
-				limit = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-				}
-				NOT = {
-					has_completed_focus = GER_monarchist_sentiment
-					has_completed_focus = GER_remilitarize_the_rhineland
-				}
-			}
+			always = no
 		}
 
 		offset = {
@@ -24841,21 +24830,8 @@ mio:GER_blohm_und_voss_organization = {
 		}
 
 		allow_branch = {
-			has_dlc = "Gotterdammerung"
-			if = {
-				limit = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-				}
-				NOT = {
-					has_completed_focus = GER_start_the_proletarian_revolution
-					has_completed_focus = GER_remilitarize_the_rhineland
-				}
-			}
+			always = no
 		}
-
 		offset = {
 			x = -11
 			y = 0
@@ -24978,22 +24954,7 @@ mio:GER_blohm_und_voss_organization = {
 		cost = 5
 
 		allow_branch = {
-			has_dlc = "Gotterdammerung"
-			if = {
-				limit = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-				}
-				NOT = {
-					OR = {
-						has_completed_focus = GER_revive_the_kaiserreich_ww
-						has_completed_focus = GER_remilitarize_the_rhineland
-						has_completed_focus = GER_start_the_proletarian_revolution
-					}
-				}
-			}
+			always = no
 		}
 
 		offset = {
