@@ -9284,47 +9284,49 @@ focus_tree = {
 
 	# START IRAQ/IRAN/USSR INTERVENTION #
 
-	# focus = {
-		# id = uk_iraq_focus
-		# available = {
-			# IRQ = {
-				# OR = { 
-					# communism > 0.2
-			 		# fascism > 0.2
-			 	# } 
-			# }
-		# } #UK at war with fascist/commie. iraq is fascist/commie
+	focus = {
+		id = uk_iraq_focus
+		available = {
+			IRQ = {
+				OR = { 
+					communism > 0.2
+			 		fascism > 0.2
+			 	} 
+			}
+		} #UK at war with fascist/commie. iraq is fascist/commie
 
-		# bypass = {
-			# IRQ = { exists = no }
-		# }
-
-		# will_lead_to_war_with = IRQ
-		# prerequisite = { focus = ENG_home_defence }
-		# icon = GFX_goal_generic_occupy_states_ongoing_war
-		# x = -2
-		# y = 1
-		# offset = {
-			# x = 1
-			# y = 0
-			# trigger = {
-				# NOT = { has_dlc = "Man the Guns" }
-			# }
-		# }
-		# relative_position_id = ENG_home_defence
-		# cost = 10
-		# ai_will_do = {
-			# factor = 1
-		# }	
-		# completion_reward = {
-			# create_wargoal = {
-				# type = take_state_focus
-				# target = IRQ
-				# generator = { 291 }
-				# expire = 0
-			# }
-		# }
-	# }
+		bypass = {
+			IRQ = { exists = no }
+		}
+		allow_branch = {
+			always = no
+		}
+		will_lead_to_war_with = IRQ
+		prerequisite = { focus = ENG_home_defence }
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		x = -2
+		y = 1
+		offset = {
+			x = 1
+			y = 0
+			trigger = {
+				NOT = { has_dlc = "Man the Guns" }
+			}
+		}
+		relative_position_id = ENG_home_defence
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}	
+		completion_reward = {
+			create_wargoal = {
+				type = take_state_focus
+				target = IRQ
+				generator = { 291 }
+				expire = 0
+			}
+		}
+	}
 	focus = {
 		id = uk_iran_focus
 		prerequisite = { focus = ENG_home_defence }
