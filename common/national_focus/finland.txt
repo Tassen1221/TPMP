@@ -65,19 +65,8 @@ focus_tree = {
 		#icon = GFX_focus_ITA_grande_rivolta_rurale
 
 		allow_branch = {
-			has_dlc = "Arms Against Tyranny"
-			if = {
-				limit = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-				}
-				NOT = { has_completed_focus = FIN_finnish_neutrality }
-				NOT = { has_completed_focus = FIN_right_wing_policies }
-			}
+			always = no
 		}
-
 		mutually_exclusive = { focus = FIN_finnish_neutrality focus = FIN_right_wing_policies }
 
 		x = 7
@@ -5347,6 +5336,10 @@ focus_tree = {
 			}
 		}
 
+
+		allow_branch = {
+			always = no
+		}
 		available = {
 			is_subject = no
 			threat > 0.55
