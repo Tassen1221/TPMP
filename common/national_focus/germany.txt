@@ -7867,7 +7867,7 @@ mio:GER_blohm_und_voss_organization = {
 
 	
 	
-		x = 17
+		x = 14
 		y = 1
 		relative_position_id = GER_remilitarize_the_rhineland
 
@@ -10284,7 +10284,10 @@ mio:GER_blohm_und_voss_organization = {
 		available = {
 			is_subject = no
 		}
-
+		allow_branch={
+			always=no
+		}
+		
 		ai_will_do = {
 			factor = 10
 			modifier = {
@@ -10382,7 +10385,9 @@ mio:GER_blohm_und_voss_organization = {
 				}
 			}
 		}
-
+		allow_branch = {
+			always = no
+		}
 		search_filters = { FOCUS_FILTER_POLITICAL }
 
 		completion_reward = {
@@ -10486,7 +10491,7 @@ mio:GER_blohm_und_voss_organization = {
 		prerequisite = { focus = GER_fate_of_czechoslovakia focus = GER_integrate_czechoslovakia }
 		mutually_exclusive = { focus = GER_invade_italy }
 		x = 2
-		y = 4
+		y = 2
 		relative_position_id = GER_integrate_czechoslovakia
 		cost = 5
 
@@ -10584,7 +10589,10 @@ mio:GER_blohm_und_voss_organization = {
 				}
 			}
 		}
-
+		
+		allow_branch = {
+			always = no
+		}
 		search_filters = { FOCUS_FILTER_ANNEXATION }
 
 		completion_reward = {
@@ -10616,7 +10624,7 @@ mio:GER_blohm_und_voss_organization = {
 		icon = GFX_focus_intervention_spain_nationalists
 		prerequisite = { focus = GER_form_rome_berlin_axis focus = GER_invade_italy }
 		mutually_exclusive = { focus = GER_operation_felix }
-		x = 1
+		x = 0
 		y = 1
 		relative_position_id = GER_form_rome_berlin_axis
 		cost = 5
@@ -10811,7 +10819,9 @@ mio:GER_blohm_und_voss_organization = {
 				has_civil_war = no
 			}
 		}
-		
+		allow_branch = {
+			always = no
+		}
 		bypass = {
 			any_country_with_original_tag = {
 				original_tag_to_check = SPR
@@ -10922,7 +10932,9 @@ mio:GER_blohm_und_voss_organization = {
 				}
 			}
 		}
-		
+		allow_branch = {
+			always = no
+		}
 		available_if_capitulated = yes
 		
 		available = {
@@ -10980,7 +10992,7 @@ mio:GER_blohm_und_voss_organization = {
 
 		x = 0
 		y = 1
-		relative_position_id = GER_operation_felix
+		relative_position_id = GER_alliance_with_spain
 
 		cost = 10
 
@@ -11084,6 +11096,9 @@ mio:GER_blohm_und_voss_organization = {
 			NOT = { owns_state = 85 }
 			NOT = { has_war_with = POL }
 			POL = { owns_state = 72 }
+		}
+		allow_branch = {
+			always = no
 		}
 
 		bypass = {
@@ -11411,7 +11426,9 @@ mio:GER_blohm_und_voss_organization = {
 		available = {
 			is_subject = no
 		}
-
+		allow_branch={
+			always = no
+		}
 		ai_will_do = {
 			factor = 5
 			modifier = {
@@ -11748,7 +11765,7 @@ mio:GER_blohm_und_voss_organization = {
 				}
 			}
 		}
-
+		
 		search_filters = { FOCUS_FILTER_POLITICAL }
 
 		completion_reward = {
@@ -12287,9 +12304,11 @@ mio:GER_blohm_und_voss_organization = {
 				}
 			}
 		}
-
+		allow_branch = {
+			always = no
+		}
 		will_lead_to_war_with = IRE
-
+		
 		available = {
 			is_subject = no
 			OR = {
@@ -12361,7 +12380,7 @@ mio:GER_blohm_und_voss_organization = {
 		prerequisite = { focus = GER_operation_sea_lion }
 
 		x = 0
-		y = 2
+		y = 1
 		relative_position_id = GER_operation_sea_lion
 		cost = 10
 
@@ -14874,7 +14893,7 @@ mio:GER_blohm_und_voss_organization = {
 
 		prerequisite = { focus = GER_anti_comintern_pact }
 		mutually_exclusive = { focus = GER_befriend_china }
-		x = 4
+		x = 1
 		y = 0
 		relative_position_id = GER_befriend_china
 		cost = 5
@@ -15015,9 +15034,9 @@ mio:GER_blohm_und_voss_organization = {
 		icon = GFX_focus_GER_reclaim_former_african_colonies
 		prerequisite = { focus = GER_befriend_china focus = GER_befriend_japan }
 
-		x = 2
+		x = -2
 		y = 1
-		relative_position_id = GER_befriend_china
+		relative_position_id = GER_befriend_japan
 
 		cost = 5
 

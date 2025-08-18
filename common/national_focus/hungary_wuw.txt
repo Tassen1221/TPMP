@@ -37,7 +37,7 @@ focus_tree = {
 		icon = GFX_focus_hun_elect_a_king
 		#prerequisite = { focus = }
 		mutually_exclusive = { focus = wuw_HUN_continue_the_regency focus = wuw_HUN_end_the_white_terror }
-		x = 0
+		x = 3
 		y = 0
 		#relative_position_id =
 
@@ -152,7 +152,7 @@ focus_tree = {
 		icon = GFX_focus_rom_handle_king
 		#prerequisite = { focus = }
 		mutually_exclusive = { focus = wuw_HUN_end_the_regency focus = wuw_HUN_end_the_white_terror }
-		x = 16
+		x = 7
 		y = 0
 		relative_position_id = wuw_HUN_end_the_regency
 
@@ -623,7 +623,7 @@ focus_tree = {
 		icon = GFX_focus_generic_little_entente
 		prerequisite = { focus = wuw_HUN_reach_out_to_candidates }
 		mutually_exclusive = { focus = wuw_HUN_reinstate_the_pragmatic_sanction }
-		x = 6
+		x = 0
 		y = 1
 		relative_position_id = wuw_HUN_reach_out_to_candidates
 
@@ -5693,7 +5693,7 @@ focus_tree = {
 		icon = GFX_focus_HUN_elect_a_fascist_king
 		prerequisite = { focus = wuw_HUN_abide_by_the_little_ententes_stipulations }
 		mutually_exclusive = { focus = wuw_HUN_establishing_a_new_dynasty focus = wuw_HUN_elect_a_democratic_king }
-		x = 4
+		x = 0
 		y = 1
 		relative_position_id = wuw_HUN_abide_by_the_little_ententes_stipulations
 
@@ -11013,7 +11013,9 @@ focus_tree = {
 		ai_will_do = {
 			factor = 20
 		}
-
+		allow_branch = {
+			always=no
+		}
 		available = {
 			is_subject = no
 			975 = {
@@ -14674,7 +14676,7 @@ focus_tree = {
 		icon = GFX_goal_generic_consumer_goods
 		#prerequisite = { focus = wuw_HUN_a_revolutionary_greater_hungary }
 		mutually_exclusive = { focus = wuw_HUN_economic_intervention }
-		x = 45
+		x = 17
 		y = 0
 		relative_position_id = wuw_HUN_end_the_regency
 
@@ -14887,9 +14889,9 @@ focus_tree = {
 		icon = GFX_goal_generic_demand_territory
 		#prerequisite = { focus = wuw_HUN_a_revolutionary_greater_hungary }
 		mutually_exclusive = { focus = wuw_HUN_avoid_interventionalist_destablilization }
-		x = 47
+		x = 2
 		y = 0
-		relative_position_id = wuw_HUN_end_the_regency
+		relative_position_id = wuw_HUN_avoid_interventionalist_destablilization
 
 		offset = {
 			x = -25
@@ -15087,9 +15089,9 @@ focus_tree = {
 		icon = GFX_focus_secret_rearmament
 		#prerequisite = { focus = wuw_HUN_a_revolutionary_greater_hungary }
 		#mutually_exclusive = { focus = wuw_HUN_avoid_interventionalist_destablilization }
-		x = 55
+		x = 8
 		y = 0
-		relative_position_id = wuw_HUN_end_the_regency
+		relative_position_id = wuw_HUN_economic_intervention
 
 		search_filters = { FOCUS_FILTER_MANPOWER FOCUS_FILTER_HISTORICAL }
 

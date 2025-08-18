@@ -8948,7 +8948,7 @@ focus_tree = {
 		prerequisite = { focus = ITA_the_man_of_providence }
 		mutually_exclusive = { focus = ITA_to_live_as_a_lion }
 		x = -1
-		y = 3
+		y = 2
 		relative_position_id = ITA_the_man_of_providence
 		cost = 5
 		available = {
@@ -9116,7 +9116,7 @@ focus_tree = {
 		prerequisite = { focus = ITA_la_battaglia_per_le_nascite }
 
 		x = 0
-		y = 5
+		y = 1
 		relative_position_id = ITA_la_battaglia_per_le_nascite
 		cost = 10
 		available = {
@@ -9264,7 +9264,7 @@ focus_tree = {
 		prerequisite = { focus = ITA_believe_obey_fight }
 
 		x = 0
-		y = 2
+		y = 1
 		relative_position_id = ITA_believe_obey_fight
 		cost = 10
 
@@ -9327,7 +9327,7 @@ focus_tree = {
 		prerequisite = { focus = ITA_banda_carita }
 
 		x = 0
-		y = 2
+		y = 1
 		relative_position_id = ITA_banda_carita
 		cost = 10
 
@@ -9367,7 +9367,7 @@ focus_tree = {
 		prerequisite = { focus = ITA_culto_del_duce focus = ITA_convene_the_grand_council }
 
 		x = 6
-		y = 2
+		y = 1
 		relative_position_id = ITA_culto_del_duce
 
 		
@@ -9400,7 +9400,7 @@ focus_tree = {
 		prerequisite = { focus = ITA_security_militias }
 		mutually_exclusive = { focus = ITA_strengthen_the_blackshirts }
 		x = -1
-		y = 2
+		y = 1
 		relative_position_id = ITA_security_militias
 
 
@@ -9478,7 +9478,7 @@ focus_tree = {
 		prerequisite = { focus = ITA_battaglioni_d_assalto focus = ITA_strengthen_the_blackshirts }
 
 		x = 1
-		y = 2
+		y = 1
 		relative_position_id = ITA_battaglioni_d_assalto
 		cost = 10
 		available = {
@@ -14622,7 +14622,7 @@ focus_tree = {
 			}
 		}
 
-		x = 23
+		x = 17
 		y = 1
 	
 	
@@ -14797,7 +14797,7 @@ focus_tree = {
 		icon = GFX_goal_generic_more_territorial_claims
 		prerequisite = { focus = ITA_potential_allies_in_the_balkans focus = ITA_balkan_ambition }
 
-		x = -12
+		x = -7
 		y = 1
 		relative_position_id = ITA_potential_allies_in_the_balkans
 		cost = 5
@@ -15455,7 +15455,7 @@ focus_tree = {
 		icon = GFX_goal_support_fascism
 		prerequisite = { focus = ITA_potential_allies_in_the_balkans focus = ITA_balkan_ambition }
 		mutually_exclusive = { focus = ITA_guarantee_austrian_independence focus = ITA_italy_first }
-		x = -4
+		x = -1
 		y = 1
 		relative_position_id = ITA_potential_allies_in_the_balkans
 		cost = 5
@@ -16202,7 +16202,9 @@ focus_tree = {
 				owns_state = 342
 			}
 		}
-		
+		allow_branch = {
+			always=no
+		}
 		will_lead_to_war_with = TUR
 
 		search_filters = {}
@@ -16245,7 +16247,9 @@ focus_tree = {
 				has_war_with = TUR
 			}
 		}
-
+		allow_branch = {
+			always=no
+		}
 		search_filters = {}
 
 		completion_reward = {
@@ -16282,7 +16286,7 @@ focus_tree = {
 		icon = GFX_goal_generic_military_deal
 		prerequisite = { focus = ITA_foreign_affairs }
 
-		x = 4
+		x = 3
 		y = 1
 		relative_position_id = ITA_foreign_affairs
 		cost = 5
@@ -16503,8 +16507,8 @@ focus_tree = {
 		icon = GFX_goal_generic_more_territorial_claims
 		prerequisite = { focus = ITA_corpo_di_truppe_volontarie }
 		mutually_exclusive = { focus = ITA_spanish_italian_alliance }
-		x = 1
-		y = 2
+		x = 0
+		y = 1
 		relative_position_id = ITA_corpo_di_truppe_volontarie
 		cost = 5
 		available = {
@@ -16579,7 +16583,11 @@ focus_tree = {
 				has_war_with = POR
 			}
 		}
-
+		
+		allow_branch = {
+			always=no
+		}
+		
 		search_filters = {}
 
 		completion_reward = {

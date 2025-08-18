@@ -1506,7 +1506,7 @@ focus_tree = {
 		id = ROM_balkans_dominance
 		icon = GFX_goal_demand_sudetenland
 		mutually_exclusive = { focus = ROM_preserve_greater_romania }
-		x = 15
+		x = 13
 		y = 0
 
 		cost = 10
@@ -1742,10 +1742,10 @@ focus_tree = {
 	focus = {
 		id = ROM_divide_yugoslavia
 		icon = GFX_goal_generic_political_pressure
-		prerequisite = { focus = ROM_puppet_bulgaria }
-		x = 1
-		y = 1
-		relative_position_id = ROM_puppet_bulgaria
+		prerequisite = { focus = ROM_balkans_dominance }
+		x = -1
+		y = 2
+		relative_position_id = ROM_balkans_dominance
 		will_lead_to_war_with = YUG
 		cost = 10
 
@@ -1835,10 +1835,10 @@ focus_tree = {
 	focus = {
 		id = ROM_split_czechoslovakia
 		icon = GFX_goal_generic_territory_or_war
-		prerequisite = { focus = ROM_align_hungary }
-		x = 0
-		y = 1
-		relative_position_id = ROM_align_hungary
+		prerequisite = { focus = ROM_balkans_dominance }
+		x = 1
+		y = 2
+		relative_position_id = ROM_balkans_dominance
 		will_lead_to_war_with = CZE
 		cost = 10
 
@@ -1919,7 +1919,7 @@ focus_tree = {
 	focus = {
 		id = ROM_institute_royal_dictatorship
 		icon = GFX_focus_rom_royal_dictatorship
-		x = 21
+		x = 19
 		y = 0
 
 		cost = 10
@@ -1972,7 +1972,7 @@ focus_tree = {
 		id = ROM_fortify_the_borders
 		icon = GFX_goal_generic_construct_military
 		prerequisite = { focus = ROM_institute_royal_dictatorship }
-		x = -2
+		x = -1
 		y = 1
 		relative_position_id = ROM_institute_royal_dictatorship
 
@@ -2003,10 +2003,10 @@ focus_tree = {
 		id = ROM_his_majestys_loyal_government
 		icon = GFX_goal_generic_propaganda
 		prerequisite = { focus = ROM_fortify_the_borders }
-		prerequisite = { focus = ROM_align_hungary }
+		prerequisite = { focus = ROM_balkans_dominance }
 		prerequisite = { focus = ROM_revise_the_constitution }
 		mutually_exclusive = { focus = ROM_flexible_foreign_policy }
-		x = -1
+		x = -2
 		y = 1
 		relative_position_id = ROM_fortify_the_borders
 
@@ -2017,20 +2017,6 @@ focus_tree = {
 		}
 
 		available = {
-			OR = {
-				has_country_flag = ROM_HUN_aligned
-				HUN = { is_subject_of = ROM }
-				AND = {
-					HUN = { exists = no }
-					ROM = {
-						owns_state = 155
-						owns_state = 154
-						owns_state = 43
-						owns_state = 973
-						owns_state = 974
-					}
-				}
-			}
 			is_subject = no
 			has_government = neutrality
 			custom_trigger_tooltip = {
@@ -2128,6 +2114,10 @@ focus_tree = {
 				remove_idea = ROM_king_carol_ii_hedonist
 			}
 			remove_country_leader_trait = hedonist
+			hidden_effect={
+				set_country_flag = can_change_sides_carol
+			}
+			unlock_decision_tooltip = ROM_change_sides_to_axis
 		}
 	}
 
@@ -3166,7 +3156,7 @@ focus_tree = {
 	focus = {
 		id = ROM_expand_the_air_force
 		icon = GFX_goal_generic_build_airforce
-		x = 32
+		x = 30
 		y = 0
 
 		cost = 10
@@ -3827,7 +3817,7 @@ focus_tree = {
 	focus = {
 		id = ROM_army_maneuvers
 		icon = GFX_goal_generic_army_doctrines
-		x = 40
+		x = 38
 		y = 0
 
 		cost = 10
@@ -4506,7 +4496,7 @@ focus_tree = {
 	focus = {
 		id = ROM_expand_the_galati_shipyards
 		icon = GFX_goal_generic_construct_naval_dockyard
-		x = 47
+		x = 45
 		y = 0
 
 		cost = 10

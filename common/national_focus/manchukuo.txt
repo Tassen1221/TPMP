@@ -1108,7 +1108,7 @@
 		x = -1
 		y = 1
 		relative_position_id = MAN_chinese_leadership
-
+		
 		cost = 10
 
 		ai_will_do = {
@@ -1130,7 +1130,9 @@
 				exists = no
 			}
 		}
-
+		allow_branch = {
+			always = no
+		}
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
@@ -1147,7 +1149,7 @@
 		id = MAN_national_cooperation_government
 		icon = GFX_goal_generic_improve_relations
 		prerequisite = { focus = MAN_chinese_leadership }
-		x = 1
+		x = 0
 		y = 1
 		relative_position_id = MAN_chinese_leadership
 
@@ -1183,7 +1185,6 @@
 	focus = {
 		id = MAN_the_two_emperors
 		icon = GFX_goal_anschluss
-		prerequisite = { focus = MAN_vassalize_mengukuo }
 		prerequisite = { focus = MAN_national_cooperation_government }
 		x = 0
 		y = 2

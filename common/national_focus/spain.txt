@@ -153,10 +153,10 @@ focus_tree = {
 		prerequisite = { focus = SPA_a_great_spain }
 		
 		icon = GFX_focus_generic_concessions
-		x = -15
+		x = 0
 		y = 1
 		offset = {
-			x = 15
+			x = 0
 			y = 0
 			trigger = {
 				has_completed_focus = SPA_a_great_spain
@@ -348,7 +348,7 @@ focus_tree = {
 		mutually_exclusive = { focus = SPA_sin_paquito }
 		
 		icon = GFX_goal_generic_dangerous_deal
-		x = 1
+		x = 0
 		y = 1
 		relative_position_id = SPA_secure_the_northern_garrisons
 		cost = 4
@@ -3675,7 +3675,7 @@ focus_tree = {
 		mutually_exclusive = { focus = SPA_the_phalanx_ascendant focus = SPA_supremacy_of_the_communion }
 		
 		icon = GFX_focus_spa_unify_the_nationalist_front
-		x = -1
+		x = 0
 		y = 1
 		relative_position_id = SPA_con_paquito
 		cost = 5
@@ -4112,7 +4112,9 @@ focus_tree = {
 			POR = { is_in_faction = yes }
 		}
 		prerequisite = { focus = SPA_portuguese_aid }
-		
+		allow_branch = {
+			always = no
+		}
 		icon = GFX_goal_generic_major_alliance
 		x = 0
 		y = 1
@@ -4186,7 +4188,7 @@ focus_tree = {
 		prerequisite = { focus = SPA_integrate_the_requetes focus = SPA_confirm_the_fueros }
 		
 		icon = GFX_focus_research
-		x = 3
+		x =0
 		y = 1
 		relative_position_id = SPA_integrate_the_requetes
 		cost = 10
@@ -4329,7 +4331,9 @@ focus_tree = {
 			}
 		}
 		prerequisite = { focus = SPA_fuse_the_parties }
-
+		allow_branch = {
+			always=no
+		}
 		ai_will_do = {
 			factor = 1
 			modifier = {
@@ -4373,14 +4377,29 @@ focus_tree = {
 		id = SPA_the_stabilization_plan
 		available = {
 			NOT = { has_completed_focus = SPA_expand_the_axis_gold_trade }
-			OR = {
-				is_in_faction_with = ENG
-				is_in_faction_with = USA
+			AND = {
+				OR = {
+					has_opinion = {
+						target = ENG
+						value > 74
+					}
+					has_opinion = {
+						target = USA
+						value > 74
+					}
+				}
+				NOT = {
+					any_country = {
+					is_in_faction_with = ROOT
+					has_government = fascism
+					is_major = yes
+					}
+				}
 			}
 		}
 		bypass = {
 		}
-		prerequisite = { focus = SPA_join_the_allies }
+		prerequisite = { focus = SPA_fuse_the_parties }
 		prerequisite = { focus = SPA_national_recovery }
 		
 		icon = GFX_goal_generic_neutrality_focus
@@ -4430,9 +4449,24 @@ focus_tree = {
 	focus = {
 		id = SPA_expand_spanish_bases
 		available = {
-			OR = {
-				is_in_faction_with = ENG
-				is_in_faction_with = USA
+			AND = {
+				OR = {
+					has_opinion = {
+						target = ENG
+						value > 74
+					}
+					has_opinion = {
+						target = USA
+						value > 74
+					}
+				}
+				NOT = {
+					any_country = {
+					is_in_faction_with = ROOT
+					has_government = fascism
+					is_major = yes
+					}
+				}
 			}
 		}
 		bypass = {
@@ -4594,9 +4628,24 @@ focus_tree = {
 	focus = {
 		id = SPA_capitalist_economic_aid
 		available = {
-			OR = {
-				is_in_faction_with = ENG
-				is_in_faction_with = USA
+			AND = {
+				OR = {
+					has_opinion = {
+						target = ENG
+						value > 74
+					}
+					has_opinion = {
+						target = USA
+						value > 74
+					}
+				}
+				NOT = {
+					any_country = {
+					is_in_faction_with = ROOT
+					has_government = fascism
+					is_major = yes
+					}
+				}
 			}
 		}
 		bypass = {
@@ -4658,9 +4707,24 @@ focus_tree = {
 	focus = {
 		id = SPA_improve_living_standards
 		available = {
-			OR = {
-				is_in_faction_with = ENG
-				is_in_faction_with = USA
+			AND = {
+				OR = {
+					has_opinion = {
+						target = ENG
+						value > 74
+					}
+					has_opinion = {
+						target = USA
+						value > 74
+					}
+				}
+				NOT = {
+					any_country = {
+					is_in_faction_with = ROOT
+					has_government = fascism
+					is_major = yes
+					}
+				}
 			}
 		}
 		bypass = {
@@ -4716,9 +4780,24 @@ focus_tree = {
 	focus = {
 		id = SPA_domestic_industrial_developments
 		available = {
-			OR = {
-				is_in_faction_with = ENG
-				is_in_faction_with = USA
+			AND = {
+				OR = {
+					has_opinion = {
+						target = ENG
+						value > 74
+					}
+					has_opinion = {
+						target = USA
+						value > 74
+					}
+				}
+				NOT = {
+					any_country = {
+					is_in_faction_with = ROOT
+					has_government = fascism
+					is_major = yes
+					}
+				}
 			}
 		}
 		bypass = {
@@ -4772,9 +4851,24 @@ focus_tree = {
 	focus = {
 		id = SPA_the_spanish_miracle
 		available = {
-			OR = {
-				is_in_faction_with = ENG
-				is_in_faction_with = USA
+			AND = {
+				OR = {
+					has_opinion = {
+						target = ENG
+						value > 74
+					}
+					has_opinion = {
+						target = USA
+						value > 74
+					}
+				}
+				NOT = {
+					any_country = {
+					is_in_faction_with = ROOT
+					has_government = fascism
+					is_major = yes
+					}
+				}
 			}
 		}
 		bypass = {
@@ -5540,6 +5634,7 @@ focus_tree = {
 				is_in_faction_with = ENG
 				has_war_with = ENG
 				controls_state = 118
+				has_completed_focus = SPA_the_stabilization_plan
 			}
 		}
 		bypass = {

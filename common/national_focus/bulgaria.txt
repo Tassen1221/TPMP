@@ -1910,7 +1910,9 @@ focus_tree = {
 				}
 			}
 		}
-		
+		allow_branch = {
+			always = no
+		}
 		search_filters = {FOCUS_FILTER_STABILITY FOCUS_FILTER_WAR_SUPPORT}
 		completion_reward = {
 			custom_effect_tooltip = BUL_dominance_in_the_black_sea_claims_tt
@@ -5410,7 +5412,11 @@ focus_tree = {
 				ENG = { has_capitulated = yes }
 			}
 		}
-
+		
+		allow_branch = {
+			always = no
+		}
+		
 		available = {
 			country_exists = ENG
 			NOT = { has_war_with = ENG }
@@ -6284,7 +6290,7 @@ focus_tree = {
 
 		icon = GFX_focus_BUL_power_to_the_tsar
 		relative_position_id = BUL_oppose_the_royal_dictatorship
-		x = 16
+		x = 4
 		y = 0
 		cost = 10
 		mutually_exclusive = { focus = BUL_oppose_the_royal_dictatorship }
@@ -6319,7 +6325,7 @@ focus_tree = {
 		prerequisite = { focus = BUL_power_to_the_tsar focus = BUL_oppose_the_royal_dictatorship }
 		icon = GFX_focus_BUL_condemn_macedonian_organizations
 		relative_position_id = BUL_power_to_the_tsar
-		x = -11
+		x = 6
 		y = 1
 		cost = 5
 		mutually_exclusive = { focus = BUL_support_macedonian_organizations }
@@ -6452,9 +6458,9 @@ focus_tree = {
 
 		prerequisite = { focus = BUL_power_to_the_tsar focus = BUL_oppose_the_royal_dictatorship }
 		icon = GFX_focus_BUL_destroy_the_zveno
-		relative_position_id = BUL_condemn_macedonian_organizations
-		x = 4
-		y = 0
+		relative_position_id = BUL_power_to_the_tsar
+		x = -7
+		y = 1
 		cost = 5
 
 		mutually_exclusive = { focus = BUL_cooperate_with_the_zveno }
@@ -6483,8 +6489,8 @@ focus_tree = {
 
 		prerequisite = { focus = BUL_power_to_the_tsar focus = BUL_oppose_the_royal_dictatorship }
 		icon = GFX_focus_BUL_cooperate_with_the_zveno
-		relative_position_id = BUL_condemn_macedonian_organizations
-		x = 6
+		relative_position_id = BUL_dissolve_the_military_union
+		x = 2
 		y = 0
 		cost = 5
 
@@ -6548,7 +6554,7 @@ focus_tree = {
 		prerequisite = { focus = BUL_the_tsars_regime focus = BUL_democratic_principles }
 		icon = GFX_goal_demand_sudetenland
 		relative_position_id = BUL_the_tsars_regime
-		x = -4
+		x = -2
 		y = 1
 		cost = 10
 
@@ -7210,7 +7216,9 @@ focus_tree = {
 				country_exists = TUR
 			}
 		}
-		
+		allow_branch={
+			always=no
+		}
 		completion_reward = {
 			if = {
 				limit = {
@@ -7314,6 +7322,10 @@ focus_tree = {
 				has_war = no
 			}
 			is_subject = no
+		}
+		
+		allow_branch = {
+			always = no
 		}
 		
 		completion_reward = {
@@ -7653,11 +7665,11 @@ focus_tree = {
 	focus = {
 		id = BUL_consolidate_dominance_of_the_seas
 
-		prerequisite = { focus = BUL_guardians_of_the_balkans focus = BUL_join_the_allies }
+		prerequisite = { focus = BUL_guardians_of_the_balkans focus = BUL_join_the_allies focus = BUL_join_the_tripartite_pact focus = BUL_alt_path_axis_join}
 
 		icon = GFX_goal_generic_navy_battleship
-		relative_position_id = BUL_guardians_of_the_balkans
-		x = -3
+		relative_position_id = BUL_join_the_tripartite_pact
+		x = -4
 		y = 1
 		cost = 10
 
@@ -8705,7 +8717,7 @@ focus_tree = {
 	focus = {
 		id = BUL_military_secrets_sharing
 
-		prerequisite = { focus = BUL_join_the_tripartite_pact }
+		prerequisite = { focus = BUL_join_the_tripartite_pact focus = BUL_alt_path_axis_join}
 
 		icon = GFX_goal_tfv_generic_tech_sharing
 		relative_position_id = BUL_join_the_tripartite_pact
@@ -8752,7 +8764,7 @@ focus_tree = {
 
 		icon = GFX_focus_BUL_bulgarian_administration_of_the_balkans
 		relative_position_id = BUL_join_the_tripartite_pact
-		x = -4
+		x = -1
 		y = 2
 		cost = 20
 
@@ -8875,33 +8887,33 @@ focus_tree = {
 			add_ideas = BUL_total_war
 
 			#If ROM is not an ally, then Bulgaria can go for it
-			if = {
-				limit = {
-					ROM = {
-						NOT = { is_in_faction_with = ROOT }
-					}
-				}
-				#Romanian controlled states are claimed by Bulgaria
-				ROM = {
-					every_owned_state = {
-						limit = {
-							is_fully_controlled_by = ROM
-						}
-						add_claim_by = ROOT
-					}
-				}
-				if = {
-					limit = {
-						NOT = { has_war_with = ROM }
-					}
-					create_wargoal = {
-						type = annex_everything
-						target = ROM
-						expire = 180
-					}
-					custom_effect_tooltip = BUL_total_war_wargoal_expires_tt
-				}
-			}
+			# if = {
+				# limit = {
+					# ROM = {
+						# NOT = { is_in_faction_with = ROOT }
+					# }
+				# }
+				# #Romanian controlled states are claimed by Bulgaria
+				# ROM = {
+					# every_owned_state = {
+						# limit = {
+							# is_fully_controlled_by = ROM
+						# }
+						# add_claim_by = ROOT
+					# }
+				# }
+				# if = {
+					# limit = {
+						# NOT = { has_war_with = ROM }
+					# }
+					# create_wargoal = {
+						# type = annex_everything
+						# target = ROM
+						# expire = 180
+					# }
+					# custom_effect_tooltip = BUL_total_war_wargoal_expires_tt
+				# }
+			# }
 			
 			custom_effect_tooltip = BUL_total_war_join_wars_tt
 			#Join other wars except for the Soviets
@@ -9083,9 +9095,9 @@ focus_tree = {
 		
 		search_filters = {FOCUS_FILTER_INDUSTRY}
 		completion_reward = {
-			set_rule = {
-				can_create_factions = yes
-			}
+			# set_rule = {
+				# can_create_factions = yes
+			# }
 			random_owned_state = {
 				prioritize = { 48 212 }
 				limit = {
@@ -9226,16 +9238,16 @@ focus_tree = {
 				custom_effect_tooltip = BUL_the_third_bulgarian_empire_tt
 			}
 
-			if = {
-				limit = {
-					NOT = { has_wargoal_against = TUR }
-					NOT = { is_in_faction_with = TUR }
-				}
-				create_wargoal = {
-					type = annex_everything
-					target = TUR
-				}
-			}
+			# if = {
+				# limit = {
+					# NOT = { has_wargoal_against = TUR }
+					# NOT = { is_in_faction_with = TUR }
+				# }
+				# create_wargoal = {
+					# type = annex_everything
+					# target = TUR
+				# }
+			# }
 
 			#Set ideology cosmetic tag to show the appropriate 3D models
 			set_country_flag = BUL_tbe_flag
@@ -9249,6 +9261,58 @@ focus_tree = {
 				type = declare_war
 				id = TUR
 				value = 100
+			}
+		}
+	}
+	focus = {
+		id = BUL_alt_path_axis_join
+
+		prerequisite = { focus = BUL_form_a_regency_council focus = BUL_the_return_of_ferdinand_i focus = BUL_strengthen_the_royal_dictatorship }
+
+		icon = GFX_goal_molotov_ribbentrop_pact
+		relative_position_id = BUL_form_a_regency_council
+		x = 1
+		y = 2
+		cost = 5
+		available = {
+			threat > 0.35
+			OR = {
+				AND = {
+					GER = { is_faction_leader = yes }
+					NOT = { is_justifying_wargoal_against = ROOT }
+					NOT = { has_war_with = ROOT }
+				}
+				AND = {
+					ITA = {
+						is_faction_leader = yes
+						is_in_faction_with = GER
+						NOT = { is_justifying_wargoal_against = ROOT }
+						NOT = { has_war_with = ROOT }
+					}
+				}
+			}
+			is_in_faction = no
+			is_subject = no
+		}
+		
+		
+		completion_reward = {
+			GER = { country_event = { id = generic.2 hours = 4 random_hours = 2 } }
+			custom_effect_tooltip = BUL_join_the_tripartite_pact_tt
+			if = {
+				limit = {
+					any_state = {
+						BUL_is_balkan_state = yes
+						has_state_flag = BUL_bulgarian_claim_warranted_flag
+					}
+				}
+				custom_effect_tooltip = BUL_join_the_tripartite_pact_warranted_claims_tt
+				every_state = {
+					limit = {
+						BUL_is_balkan_state = yes
+						has_state_flag = BUL_bulgarian_claim_warranted_flag
+					}
+				}
 			}
 		}
 	}
