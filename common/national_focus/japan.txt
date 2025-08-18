@@ -972,25 +972,11 @@
 		id = JAP_purge_the_kodoha_faction
 		icon = GFX_goal_generic_major_war
 		mutually_exclusive = { focus = JAP_the_unthinkable_option focus = JAP_support_the_kodoha_faction focus = JAP_strengthen_civilian_government }
-		x = 8
+		x = 4
 		y = 0
 		relative_position_id = JAP_the_unthinkable_option
-		offset = {
-			x = -8
-			y = 0
-			trigger = {
-				OR = {
-					NOT = { has_dlc = "Waking the Tiger" }
-					AND = {
-						has_game_rule = {
-							rule = obsolete_focus_branches_visibility
-							option = HIDE
-						}
-						has_completed_focus = JAP_purge_the_kodoha_faction
-					}
-				}
-			}
-		}
+	
+	
 
 		cost = 10
 
@@ -1984,17 +1970,6 @@
 		y = 1
 		relative_position_id = JAP_purge_the_kodoha_faction
 
-		offset = {
-			x = 1
-			y = 0
-			trigger = {
-				has_game_rule = {
-					rule = obsolete_focus_branches_visibility
-					option = HIDE
-				}
-				has_completed_focus = JAP_purge_the_kodoha_faction
-			}
-		}
 
 
 		cost = 10
@@ -2077,17 +2052,7 @@
 		y = 2
 		relative_position_id = JAP_guide_the_zaibatsus
 
-		offset = {
-			x = -1
-			y = 0
-			trigger = {
-				has_game_rule = {
-					rule = obsolete_focus_branches_visibility
-					option = HIDE
-				}
-				has_completed_focus = JAP_purge_the_kodoha_faction
-			}
-		}
+
 
 		cost = 10
 
@@ -2193,17 +2158,8 @@
 		y = 6
 		relative_position_id = JAP_guide_the_zaibatsus
 
-		offset = {
-			x = -1
-			y = 0
-			trigger = {
-				has_game_rule = {
-					rule = obsolete_focus_branches_visibility
-					option = HIDE
-				}
-				has_completed_focus = JAP_purge_the_kodoha_faction
-			}
-		}
+
+
 
 		cost = 10
 
@@ -2263,28 +2219,8 @@
 		x = 2
 		y = 1
 		relative_position_id = JAP_guide_the_zaibatsus
-		offset = {
-			x = -13
-			y = 0
-			trigger = {
-				has_game_rule = {
-					rule = obsolete_focus_branches_visibility
-					option = HIDE
-				}
-				has_completed_focus = JAP_support_the_kodoha_faction
-			}
-		}
-		offset = {
-			x = -1
-			y = 0
-			trigger = {
-				has_game_rule = {
-					rule = obsolete_focus_branches_visibility
-					option = HIDE
-				}
-				has_completed_focus = JAP_purge_the_kodoha_faction
-			}
-		}
+
+
 
 		cost = 10
 
@@ -2677,25 +2613,8 @@
 		y = 0
 		relative_position_id = JAP_purge_the_kodoha_faction
 
-		offset = {
-			x = -13
-			y = 0
-			trigger = {
-				has_game_rule = {
-					rule = obsolete_focus_branches_visibility
-					option = HIDE
-				}
-				has_completed_focus = JAP_support_the_kodoha_faction
-			}
-		}
 
-		offset = {
-			x = 0
-			y = 0
-			trigger = {
-				NOT = { has_dlc = "Waking the Tiger" }
-			}
-		}
+
 
 		cost = 5
 
@@ -3561,17 +3480,8 @@
 		y = 0
 		relative_position_id = JAP_support_the_kodoha_faction
 
-		offset = {
-			x = -22
-			y = 0
-			trigger = {
-				has_game_rule = {
-					rule = obsolete_focus_branches_visibility
-					option = HIDE
-				}
-				has_completed_focus = JAP_strengthen_civilian_government
-			}
-		}
+
+
 
 		cost = 10
 
@@ -4355,76 +4265,11 @@
 	focus = {
 		id = JAP_the_manchurian_project
 		icon = GFX_focus_jap_manchurian_project
-		x = 6
+		x = -2
 		y = 0
 		relative_position_id = JAP_strengthen_civilian_government
-		offset = {
-			x = -4
-			y = 0
-			trigger = {
-				NOT = { has_dlc = "Waking the Tiger" }
-			}
-		}
-		offset = {
-			x = -9
-			y = 0
-			trigger = {
-				has_dlc = "Waking the Tiger"
-				has_game_rule = {
-					rule = obsolete_focus_branches_visibility
-					option = HIDE
-				}
-				has_completed_focus = JAP_purge_the_kodoha_faction
-			}
-		}
-		offset = {
-			x = -6
-			y = 0
-			trigger = {
-				NOT = { has_dlc = "Waking the Tiger" }
-				has_game_rule = {
-					rule = obsolete_focus_branches_visibility
-					option = HIDE
-				}
-				has_completed_focus = JAP_purge_the_kodoha_faction
-			}
-		}
-		offset = {
-			x = -4
-			y = 0
-			trigger = {
-				has_dlc = "Waking the Tiger"
-				has_game_rule = {
-					rule = obsolete_focus_branches_visibility
-					option = HIDE
-				}
-				has_completed_focus = JAP_support_the_kodoha_faction
-			}
-		}
-		offset = {
-			x = 0
-			y = 0
-			trigger = {
-				NOT = { has_dlc = "Waking the Tiger" }
-				has_game_rule = {
-					rule = obsolete_focus_branches_visibility
-					option = HIDE
-				}
-				has_completed_focus = JAP_support_the_kodoha_faction
-			}
-		}
-		offset = {
-			x = -18
-			y = 0
-			trigger = {
-				has_game_rule = {
-					rule = obsolete_focus_branches_visibility
-					option = HIDE
-				}
-				has_completed_focus = JAP_the_unthinkable_option
-			}
-		}
-
+	
+	
 		cost = 10
 
 		ai_will_do = {
