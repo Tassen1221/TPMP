@@ -7324,39 +7324,45 @@ focus_tree = {
 			is_subject = no
 		}
 		
-		allow_branch = {
-			always = no
-		}
+		
 		
 		completion_reward = {
-			if = {
-				limit = {
-					is_in_faction = yes
-				}
-				leave_faction = yes
-			}
-			set_rule = {
-				can_join_factions = no
-			}
-			create_faction = BUL_greater_bulgarian_federation
+			# if = {
+				# limit = {
+					# is_in_faction = yes
+				# }
+				# leave_faction = yes
+			# }
+			# set_rule = {
+				# can_join_factions = no
+			# }
+			# create_faction = BUL_greater_bulgarian_federation
 			add_timed_idea = {
 				idea = BUL_the_fate_of_the_balkans
 				days = 365
 			}
-			every_other_country = {
-				limit = {
-					BUL_is_balkan_nation = yes
-					NOT = { has_non_aggression_pact_with = ROOT }
-					NOT = { is_guaranteed_by = ROOT }
-					NOT = { is_subject_of = ROOT }
-					is_neighbor_of = ROOT
-				}
+			# every_other_country = {
+				# limit = {
+					# BUL_is_balkan_nation = yes
+					# NOT = { has_non_aggression_pact_with = ROOT }
+					# NOT = { is_guaranteed_by = ROOT }
+					# NOT = { is_subject_of = ROOT }
+					# is_neighbor_of = ROOT
+				# }
+			GRE = {
 				add_timed_idea = {
 					idea = BUL_the_bulgarian_threat
 					days = 365
 				}
 			}
-			unlock_decision_category_tooltip = BUL_the_fate_of_the_balkans_dec_cat
+			YUG = {
+				add_timed_idea = {
+					idea = BUL_the_bulgarian_threat
+					days = 365
+				}
+			}
+			# unlock_decision_category_tooltip = BUL_the_fate_of_the_balkans_dec_cat
+			GER = { country_event = { id = generic.2 hours = 4 random_hours = 2 } }
 		}
 	}
 
@@ -7464,6 +7470,10 @@ focus_tree = {
 			is_subject = no
 		}
 		
+		allow_branch = {
+			always = no
+		}
+		
 		search_filters = {FOCUS_FILTER_WAR_SUPPORT}
 		completion_reward = {
 			add_war_support = 0.1
@@ -7569,6 +7579,10 @@ focus_tree = {
 		available = {
 			BUL_is_not_alone_in_faction = yes
 		}
+		allow_branch = {
+			always=no
+		}
+		
 		
 		search_filters = {FOCUS_FILTER_RESEARCH}
 		completion_reward = {
@@ -7598,35 +7612,35 @@ focus_tree = {
 		}
 		
 		completion_reward = {
-			hidden_effect = {
-				every_other_country = {
-					limit = {
-						any_controlled_state = {
-							BUL_is_balkan_state = yes
-						}
-						NOT = { is_in_faction_with = ROOT }
-						NOT = { is_guaranteed_by = ROOT }
-						NOT = { has_non_aggression_pact_with = ROOT }
-					}
-					ROOT = {
-						create_wargoal = {
-							type = puppet_wargoal_focus
-							target = PREV
-						}
-					}
-				}
-			}
-			custom_effect_tooltip = BUL_guardians_of_the_balkans_wargoal_tt
-			every_other_country = {
-				limit = {
-					any_controlled_state = {
-						BUL_is_balkan_state = yes
-					}
-					NOT = { is_in_faction_with = ROOT }
-					NOT = { is_guaranteed_by = ROOT }
-					NOT = { has_non_aggression_pact_with = ROOT }
-				}
-			}
+			# hidden_effect = {
+				# every_other_country = {
+					# limit = {
+						# any_controlled_state = {
+							# BUL_is_balkan_state = yes
+						# }
+						# NOT = { is_in_faction_with = ROOT }
+						# NOT = { is_guaranteed_by = ROOT }
+						# NOT = { has_non_aggression_pact_with = ROOT }
+					# }
+					# ROOT = {
+						# create_wargoal = {
+							# type = puppet_wargoal_focus
+							# target = PREV
+						# }
+					# }
+				# }
+			# }
+			# custom_effect_tooltip = BUL_guardians_of_the_balkans_wargoal_tt
+			# every_other_country = {
+				# limit = {
+					# any_controlled_state = {
+						# BUL_is_balkan_state = yes
+					# }
+					# NOT = { is_in_faction_with = ROOT }
+					# NOT = { is_guaranteed_by = ROOT }
+					# NOT = { has_non_aggression_pact_with = ROOT }
+				# }
+			# }
 			if = {
 				limit = {
 					has_idea = BUL_the_fate_of_the_balkans
@@ -7637,39 +7651,39 @@ focus_tree = {
 				custom_effect_tooltip = BUL_guardians_of_the_balkans_remove_ns_tt
 			}
 			add_ideas = BUL_guardians_of_the_balkans
-			if = {
-				limit = {
-					num_subjects > 0
-					any_country = {
-						is_subject_of = ROOT
-						BUL_is_balkan_nation = yes
-					}
-				}
-				every_other_country = {
-					limit = {
-						is_subject_of = ROOT
-						BUL_is_balkan_nation = yes
-					}
-					add_ideas = BUL_defender_of_the_balkans
-				}
-			}
-			else = {
-				custom_effect_tooltip = BUL_guardians_of_the_balkans_subject_ns_tt
-				effect_tooltip = {
-					add_ideas = BUL_defender_of_the_balkans
-				}
-			}
+			# if = {
+				# limit = {
+					# num_subjects > 0
+					# any_country = {
+						# is_subject_of = ROOT
+						# BUL_is_balkan_nation = yes
+					# }
+				# }
+				# every_other_country = {
+					# limit = {
+						# is_subject_of = ROOT
+						# BUL_is_balkan_nation = yes
+					# }
+					# add_ideas = BUL_defender_of_the_balkans
+				# }
+			# }
+			# else = {
+				# custom_effect_tooltip = BUL_guardians_of_the_balkans_subject_ns_tt
+				# effect_tooltip = {
+					# add_ideas = BUL_defender_of_the_balkans
+				# }
+			# }
 		}
 	}
 
 	focus = {
 		id = BUL_consolidate_dominance_of_the_seas
 
-		prerequisite = { focus = BUL_guardians_of_the_balkans focus = BUL_join_the_allies focus = BUL_join_the_tripartite_pact focus = BUL_alt_path_axis_join}
+		prerequisite = { focus = BUL_guardians_of_the_balkans focus = BUL_join_the_allies }
 
 		icon = GFX_goal_generic_navy_battleship
-		relative_position_id = BUL_join_the_tripartite_pact
-		x = -4
+		relative_position_id = BUL_guardians_of_the_balkans
+		x = -3
 		y = 1
 		cost = 10
 
@@ -8764,7 +8778,7 @@ focus_tree = {
 
 		icon = GFX_focus_BUL_bulgarian_administration_of_the_balkans
 		relative_position_id = BUL_join_the_tripartite_pact
-		x = -1
+		x = -4
 		y = 2
 		cost = 20
 
@@ -9261,58 +9275,6 @@ focus_tree = {
 				type = declare_war
 				id = TUR
 				value = 100
-			}
-		}
-	}
-	focus = {
-		id = BUL_alt_path_axis_join
-
-		prerequisite = { focus = BUL_form_a_regency_council focus = BUL_the_return_of_ferdinand_i focus = BUL_strengthen_the_royal_dictatorship }
-
-		icon = GFX_goal_molotov_ribbentrop_pact
-		relative_position_id = BUL_form_a_regency_council
-		x = 1
-		y = 2
-		cost = 5
-		available = {
-			threat > 0.35
-			OR = {
-				AND = {
-					GER = { is_faction_leader = yes }
-					NOT = { is_justifying_wargoal_against = ROOT }
-					NOT = { has_war_with = ROOT }
-				}
-				AND = {
-					ITA = {
-						is_faction_leader = yes
-						is_in_faction_with = GER
-						NOT = { is_justifying_wargoal_against = ROOT }
-						NOT = { has_war_with = ROOT }
-					}
-				}
-			}
-			is_in_faction = no
-			is_subject = no
-		}
-		
-		
-		completion_reward = {
-			GER = { country_event = { id = generic.2 hours = 4 random_hours = 2 } }
-			custom_effect_tooltip = BUL_join_the_tripartite_pact_tt
-			if = {
-				limit = {
-					any_state = {
-						BUL_is_balkan_state = yes
-						has_state_flag = BUL_bulgarian_claim_warranted_flag
-					}
-				}
-				custom_effect_tooltip = BUL_join_the_tripartite_pact_warranted_claims_tt
-				every_state = {
-					limit = {
-						BUL_is_balkan_state = yes
-						has_state_flag = BUL_bulgarian_claim_warranted_flag
-					}
-				}
 			}
 		}
 	}

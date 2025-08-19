@@ -409,23 +409,6 @@ ROM_change_sides = {
 
 	}
 	
-	#Carol workaround
-	ROM_go_to_axis_carol = {
-		icon = decision_generic_nationalism
-		allowed = {
-			original_tag = ROM
-		}
-		visible = {
-			is_faction_leader = no # you shouldn't be able to betray your own faction\
-			is_in_faction = no
-			original_tag = ROM
-			hidden_trigger = { has_country_flag = can_change_sides_carol}
-		}
-		fire_only_once = no
-		complete_effect = {
-			GER = { country_event = { id = generic.2 } }
-		}
-	}
 }
 
 ROM_dividing_yugo = {
