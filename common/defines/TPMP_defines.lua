@@ -20,8 +20,8 @@ NDefines.NCountry.MAX_WAR_SUPPORT = 1.5
 
 NDefines.NCountry.BASE_RESEARCH_SLOTS = 4
 
-NDefines.NCountry.SPECIAL_FORCES_CAP_BASE = 0.5			-- Max ammount of special forces battalions is total number of non-special forces battalions multiplied by this and modified by a country modifier
-NDefines.NCountry.SPECIAL_FORCES_CAP_MIN = 240			-- You can have a minimum of this many special forces battalions, regardless of the number of non-special forces battalions you have, this can also be modified by a country modifier
+NDefines.NCountry.SPECIAL_FORCES_CAP_BASE = 0.2			-- Max ammount of special forces battalions is total number of non-special forces battalions multiplied by this and modified by a country modifier
+NDefines.NCountry.SPECIAL_FORCES_CAP_MIN = 120			-- You can have a minimum of this many special forces battalions, regardless of the number of non-special forces battalions you have, this can also be modified by a country modifier
 
 NDefines.NMilitary.VPS_FOR_HISTORY_ENTRY = 1			-- Minimum VPs required to receive an entry in divisional history
 NDefines.NMilitary.VPS_FOR_HIGH_HISTORY_ENTRY = 5		-- VPs required for high-level history entry
@@ -46,7 +46,7 @@ NDefines.NMilitary.BASE_DIVISION_BRIGADE_GROUP_COST = 0 	--Base cost to unlock a
 NDefines.NMilitary.BASE_DIVISION_BRIGADE_CHANGE_COST = 0	--Base cost to change a regiment column.
 NDefines.NMilitary.BASE_DIVISION_SUPPORT_SLOT_COST = 0	 	--Base cost to unlock a support slot
 
-NDefines.NMilitary.SUPPLY_GRACE = 120				-- troops always carry 5 days of food and supply
+NDefines.NMilitary.SUPPLY_GRACE = 240				-- troops always carry 5 days of food and supply
 
 NDefines.NMilitary.LAND_COMBAT_STR_DAMAGE_MODIFIER = 0.048	-- global damage modifier... but some equipment is returned at end of battles see : EQUIPMENT_COMBAT_LOSS_FACTOR
 NDefines.NMilitary.LAND_COMBAT_ORG_DAMAGE_MODIFIER = 0.048	-- global damage modifier
@@ -54,6 +54,8 @@ NDefines.NMilitary.LAND_COMBAT_ORG_DAMAGE_MODIFIER = 0.048	-- global damage modi
 NDefines.NMilitary.LAND_AIR_COMBAT_STR_DAMAGE_MODIFIER = 0.016	-- air global damage modifier
 NDefines.NMilitary.LAND_AIR_COMBAT_ORG_DAMAGE_MODIFIER = 0.016	-- global damage modifier
 NDefines.NMilitary.LAND_AIR_COMBAT_MAX_PLANES_PER_ENEMY_WIDTH = 1	-- how many CAS/TAC can enter a combat depending on enemy width there
+
+NDefines.NMilitary.LAND_SPEED_MODIFIER = 0.03			-- basic speed control
 
 NDefines.NMilitary.PLANNING_DECAY = 0.01
 NDefines.NMilitary.PLAYER_ORDER_PLANNING_DECAY = 0.03		-- Amount of planning lost due to player manual order
@@ -88,7 +90,9 @@ NDefines.NMilitary.GARRISON_ORDER_ARMY_CAP_FACTOR = 1.0		-- armies gets increase
 
 NDefines.NMilitary.BATALION_NOT_CHANGED_EXPERIENCE_DROP = 0.0	-- Division experience drop if unit has same batalion
 NDefines.NMilitary.BATALION_CHANGED_EXPERIENCE_DROP = 1		-- Division experience drop if unit has different batalion
+
 NDefines.NMilitary.EXPERIENCE_LOSS_FACTOR = 0.7			-- percentage of experienced solders who die when manpower is removed
+NDefines.NMilitary.EQUIPMENT_COMBAT_LOSS_FACTOR = 0.70	 	-- % of equipment lost to strength ratio in combat, so some % is returned if below 1
 
 NDefines.NMilitary.TRAINING_MAX_LEVEL = 4
 NDefines.NMilitary.DEPLOY_TRAINING_MAX_LEVEL = 1
@@ -131,7 +135,7 @@ NDefines.NAir.AIR_WING_XP_LOSS_WHEN_KILLED = 400		--if a plane dies, the game as
 NDefines.NAir.AIR_WING_XP_TRAINING_MAX = 400.0 			--Max average XP achieved with training.
 
 
-NDefines.NMilitary.FUEL_CAPACITY_DEFAULT_HOURS = 168		-- default capacity if not specified
+NDefines.NMilitary.FUEL_CAPACITY_DEFAULT_HOURS = 240		-- default capacity if not specified
 
 NDefines.NMilitary.DAMAGE_SPLIT_ON_FIRST_TARGET = 0.35		--% of damage dealt to the first target in a combat. The rest will be split amongst subsequent targets. Modifiers can affect this up to a maximum of 0.9. That value must not be exposed as a define.
 
@@ -193,6 +197,9 @@ NDefines.NCountry.REINFORCEMENT_MANPOWER_DELIVERY_SPEED = 50.0	-- Modifier for a
 
 NDefines.NDiplomacy.VOLUNTEERS_PER_TARGET_PROVINCE = 0		-- Each province owned by the target country contributes this amount of volunteers to the limit.
 NDefines.NDiplomacy.VOLUNTEERS_PER_COUNTRY_ARMY = 0		-- Each army unit owned by the source country contributes this amount of volunteers to the limit.
+
+NDefines.NBuildings.BASE_FACTORY_REPAIR = 0.5			-- Default repair rate in percentage before factories are taken into account (1.0 equals 1%).
+NDefines.NBuildings.BASE_FACTORY_REPAIR_FACTOR = 1.0		-- Factory speed modifier when repairing.
 
 NDefines.NBuildings.MAX_SHARED_SLOTS = 50			-- Max slots shared by factories
 NDefines.NBuildings.AIRBASE_CAPACITY_MULT = 100			-- Each level of airbase building multiplied by this, gives capacity (max operational value). Value is int. 1 for each airplane.
@@ -354,46 +361,46 @@ NDefines.NNavy.NAVY_PIERCING_THRESHOLD_DAMAGE_VALUES = {	-- 0 armor will always 
 
 -- defines that are used for supply reach for built nodes
 NDefines.NSupply.NODE_INITIAL_SUPPLY_FLOW = 3.0
-NDefines.NSupply.NODE_STARTING_PENALTY_PER_PROVINCE = 0.30
+NDefines.NSupply.NODE_STARTING_PENALTY_PER_PROVINCE = 0.5
 NDefines.NSupply.NODE_ADDED_PENALTY_PER_PROVINCE = 0.5
 
 -- defines that are used for supply reach for dockyards
 NDefines.NSupply.NAVAL_BASE_INITIAL_SUPPLY_FLOW = 3.0
-NDefines.NSupply.NAVAL_BASE_STARTING_PENALTY_PER_PROVINCE = 1.1
+NDefines.NSupply.NAVAL_BASE_STARTING_PENALTY_PER_PROVINCE = 1.0
 NDefines.NSupply.NAVAL_BASE_ADDED_PENALTY_PER_PROVINCE = 0.5
 
 -- Node Flow (i.e. province caps) increase by this amount per railway level of the node's bottleneck
-NDefines.NSupply.NODE_FLOW_BONUS_PER_RAIL_LEVEL = 0.6
+NDefines.NSupply.NODE_FLOW_BONUS_PER_RAIL_LEVEL = 0.4
 
 -- defines that are used for supply reach for floating harbors
 NDefines.NSupply.FLOATING_HARBOR_INITIAL_SUPPLY_FLOW = 3.0
-NDefines.NSupply.FLOATING_HARBOR_STARTING_PENALTY_PER_PROVINCE = 0.8
+NDefines.NSupply.FLOATING_HARBOR_STARTING_PENALTY_PER_PROVINCE = 1.0
 NDefines.NSupply.FLOATING_HARBOR_ADDED_PENALTY_PER_PROVINCE = 0.5
 
 NDefines.NSupply.FLOATING_HARBOR_BASE_SUPPLY = 15.0		-- supply given by a floating harbor
 NDefines.NSupply.FLOATING_HARBOR_BASE_DURATION = 30		-- duration of a full hp floating harbor
 NDefines.NSupply.FLOATING_HARBOR_DURATION_RATIO_AT_MIN_HP = 0.0					-- duration mult for a harbor that was reduced to 0 hp
 
-NDefines.NSupply.SUPPLY_FLOW_DROP_REDUCTION_AT_MAX_INFRA = 0.50 -- max infrastructure level will reduce the supply flow drop off by this ratio
+NDefines.NSupply.SUPPLY_FLOW_DROP_REDUCTION_AT_MAX_INFRA = 0.5 	-- max infrastructure level will reduce the supply flow drop off by this ratio
 NDefines.NSupply.SUPPLY_FLOW_PENALTY_CROSSING_RIVERS = 0.20	-- crossing rivers introduces additional penalty
 
 -- The range bonus added to a fully motorized hub. This supply is added on top of the XXX_INITIAL_SUPPLY_FLOW defined above.
-NDefines.NSupply.SUPPLY_HUB_FULL_MOTORIZATION_BONUS = 3.0
+NDefines.NSupply.SUPPLY_HUB_FULL_MOTORIZATION_BONUS = 2.0
 -- How many trucks does it cost to fully motorize a hub
-NDefines.NSupply.SUPPLY_HUB_FULL_MOTORIZATION_TRUCK_COST = 120.0
+NDefines.NSupply.SUPPLY_HUB_FULL_MOTORIZATION_TRUCK_COST = 240.0
 -- For each additional level of motorization on a hub (i.e. contry with set motoriazation) reduce max bonus for next level by this amount
-NDefines.NSupply.SUPPLY_HUB_MOTORIZATION_MARGINAL_EFFECT_DECAY = 1.0
+NDefines.NSupply.SUPPLY_HUB_MOTORIZATION_MARGINAL_EFFECT_DECAY = 2.0
 
 
 -- used for calculating "flow" for railways.
-NDefines.NSupply.RAILWAY_BASE_FLOW = 15.0			-- how much base flow railway gives when a node connected to its capital/a naval node by a railway
+NDefines.NSupply.RAILWAY_BASE_FLOW = 5.0			-- how much base flow railway gives when a node connected to its capital/a naval node by a railway
 NDefines.NSupply.RAILWAY_FLOW_PER_LEVEL = 5.0			-- how much additional flow a railway level gives
-NDefines.NSupply.RAILWAY_FLOW_PENALTY_PER_DAMAGED = 3.0		-- penalty to flow per damaged railway
-NDefines.NSupply.RAILWAY_MIN_FLOW = 15.0			-- minimum railway flow can be reduced to
+NDefines.NSupply.RAILWAY_FLOW_PENALTY_PER_DAMAGED = 5.0		-- penalty to flow per damaged railway
+NDefines.NSupply.RAILWAY_MIN_FLOW = 5.0			-- minimum railway flow can be reduced to
 
 -- used for calculating "flow" from a naval node to another naval node when it is connected via a convoy route
-NDefines.NSupply.NAVAL_BASE_FLOW = 10.0				-- max output/input of a naval node is limited by this base value + additional ratio for each level
-NDefines.NSupply.NAVAL_FLOW_PER_LEVEL = 3.0			-- max output/input of a naval node is limited by previous base value + this define per its level
+NDefines.NSupply.NAVAL_BASE_FLOW = 5.0				-- max output/input of a naval node is limited by this base value + additional ratio for each level
+NDefines.NSupply.NAVAL_FLOW_PER_LEVEL = 2.5			-- max output/input of a naval node is limited by previous base value + this define per its level
 
 NDefines.NOperatives.AGENCY_UPGRADE_PER_OPERATIVE_SLOT = 5					-- Number of upgrade needed to unlock an additional operative slot
 NDefines.NOperatives.MAX_OPERATIVE_SLOT_FROM_AGENCY_UPGRADES = 2				-- max operative slots gained from upgrades

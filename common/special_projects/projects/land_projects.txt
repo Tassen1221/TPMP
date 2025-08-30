@@ -319,10 +319,16 @@ sp_land_land_cruiser = {
 					TECH = sp_armored_lc_high_impact_obliterator_cannon_tech	
 				}
 			}
-		}
 
-		enable_subunits = {
-			land_cruiser
+			division_template = {
+				name = "Land Cruiser"
+				is_locked = yes
+				force_allow_recruiting = yes
+				division_cap = 1
+				regiments = {
+					land_cruiser = { x = 0 y = 0 }
+				}
+			}
 		}
 
 		enable_equipments = {

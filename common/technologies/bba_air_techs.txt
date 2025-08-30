@@ -1481,7 +1481,7 @@ technologies = {
 
 		folder = {
 			name = bba_air_techs_folder
-			position = { x = 0 y = 7 }
+			position = { x = 1 y = 7 }
 		}
 
 		categories = {
@@ -1564,6 +1564,122 @@ technologies = {
 			}
 		}
 	}
+
+	#TPMP Changes
+	atcannon1_tech = {
+		enable_equipment_modules = {
+			tank_buster_1
+		}
+		
+		research_cost = 1.5
+		start_year = 1936
+
+		folder = {
+			name = bba_air_techs_folder
+			position = { x = 0 y = 2 }
+		}
+
+		path = {
+			leads_to_tech = atcannon2_tech
+			research_cost_coeff = 1
+		}
+		
+		categories = {
+			air_equipment
+			plane_modules_tech
+			cat_air_bombs
+			mio_cat_all_cas_and_modules
+			mio_cat_all_medium_aircraft_and_modules
+			mio_cat_all_heavy_aircraft_and_modules
+			mio_cat_all_light_aircraft_and_modules
+		}
+		special_project_specialization = { specialization_air }
+	}
+	atcannon2_tech = {
+
+		enable_equipment_modules = {
+			tank_buster_2
+		}
+		
+		research_cost = 1.5
+		start_year = 1939
+
+		folder = {
+			name = bba_air_techs_folder
+			position = { x = 0 y = 5` }
+		}
+
+		path = {
+			leads_to_tech = atcannon3_tech
+			research_cost_coeff = 1
+		}
+
+		path = {
+			leads_to_tech = atrocket1_tech
+			research_cost_coeff = 1
+		}
+		
+		categories = {
+			air_equipment
+			plane_modules_tech
+			cat_air_bombs
+			mio_cat_all_cas_and_modules
+			mio_cat_all_medium_aircraft_and_modules
+			mio_cat_all_heavy_aircraft_and_modules
+			mio_cat_all_light_aircraft_and_modules
+		}
+		special_project_specialization = { specialization_air }
+	}
+	atcannon3_tech = {
+
+		enable_equipment_modules = {
+			tank_buster_3
+		}
+		
+		research_cost = 1.5
+		start_year = 1945
+
+		folder = {
+			name = bba_air_techs_folder
+			position = { x = 0 y = 9 }
+		}
+		
+		categories = {
+			air_equipment
+			plane_modules_tech
+			cat_air_bombs
+			mio_cat_all_cas_and_modules
+			mio_cat_all_medium_aircraft_and_modules
+			mio_cat_all_heavy_aircraft_and_modules
+			mio_cat_all_light_aircraft_and_modules
+		}
+		special_project_specialization = { specialization_air }
+	}
+	atrocket1_tech = {
+		enable_equipment_modules = {
+			rocket_rails
+		}
+		
+		research_cost = 1.5
+		start_year = 1942
+
+		folder = {
+			name = bba_air_techs_folder
+			position = { x = -1 y = 7 }
+		}
+		
+		categories = {
+			air_equipment
+			plane_modules_tech
+			cat_air_bombs
+			mio_cat_all_cas_and_modules
+			mio_cat_all_medium_aircraft_and_modules
+			mio_cat_all_heavy_aircraft_and_modules
+			mio_cat_all_light_aircraft_and_modules
+		}
+		special_project_specialization = { specialization_air }
+	}
+	#TPMP Changes
 
 	engines_1 = {
 

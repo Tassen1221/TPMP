@@ -5272,7 +5272,7 @@ country_event = {
 				PREV.PREV = {
 					set_variable = { GER_military_army_org_factor = 0.05 }
 					set_variable = { GER_military_planning_speed = 0.25 }
-					set_variable = { GER_military_supply_factor = -0.15 }
+					set_variable = { GER_military_supply_factor = 0.15 }
 					set_variable = { GER_military_equipment_capture = 0 }
 					set_variable = { GER_military_initiative_factor = 0 }
 					set_variable = { GER_military_army_fuel_consumption_factor = 0 }
@@ -5385,7 +5385,7 @@ country_event = {
 				PREV.PREV = {
 					set_variable = { GER_military_army_org_factor = 0.05 }
 					set_variable = { GER_military_planning_speed = 0.25 }
-					set_variable = { GER_military_supply_factor = -0.15 }
+					set_variable = { GER_military_supply_factor = 0.15 }
 					set_variable = { GER_military_equipment_capture = 0 }
 					set_variable = { GER_military_initiative_factor = 0 }
 					set_variable = { GER_military_army_fuel_consumption_factor = 0 }
@@ -5552,7 +5552,7 @@ country_event = {
 				PREV.PREV = {
 					set_variable = { GER_military_army_org_factor = 0.05 }
 					set_variable = { GER_military_planning_speed = 0.25 }
-					set_variable = { GER_military_supply_factor = -0.15 }
+					set_variable = { GER_military_supply_factor = 0.15 }
 					set_variable = { GER_military_equipment_capture = 0 }
 					set_variable = { GER_military_initiative_factor = 0 }
 					set_variable = { GER_military_army_fuel_consumption_factor = 0 }
@@ -5665,7 +5665,7 @@ country_event = {
 				PREV.PREV = {
 					set_variable = { GER_military_army_org_factor = 0.05 }
 					set_variable = { GER_military_planning_speed = 0.25 }
-					set_variable = { GER_military_supply_factor = -0.15 }
+					set_variable = { GER_military_supply_factor = 0.15 }
 					set_variable = { GER_military_equipment_capture = 0 }
 					set_variable = { GER_military_initiative_factor = 0 }
 					set_variable = { GER_military_army_fuel_consumption_factor = 0 }
@@ -5808,7 +5808,7 @@ country_event = {
 				PREV.PREV = {
 					set_variable = { GER_military_army_org_factor = 0.05 }
 					set_variable = { GER_military_planning_speed = 0.25 }
-					set_variable = { GER_military_supply_factor = -0.15 }
+					set_variable = { GER_military_supply_factor = 0.15 }
 					set_variable = { GER_military_equipment_capture = 0 }
 					set_variable = { GER_military_initiative_factor = 0 }
 					set_variable = { GER_military_army_fuel_consumption_factor = 0 }
@@ -5921,7 +5921,7 @@ country_event = {
 				PREV.PREV = {
 					set_variable = { GER_military_army_org_factor = 0.05 }
 					set_variable = { GER_military_planning_speed = 0.25 }
-					set_variable = { GER_military_supply_factor = -0.15 }
+					set_variable = { GER_military_supply_factor = 0.15 }
 					set_variable = { GER_military_equipment_capture = 0 }
 					set_variable = { GER_military_initiative_factor = 0 }
 					set_variable = { GER_military_army_fuel_consumption_factor = 0 }
@@ -6058,7 +6058,7 @@ country_event = {
 				PREV.PREV = {
 					set_variable = { GER_military_army_org_factor = 0.05 }
 					set_variable = { GER_military_planning_speed = 0.25 }
-					set_variable = { GER_military_supply_factor = -0.15 }
+					set_variable = { GER_military_supply_factor = 0.15 }
 					set_variable = { GER_military_equipment_capture = 0 }
 					set_variable = { GER_military_initiative_factor = 0 }
 					set_variable = { GER_military_army_fuel_consumption_factor = 0 }
@@ -6171,7 +6171,7 @@ country_event = {
 				PREV.PREV = {
 					set_variable = { GER_military_army_org_factor = 0.05 }
 					set_variable = { GER_military_planning_speed = 0.25 }
-					set_variable = { GER_military_supply_factor = -0.15 }
+					set_variable = { GER_military_supply_factor = 0.15 }
 					set_variable = { GER_military_equipment_capture = 0 }
 					set_variable = { GER_military_initiative_factor = 0 }
 					set_variable = { GER_military_army_fuel_consumption_factor = 0 }
@@ -6306,13 +6306,13 @@ country_event = {
 			add_tech_bonus = {
 				name = med_armor_bonus
 				ahead_reduction = 1
-				category = cat_medium_armor
+				category = cat_medium_chassis_tech
 			}
 			add_tech_bonus = {
 				name = armor_bonus
 				bonus = 1.0
 				uses = 2
-				category = armor
+				category = cat_armour_tech
 			}
 		}
 		else = { #NO STEP BACK EFFECTS
@@ -6320,7 +6320,7 @@ country_event = {
 				name = armor_bonus
 				bonus = 2.0
 				uses = 1
-				category = armor
+				category = cat_armour_tech
 			}
 			create_equipment_variant = {
 				name = "Panzer VII Löwe"

@@ -228,13 +228,6 @@ economy_decisions = {
 		icon = GFX_decision_generic_construction
 
 		visible = { 
-			OR = {
-				is_major = no
-				AND = {
-					is_faction_leader = yes
-					num_of_factories < 51 #would be a minor if it wasn't for faction leader status
-				}
-			}
 		}
 		fire_only_once = yes
 
@@ -249,7 +242,7 @@ economy_decisions = {
 		}
 
 		modifier = {
-			production_speed_supply_node_factor = 3
+			production_speed_supply_node_factor = 1
 		}
 
 		complete_effect = {

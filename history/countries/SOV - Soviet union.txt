@@ -17,6 +17,9 @@ set_party_name = {
 }
 
 recruit_character = TPMP_SOV_reserve_fleet
+TPMP_SOV_reserve_fleet = {
+	set_character_flag = SOV_safe_from_purge_flag
+}
 
 #COUNTRY LEADERS
 recruit_character = SOV_iosif_stalin
@@ -1089,13 +1092,13 @@ set_autonomy = {
 		add_tech_bonus = {
 			name = med_armor_bonus
 			ahead_reduction = 2
-			category = cat_medium_armor
+			category = cat_medium_chassis_tech
 		}
 		add_tech_bonus = {
 			name = armor_bonus
 			bonus = 1.0
 			uses = 1
-			category = armor
+			category = cat_armour_tech
 		}
 	}
 	if = {
@@ -1106,7 +1109,7 @@ set_autonomy = {
 			name = armor_bonus
 			bonus = 1.0
 			uses = 2
-			category = armor
+			category = cat_armour_tech
 		}
 	}
 

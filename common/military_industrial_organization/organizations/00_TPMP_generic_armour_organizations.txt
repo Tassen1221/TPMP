@@ -34,7 +34,7 @@ TPMP_generic_assault_tank_organization = {
 	trait = {
 		token = generic_mio_trait_assault_tank_1a
 		name = generic_mio_trait_assault_tank_1a
-		icon = GFX_generic_mio_department_icon_tank_heavy_tank
+		icon = GFX_generic_mio_department_icon_tank_general_weapons
 		
 		position = { x=0 y=0 }
 		
@@ -60,7 +60,7 @@ TPMP_generic_assault_tank_organization = {
 	trait = {
 		token = generic_mio_trait_assault_tank_1c
 		name = generic_mio_trait_assault_tank_1c
-		icon = GFX_generic_mio_department_icon_tank_heavy_tank
+		icon = GFX_generic_mio_department_icon_tank_general_armor
 		
 		position = { x=5 y=0 }
 		
@@ -73,7 +73,7 @@ TPMP_generic_assault_tank_organization = {
 	trait = {
 		token = generic_mio_trait_assault_tank_2a
 		name = generic_mio_trait_assault_tank_2a
-		icon = GFX_generic_mio_department_icon_tank_heavy_tank
+		icon = GFX_generic_mio_department_icon_tank_general_at
 		
 		position = { x=0 y=1 }
 		any_parent = { generic_mio_trait_assault_tank_1a }
@@ -87,7 +87,7 @@ TPMP_generic_assault_tank_organization = {
 	trait = {
 		token = generic_mio_trait_assault_tank_2b
 		name = generic_mio_trait_assault_tank_2b
-		icon = GFX_generic_mio_department_icon_tank_heavy_tank
+		icon = GFX_generic_mio_trait_icon_armor_value
 		
 		position = { x=1 y=1 }
 		any_parent = { generic_mio_trait_assault_tank_1b }
@@ -102,7 +102,7 @@ TPMP_generic_assault_tank_organization = {
 	trait = {
 		token = generic_mio_trait_assault_tank_2c
 		name = generic_mio_trait_assault_tank_2c
-		icon = GFX_generic_mio_department_icon_tank_heavy_tank
+		icon = GFX_generic_mio_trait_icon_max_strength
 		
 		position = { x=3 y=1 }
 		any_parent = { generic_mio_trait_assault_tank_1b }
@@ -117,7 +117,7 @@ TPMP_generic_assault_tank_organization = {
 	trait = {
 		token = generic_mio_trait_assault_tank_2d
 		name = generic_mio_trait_assault_tank_2d
-		icon = GFX_generic_mio_department_icon_tank_heavy_tank
+		icon = GFX_generic_mio_department_icon_tank_general_armor
 		
 		position = { x=4 y=1 }
 		any_parent = { generic_mio_trait_assault_tank_1c }
@@ -125,9 +125,9 @@ TPMP_generic_assault_tank_organization = {
 		
 		equipment_bonus = {
 			armor_value = 0.05
+			build_cost_ic = -0.03
 		}
 		production_bonus = {
-			production_cost_factor = -0.03
 			production_resource_need_factor = 0.1
 		}
 		limit_to_equipment_type = { light_tank_chassis medium_tank_chassis heavy_tank_chassis super_heavy_tank_chassis }
@@ -135,7 +135,7 @@ TPMP_generic_assault_tank_organization = {
 	trait = {
 		token = generic_mio_trait_assault_tank_2e
 		name = generic_mio_trait_assault_tank_2e
-		icon = GFX_generic_mio_department_icon_tank_heavy_tank
+		icon = GFX_generic_mio_department_icon_tank_heavy_tank_armor
 		
 		position = { x=6 y=1 }
 		any_parent = { generic_mio_trait_assault_tank_1c }
@@ -143,9 +143,9 @@ TPMP_generic_assault_tank_organization = {
 		
 		equipment_bonus = {
 			armor_value = 0.05
+			build_cost_ic = 0.03
 		}
 		production_bonus = {
-			production_cost_factor = 0.03
 			production_resource_need_factor = -0.1
 		}
 		limit_to_equipment_type = { light_tank_chassis medium_tank_chassis heavy_tank_chassis super_heavy_tank_chassis }
@@ -153,7 +153,7 @@ TPMP_generic_assault_tank_organization = {
 	trait = {
 		token = generic_mio_trait_assault_tank_3a
 		name = generic_mio_trait_assault_tank_3a
-		icon = GFX_generic_mio_department_icon_tank_heavy_tank
+		icon = GFX_military_industrial_organization_armor
 		
 		position = { x=2 y=2 }
 		any_parent = { generic_mio_trait_assault_tank_2b generic_mio_trait_assault_tank_2c }
@@ -166,7 +166,7 @@ TPMP_generic_assault_tank_organization = {
 	trait = {
 		token = generic_mio_trait_assault_tank_3b
 		name = generic_mio_trait_assault_tank_3b
-		icon = GFX_generic_mio_department_icon_tank_heavy_tank
+		icon = GFX_generic_mio_department_icon_tank_medium_tank_materials
 		
 		position = { x=4 y=2 }
 		any_parent = { generic_mio_trait_assault_tank_2d }
@@ -182,7 +182,7 @@ TPMP_generic_assault_tank_organization = {
 	trait = {
 		token = generic_mio_trait_assault_tank_3c
 		name = generic_mio_trait_assault_tank_3c
-		icon = GFX_generic_mio_department_icon_tank_heavy_tank
+		icon = GFX_generic_mio_trait_icon_defense
 		
 		position = { x=5 y=2 }
 		any_parent = { generic_mio_trait_assault_tank_2d generic_mio_trait_assault_tank_2e }
@@ -196,23 +196,21 @@ TPMP_generic_assault_tank_organization = {
 	trait = {
 		token = generic_mio_trait_assault_tank_3d
 		name = generic_mio_trait_assault_tank_1a
-		icon = GFX_generic_mio_department_icon_tank_heavy_tank
+		icon = GFX_generic_mio_department_icon_tank_medium_tank_production
 		
 		position = { x=6 y=2 }
 		any_parent = { generic_mio_trait_assault_tank_2e }
 		
 		equipment_bonus = {
 			breakthrough = 0.05
+			build_cost_ic = -0.03
 		}
-		production_bonus = {
-			production_cost_factor = -0.03
-		}
-		limit_to_equipment_type = { light_tank_chassis medium_tank_chassis heavy_tank_chassis super_heavy_tank_chassis }
+		limit_to_equipment_type = { light_tank_chassis medium_tank_chassis }
 	}
 	trait = {
 		token = generic_mio_trait_assault_tank_4a
 		name = generic_mio_trait_assault_tank_4a
-		icon = GFX_generic_mio_department_icon_tank_heavy_tank
+		icon = GFX_generic_mio_department_icon_tank_heavy_tank_at
 		
 		position = { x=0 y=3 }
 		any_parent = { generic_mio_trait_assault_tank_2a }
@@ -225,7 +223,7 @@ TPMP_generic_assault_tank_organization = {
 	trait = {
 		token = generic_mio_trait_assault_tank_4b
 		name = generic_mio_trait_assault_tank_4b
-		icon = GFX_generic_mio_department_icon_tank_heavy_tank
+		icon = GFX_generic_mio_department_icon_tank_heavy_tank_quality
 		
 		position = { x=1 y=3 }
 		any_parent = { generic_mio_trait_assault_tank_3a }
@@ -240,7 +238,7 @@ TPMP_generic_assault_tank_organization = {
 	trait = {
 		token = generic_mio_trait_assault_tank_4c
 		name = generic_mio_trait_assault_tank_4c
-		icon = GFX_generic_mio_department_icon_tank_heavy_tank
+		icon = GFX_generic_mio_department_icon_tank_heavy_tank_armor
 		
 		position = { x=3 y=3 }
 		any_parent = { generic_mio_trait_assault_tank_3a }
@@ -255,11 +253,11 @@ TPMP_generic_assault_tank_organization = {
 	trait = {
 		token = generic_mio_trait_assault_tank_5a
 		name = generic_mio_trait_assault_tank_5a
-		icon = GFX_generic_mio_department_icon_tank_heavy_tank
+		icon = GFX_generic_mio_trait_icon_defense
 		
 		position = { x=0 y=4 }
-		all_parents = { generic_mio_trait_assault_tank_4a generic_mio_trait_assault_tank_4b }
-		all_parents = { generic_mio_trait_assault_tank_4a generic_mio_trait_assault_tank_4c }
+		all_parents = { generic_mio_trait_assault_tank_4a }
+		any_parent = { generic_mio_trait_assault_tank_4b generic_mio_trait_assault_tank_4c }
 		
 		equipment_bonus = {
 			defense = 0.1
@@ -270,16 +268,14 @@ TPMP_generic_assault_tank_organization = {
 	trait = {
 		token = generic_mio_trait_assault_tank_5b
 		name = generic_mio_trait_assault_tank_5b
-		icon = GFX_generic_mio_department_icon_tank_heavy_tank
+		icon = GFX_generic_mio_department_icon_tank_general_quality
 		
 		position = { x=2 y=4 }
 		any_parent = { generic_mio_trait_assault_tank_4b generic_mio_trait_assault_tank_4c }
 		
 		equipment_bonus = {
 			armor_value = 0.05
-		}
-		production_bonus = {
-			production_cost_factor = -0.03
+			build_cost_ic = -0.03
 		}
 		limit_to_equipment_type = { light_tank_chassis medium_tank_chassis heavy_tank_chassis super_heavy_tank_chassis }
 	}
@@ -287,7 +283,7 @@ TPMP_generic_assault_tank_organization = {
 	trait = {
 		token = generic_mio_trait_MIO_standard_tank_1a
 		name = generic_mio_trait_MIO_standard_tank_1a
-		icon = GFX_generic_mio_department_icon_tank_heavy_tank
+		icon = GFX_generic_mio_trait_icon_production_capacity
 		
 		position = { x=8 y=0 }
 		
@@ -299,7 +295,7 @@ TPMP_generic_assault_tank_organization = {
 	trait = {
 		token = generic_mio_trait_MIO_standard_tank_2a
 		name = generic_mio_trait_MIO_standard_tank_2a
-		icon = GFX_generic_mio_department_icon_tank_heavy_tank
+		icon = GFX_generic_mio_trait_icon_efficiency_gain
 		
 		position = { x=7 y=1 }
 		any_parent = { generic_mio_trait_MIO_standard_tank_1a }
@@ -315,7 +311,7 @@ TPMP_generic_assault_tank_organization = {
 	trait = {
 		token = generic_mio_trait_MIO_standard_tank_2b
 		name = generic_mio_trait_MIO_standard_tank_2b
-		icon = GFX_generic_mio_department_icon_tank_heavy_tank
+		icon = GFX_generic_mio_department_icon_facilities
 		
 		position = { x=8 y=1 }
 		any_parent = { generic_mio_trait_MIO_standard_tank_1a }
@@ -329,7 +325,7 @@ TPMP_generic_assault_tank_organization = {
 	trait = {
 		token = generic_mio_trait_MIO_standard_tank_2c
 		name = generic_mio_trait_MIO_standard_tank_2c
-		icon = GFX_generic_mio_department_icon_tank_heavy_tank
+		icon = GFX_generic_mio_trait_icon_production_capacity
 		
 		position = { x=9 y=1 }
 		any_parent = { generic_mio_trait_MIO_standard_tank_1a }
@@ -342,7 +338,7 @@ TPMP_generic_assault_tank_organization = {
 	trait = {
 		token = generic_mio_trait_MIO_standard_tank_3a
 		name = generic_mio_trait_MIO_standard_tank_3a
-		icon = GFX_generic_mio_department_icon_tank_heavy_tank
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
 		
 		position = { x=7 y=2 }
 		any_parent = { generic_mio_trait_MIO_standard_tank_2a generic_mio_trait_MIO_standard_tank_2b }
@@ -356,7 +352,7 @@ TPMP_generic_assault_tank_organization = {
 	trait = {
 		token = generic_mio_trait_MIO_standard_tank_3b
 		name = generic_mio_trait_MIO_standard_tank_3b
-		icon = GFX_generic_mio_department_icon_tank_heavy_tank
+		icon = GFX_generic_mio_department_icon_facilities
 		
 		position = { x=9 y=2 }
 		any_parent = { generic_mio_trait_MIO_standard_tank_2a generic_mio_trait_MIO_standard_tank_2b }
@@ -373,7 +369,7 @@ TPMP_generic_assault_tank_organization = {
 	trait = {
 		token = generic_mio_trait_MIO_standard_tank_4a
 		name = generic_mio_trait_MIO_standard_tank_4a
-		icon = GFX_generic_mio_department_icon_tank_heavy_tank
+		icon = GFX_generic_mio_trait_icon_efficiency_gain
 		
 		position = { x=8 y=3 }
 		any_parent = { generic_mio_trait_MIO_standard_tank_3a generic_mio_trait_MIO_standard_tank_3b }
@@ -387,7 +383,7 @@ TPMP_generic_assault_tank_organization = {
 	trait = {
 		token = generic_mio_trait_MIO_standard_tank_5a
 		name = generic_mio_trait_MIO_standard_tank_5a
-		icon = GFX_generic_mio_department_icon_tank_heavy_tank
+		icon = GFX_generic_mio_department_icon_facilities
 		
 		position = { x=8 y=4 }
 		any_parent = { generic_mio_trait_MIO_standard_tank_4a }
@@ -436,7 +432,7 @@ TPMP_generic_standard_tank_organization = {
 	trait = {
 		token = generic_mio_trait_standard_tank_1a
 		name = generic_mio_trait_standard_tank_1a
-		icon = GFX_generic_mio_department_icon_tank_heavy_tank
+		icon = GFX_generic_mio_trait_icon_reliability
 		
 		position = { x=1 y=0 }
 		
@@ -448,7 +444,7 @@ TPMP_generic_standard_tank_organization = {
 	trait = {
 		token = generic_mio_trait_standard_tank_1b
 		name = generic_mio_trait_standard_tank_1b
-		icon = GFX_generic_mio_department_icon_tank_heavy_tank
+		icon = GFX_generic_mio_department_icon_tank_medium_tank_quality
 		
 		position = { x=4 y=0 }
 		
@@ -460,7 +456,7 @@ TPMP_generic_standard_tank_organization = {
 	trait = {
 		token = generic_mio_trait_standard_tank_2a
 		name = generic_mio_trait_standard_tank_2a
-		icon = GFX_generic_mio_department_icon_tank_heavy_tank
+		icon = GFX_generic_mio_trait_icon_max_strength
 		
 		position = { x=0 y=1 }
 		any_parent = { generic_mio_trait_standard_tank_1a }
@@ -474,20 +470,20 @@ TPMP_generic_standard_tank_organization = {
 	trait = {
 		token = generic_mio_trait_standard_tank_2b
 		name = generic_mio_trait_standard_tank_2b
-		icon = GFX_generic_mio_department_icon_tank_heavy_tank
+		icon = GFX_generic_mio_trait_icon_build_cost_ic
 		
 		position = { x=2 y=1 }
 		all_parents = { generic_mio_trait_standard_tank_1a generic_mio_trait_standard_tank_1b }
 		
-		production_bonus = {
-			production_cost_factor = -0.05
+		equipment_bonus = {
+			build_cost_ic = -0.05
 		}
 		limit_to_equipment_type = { light_tank_chassis medium_tank_chassis heavy_tank_chassis super_heavy_tank_chassis }
 	}
 	trait = {
 		token = generic_mio_trait_standard_tank_2c
 		name = generic_mio_trait_standard_tank_2c
-		icon = GFX_generic_mio_department_icon_tank_heavy_tank
+		icon = GFX_generic_mio_department_icon_tank_general_quality
 		
 		position = { x=3 y=1 }
 		any_parent = { generic_mio_trait_standard_tank_1b }
@@ -501,7 +497,7 @@ TPMP_generic_standard_tank_organization = {
 	trait = {
 		token = generic_mio_trait_standard_tank_2d
 		name = generic_mio_trait_standard_tank_2d
-		icon = GFX_generic_mio_department_icon_tank_heavy_tank
+		icon = GFX_generic_mio_department_icon_tank_medium_tank_engine
 		
 		position = { x=4 y=1 }
 		any_parent = { generic_mio_trait_standard_tank_1b }
@@ -516,7 +512,7 @@ TPMP_generic_standard_tank_organization = {
 	trait = {
 		token = generic_mio_trait_standard_tank_2e
 		name = generic_mio_trait_standard_tank_2e
-		icon = GFX_generic_mio_department_icon_tank_heavy_tank
+		icon = GFX_generic_mio_trait_icon_ap_attack
 		
 		position = { x=5 y=1 }
 		any_parent = { generic_mio_trait_standard_tank_1b }
@@ -531,7 +527,7 @@ TPMP_generic_standard_tank_organization = {
 	trait = {
 		token = generic_mio_trait_standard_tank_2f
 		name = generic_mio_trait_standard_tank_2f
-		icon = GFX_generic_mio_department_icon_tank_heavy_tank
+		icon = GFX_generic_mio_department_icon_tank_medium_tank_at
 		
 		position = { x=6 y=1 }
 		any_parent = { generic_mio_trait_standard_tank_1b }
@@ -545,7 +541,7 @@ TPMP_generic_standard_tank_organization = {
 	trait = {
 		token = generic_mio_trait_standard_tank_3a
 		name = generic_mio_trait_standard_tank_3a
-		icon = GFX_generic_mio_department_icon_tank_heavy_tank
+		icon = GFX_generic_mio_trait_icon_armor_value
 		
 		position = { x=1 y=2 }
 		any_parent = { generic_mio_trait_standard_tank_1b }
@@ -559,7 +555,7 @@ TPMP_generic_standard_tank_organization = {
 	trait = {
 		token = generic_mio_trait_standard_tank_3b
 		name = generic_mio_trait_standard_tank_3b
-		icon = GFX_generic_mio_department_icon_tank_heavy_tank
+		icon = GFX_generic_mio_department_icon_tank_medium_tank
 		
 		position = { x=4 y=2 }
 		any_parent = { generic_mio_trait_standard_tank_2c generic_mio_trait_standard_tank_2d generic_mio_trait_standard_tank_2e }
@@ -572,7 +568,7 @@ TPMP_generic_standard_tank_organization = {
 	trait = {
 		token = generic_mio_trait_standard_tank_3c
 		name = generic_mio_trait_standard_tank_3c
-		icon = GFX_generic_mio_department_icon_tank_heavy_tank
+		icon = GFX_generic_mio_department_icon_tank_medium_tank_spg
 		
 		position = { x=6 y=2 }
 		any_parent = { generic_mio_trait_standard_tank_2f }
@@ -586,7 +582,7 @@ TPMP_generic_standard_tank_organization = {
 	trait = {
 		token = generic_mio_trait_standard_tank_4a
 		name = generic_mio_trait_standard_tank_4a
-		icon = GFX_generic_mio_department_icon_tank_heavy_tank
+		icon = GFX_generic_mio_trait_icon_breakthrough
 		
 		position = { x=3 y=3 }
 		any_parent = { generic_mio_trait_standard_tank_3b }
@@ -601,7 +597,7 @@ TPMP_generic_standard_tank_organization = {
 	trait = {
 		token = generic_mio_trait_standard_tank_4b
 		name = generic_mio_trait_standard_tank_4b
-		icon = GFX_generic_mio_department_icon_tank_heavy_tank
+		icon = GFX_generic_mio_department_icon_tank_general_quality
 		
 		position = { x=4 y=3 }
 		any_parent = { generic_mio_trait_standard_tank_3b }
@@ -616,7 +612,7 @@ TPMP_generic_standard_tank_organization = {
 	trait = {
 		token = generic_mio_trait_standard_tank_4c
 		name = generic_mio_trait_standard_tank_4c
-		icon = GFX_generic_mio_department_icon_tank_heavy_tank
+		icon = GFX_generic_mio_trait_icon_max_strength
 		
 		position = { x=5 y=3 }
 		any_parent = { generic_mio_trait_standard_tank_3b }
@@ -631,7 +627,7 @@ TPMP_generic_standard_tank_organization = {
 	trait = {
 		token = generic_mio_trait_standard_tank_5a
 		name = generic_mio_trait_standard_tank_5a
-		icon = GFX_generic_mio_department_icon_tank_heavy_tank
+		icon = GFX_military_industrial_organization_armor
 		
 		position = { x=4 y=4 }
 		any_parent = { generic_mio_trait_standard_tank_4a generic_mio_trait_standard_tank_4b generic_mio_trait_standard_tank_4c }
@@ -646,7 +642,7 @@ TPMP_generic_standard_tank_organization = {
 	trait = {
 		token = generic_mio_trait_MIO_standard_tank_1a
 		name = generic_mio_trait_MIO_standard_tank_1a
-		icon = GFX_generic_mio_department_icon_tank_heavy_tank
+		icon = GFX_generic_mio_trait_icon_production_capacity
 		
 		position = { x=8 y=0 }
 		
@@ -658,7 +654,7 @@ TPMP_generic_standard_tank_organization = {
 	trait = {
 		token = generic_mio_trait_MIO_standard_tank_2a
 		name = generic_mio_trait_MIO_standard_tank_2a
-		icon = GFX_generic_mio_department_icon_tank_heavy_tank
+		icon = GFX_generic_mio_trait_icon_efficiency_gain
 		
 		position = { x=7 y=1 }
 		any_parent = { generic_mio_trait_MIO_standard_tank_1a }
@@ -674,7 +670,7 @@ TPMP_generic_standard_tank_organization = {
 	trait = {
 		token = generic_mio_trait_MIO_standard_tank_2b
 		name = generic_mio_trait_MIO_standard_tank_2b
-		icon = GFX_generic_mio_department_icon_tank_heavy_tank
+		icon = GFX_generic_mio_department_icon_facilities
 		
 		position = { x=8 y=1 }
 		any_parent = { generic_mio_trait_MIO_standard_tank_1a }
@@ -688,7 +684,7 @@ TPMP_generic_standard_tank_organization = {
 	trait = {
 		token = generic_mio_trait_MIO_standard_tank_2c
 		name = generic_mio_trait_MIO_standard_tank_2c
-		icon = GFX_generic_mio_department_icon_tank_heavy_tank
+		icon = GFX_generic_mio_trait_icon_production_capacity
 		
 		position = { x=9 y=1 }
 		any_parent = { generic_mio_trait_MIO_standard_tank_1a }
@@ -701,7 +697,7 @@ TPMP_generic_standard_tank_organization = {
 	trait = {
 		token = generic_mio_trait_MIO_standard_tank_3a
 		name = generic_mio_trait_MIO_standard_tank_3a
-		icon = GFX_generic_mio_department_icon_tank_heavy_tank
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
 		
 		position = { x=7 y=2 }
 		any_parent = { generic_mio_trait_MIO_standard_tank_2a generic_mio_trait_MIO_standard_tank_2b }
@@ -715,7 +711,7 @@ TPMP_generic_standard_tank_organization = {
 	trait = {
 		token = generic_mio_trait_MIO_standard_tank_3b
 		name = generic_mio_trait_MIO_standard_tank_3b
-		icon = GFX_generic_mio_department_icon_tank_heavy_tank
+		icon = GFX_generic_mio_department_icon_facilities
 		
 		position = { x=9 y=2 }
 		any_parent = { generic_mio_trait_MIO_standard_tank_2a generic_mio_trait_MIO_standard_tank_2b }
@@ -732,7 +728,7 @@ TPMP_generic_standard_tank_organization = {
 	trait = {
 		token = generic_mio_trait_MIO_standard_tank_4a
 		name = generic_mio_trait_MIO_standard_tank_4a
-		icon = GFX_generic_mio_department_icon_tank_heavy_tank
+		icon = GFX_generic_mio_trait_icon_efficiency_gain
 		
 		position = { x=8 y=3 }
 		any_parent = { generic_mio_trait_MIO_standard_tank_3a generic_mio_trait_MIO_standard_tank_3b }
@@ -746,7 +742,7 @@ TPMP_generic_standard_tank_organization = {
 	trait = {
 		token = generic_mio_trait_MIO_standard_tank_5a
 		name = generic_mio_trait_MIO_standard_tank_5a
-		icon = GFX_generic_mio_department_icon_tank_heavy_tank
+		icon = GFX_generic_mio_department_icon_facilities
 		
 		position = { x=8 y=4 }
 		any_parent = { generic_mio_trait_MIO_standard_tank_4a }
@@ -854,9 +850,7 @@ TPMP_generic_manoeuvre_tank_organization = {
 		
 		equipment_bonus = {
 			reliability = 0.03
-		}
-		production_bonus = {
-			production_cost_factor = -0.03
+			build_cost_ic = -0.03
 		}
 		limit_to_equipment_type = { heavy_tank_chassis super_heavy_tank_chassis }
 	}
@@ -884,9 +878,7 @@ TPMP_generic_manoeuvre_tank_organization = {
 		
 		equipment_bonus = {
 			maximum_speed = 0.05
-		}
-		production_bonus = {
-			production_cost_factor = -0.03
+			build_cost_ic = -0.03
 		}
 		limit_to_equipment_type = { light_tank_chassis medium_tank_chassis heavy_tank_chassis super_heavy_tank_chassis }
 	}
@@ -953,6 +945,7 @@ TPMP_generic_manoeuvre_tank_organization = {
 		
 		position = { x=2 y=3 }
 		any_parent = { generic_mio_trait_manoeuvre_tank_3b }
+		mutually_exclusive = { generic_mio_trait_manoeuvre_tank_4b }
 		
 		equipment_bonus = {
 			max_strength = 0.5
@@ -966,7 +959,7 @@ TPMP_generic_manoeuvre_tank_organization = {
 		
 		position = { x=4 y=3 }
 		any_parent = { generic_mio_trait_manoeuvre_tank_3c }
-		mutually_exclusive = { generic_mio_trait_manoeuvre_tank_4c }
+		mutually_exclusive = { generic_mio_trait_manoeuvre_tank_4a }
 		
 		equipment_bonus = {
 			maximum_speed = 0.05
@@ -980,7 +973,6 @@ TPMP_generic_manoeuvre_tank_organization = {
 		
 		position = { x=6 y=3 }
 		any_parent = { generic_mio_trait_manoeuvre_tank_3d }
-		mutually_exclusive = { generic_mio_trait_manoeuvre_tank_4b }
 		
 		equipment_bonus = {
 			maximum_speed = 0.03
@@ -1006,7 +998,7 @@ TPMP_generic_manoeuvre_tank_organization = {
 	trait = {
 		token = generic_mio_trait_MIO_standard_tank_1a
 		name = generic_mio_trait_MIO_standard_tank_1a
-		icon = GFX_generic_mio_department_icon_tank_heavy_tank
+		icon = GFX_generic_mio_trait_icon_production_capacity
 		
 		position = { x=8 y=0 }
 		
@@ -1018,7 +1010,7 @@ TPMP_generic_manoeuvre_tank_organization = {
 	trait = {
 		token = generic_mio_trait_MIO_standard_tank_2a
 		name = generic_mio_trait_MIO_standard_tank_2a
-		icon = GFX_generic_mio_department_icon_tank_heavy_tank
+		icon = GFX_generic_mio_trait_icon_efficiency_gain
 		
 		position = { x=7 y=1 }
 		any_parent = { generic_mio_trait_MIO_standard_tank_1a }
@@ -1034,7 +1026,7 @@ TPMP_generic_manoeuvre_tank_organization = {
 	trait = {
 		token = generic_mio_trait_MIO_standard_tank_2b
 		name = generic_mio_trait_MIO_standard_tank_2b
-		icon = GFX_generic_mio_department_icon_tank_heavy_tank
+		icon = GFX_generic_mio_department_icon_facilities
 		
 		position = { x=8 y=1 }
 		any_parent = { generic_mio_trait_MIO_standard_tank_1a }
@@ -1048,7 +1040,7 @@ TPMP_generic_manoeuvre_tank_organization = {
 	trait = {
 		token = generic_mio_trait_MIO_standard_tank_2c
 		name = generic_mio_trait_MIO_standard_tank_2c
-		icon = GFX_generic_mio_department_icon_tank_heavy_tank
+		icon = GFX_generic_mio_trait_icon_production_capacity
 		
 		position = { x=9 y=1 }
 		any_parent = { generic_mio_trait_MIO_standard_tank_1a }
@@ -1061,7 +1053,7 @@ TPMP_generic_manoeuvre_tank_organization = {
 	trait = {
 		token = generic_mio_trait_MIO_standard_tank_3a
 		name = generic_mio_trait_MIO_standard_tank_3a
-		icon = GFX_generic_mio_department_icon_tank_heavy_tank
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
 		
 		position = { x=7 y=2 }
 		any_parent = { generic_mio_trait_MIO_standard_tank_2a generic_mio_trait_MIO_standard_tank_2b }
@@ -1075,7 +1067,7 @@ TPMP_generic_manoeuvre_tank_organization = {
 	trait = {
 		token = generic_mio_trait_MIO_standard_tank_3b
 		name = generic_mio_trait_MIO_standard_tank_3b
-		icon = GFX_generic_mio_department_icon_tank_heavy_tank
+		icon = GFX_generic_mio_department_icon_facilities
 		
 		position = { x=9 y=2 }
 		any_parent = { generic_mio_trait_MIO_standard_tank_2a generic_mio_trait_MIO_standard_tank_2b }
@@ -1092,7 +1084,7 @@ TPMP_generic_manoeuvre_tank_organization = {
 	trait = {
 		token = generic_mio_trait_MIO_standard_tank_4a
 		name = generic_mio_trait_MIO_standard_tank_4a
-		icon = GFX_generic_mio_department_icon_tank_heavy_tank
+		icon = GFX_generic_mio_trait_icon_efficiency_gain
 		
 		position = { x=8 y=3 }
 		any_parent = { generic_mio_trait_MIO_standard_tank_3a generic_mio_trait_MIO_standard_tank_3b }
@@ -1106,7 +1098,7 @@ TPMP_generic_manoeuvre_tank_organization = {
 	trait = {
 		token = generic_mio_trait_MIO_standard_tank_5a
 		name = generic_mio_trait_MIO_standard_tank_5a
-		icon = GFX_generic_mio_department_icon_tank_heavy_tank
+		icon = GFX_generic_mio_department_icon_facilities
 		
 		position = { x=8 y=4 }
 		any_parent = { generic_mio_trait_MIO_standard_tank_4a }
@@ -1187,9 +1179,7 @@ TPMP_generic_production_tank_organization = {
 		
 		equipment_bonus = {
 			soft_attack = -0.05
-		}
-		production_bonus = {
-			production_cost_factor = -0.03
+			build_cost_ic = -0.03
 		}
 		limit_to_equipment_type = { light_tank_chassis medium_tank_chassis heavy_tank_chassis super_heavy_tank_chassis }
 	}
@@ -1218,9 +1208,7 @@ TPMP_generic_production_tank_organization = {
 		
 		equipment_bonus = {
 			breakthrough = 0.05
-		}
-		production_bonus = {
-			production_cost_factor = -0.03
+			build_cost_ic = -0.03
 		}
 		limit_to_equipment_type = { light_tank_chassis medium_tank_chassis heavy_tank_chassis super_heavy_tank_chassis }
 	}
@@ -1261,9 +1249,7 @@ TPMP_generic_production_tank_organization = {
 		
 		equipment_bonus = {
 			hard_attack = -0.05
-		}
-		production_bonus = {
-			production_cost_factor = -0.03
+			build_cost_ic = -0.03
 		}
 		limit_to_equipment_type = { light_tank_chassis medium_tank_chassis heavy_tank_chassis super_heavy_tank_chassis }
 	}
@@ -1291,9 +1277,7 @@ TPMP_generic_production_tank_organization = {
 		
 		equipment_bonus = {
 			reliability = 0.05
-		}
-		production_bonus = {
-			production_cost_factor = -0.03
+			build_cost_ic = -0.03
 		}
 		limit_to_equipment_type = { light_tank_chassis medium_tank_chassis heavy_tank_chassis super_heavy_tank_chassis }
 	}
@@ -1347,53 +1331,93 @@ TPMP_generic_production_tank_organization = {
 		position = { x=3 y=4 }
 		any_parent = { generic_mio_trait_production_tank_2c generic_mio_trait_production_tank_4a }
 		
-		production_bonus = {
-			production_cost_factor = -0.05
+		equipment_bonus = {
+			breakthrough = -0.05
+			build_cost_ic = -0.05
 		}
 		limit_to_equipment_type = { light_tank_chassis medium_tank_chassis heavy_tank_chassis super_heavy_tank_chassis }
 	}
 
 	trait = {
-		token = generic_mio_trait_MIO_production_tank_1a
-		name = generic_mio_trait_MIO_production_tank_1a
-		icon = GFX_generic_mio_department_icon_tank_heavy_tank
+		token = generic_mio_trait_MIO_standard_tank_1a
+		name = generic_mio_trait_MIO_standard_tank_1a
+		icon = GFX_generic_mio_trait_icon_production_capacity
 		
 		position = { x=8 y=0 }
 		
 		production_bonus = {
 			production_capacity_factor = 0.05
 		}
+		limit_to_equipment_type = { light_tank_chassis medium_tank_chassis heavy_tank_chassis super_heavy_tank_chassis }
+	}
+	trait = {
+		token = generic_mio_trait_MIO_standard_tank_2a
+		name = generic_mio_trait_MIO_standard_tank_2a
+		icon = GFX_generic_mio_trait_icon_efficiency_gain
+		
+		position = { x=7 y=1 }
+		any_parent = { generic_mio_trait_MIO_standard_tank_1a }
+		
+		production_bonus = {
+			production_efficiency_gain_factor = 0.05
+		}
 		organization_modifier = {
+			military_industrial_organization_research_bonus = 0.05
+		}
+		limit_to_equipment_type = { light_tank_chassis medium_tank_chassis heavy_tank_chassis super_heavy_tank_chassis }
+	}
+	trait = {
+		token = generic_mio_trait_MIO_standard_tank_2b
+		name = generic_mio_trait_MIO_standard_tank_2b
+		icon = GFX_generic_mio_department_icon_facilities
+		
+		position = { x=8 y=1 }
+		any_parent = { generic_mio_trait_MIO_standard_tank_1a }
+		
+		organization_modifier = {
+			military_industrial_organization_research_bonus = 0.05
 			military_industrial_organization_funds_gain = 0.1
 		}
 		limit_to_equipment_type = { light_tank_chassis medium_tank_chassis heavy_tank_chassis super_heavy_tank_chassis }
 	}
 	trait = {
-		token = generic_mio_trait_MIO_production_tank_2a
-		name = generic_mio_trait_MIO_production_tank_2a
-		icon = GFX_generic_mio_department_icon_tank_heavy_tank
-		
-		position = { x=7 y=1 }
-		any_parent = { generic_mio_trait_MIO_production_tank_1a }
-		mutually_exclusive = { generic_mio_trait_MIO_production_tank_2b }
-		
-		production_bonus = {
-			production_efficiency_cap_factor = 0.1
-			production_efficiency_gain_factor = 0.05
-		}
-		limit_to_equipment_type = { light_tank_chassis medium_tank_chassis heavy_tank_chassis super_heavy_tank_chassis }
-	}
-	trait = {
-		token = generic_mio_trait_MIO_production_tank_2b
-		name = generic_mio_trait_MIO_production_tank_2b
-		icon = GFX_generic_mio_department_icon_tank_heavy_tank
+		token = generic_mio_trait_MIO_standard_tank_2c
+		name = generic_mio_trait_MIO_standard_tank_2c
+		icon = GFX_generic_mio_trait_icon_production_capacity
 		
 		position = { x=9 y=1 }
-		any_parent = { generic_mio_trait_MIO_production_tank_1a }
-		mutually_exclusive = { generic_mio_trait_MIO_production_tank_2a }
+		any_parent = { generic_mio_trait_MIO_standard_tank_1a }
 		
 		production_bonus = {
 			production_capacity_factor = 0.05
+		}
+		limit_to_equipment_type = { light_tank_chassis medium_tank_chassis heavy_tank_chassis super_heavy_tank_chassis }
+	}
+	trait = {
+		token = generic_mio_trait_MIO_standard_tank_3a
+		name = generic_mio_trait_MIO_standard_tank_3a
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		
+		position = { x=7 y=2 }
+		any_parent = { generic_mio_trait_MIO_standard_tank_2a generic_mio_trait_MIO_standard_tank_2b }
+		mutually_exclusive = { generic_mio_trait_MIO_standard_tank_3b }
+
+		production_bonus = {
+			production_efficiency_cap_factor = 0.05
+		}
+		limit_to_equipment_type = { light_tank_chassis medium_tank_chassis heavy_tank_chassis super_heavy_tank_chassis }
+	}
+	trait = {
+		token = generic_mio_trait_MIO_standard_tank_3b
+		name = generic_mio_trait_MIO_standard_tank_3b
+		icon = GFX_generic_mio_department_icon_facilities
+		
+		position = { x=9 y=2 }
+		any_parent = { generic_mio_trait_MIO_standard_tank_2a generic_mio_trait_MIO_standard_tank_2b }
+		mutually_exclusive = { generic_mio_trait_MIO_standard_tank_3a }
+
+		production_bonus = {
+			production_efficiency_cap_factor = 0.03
 		}
 		organization_modifier = {
 			military_industrial_organization_task_capacity = 1
@@ -1401,86 +1425,32 @@ TPMP_generic_production_tank_organization = {
 		limit_to_equipment_type = { light_tank_chassis medium_tank_chassis heavy_tank_chassis super_heavy_tank_chassis }
 	}
 	trait = {
-		token = generic_mio_trait_MIO_production_tank_3a
-		name = generic_mio_trait_MIO_production_tank_3a
-		icon = GFX_generic_mio_department_icon_tank_heavy_tank
+		token = generic_mio_trait_MIO_standard_tank_4a
+		name = generic_mio_trait_MIO_standard_tank_4a
+		icon = GFX_generic_mio_trait_icon_efficiency_gain
 		
-		position = { x=7 y=2 }
-		any_parent = { generic_mio_trait_MIO_production_tank_2a }
+		position = { x=8 y=3 }
+		any_parent = { generic_mio_trait_MIO_standard_tank_3a generic_mio_trait_MIO_standard_tank_3b }
 		
 		production_bonus = {
 			production_efficiency_gain_factor = 0.05
-			production_resource_need_factor = -0.1
-		}
-		limit_to_equipment_type = { light_tank_chassis medium_tank_chassis heavy_tank_chassis super_heavy_tank_chassis }
-	}
-	trait = {
-		token = generic_mio_trait_MIO_production_tank_3b
-		name = generic_mio_trait_MIO_production_tank_3b
-		icon = GFX_generic_mio_department_icon_tank_heavy_tank
-		
-		position = { x=8 y=2 }
-		any_parent = { generic_mio_trait_MIO_production_tank_2b }
-		
-		organization_modifier = {
-			military_industrial_organization_research_bonus = 0.05
-			military_industrial_organization_task_capacity = 1
-		}
-		limit_to_equipment_type = { light_tank_chassis medium_tank_chassis heavy_tank_chassis super_heavy_tank_chassis }
-	}
-	trait = {
-		token = generic_mio_trait_MIO_production_tank_3c
-		name = generic_mio_trait_MIO_production_tank_3c
-		icon = GFX_generic_mio_department_icon_tank_heavy_tank
-		
-		position = { x=9 y=2 }
-		any_parent = { generic_mio_trait_MIO_production_tank_2b }
-		
-		production_bonus = {
 			production_resource_need_factor = -0.05
 		}
-		organization_modifier = {
-			military_industrial_organization_task_capacity = 1
-		}
 		limit_to_equipment_type = { light_tank_chassis medium_tank_chassis heavy_tank_chassis super_heavy_tank_chassis }
 	}
 	trait = {
-		token = generic_mio_trait_MIO_production_tank_4a
-		name = generic_mio_trait_MIO_production_tank_4a
-		icon = GFX_generic_mio_department_icon_tank_heavy_tank
-		
-		position = { x=8 y=3 }
-		any_parent = { generic_mio_trait_MIO_production_tank_3b }
-		
-		production_bonus = {
-			production_capacity_factor = 0.05
-		}
-		limit_to_equipment_type = { light_tank_chassis medium_tank_chassis heavy_tank_chassis super_heavy_tank_chassis }
-	}
-	trait = {
-		token = generic_mio_trait_MIO_production_tank_4b
-		name = generic_mio_trait_MIO_production_tank_4b
-		icon = GFX_generic_mio_department_icon_tank_heavy_tank
-		
-		position = { x=9 y=3 }
-		any_parent = { generic_mio_trait_MIO_production_tank_3c }
-		
-		production_bonus = {
-			production_resource_need_factor = -0.1
-		}
-		limit_to_equipment_type = { light_tank_chassis medium_tank_chassis heavy_tank_chassis super_heavy_tank_chassis }
-	}
-	trait = {
-		token = generic_mio_trait_MIO_production_tank_5a
-		name = generic_mio_trait_MIO_production_tank_5a
-		icon = GFX_generic_mio_department_icon_tank_heavy_tank
+		token = generic_mio_trait_MIO_standard_tank_5a
+		name = generic_mio_trait_MIO_standard_tank_5a
+		icon = GFX_generic_mio_department_icon_facilities
 		
 		position = { x=8 y=4 }
-		any_parent = { generic_mio_trait_MIO_production_tank_4a }
+		any_parent = { generic_mio_trait_MIO_standard_tank_4a }
 		
 		production_bonus = {
-			production_efficiency_cap_factor = 0.1
 			production_capacity_factor = 0.05
+		}
+		organization_modifier = {
+			military_industrial_organization_task_capacity = 1
 		}
 		limit_to_equipment_type = { light_tank_chassis medium_tank_chassis heavy_tank_chassis super_heavy_tank_chassis }
 	}
@@ -1512,7 +1482,7 @@ TPMP_generic_firepower_tank_organization = {
 		name = generic_mio_initial_trait_firepower_tank
 		
 		equipment_bonus = {
-			hard_attack = 0.03
+			ap_attack = 0.03
 		}
 
 		limit_to_equipment_type = { light_tank_chassis medium_tank_chassis heavy_tank_chassis super_heavy_tank_chassis }
@@ -1527,6 +1497,7 @@ TPMP_generic_firepower_tank_organization = {
 		equipment_bonus = {
 			hard_attack = 0.03
 			soft_attack = 0.03
+			build_cost_ic = 0.05
 		}
 		limit_to_equipment_type = { light_tank_chassis medium_tank_chassis heavy_tank_chassis super_heavy_tank_chassis }
 	}
@@ -1553,9 +1524,7 @@ TPMP_generic_firepower_tank_organization = {
 		
 		equipment_bonus = {
 			hard_attack = 0.05
-		}
-		production_bonus = {
-			production_cost_factor = 0.03
+			build_cost_ic = 0.03
 		}
 		limit_to_equipment_type = { light_tank_chassis medium_tank_chassis heavy_tank_chassis super_heavy_tank_chassis }
 	}
@@ -1595,7 +1564,6 @@ TPMP_generic_firepower_tank_organization = {
 		
 		equipment_bonus = {
 			maximum_speed = 0.05
-			reliability = 0.03
 		}
 		limit_to_equipment_type = { light_tank_chassis medium_tank_chassis heavy_tank_chassis super_heavy_tank_chassis }
 	}
@@ -1651,9 +1619,7 @@ TPMP_generic_firepower_tank_organization = {
 		equipment_bonus = {
 			armor_value = 0.05
 			breakthrough = 0.1
-		}
-		production_bonus = {
-			production_cost_factor = 0.03
+			build_cost_ic = 0.03
 		}
 		limit_to_equipment_type = { light_tank_chassis medium_tank_chassis heavy_tank_chassis super_heavy_tank_chassis }
 	}
@@ -1668,7 +1634,6 @@ TPMP_generic_firepower_tank_organization = {
 		
 		equipment_bonus = {
 			breakthrough = 0.05
-			reliability = 0.03
 		}
 		limit_to_equipment_type = { light_tank_chassis medium_tank_chassis heavy_tank_chassis super_heavy_tank_chassis }
 	}
@@ -1681,7 +1646,7 @@ TPMP_generic_firepower_tank_organization = {
 		any_parent = { generic_mio_trait_firepower_tank_2d }
 		
 		equipment_bonus = {
-			reliability = 0.05
+			reliability = 0.03
 		}
 		limit_to_equipment_type = { light_tank_chassis medium_tank_chassis heavy_tank_chassis super_heavy_tank_chassis }
 	}
@@ -1744,7 +1709,7 @@ TPMP_generic_firepower_tank_organization = {
 	trait = {
 		token = generic_mio_trait_MIO_standard_tank_1a
 		name = generic_mio_trait_MIO_standard_tank_1a
-		icon = GFX_generic_mio_department_icon_tank_heavy_tank
+		icon = GFX_generic_mio_trait_icon_production_capacity
 		
 		position = { x=8 y=0 }
 		
@@ -1756,7 +1721,7 @@ TPMP_generic_firepower_tank_organization = {
 	trait = {
 		token = generic_mio_trait_MIO_standard_tank_2a
 		name = generic_mio_trait_MIO_standard_tank_2a
-		icon = GFX_generic_mio_department_icon_tank_heavy_tank
+		icon = GFX_generic_mio_trait_icon_efficiency_gain
 		
 		position = { x=7 y=1 }
 		any_parent = { generic_mio_trait_MIO_standard_tank_1a }
@@ -1772,7 +1737,7 @@ TPMP_generic_firepower_tank_organization = {
 	trait = {
 		token = generic_mio_trait_MIO_standard_tank_2b
 		name = generic_mio_trait_MIO_standard_tank_2b
-		icon = GFX_generic_mio_department_icon_tank_heavy_tank
+		icon = GFX_generic_mio_department_icon_facilities
 		
 		position = { x=8 y=1 }
 		any_parent = { generic_mio_trait_MIO_standard_tank_1a }
@@ -1786,7 +1751,7 @@ TPMP_generic_firepower_tank_organization = {
 	trait = {
 		token = generic_mio_trait_MIO_standard_tank_2c
 		name = generic_mio_trait_MIO_standard_tank_2c
-		icon = GFX_generic_mio_department_icon_tank_heavy_tank
+		icon = GFX_generic_mio_trait_icon_production_capacity
 		
 		position = { x=9 y=1 }
 		any_parent = { generic_mio_trait_MIO_standard_tank_1a }
@@ -1799,7 +1764,7 @@ TPMP_generic_firepower_tank_organization = {
 	trait = {
 		token = generic_mio_trait_MIO_standard_tank_3a
 		name = generic_mio_trait_MIO_standard_tank_3a
-		icon = GFX_generic_mio_department_icon_tank_heavy_tank
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
 		
 		position = { x=7 y=2 }
 		any_parent = { generic_mio_trait_MIO_standard_tank_2a generic_mio_trait_MIO_standard_tank_2b }
@@ -1813,7 +1778,7 @@ TPMP_generic_firepower_tank_organization = {
 	trait = {
 		token = generic_mio_trait_MIO_standard_tank_3b
 		name = generic_mio_trait_MIO_standard_tank_3b
-		icon = GFX_generic_mio_department_icon_tank_heavy_tank
+		icon = GFX_generic_mio_department_icon_facilities
 		
 		position = { x=9 y=2 }
 		any_parent = { generic_mio_trait_MIO_standard_tank_2a generic_mio_trait_MIO_standard_tank_2b }
@@ -1830,7 +1795,7 @@ TPMP_generic_firepower_tank_organization = {
 	trait = {
 		token = generic_mio_trait_MIO_standard_tank_4a
 		name = generic_mio_trait_MIO_standard_tank_4a
-		icon = GFX_generic_mio_department_icon_tank_heavy_tank
+		icon = GFX_generic_mio_trait_icon_efficiency_gain
 		
 		position = { x=8 y=3 }
 		any_parent = { generic_mio_trait_MIO_standard_tank_3a generic_mio_trait_MIO_standard_tank_3b }
@@ -1844,7 +1809,7 @@ TPMP_generic_firepower_tank_organization = {
 	trait = {
 		token = generic_mio_trait_MIO_standard_tank_5a
 		name = generic_mio_trait_MIO_standard_tank_5a
-		icon = GFX_generic_mio_department_icon_tank_heavy_tank
+		icon = GFX_generic_mio_department_icon_facilities
 		
 		position = { x=8 y=4 }
 		any_parent = { generic_mio_trait_MIO_standard_tank_4a }
