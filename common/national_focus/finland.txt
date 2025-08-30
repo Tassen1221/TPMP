@@ -7631,76 +7631,76 @@ focus_tree = {
 		search_filters = {}
 
 		completion_reward = {
-			if = {
-				limit = {
-					GER = {
-						is_faction_leader = yes
-						has_government = fascism
-						NOT = { has_war_with = ROOT }
-						NOT = { 
-							any_allied_country = {
-								has_war_with = ROOT
-							}
-						}
-					}
-				}
-				GER = {
-					add_ai_strategy = {
-						type = befriend
-						id = ROOT
-						value = 100
-					}
-					ROOT = {
-						add_ai_strategy = {
-							type = befriend
-							id = PREV
-							value = 100
-						}
-					}
-					country_event = { id = generic.2 hours = 4 random_hours = 4 }
-					if = {
-						limit = {
-							has_war = yes
-						}
-						ROOT = { add_war_support = 0.1 }
-					}
-				}
-			}
-			else_if = {
-				limit = {
-					ITA = {
-						is_faction_leader = yes
-						has_government = fascism
-						NOT = { has_war_with = ROOT }
-						NOT = { 
-							any_allied_country = {
-								has_war_with = ROOT
-							}
-						}
-					}
-				}
-				ITA = {
-					add_ai_strategy = {
-						type = befriend
-						id = ROOT
-						value = 100
-					}
-					ROOT = {
-						add_ai_strategy = {
-							type = befriend
-							id = PREV
-							value = 100
-						}
-					}
-					country_event = { id = generic.2 hours = 4 random_hours = 4 }
-					if = {
-						limit = {
-							has_war = yes
-						}
-						ROOT = { add_war_support = 0.1 }
-					}
-				}
-			}
+			# if = {
+				# limit = {
+					# GER = {
+						# is_faction_leader = yes
+						# has_government = fascism
+						# NOT = { has_war_with = ROOT }
+						# NOT = { 
+							# any_allied_country = {
+								# has_war_with = ROOT
+							# }
+						# }
+					# }
+				# }
+				# GER = {
+					# add_ai_strategy = {
+						# type = befriend
+						# id = ROOT
+						# value = 100
+					# }
+					# ROOT = {
+						# add_ai_strategy = {
+							# type = befriend
+							# id = PREV
+							# value = 100
+						# }
+					# }
+					# country_event = { id = generic.2 hours = 4 random_hours = 4 }
+					# if = {
+						# limit = {
+							# has_war = yes
+						# }
+						# ROOT = { add_war_support = 0.1 }
+					# }
+				# }
+			# }
+			# else_if = {
+				# limit = {
+					# ITA = {
+						# is_faction_leader = yes
+						# has_government = fascism
+						# NOT = { has_war_with = ROOT }
+						# NOT = { 
+							# any_allied_country = {
+								# has_war_with = ROOT
+							# }
+						# }
+					# }
+				# }
+				# ITA = {
+					# add_ai_strategy = {
+						# type = befriend
+						# id = ROOT
+						# value = 100
+					# }
+					# ROOT = {
+						# add_ai_strategy = {
+							# type = befriend
+							# id = PREV
+							# value = 100
+						# }
+					# }
+					# country_event = { id = generic.2 hours = 4 random_hours = 4 }
+					# if = {
+						# limit = {
+							# has_war = yes
+						# }
+						# ROOT = { add_war_support = 0.1 }
+					# }
+				# }
+			# }
 		}
 	}
 
@@ -8122,7 +8122,7 @@ focus_tree = {
 		}
 		
 		allow_branch = {
-			always = no
+			
 		}
 		
 		bypass = {
@@ -8133,110 +8133,110 @@ focus_tree = {
 		search_filters = {}
 
 		completion_reward = {
-			create_faction = FIN_finnish_supremacy_league
-			custom_effect_tooltip = FIN_finnish_supremacy_in_the_north_invite_to_faction_tt
+			# create_faction = FIN_finnish_supremacy_league
+			# custom_effect_tooltip = FIN_finnish_supremacy_in_the_north_invite_to_faction_tt
 
-			if = {
-				limit = {
-					any_country = {
-						OR = {
-							is_baltic_country = yes
-							NORDIC_is_nordic = yes
-							tag = SMI
-						}
-						has_government = fascism
-						NOT = { has_war_with = ROOT }
-						is_in_faction = no
-						is_subject = no
-					}
-				}
-				custom_effect_tooltip = generic_current_targets
-			}
-			every_other_country = {
-				limit = {
-					OR = {
-						is_baltic_country = yes
-						NORDIC_is_nordic = yes
-						tag = SMI
-					}
-					has_government = fascism
-					NOT = { has_war_with = ROOT }
-					is_in_faction = no
-					is_subject = no
-				}
-				hidden_effect = {
-					# AI more friendly
-					add_ai_strategy = { 
-						type = befriend 
-						id = ROOT
-						value = 40
-					}
-					ROOT = {
-						add_ai_strategy = { 
-							type = befriend 
-							id = PREV
-							value = 40
-						}
-					}
-					country_event = { id = generic.5 hours = 2 }
-				}
-			}
+			# if = {
+				# limit = {
+					# any_country = {
+						# OR = {
+							# is_baltic_country = yes
+							# NORDIC_is_nordic = yes
+							# tag = SMI
+						# }
+						# has_government = fascism
+						# NOT = { has_war_with = ROOT }
+						# is_in_faction = no
+						# is_subject = no
+					# }
+				# }
+				# custom_effect_tooltip = generic_current_targets
+			# }
+			# every_other_country = {
+				# limit = {
+					# OR = {
+						# is_baltic_country = yes
+						# NORDIC_is_nordic = yes
+						# tag = SMI
+					# }
+					# has_government = fascism
+					# NOT = { has_war_with = ROOT }
+					# is_in_faction = no
+					# is_subject = no
+				# }
+				# hidden_effect = {
+					# # AI more friendly
+					# add_ai_strategy = { 
+						# type = befriend 
+						# id = ROOT
+						# value = 40
+					# }
+					# ROOT = {
+						# add_ai_strategy = { 
+							# type = befriend 
+							# id = PREV
+							# value = 40
+						# }
+					# }
+					# country_event = { id = generic.5 hours = 2 }
+				# }
+			# }
 
 
-			custom_effect_tooltip = FIN_finnish_supremacy_in_the_north_influence_tt
+			# custom_effect_tooltip = FIN_finnish_supremacy_in_the_north_influence_tt
 
-			custom_effect_tooltip = FIN_finnish_supremacy_in_the_north_unlock_decisions_tt
+			# custom_effect_tooltip = FIN_finnish_supremacy_in_the_north_unlock_decisions_tt
 
-			if = {
-				limit = {
-					any_country = {
-						OR = {
-							is_baltic_country = yes
-							NORDIC_is_nordic = yes
-							tag = SMI
-						}
-						NOT = { has_government = fascism }
-						NOT = { has_war_with = ROOT }
-						is_in_faction = no
-						is_subject = no
-					}
-				}
-				custom_effect_tooltip = generic_current_effects
+			# if = {
+				# limit = {
+					# any_country = {
+						# OR = {
+							# is_baltic_country = yes
+							# NORDIC_is_nordic = yes
+							# tag = SMI
+						# }
+						# NOT = { has_government = fascism }
+						# NOT = { has_war_with = ROOT }
+						# is_in_faction = no
+						# is_subject = no
+					# }
+				# }
+				# custom_effect_tooltip = generic_current_effects
 
-				every_other_country = {
-					limit = {
-						OR = {
-							is_baltic_country = yes
-							NORDIC_is_nordic = yes
-							tag = SMI
-						}
-						NOT = { has_government = fascism }
-						NOT = { has_war_with = ROOT }
-						is_in_faction = no
-						is_subject = no
-					}
-					add_timed_idea = { idea = fascist_influence days = 1095 }
-					country_event = { id = generic.1 }
-					custom_effect_tooltip = FIN_finnish_supremacy_in_the_north_unlock_decisions_country_specific_tt
-					hidden_effect = {
-						if = {
-							limit = {
-								is_baltic_country = yes
-							}
-							ROOT = {
-								activate_targeted_decision = { target = PREV decision = FIN_pressure_country_government_baltic }
-								activate_targeted_decision = { target = PREV decision = FIN_promote_ideology_rallies_baltic }
-							}
-						}
-						else = {
-							ROOT = {
-								activate_targeted_decision = { target = PREV decision = FIN_pressure_country_government_nordic }
-								activate_targeted_decision = { target = PREV decision = FIN_promote_ideology_rallies_nordic }
-							}
-						}
-					}
-				}
-			}
+				# every_other_country = {
+					# limit = {
+						# OR = {
+							# is_baltic_country = yes
+							# NORDIC_is_nordic = yes
+							# tag = SMI
+						# }
+						# NOT = { has_government = fascism }
+						# NOT = { has_war_with = ROOT }
+						# is_in_faction = no
+						# is_subject = no
+					# }
+					# add_timed_idea = { idea = fascist_influence days = 1095 }
+					# country_event = { id = generic.1 }
+					# custom_effect_tooltip = FIN_finnish_supremacy_in_the_north_unlock_decisions_country_specific_tt
+					# hidden_effect = {
+						# if = {
+							# limit = {
+								# is_baltic_country = yes
+							# }
+							# ROOT = {
+								# activate_targeted_decision = { target = PREV decision = FIN_pressure_country_government_baltic }
+								# activate_targeted_decision = { target = PREV decision = FIN_promote_ideology_rallies_baltic }
+							# }
+						# }
+						# else = {
+							# ROOT = {
+								# activate_targeted_decision = { target = PREV decision = FIN_pressure_country_government_nordic }
+								# activate_targeted_decision = { target = PREV decision = FIN_promote_ideology_rallies_nordic }
+							# }
+						# }
+					# }
+				# }
+			# }
 		}
 	}
 	
@@ -9328,7 +9328,7 @@ focus_tree = {
 		icon = GFX_focus_FIN_patriotic_peoples_movement
 		prerequisite = { focus = FIN_a_fascist_regime }
 
-		x = 1
+		x = 4
 		y = 0
 		relative_position_id = FIN_finnish_supremacy_in_the_north
 		cost = 5
@@ -9813,7 +9813,7 @@ focus_tree = {
 		id = FIN_enhance_southern_infrastructure
 		icon = GFX_goal_generic_construct_infrastructure
 
-		x = 10
+		x = 13
 		y = 0
 		relative_position_id = FIN_right_wing_policies
 
