@@ -6,23 +6,7 @@ LAT_historical = {
 		original_tag = LAT
 	}
 	enable = {
-		NOT = { has_global_flag = SOV_no_purge_collaboration }
-		NOT = { has_global_flag = SOV_welfare_disabled }
-		has_dlc = "No Step Back"
-		OR = {
-			AND = {
-				is_historical_focus_on = yes
-				has_game_rule = {
-					rule = LAT_ai_behavior
-					option = DEFAULT
-				}
-			}
-			has_country_flag = LAT_AI_RANDOM_HISTORICAL
-			has_game_rule = {
-				rule = LAT_ai_behavior
-				option = HISTORICAL
-			}
-		}
+		always = yes
 	}
 	abort = {
 		OR = {
@@ -38,6 +22,7 @@ LAT_historical = {
 		BALTIC_attract_workers_to_capital
 		BALTIC_axis_investments
 		BALTIC_german_war_economics
+		BALTIC_german_tank_licences
 		BALTIC_autobahn
 		BALTIC_natural_resources
 		BALTIC_trade_with_neighbors
@@ -47,6 +32,7 @@ LAT_historical = {
 		BALTIC_domestic_motors
 		BALTIC_original_designs
 		BALTIC_arms_industry
+	
 		
 		
 		
