@@ -1,0 +1,809 @@
+LIT_historical = {
+	name = "Lithuanian historical plan"
+	desc = ""
+
+	allowed = {
+		original_tag = LIT
+	}
+
+	enable = {
+		is_historical_focus_on = yes
+		NOT = { has_global_flag = SOV_no_purge_collaboration }
+		NOT = { has_global_flag = SOV_welfare_disabled }
+		has_dlc = "No Step Back"
+		OR = {
+			AND = {
+				is_historical_focus_on = yes
+				has_game_rule = {
+					rule = LIT_ai_behavior
+					option = DEFAULT
+				}
+			}
+			has_country_flag = LIT_AI_RANDOM_HISTORICAL
+			has_game_rule = {
+				rule = LIT_ai_behavior
+				option = HISTORICAL
+			}
+		}
+	}
+	abort = {
+		OR = {
+			has_global_flag = SOV_welfare_disabled
+			has_global_flag = SOV_no_purge_collaboration
+			has_global_flag = SOV_has_early_war
+		}
+	}
+
+	ai_national_focuses = {
+		BALTIC_rejoin_the_railways
+		BALTIC_modernize_industry
+		BALTIC_attract_workers_to_capital
+		BALTIC_axis_investments
+		BALTIC_german_war_economics
+		BALTIC_autobahn
+		BALTIC_natural_resources
+		BALTIC_trade_with_neighbors
+		BALTIC_rebuild_forts
+		BALTIC_arm_the_nation
+		BALTIC_defence_of_our_nation
+		BALTIC_domestic_motors
+		BALTIC_original_designs
+		BALTIC_arms_industry
+	
+	
+	
+	
+	
+	
+	
+		LIT_secure_a_loyal_cabinet
+		LIT_exile_voldemares
+		LIT_root_out_the_iron_wolf
+		LIT_purge_popular_resistance
+		LIT_a_martial_prime_minister
+	}
+
+	research = {
+		industry = 50.0
+		infantry_tech = 15.0
+		artillery = 8.0
+		support_tech = 6.5
+	}
+
+	ideas = {
+		
+	}
+
+	traits = {
+		captain_of_industry = 5
+		war_industrialist = 5
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+	focus_factors = {
+		LIT_formalize_baltic_entente = 0
+		LIT_beyond_the_baltic = 0.01
+		LIT_enforce_military_rule = 0
+	}
+
+}
+LIT_historical2 = {
+	name = "Lithuanian historical plan"
+	desc = ""
+
+	allowed = {
+		original_tag = LIT
+	}
+
+	enable = {
+		is_historical_focus_on = yes
+		OR = {
+			has_global_flag = SOV_has_early_war
+			has_global_flag = SOV_welfare_disabled
+		}
+		has_dlc = "No Step Back"
+		OR = {
+			AND = {
+				is_historical_focus_on = yes
+				has_game_rule = {
+					rule = LIT_ai_behavior
+					option = DEFAULT
+				}
+			}
+			has_country_flag = LIT_AI_RANDOM_HISTORICAL
+			has_game_rule = {
+				rule = LIT_ai_behavior
+				option = HISTORICAL
+			}
+		}
+	}
+	abort = {
+		NOT = { has_global_flag = SOV_welfare_disabled }
+		NOT = { has_global_flag = SOV_has_early_war }
+	}
+
+	ai_national_focuses = {
+		LIT_secure_a_loyal_cabinet
+		LIT_rastikis_military_reforms
+		LIT_exile_voldemares
+		LIT_root_out_the_iron_wolf
+		BALTIC_rejoin_the_railways
+		BALTIC_renew_allied_trade
+		LIT_lithuanian_preservationism
+		LIT_purge_popular_resistance
+		LIT_patriotic_education
+		LIT_a_martial_prime_minister
+		LIT_the_nationalist_council
+		LIT_the_nation_and_its_power
+		LIT_state_media
+		LIT_presidential_reform
+		LIT_soviet_mutual_assistance
+		LIT_arrest_nazis_in_memel
+		LIT_anti_communist_militia
+		LIT_victory_in_trust
+		LIT_a_corporatist_economy
+		LIT_expand_military_budget
+		LIT_lithuanian_activist_front
+		BALTIC_school_of_aviation
+		BALTIC_original_designs
+		BALTIC_natural_resources
+		LIT_reminder_of_true_enemy
+		LIT_indivisible_power_of_the_state
+		LIT_appease_soviets
+		BALTIC_ford_motors
+		BALTIC_british_aircraft
+		BALTIC_allied_shipments
+		LIT_offer_military_basing
+		LIT_prepare_forest_brothers
+		BALTIC_rebuild_forts
+		LIT_occupation
+		BALTIC_attract_workers_to_capital
+		BALTIC_modernize_industry
+	}
+
+	research = {
+		industry = 50.0
+		infantry_tech = 15.0
+		artillery = 8.0
+		support_tech = 6.5
+	}
+
+	ideas = {
+		
+	}
+
+	traits = {
+		captain_of_industry = 5
+		war_industrialist = 5
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+	focus_factors = {
+		LIT_formalize_baltic_entente = 0
+		LIT_beyond_the_baltic = 0.01
+		LIT_enforce_military_rule = 0
+	}
+
+}
+
+LIT_democratic = {
+	name = "Lithuanian democratic plan"
+	desc = ""
+
+	allowed = {
+		original_tag = LIT
+	}
+
+	enable = {
+		has_dlc = "No Step Back"
+		OR = {
+			has_country_flag = LIT_AI_RANDOM_DEMOCRATIC
+			has_game_rule = {
+				rule = LIT_ai_behavior
+				option = DEMOCRATIC
+			}
+		}
+	}
+	abort = {
+		
+	}
+
+	ai_national_focuses = {
+		LIT_secure_a_loyal_cabinet
+		LIT_integrate_the_opposition
+		LIT_exile_voldemares
+		LIT_lithuanian_activist_front
+		LIT_root_out_the_iron_wolf
+		LIT_lithuanian_preservationism
+		BALTIC_rejoin_the_railways
+		BALTIC_modernize_industry
+		BALTIC_natural_resources
+		LIT_patriotic_socialism
+		LIT_rastikis_military_reforms
+		LIT_purge_popular_resistance
+		LIT_arrest_nazis_in_memel
+		LIT_anti_communist_militia
+		LIT_reminder_of_true_enemy
+		LIT_a_priestly_prime_minister
+		LIT_peace_with_poland
+		LIT_strength_in_unity
+		LIT_the_nationalist_council
+		LIT_peasants_reform
+		LIT_restore_public_elections
+
+
+		LIT_formalize_baltic_entente
+		LIT_baltic_economic_union
+		LIT_baltic_defence_army
+		LIT_pan_baltic_bank
+		LIT_propose_baltic_union
+		LIT_baltic_unification
+		LIT_look_north
+
+
+		BALTIC_renew_allied_trade
+		BALTIC_ford_motors
+		BALTIC_crossley_motors
+		BALTIC_british_designers
+
+		LIT_the_nation_and_its_power
+		LIT_state_media
+		LIT_presidential_reform
+		LIT_a_corporatist_economy
+		BALTIC_attract_workers_to_capital
+		BALTIC_original_designs
+		LIT_offer_military_basing
+		LIT_prepare_forest_brothers
+		BALTIC_rebuild_forts
+		LAT_threat_on_our_border
+		BALTIC_natural_resources
+		BALTIC_rebuild_forts
+		BALTIC_unchain_education
+		BALTIC_arm_the_nation
+		BALTIC_technology_sharing
+		BALTIC_defence_of_our_nation
+		BALTIC_arms_industry
+	}
+
+	research = {
+		industry = 50.0
+		infantry_tech = 15.0
+		artillery = 8.0
+		support_tech = 6.5
+	}
+
+	ideas = {
+		
+	}
+
+	traits = {
+		democratic_reformer = 15
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+	focus_factors = {
+		
+	}
+
+}
+
+LIT_historical_ahistorical_1 = {
+	name = "Lithuanian historical plan"
+	desc = ""
+
+	allowed = {
+		original_tag = LIT
+	}
+
+	enable = {
+		is_historical_focus_on = no
+		has_dlc = "No Step Back"
+		OR = {
+			has_country_flag = LIT_AI_RANDOM_HISTORICAL
+			has_game_rule = {
+				rule = LIT_ai_behavior
+				option = HISTORICAL
+			}
+		}
+	}
+	abort = {
+		has_completed_focus = BALTIC_natural_resources
+	}
+
+	ai_national_focuses = {
+		LIT_secure_a_loyal_cabinet
+		LIT_exile_voldemares
+		LIT_lithuanian_activist_front
+		LIT_root_out_the_iron_wolf
+
+		BALTIC_rejoin_the_railways
+		BALTIC_modernize_industry
+		BALTIC_natural_resources
+	}
+
+	research = {
+		industry = 50.0
+		infantry_tech = 15.0
+		artillery = 8.0
+		support_tech = 6.5
+	}
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+	focus_factors = {
+		LIT_free_voldemares = 0
+		LIT_a_king_for_our_people = 0
+		LIT_a_priestly_prime_minister = 0
+	}
+
+}
+
+LIT_historical_ahistorical_2a = {
+	name = "Lithuanian historical plan"
+	desc = ""
+
+	allowed = {
+		original_tag = LIT
+	}
+
+	enable = {
+		is_historical_focus_on = no
+		has_dlc = "No Step Back"
+		OR = {
+			AND = {
+				is_historical_focus_on = yes
+				has_game_rule = {
+					rule = LIT_ai_behavior
+					option = DEFAULT
+				}
+			}
+			has_country_flag = LIT_AI_RANDOM_HISTORICAL
+			has_game_rule = {
+				rule = LIT_ai_behavior
+				option = HISTORICAL
+			}
+		}
+
+		has_completed_focus = BALTIC_natural_resources
+		OR = {
+			GER = { has_completed_focus = GER_remilitarize_the_rhineland }
+			ITA = { has_completed_focus = ITA_culto_del_duce }
+			ITA = { has_completed_focus = ITA_italo_balbo_focus }
+			ITA = { has_completed_focus = ITA_dino_grandi_focus }
+			any_country = {
+				has_government = fascism
+				is_faction_leader = yes
+			}
+		}
+	}
+	abort = {
+		has_completed_focus = BALTIC_domestic_motors
+	}
+
+	ai_national_focuses = {
+		LIT_root_out_the_iron_wolf
+		BALTIC_axis_investments
+		BALTIC_german_war_economics
+		BALTIC_german_tank_licences
+		BALTIC_autobahn
+
+
+		BALTIC_renew_allied_trade
+		BALTIC_ford_motors
+		BALTIC_crossley_motors
+		BALTIC_british_designers
+
+		BALTIC_domestic_motors
+	}
+
+	research = {
+		industry = 50.0
+		infantry_tech = 15.0
+		artillery = 8.0
+		support_tech = 6.5
+	}
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+	focus_factors = {
+		LIT_free_voldemares = 0
+		LIT_a_king_for_our_people = 0
+		LIT_a_priestly_prime_minister = 0
+	}
+
+}
+
+LIT_historical_ahistorical_2b = {
+	name = "Lithuanian historical plan"
+	desc = ""
+
+	allowed = {
+		original_tag = LIT
+	}
+
+	enable = {
+		is_historical_focus_on = no
+		has_dlc = "No Step Back"
+		OR = {
+			has_country_flag = LIT_AI_RANDOM_HISTORICAL
+			has_game_rule = {
+				rule = LIT_ai_behavior
+				option = HISTORICAL
+			}
+		}
+
+		has_completed_focus = BALTIC_natural_resources
+		NOT = {
+			OR = {
+				GER = { has_completed_focus = GER_remilitarize_the_rhineland }
+				ITA = { has_completed_focus = ITA_culto_del_duce }
+				ITA = { has_completed_focus = ITA_italo_balbo_focus }
+				ITA = { has_completed_focus = ITA_dino_grandi_focus }
+				any_country = {
+					has_government = fascism
+					is_faction_leader = yes
+				}
+			}
+		}
+	}
+	abort = {
+		has_completed_focus = BALTIC_domestic_motors
+	}
+
+	ai_national_focuses = {
+		LIT_root_out_the_iron_wolf
+		BALTIC_renew_allied_trade
+		BALTIC_ford_motors
+		BALTIC_crossley_motors
+		BALTIC_british_designers
+
+
+		BALTIC_axis_investments
+		BALTIC_german_war_economics
+		BALTIC_german_tank_licences
+		BALTIC_autobahn
+
+		BALTIC_domestic_motors
+	}
+
+	research = {
+		industry = 50.0
+		infantry_tech = 15.0
+		artillery = 8.0
+		support_tech = 6.5
+	}
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+	focus_factors = {
+		LIT_free_voldemares = 0
+		LIT_a_king_for_our_people = 0
+		LIT_a_priestly_prime_minister = 0
+	}
+
+}
+
+LIT_historical_ahistorical_3 = {
+	name = "Lithuanian historical plan"
+	desc = ""
+
+	allowed = {
+		original_tag = LIT
+	}
+
+	enable = {
+		is_historical_focus_on = no
+		has_dlc = "No Step Back"
+		OR = {
+			has_country_flag = LIT_AI_RANDOM_HISTORICAL
+			has_game_rule = {
+				rule = LIT_ai_behavior
+				option = HISTORICAL
+			}
+		}
+
+		has_completed_focus = BALTIC_domestic_motors
+	}
+	abort = {
+		has_completed_focus = LIT_merge_the_military_and_civilian_governments
+	}
+
+	ai_national_focuses = {
+		LIT_root_out_the_iron_wolf
+		LIT_lithuanian_preservationism
+		LIT_a_martial_prime_minister
+		LIT_the_nationalist_council
+		LIT_the_nation_and_its_power
+		LIT_presidential_reform
+		LIT_expand_military_budget
+		LIT_state_media
+		LIT_a_corporatist_economy
+		LIT_martial_law
+		LIT_merge_the_military_and_civilian_governments
+	}
+
+	research = {
+		industry = 50.0
+		infantry_tech = 15.0
+		artillery = 8.0
+		support_tech = 6.5
+	}
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+	focus_factors = {
+		LIT_free_voldemares = 0
+		LIT_a_king_for_our_people = 0
+		LIT_a_priestly_prime_minister = 0
+	}
+
+}
+LIT_historical_ahistorical_4a = {
+	name = "Lithuanian historical plan"
+	desc = ""
+
+	allowed = {
+		original_tag = LIT
+	}
+
+	enable = {
+		is_historical_focus_on = no
+		has_dlc = "No Step Back"
+		OR = {
+			AND = {
+				is_historical_focus_on = yes
+				has_game_rule = {
+					rule = LIT_ai_behavior
+					option = DEFAULT
+				}
+			}
+			has_country_flag = LIT_AI_RANDOM_HISTORICAL
+			has_game_rule = {
+				rule = LIT_ai_behavior
+				option = HISTORICAL
+			}
+		}
+		has_completed_focus = LIT_merge_the_military_and_civilian_governments
+		LAT = { 
+			is_in_faction = no
+			is_subject = no
+			NOT = { is_guaranteed_by = LIT }
+			LIT = { can_declare_war_on = LAT }
+			strength_ratio = {
+				tag = LIT
+				ratio < 0.75
+			}
+		}
+		EST = { 
+			is_in_faction = no
+			is_subject = no 
+			NOT = { is_guaranteed_by = LIT }
+			LIT = { can_declare_war_on = EST }
+			strength_ratio = {
+				tag = LIT
+				ratio < 0.75
+			}
+		}
+	}
+	abort = {
+		OR = {
+			has_completed_focus = LIT_formalize_baltic_entente
+			has_completed_focus = LIT_enforce_military_rule
+		}
+	}
+
+	ai_national_focuses = {
+		LIT_root_out_the_iron_wolf
+		LIT_enforce_military_rule
+		LIT_formalize_baltic_entente
+	}
+
+	research = {
+		industry = 50.0
+		infantry_tech = 15.0
+		artillery = 8.0
+		support_tech = 6.5
+	}
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+	focus_factors = {
+		LIT_free_voldemares = 0
+		LIT_a_king_for_our_people = 0
+		LIT_a_priestly_prime_minister = 0
+	}
+
+}
+
+LIT_historical_ahistorical_4b = {
+	name = "Lithuanian historical plan"
+	desc = ""
+
+	allowed = {
+		original_tag = LIT
+	}
+
+	enable = {
+		is_historical_focus_on = no
+		has_dlc = "No Step Back"
+		OR = {
+			has_country_flag = LIT_AI_RANDOM_HISTORICAL
+			has_game_rule = {
+				rule = LIT_ai_behavior
+				option = HISTORICAL
+			}
+		}
+		has_completed_focus = LIT_merge_the_military_and_civilian_governments
+		NOT = {
+			AND = {
+				LAT = { 
+					is_in_faction = no
+					is_subject = no
+					NOT = { is_guaranteed_by = LIT }
+					LIT = { can_declare_war_on = LAT }
+					strength_ratio = {
+						tag = LIT
+						ratio < 0.75
+					}
+				}
+				EST = { 
+					is_in_faction = no
+					is_subject = no 
+					NOT = { is_guaranteed_by = LIT }
+					LIT = { can_declare_war_on = EST }
+					strength_ratio = {
+						tag = LIT		
+						ratio < 0.75
+					}
+				}
+			}
+		}
+	}
+	abort = {
+		OR = {
+			has_completed_focus = LIT_formalize_baltic_entente
+			has_completed_focus = LIT_enforce_military_rule
+		}
+	}
+
+	ai_national_focuses = {
+		LIT_root_out_the_iron_wolf
+		LIT_formalize_baltic_entente
+		LIT_enforce_military_rule
+	}
+
+	research = {
+		industry = 50.0
+		infantry_tech = 15.0
+		artillery = 8.0
+		support_tech = 6.5
+	}
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+	focus_factors = {
+		LIT_free_voldemares = 0
+		LIT_a_king_for_our_people = 0
+		LIT_a_priestly_prime_minister = 0
+	}
+
+}
+LIT_historical_ahistorical_5 = {
+	name = "Lithuanian historical plan"
+	desc = ""
+
+	allowed = {
+		original_tag = LIT
+	}
+
+	enable = {
+		is_historical_focus_on = no
+		has_dlc = "No Step Back"
+		OR = {
+			has_country_flag = LIT_AI_RANDOM_HISTORICAL
+			has_game_rule = {
+				rule = LIT_ai_behavior
+				option = HISTORICAL
+			}
+		}
+		OR = {
+			has_completed_focus = LIT_formalize_baltic_entente
+			has_completed_focus = LIT_enforce_military_rule
+		}
+	}
+	abort = {
+	}
+
+	ai_national_focuses = {
+		LIT_root_out_the_iron_wolf
+		LIT_rastikis_military_reforms
+		LIT_patriotic_education
+		LIT_soviet_mutual_assistance
+		LIT_victory_in_trust
+		LIT_purge_popular_resistance
+		LIT_anti_communist_militia
+		LIT_prepare_forest_brothers
+
+		BALTIC_attract_workers_to_capital
+		BALTIC_rebuild_forts
+		BALTIC_unchain_education
+		BALTIC_technology_sharing
+		BALTIC_arm_the_nation
+		BALTIC_defence_of_our_nation
+		BALTIC_original_designs
+		BALTIC_arms_industry
+		BALTIC_trade_with_neighbors
+
+		LIT_prepare_resistance
+		LIT_underground_production_centers
+		LIT_infiltrate_homeland
+	}
+
+	research = {
+		industry = 50.0
+		infantry_tech = 15.0
+		artillery = 8.0
+		support_tech = 6.5
+	}
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+	focus_factors = {
+		LIT_free_voldemares = 0
+		LIT_a_king_for_our_people = 0
+		LIT_a_priestly_prime_minister = 0
+	}
+
+}
