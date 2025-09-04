@@ -9,7 +9,6 @@ NDefines.NTechnology.MAX_SUBTECHS = 4				-- Max number of sub technologies a tec
 
 NDefines.NDiplomacy.RESOURCE_SENT_AUTONOMY_DAILY_FACTOR = 0.0005-- If puppet provides resources to its master they increasy their autonomy by the resources factored by this
 
-
 NDefines.NCountry.BASE_FUEL_GAIN_PER_OIL = 0.2			-- base amount of fuel gained hourly per excess oil
 NDefines.NCountry.SURRENDER_LIMIT_REDUCTION_PER_COLLABORATION = 0 	--each percent of collaboration will lower surrender limit by this percentage
 
@@ -54,6 +53,9 @@ NDefines.NMilitary.LAND_COMBAT_ORG_DAMAGE_MODIFIER = 0.048	-- global damage modi
 NDefines.NMilitary.LAND_AIR_COMBAT_STR_DAMAGE_MODIFIER = 0.016	-- air global damage modifier
 NDefines.NMilitary.LAND_AIR_COMBAT_ORG_DAMAGE_MODIFIER = 0.016	-- global damage modifier
 NDefines.NMilitary.LAND_AIR_COMBAT_MAX_PLANES_PER_ENEMY_WIDTH = 1	-- how many CAS/TAC can enter a combat depending on enemy width there
+
+NDefines.NMilitary.RELIABILITY_ORG_REGAIN = -0.5		-- how much reliability affects org regain
+NDefines.NMilitary.RELIABILTY_RECOVERY = 0.50			-- factor affecting how much equipment is returned "from the dead"
 
 NDefines.NMilitary.LAND_SPEED_MODIFIER = 0.03			-- basic speed control
 
@@ -110,7 +112,7 @@ NDefines.NMilitary.TACTIC_SWAP_FREQUENCEY = 24                  -- hours between
 NDefines.NMilitary.RECON_SKILL_IMPACT = 10				-- how many skillpoints is a recon advantage worth when picking a tactic.
 NDefines.NMilitary.INITIATIVE_PICK_COUNTER_ADVANTAGE_FACTOR  = 1	-- advantage per leader level for picking a counter
 
-NDefines.NMilitary.SLOWEST_SPEED = 2
+NDefines.NMilitary.SLOWEST_SPEED = 1
 
 NDefines.NMilitary.AIR_SUPPORT_BASE = 0.15			-- CAS bonus factor for air support moddifier for land unit in combat
 
@@ -159,7 +161,7 @@ NDefines.NCharacter.GENIUS_ADVISOR_MIN_RANK = 7
 
 NDefines.NProduction.BASE_FACTORY_MAX_EFFICIENCY_FACTOR = 50	-- Base max efficiency for factories expressed in %.
 
-NDefines.NProduction.BASE_FACTORY_SPEED_MIL = 5			-- Base factory speed multiplier (how much hoi3 style IC each factory gives).
+NDefines.NProduction.BASE_FACTORY_SPEED_MIL = 4			-- Base factory speed multiplier (how much hoi3 style IC each factory gives).
 NDefines.NProduction.BASE_FACTORY_SPEED_NAV = 4			-- vanilla is 2.5
 
 NDefines.NProduction.INFRA_MAX_CONSTRUCTION_COST_EFFECT = 1	-- Building in a state with higher infrastructure will reduce the cost of shared buildings.
@@ -197,6 +199,7 @@ NDefines.NCountry.REINFORCEMENT_MANPOWER_DELIVERY_SPEED = 50.0	-- Modifier for a
 
 NDefines.NDiplomacy.VOLUNTEERS_PER_TARGET_PROVINCE = 0		-- Each province owned by the target country contributes this amount of volunteers to the limit.
 NDefines.NDiplomacy.VOLUNTEERS_PER_COUNTRY_ARMY = 0		-- Each army unit owned by the source country contributes this amount of volunteers to the limit.
+NDefines.NDiplomacy.VOLUNTEERS_DIVISIONS_REQUIRED = 0	-- This many divisons are required for the country to be able to send volunteers.
 
 NDefines.NBuildings.BASE_FACTORY_REPAIR = 0.5			-- Default repair rate in percentage before factories are taken into account (1.0 equals 1%).
 NDefines.NBuildings.BASE_FACTORY_REPAIR_FACTOR = 1.0		-- Factory speed modifier when repairing.
@@ -366,7 +369,7 @@ NDefines.NSupply.NODE_ADDED_PENALTY_PER_PROVINCE = 0.5
 
 -- defines that are used for supply reach for dockyards
 NDefines.NSupply.NAVAL_BASE_INITIAL_SUPPLY_FLOW = 3.0
-NDefines.NSupply.NAVAL_BASE_STARTING_PENALTY_PER_PROVINCE = 1.0
+NDefines.NSupply.NAVAL_BASE_STARTING_PENALTY_PER_PROVINCE = 0.5
 NDefines.NSupply.NAVAL_BASE_ADDED_PENALTY_PER_PROVINCE = 0.5
 
 -- Node Flow (i.e. province caps) increase by this amount per railway level of the node's bottleneck
@@ -374,7 +377,7 @@ NDefines.NSupply.NODE_FLOW_BONUS_PER_RAIL_LEVEL = 0.4
 
 -- defines that are used for supply reach for floating harbors
 NDefines.NSupply.FLOATING_HARBOR_INITIAL_SUPPLY_FLOW = 3.0
-NDefines.NSupply.FLOATING_HARBOR_STARTING_PENALTY_PER_PROVINCE = 1.0
+NDefines.NSupply.FLOATING_HARBOR_STARTING_PENALTY_PER_PROVINCE = 0.5
 NDefines.NSupply.FLOATING_HARBOR_ADDED_PENALTY_PER_PROVINCE = 0.5
 
 NDefines.NSupply.FLOATING_HARBOR_BASE_SUPPLY = 15.0		-- supply given by a floating harbor
@@ -399,8 +402,8 @@ NDefines.NSupply.RAILWAY_FLOW_PENALTY_PER_DAMAGED = 5.0		-- penalty to flow per 
 NDefines.NSupply.RAILWAY_MIN_FLOW = 5.0			-- minimum railway flow can be reduced to
 
 -- used for calculating "flow" from a naval node to another naval node when it is connected via a convoy route
-NDefines.NSupply.NAVAL_BASE_FLOW = 5.0				-- max output/input of a naval node is limited by this base value + additional ratio for each level
-NDefines.NSupply.NAVAL_FLOW_PER_LEVEL = 2.5			-- max output/input of a naval node is limited by previous base value + this define per its level
+NDefines.NSupply.NAVAL_BASE_FLOW = 10.0				-- max output/input of a naval node is limited by this base value + additional ratio for each level
+NDefines.NSupply.NAVAL_FLOW_PER_LEVEL = 2.0			-- max output/input of a naval node is limited by previous base value + this define per its level
 
 NDefines.NOperatives.AGENCY_UPGRADE_PER_OPERATIVE_SLOT = 5					-- Number of upgrade needed to unlock an additional operative slot
 NDefines.NOperatives.MAX_OPERATIVE_SLOT_FROM_AGENCY_UPGRADES = 2				-- max operative slots gained from upgrades
