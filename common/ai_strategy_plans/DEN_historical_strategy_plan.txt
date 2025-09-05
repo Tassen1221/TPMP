@@ -1,0 +1,107 @@
+DEN_historical_plan = {
+	name = "Denmark's Historical Plan"
+	desc = "Historical behavior for Denmark"
+
+	allowed = {
+		tag = DEN
+		has_dlc = "Arms Against Tyranny"
+	}
+	enable = {
+		OR = {
+			AND = {
+				is_historical_focus_on = yes 
+				has_game_rule = {
+					rule = DEN_AI_BEHAVIOR
+					option = DEFAULT
+				}
+			}
+			has_country_flag = DEN_AI_RANDOM_HISTORICAL
+			has_game_rule = {
+				rule = DEN_ai_behavior
+				option = HISTORICAL
+			}
+		}	
+	}
+	abort = { #Abort if DEN did NOT become a puppet through the 'Declaration of Neutrality' Idea
+		is_subject = yes
+		NOT = { has_country_flag = DEN_is_protectorate_flag	}
+	}
+
+	ai_national_focuses = {
+
+
+
+		
+		DEN_fortify_our_borders
+		DEN_build_a_modern_dannevirke
+		DEN_fortify_the_islands
+		DEN_connect_the_islands
+		DEN_expand_institut_for_teoretisk_fysik	#70
+		DEN_expand_the_industries				#70
+		DEN_support_bornholms_industries
+		DEN_aalborg_portland_cement_plant
+		DEN_reorient_production_lines
+		DEN_strengthen_military_industries
+		DEN_protect_bornholm
+		DEN_danske_stalvalsevaerket
+		DEN_refortify_tunestillingen
+		DEN_secure_our_supply_lines
+
+
+		DEN_sign_forsvarsforliget
+		DEN_expand_vaernepligten
+
+DEN_expand_ubadsvabnet
+DEN_modernize_the_navy
+DEN_appropriate_odense_staalskibsvaerft
+DEN_north_sea_ambitions
+DEN_naval_power_projection
+
+
+
+
+
+		DEN_declare_neutrality					#35
+		DEN_political_unity						#35
+		DEN_policy_of_disarmament				#35
+		DEN_import_machinery_and_material		#35
+		DEN_modernize_agricultural_machinery
+DEN_agricultural_reinvestments
+DEN_modernize_industrial_machinery
+DEN_increase_industrial_production
+DEN_increase_maritime_trade
+
+
+
+
+
+
+
+		
+	}
+
+	#Never takes these
+	focus_factors = {
+		DEN_unify_the_right = 0
+		DEN_start_the_rearmament = 0
+		DEN_develop_greenland = 0
+	}
+
+	research = {
+
+	}
+
+	ideas = {
+
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}
