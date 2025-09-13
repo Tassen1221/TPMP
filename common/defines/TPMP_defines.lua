@@ -1,7 +1,7 @@
-NDefines.NGame.COMBAT_LOG_MAX_MONTHS = 36
 NDefines.NGame.LAG_DAYS_FOR_LOWER_SPEED = 25			-- Days of client lag for decrease of gamespeed
 NDefines.NGame.LAG_DAYS_FOR_PAUSE = 25				-- Days of client lag for pause of gamespeed.
 NDefines.NGame.GAME_SPEED_SECONDS = { 0.35, 0.25, 0.2, 0.1, 0.0 }	-- game speeds for each level. Must be 5 entries with last one 0 for unbound
+NDefines.NGame.COMBAT_LOG_MAX_MONTHS = 36
 
 NDefines.NFocus.MAX_SAVED_FOCUS_PROGRESS = 20			-- This much progress can be saved while not having a focus selected
 
@@ -62,8 +62,8 @@ NDefines.NMilitary.LAND_SPEED_MODIFIER = 0.03			-- basic speed control
 NDefines.NMilitary.PLANNING_DECAY = 0.01
 NDefines.NMilitary.PLAYER_ORDER_PLANNING_DECAY = 0.03		-- Amount of planning lost due to player manual order
 NDefines.NMilitary.PLANNING_GAIN = 0.02
-NDefines.NMilitary.NAVAL_INVASION_PLANNING_BONUS_GAIN = 0.01	-- Planning Bonus gain per day for naval invasions
-NDefines.NMilitary.NAVAL_INVASION_PLANNING_BONUS_MALUS = -1	-- Malus in percentage for the planning bonus gain for naval invasions
+NDefines.NMilitary.NAVAL_INVASION_PLANNING_BONUS_GAIN = 0.02	-- Planning Bonus gain per day for naval invasions
+NDefines.NMilitary.NAVAL_INVASION_PLANNING_BONUS_MALUS = 0	-- Malus in percentage for the planning bonus gain for naval invasions
 NDefines.NMilitary.PLANNING_MAX = 0.1				-- can get more from techs
 
 NDefines.NMilitary.COMBAT_SUPPLY_LACK_ATTACKER_ATTACK = -0.4	-- attack combat penalty for attacker if out of supply
@@ -94,7 +94,7 @@ NDefines.NMilitary.BATALION_NOT_CHANGED_EXPERIENCE_DROP = 0.0	-- Division experi
 NDefines.NMilitary.BATALION_CHANGED_EXPERIENCE_DROP = 1		-- Division experience drop if unit has different batalion
 
 NDefines.NMilitary.EXPERIENCE_LOSS_FACTOR = 0.7			-- percentage of experienced solders who die when manpower is removed
-NDefines.NMilitary.EQUIPMENT_COMBAT_LOSS_FACTOR = 0.70	 	-- % of equipment lost to strength ratio in combat, so some % is returned if below 1
+NDefines.NMilitary.EQUIPMENT_COMBAT_LOSS_FACTOR = 0.80	 	-- % of equipment lost to strength ratio in combat, so some % is returned if below 1
 
 NDefines.NMilitary.TRAINING_MAX_LEVEL = 4
 NDefines.NMilitary.DEPLOY_TRAINING_MAX_LEVEL = 1
@@ -388,7 +388,7 @@ NDefines.NSupply.SUPPLY_FLOW_DROP_REDUCTION_AT_MAX_INFRA = 0.5 	-- max infrastru
 NDefines.NSupply.SUPPLY_FLOW_PENALTY_CROSSING_RIVERS = 0.20	-- crossing rivers introduces additional penalty
 
 -- The range bonus added to a fully motorized hub. This supply is added on top of the XXX_INITIAL_SUPPLY_FLOW defined above.
-NDefines.NSupply.SUPPLY_HUB_FULL_MOTORIZATION_BONUS = 2.0
+NDefines.NSupply.SUPPLY_HUB_FULL_MOTORIZATION_BONUS = 3.0
 -- How many trucks does it cost to fully motorize a hub
 NDefines.NSupply.SUPPLY_HUB_FULL_MOTORIZATION_TRUCK_COST = 240.0
 -- For each additional level of motorization on a hub (i.e. contry with set motoriazation) reduce max bonus for next level by this amount

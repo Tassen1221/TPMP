@@ -293,7 +293,7 @@ technologies = {
 	concentrated_industry = {
 
 		industrial_capacity_factory = 0.2
-		industrial_capacity_dockyard = 0.1
+		industrial_capacity_dockyard = 0.15
 		global_building_slots_factor = 0.30
 		
 		path = {
@@ -522,6 +522,12 @@ technologies = {
 		production_factory_start_efficiency_factor = 0.05
 		industry_air_damage_factor = -0.15
 		global_building_slots_factor = 0.3
+
+		on_research_complete = {
+			hidden_effect = {
+				add_ideas = TPMP_railway_gun_fix_idea_0
+			}	
+		}
 		
 		path = {
 			leads_to_tech = dispersed_industry2 
@@ -596,6 +602,15 @@ technologies = {
 		production_factory_start_efficiency_factor = 0.05
 		industry_air_damage_factor = -0.10
 		global_building_slots_factor = 0.3
+
+		on_research_complete = {
+			hidden_effect = {
+				swap_ideas = {
+					add_idea = TPMP_railway_gun_fix_idea_1
+					remove_idea = TPMP_railway_gun_fix_idea_0
+				}
+			}	
+		}
 		
 		path = {
 			leads_to_tech = dispersed_industry3 
@@ -637,6 +652,15 @@ technologies = {
 		production_factory_start_efficiency_factor = 0.05
 		industry_air_damage_factor = -0.10
 		global_building_slots_factor = 0.3
+
+		on_research_complete = {
+			hidden_effect = {
+				swap_ideas = {
+					add_idea = TPMP_railway_gun_fix_idea_2
+					remove_idea = TPMP_railway_gun_fix_idea_1
+				}
+			}	
+		}
 		
 		path = {
 			leads_to_tech = dispersed_industry4 
@@ -678,6 +702,15 @@ technologies = {
 		production_factory_start_efficiency_factor = 0.05
 		industry_air_damage_factor = -0.10
 		global_building_slots_factor = 0.3
+
+		on_research_complete = {
+			hidden_effect = {
+				swap_ideas = {
+					add_idea = TPMP_railway_gun_fix_idea_3
+					remove_idea = TPMP_railway_gun_fix_idea_2
+				}
+			}	
+		}
 		
 		path = {
 			leads_to_tech = dispersed_industry5 
@@ -720,6 +753,14 @@ technologies = {
 		industry_air_damage_factor = -0.10
 		global_building_slots_factor = 0.3
 		
+		on_research_complete = {
+			hidden_effect = {
+				swap_ideas = {
+					add_idea = TPMP_railway_gun_fix_idea_4
+					remove_idea = TPMP_railway_gun_fix_idea_3
+				}
+			}	
+		}
 		
 		research_cost = 2
 		start_year = 1943

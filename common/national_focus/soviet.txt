@@ -13067,7 +13067,7 @@ mio:SOV_sevastopol_marine_plant_organization = {
 		x = 3
 		y = -1
 		relative_position_id = SOV_anti_capitalist_policies
-		cost = 5
+		cost = 1
 
 		ai_will_do = {
 			factor = 1
@@ -13174,6 +13174,10 @@ mio:SOV_sevastopol_marine_plant_organization = {
 		relative_position_id = SOV_baltic_security
 		cost = 5
 
+		allow_branch = {
+			always = no
+		}
+
 		ai_will_do = {
 			factor = 1
 			modifier = {
@@ -13213,10 +13217,10 @@ mio:SOV_sevastopol_marine_plant_organization = {
 		id = SOV_claims_in_baltic
 		icon = GFX_SOV_claims_in_baltic_ccp_2d_sov_compatibility
 		prerequisite = { focus = SOV_baltic_security }
-		x = 1
+		x = 0
 		y = 1
 		relative_position_id = SOV_baltic_security
-		cost = 10
+		cost = 1
 
 		ai_will_do = {
 			factor = 1
@@ -13303,7 +13307,7 @@ mio:SOV_sevastopol_marine_plant_organization = {
 		x = 0
 		y = 1
 		relative_position_id = SOV_respect_baltic_self_determination
-		cost = 10
+		cost = 1
 		
 		ai_will_do = {
 			factor = 1
@@ -13467,10 +13471,10 @@ mio:SOV_sevastopol_marine_plant_organization = {
 		id = SOV_claims_on_poland
 		icon = GFX_SOV_claims_on_poland_ccp_2d_sov_compatibility
 		prerequisite = { focus = SOV_respect_baltic_self_determination focus = SOV_claims_in_baltic }
-		x = 0
+		x = 1
 		y = 1
 		relative_position_id = SOV_claims_in_baltic
-		cost = 10
+		cost = 1
 
 		ai_will_do = {
 			factor = 1
@@ -13576,6 +13580,10 @@ mio:SOV_sevastopol_marine_plant_organization = {
 		y = 1
 		relative_position_id = SOV_claims_on_poland
 		cost = 10
+
+		allow_branch = {
+			always = no
+		}
 
 		ai_will_do = {
 			factor = 1
@@ -13782,10 +13790,10 @@ mio:SOV_sevastopol_marine_plant_organization = {
 		id = SOV_claim_on_bessarabia
 		icon = GFX_focus_generic_attack_romania
 		prerequisite = { focus = SOV_claims_on_poland }
-		x = 1
+		x = 0
 		y = 1
 		relative_position_id = SOV_claims_on_poland
-		cost = 10
+		cost = 1
 
 		ai_will_do = {
 			factor = 2.5
