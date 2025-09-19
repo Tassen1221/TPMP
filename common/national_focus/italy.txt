@@ -576,15 +576,9 @@ focus_tree = {
 		cost = 5
 		available = {
 			OR = {
-				any_controlled_state = {
-					is_core_of = LBA
-					is_fully_controlled_by = ROOT
-				}
-				any_subject_country = { #FOR PUPPETS
-					any_controlled_state = {
-						is_core_of = LBA
-						is_fully_controlled_by = PREV
-					}
+				448 = {	is_fully_controlled_by = ROOT }
+				any_subject_country = {
+					has_full_control_of_state = 448
 				}
 			}
 		}

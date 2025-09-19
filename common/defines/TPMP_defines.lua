@@ -28,8 +28,8 @@ NDefines.NMilitary.COST_INCREASE_PER_ACTIVE_MEDAL = 1		-- Additional cost factor
 NDefines.NMilitary.HISTORY_OPERATION_RANDOM_MAX = 10		-- max random int to roll when determining whether to grant an awardable entry for operations. 1/N chances.
 NDefines.NMilitary.CASUALTY_COUNT_FOR_HISTORY_ENTRY = 25000	-- number of received casualties to receive a history entry (one only)
 
-NDefines.NMilitary.UNIT_LEADER_USE_NONLINEAR_XP_GAIN = true	-- Whether unit leader XP gain is scaled by 1/<nr_of_traits>
-NDefines.NMilitary.BASE_LEADER_TRAIT_GAIN_XP = 0.60		-- Base xp gain for traits per hour for armies
+NDefines.NMilitary.UNIT_LEADER_USE_NONLINEAR_XP_GAIN = false	-- Whether unit leader XP gain is scaled by 1/<nr_of_traits>
+NDefines.NMilitary.BASE_LEADER_TRAIT_GAIN_XP = 0.5		-- Base xp gain for traits per hour for armies
 NDefines.NMilitary.MAX_NUM_TRAITS = -1				-- cant have more, -1 to disable
 
 NDefines.NMilitary.BASE_FORT_PENALTY = -0.15			-- fort penalty
@@ -102,6 +102,23 @@ NDefines.NMilitary.UNIT_EXP_LEVELS = {0.20, 0.40, 0.60, 0.80}		-- Experience nee
 NDefines.NMilitary.EXPERIENCE_COMBAT_FACTOR = 0.10
 NDefines.NMilitary.ARMY_EXP_BASE_LEVEL = 2
 
+NDefines.NMilitary.FIELD_EXPERIENCE_SCALE = 0.0009
+NDefines.NMilitary.FIELD_EXPERIENCE_MAX_PER_DAY = 1.2		-- Most xp you can gain per day
+NDefines.NMilitary.EXPEDITIONARY_FIELD_EXPERIENCE_SCALE = 0.3	-- reduction factor in Xp from expeditionary forces
+NDefines.NMilitary.LEND_LEASE_FIELD_EXPERIENCE_SCALE = 0.0003	-- Experience scale for lend leased equipment used in combat.
+
+NDefines.NAir.FIELD_EXPERIENCE_SCALE = 0.0004
+NDefines.NAir.FIELD_EXPERIENCE_MAX_PER_DAY = 2					-- Most xp you can gain per day
+NDefines.NAir.CLOSE_AIR_SUPPORT_EXPERIENCE_SCALE = 0.0005			-- How much the experinence gained by CAS is scaled
+NDefines.NAir.PARADROP_EXPERIENCE_SCALE = 0.03					-- How much the experinence gained by paradropping is scaled
+NDefines.NAir.BOMBING_DAMAGE_EXPERIENCE_SCALE = 0.0002        			-- How much the experinence gained by bombing is scaled
+
+NDefines.NAir.EXPERIENCE_SCALE_ATTACK_LOGISTICS_NO_TRUCK_CONSUMERS = 0.0001	-- How much country experinence gained by attacking consumers who aren't motorized
+NDefines.NAir.EXPERIENCE_SCALE_ATTACK_LOGISTICS_NODE_AND_TRAINS = 0.0002	-- How much country experinence gained by attacking node/trains
+NDefines.NAir.EXPERIENCE_SCALE_ATTACK_LOGISTICS_TRUCKS = 0.0002			-- How much country experinence gained by attacking trucks
+
+NDefines.NAir.FIELD_EXPERIENCE_FACTOR = 0.5			-- Factor all air experience gain from missions by this
+
 NDefines.NMilitary.NAVAL_TRANSFER_DISBAND_MANPOWER_FACTOR = 0	-- percentage of manpower returned when a naval transfering unit is disbanded
 NDefines.NMilitary.ENCIRCLED_DISBAND_MANPOWER_FACTOR = 0	-- percentage of manpower returned when an encircled unit is disbanded
 
@@ -116,14 +133,14 @@ NDefines.NMilitary.SLOWEST_SPEED = 1
 
 NDefines.NMilitary.AIR_SUPPORT_BASE = 0.15			-- CAS bonus factor for air support moddifier for land unit in combat
 
-NDefines.NMilitary.ENEMY_AIR_SUPERIORITY_IMPACT = -0.3		-- effect on defense due to enemy air superiorty
-NDefines.NMilitary.ENEMY_AIR_SUPERIORITY_SPEED_IMPACT = -0.3	-- effect on speed due to enemy air superiority
-NDefines.NMilitary.ENEMY_AIR_SUPERIORITY_DEFENSE = 0.6		-- more AA attack will approach this amount of help (diminishing returns)
-NDefines.NMilitary.ENEMY_AIR_SUPERIORITY_DEFENSE_STEEPNESS = 150 -- how quickly defense approaches the max impact diminishing returns curve
+NDefines.NMilitary.ENEMY_AIR_SUPERIORITY_IMPACT = -0.8		-- effect on defense due to enemy air superiorty
+NDefines.NMilitary.ENEMY_AIR_SUPERIORITY_SPEED_IMPACT = -0.8	-- effect on speed due to enemy air superiority
+NDefines.NMilitary.ENEMY_AIR_SUPERIORITY_DEFENSE = 1.6		-- more AA attack will approach this amount of help (diminishing returns)
+NDefines.NMilitary.ENEMY_AIR_SUPERIORITY_DEFENSE_STEEPNESS = 50 -- how quickly defense approaches the max impact diminishing returns curve
 
-NDefines.NMilitary.ANTI_AIR_TARGETTING_TO_CHANCE = 0.02		-- Balancing value to determine the chance of ground AA hitting an attacking airplane, affecting both the effective average damage done by AA to airplanes, and the reduction of damage done by airplanes due to AA support
-NDefines.NMilitary.ANTI_AIR_ATTACK_TO_AMOUNT = 0.003		-- Balancing value to convert equipment stat anti_air_attack to the random % value of airplanes being hit.
-NDefines.NAir.ANTI_AIR_ATTACK_TO_DAMAGE_REDUCTION_FACTOR = 0.3	-- Balancing value to convert equipment stat anti_air_attack to the damage reduction modifier apply to incoming air attacks against units with AA.
+NDefines.NMilitary.ANTI_AIR_TARGETTING_TO_CHANCE = 0.1		-- Balancing value to determine the chance of ground AA hitting an attacking airplane, affecting both the effective average damage done by AA to airplanes, and the reduction of damage done by airplanes due to AA support
+NDefines.NMilitary.ANTI_AIR_ATTACK_TO_AMOUNT = 0.001		-- Balancing value to convert equipment stat anti_air_attack to the random % value of airplanes being hit.
+NDefines.NAir.ANTI_AIR_ATTACK_TO_DAMAGE_REDUCTION_FACTOR = 0.06	-- Balancing value to convert equipment stat anti_air_attack to the damage reduction modifier apply to incoming air attacks against units with AA.
 NDefines.NAir.ANTI_AIR_MAXIMUM_DAMAGE_REDUCTION_FACTOR = 0.90	-- Maximum damage reduction factor applied to incoming air attacks against units with AA.
 
 NDefines.NAir.COMBAT_DAMAGE_SCALE = 0.25			-- Higher value = more shot down planes
