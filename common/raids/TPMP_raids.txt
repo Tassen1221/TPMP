@@ -1,0 +1,189 @@
+types = {
+	close_air_support_strike_raid = {
+		days_to_prepare = 3
+		days_re_enable = 30
+
+		category = combat_raids
+
+		command_power = 10 # command power allocation cost
+
+		allowed = {
+		}
+		# Raid Type is visible
+		visible = {
+		}
+		# Specific Target is visible
+		show_target = {
+			NOT = {
+				is_in_faction_with = FROM
+			}
+		}
+
+		# Can prepare
+		available = {
+			has_war_with = FROM
+		}
+		launchable = {
+			has_war_with = FROM
+		}
+
+		launch_sound = raid_launch_air
+
+		target_type = {
+			province = any
+		}
+		target_icon = GFX_other_target_icon
+
+		unit_requirements = {
+			equipment = {
+				type = { cas }
+				amount = { min = 100 }
+			}
+		}
+		unit_requirements = {
+			equipment = {
+				type = { cv_cas }
+				amount = { min = 100 }
+			}
+		}
+		unit_requirements = {
+			equipment = {
+				type = { tactical_bomber }
+				amount = { min = 100 }
+			}
+		}
+
+		starting_point = {
+		    types = { air_base }
+		}
+
+		arrow = {
+			type = air
+		}
+        unit_model = {
+            type = equipment
+        }
+
+		success_factors = {
+			success = {
+				base = 0.5
+				experience = {
+					weight = 0.1
+					start_weight = -0.1
+					reference = 1.0
+				}
+				air_defence = {
+					reference = 100
+					start_weight = -0.05
+					weight = 0.05
+				}
+				air_agility = {
+					reference = 100
+					start_weight = -0.1
+					weight = 0.1
+				}
+				reliability = {
+					start_weight = -0.1
+					weight = 0.1
+				}
+
+				air_superiority = {
+					reference = 1.0
+					start_weight = -1.0
+					weight = 0
+				}
+
+				# Target
+				interception = {
+					reference = 10
+					weight = -0.25
+				}
+				anti_air = {
+					weight = -0.05
+				}
+				radar = {
+					weight = -0.05
+				}
+				intel = {
+					weight = 0.2
+					#start_reference = 50
+					reference = 100
+				}
+			}
+			critical = {
+				base = 0.15
+			}
+		}
+
+		success_levels = {
+			failure = {
+				actor_effects = {
+					raid_damage_units = {
+						plane_loss = 0.75
+						ratio = yes
+					}
+
+				}
+			}
+			limited_success = {
+				actor_effects = {
+					raid_damage_units = {
+						plane_loss = 0.5
+						ratio = yes
+					}
+					raid_add_unit_experience = 0.1
+				}
+				victim_effects = {
+					var:target_state = {
+						damage_units = {
+							province = var:ROOT.target_province
+							str_damage = 0.05
+							org_damage = 0.1
+							ratio = yes
+							army = yes
+							navy = no
+						}
+					}
+				}
+			}
+			success = {
+				actor_effects = {
+					raid_damage_units = {
+						plane_loss = 0.1
+						ratio = yes
+					}
+					raid_add_unit_experience = 0.35
+				}
+				victim_effects = {
+					var:target_state = {
+						damage_units = {
+							province = var:ROOT.target_province
+							str_damage = 0.1
+							org_damage = 0.2
+							ratio = yes
+							army = yes
+							navy = no
+						}
+					}
+				}
+			}
+			critical_success = {
+				actor_effects = {
+					raid_add_unit_experience = 0.5
+				}
+				victim_effects = {
+					var:target_state = {
+						damage_units = {
+							province = var:ROOT.target_province
+							str_damage = 0.15
+							org_damage = 0.3
+							ratio = yes
+							army = yes
+							navy = no
+						}
+					}
+				}
+			}
+		}
+	}
+}

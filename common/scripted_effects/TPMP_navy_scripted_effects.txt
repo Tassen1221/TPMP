@@ -1,6 +1,7 @@
 calculate_total_ship_var = {
 	set_variable = { total_ship_var = 0 }
 	set_variable = { carrier_var = num_ships_with_type@carrier }
+	set_variable = { sh_battleship_var = num_ships_with_type@sh_battleship }
 	set_variable = { battleship_var = num_ships_with_type@battleship }
 	set_variable = { battle_cruiser_var = num_ships_with_type@battle_cruiser }
 	set_variable = { heavy_cruiser_var = num_ships_with_type@heavy_cruiser }
@@ -8,6 +9,7 @@ calculate_total_ship_var = {
 	set_variable = { destroyer_var = num_ships_with_type@destroyer }
 	set_variable = { submarine_var = num_ships_with_type@submarine }
 	multiply_variable = { carrier_var = 8 }
+	multiply_variable = { sh_battleship_var = 12 }
 	multiply_variable = { battleship_var = 8 }
 	multiply_variable = { battle_cruiser_var = 8 }
 	multiply_variable = { heavy_cruiser_var = 4 }
@@ -15,6 +17,7 @@ calculate_total_ship_var = {
 	multiply_variable = { destroyer_var = 0 }
 	multiply_variable = { submarine_var = 0 }
 	add_to_variable = { total_ship_var = carrier_var }
+	add_to_variable = { total_ship_var = sh_battleship_var }
 	add_to_variable = { total_ship_var = battleship_var }
 	add_to_variable = { total_ship_var = battle_cruiser_var }
 	add_to_variable = { total_ship_var = heavy_cruiser_var }
@@ -25,6 +28,7 @@ calculate_total_ship_var = {
 calculate_reserve_ship_var = {
 	set_variable = { PREV.reserve_ship_var = 0 }
 	set_variable = { carrier_var = num_ships_with_type@carrier }
+	set_variable = { sh_battleship_var = num_ships_with_type@sh_battleship }
 	set_variable = { battleship_var = num_ships_with_type@battleship }
 	set_variable = { battle_cruiser_var = num_ships_with_type@battle_cruiser }
 	set_variable = { heavy_cruiser_var = num_ships_with_type@heavy_cruiser }
@@ -32,6 +36,7 @@ calculate_reserve_ship_var = {
 	set_variable = { destroyer_var = num_ships_with_type@destroyer }
 	set_variable = { submarine_var = num_ships_with_type@submarine }
 	multiply_variable = { carrier_var = 8 }
+	multiply_variable = { sh_battleship_var = 12 }
 	multiply_variable = { battleship_var = 8 }
 	multiply_variable = { battle_cruiser_var = 8 }
 	multiply_variable = { heavy_cruiser_var = 4 }
@@ -39,6 +44,7 @@ calculate_reserve_ship_var = {
 	multiply_variable = { destroyer_var = 0 }
 	multiply_variable = { submarine_var = 0 }
 	add_to_variable = { PREV.reserve_ship_var = carrier_var }
+	add_to_variable = { PREV.reserve_ship_var = sh_battleship_var }
 	add_to_variable = { PREV.reserve_ship_var = battleship_var }
 	add_to_variable = { PREV.reserve_ship_var = battle_cruiser_var }
 	add_to_variable = { PREV.reserve_ship_var = heavy_cruiser_var }
