@@ -586,35 +586,47 @@ guiTypes = {
 			}
 
 			iconType = {
-				name ="air_superiority_bg"
-				spriteType = "GFX_strategic_destruction_bg"
-				position = { x=80 y=33 }
+				name ="offensive_air_doctrine_bg"
+				spriteType = "GFX_offensive_air_doctrine_bg"
+				position = { x=85 y=33 }
 			}			
 				
 			iconType = {
-				name ="battlefield_destruction_bg"
-				spriteType = "GFX_battlefield_destruction_bg"
-				position = { x=595 y=33 }
+				name ="cas_doctrine_bg"
+				spriteType = "GFX_cas_doctrine_bg"
+				position = { x=565 y=33 }
 			}	
 	
 			iconType = {
-				name ="operational_destruction_bg"
-				spriteType = "GFX_operational_destruction_bg"
-				position = { x=1100 y=33 }
-			}
+				name ="bomber_doctrine_bg"
+				spriteType = "GFX_bomber_doctrine_bg"
+				position = { x=1050 y=33 }
+			}	
+
+			iconType = {
+				name ="defensive_air_doctrine_bg"
+				spriteType = "GFX_defensive_air_doctrine_bg"
+				position = { x=85 y=785 }
+			}			
+				
+			iconType = {
+				name ="naval_air_doctrine_bg"
+				spriteType = "GFX_naval_air_doctrine_bg"
+				position = { x=565 y=785 }
+			}	
 	
-#			iconType = {
-#				name ="strategic_destruction_bg"
-#				spriteType = "GFX_strategic_destruction_bg"
-#				position = { x=1567 y=33 }
-#			}			
+			iconType = {
+				name ="utility_air_doctrine_bg"
+				spriteType = "GFX_utility_air_doctrine_bg"
+				position = { x=1050 y=785 }
+			}
 			
 			instantTextBoxType = {
-				name = "strategic_destruction_title"
-				position = { x = 80 y = 35 }
+				name = "offensive_air_doctrine_title"
+				position = { x = 120 y = 35 }
 				font = "hoi_22tech"
 				borderSize = {x = 0 y = 4}
-				text = "TITLE_STRATEGIC_DESTRUCTION"
+				text = "OFFENSIVE_AIR_DOCTRINE_LABEL"
 				maxWidth = 400
 				maxHeight = 122
 				format = center
@@ -622,23 +634,11 @@ guiTypes = {
 			}
 
 			instantTextBoxType = {
-				name = "strategic_destruction_desc"
-				position = { x = 108 y = 70 }
+				name = "offensive_air_doctrine_desc"
+				position = { x = 120 y = 90 }
 				font = "hoi_20b"
 				borderSize = {x = 0 y = 4}
-				text = "STRATEGIC_DESTRUCTION_DESC"
-				maxWidth = 380
-				maxHeight = 122
-				format = center
-				Orientation = "UPPER_LEFT"
-			}
-
-			instantTextBoxType = {
-				name = "battlefield_support_title"
-				position = { x = 605 y = 35 }
-				font = "hoi_22tech"
-				borderSize = {x = 0 y = 4}
-				text = "TITLE_BATTLEFIELD_SUPPORT"
+				text = "OFFENSIVE_AIR_DOCTRINE_DESC"
 				maxWidth = 400
 				maxHeight = 122
 				format = center
@@ -646,23 +646,11 @@ guiTypes = {
 			}
 
 			instantTextBoxType = {
-				name = "battlefield_support_desc"
-				position = { x = 620 y = 70 }
-				font = "hoi_20b"
-				borderSize = {x = 0 y = 4}
-				text = "BATTLEFIELD_SUPPORT_DESC"
-				maxWidth = 380
-				maxHeight = 122
-				format = center
-				Orientation = "UPPER_LEFT"
-			}
-
-			instantTextBoxType = {
-				name = "operational_integrity_title"
-				position = { x = 1105 y = 35 }
+				name = "cas_doctrine_title"
+				position = { x = 600 y = 35 }
 				font = "hoi_22tech"
 				borderSize = {x = 0 y = 4}
-				text = "TITLE_OPERATIONAL_INTEGRITY"
+				text = "CAS_DOCTRINE_LABEL"
 				maxWidth = 400
 				maxHeight = 122
 				format = center
@@ -670,47 +658,117 @@ guiTypes = {
 			}
 
 			instantTextBoxType = {
-				name = "operational_integrity_desc"
-				position = { x = 1120 y = 82 }
+				name = "cas_doctrine_desc"
+				position = { x = 600 y = 90 }
 				font = "hoi_20b"
 				borderSize = {x = 0 y = 4}
-				text = "OPERATIONAL_INTEGRITY_DESC"
-				maxWidth = 380
+				text = "CAS_DOCTRINE_DESC"
+				maxWidth = 400
 				maxHeight = 122
 				format = center
 				Orientation = "UPPER_LEFT"
 			}
- 			
-# 			instantTextBoxType = {
-#				name = "strategic_destruction_title"
-#				position = { x = 1580 y = 35 }
-#				font = "hoi_22tech"
-#				borderSize = {x = 0 y = 4}
-#				text = "TITLE_STRATEGIC_DESTRUCTION"
-#				maxWidth = 400
-#				maxHeight = 122
-#				format = center
-#				Orientation = "UPPER_LEFT"
-#			}
- 			
-# 			instantTextBoxType = {
-#				name = "strategic_destruction_desc"
-#				position = { x = 1592 y = 70 }
-#				font = "hoi_20b"
-#				borderSize = {x = 0 y = 4}
-#				text = "STRATEGIC_DESTRUCTION_DESC"
-#				maxWidth = 380
-#				maxHeight = 122
-#				format = center
-#				Orientation = "UPPER_LEFT"
-#			}
 
+			instantTextBoxType = {
+				name = "bomber_doctrine_title"
+				position = { x = 1080 y = 35 }
+				font = "hoi_22tech"
+				borderSize = {x = 0 y = 4}
+				text = "BOMBER_DOCTRINE_LABEL"
+				maxWidth = 400
+				maxHeight = 122
+				format = center
+				Orientation = "UPPER_LEFT"
+			}
+
+			instantTextBoxType = {
+				name = "bomber_doctrine_desc"
+				position = { x = 1080 y = 90 }
+				font = "hoi_20b"
+				borderSize = {x = 0 y = 4}
+				text = "BOMBER_DOCTRINE_DESC"
+				maxWidth = 400
+				maxHeight = 122
+				format = center
+				Orientation = "UPPER_LEFT"
+			}
+
+			instantTextBoxType = {
+				name = "defensive_air_doctrine_title"
+				position = { x = 120 y = 787 }
+				font = "hoi_22tech"
+				borderSize = {x = 0 y = 4}
+				text = "DEFENSIVE_AIR_DOCTRINE_LABEL"
+				maxWidth = 400
+				maxHeight = 122
+				format = center
+				Orientation = "UPPER_LEFT"
+			}
+
+			instantTextBoxType = {
+				name = "defensive_air_doctrine_desc"
+				position = { x = 120 y = 842 }
+				font = "hoi_20b"
+				borderSize = {x = 0 y = 4}
+				text = "DEFENSIVE_AIR_DOCTRINE_DESC"
+				maxWidth = 400
+				maxHeight = 122
+				format = center
+				Orientation = "UPPER_LEFT"
+			}
+			
+			instantTextBoxType = {
+				name = "naval_air_doctrine_title"
+				position = { x = 600 y = 787 }
+				font = "hoi_22tech"
+				borderSize = {x = 0 y = 4}
+				text = "NAVAL_AIR_DOCTRINE_LABEL"
+				maxWidth = 400
+				maxHeight = 122
+				format = center
+				Orientation = "UPPER_LEFT"
+			}
+
+			instantTextBoxType = {
+				name = "naval_air_doctrine_desc"
+				position = { x = 600 y = 842 }
+				font = "hoi_20b"
+				borderSize = {x = 0 y = 4}
+				text = "NAVAL_AIR_DOCTRINE_DESC"
+				maxWidth = 400
+				maxHeight = 122
+				format = center
+				Orientation = "UPPER_LEFT"
+			}
+
+			instantTextBoxType = {
+				name = "utility_air_doctrine_title"
+				position = { x = 1080 y = 787 }
+				font = "hoi_22tech"
+				borderSize = {x = 0 y = 4}
+				text = "UTILITY_AIR_DOCTRINE_LABEL"
+				maxWidth = 400
+				maxHeight = 122
+				format = center
+				Orientation = "UPPER_LEFT"
+			}
+
+			instantTextBoxType = {
+				name = "utility_air_doctrine_desc"
+				position = { x = 1080 y = 842 }
+				font = "hoi_20b"
+				borderSize = {x = 0 y = 4}
+				text = "UTILITY_AIR_DOCTRINE_DESC"
+				maxWidth = 400
+				maxHeight = 122
+				format = center
+				Orientation = "UPPER_LEFT"
+			}
 			
 			gridboxtype = {
-				#strategic_destruction_tree Needs to be named after first tech (air_superiority)
-				name = "air_superiority_tree"
+				name = "offensive_air_doctrine_1_tree"
 				position = { x=80 y=172 }
-				size = { width = 427 height = 1335 }
+				size = { width = 478 height = 750 }
 				slotsize = { width=60 height= 60 }
 				format = "UP"
 
@@ -722,10 +780,9 @@ guiTypes = {
 			}
 
 			gridboxtype = {
-				#battlefield_support_tree Needs to be named after first tech (formation_flying)
-				name = "formation_flying_tree"
-				position = { x=595 y=172 }
-				size = { width = 427 height = 1335 }
+				name = "cas_doctrine_1_tree"
+				position = { x=560 y=172 }
+				size = { width = 478 height = 750 }
 				slotsize = { width=60 height= 60 }
 				format = "UP"
 
@@ -737,10 +794,51 @@ guiTypes = {
 			}
 
 			gridboxtype = {
-				#operational_integrity_tree Needs to be named after first tech (force_rotation)
-				name = "force_rotation_tree"
-				position = { x=1100 y=172 }
-				size = { width = 427 height = 1335 }
+				name = "bomber_doctrine_1_tree"
+				position = { x=1040 y=172 }
+				size = { width = 478 height = 750 }
+				slotsize = { width=60 height= 60 }
+				format = "UP"
+
+				background = {
+					name = "Background"
+					quadTextureSprite ="GFX_fullborder_tiled"
+					position = { x=0 y=-150 }					
+				}
+			}
+
+			gridboxtype = {
+				name = "defensive_air_doctrine_1_tree"
+				position = { x=80 y=924 }
+				size = { width = 478 height = 750 }
+				slotsize = { width=60 height= 60 }
+				format = "UP"
+
+				background = {
+					name = "Background"
+					quadTextureSprite ="GFX_fullborder_tiled"
+					position = { x=0 y=-150 }					
+				}
+			}
+
+			gridboxtype = {
+				name = "naval_air_doctrine_1_tree"
+				position = { x=560 y=924 }
+				size = { width = 478 height = 750 }
+				slotsize = { width=60 height= 60 }
+				format = "UP"
+
+				background = {
+					name = "Background"
+					quadTextureSprite ="GFX_fullborder_tiled"
+					position = { x=0 y=-150 }					
+				}
+			}
+
+			gridboxtype = {
+				name = "utility_air_doctrine_1_tree"
+				position = { x=1040 y=924 }
+				size = { width = 478 height = 750 }
 				slotsize = { width=60 height= 60 }
 				format = "UP"
 

@@ -1,2208 +1,1381 @@
 technologies = {
+	offensive_air_doctrine_1 = {
+		doctrine_name = "OFFENSIVE_AIR_DOCTRINE"
+		air_superiority_efficiency = 0.05
+		air_superiority_detect_factor = 0.05
 
+		path = {
+			leads_to_tech = offensive_air_doctrine_2a 
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = offensive_air_doctrine_2b 
+			research_cost_coeff = 1
+		}
 
-	air_superiority = {
-		doctrine_name = "TITLE_STRATEGIC_DESTRUCTION"
+		xp_research_type = air
+		xp_unlock_cost = 50
+		doctrine = yes
+
+		folder = {
+			name = air_doctrine_folder
+			position = { x = 0 y = 0 }
+		}
 		
-		# EFFECT ########
+		categories = {
+			cat_air_doctrine
+			cat_offensive_air_doctrine
+		}
+	}
+	offensive_air_doctrine_2a = {
+		air_mission_efficiency = 0.05
 		air_superiority_detect_factor = 0.1
-		###########
+
+		path = {
+			leads_to_tech = offensive_air_doctrine_3a
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = offensive_air_doctrine_3b
+			research_cost_coeff = 1
+		}
+		XOR = {
+			offensive_air_doctrine_2b
+		}
 
 		xp_research_type = air
-		xp_unlock_cost = 100
-		
-		xor = { force_rotation formation_flying }
-		
-		path = {
-			leads_to_tech = infrastructure_destruction
-			research_cost_coeff = 1
-		}		
+		xp_unlock_cost = 75
+		doctrine = yes
 
-		path = {
-			leads_to_tech = home_defence
-			research_cost_coeff = 1
-		}
-		
-		doctrine = yes	
-		research_cost = 2.25
-		
-		categories = {
-			air_doctrine
-			strategic_destruction_tree
-			cat_strategic_destruction
-		}
-		
 		folder = {
 			name = air_doctrine_folder
-			position = { x = 0 y = 0 }
-		}
-				
-		ai_will_do = {
-			factor = 10
-			modifier = {
-				ai_land_doctrine_tier_1_trigger = yes
-				factor = 2
-			}
-			modifier = {
-				ai_land_doctrine_tier_2_trigger = yes
-				factor = 2
-			}
+			position = { x = -1 y = 2 }
 		}
 		
-		ai_research_weights = {
-			air_doctrine = -1.0
-			light_air = -2.0
+		categories = {
+			cat_air_doctrine
+			cat_offensive_air_doctrine
 		}
 	}
+	offensive_air_doctrine_2b = {
+		air_power_projection_factor = 0.1
+		army_bonus_air_superiority_factor = 0.05
 
-	infrastructure_destruction = {
-
-		# EFFECT ########
-		air_cas_present_factor = 0.1
-		###########
-		xp_research_type = air
-		xp_unlock_cost = 100
-		
 		path = {
-			leads_to_tech = naval_strike_tactics
+			leads_to_tech = offensive_air_doctrine_3a
 			research_cost_coeff = 1
 		}
-		
-		doctrine = yes	
-		research_cost = 3
-		
-		categories = {
-			air_doctrine
-			strategic_destruction_tree
-			cat_strategic_destruction
-		}
-		
-		folder = {
-			name = air_doctrine_folder
-			position = { x = -2 y = 2 }
-		}
-		
-		ai_will_do = {
-			factor = 10
-			modifier = {
-				ai_land_doctrine_tier_1_trigger = yes
-				factor = 2
-			}
-			modifier = {
-				ai_land_doctrine_tier_2_trigger = yes
-				factor = 2
-			}
-		}
-		
-		ai_research_weights = {
-			air_doctrine = -1.0
-			medium_air = -0.5
-			heavy_air = -1.5
-		}
-	}	
-	
-	home_defence = {
-
-		# EFFECT ########
-		air_interception_detect_factor = 0.1
-		###########
-		
 		path = {
-			leads_to_tech = naval_strike_tactics
+			leads_to_tech = offensive_air_doctrine_3b
 			research_cost_coeff = 1
 		}
-		xp_research_type = air
-		xp_unlock_cost = 100
-		doctrine = yes	
-		research_cost = 3
-		
-		categories = {
-			air_doctrine
-			strategic_destruction_tree
-			cat_strategic_destruction
+		XOR = {
+			offensive_air_doctrine_2a
 		}
-		
+
+		xp_research_type = air
+		xp_unlock_cost = 75
+		doctrine = yes
+
 		folder = {
 			name = air_doctrine_folder
-			position = { x = 2 y = 2 }
+			position = { x = 1 y = 2 }
 		}
 		
-		ai_will_do = {
-			factor = 10
-			modifier = {
-				ai_land_doctrine_tier_1_trigger = yes
-				factor = 2
-			}
-			modifier = {
-				ai_land_doctrine_tier_2_trigger = yes
-				factor = 2
-			}
-		}
-		
-		ai_research_weights = {
-			air_doctrine = -1.0
-			light_air = -2.0
+		categories = {
+			cat_air_doctrine
+			cat_offensive_air_doctrine
 		}
 	}
-	
-	naval_strike_tactics = {
-
-		# EFFECT ########
-		air_nav_efficiency = 0.15 
-		
-		###########
-		
-		path = {
-			leads_to_tech = fighter_sweeps
-			research_cost_coeff = 1
+	offensive_air_doctrine_3a = {
+		category_fighter = {
+			air_attack = -0.1
+			air_defence = 0.1
+		}
+		category_heavy_fighter = {
+			air_attack = -0.1
+			air_defence = 0.1
 		}
 
 		path = {
-			leads_to_tech = dogfighting_experience
+			leads_to_tech = offensive_air_doctrine_4a
 			research_cost_coeff = 1
 		}
+		path = {
+			leads_to_tech = offensive_air_doctrine_4b
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = offensive_air_doctrine_4c
+			research_cost_coeff = 1
+		}
+		XOR = {
+			offensive_air_doctrine_3b
+		}
+
 		xp_research_type = air
 		xp_unlock_cost = 100
-		doctrine = yes	
-		research_cost = 3
-		
-		categories = {
-			air_doctrine
-			strategic_destruction_tree
-			cat_strategic_destruction
-		}
-		
+		doctrine = yes
+
 		folder = {
 			name = air_doctrine_folder
-			position = { x = 0 y = 4 }
+			position = { x = -1 y = 4 }
 		}
-		
-		ai_will_do = {
-			factor = 5
-			modifier = {
-				ai_land_doctrine_tier_1_trigger = yes
-				factor = 2
-			}
-			modifier = {
-				ai_land_doctrine_tier_2_trigger = yes
-				factor = 2
-			}
-		}
-		
-		ai_research_weights = {
-			air_doctrine = -1.0
-			light_air = -2.0
-		}
-	}
-
-	fighter_sweeps = {
-
-		# EFFECT ########
-		air_intercept_efficiency = 0.2
-		air_mission_xp_gain_factor = 0.05
-		###########
-		
-		xor={
-			dogfighting_experience
-		}
-
-		path = {
-			leads_to_tech = multialtitude_flying
-			research_cost_coeff = 1
-		}
-		xp_research_type = air
-		xp_unlock_cost = 100
-		doctrine = yes	
-		research_cost = 3
 		
 		categories = {
-			air_doctrine
-			strategic_destruction_tree
-			cat_strategic_destruction
+			cat_air_doctrine
+			cat_offensive_air_doctrine
+		}
+	}
+	offensive_air_doctrine_3b = {
+		category_fighter = {
+			air_attack = 0.1
+			air_defence = -0.1
+		}
+		category_heavy_fighter = {
+			air_attack = 0.1
+			air_defence = -0.1
 		}
 		
+		path = {
+			leads_to_tech = offensive_air_doctrine_4b 
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = offensive_air_doctrine_4c
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = offensive_air_doctrine_4a
+			research_cost_coeff = 1
+		}
+		XOR = {
+			offensive_air_doctrine_3a
+		}
+
+		xp_research_type = air
+		xp_unlock_cost = 100
+		doctrine = yes
+
+		folder = {
+			name = air_doctrine_folder
+			position = { x = 1 y = 4 }
+		}
+		
+		categories = {
+			cat_air_doctrine
+			cat_offensive_air_doctrine
+		}
+	}
+	offensive_air_doctrine_4a = {
+		category_fighter = {
+			air_agility = 0.1
+			maximum_speed = 0.1
+		}
+		category_heavy_fighter = {
+			air_agility = 0.1
+			maximum_speed = 0.1
+		}
+		air_fuel_consumption_factor = 0.2
+
+		path = {
+			leads_to_tech = offensive_air_doctrine_5
+			research_cost_coeff = 1
+		}
+		XOR = {
+			offensive_air_doctrine_4b
+			offensive_air_doctrine_4c
+		}
+
+		xp_research_type = air
+		xp_unlock_cost = 125
+		doctrine = yes
+
 		folder = {
 			name = air_doctrine_folder
 			position = { x = -2 y = 6 }
 		}
 		
-		ai_will_do = {
-			factor = 5
-			modifier = {
-				ai_land_doctrine_tier_1_trigger = yes
-				factor = 2
-			}
-			modifier = {
-				ai_land_doctrine_tier_2_trigger = yes
-				factor = 2
-			}
-		}
-		
-		ai_research_weights = {
-			air_doctrine = -1.0
-			light_air = -2.0
-		}
-	}
-
-	dogfighting_experience = {
-
-		# EFFECT ########
-		air_superiority_efficiency = 0.2
-		air_mission_xp_gain_factor = 0.05
-		###########
-		
-		xor={
-			fighter_sweeps
-		}
-
-		path = {
-			leads_to_tech = multialtitude_flying
-			research_cost_coeff = 1
-		}
-		xp_research_type = air
-		xp_unlock_cost = 100
-		doctrine = yes	
-		research_cost = 3
-		
 		categories = {
-			air_doctrine
-			strategic_destruction_tree
-			cat_strategic_destruction
-		}
-		
-		folder = {
-			name = air_doctrine_folder
-			position = { x = 2 y = 6 }
-		}
-		
-		ai_will_do = {
-			factor = 5
-			modifier = {
-				ai_land_doctrine_tier_1_trigger = yes
-				factor = 2
-			}
-			modifier = {
-				ai_land_doctrine_tier_2_trigger = yes
-				factor = 2
-			}
-			modifier = {
-				has_war = yes
-				factor = 2
-			}
-		}
-		
-		ai_research_weights = {
-			air_doctrine = -1.0
-			light_air = -2.0
+			cat_air_doctrine
+			cat_offensive_air_doctrine
 		}
 	}
+	offensive_air_doctrine_4b = {
+		category_fighter = {
+			air_agility = 0.1
+		}
+		category_heavy_fighter = {
+			air_agility = 0.1
+		}
 
-	multialtitude_flying = {
-
-		# EFFECT ########
-		#equipment_bonus = {
-			category_fighter = {
-				air_agility = 0.1
-			}
-			category_heavy_fighter = {
-				air_agility = 0.1
-			}
-		#}
-		###########
-		
 		path = {
-			leads_to_tech = logistical_bombing
+			leads_to_tech = offensive_air_doctrine_5
 			research_cost_coeff = 1
 		}
-		xp_research_type = air
-		xp_unlock_cost = 100
-		doctrine = yes	
-		research_cost = 3
-		
-		categories = {
-			air_doctrine
-			strategic_destruction_tree
-			cat_strategic_destruction
-		}
-		
-		folder = {
-			name = air_doctrine_folder
-			position = { x = 0 y = 8 }
-		}
-		
-		ai_will_do = {
-			factor = 5
-			modifier = {
-				ai_land_doctrine_tier_1_trigger = yes
-				factor = 2
-			}
-			modifier = {
-				ai_land_doctrine_tier_2_trigger = yes
-				factor = 2
-			}
-		}
-		
-		ai_research_weights = {
-			air_doctrine = -1.0
-			light_air = -2.0
-		}
-	}
-
-	logistical_bombing = {
-
-		# EFFECT ########
-		army_bonus_air_superiority_factor = 0.15
-		###########
-		
-		
-		path = {
-			leads_to_tech = night_bombing
-			research_cost_coeff = 1
-		}
-				
-		path = {
-			leads_to_tech = day_bombing
-			research_cost_coeff = 1
-		}
-		xp_research_type = air
-		xp_unlock_cost = 100
-		doctrine = yes	
-		research_cost = 3
-		
-		categories = {
-			air_doctrine
-			strategic_destruction_tree
-			cat_strategic_destruction
-		}
-		
-		folder = {
-			name = air_doctrine_folder
-			position = { x = 0 y = 10 }
-		}
-		
-		ai_will_do = {
-			factor = 5
-			modifier = {
-				ai_land_doctrine_tier_1_trigger = yes
-				factor = 2
-			}
-			modifier = {
-				ai_land_doctrine_tier_2_trigger = yes
-				factor = 2
-			}
-		}
-		
-		ai_research_weights = {
-			air_doctrine = -1.0
-			medium_air = -0.5
-			heavy_air = -1.5
-		}
-	}
-
-	night_bombing = {
-	
-		# EFFECT ########
-		air_strategic_bomber_night_penalty = -0.5
-		###########		
-
 		XOR = {
-			day_bombing
+			offensive_air_doctrine_4a
+			offensive_air_doctrine_4c
 		}
-
-		path = {
-			leads_to_tech = massed_bomber_formations
-			research_cost_coeff = 1
-		}
-		xp_research_type = air
-		xp_unlock_cost = 100
-		doctrine = yes	
-		research_cost = 3
-		
-		categories = {
-			air_doctrine
-			strategic_destruction_tree
-			cat_strategic_destruction
-		}
-		
-		folder = {
-			name = air_doctrine_folder
-			position = { x = -2 y = 12 }
-		}
-		
-		ai_will_do = {
-			factor = 5
-			modifier = {
-				ai_land_doctrine_tier_1_trigger = yes
-				factor = 2
-			}
-			modifier = {
-				ai_land_doctrine_tier_2_trigger = yes
-				factor = 2
-			}
-			modifier = {
-				tag = ENG
-				factor = 1.5
-			}
-			modifier = {
-				tag = USA
-				factor = 0.5
-			}
-		}
-		
-		ai_research_weights = {
-			air_doctrine = -1.0
-			medium_air = -0.5
-			heavy_air = -1.5
-		}
-	}
-
-	day_bombing = {
-	
-		# EFFECT ########
-		air_strategic_bomber_bombing_factor = 0.3
-		###########
-
-		XOR = {
-			night_bombing
-		}
-		
-		path = {
-			leads_to_tech = air_offense
-			research_cost_coeff = 1
-		}
-		xp_research_type = air
-		xp_unlock_cost = 100
-		doctrine = yes	
-		research_cost = 3
-		
-		categories = {
-			air_doctrine
-			strategic_destruction_tree
-			cat_strategic_destruction
-		}
-		
-		folder = {
-			name = air_doctrine_folder
-			position = { x = 2 y = 12 }
-		}
-		
-		ai_will_do = {
-			factor = 5
-			modifier = {
-				ai_land_doctrine_tier_1_trigger = yes
-				factor = 2
-			}
-			modifier = {
-				ai_land_doctrine_tier_2_trigger = yes
-				factor = 2
-			}
-			modifier = {
-				tag = ENG
-				factor = 0.5
-			}
-			modifier = {
-				tag = USA
-				factor = 1.5
-			}
-		}
-		
-		ai_research_weights = {
-			air_doctrine = -1.0
-			medium_air = -0.5
-			heavy_air = -1.5
-		}
-	}	
-
-	massed_bomber_formations = {
-
-		# EFFECT ########
-		air_strategic_bomber_bombing_factor = 0.2
-		###########
-		
-		
-		path = {
-			leads_to_tech = flying_fortress
-			research_cost_coeff = 1
-		}
-		xp_research_type = air
-		xp_unlock_cost = 100
-		doctrine = yes	
-		research_cost = 3
-		
-		categories = {
-			air_doctrine
-			strategic_destruction_tree
-			cat_strategic_destruction
-		}
-		
-		folder = {
-			name = air_doctrine_folder
-			position = { x = -2 y = 14 }
-		}
-		
-		ai_will_do = {
-			factor = 5
-			modifier = {
-				ai_land_doctrine_tier_1_trigger = yes
-				factor = 2
-			}
-			modifier = {
-				ai_land_doctrine_tier_2_trigger = yes
-				factor = 3
-			}
-		}
-		
-		ai_research_weights = {
-			air_doctrine = -1.0
-			medium_air = -0.5
-			heavy_air = -1.5
-		}
-	}
-
-	air_offense = {
-
-		# EFFECT ########
-		air_escort_efficiency = 0.25
-		###########
-		
-		path = {
-			leads_to_tech = flying_fortress
-			research_cost_coeff = 1
-		}
-		xp_research_type = air
-		xp_unlock_cost = 100
-		doctrine = yes	
-		research_cost = 3
-		
-		categories = {
-			air_doctrine
-			strategic_destruction_tree
-			cat_strategic_destruction
-		}
-		
-		folder = {
-			name = air_doctrine_folder
-			position = { x = 2 y = 14 }
-		}
-		
-		ai_will_do = {
-			factor = 5
-			modifier = {
-				ai_land_doctrine_tier_1_trigger = yes
-				factor = 2
-			}
-			modifier = {
-				ai_land_doctrine_tier_2_trigger = yes
-				factor = 2
-			}
-		}
-		
-		ai_research_weights = {
-			air_doctrine = -1.0
-			light_air = -1.5
-			medium_air = -0.5
-		}
-	}
-
-	flying_fortress = {
-
-		# EFFECT ########
-		air_strategic_bomber_defence_factor = 0.25
-		###########
-		
-		path = {
-			leads_to_tech = offensive_formations
-			research_cost_coeff = 1
-		}
-
-		path = {
-			leads_to_tech = mass_destruction
-			research_cost_coeff = 1
-		}
-		xp_research_type = air
-		xp_unlock_cost = 100
-		doctrine = yes	
-		research_cost = 3
-		
-		categories = {
-			air_doctrine
-			strategic_destruction_tree
-			cat_strategic_destruction
-		}
-		
-		folder = {
-			name = air_doctrine_folder
-			position = { x = 0 y = 16 }
-		}
-		
-		ai_will_do = {
-			factor = 5
-			modifier = {
-				ai_land_doctrine_tier_1_trigger = yes
-				factor = 2
-			}
-			modifier = {
-				ai_land_doctrine_tier_2_trigger = yes
-				factor = 3
-			}
-		}
-		
-		ai_research_weights = {
-			air_doctrine = -1.0
-			medium_air = -0.5
-			heavy_air = -1.5
-		}
-	}
-
-	offensive_formations = {
-
-		# EFFECT ########
-		army_bonus_air_superiority_factor = 0.15
-		###########
 
 		xp_research_type = air
-		xp_unlock_cost = 100
-		doctrine = yes	
-		research_cost = 3
-		
-		categories = {
-			air_doctrine
-			strategic_destruction_tree
-			cat_strategic_destruction
-		}
-		
-		folder = {
-			name = air_doctrine_folder
-			position = { x = -2 y = 18 }
-		}
-		
-		ai_will_do = {
-			factor = 5
-			modifier = {
-				ai_land_doctrine_tier_1_trigger = yes
-				factor = 2
-			}
-			modifier = {
-				ai_land_doctrine_tier_2_trigger = yes
-				factor = 2
-			}
-		}
-		
-		ai_research_weights = {
-			air_doctrine = -1.0
-			light_air = -2.0
-		}
-	}		
+		xp_unlock_cost = 125
+		doctrine = yes
 
-	mass_destruction = {
-
-		# EFFECT ########
-		air_strategic_bomber_bombing_factor = 0.2
-		###########
-		xp_research_type = air
-		xp_unlock_cost = 100
-		doctrine = yes	
-		research_cost = 3
-		
-		categories = {
-			air_doctrine
-			strategic_destruction_tree
-			cat_strategic_destruction
-		}
-		
-		folder = {
-			name = air_doctrine_folder
-			position = { x = 2 y = 18 }
-		}
-		
-		ai_will_do = {
-			factor = 5
-			modifier = {
-				ai_land_doctrine_tier_1_trigger = yes
-				factor = 2
-			}
-			modifier = {
-				ai_land_doctrine_tier_2_trigger = yes
-				factor = 2
-			}
-		}
-		
-		ai_research_weights = {
-			air_doctrine = -1.0
-			medium_air = -0.5
-			heavy_air = -1.5
-		}
-	}
-
-	####################################
-	############ END TREE ##############
-	####################################
-
-	formation_flying = {
-		doctrine_name = "TITLE_BATTLEFIELD_SUPPORT"
-
-		xor = { force_rotation air_superiority }
-
-		xp_research_type = air
-		
-		# EFFECT ########
-		air_superiority_detect_factor = 0.15
-		air_mission_xp_gain_factor = 0.05
-		###########
-		
-		path = {
-			leads_to_tech = dive_bombing
-			research_cost_coeff = 1
-		}
-		xp_research_type = air
-		xp_unlock_cost = 100
-		doctrine = yes	
-		research_cost = 2.25
-		
-		categories = {
-			air_doctrine
-			battlefield_support_tree
-			cat_battlefield_support
-		}
-		
-		folder = {
-			name = air_doctrine_folder
-			position = { x = 0 y = 0 }
-		}
-		
-		ai_will_do = {
-			factor = 5
-			
-			modifier = {
-				factor = 0
-				tag = USA
-			}
-			modifier = {
-				tag = SOV
-				factor = 4
-			}
-			modifier = {
-				ai_land_doctrine_tier_1_trigger = yes
-				factor = 2
-			}
-			modifier = {
-				ai_land_doctrine_tier_2_trigger = yes
-				factor = 2
-			}
-		}
-		
-		ai_research_weights = {
-			air_doctrine = -1.0
-			light_air = -2.0
-		}
-	}
-
-	dive_bombing = {
-
-		xp_research_type = air
-		
-		# EFFECT ########
-		air_cas_efficiency = 0.20
-		ground_attack_factor = 0.10
-		###########
-		
-		path = {
-			leads_to_tech = direct_ground_support
-			research_cost_coeff = 1
-		}
-		xp_research_type = air
-		xp_unlock_cost = 100
-		doctrine = yes	
-		research_cost = 3
-		
-		categories = {
-			air_doctrine
-			battlefield_support_tree
-			cat_battlefield_support
-		}
-		
-		folder = {
-			name = air_doctrine_folder
-			position = { x = 0 y = 2 }
-		}
-		
-		ai_will_do = {
-			factor = 10
-			modifier = {
-				ai_land_doctrine_tier_1_trigger = yes
-				factor = 2
-			}
-			modifier = {
-				ai_land_doctrine_tier_2_trigger = yes
-				factor = 2
-			}
-
-			modifier = {
-				tag = GER
-				factor = 0.5
-			}
-		}
-		
-		ai_research_weights = {
-			air_doctrine = -1.0
-			light_air = -1.0
-			medium_air = -1.0
-		}
-	}
-
-	direct_ground_support = {
-
-		# EFFECT ########
-		air_cas_present_factor = 0.20
-		###########
-		
-		path = {
-			leads_to_tech = formation_fighting
-			research_cost_coeff = 1
-		}
-
-		path = {
-			leads_to_tech = fighter_ace_initiative
-			research_cost_coeff = 1
-		}
-		xp_research_type = air
-		xp_unlock_cost = 100
-		doctrine = yes	
-		research_cost = 3
-		
-		categories = {
-			air_doctrine
-			battlefield_support_tree
-			cat_battlefield_support
-		}
-		
-		folder = {
-			name = air_doctrine_folder
-			position = { x = 0 y = 4 }
-		}
-		
-		ai_will_do = {
-			factor = 5
-			modifier = {
-				ai_land_doctrine_tier_1_trigger = yes
-				factor = 2
-			}
-			modifier = {
-				ai_land_doctrine_tier_2_trigger = yes
-				factor = 2
-			}
-			modifier = {
-				tag = GER
-				factor = 0.5
-			}
-		}
-		
-		ai_research_weights = {
-			air_doctrine = -1.0
-			light_air = -1.0
-			medium_air = -1.0
-		}
-	}
-
-	formation_fighting = {
-
-		# EFFECT ########
-		air_superiority_efficiency = 0.15
-		air_mission_xp_gain_factor = 0.05
-		###########
-		
-		xor = {
-			fighter_ace_initiative
-		}
-
-		path = {
-			leads_to_tech = hunt_and_destroy
-			research_cost_coeff = 1
-		}
-		xp_research_type = air
-		xp_unlock_cost = 100
-		doctrine = yes	
-		research_cost = 3
-		
-		categories = {
-			air_doctrine
-			battlefield_support_tree
-			cat_battlefield_support
-		}
-		
-		folder = {
-			name = air_doctrine_folder
-			position = { x = -2 y = 6 }
-		}
-		
-		ai_will_do = {
-			factor = 10
-			modifier = {
-				ai_land_doctrine_tier_1_trigger = yes
-				factor = 2
-			}
-			modifier = {
-				ai_land_doctrine_tier_2_trigger = yes
-				factor = 2
-			}
-			modifier = {
-				tag = GER
-				factor = 0.5
-			}
-		}
-		
-		ai_research_weights = {
-			air_doctrine = -1.0
-			light_air = -2.0
-		}
-	}
-	
-	fighter_ace_initiative = {
-
-		# EFFECT ########
-		air_ace_generation_chance_factor = 0.25
-		air_mission_xp_gain_factor = 0.05
-		###########
-
-		xor = {
-			formation_fighting
-		}
-
-		path = {
-			leads_to_tech = hunt_and_destroy
-			research_cost_coeff = 1
-		}		
-		xp_research_type = air
-		xp_unlock_cost = 100
-		doctrine = yes	
-		research_cost = 3
-		
-		categories = {
-			air_doctrine
-			battlefield_support_tree
-			cat_battlefield_support
-		}
-		
-		folder = {
-			name = air_doctrine_folder
-			position = { x = 2 y = 6 }
-		}
-		
-		ai_will_do = {
-			factor = 5
-			modifier = {
-				ai_land_doctrine_tier_1_trigger = yes
-				factor = 2
-			}
-			modifier = {
-				ai_land_doctrine_tier_2_trigger = yes
-				factor = 2
-			}
-			modifier = {
-				tag = GER
-				factor = 0.5
-			}
-		}
-		
-		ai_research_weights = {
-			air_doctrine = -1.0
-			light_air = -2.0
-		}
-	}
-
-	hunt_and_destroy = {
-
-		# EFFECT ########
-		air_cas_efficiency = 0.20
-		###########
-		
-		path = {
-			leads_to_tech = combat_unit_destruction
-			research_cost_coeff = 1
-		}
-		xp_research_type = air
-		xp_unlock_cost = 100
-		doctrine = yes	
-		research_cost = 3
-		
-		categories = {
-			air_doctrine
-			battlefield_support_tree
-			cat_battlefield_support
-		}
-		
-		folder = {
-			name = air_doctrine_folder
-			position = { x = 0 y = 8 }
-		}
-		
-		ai_will_do = {
-			factor = 5
-			modifier = {
-				ai_land_doctrine_tier_1_trigger = yes
-				factor = 2
-			}
-			modifier = {
-				ai_land_doctrine_tier_2_trigger = yes
-				factor = 2
-			}
-			modifier = {
-				tag = GER
-				factor = 0.5
-			}
-		}
-		
-		ai_research_weights = {
-			air_doctrine = -1.0
-			light_air = -1.0
-			medium_air = -1.0
-		}
-	}
-
-	combat_unit_destruction = {
-
-		# EFFECT ########
-		category_cas = {
-			air_agility = 0.2
-		}
-		army_bonus_air_superiority_factor = 0.1
-		###########
-
-		path = {
-			leads_to_tech = battlefield_support
-			research_cost_coeff = 1
-		}
-
-		path = {
-			leads_to_tech = keypoint_bombing
-			research_cost_coeff = 1
-		}
-
-		path = {
-			leads_to_tech = ground_support_integration
-			research_cost_coeff = 1
-		}
-		xp_research_type = air
-		xp_unlock_cost = 100
-		doctrine = yes	
-		research_cost = 3
-		
-		categories = {
-			air_doctrine
-			battlefield_support_tree
-			cat_battlefield_support
-		}
-		
-		folder = {
-			name = air_doctrine_folder
-			position = { x = 0 y = 10 }
-		}
-		
-		ai_will_do = {
-			factor = 5
-			modifier = {
-				ai_land_doctrine_tier_1_trigger = yes
-				factor = 2
-			}
-			modifier = {
-				ai_land_doctrine_tier_2_trigger = yes
-				factor = 2
-			}
-			modifier = {
-				tag = GER
-				factor = 0.5
-			}
-		}
-		
-		ai_research_weights = {
-			air_doctrine = -1.0
-			light_air = -1.0
-			medium_air = -1.0
-		}
-	}
-
-	battlefield_support = {
-
-		# EFFECT ########
-		army_bonus_air_superiority_factor = 0.2
-		###########
-		
-		
-		path = {
-			leads_to_tech = naval_strike_torpedo_tactics
-			research_cost_coeff = 1
-		}
-		xp_research_type = air
-		xp_unlock_cost = 100
-		doctrine = yes	
-		research_cost = 3
-		
-		categories = {
-			air_doctrine
-			battlefield_support_tree
-			cat_battlefield_support
-		}
-		
-		folder = {
-			name = air_doctrine_folder
-			position = { x = -2 y = 12 }
-		}
-		
-		ai_will_do = {
-			factor = 5
-			modifier = {
-				ai_land_doctrine_tier_1_trigger = yes
-				factor = 2
-			}
-			modifier = {
-				ai_land_doctrine_tier_2_trigger = yes
-				factor = 2
-			}
-		}
-		
-		ai_research_weights = {
-			air_doctrine = -1.0
-			medium_air = -0.5
-			heavy_air = -1.5
-		}
-	}	
-	
-	keypoint_bombing = {
-
-		# EFFECT ########
-		tac_bomber = {
-			air_bombing = 0.10
-		}
-		###########
-		
-		
-		path = {
-			leads_to_tech = naval_strike_torpedo_tactics
-			research_cost_coeff = 1
-		}
-		xp_research_type = air
-		xp_unlock_cost = 100
-		doctrine = yes	
-		research_cost = 3
-		
-		categories = {
-			air_doctrine
-			battlefield_support_tree
-			cat_battlefield_support
-		}
-
-		
-		folder = {
-			name = air_doctrine_folder
-			position = { x = 0 y = 12 }
-		}
-		
-		ai_will_do = {
-			factor = 5
-			modifier = {
-				ai_land_doctrine_tier_1_trigger = yes
-				factor = 2
-			}
-			modifier = {
-				ai_land_doctrine_tier_2_trigger = yes
-				factor = 2
-			}
-		}
-		
-		ai_research_weights = {
-			air_doctrine = -1.0
-			medium_air = -0.5
-			heavy_air = -1.5
-		}
-	}
-
-	ground_support_integration = {
-
-		# EFFECT ########
-		air_cas_present_factor = 0.2
-		###########
-
-		path = {
-			leads_to_tech = naval_strike_torpedo_tactics
-			research_cost_coeff = 1
-		}		
-		xp_research_type = air
-		xp_unlock_cost = 100
-		doctrine = yes	
-		research_cost = 3
-		
-		categories = {
-			air_doctrine
-			battlefield_support_tree
-			cat_battlefield_support
-		}
-		
-		folder = {
-			name = air_doctrine_folder
-			position = { x = 2 y = 12 }
-		}
-		
-		ai_will_do = {
-			factor = 5
-			modifier = {
-				ai_land_doctrine_tier_1_trigger = yes
-				factor = 2
-			}
-			modifier = {
-				ai_land_doctrine_tier_2_trigger = yes
-				factor = 2
-			}
-		}
-		
-		ai_research_weights = {
-			air_doctrine = -1.0
-			medium_air = -0.5
-			heavy_air = -1.5
-		}
-	}
-
-	naval_strike_torpedo_tactics = {
-
-		# EFFECT ########
-		air_nav_efficiency = 0.1
-		###########
-
-		path = {
-			leads_to_tech = strategic_destruction
-			research_cost_coeff = 1
-		}		
-		xp_research_type = air
-		xp_unlock_cost = 100
-		doctrine = yes	
-		research_cost = 3
-		
-		categories = {
-			air_doctrine
-			battlefield_support_tree
-			cat_battlefield_support
-		}
-		
-		folder = {
-			name = air_doctrine_folder
-			position = { x = 0 y = 14 }
-		}
-		
-		ai_will_do = {
-			factor = 5
-			modifier = {
-				ai_land_doctrine_tier_1_trigger = yes
-				factor = 2
-			}
-			modifier = {
-				ai_land_doctrine_tier_2_trigger = yes
-				factor = 2
-			}
-		}
-		
-		ai_research_weights = {
-			air_doctrine = -1.0
-			medium_air = -0.5
-			heavy_air = -1.5
-		}
-	}
-
-	strategic_destruction = {
-
-		# EFFECT ########
-		air_strategic_bomber_bombing_factor = 0.15
-		###########
-		
-		
-		path = {
-			leads_to_tech = forward_interception
-			research_cost_coeff = 1
-		}
-		xp_research_type = air
-		xp_unlock_cost = 100
-		doctrine = yes	
-		research_cost = 3
-		
-		categories = {
-			air_doctrine
-			battlefield_support_tree
-			cat_battlefield_support
-		}
-		
-		folder = {
-			name = air_doctrine_folder
-			position = { x = 0 y = 16 }
-		}
-		
-		ai_will_do = {
-			factor = 5
-		}
-		
-		ai_research_weights = {
-			air_doctrine = -1.0
-			medium_air = -0.5
-			heavy_air = -1.5
-		}
-	}	
-
-	forward_interception = {
-
-		# EFFECT ########
-		air_interception_detect_factor = 0.15
-		###########
-		xp_research_type = air
-		xp_unlock_cost = 100
-		doctrine = yes	
-		research_cost = 3
-		
-		categories = {
-			air_doctrine
-			battlefield_support_tree
-			cat_battlefield_support
-		}
-		
-		folder = {
-			name = air_doctrine_folder
-			position = { x = 0 y = 18 }
-		}
-		
-		ai_will_do = {
-			factor = 5
-		}
-		
-		ai_research_weights = {
-			air_doctrine = -1.0
-			light_air = -2.0
-		}
-	}
-
-	####################################
-	############ END TREE ##############
-	####################################
-
-	force_rotation = {
-		doctrine_name = "TITLE_OPERATIONAL_INTEGRITY"
-		
-		xp_research_type = air
-		
-		xor = { formation_flying air_superiority }	
-
-		# EFFECT ########
-		air_interception_detect_factor = 0.20
-		air_mission_xp_gain_factor = 0.05
-		###########
-		
-		path = {
-			leads_to_tech = fighter_baiting
-			research_cost_coeff = 1
-		}
-		xp_research_type = air
-		xp_unlock_cost = 100
-		doctrine = yes	
-		research_cost = 2.25
-		
-		categories = {
-			air_doctrine
-			operational_integrity_tree
-			cat_operational_integrity
-		}
-		
-		folder = {
-			name = air_doctrine_folder
-			position = { x = 0 y = 0 }
-		}
-		
-		ai_will_do = {
-			factor = 10
-			
-			modifier = {
-				factor = 0
-				tag = USA
-			}
-			modifier = {
-				ai_land_doctrine_tier_1_trigger = yes
-				factor = 2
-			}
-			modifier = {
-				ai_land_doctrine_tier_2_trigger = yes
-				factor = 5
-			}
-		}
-	}
-	
-	fighter_baiting = {
-
-		# EFFECT ########
-		air_intercept_efficiency = 0.2
-		air_ace_generation_chance_factor = 0.1
-		###########
-		
-		path = {
-			leads_to_tech = low_echelon_support
-			research_cost_coeff = 1
-		}
-		xp_research_type = air
-		xp_unlock_cost = 100
-		doctrine = yes	
-		research_cost = 3
-		
-		categories = {
-			air_doctrine
-			operational_integrity_tree
-			cat_operational_integrity
-		}
-		
-		folder = {
-			name = air_doctrine_folder
-			position = { x = 0 y = 2 }
-		}
-		
-		ai_will_do = {
-			factor = 10
-			modifier = {
-				ai_land_doctrine_tier_1_trigger = yes
-				factor = 2
-			}
-			modifier = {
-				ai_land_doctrine_tier_2_trigger = yes
-				factor = 2
-			}
-		}
-		
-		ai_research_weights = {
-			air_doctrine = -1.0
-			light_air = -2.0
-		}
-	}
-
-	low_echelon_support = {
-
-		# EFFECT ########
-		air_cas_present_factor = 0.1
-		###########
-		
-		
-		path = {
-			leads_to_tech = dispersed_fighting
-			research_cost_coeff = 1
-		}
-		
-		xp_research_type = air
-		xp_unlock_cost = 100
-		doctrine = yes	
-		research_cost = 3
-		
-		categories = {
-			air_doctrine
-			operational_integrity_tree
-			cat_operational_integrity
-		}
-		
-		folder = {
-			name = air_doctrine_folder
-			position = { x = 0 y = 4 }
-		}
-		
-		ai_will_do = {
-			factor = 5
-			modifier = {
-				ai_land_doctrine_tier_1_trigger = yes
-				factor = 2
-			}
-			modifier = {
-				ai_land_doctrine_tier_2_trigger = yes
-				factor = 2
-			}
-		}
-		
-		ai_research_weights = {
-			air_doctrine = -1.0
-			light_air = -1.0
-			medium_air = -1.0
-		}
-	}
-
-	dispersed_fighting = {
-
-		# EFFECT ########
-		air_superiority_detect_factor = 0.2
-		###########
-		
-		path = {
-			leads_to_tech = operational_destruction
-			research_cost_coeff = 1
-		}
-		
-		xp_research_type = air
-		xp_unlock_cost = 100
-		doctrine = yes	
-		research_cost = 3
-		
-		categories = {
-			air_doctrine
-			operational_integrity_tree
-			cat_operational_integrity
-		}
-		
 		folder = {
 			name = air_doctrine_folder
 			position = { x = 0 y = 6 }
 		}
 		
-		ai_will_do = {
-			factor = 5
-			modifier = {
-				ai_land_doctrine_tier_1_trigger = yes
-				factor = 2
-			}
-			modifier = {
-				ai_land_doctrine_tier_2_trigger = yes
-				factor = 2
-			}
-		}
-		
-		ai_research_weights = {
-			air_doctrine = -1.0
-			light_air = -2.0
+		categories = {
+			cat_air_doctrine
+			cat_offensive_air_doctrine
 		}
 	}
-
-	operational_destruction = {
-
-		# EFFECT ########
-		army_bonus_air_superiority_factor = 0.15
-		###########
-		
-		path = {
-			leads_to_tech = fighter_veteran_initiative
-			research_cost_coeff = 1
-		}		
+	offensive_air_doctrine_4c = {
+		air_escort_efficiency = 0.2
+		category_fighter = {
+			air_range = 0.1
+		}
+		category_heavy_fighter = {
+			air_range = 0.1
+		}
 
 		path = {
-			leads_to_tech = cas_veteran_initiative
+			leads_to_tech = offensive_air_doctrine_5
 			research_cost_coeff = 1
 		}
-		
+		XOR = {
+			offensive_air_doctrine_4a
+			offensive_air_doctrine_4b
+		}
+
 		xp_research_type = air
-		xp_unlock_cost = 100
-		doctrine = yes	
-		research_cost = 3
+		xp_unlock_cost = 125
+		doctrine = yes
+
+		folder = {
+			name = air_doctrine_folder
+			position = { x = 2 y = 6 }
+		}
 		
 		categories = {
-			air_doctrine
-			operational_integrity_tree
-			cat_operational_integrity
+			cat_air_doctrine
+			cat_offensive_air_doctrine
 		}
-		
+	}
+	offensive_air_doctrine_5 = {
+		air_superiority_efficiency = 0.05
+		army_bonus_air_superiority_factor = 0.1
+
+		xp_research_type = air
+		xp_unlock_cost = 150
+		doctrine = yes
+
 		folder = {
 			name = air_doctrine_folder
 			position = { x = 0 y = 8 }
 		}
 		
-		ai_will_do = {
-			factor = 5
-			modifier = {
-				ai_land_doctrine_tier_1_trigger = yes
-				factor = 2
-			}
-			modifier = {
-				ai_land_doctrine_tier_2_trigger = yes
-				factor = 2
-			}
-		}
-		
-		ai_research_weights = {
-			air_doctrine = -1.0
-			light_air = -1.0
-			medium_air = -1.0
-		}
-	}
-
-	fighter_veteran_initiative = {
-
-		# EFFECT ########
-			category_fighter = {
-				air_agility = 0.10
-			}
-			category_heavy_fighter = {
-				air_agility = 0.10
-			}
-			air_training_xp_gain_factor = 0.1
-		###########
-		
-		path = {
-			leads_to_tech = naval_strike_torpedo_tactics_oi
-			research_cost_coeff = 1
-		}
-		
-		xp_research_type = air
-		xp_unlock_cost = 100
-		doctrine = yes	
-		research_cost = 3
-		
 		categories = {
-			air_doctrine
-			operational_integrity_tree
-			cat_operational_integrity
-		}
-		
-		folder = {
-			name = air_doctrine_folder
-			position = { x = -2 y = 10 }
-		}
-		
-		ai_will_do = {
-			factor = 5
-			modifier = {
-				ai_land_doctrine_tier_1_trigger = yes
-				factor = 2
-			}
-			modifier = {
-				ai_land_doctrine_tier_2_trigger = yes
-				factor = 2
-			}
-		}
-		
-		ai_research_weights = {
-			air_doctrine = -1.0
-			light_air = -2.0
+			cat_air_doctrine
+			cat_offensive_air_doctrine
 		}
 	}
 
-	naval_strike_torpedo_tactics_oi = {
-
-		#same as naval_strike_torpedo_tactics
-		# EFFECT ########
-		air_nav_efficiency = 0.1
-		###########
+	cas_doctrine_1 = {
+		doctrine_name = "CAS_DOCTRINE"
+		air_cas_efficiency = 0.2
+		air_cas_present_factor = 0.05
 
 		path = {
-			leads_to_tech = infiltration_bombing
+			leads_to_tech = cas_doctrine_2a
 			research_cost_coeff = 1
-		}		
-			
-		xp_research_type = air
-		xp_unlock_cost = 100
-		doctrine = yes	
-		research_cost = 3
-		
-		categories = {
-			air_doctrine
-			operational_integrity_tree
-			cat_operational_integrity
 		}
-		
-		folder = {
-			name = air_doctrine_folder
-			position = { x = -2 y = 12 }
-		}
-		
-		ai_will_do = {
-			factor = 5
-			modifier = {
-				ai_land_doctrine_tier_1_trigger = yes
-				factor = 2
-			}
-			modifier = {
-				ai_land_doctrine_tier_2_trigger = yes
-				factor = 2
-			}
-		}
-		
-		ai_research_weights = {
-			air_doctrine = -1.0
-			medium_air = -0.5
-			heavy_air = -1.5
-		}
-	}
-
-
-	cas_veteran_initiative = {
-
-		# EFFECT ########
-		air_cas_efficiency = 0.15
-		air_training_xp_gain_factor = 0.1
-		###########
-		
 		path = {
-			leads_to_tech = carousel_bombing
+			leads_to_tech = cas_doctrine_2c
 			research_cost_coeff = 1
 		}
-		
-		xp_research_type = air
-		xp_unlock_cost = 100
-		doctrine = yes	
-		research_cost = 3
-		
-		categories = {
-			air_doctrine
-			operational_integrity_tree
-			cat_operational_integrity
-		}
-		
-		folder = {
-			name = air_doctrine_folder
-			position = { x = 2 y = 10 }
-		}
-		
-		ai_will_do = {
-			factor = 5
-			modifier = {
-				ai_land_doctrine_tier_1_trigger = yes
-				factor = 2
-			}
-			modifier = {
-				ai_land_doctrine_tier_2_trigger = yes
-				factor = 2
-			}
-		}
-		
-		ai_research_weights = {
-			air_doctrine = -1.0
-			light_air = -1.0
-			medium_air = -1.0
-		}
-	}
-
-	carousel_bombing = {
-
-		# EFFECT ########
-		tac_bomber = {
-			air_bombing = 0.2
-		}
-		###########
-		
 		path = {
-			leads_to_tech = infiltration_bombing
+			leads_to_tech = cas_doctrine_2b
 			research_cost_coeff = 1
 		}
-		
+
 		xp_research_type = air
-		xp_unlock_cost = 100
-		doctrine = yes	
-		research_cost = 3
-		
-		categories = {
-			air_doctrine
-			operational_integrity_tree
-			cat_operational_integrity
-		}
-		
+		xp_unlock_cost = 50
+		doctrine = yes
+
 		folder = {
 			name = air_doctrine_folder
-			position = { x = 2 y = 12 }
+			position = { x = 0 y = 0 }
 		}
 		
-		ai_will_do = {
-			factor = 5
-			modifier = {
-				ai_land_doctrine_tier_1_trigger = yes
-				factor = 2
-			}
-			modifier = {
-				ai_land_doctrine_tier_2_trigger = yes
-				factor = 2
-			}
-		}
-		
-		ai_research_weights = {
-			air_doctrine = -1.0
-			medium_air = -0.5
-			heavy_air = -1.5
+		categories = {
+			cat_air_doctrine
+			cat_cas_doctrine
 		}
 	}
+	cas_doctrine_2a = {
+		army_bonus_air_superiority_factor = 0.1
+		category_cas = {
+			air_ground_attack = 0.05
+			air_defence = 0.2
+		}
 
-	infiltration_bombing = {
-
-		# EFFECT ########
-		strategic_bomb_visibility = -0.5 #Strat bombers are harder to detect, both in night and day.
-		###########
-		
 		path = {
-			leads_to_tech = air_skirmish
+			leads_to_tech = cas_doctrine_3
 			research_cost_coeff = 1
 		}
-		
-		xp_research_type = air
-		xp_unlock_cost = 100
-		doctrine = yes	
-		research_cost = 3
-		
-		categories = {
-			air_doctrine
-			operational_integrity_tree
-			cat_operational_integrity
+		XOR = {
+			cas_doctrine_2b
+			cas_doctrine_2c
 		}
-		
+
+
+		xp_research_type = air
+		xp_unlock_cost = 75
+		doctrine = yes
+
 		folder = {
 			name = air_doctrine_folder
-			position = { x = 0 y = 14 }
+			position = { x = -2 y = 2 }
 		}
 		
-		ai_will_do = {
-			factor = 5
-			modifier = {
-				ai_land_doctrine_tier_1_trigger = yes
-				factor = 2
-			}
-			modifier = {
-				ai_land_doctrine_tier_2_trigger = yes
-				factor = 2
-			}
-		}
-		
-		ai_research_weights = {
-			air_doctrine = -1.0
-			medium_air = -0.5
-			heavy_air = -1.5
+		categories = {
+			cat_air_doctrine
+			cat_cas_doctrine
 		}
 	}
+	cas_doctrine_2b = {
+		army_bonus_air_superiority_factor = 0.1
+		category_cas = {
+			air_ground_attack = 0.15
+			air_defence = -0.1
+		}
 
-	air_skirmish = {
-
-		# EFFECT ########
-		air_superiority_efficiency = 0.2
-		air_ace_generation_chance_factor = 0.1
-		###########
-		
 		path = {
-			leads_to_tech = high_level_bombing
+			leads_to_tech = cas_doctrine_3
 			research_cost_coeff = 1
 		}
-		
-		xp_research_type = air
-		xp_unlock_cost = 100
-		doctrine = yes	
-		research_cost = 3
-		
-		categories = {
-			air_doctrine
-			operational_integrity_tree
-			cat_operational_integrity
+		XOR = {
+			cas_doctrine_2a
+			cas_doctrine_2c
 		}
-		
+
+
+		xp_research_type = air
+		xp_unlock_cost = 75
+		doctrine = yes
+
 		folder = {
 			name = air_doctrine_folder
-			position = { x = 0 y = 16 }
+			position = { x = 0 y = 2 }
 		}
 		
-		ai_will_do = {
-			factor = 5
-			modifier = {
-				ai_land_doctrine_tier_1_trigger = yes
-				factor = 2
-			}
-			modifier = {
-				ai_land_doctrine_tier_2_trigger = yes
-				factor = 2
-			}
+		categories = {
+			cat_air_doctrine
+			cat_cas_doctrine
+		}
+	}
+	cas_doctrine_2c = {
+		army_bonus_air_superiority_factor = 0.1
+		category_tac_bomber = {
+			air_ground_attack = 0.1
+			air_bombing = 0.1
+		}
+
+		path = {
+			leads_to_tech = cas_doctrine_3
+			research_cost_coeff = 1
+		}
+		XOR = {
+			cas_doctrine_2a
+			cas_doctrine_2b
+		}
+
+
+		xp_research_type = air
+		xp_unlock_cost = 75
+		doctrine = yes
+
+		folder = {
+			name = air_doctrine_folder
+			position = { x = 2 y = 2 }
 		}
 		
-		ai_research_weights = {
-			air_doctrine = -1.0
-			light_air = -2.0
+		categories = {
+			cat_air_doctrine
+			cat_cas_doctrine
+		}
+	}
+	cas_doctrine_3 = {
+		air_cas_present_factor = 0.15
+		army_bonus_air_superiority_factor = 0.1
+
+		path = {
+			leads_to_tech = cas_doctrine_4a
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = cas_doctrine_4c
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = cas_doctrine_4b
+			research_cost_coeff = 1
+		}
+
+		xp_research_type = air
+		xp_unlock_cost = 100
+		doctrine = yes
+
+		folder = {
+			name = air_doctrine_folder
+			position = { x = 0 y = 4 }
+		}
+		
+		categories = {
+			cat_air_doctrine
+			cat_cas_doctrine
+		}
+	}
+	cas_doctrine_4a = {
+		ground_attack_factor = -0.15
+		air_close_air_support_org_damage_factor = 0.3
+
+		path = {
+			leads_to_tech = cas_doctrine_5
+			research_cost_coeff = 1
+		}
+		XOR = {
+			cas_doctrine_4b
+			cas_doctrine_4c
+		}
+
+		xp_research_type = air
+		xp_unlock_cost = 125
+		doctrine = yes
+
+		folder = {
+			name = air_doctrine_folder
+			position = { x = -2 y = 6 }
+		}
+		
+		categories = {
+			cat_air_doctrine
+			cat_cas_doctrine
+		}
+	}
+	cas_doctrine_4b = {
+		ground_attack_factor = 0.05
+		air_cas_present_factor = 0.05
+
+		path = {
+			leads_to_tech = cas_doctrine_5
+			research_cost_coeff = 1
+		}
+		XOR = {
+			cas_doctrine_4a
+			cas_doctrine_4c
+		}
+
+		xp_research_type = air
+		xp_unlock_cost = 125
+		doctrine = yes
+
+		folder = {
+			name = air_doctrine_folder
+			position = { x = 0 y = 6 }
+		}
+		
+		categories = {
+			cat_air_doctrine
+			cat_cas_doctrine
+		}
+	}
+	cas_doctrine_4c = {
+		ground_attack_factor = 0.25
+		air_close_air_support_org_damage_factor = -0.2
+
+		path = {
+			leads_to_tech = cas_doctrine_5
+			research_cost_coeff = 1
+		}
+		XOR = {
+			cas_doctrine_4a
+			cas_doctrine_4b
+		}
+
+		xp_research_type = air
+		xp_unlock_cost = 125
+		doctrine = yes
+
+		folder = {
+			name = air_doctrine_folder
+			position = { x = 2 y = 6 }
+		}
+		
+		categories = {
+			cat_air_doctrine
+			cat_cas_doctrine
+		}
+	}
+	cas_doctrine_5 = {
+		ground_attack_factor = 0.05
+		army_bonus_air_superiority_factor = 0.1
+
+		xp_research_type = air
+		xp_unlock_cost = 150
+		doctrine = yes
+
+		folder = {
+			name = air_doctrine_folder
+			position = { x = 0 y = 8 }
+		}
+		
+		categories = {
+			cat_air_doctrine
+			cat_cas_doctrine
 		}
 	}
 
-	high_level_bombing = {
+	bomber_doctrine_1 = {
+		doctrine_name = "BOMBER_DOCTRINE"
+		air_strategic_bomber_bombing_factor = 0.15
 
-		# EFFECT ########
-		air_strategic_bomber_defence_factor = 0.2
-		###########
-		
-		
-		xp_research_type = air
-		xp_unlock_cost = 100
-		doctrine = yes	
-		research_cost = 3
-		
-		categories = {
-			air_doctrine
-			operational_integrity_tree
-			cat_operational_integrity
+		path = {
+			leads_to_tech = bomber_doctrine_2a 
+			research_cost_coeff = 1
 		}
-		
+		path = {
+			leads_to_tech = bomber_doctrine_2b 
+			research_cost_coeff = 1
+		}
+
+		xp_research_type = air
+		xp_unlock_cost = 50
+		doctrine = yes
+
 		folder = {
 			name = air_doctrine_folder
-			position = { x = 0 y = 18 }
+			position = { x = 0 y = 0 }
 		}
 		
-		ai_will_do = {
-			factor = 5
+		categories = {
+			cat_air_doctrine
+			cat_bomber_doctrine
+		}
+	}
+	bomber_doctrine_2a = {
+		category_strat_bomber = {
+			air_attack = 0.25
+			air_bombing = 0.1
+		}
+
+		path = {
+			leads_to_tech = bomber_doctrine_3
+			research_cost_coeff = 1
+		}
+		XOR = {
+			bomber_doctrine_2b
+		}
+
+		xp_research_type = air
+		xp_unlock_cost = 75
+		doctrine = yes
+
+		folder = {
+			name = air_doctrine_folder
+			position = { x = -1 y = 2 }
 		}
 		
-		ai_research_weights = {
-			air_doctrine = -1.0
-			medium_air = -0.5
-			heavy_air = -1.5
+		categories = {
+			cat_air_doctrine
+			cat_bomber_doctrine
+		}
+	}
+	bomber_doctrine_2b = {
+		strategic_bomb_visibility = -0.1
+		category_tac_bomber = {
+			air_range = 0.1
+			maximum_speed = 0.1
+		}
+
+		path = {
+			leads_to_tech = bomber_doctrine_3
+			research_cost_coeff = 1
+		}
+		XOR = {
+			bomber_doctrine_2a
+		}
+
+		xp_research_type = air
+		xp_unlock_cost = 75
+		doctrine = yes
+
+		folder = {
+			name = air_doctrine_folder
+			position = { x = 1 y = 2 }
+		}
+		
+		categories = {
+			cat_air_doctrine
+			cat_bomber_doctrine
+		}
+	}
+	bomber_doctrine_3 = {
+		air_strategic_bomber_bombing_factor = 0.15
+
+		path = {
+			leads_to_tech = bomber_doctrine_4
+			research_cost_coeff = 1
+		}
+
+		xp_research_type = air
+		xp_unlock_cost = 100
+		doctrine = yes
+
+		folder = {
+			name = air_doctrine_folder
+			position = { x = 0 y = 4 }
+		}
+		
+		categories = {
+			cat_air_doctrine
+			cat_bomber_doctrine
+		}
+	}
+	bomber_doctrine_4 = {
+		air_escort_efficiency = 0.1
+		air_strategic_bomber_defence_factor = 0.25
+
+		path = {
+			leads_to_tech = bomber_doctrine_5a
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = bomber_doctrine_5c
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = bomber_doctrine_5b
+			research_cost_coeff = 1
+		}
+
+		xp_research_type = air
+		xp_unlock_cost = 125
+		doctrine = yes
+
+		folder = {
+			name = air_doctrine_folder
+			position = { x = 0 y = 6 }
+		}
+		
+		categories = {
+			cat_air_doctrine
+			cat_bomber_doctrine
+		}
+	}
+	bomber_doctrine_5a = {
+		category_strat_bomber = {
+			air_defence = 0.2
+			air_agility = 0.2
+			reliability = 0.2
+		}
+
+
+		XOR = {
+			bomber_doctrine_5b
+			bomber_doctrine_5c
+		}
+
+		xp_research_type = air
+		xp_unlock_cost = 150
+		doctrine = yes
+
+		folder = {
+			name = air_doctrine_folder
+			position = { x = -2 y = 8 }
+		}
+		
+		categories = {
+			cat_air_doctrine
+			cat_bomber_doctrine
+		}
+	}
+	bomber_doctrine_5b = {
+		air_strategic_bomber_bombing_factor = 0.15
+
+		XOR = {
+			bomber_doctrine_5a
+			bomber_doctrine_5c
+		}
+
+		xp_research_type = air
+		xp_unlock_cost = 150
+		doctrine = yes
+
+		folder = {
+			name = air_doctrine_folder
+			position = { x = 0 y = 8 }
+		}
+		
+		categories = {
+			cat_air_doctrine
+			cat_bomber_doctrine
+		}
+	}
+	bomber_doctrine_5c = {
+		air_strategic_bomber_night_penalty = -0.3
+
+		XOR = {
+			bomber_doctrine_5a
+			bomber_doctrine_5b
+		}
+
+		xp_research_type = air
+		xp_unlock_cost = 150
+		doctrine = yes
+
+		folder = {
+			name = air_doctrine_folder
+			position = { x = 2 y = 8 }
+		}
+		
+		categories = {
+			cat_air_doctrine
+			cat_bomber_doctrine
 		}
 	}
 
+	defensive_air_doctrine_1 = {
+		doctrine_name = "DEFENSIVE_AIR_DOCTRINE"
+		air_mission_efficiency = 0.05
+		air_interception_detect_factor = 0.2
 
-#	
-#	air_defence = {
-#
-#		# EFFECT ########
-#		air_interception_attack_factor = 0.05
-#		###########
-#		
-#		path = {
-#			leads_to_tech = dispersed_fighting
-#			research_cost_coeff = 1
-#		}
-#		
-#		doctrine = yes	
-#		research_cost = 1.5
-#		
-#		categories = {
-#			air_doctrine
-#			strategic_destruction_tree
-#		}
-#		
-#		folder = {
-#			name = air_doctrine_folder
-#			position = { x = 2 y = 4 }
-#		}
-#		
-#		ai_will_do = {
-#			factor = 1
-#		}
-#		
-#		ai_research_weights = {
-#			air_doctrine = -1.0
-#			light_air = -2.0
-#		}
-#	}
-#
-#	battlefield_destruction = {
-#
-#		# EFFECT ########
-#		#air_cas_ground_attack_factor = 0.25
-#		###########
-#		
-#		path = {
-#			leads_to_tech = dive_bombing
-#			research_cost_coeff = 1
-#		}
-#		
-#		doctrine = yes	
-#		research_cost = 2
-#		
-#		categories = {
-#			air_doctrine
-#			battlefield_support_tree
-#		}
-#		
-#		folder = {
-#			name = air_doctrine_folder
-#			position = { x = 0 y = 0 }
-#		}
-#		
-#		ai_will_do = {
-#			factor = 1
-#		}
-#		
-#		ai_research_weights = {
-#			air_doctrine = -1.0
-#			light_air = -1.0
-#			medium_air = -1.0
-#		}
-#	}
-#
-#	cas_ace_initiative = {
-#
-#		# EFFECT ########
-#		cas_ace_chance = 1.0
-#		###########
-#		
-#		doctrine = yes	
-#		research_cost = 2
-#		
-#		categories = {
-#			air_doctrine
-#			battlefield_support_tree
-#		}
-#		
-#		folder = {
-#			name = air_doctrine_folder
-#			position = { x = -2 y = 8 }
-#		}
-#		
-#		ai_will_do = {
-#			factor = 1
-#		}
-#		
-#		ai_research_weights = {
-#			air_doctrine = -1.0
-#			light_air = -1.0
-#			medium_air = -1.0
-#		}
-#	}
-#
-#	bomber_veteran_initiative = {
-#
-#		# EFFECT ########
-#		air_strategic_bomber_defence_factor = 0.2
-#		###########
-#		
-#		path = {
-#			leads_to_tech = bomber_ace_initiative
-#			research_cost_coeff = 1
-#		}
-#		
-#		doctrine = yes	
-#		research_cost = 2
-#		
-#		categories = {
-#			air_doctrine
-#			operational_integrity_tree
-#		}
-#		
-#		folder = {
-#			name = air_doctrine_folder
-#			position = { x = -1 y = 8 }
-#		}
-#		
-#		ai_will_do = {
-#			factor = 1
-#		}
-#		
-#		ai_research_weights = {
-#			air_doctrine = -1.0
-#			medium_air = -0.5
-#			heavy_air = -1.5
-#		}
-#	}
-#	
-#	bomber_ace_initiative = {
-#
-#		# EFFECT ########
-#		bomber_ace_chance = 1.0
-#		###########
-#		
-#		doctrine = yes	
-#		research_cost = 2
-#		
-#		categories = {
-#			air_doctrine
-#			operational_integrity_tree
-#		}
-#		
-#		folder = {
-#			name = air_doctrine_folder
-#			position = { x = -1 y = 10 }
-#		}
-#		
-#		ai_will_do = {
-#			factor = 1
-#		}
-#		
-#		ai_research_weights = {
-#			air_doctrine = -1.0
-#			medium_air = -0.5
-#			heavy_air = -1.5
-#		}
-#	}
-#	
-#	dead_reckoning_bombing = {
-#
-#		# EFFECT ########
-#		air_strategic_bomber_night_penalty = -0.6
-#		###########
-#		
-#		path = {
-#			leads_to_tech = infiltration_bombing
-#			research_cost_coeff = 1
-#		}
-#		
-#		doctrine = yes	
-#		research_cost = 2
-#		
-#		categories = {
-#			air_doctrine
-#			strategic_destruction_tree
-#		}
-#		
-#		
-#		
-#		folder = {
-#			name = air_doctrine_folder
-#			position = { x = -2 y = 8 }
-#		}
-#		
-#		ai_will_do = {
-#			factor = 1
-#		}
-#		
-#		ai_research_weights = {
-#			air_doctrine = -1.0
-#			medium_air = -0.5
-#			heavy_air = -1.5
-#		}
-#	}
-#	
-#	pathfinder_groups = {
-#
-#		# EFFECT ########
-#		air_strategic_bomber_night_penalty = -0.9
-#		###########
-#			
-#		doctrine = yes	
-#		research_cost = 2
-#		
-#		categories = {
-#			air_doctrine
-#			strategic_destruction_tree
-#		}
-#		
-#		folder = {
-#			name = air_doctrine_folder
-#			position = { x = -2 y = 12 }
-#		}
-#		
-#		ai_will_do = {
-#			factor = 1
-#		}
-#		
-#		ai_research_weights = {
-#			air_doctrine = -1.0
-#			medium_air = -0.5
-#			heavy_air = -1.5
-#		}
-#	}
-#	
-#	escort_relay_system = {
-#
-#		# EFFECT ########
-#		air_strategic_bomber_defence_factor = 0.2
-#		###########
-#		
-#		path = {
-#			leads_to_tech = flying_fortress
-#			research_cost_coeff = 1
-#		}
-#		
-#		doctrine = yes	
-#		research_cost = 2
-#		
-#		categories = {
-#			air_doctrine
-#			strategic_destruction_tree
-#		}
-#		
-#		folder = {
-#			name = air_doctrine_folder
-#			position = { x = 2 y = 8 }
-#		}
-#		
-#		ai_will_do = {
-#			factor = 1
-#		}
-#		
-#		ai_research_weights = {
-#			air_doctrine = -1.0
-#			medium_air = -0.5
-#			heavy_air = -1.5
-#		}
-#	}
-#
+		path = {
+			leads_to_tech = defensive_air_doctrine_2a 
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = defensive_air_doctrine_2b
+			research_cost_coeff = 1
+		}
+
+		xp_research_type = air
+		xp_unlock_cost = 50
+		doctrine = yes
+
+		folder = {
+			name = air_doctrine_folder
+			position = { x = 0 y = 0 }
+		}
+		
+		categories = {
+			cat_air_doctrine
+			cat_defensive_air_doctrine
+		}
+	}
+	defensive_air_doctrine_2a = {
+		air_intercept_efficiency = 0.1
+		air_interception_detect_factor = 0.1
+
+		path = {
+			leads_to_tech = defensive_air_doctrine_3 
+			research_cost_coeff = 1
+		}
+
+		xp_research_type = air
+		xp_unlock_cost = 75
+		doctrine = yes
+
+		folder = {
+			name = air_doctrine_folder
+			position = { x = -1 y = 2 }
+		}
+		
+		categories = {
+			cat_air_doctrine
+			cat_defensive_air_doctrine
+		}
+	}
+	defensive_air_doctrine_2b = {
+		production_cost_air_base_factor = -0.1
+		production_cost_anti_air_building_factor = -0.1
+		production_cost_radar_station_factor = -0.1
+		industry_air_damage_factor = -0.1
+
+		xp_research_type = air
+		xp_unlock_cost = 75
+		doctrine = yes
+
+		folder = {
+			name = air_doctrine_folder
+			position = { x = 1 y = 2 }
+		}
+		
+		categories = {
+			cat_air_doctrine
+			cat_defensive_air_doctrine
+		}
+	}
+	defensive_air_doctrine_3 = {
+		air_home_defence_factor = 0.1
+		air_maximum_speed_factor = 0.1
+
+		path = {
+			leads_to_tech = defensive_air_doctrine_4a
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = defensive_air_doctrine_4b
+			research_cost_coeff = 1
+		}
+
+		xp_research_type = air
+		xp_unlock_cost = 100
+		doctrine = yes
+
+		folder = {
+			name = air_doctrine_folder
+			position = { x = 0 y = 4 }
+		}
+		
+		categories = {
+			cat_air_doctrine
+			cat_defensive_air_doctrine
+		}
+	}
+	defensive_air_doctrine_4a = {
+		air_night_penalty = -0.05
+
+		path = {
+			leads_to_tech = defensive_air_doctrine_5a
+			research_cost_coeff = 1
+		}
+		XOR = {
+			defensive_air_doctrine_4b
+		}
+
+		xp_research_type = air
+		xp_unlock_cost = 125
+		doctrine = yes
+
+		folder = {
+			name = air_doctrine_folder
+			position = { x = -1 y = 6 }
+		}
+		
+		categories = {
+			cat_air_doctrine
+			cat_defensive_air_doctrine
+		}
+	}
+	defensive_air_doctrine_4b = {
+		air_night_penalty = -0.2
+
+		path = {
+			leads_to_tech = defensive_air_doctrine_5b
+			research_cost_coeff = 1
+		}
+		XOR = {
+			defensive_air_doctrine_4a
+		}
+
+		xp_research_type = air
+		xp_unlock_cost = 125
+		doctrine = yes
+
+		folder = {
+			name = air_doctrine_folder
+			position = { x = 1 y = 6 }
+		}
+		
+		categories = {
+			cat_air_doctrine
+			cat_defensive_air_doctrine
+		}
+	}
+	defensive_air_doctrine_5a = {
+		air_superiority_detect_factor = 0.05
+		category_fighter = {
+			air_attack = 0.05
+		}
+		
+		xp_research_type = air
+		xp_unlock_cost = 150
+		doctrine = yes
+
+		folder = {
+			name = air_doctrine_folder
+			position = { x = -1 y = 8 }
+		}
+		
+		categories = {
+			cat_air_doctrine
+			cat_defensive_air_doctrine
+		}
+	}
+	defensive_air_doctrine_5b = {
+		air_intercept_efficiency = 0.1
+
+		xp_research_type = air
+		xp_unlock_cost = 150
+		doctrine = yes
+
+		folder = {
+			name = air_doctrine_folder
+			position = { x = 1 y = 8 }
+		}
+		
+		categories = {
+			cat_air_doctrine
+			cat_defensive_air_doctrine
+		}
+	}
+
+	naval_air_doctrine_1 = {
+		doctrine_name = "NAVAL_AIR_DOCTRINE"
+		port_strike = 0.25
+		naval_strike_targetting_factor = 0.1
+
+		path = {
+			leads_to_tech = naval_air_doctrine_2a
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = naval_air_doctrine_2c
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = naval_air_doctrine_2b
+			research_cost_coeff = 1
+		}
+
+		xp_research_type = air
+		xp_unlock_cost = 50
+		doctrine = yes
+
+		folder = {
+			name = air_doctrine_folder
+			position = { x = 0 y = 0 }
+		}
+		
+		categories = {
+			cat_air_doctrine
+			cat_naval_air_doctrine
+		}
+	}
+	naval_air_doctrine_2a = {
+		naval_strike_targetting_factor = 0.1
+		category_cas = {
+			air_agility = 0.2
+		}
+
+		path = {
+			leads_to_tech = naval_air_doctrine_3
+			research_cost_coeff = 1
+		}
+		XOR = {
+			naval_air_doctrine_2b
+			naval_air_doctrine_2c
+		}
+
+
+		xp_research_type = air
+		xp_unlock_cost = 75
+		doctrine = yes
+
+		folder = {
+			name = air_doctrine_folder
+			position = { x = -2 y = 2 }
+		}
+		
+		categories = {
+			cat_air_doctrine
+			cat_naval_air_doctrine
+		}
+	}
+	naval_air_doctrine_2b = {
+		naval_strike_targetting_factor = 0.1
+		category_nav_bomber = {
+			air_range = 0.1
+		}
+
+		path = {
+			leads_to_tech = naval_air_doctrine_3
+			research_cost_coeff = 1
+		}
+		XOR = {
+			naval_air_doctrine_2a
+			naval_air_doctrine_2b
+		}
+
+
+		xp_research_type = air
+		xp_unlock_cost = 75
+		doctrine = yes
+
+		folder = {
+			name = air_doctrine_folder
+			position = { x = 0 y = 2 }
+		}
+		
+		categories = {
+			cat_air_doctrine
+			cat_naval_air_doctrine
+		}
+	}
+	naval_air_doctrine_2c = {
+		naval_strike_targetting_factor = 0.1
+		category_tac_bomber = {
+			naval_strike_attack = 0.1
+		}
+
+		path = {
+			leads_to_tech = naval_air_doctrine_3
+			research_cost_coeff = 1
+		}
+		XOR = {
+			naval_air_doctrine_2a
+			naval_air_doctrine_2b
+		}
+
+
+		xp_research_type = air
+		xp_unlock_cost = 75
+		doctrine = yes
+
+		folder = {
+			name = air_doctrine_folder
+			position = { x = 2 y = 2 }
+		}
+		
+		categories = {
+			cat_air_doctrine
+			cat_naval_air_doctrine
+		}
+	}
+	naval_air_doctrine_3 = {
+		air_nav_efficiency = 0.15
+
+		path = {
+			leads_to_tech = naval_air_doctrine_4a
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = naval_air_doctrine_4c
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = naval_air_doctrine_4b
+			research_cost_coeff = 1
+		}
+
+		xp_research_type = air
+		xp_unlock_cost = 100
+		doctrine = yes
+
+		folder = {
+			name = air_doctrine_folder
+			position = { x = 0 y = 4 }
+		}
+		
+		categories = {
+			cat_air_doctrine
+			cat_naval_air_doctrine
+		}
+	}
+	naval_air_doctrine_4a = {
+		naval_strike_targetting_factor = 0.1
+		maritime_patrol_plane = {
+			naval_strike_attack = 0.1
+		}
+
+		path = {
+			leads_to_tech = naval_air_doctrine_5
+			research_cost_coeff = 1
+		}
+		XOR = {
+			naval_air_doctrine_4b
+			naval_air_doctrine_4c
+		}
+
+		xp_research_type = air
+		xp_unlock_cost = 125
+		doctrine = yes
+
+		folder = {
+			name = air_doctrine_folder
+			position = { x = -2 y = 6 }
+		}
+		
+		categories = {
+			cat_air_doctrine
+			cat_naval_air_doctrine
+		}
+	}
+	naval_air_doctrine_4b = {
+		naval_strike_targetting_factor = 0.1
+		carrier_night_traffic = 0.2
+
+		path = {
+			leads_to_tech = naval_air_doctrine_5
+			research_cost_coeff = 1
+		}
+		XOR = {
+			naval_air_doctrine_4a
+			naval_air_doctrine_4c
+		}
+
+		xp_research_type = air
+		xp_unlock_cost = 125
+		doctrine = yes
+
+		folder = {
+			name = air_doctrine_folder
+			position = { x = 0 y = 6 }
+		}
+		
+		categories = {
+			cat_air_doctrine
+			cat_naval_air_doctrine
+		}
+	}
+	naval_air_doctrine_4c = {
+		naval_strike_targetting_factor = 0.2
+
+		path = {
+			leads_to_tech = naval_air_doctrine_5
+			research_cost_coeff = 1
+		}
+		XOR = {
+			naval_air_doctrine_4a
+			naval_air_doctrine_4b
+		}
+
+		xp_research_type = air
+		xp_unlock_cost = 125
+		doctrine = yes
+
+		folder = {
+			name = air_doctrine_folder
+			position = { x = 2 y = 6 }
+		}
+		
+		categories = {
+			cat_air_doctrine
+			cat_naval_air_doctrine
+		}
+	}
+	naval_air_doctrine_5 = {
+		sortie_efficiency = 0.1
+		navy_carrier_air_agility_factor = 0.1
+		naval_strike_agility_factor = 0.1
+
+		xp_research_type = air
+		xp_unlock_cost = 150
+		doctrine = yes
+
+		folder = {
+			name = air_doctrine_folder
+			position = { x = 0 y = 8 }
+		}
+		
+		categories = {
+			cat_air_doctrine
+			cat_naval_air_doctrine
+		}
+	}
+
+	utility_air_doctrine_1 = {
+		doctrine_name = "UTILITY_AIR_DOCTRINE"
+		air_ace_generation_chance_factor = 0.25
+
+		path = {
+			leads_to_tech = utility_air_doctrine_2a 
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = utility_air_doctrine_2b
+			research_cost_coeff = 1
+		}
+
+		xp_research_type = air
+		xp_unlock_cost = 50
+		doctrine = yes
+
+		folder = {
+			name = air_doctrine_folder
+			position = { x = 0 y = 0 }
+		}
+		
+		categories = {
+			cat_air_doctrine
+			cat_utility_air_doctrine
+		}
+	}
+	utility_air_doctrine_2a = {
+		air_untrained_pilots_penalty_factor = -0.25
+		air_training_xp_gain_factor = 0.25
+
+		path = {
+			leads_to_tech = utility_air_doctrine_3
+			research_cost_coeff = 1
+		}
+		XOR = {
+			utility_air_doctrine_2b
+		}
+
+		xp_research_type = air
+		xp_unlock_cost = 75
+		doctrine = yes
+
+		folder = {
+			name = air_doctrine_folder
+			position = { x = -1 y = 2 }
+		}
+		
+		categories = {
+			cat_air_doctrine
+			cat_utility_air_doctrine
+		}
+	}
+	utility_air_doctrine_2b = {
+		ace_effectiveness_factor = 0.25
+
+		path = {
+			leads_to_tech = utility_air_doctrine_3
+			research_cost_coeff = 1
+		}
+		XOR = {
+			utility_air_doctrine_2a
+		}
+
+		xp_research_type = air
+		xp_unlock_cost = 75
+		doctrine = yes
+
+		folder = {
+			name = air_doctrine_folder
+			position = { x = 1 y = 2 }
+		}
+		
+		categories = {
+			cat_air_doctrine
+			cat_utility_air_doctrine
+		}
+	}
+	utility_air_doctrine_3 = {	
+		air_mission_efficiency = 0.05
+		air_manpower_requirement_factor = 0.25
+
+		path = {
+			leads_to_tech = utility_air_doctrine_4a
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = utility_air_doctrine_4b
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = utility_air_doctrine_4c
+			research_cost_coeff = 1
+		}
+
+		xp_research_type = air
+		xp_unlock_cost = 100
+		doctrine = yes
+
+		folder = {
+			name = air_doctrine_folder
+			position = { x = 0 y = 4 }
+		}
+		
+		categories = {
+			cat_air_doctrine
+			cat_utility_air_doctrine
+		}
+	}
+	utility_air_doctrine_4a = {
+		air_maximum_speed_factor = -0.05
+		air_fuel_consumption_factor = -0.15
+
+		xp_research_type = air
+		xp_unlock_cost = 125
+		doctrine = yes
+
+		folder = {
+			name = air_doctrine_folder
+			position = { x = -2 y = 6 }
+		}
+		
+		categories = {
+			cat_air_doctrine
+			cat_utility_air_doctrine
+		}
+	}
+	utility_air_doctrine_4b = {
+		air_night_penalty = -0.05
+		air_weather_penalty = -0.1
+
+		path = {
+			leads_to_tech = utility_air_doctrine_5
+			research_cost_coeff = 1
+		}
+
+		xp_research_type = air
+		xp_unlock_cost = 125
+		doctrine = yes
+
+		folder = {
+			name = air_doctrine_folder
+			position = { x = 0 y = 6 }
+		}
+		
+		categories = {
+			cat_air_doctrine
+			cat_utility_air_doctrine
+		}
+	}
+	utility_air_doctrine_4c = {
+		production_cost_air_base_factor = -0.1
+		production_cost_fuel_silo_factor = -0.1
+		air_manpower_requirement_factor = -0.25
+
+		xp_research_type = air
+		xp_unlock_cost = 125
+		doctrine = yes
+
+		folder = {
+			name = air_doctrine_folder
+			position = { x = 2 y = 6 }
+		}
+		
+		categories = {
+			cat_air_doctrine
+			cat_utility_air_doctrine
+		}
+	}
+	utility_air_doctrine_5 = {
+		air_cas_present_factor = 0.05
+		air_escort_efficiency = 0.05
+		category_air = {
+			air_superiority = 0.15
+		}
+
+		xp_research_type = air
+		xp_unlock_cost = 150
+		doctrine = yes
+
+		folder = {
+			name = air_doctrine_folder
+			position = { x = 0 y = 8 }
+		}
+		
+		categories = {
+			cat_air_doctrine
+			cat_utility_air_doctrine
+		}
+	}
 }

@@ -50,8 +50,8 @@ NDefines.NMilitary.SUPPLY_GRACE = 240				-- troops always carry 5 days of food a
 NDefines.NMilitary.LAND_COMBAT_STR_DAMAGE_MODIFIER = 0.048	-- global damage modifier... but some equipment is returned at end of battles see : EQUIPMENT_COMBAT_LOSS_FACTOR
 NDefines.NMilitary.LAND_COMBAT_ORG_DAMAGE_MODIFIER = 0.048	-- global damage modifier
 
-NDefines.NMilitary.LAND_AIR_COMBAT_STR_DAMAGE_MODIFIER = 0.016	-- air global damage modifier
-NDefines.NMilitary.LAND_AIR_COMBAT_ORG_DAMAGE_MODIFIER = 0.016	-- global damage modifier
+NDefines.NMilitary.LAND_AIR_COMBAT_STR_DAMAGE_MODIFIER = 0.020	-- air global damage modifier
+NDefines.NMilitary.LAND_AIR_COMBAT_ORG_DAMAGE_MODIFIER = 0.020	-- global damage modifier
 NDefines.NMilitary.LAND_AIR_COMBAT_MAX_PLANES_PER_ENEMY_WIDTH = 1	-- how many CAS/TAC can enter a combat depending on enemy width there
 
 NDefines.NMilitary.RELIABILITY_ORG_REGAIN = -0.5		-- how much reliability affects org regain
@@ -96,7 +96,7 @@ NDefines.NMilitary.BATALION_CHANGED_EXPERIENCE_DROP = 1		-- Division experience 
 NDefines.NMilitary.EXPERIENCE_LOSS_FACTOR = 0.7			-- percentage of experienced solders who die when manpower is removed
 NDefines.NMilitary.EQUIPMENT_COMBAT_LOSS_FACTOR = 0.80	 	-- % of equipment lost to strength ratio in combat, so some % is returned if below 1
 
-NDefines.NMilitary.TRAINING_MAX_LEVEL = 4
+NDefines.NMilitary.TRAINING_MAX_LEVEL = 2
 NDefines.NMilitary.DEPLOY_TRAINING_MAX_LEVEL = 1
 NDefines.NMilitary.UNIT_EXP_LEVELS = {0.20, 0.40, 0.60, 0.80}		-- Experience needed to progress to the next level
 NDefines.NMilitary.EXPERIENCE_COMBAT_FACTOR = 0.10
@@ -250,7 +250,7 @@ NDefines.NNavy.LOW_ORG_FACTOR_ON_JOIN_COMBAT_DURATION = 2.0	-- low org of the sh
 NDefines.NNavy.BASE_POSITIONING = 0.8				-- base value for positioning
 
 NDefines.NNavy.HIGHER_SHIP_RATIO_POSITIONING_PENALTY_FACTOR = 1.0					-- if one side has more ships than the other, that side will get this penalty for each +100% ship ratio it has
-NDefines.NNavy.MAX_POSITIONING_PENALTY_FROM_HIGHER_SHIP_RATIO = 0.75				-- maximum penalty to get from larger fleets
+NDefines.NNavy.MAX_POSITIONING_PENALTY_FROM_HIGHER_SHIP_RATIO = 1.0				-- maximum penalty to get from larger fleets
 NDefines.NNavy.MIN_SHIPS_FOR_HIGHER_SHIP_RATIO_PENALTY = 51					-- the minimum fleet size in ships that a fleet must be before having the large fleet penalty applied to them
 NDefines.NNavy.DAMAGE_PENALTY_ON_MINIMUM_POSITIONING = 1.0					-- damage penalty at 0% positioning
 
