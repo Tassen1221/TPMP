@@ -15,6 +15,29 @@ characters = {
 		}
 	}
 
+	TPMP_UKR_Stanislav_Kosior = {
+		name = UKR_Stanislav_Kosior
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/Stanislav_Kosior.tga"
+			}
+		}
+		country_leader = {
+			ideology = marxism
+			expire = "1953.3.1"
+			id = -1
+			traits = { }
+
+			#available = {
+			#	SOV = {
+			#		NOT = {
+			#			has_completed_focus = SOV_the_bloc_of_rights_and_trotskyites
+			#		}
+			#	}
+			#}
+		}
+	}
+
 	UKR_nikita_krushchyov = {
 		name = UKR_nikita_krushchyov
 		portraits = {
@@ -27,6 +50,12 @@ characters = {
 			expire = "1953.3.1"
 			id = -1
 			traits = { }
+
+			#available = {
+			#	SOV = {
+			#			has_completed_focus = SOV_the_bloc_of_rights_and_trotskyites
+			#	}
+			#}
 		}
 	}
 
@@ -98,9 +127,29 @@ characters = {
 		
 	}
 	
+	TPMP_UKR_ = {
+        name = TPMP_UKR_
 
 
 
+        advisor = {
+            slot = political_advisor
+            idea_token = georgy_zhukov
+            ledger = army
 
+			portraits = {
+				civilian = {
+					#small =
+				}
+			}
+
+
+            allowed = { original_tag = SOV } # Optional, doesn't change anything.
+            available = {
+                has_completed_focus = SOV_positive_heroism
+            }
+            traits = { mass_assault_expert }
+        }
+	}
 }
 	

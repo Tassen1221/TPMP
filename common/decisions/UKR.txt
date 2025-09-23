@@ -1,0 +1,76 @@
+UKR_resource_mission_cat = {
+	UKR_stalin_resource_quotas = {
+		activation = {
+			always = no
+		}
+		available = {
+			has_resources_in_country = {
+				resource = steel
+				amount > 1000 #CHANGE THIS to good gameplay number
+				extracted = yes
+			}
+		}
+		cancel_trigger = {
+			always = no
+		}
+
+		#icon = 
+		is_good = yes
+		days_mission_timeout = 5
+   		selectable_mission = no
+
+		complete_effect = {
+			complete_national_focus = ukr_resource_quotas_exceeded
+		}
+		timeout_effect = {
+				if = {
+					limit = {
+						has_resources_in_country = {
+						resource = steel
+						amount > 800 #CHANGE THIS to good number
+						extracted = yes
+						}
+					}
+					complete_national_focus = ukr_resource_quotas_are_met
+				}
+				else = {
+					complete_national_focus = ukr_resource_embarassing_failure
+				}
+		}
+	}
+
+}
+
+UKR_production_mission_cat = { #TODO add this mission
+	UKR_stalin_production_quotas = {
+		activation = {
+			always = no
+		}
+		available = {
+			always = no
+		}
+		cancel_trigger = {
+			always = no
+		}
+
+		#icon = 
+		is_good = yes
+		days_mission_timeout = 5
+   		selectable_mission = no
+
+		complete_effect = {
+			complete_national_focus = ukr_production_quotas_exceeded
+		}
+		timeout_effect = {
+				if = {
+					limit = {
+
+					}
+					complete_national_focus = ukr_production_quotas_are_met
+				}
+				else = {
+					complete_national_focus = ukr_production_embarassing_failure
+				}
+		}
+	} 
+}

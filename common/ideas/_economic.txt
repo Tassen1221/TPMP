@@ -1373,6 +1373,73 @@ ideas = {
    			}
 		}
 
+		closed_economy_ukraine = {
+
+
+			available = {
+				original_tag = UKR
+			}
+
+			allowed_to_remove = {
+				original_tag = UKR
+				has_completed_focus = ukr_right_to_trade
+			}
+
+			rule = {
+				can_access_market = no
+				desc = can_not_access_market_closed_economy
+			}
+
+			cost = 150
+			removal_cost = -1
+
+			modifier = {
+				min_export = 0
+				#civilian_intel_to_others = 0.0
+				lend_lease_tension = 0.40
+				cic_construction_boost = -0.1
+			}
+
+			cancel_if_invalid = no
+
+			ai_will_do = {
+   				factor = 1
+
+   				modifier = {
+					factor = 0
+
+					is_major = no
+					is_in_faction = yes
+					has_war = yes
+				}
+
+				# minors not at war should want to get the bonuses from free trade
+				modifier = {
+					factor = 0
+
+					is_major = no
+					has_war = no
+				}
+
+				modifier = {
+					factor = 0
+
+					# don't take if we have a reasonable sized ally
+					# since they will require our trades
+					has_large_ally_not_pick_closed_economy = yes
+				}
+				modifier = { #Germany should keep its Autarkic Economy
+					factor = 0.5
+					original_tag = GER
+					is_in_faction = yes
+					OR = {
+						has_idea = autarkic_economy
+						has_idea = autarkic_economy_improved
+					}
+				}
+   			}
+		}
+
 		special_economic_zones = {
 			available = {
 				always = no
