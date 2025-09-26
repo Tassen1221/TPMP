@@ -15,6 +15,8 @@ characters = {
 		}
 	}
 
+	## TPMP Leaders
+
 	TPMP_UKR_Stanislav_Kosior = {
 		name = UKR_Stanislav_Kosior
 		portraits = {
@@ -57,6 +59,329 @@ characters = {
 			#	}
 			#}
 		}
+	}
+
+	### TPMP Political Advisors
+
+	TPMP_UKR_Iosif_Langbard = {
+		name = TPMP_UKR_Panas_Lyubchenko
+		portraits = {
+			army = {
+				small = "GFX_idea_nikita_khrushchev"
+			}
+		}
+	
+	    advisor = {
+		
+       		slot = political_advisor
+			cost = 150
+        	traits = { TPMP_UKR_trait_government_building_designer }
+	 	
+			allowed = {
+				tag = UKR
+			}	
+		}
+	
+		#available = {
+		#	has_completed_focus = ukr_arms_industry_advisors
+		#}
+	}
+
+	TPMP_UKR_Panas_Lyubchenko = {
+		name = TPMP_UKR_Panas_Lyubchenko
+		portraits = {
+			army = {
+				small = "GFX_idea_nikita_khrushchev"
+			}
+		}
+
+
+	    advisor = {
+       		slot = political_advisor
+			cost = 150
+        	traits = { TPMP_UKR_trait_political_0 }
+			available = {
+				has_completed_focus = ukr_arms_industry_advisors
+			}	
+			allowed = {
+				tag = UKR
+			}
+		}
+	
+
+	}
+
+	TPMP_UKR_Leonid_Korniyets = {
+		name = TPMP_UKR_Leonid_Korniyets
+		portraits = {
+			army = {
+				small = "GFX_idea_nikita_khrushchev"
+			}
+		}
+	
+	    advisor = {
+       		slot = political_advisor
+			cost = 150
+        	traits = { TPMP_UKR_trait_political_1 }
+
+
+			allowed = {
+				tag = UKR
+			}	
+			available = {
+				has_completed_focus = ukr_arms_industry_advisors
+			}			
+	 	}
+	
+
+	}
+
+	TPMP_UKR_Demyan_Korotchenko = {
+		name = TPMP_UKR_Demyan_Korotchenko
+		portraits = {
+			army = {
+				small = "GFX_idea_nikita_khrushchev"
+			}
+		}
+
+	
+	    advisor = {
+       		slot = political_advisor
+			cost = 150
+        	traits = { TPMP_UKR_trait_political_2 }
+
+			allowed = {
+				tag = UKR
+			}	
+			available = {
+				has_completed_focus = ukr_arms_industry_advisors
+			}
+	 	}
+	}
+
+
+	### TPMP Industrial Advisors
+
+	TPMP_UKR_Sergo_Ordzhonikidze = {
+		name = TPMP_UKR_Sergo_Ordzhonikidze
+		portraits = {
+			army = {
+				small = "GFX_idea_nikita_khrushchev"
+			}
+		}
+	
+	    advisor = {
+       		slot = political_advisor
+			cost = 150
+        	traits = { TPMP_UKR_trait_arms_industrialist }
+
+
+			allowed = {
+				tag = UKR
+			}	
+			available = {
+				has_completed_focus = ukr_arms_industry_advisors
+			}
+	 	}
+	}
+
+	TPMP_UKR_Lazar_Kaganovich = {
+		name = TPMP_UKR_Lazar_Kaganovich
+		portraits = {
+			army = {
+				small = "GFX_idea_nikita_khrushchev"
+			}
+		}
+
+	
+	    advisor = {
+       		slot = political_advisor
+			cost = 150
+        	traits = { TPMP_UKR_trait_heavy_industrialist }
+	 	
+			allowed = {
+				tag = UKR
+			}	
+
+			available = {
+				has_completed_focus = ukr_heavy_industry_advisors
+			}
+		}
+	
+
+	}
+
+	TPMP_UKR_Ivan_Alexandrov = {
+		name = TPMP_UKR_Ivan_Alexandrov
+		portraits = {
+			army = {
+				small = "GFX_idea_nikita_khrushchev"
+			}
+		}
+		
+	    advisor = {
+       		slot = political_advisor
+			cost = 150
+        	traits = { TPMP_UKR_trait_arms_industrialist_1 }
+	 	
+			available = {
+				has_completed_focus = ukr_arms_industry_advisors
+			}
+			allowed = {
+				tag = UKR
+			}
+		}
+	}
+
+	TPMP_UKR_Alexander_Vinter = {
+		name = TPMP_UKR_Alexander_Vinter
+		portraits = {
+			army = {
+				small = "GFX_idea_nikita_khrushchev"
+			}
+		}
+	
+	    advisor = {
+       		slot = political_advisor
+			cost = 150
+        	traits = { TPMP_UKR_trait_heavy_industrialist_1 }
+	
+			available = {
+				has_completed_focus = ukr_heavy_industry_advisors
+			}
+			allowed = {
+				tag = UKR
+			}	
+		}
+	
+
+	}
+
+	TPMP_UKR_Anastas_Mikoyan = {
+		name = TPMP_UKR_Anastas_Mikoyan
+		portraits = {
+			army = {
+				small = "GFX_idea_nikita_khrushchev"
+			}
+		}
+
+		
+	    advisor = {
+       		slot = political_advisor
+			cost = 150
+        	traits = { TPMP_UKR_trait_logistician }
+	
+			allowed = {
+				tag = UKR
+			}
+
+			available = {
+				OR = {
+					has_completed_focus = ukr_arms_industry_advisors
+				}
+				OR = {
+					has_completed_focus = ukr_heavy_industry_advisors
+				}
+			}
+		}		
+		
+
+	}
+
+	TPMP_UKR_Oleksandr_Verbytskyi = {
+		name = TPMP_UKR_Oleksandr_Verbytskyi
+		portraits = {
+			army = {
+				small = "GFX_idea_nikita_khrushchev"
+			}
+		}
+
+		
+	    advisor = {
+       		slot = political_advisor
+			cost = 150
+        	traits = { TPMP_UKR_trait_facility_constructor }
+
+			allowed = {
+				tag = UKR
+			}
+
+			available = {
+				OR = {
+					has_completed_focus = ukr_arms_industry_advisors
+				}
+				OR = {
+					has_completed_focus = ukr_heavy_industry_advisors
+				}
+			}
+		}
+	}
+
+	# Political + Industry ##TODO Fix scientist not giving specific type bonuses 
+
+	TPMP_UKR_Yevhen_Paton = {
+		name = TPMP_UKR_Yevhen_Paton
+		portraits = {
+			army = {
+				small = "GFX_idea_nikita_khrushchev"
+			}
+		}
+	
+	    advisor = {
+       		slot = political_advisor
+			cost = 150
+        	traits = { TPMP_UKR_trait_scientist } 
+
+			allowed = {
+				tag = UKR
+			}				
+			available = {
+				OR = {
+					has_completed_focus = ukr_arms_industry_advisors
+					has_completed_focus = ukr_cultural_development_advisors
+				}
+				OR = {
+					has_completed_focus = ukr_heavy_industry_advisors
+					has_completed_focus = ukr_cultural_development_advisors
+				}
+			}
+	
+		}
+	
+
+	}
+
+	TPMP_UKR_Mykola_Bogolyubov = {
+		name = TPMP_UKR_Mykola_Bogolyubov
+		portraits = {
+			army = {
+				small = "GFX_idea_nikita_khrushchev"
+			}
+		}
+
+		
+	    advisor = {
+       		slot = political_advisor
+			cost = 150
+        	traits = { TPMP_UKR_trait_scientist_1 }
+
+			allowed = {
+				tag = UKR
+			}
+
+			available = {
+				OR = {
+					has_completed_focus = ukr_arms_industry_advisors
+					has_completed_focus = ukr_cultural_development_advisors
+				}
+				OR = {
+					has_completed_focus = ukr_heavy_industry_advisors
+					has_completed_focus = ukr_cultural_development_advisors
+				}
+			}
+		}
+	
+
 	}
 
 	UKR_stepan_bandera = {
@@ -121,10 +446,8 @@ characters = {
 			planning_skill = 2
 			logistics_skill = 1
 			legacy_id = -1
-			visible = {
-			}
+			visible = {}
 		}
-		
 	}
 }
 	
