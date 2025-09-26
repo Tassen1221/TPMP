@@ -288,17 +288,13 @@ NDefines.NNavy.HIT_PROFILE_MULT = 100.0				-- multiplies hit profile of every sh
 NDefines.NNavy.HIT_PROFILE_SPEED_FACTOR	= 1.0			-- factors speed value when determining it profile (Vis * NDefines.NNavy.HIT_PROFILE_MULT * Ship Hit Profile Mult)
 NDefines.NNavy.HIT_PROFILE_SPEED_BASE	= 0			-- Base value added to hitprofile speed calulation
 
-NDefines.NNavy.CARRIER_ONLY_COMBAT_ACTIVATE_TIME = 0		-- hours from start of combat when carriers get to fight
-NDefines.NNavy.CAPITAL_ONLY_COMBAT_ACTIVATE_TIME = 0		-- hours from start of combat when only carriers, capitals and subs get to attack
-NDefines.NNavy.ALL_SHIPS_ACTIVATE_TIME = 24 
-
 NDefines.NNavy.SHORE_BOMBARDMENT_CAP = 0.3			-- Vanilla is 0.25
 NDefines.NNavy.HEAVY_GUN_ATTACK_TO_SHORE_BOMBARDMENT = 0.1	-- heavy gun attack value is divided by this value * 100 and added to shore bombardment modifier
 NDefines.NNavy.LIGHT_GUN_ATTACK_TO_SHORE_BOMBARDMENT = 0.05	-- light gun attack value is divided by this value * 100 and added to shore bombardment modifier
 
 NDefines.NNavy.GUN_HIT_PROFILES = { 				-- hit profiles for guns, if target profile is lower the gun will have lower accuracy
 		80.0,	-- big guns
-		120.0,	-- torpedoes
+		100.0,	-- torpedoes
 		45.0,	-- small guns
 	}
 

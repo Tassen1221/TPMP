@@ -1,4 +1,28 @@
 on_actions = {
+	#Setting up national spirits and variables
+	on_declare_war = {
+		effect = {
+			if = {
+				limit = {
+					tag = GER
+					FROM = { tag = SOV }
+				}
+				set_variable = { global.TPMP_eastern_front_attack_var_0 = -0.01  }
+				set_variable = { global.TPMP_eastern_front_supply_build_var_0 = 1.0 }
+				set_variable = { global.TPMP_hold_our_ground_attack_var = 0 }
+				set_variable = { global.TPMP_hold_our_ground_defence_var = 0.20 }
+				calculate_eastern_front_variables = yes
+				create_phase_1_barb_states_array = yes
+				GER = { add_timed_idea = { idea = TPMP_GER_barbarossa_idea_0 days = 150 }}
+				ITA = { add_timed_idea = { idea = TPMP_GER_barbarossa_idea_0 days = 150 }}
+				HUN = { add_timed_idea = { idea = TPMP_GER_barbarossa_idea_0 days = 150 }}
+				ROM = { add_timed_idea = { idea = TPMP_GER_barbarossa_idea_0 days = 150 }}
+				BUL = { add_timed_idea = { idea = TPMP_GER_barbarossa_idea_0 days = 150 }}
+				SPR = { add_timed_idea = { idea = TPMP_GER_barbarossa_idea_0 days = 150 }}
+			}
+		}
+	}
+	#Adding all the state modifiers for the Eastern Front
 	on_declare_war = {
 		effect = {
 			if = {

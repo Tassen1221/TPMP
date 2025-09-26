@@ -234,49 +234,6 @@ on_actions = {
 			}
 		}
 	}
-
-	#FROM is war target
-	on_declare_war = {
-
-		effect = {
-			#Clear any tribute and support flag if new communists end up at war with SOV
-			if = {
-				limit = { has_country_flag = WTT_support_from_soviet }
-				PRC_soviet_tribute_clear_all = yes
-				clr_country_flag = WTT_support_from_soviet
-			}
-			FROM = {
-				if = {
-					limit = { has_country_flag = WTT_support_from_soviet }
-					PRC_soviet_tribute_clear_all = yes
-					clr_country_flag = WTT_support_from_soviet
-				}
-			}
-			if = { #TODO_Danne REMOVE THIS!!! It's replaced with the Blitzkrieg/Bewegungskrieg modifiers
-				limit = {
-					OR = {
-						AND = {
-							tag = GER
-							FROM = { tag = SOV }
-						}
-						AND = {
-							tag = SOV
-							FROM = { tag = GER }
-						}
-					}
-					GER = { has_completed_focus = GER_war_with_the_ussr }
-				}
-				hidden_effect = {
-					GER = { 
-						add_timed_idea = { idea = GER_barbarossa days = 180 }
-						activate_mission = GER_barbarossa_mission
-					}
-				}
-			}
-		}
-
-	}
-	
 	#FROM is faction leader on join faction requests.
 	on_offer_join_faction = {
 		effect = {

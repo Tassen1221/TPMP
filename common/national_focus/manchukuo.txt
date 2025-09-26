@@ -1181,7 +1181,6 @@
 				limit = { is_core_of = CHI }
 				add_core_of = ROOT
 			}
-			add_threat = 10
 		}
 	}
 
@@ -1200,18 +1199,9 @@
 		}
 
 		available = {
-			is_subject_of = JAP
-			compare_autonomy_state > autonomy_wtt_imperial_protectorate			
-			MAN = { 
-				ic_ratio = {
-					tag = JAP
-					ratio > 0.2
-				}
-			}
-			strength_ratio = {
-				tag = JAP
-				ratio > 0.25
-			}
+			num_of_available_military_factories > 29
+
+
 		}
 
 		bypass = {
