@@ -1,0 +1,86 @@
+ideas = {
+	country = {
+		TPMP_GER_barbarossa_idea_0 = {
+			removal_cost = -1
+			picture = generic_attack_soviet_union
+			modifier = {
+				army_speed_factor = 0.1
+				supply_consumption_factor = -0.1
+			}
+			targeted_modifier = {
+				tag = SOV
+				attack_bonus_against = 0.20
+				defense_bonus_against = 0.05
+			}
+			targeted_modifier = {
+				tag = UKR
+				attack_bonus_against = 0.20
+				defense_bonus_against = 0.05
+			}
+			targeted_modifier = {
+				tag = MON
+				attack_bonus_against = 0.20
+				defense_bonus_against = 0.05
+			}
+			on_remove = {
+				add_timed_idea = {
+					idea = TPMP_GER_barbarossa_idea_1
+					days = 90
+				}
+			}
+		}
+		TPMP_GER_barbarossa_idea_1 = {
+			removal_cost = -1
+			picture = generic_attack_soviet_union
+			targeted_modifier = {
+				tag = SOV
+				attack_bonus_against = 0.10
+				defense_bonus_against = 0.05
+			}
+			targeted_modifier = {
+				tag = UKR
+				attack_bonus_against = 0.10
+				defense_bonus_against = 0.05
+			}
+			targeted_modifier = {
+				tag = MON
+				attack_bonus_against = 0.10
+				defense_bonus_against = 0.05
+			}
+		}
+		TPMP_GER_citadel_idea = {
+			removal_cost = -1
+			picture = generic_attack_soviet_union
+			targeted_modifier = {
+				tag = SOV
+				attack_bonus_against = 0.10
+				defense_bonus_against = 0.05
+			}
+			targeted_modifier = {
+				tag = UKR
+				attack_bonus_against = 0.10
+				defense_bonus_against = 0.05
+			}
+			targeted_modifier = {
+				tag = MON
+				attack_bonus_against = 0.10
+				defense_bonus_against = 0.05
+			}
+		}
+		TPMP_eastern_horses_idea = {
+			removal_cost = -1
+			picture = horse_logistics
+			modifier = {
+				supply_consumption_factor = 0.05
+				consumer_goods_factor = 0.15
+			}
+		}
+		TPMP_eastern_ponies_idea = {
+			removal_cost = -1
+			picture = pony_logistics
+			modifier = {
+				custom_modifier_tooltip = TPMP_eastern_ponies_idea_tt
+			}
+		}
+	}
+}

@@ -14058,7 +14058,7 @@ mio:GER_blohm_und_voss_organization = {
 		prerequisite = { focus = GER_anti_comintern_pact }
 		mutually_exclusive = { focus = GER_alliance_with_the_ussr }
 		x = 0
-		y = 3
+		y = 4
 		relative_position_id = GER_anti_comintern_pact
 		cost = 10
 
@@ -14638,6 +14638,148 @@ mio:GER_blohm_und_voss_organization = {
 		}
 	}
 
+	#TPMP Changes
+	focus = {
+		id = TPMP_GER_hold_our_ground
+		icon = GFX_goal_generic_fortify_city
+
+		prerequisite = { focus = GER_war_with_the_ussr }
+
+		x = -1
+		y = 1
+		relative_position_id = GER_war_with_the_ussr
+		cost = 5
+
+		available = {
+			has_war_with = SOV
+			NOT = {
+				OR = {
+					has_idea = TPMP_GER_barbarossa_idea_0
+					has_idea = TPMP_GER_barbarossa_idea_1
+				}
+			}
+		}
+
+		completion_reward = {
+			unlock_decision_tooltip = TPMP_directive_39_decision
+			unlock_decision_tooltip = TPMP_haltbefehl_decision
+		}
+	}
+	focus = {
+		id = TPMP_GER_fall_blau
+		icon = GFX_focus_generic_tank_assault
+
+		prerequisite = { focus = TPMP_GER_hold_our_ground }
+
+		x = 0
+		y = 1
+		relative_position_id = TPMP_GER_hold_our_ground
+		cost = 5
+
+		available = {
+			has_war_with = SOV
+			date > 1942.04.01
+			date < 1942.06.01
+		}
+		bypass = {
+			date > 1942.09.01
+		}
+		cancel_if_invalid = no
+		continue_if_invalid = yes
+
+		completion_reward = {
+			country_event = TPMP_GER.1
+		}
+	}
+	focus = {
+		id = TPMP_GER_operation_citadel
+		icon = GFX_focus_generic_heavy_tank
+
+		prerequisite = { focus = TPMP_GER_fall_blau }
+
+		x = 0
+		y = 1
+		relative_position_id = TPMP_GER_fall_blau
+		cost = 5
+
+		available = {
+			has_war_with = SOV
+			date > 1943.04.01
+			date < 1943.06.01
+		}
+		bypass = {
+			date > 1943.09.01
+		}
+		cancel_if_invalid = no
+		continue_if_invalid = yes
+
+		completion_reward = {
+			add_timed_idea = {
+				idea = TPMP_GER_citadel_idea
+				days = 90
+			}
+			hidden_effect = {
+				ITA = {
+					add_timed_idea = {
+					idea = TPMP_GER_citadel_idea
+					days = 90
+					}
+				}
+				HUN = {
+					add_timed_idea = {
+					idea = TPMP_GER_citadel_idea
+					days = 90
+					}
+				}
+				ROM = {
+					add_timed_idea = {
+					idea = TPMP_GER_citadel_idea
+					days = 90
+					}
+				}
+				BUL = {
+					add_timed_idea = {
+					idea = TPMP_GER_citadel_idea
+					days = 90
+					}
+				}
+				SPR = {
+					add_timed_idea = {
+					idea = TPMP_GER_citadel_idea
+					days = 90
+					}
+				}
+				FIN = {
+					add_timed_idea = {
+					idea = TPMP_GER_citadel_idea
+					days = 90
+					}
+				}
+			}
+		}
+	}
+	focus = {
+		id = TPMP_GER_eastern_logistics
+		icon = GFX_focus_generic_supply_line
+
+		prerequisite = { focus = GER_war_with_the_ussr }
+
+		x = 1
+		y = 1
+		relative_position_id = GER_war_with_the_ussr
+		cost = 5
+
+		available = {
+			has_war_with = SOV
+			date > 1943.01.01
+		}
+
+		completion_reward = {
+			unlock_decision_category_tooltip = TPMP_eastern_front_logistics_decision_category
+		}
+	}
+	#TPMP Changes
+
 	focus = {
 		id = GER_the_final_blow_to_communism
 		icon = GFX_focus_generic_spread_fascism
@@ -14647,6 +14789,9 @@ mio:GER_blohm_und_voss_organization = {
 		y = 2
 		relative_position_id = GER_war_with_the_ussr
 		cost = 10
+		allow_branch = {
+			always = no
+		}
 		available = {
 			is_subject = no
 			any_country = {
