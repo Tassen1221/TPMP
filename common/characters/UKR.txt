@@ -79,12 +79,14 @@ characters = {
 	 	
 			allowed = {
 				tag = UKR
-			}	
+			}
+			available = {
+				OR = {
+					has_completed_focus = ukr_reform_the_goverment_1
+					has_completed_focus = ukr_cultural_development_advisors
+				}
+			}
 		}
-	
-		#available = {
-		#	has_completed_focus = ukr_arms_industry_advisors
-		#}
 	}
 
 	TPMP_UKR_Panas_Lyubchenko = {
@@ -101,7 +103,10 @@ characters = {
 			cost = 150
         	traits = { TPMP_UKR_trait_political_0 }
 			available = {
-				has_completed_focus = ukr_arms_industry_advisors
+				OR = {
+					has_completed_focus = ukr_reform_the_goverment_1
+					has_completed_focus = ukr_cultural_development_advisors
+				}
 			}	
 			allowed = {
 				tag = UKR
@@ -129,7 +134,10 @@ characters = {
 				tag = UKR
 			}	
 			available = {
-				has_completed_focus = ukr_arms_industry_advisors
+				OR = {
+					has_completed_focus = ukr_reform_the_goverment_1
+					has_completed_focus = ukr_cultural_development_advisors
+				}
 			}			
 	 	}
 	
@@ -154,7 +162,10 @@ characters = {
 				tag = UKR
 			}	
 			available = {
-				has_completed_focus = ukr_arms_industry_advisors
+				OR = {
+					has_completed_focus = ukr_reform_the_goverment_1
+					has_completed_focus = ukr_cultural_development_advisors
+				}
 			}
 	 	}
 	}
@@ -278,9 +289,8 @@ characters = {
 			available = {
 				OR = {
 					has_completed_focus = ukr_arms_industry_advisors
-				}
-				OR = {
 					has_completed_focus = ukr_heavy_industry_advisors
+					has_completed_focus = ukr_reform_the_goverment_1
 				}
 			}
 		}		
@@ -309,9 +319,8 @@ characters = {
 			available = {
 				OR = {
 					has_completed_focus = ukr_arms_industry_advisors
-				}
-				OR = {
 					has_completed_focus = ukr_heavy_industry_advisors
+					has_completed_focus = ukr_reform_the_goverment_1
 				}
 			}
 		}
@@ -337,12 +346,14 @@ characters = {
 			}				
 			available = {
 				OR = {
-					has_completed_focus = ukr_arms_industry_advisors
-					has_completed_focus = ukr_cultural_development_advisors
-				}
-				OR = {
-					has_completed_focus = ukr_heavy_industry_advisors
-					has_completed_focus = ukr_cultural_development_advisors
+					AND = {
+						has_completed_focus = ukr_arms_industry_advisors
+						has_completed_focus = ukr_cultural_development_advisors						
+					}
+					AND = {
+						has_completed_focus = ukr_heavy_industry_advisors
+						has_completed_focus = ukr_cultural_development_advisors
+					}
 				}
 			}
 	
@@ -371,12 +382,14 @@ characters = {
 
 			available = {
 				OR = {
-					has_completed_focus = ukr_arms_industry_advisors
-					has_completed_focus = ukr_cultural_development_advisors
-				}
-				OR = {
-					has_completed_focus = ukr_heavy_industry_advisors
-					has_completed_focus = ukr_cultural_development_advisors
+					AND = {
+						has_completed_focus = ukr_arms_industry_advisors
+						has_completed_focus = ukr_cultural_development_advisors						
+					}
+					AND = {
+						has_completed_focus = ukr_heavy_industry_advisors
+						has_completed_focus = ukr_cultural_development_advisors
+					}
 				}
 			}
 		}

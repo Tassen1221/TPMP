@@ -13,6 +13,7 @@ leader_traits = {
 		sprite = 13
 
 		production_speed_arms_factory_factor = 0.1
+		production_factory_efficiency_gain_factor = -0.05
 	}
 	
 	TPMP_UKR_trait_heavy_industrialist = {
@@ -53,20 +54,22 @@ leader_traits = {
 		sprite = 13
 
 		communism_drift = 0.15
-		war_support = 0.05
+		war_support_factor = 0.05
 	}
 	
 	TPMP_UKR_trait_political_1 = {
 		random = no
 		sprite = 13
-		stability_weekly = 0.15
+		stability_weekly = 0.0015
+		stability_factor = 0.05
 	}
 	
 	TPMP_UKR_trait_political_2 = {
 		random = no
 		sprite = 13
 
-		compliance_growth_on_our_occupied_states = 0.1
+		compliance_growth_on_our_occupied_states = -0.1
+		compliance_gain = 0.01
 		resistance_activity = -0.1
 	}
 	
@@ -81,20 +84,16 @@ leader_traits = {
 		random = no
 		sprite = 13
 
-		research_bonus = { 
-			industry = 0.15
-			electronics = 0.2
-		}
+		local_resources_factor = 0.1
+		country_resource_steel = 150
+
+		production_factory_start_efficiency_factor = 0.05
 	}	
 
 	TPMP_UKR_trait_scientist_1 = {
 		random = no
 		sprite = 13
 
-		research_speed_factor = 0.15
-
-		research_bonus = { 
-			armor = -0.1
-		}
+		research_speed_factor = 0.05
 	}	
 }

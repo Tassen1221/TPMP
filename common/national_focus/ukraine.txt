@@ -398,12 +398,12 @@ focus_tree = {
 						state = 199 #Proskuriv
 					}
 				}
+				add_extra_state_shared_building_slots = 6
 				add_building_construction = {
 					type = industrial_complex
 					level = 1
 					instant_build = yes
 				}
-				add_extra_state_shared_building_slots = 6
 
 				custom_effect_tooltip = generic_skip_one_line_tt
 
@@ -422,12 +422,13 @@ focus_tree = {
 							state = 206 #Minsk
 						}
 					}
+					add_extra_state_shared_building_slots = 6
 					add_building_construction = {
 						type = industrial_complex
 						level = 1
 						instant_build = yes
 					}
-					add_extra_state_shared_building_slots = 6
+
 
 					custom_effect_tooltip = generic_skip_one_line_tt
 
@@ -554,28 +555,28 @@ focus_tree = {
 		cost = 5
 		completion_reward = {
 			202 = { #Kiev
-					add_building_construction = {
-						type = industrial_complex
-						level = 2
-						instant_build = yes
-					}
-					add_extra_state_shared_building_slots = 2
-			}
-			226 = { #Dnipropetrovsk
-					add_building_construction = {
-						type = industrial_complex
-						level = 3
-						instant_build = yes
-					}
-					add_extra_state_shared_building_slots = 3
-			}
-			219 = { #Moscow
+				add_extra_state_shared_building_slots = 2				
 				add_building_construction = {
 					type = industrial_complex
 					level = 2
 					instant_build = yes
 				}
-				add_extra_state_shared_building_slots = 5
+			}
+			226 = { #Dnipropetrovsk
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+				}
+			}
+			219 = { #Moscow
+				add_extra_state_shared_building_slots = 5			
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
 			}
 		}
 		prerequisite = {
@@ -801,12 +802,12 @@ focus_tree = {
 						state = 199 #Proskuriv
 					}
 				}
+				add_extra_state_shared_building_slots = 4
 				add_building_construction = {
 					type = arms_factory
 					level = 1
 					instant_build = yes
 				}
-				add_extra_state_shared_building_slots = 4
 
 				custom_effect_tooltip = generic_skip_one_line_tt
 
@@ -825,12 +826,12 @@ focus_tree = {
 							state = 206 #Minsk
 						}
 					}
+					add_extra_state_shared_building_slots = 4
 					add_building_construction = {
 						type = arms_factory
 						level = 1
 						instant_build = yes
 					}
-					add_extra_state_shared_building_slots = 4
 
 					custom_effect_tooltip = generic_skip_one_line_tt
 
@@ -856,28 +857,30 @@ focus_tree = {
 		cost = 5
 		completion_reward = {
 			202 = { #Kiev
-					add_building_construction = {
-						type = arms_factory
-						level = 2
-						instant_build = yes
-					}
-					add_extra_state_shared_building_slots = 2
-			}
-			226 = { #Dnipropetrovsk
-					add_building_construction = {
-						type = arms_factory
-						level = 3
-						instant_build = yes
-					}
-					add_extra_state_shared_building_slots = 3
-			}
-			219 = { #Moscow
+				add_extra_state_shared_building_slots = 2	
 				add_building_construction = {
 					type = arms_factory
 					level = 2
 					instant_build = yes
 				}
+
+			}
+			226 = { #Dnipropetrovsk
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}
+
+			}
+			219 = { #Moscow
 				add_extra_state_shared_building_slots = 5
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
 			}
 		}
 		prerequisite = {
@@ -2266,6 +2269,8 @@ focus_tree = {
 		
 		completion_reward = {
 			192 = {
+				
+				add_extra_state_shared_building_slots = 5
 				add_building_construction = {
 					type = industrial_complex
 					level = 1
@@ -2277,8 +2282,6 @@ focus_tree = {
 					level = 4
 					instant_build = yes
 				}
-
-				add_extra_state_shared_building_slots = 5
 
 				build_railway = {				
 					start_state = ROOT.capital
@@ -2305,13 +2308,12 @@ focus_tree = {
 		
 		completion_reward = {
 			200 = {
+				add_extra_state_shared_building_slots = 3
 				add_building_construction = {
 					type = industrial_complex
 					level = 3
 					instant_build = yes
-				}
-
-				add_extra_state_shared_building_slots = 3
+				}		
 			}
 		}
 	}
@@ -2335,7 +2337,8 @@ focus_tree = {
 		cost = 5
 		
 		completion_reward = {
-			202 = {
+			202 = {		
+				add_extra_state_shared_building_slots = 8
 				add_building_construction = {
 					type = industrial_complex
 					level = 5
@@ -2347,8 +2350,6 @@ focus_tree = {
 					level = 3
 					instant_build = yes
 				}				
-
-				add_extra_state_shared_building_slots = 8
 			}
 		}
 	}	
