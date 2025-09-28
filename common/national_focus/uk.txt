@@ -6961,14 +6961,15 @@ focus_tree = {
 		prerequisite = { focus = uk_australia_focus }
 		available = {
 			any_country = {
-				original_tag = NZL
+				original_tag = AST
 				is_in_faction_with = ROOT
 			}
 		}
+
 		bypass = {
 			OR = {
-				NZL = { exists = no }
-				NZL = {
+				AST = { exists = no }
+				AST = {
 					custom_trigger_tooltip = {
 						tooltip = construction_effort_tt
 						all_owned_state = {
@@ -6992,8 +6993,9 @@ focus_tree = {
 				}
 			}
 		}
+		
 		icon = GFX_goal_generic_construction
-		x = 0
+		x = 2
 		y = 1
 		relative_position_id = uk_australia_focus
 		cost = 10
@@ -7003,11 +7005,11 @@ focus_tree = {
 		complete_tooltip = {
 			random_country = {
 				limit = {
-					original_tag = NZL
+					original_tag = AST
 					is_in_faction_with = ROOT
 				}
 				add_opinion_modifier = { target = ENG modifier = aided_industry }
-				every_state = { limit = { has_state_flag = ENG_uk_new_zealand_focus_1IC }
+				every_state = { limit = { has_state_flag = ENG_uk_australia_focus_1IC }
 					add_extra_state_shared_building_slots = 1
 					add_building_construction = {
 						type = industrial_complex
@@ -7015,7 +7017,7 @@ focus_tree = {
 						instant_build = yes
 					}
 				}
-				every_state = { limit = { has_state_flag = ENG_uk_new_zealand_focus_2dockyards }
+				every_state = { limit = { has_state_flag = ENG_uk_australia_focus_2dockyards }
 					add_extra_state_shared_building_slots = 2
 					add_building_construction = {
 						type = dockyard
@@ -7023,7 +7025,7 @@ focus_tree = {
 						instant_build = yes
 					}
 				}
-				every_state = { limit = { has_state_flag = ENG_uk_new_zealand_focus_1dockyard }
+				every_state = { limit = { has_state_flag = ENG_uk_australia_focus_1dockyard }
 					add_extra_state_shared_building_slots = 1
 					add_building_construction = {
 						type = dockyard
@@ -7033,83 +7035,32 @@ focus_tree = {
 				}
 				add_autonomy_ratio = {
 					value = -0.05
-					localization = uk_new_zealand_focus
+					localization = uk_australia_focus
 				}
 			}
 		}
 		search_filters = {FOCUS_FILTER_INDUSTRY}
 		completion_reward = {
-			NZL = {
+			AST = {
 				add_opinion_modifier = { target = ENG modifier = aided_industry }
-				random_owned_controlled_state = {
-					limit = {
-						free_building_slots = {
-							building = industrial_complex
-							size > 0
-							include_locked = yes
-						}
-					}
-					add_extra_state_shared_building_slots = 1
+				284 = {
+					add_extra_state_shared_building_slots = 5
 					add_building_construction = {
 						type = industrial_complex
-						level = 1
-						instant_build = yes
-					}
-					set_state_flag = ENG_uk_new_zealand_focus_1IC
-				}
-				random_owned_controlled_state = {
-					limit = {
-						free_building_slots = {
-							building = industrial_complex
-							size > 0
-							include_locked = yes
-						}
-					}
-					add_extra_state_shared_building_slots = 1
-					add_building_construction = {
-						type = industrial_complex
-						level = 1
-						instant_build = yes
-					}
-					set_state_flag = ENG_uk_new_zealand_focus_1IC
-				}
-				random_owned_controlled_state = {
-					limit = {
-						is_coastal = yes
-						free_building_slots = {
-							building = dockyard
-							size > 1
-							include_locked = yes
-						}
-					}
-					add_extra_state_shared_building_slots = 2
-					add_building_construction = {
-						type = dockyard
 						level = 2
 						instant_build = yes
 					}
-					set_state_flag = ENG_uk_new_zealand_focus_2dockyards
-				}
-				random_owned_controlled_state = {
-					limit = {
-						is_coastal = yes
-						free_building_slots = {
-							building = dockyard
-							size > 0
-							include_locked = yes
-						}
-					}
-					add_extra_state_shared_building_slots = 1
 					add_building_construction = {
 						type = dockyard
-						level = 1
+						level = 3
 						instant_build = yes
 					}
-					set_state_flag = ENG_uk_new_zealand_focus_1dockyard
+					set_state_flag = ENG_uk_australia_focus_1IC
 				}
+				
 				add_autonomy_ratio = {
 					value = -0.05
-					localization = uk_new_zealand_focus
+					localization = uk_australia_focus
 				}
 			}
 		}
@@ -7385,7 +7336,7 @@ focus_tree = {
 	focus = {
 		id = ENG_imperial_conference
 		prerequisite = { focus = uk_canada_focus }
-		prerequisite = { focus = uk_new_zealand_focus }
+		prerequisite = { focus = uk_australia_focus }
 		prerequisite = { focus = uk_south_africa_focus }
 
 		allow_branch = {
@@ -7505,7 +7456,7 @@ focus_tree = {
 
 		icon = GFX_goal_generic_national_unity
 
-		x = 0
+		x = -2
 		y = 2
 		relative_position_id = uk_new_zealand_focus
 		cost = 10
