@@ -1,0 +1,166 @@
+TPMP_UKR_factory_management_decision_effect = {
+	
+	if = { ##So clicking doesn't increase resource cost on 1st click
+		limit = {
+			has_dynamic_modifier = {
+    			modifier = TPMP_UKR_factory_management_cost_dynamic_modifier
+    			scope = UKR
+			}
+		}
+
+		add_to_variable = {
+			var = var_factory_management_cost_steel
+			value = 200
+		}
+		add_to_variable = {
+			var = var_factory_management_cost_tungsten
+			value = 75
+		}
+		add_to_variable = {
+			var = var_factory_management_cost_chromium
+			value = 75
+		}
+	}
+
+	add_dynamic_modifier = { 
+		modifier = TPMP_UKR_factory_management_cost_dynamic_modifier
+		scope = UKR
+		days = var_factory_management_duration
+	}
+
+	custom_effect_tooltip = generic_skip_one_line_tt
+	custom_effect_tooltip = ukr_factory_management_cost_tt
+	custom_effect_tooltip = generic_skip_one_line_tt
+
+	add_to_variable = {
+		var = var_factory_management_reset_time
+		value = 60
+	}
+	add_to_variable = {
+		var = var_factory_management_duration
+		value = 60
+	}
+	add_to_variable = {
+		var = var_factory_management_pp_cost
+		value = 25
+	}
+}
+
+TPMP_UKR_state_of_the_army_initialization_scripted_effect = {
+
+	set_variable = { var_ukr_tpmp_experience_gain_army = -0.36 }
+
+	set_variable = { var_ukr_tpmp_offence = -0.31 }
+	set_variable = { var_ukr_tpmp_defence = -0.31 }
+	set_variable = { var_ukr_tpmp_army_org_factor = -0.31 }
+
+	set_variable = { var_ukr_tpmp_land_doctrine_cost_factor = 0.1 }
+	set_variable = { var_ukr_tpmp_army_advisor_cost_factor = 0.3 }
+}
+
+TPMP_UKR_state_of_the_army_remover_scripted_effect = {
+
+	add_to_variable = {
+		var = var_ukr_tpmp_experience_gain_army
+		value = var_ukr_tpmp_incremental_improvement_value
+	}
+
+	add_to_variable = {
+		var = var_ukr_tpmp_offence
+		value = var_ukr_tpmp_incremental_improvement_value
+	}
+	add_to_variable = {
+		var = var_ukr_tpmp_defence
+		value = var_ukr_tpmp_incremental_improvement_value
+	}
+	add_to_variable = {
+		var = var_ukr_tpmp_army_org_factor
+		value = var_ukr_tpmp_incremental_improvement_value
+	}	
+}
+
+TPMP_UKR_state_of_the_army_clamper_scripted_effect = {
+
+	#CLAMPING VALUES
+
+	if = { #right
+		limit = {
+			has_completed_focus = ukr_truly_independent
+		}
+		clamp_variable = {
+			var = var_ukr_tpmp_offence
+			min = -0.31	
+			max = 0.15
+		}
+		clamp_variable = {
+			var = var_ukr_tpmp_defence
+			min = -0.31	
+			max = 0.15
+		}	
+		clamp_variable = {
+			var = var_ukr_tpmp_army_org_factor
+			min = -0.31
+			max = 0.15
+		}
+
+		#The case of army exp gain
+
+		if = {
+			limit = {
+				has_completed_focus = ukr_employ_professional_training_officers
+			}
+			clamp_variable = {
+				var = var_ukr_tpmp_experience_gain_army
+				min = -0.36
+				max = 0.15
+			}
+		}
+		else = {
+			clamp_variable = {
+				var = var_ukr_tpmp_experience_gain_army
+				min = -0.36
+				max = 0.1
+			}			
+		}			
+	}
+	else = { #mid
+
+		clamp_variable = {
+			var = var_ukr_tpmp_offence
+			min = -0.31	
+			max = 0.05
+		}
+		clamp_variable = {
+			var = var_ukr_tpmp_defence
+			min = -0.31	
+			max = 0.05
+		}	
+		clamp_variable = {
+			var = var_ukr_tpmp_army_org_factor
+			min = -0.31
+			max = 0.05
+		}	
+
+		#The case of army exp gain
+
+		if = {
+			limit = {
+				has_completed_focus = ukr_employ_professional_training_officers
+			}
+			clamp_variable = {
+				var = var_ukr_tpmp_experience_gain_army
+				min = -0.36
+				max = 0.05
+			}
+		}
+		else = {
+			clamp_variable = {
+				var = var_ukr_tpmp_experience_gain_army
+				min = -0.36
+				max = 0
+			}			
+		}
+		
+	}
+		
+}

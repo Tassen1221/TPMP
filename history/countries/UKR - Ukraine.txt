@@ -126,7 +126,6 @@ recruit_character = TPMP_UKR_Yevhen_Paton
 add_ideas = {
 	TPMP_ukraine_holdomor_idea
 	TPMP_ukraine_tsar_heritage_idea
-	TPMP_state_of_the_army_idea
 	nationalized_military_industry
 	semi_professional_army
 
@@ -151,3 +150,9 @@ create_equipment_variant = {
 		uniform_type_slot = helmet
 	}
 }
+
+#Army Debuff Vars and Shit
+
+TPMP_UKR_state_of_the_army_initialization_scripted_effect = yes
+
+add_dynamic_modifier = { modifier = TPMP_UKR_starting_army_debuff_dynamic_modifier }
