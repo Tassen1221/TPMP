@@ -4379,13 +4379,17 @@ focus_tree = {
 			NOT = { has_completed_focus = SPA_expand_the_axis_gold_trade }
 			AND = {
 				OR = {
-					has_opinion = {
-						target = ENG
-						value > 74
+					USA = {
+						has_opinion = {
+							target = ROOT
+							value > 49
+						}
 					}
-					has_opinion = {
-						target = USA
-						value > 74
+					ENG = {
+						has_opinion = {
+							target = ROOT
+							value > 49
+						}
 					}
 				}
 				NOT = {
@@ -4451,13 +4455,17 @@ focus_tree = {
 		available = {
 			AND = {
 				OR = {
-					has_opinion = {
-						target = ENG
-						value > 74
+					USA = {
+						has_opinion = {
+							target = ROOT
+							value > 49
+						}
 					}
-					has_opinion = {
-						target = USA
-						value > 74
+					ENG = {
+						has_opinion = {
+							target = ROOT
+							value > 49
+						}
 					}
 				}
 				NOT = {
@@ -4630,13 +4638,17 @@ focus_tree = {
 		available = {
 			AND = {
 				OR = {
-					has_opinion = {
-						target = ENG
-						value > 74
+					USA = {
+						has_opinion = {
+							target = ROOT
+							value > 49
+						}
 					}
-					has_opinion = {
-						target = USA
-						value > 74
+					ENG = {
+						has_opinion = {
+							target = ROOT
+							value > 49
+						}
 					}
 				}
 				NOT = {
@@ -4709,13 +4721,17 @@ focus_tree = {
 		available = {
 			AND = {
 				OR = {
-					has_opinion = {
-						target = ENG
-						value > 74
+					USA = {
+						has_opinion = {
+							target = ROOT
+							value > 49
+						}
 					}
-					has_opinion = {
-						target = USA
-						value > 74
+					ENG = {
+						has_opinion = {
+							target = ROOT
+							value > 49
+						}
 					}
 				}
 				NOT = {
@@ -4782,13 +4798,17 @@ focus_tree = {
 		available = {
 			AND = {
 				OR = {
-					has_opinion = {
-						target = ENG
-						value > 74
+					USA = {
+						has_opinion = {
+							target = ROOT
+							value > 49
+						}
 					}
-					has_opinion = {
-						target = USA
-						value > 74
+					ENG = {
+						has_opinion = {
+							target = ROOT
+							value > 49
+						}
 					}
 				}
 				NOT = {
@@ -4853,13 +4873,17 @@ focus_tree = {
 		available = {
 			AND = {
 				OR = {
-					has_opinion = {
-						target = ENG
-						value > 74
+					USA = {
+						has_opinion = {
+							target = ROOT
+							value > 49
+						}
 					}
-					has_opinion = {
-						target = USA
-						value > 74
+					ENG = {
+						has_opinion = {
+							target = ROOT
+							value > 49
+						}
 					}
 				}
 				NOT = {
@@ -5422,7 +5446,10 @@ focus_tree = {
 		bypass = {
 		}
 		prerequisite = { focus = SPA_the_tangiers_enclave }
-
+		
+		allow_branch = {
+			always = no
+		}
 		ai_will_do = {
 			factor = 1
 			modifier = {
@@ -5639,7 +5666,7 @@ focus_tree = {
 		}
 		bypass = {
 		}
-		prerequisite = { focus = SPA_demand_french_north_africa }
+		prerequisite = { focus = SPA_the_tangiers_enclave }
 		prerequisite = { focus = SPA_defenses_against_invasion }
 		
 		icon = GFX_focus_attack_britain

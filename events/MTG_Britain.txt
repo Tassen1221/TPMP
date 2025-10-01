@@ -6137,73 +6137,73 @@ country_event = {
 	}
 
 	# Exert diplomatic pressure
-	option = {
-		name = mtg_britain.83.b
-		add_political_power = -25
-		set_country_flag = ENG_diplomatic_pressure_flag
-		every_country = {
-			limit = {
-				OR = {
-					AND = {
-						is_subject_of = ENG
-						tag = CAN
-					}
-					AND = {
-						is_subject_of = ENG
-						tag = SAF
-					}
-					AND = {
-						is_subject_of = ENG
-						tag = RAJ
-					}
-					AND = {
-						is_subject_of = ENG
-						tag = AST
-					}
-					AND = {
-						is_subject_of = ENG
-						tag = NZL
-					}
-				}
-			}
-			country_event = { id = mtg_britain.84 hours = 48 random_hours = 24 }
-		}
-		ENG_imperial_conference_set_subject_counter = yes
-	}
-	# Exert extensive diplomatic pressure
-	option = {
-		name = mtg_britain.83.c
-		add_political_power = -50
-		set_country_flag = ENG_extensive_diplomatic_pressure_flag
-		every_country = {
-			limit = {
-				OR = {
-					AND = {
-						is_subject_of = ENG
-						tag = CAN
-					}
-					AND = {
-						is_subject_of = ENG
-						tag = SAF
-					}
-					AND = {
-						is_subject_of = ENG
-						tag = RAJ
-					}
-					AND = {
-						is_subject_of = ENG
-						tag = AST
-					}
-					AND = {
-						is_subject_of = ENG
-						tag = NZL
-					}
-				}
-			}
-			country_event = { id = mtg_britain.84 hours = 48 random_hours = 24 }
-		}
-		ENG_imperial_conference_set_subject_counter = yes
-	}
+	# option = {
+		# name = mtg_britain.83.b
+		# add_political_power = -25
+		# set_country_flag = ENG_diplomatic_pressure_flag
+		# every_country = {
+			# limit = {
+				# OR = {
+					# AND = {
+						# is_subject_of = ENG
+						# tag = CAN
+					# }
+					# AND = {
+						# is_subject_of = ENG
+						# tag = SAF
+					# }
+					# AND = {
+						# is_subject_of = ENG
+						# tag = RAJ
+					# }
+					# AND = {
+						# is_subject_of = ENG
+						# tag = AST
+					# }
+					# AND = {
+						# is_subject_of = ENG
+						# tag = NZL
+					# }
+				# }
+			# }
+			# country_event = { id = mtg_britain.84 hours = 48 random_hours = 24 }
+		# }
+		# ENG_imperial_conference_set_subject_counter = yes
+	# }
+	# # Exert extensive diplomatic pressure
+	# option = {
+		# name = mtg_britain.83.c
+		# add_political_power = -50
+		# set_country_flag = ENG_extensive_diplomatic_pressure_flag
+		# every_country = {
+			# limit = {
+				# OR = {
+					# AND = {
+						# is_subject_of = ENG
+						# tag = CAN
+					# }
+					# AND = {
+						# is_subject_of = ENG
+						# tag = SAF
+					# }
+					# AND = {
+						# is_subject_of = ENG
+						# tag = RAJ
+					# }
+					# AND = {
+						# is_subject_of = ENG
+						# tag = AST
+					# }
+					# AND = {
+						# is_subject_of = ENG
+						# tag = NZL
+					# }
+				# }
+			# }
+			# country_event = { id = mtg_britain.84 hours = 48 random_hours = 24 }
+		# }
+		# ENG_imperial_conference_set_subject_counter = yes
+	# }
 }
 
 # Event for Dominions asking for vote on Imperial Defense
@@ -6260,29 +6260,29 @@ country_event = {
 	}
 
 	# Reject
-	option = {
-		name = mtg_britain.84.b
-		ai_chance = {
-			factor = 50
-			modifier = {
-				factor = 0.8
-				has_opinion = { target = ENG value > 0 }
-			}
-			modifier = {
-				factor = 0.8
-				has_opinion = { target = ENG value > 25 }
-			}
-			modifier = {
-				factor = 0.8
-				has_opinion = { target = ENG value > 50 }
-			}
-			modifier = {
-				factor = 0.8
-				has_opinion = { target = ENG value > 75 }
-			}
-		}
-		FROM = { country_event = { id = mtg_britain.86 } }
-	}
+	# option = {
+		# name = mtg_britain.84.b
+		# ai_chance = {
+			# factor = 50
+			# modifier = {
+				# factor = 0.8
+				# has_opinion = { target = ENG value > 0 }
+			# }
+			# modifier = {
+				# factor = 0.8
+				# has_opinion = { target = ENG value > 25 }
+			# }
+			# modifier = {
+				# factor = 0.8
+				# has_opinion = { target = ENG value > 50 }
+			# }
+			# modifier = {
+				# factor = 0.8
+				# has_opinion = { target = ENG value > 75 }
+			# }
+		# }
+		# FROM = { country_event = { id = mtg_britain.86 } }
+	# }
 }
 
 # Event for ENG telling FROM voted yes on Imperial Defense
@@ -6415,73 +6415,73 @@ country_event = {
 	}
 
 	# Exert diplomatic pressure
-	option = {
-		name = mtg_britain.83.b
-		add_political_power = -25
-		set_country_flag = ENG_diplomatic_pressure_flag
-		every_country = {
-			limit = {
-				OR = {
-					AND = {
-						is_subject_of = ENG
-						tag = CAN
-					}
-					AND = {
-						is_subject_of = ENG
-						tag = SAF
-					}
-					AND = {
-						is_subject_of = ENG
-						tag = RAJ
-					}
-					AND = {
-						is_subject_of = ENG
-						tag = AST
-					}
-					AND = {
-						is_subject_of = ENG
-						tag = NZL
-					}
-				}
-			}
-			country_event = { id = mtg_britain.88 hours = 48 random_hours = 24 }
-		}
-		ENG_imperial_conference_set_subject_counter = yes
-	}
-	# Exert extensive diplomatic pressure
-	option = {
-		name = mtg_britain.83.c
-		add_political_power = -50
-		set_country_flag = ENG_extensive_diplomatic_pressure_flag
-		every_country = {
-			limit = {
-				OR = {
-					AND = {
-						is_subject_of = ENG
-						tag = CAN
-					}
-					AND = {
-						is_subject_of = ENG
-						tag = SAF
-					}
-					AND = {
-						is_subject_of = ENG
-						tag = RAJ
-					}
-					AND = {
-						is_subject_of = ENG
-						tag = AST
-					}
-					AND = {
-						is_subject_of = ENG
-						tag = NZL
-					}
-				}
-			}
-			country_event = { id = mtg_britain.88 hours = 48 random_hours = 24 }
-		}
-		ENG_imperial_conference_set_subject_counter = yes
-	}
+	# option = {
+		# name = mtg_britain.83.b
+		# add_political_power = -25
+		# set_country_flag = ENG_diplomatic_pressure_flag
+		# every_country = {
+			# limit = {
+				# OR = {
+					# AND = {
+						# is_subject_of = ENG
+						# tag = CAN
+					# }
+					# AND = {
+						# is_subject_of = ENG
+						# tag = SAF
+					# }
+					# AND = {
+						# is_subject_of = ENG
+						# tag = RAJ
+					# }
+					# AND = {
+						# is_subject_of = ENG
+						# tag = AST
+					# }
+					# AND = {
+						# is_subject_of = ENG
+						# tag = NZL
+					# }
+				# }
+			# }
+			# country_event = { id = mtg_britain.88 hours = 48 random_hours = 24 }
+		# }
+		# ENG_imperial_conference_set_subject_counter = yes
+	# }
+	# # Exert extensive diplomatic pressure
+	# option = {
+		# name = mtg_britain.83.c
+		# add_political_power = -50
+		# set_country_flag = ENG_extensive_diplomatic_pressure_flag
+		# every_country = {
+			# limit = {
+				# OR = {
+					# AND = {
+						# is_subject_of = ENG
+						# tag = CAN
+					# }
+					# AND = {
+						# is_subject_of = ENG
+						# tag = SAF
+					# }
+					# AND = {
+						# is_subject_of = ENG
+						# tag = RAJ
+					# }
+					# AND = {
+						# is_subject_of = ENG
+						# tag = AST
+					# }
+					# AND = {
+						# is_subject_of = ENG
+						# tag = NZL
+					# }
+				# }
+			# }
+			# country_event = { id = mtg_britain.88 hours = 48 random_hours = 24 }
+		# }
+		# ENG_imperial_conference_set_subject_counter = yes
+	# }
 }
 
 # Event for Dominions asking for vote on Imperial Trade
@@ -6517,29 +6517,29 @@ country_event = {
 	}
 
 	# Reject
-	option = {
-		name = mtg_britain.88.b
-		ai_chance = {
-			factor = 50
-			modifier = {
-				factor = 0.8
-				has_opinion = { target = ENG value > 0 }
-			}
-			modifier = {
-				factor = 0.8
-				has_opinion = { target = ENG value > 25 }
-			}
-			modifier = {
-				factor = 0.8
-				has_opinion = { target = ENG value > 50 }
-			}
-			modifier = {
-				factor = 0.8
-				has_opinion = { target = ENG value > 75 }
-			}
-		}
-		FROM = { country_event = { id = mtg_britain.90 } }
-	}
+	# option = {
+		# name = mtg_britain.88.b
+		# ai_chance = {
+			# factor = 50
+			# modifier = {
+				# factor = 0.8
+				# has_opinion = { target = ENG value > 0 }
+			# }
+			# modifier = {
+				# factor = 0.8
+				# has_opinion = { target = ENG value > 25 }
+			# }
+			# modifier = {
+				# factor = 0.8
+				# has_opinion = { target = ENG value > 50 }
+			# }
+			# modifier = {
+				# factor = 0.8
+				# has_opinion = { target = ENG value > 75 }
+			# }
+		# }
+		# FROM = { country_event = { id = mtg_britain.90 } }
+	# }
 }
 
 # Event for ENG telling FROM voted yes on Imperial Trade
@@ -6671,73 +6671,73 @@ country_event = {
 	}
 
 	# Exert diplomatic pressure
-	option = {
-		name = mtg_britain.83.b
-		add_political_power = -25
-		set_country_flag = ENG_diplomatic_pressure_flag
-		every_country = {
-			limit = {
-				OR = {
-					AND = {
-						is_subject_of = ENG
-						tag = CAN
-					}
-					AND = {
-						is_subject_of = ENG
-						tag = SAF
-					}
-					AND = {
-						is_subject_of = ENG
-						tag = RAJ
-					}
-					AND = {
-						is_subject_of = ENG
-						tag = AST
-					}
-					AND = {
-						is_subject_of = ENG
-						tag = NZL
-					}
-				}
-			}
-			country_event = { id = mtg_britain.92 hours = 48 random_hours = 24 }
-		}
-		ENG_imperial_conference_set_subject_counter = yes
-	}
-	# Exert extensive diplomatic pressure
-	option = {
-		name = mtg_britain.83.c
-		add_political_power = -50
-		set_country_flag = ENG_extensive_diplomatic_pressure_flag
-		every_country = {
-			limit = {
-				OR = {
-					AND = {
-						is_subject_of = ENG
-						tag = CAN
-					}
-					AND = {
-						is_subject_of = ENG
-						tag = SAF
-					}
-					AND = {
-						is_subject_of = ENG
-						tag = RAJ
-					}
-					AND = {
-						is_subject_of = ENG
-						tag = AST
-					}
-					AND = {
-						is_subject_of = ENG
-						tag = NZL
-					}
-				}
-			}
-			country_event = { id = mtg_britain.92 hours = 48 random_hours = 24 }
-		}
-		ENG_imperial_conference_set_subject_counter = yes
-	}
+	# option = {
+		# name = mtg_britain.83.b
+		# add_political_power = -25
+		# set_country_flag = ENG_diplomatic_pressure_flag
+		# every_country = {
+			# limit = {
+				# OR = {
+					# AND = {
+						# is_subject_of = ENG
+						# tag = CAN
+					# }
+					# AND = {
+						# is_subject_of = ENG
+						# tag = SAF
+					# }
+					# AND = {
+						# is_subject_of = ENG
+						# tag = RAJ
+					# }
+					# AND = {
+						# is_subject_of = ENG
+						# tag = AST
+					# }
+					# AND = {
+						# is_subject_of = ENG
+						# tag = NZL
+					# }
+				# }
+			# }
+			# country_event = { id = mtg_britain.92 hours = 48 random_hours = 24 }
+		# }
+		# ENG_imperial_conference_set_subject_counter = yes
+	# }
+	# # Exert extensive diplomatic pressure
+	# option = {
+		# name = mtg_britain.83.c
+		# add_political_power = -50
+		# set_country_flag = ENG_extensive_diplomatic_pressure_flag
+		# every_country = {
+			# limit = {
+				# OR = {
+					# AND = {
+						# is_subject_of = ENG
+						# tag = CAN
+					# }
+					# AND = {
+						# is_subject_of = ENG
+						# tag = SAF
+					# }
+					# AND = {
+						# is_subject_of = ENG
+						# tag = RAJ
+					# }
+					# AND = {
+						# is_subject_of = ENG
+						# tag = AST
+					# }
+					# AND = {
+						# is_subject_of = ENG
+						# tag = NZL
+					# }
+				# }
+			# }
+			# country_event = { id = mtg_britain.92 hours = 48 random_hours = 24 }
+		# }
+		# ENG_imperial_conference_set_subject_counter = yes
+	# }
 }
 
 # Event for Dominions asking for vote on Imperial Economy
@@ -6793,30 +6793,29 @@ country_event = {
 		}
 	}
 
-	# Reject
-	option = {
-		name = mtg_britain.92.b
-		ai_chance = {
-			factor = 50
-			modifier = {
-				factor = 0.8
-				has_opinion = { target = ENG value > 0 }
-			}
-			modifier = {
-				factor = 0.8
-				has_opinion = { target = ENG value > 25 }
-			}
-			modifier = {
-				factor = 0.8
-				has_opinion = { target = ENG value > 50 }
-			}
-			modifier = {
-				factor = 0.8
-				has_opinion = { target = ENG value > 75 }
-			}
-		}
-		FROM = { country_event = { id = mtg_britain.94 } }
-	}
+	# option = {
+		# name = mtg_britain.92.b
+		# ai_chance = {
+			# factor = 50
+			# modifier = {
+				# factor = 0.8
+				# has_opinion = { target = ENG value > 0 }
+			# }
+			# modifier = {
+				# factor = 0.8
+				# has_opinion = { target = ENG value > 25 }
+			# }
+			# modifier = {
+				# factor = 0.8
+				# has_opinion = { target = ENG value > 50 }
+			# }
+			# modifier = {
+				# factor = 0.8
+				# has_opinion = { target = ENG value > 75 }
+			# }
+		# }
+		# FROM = { country_event = { id = mtg_britain.94 } }
+	# }
 }
 
 # Event for ENG telling FROM voted yes on Imperial Economy
@@ -6949,73 +6948,73 @@ country_event = {
 	}
 
 	# Exert diplomatic pressure
-	option = {
-		name = mtg_britain.83.b
-		add_political_power = -25
-		set_country_flag = ENG_diplomatic_pressure_flag
-		every_country = {
-			limit = {
-				OR = {
-					AND = {
-						is_subject_of = ENG
-						tag = CAN
-					}
-					AND = {
-						is_subject_of = ENG
-						tag = SAF
-					}
-					AND = {
-						is_subject_of = ENG
-						tag = RAJ
-					}
-					AND = {
-						is_subject_of = ENG
-						tag = AST
-					}
-					AND = {
-						is_subject_of = ENG
-						tag = NZL
-					}
-				}
-			}
-			country_event = { id = mtg_britain.96 hours = 48 random_hours = 24 }
-		}
-		ENG_imperial_conference_set_subject_counter = yes
-	}
-	# Exert extensive diplomatic pressure
-	option = {
-		name = mtg_britain.83.c
-		add_political_power = -50
-		set_country_flag = ENG_extensive_diplomatic_pressure_flag
-		every_country = {
-			limit = {
-				OR = {
-					AND = {
-						is_subject_of = ENG
-						tag = CAN
-					}
-					AND = {
-						is_subject_of = ENG
-						tag = SAF
-					}
-					AND = {
-						is_subject_of = ENG
-						tag = RAJ
-					}
-					AND = {
-						is_subject_of = ENG
-						tag = AST
-					}
-					AND = {
-						is_subject_of = ENG
-						tag = NZL
-					}
-				}
-			}
-			country_event = { id = mtg_britain.96 hours = 48 random_hours = 24 }
-		}
-		ENG_imperial_conference_set_subject_counter = yes
-	}
+	# option = {
+		# name = mtg_britain.83.b
+		# add_political_power = -25
+		# set_country_flag = ENG_diplomatic_pressure_flag
+		# every_country = {
+			# limit = {
+				# OR = {
+					# AND = {
+						# is_subject_of = ENG
+						# tag = CAN
+					# }
+					# AND = {
+						# is_subject_of = ENG
+						# tag = SAF
+					# }
+					# AND = {
+						# is_subject_of = ENG
+						# tag = RAJ
+					# }
+					# AND = {
+						# is_subject_of = ENG
+						# tag = AST
+					# }
+					# AND = {
+						# is_subject_of = ENG
+						# tag = NZL
+					# }
+				# }
+			# }
+			# country_event = { id = mtg_britain.96 hours = 48 random_hours = 24 }
+		# }
+		# ENG_imperial_conference_set_subject_counter = yes
+	# }
+	# # Exert extensive diplomatic pressure
+	# option = {
+		# name = mtg_britain.83.c
+		# add_political_power = -50
+		# set_country_flag = ENG_extensive_diplomatic_pressure_flag
+		# every_country = {
+			# limit = {
+				# OR = {
+					# AND = {
+						# is_subject_of = ENG
+						# tag = CAN
+					# }
+					# AND = {
+						# is_subject_of = ENG
+						# tag = SAF
+					# }
+					# AND = {
+						# is_subject_of = ENG
+						# tag = RAJ
+					# }
+					# AND = {
+						# is_subject_of = ENG
+						# tag = AST
+					# }
+					# AND = {
+						# is_subject_of = ENG
+						# tag = NZL
+					# }
+				# }
+			# }
+			# country_event = { id = mtg_britain.96 hours = 48 random_hours = 24 }
+		# }
+		# ENG_imperial_conference_set_subject_counter = yes
+	# }
 }
 
 # Event for Dominions asking for vote on Appeasement
@@ -7052,29 +7051,29 @@ country_event = {
 	}
 
 	# Reject
-	option = {
-		name = mtg_britain.96.b
-		ai_chance = {
-			factor = 50
-			modifier = {
-				factor = 0.8
-				has_opinion = { target = ENG value > 0 }
-			}
-			modifier = {
-				factor = 0.8
-				has_opinion = { target = ENG value > 25 }
-			}
-			modifier = {
-				factor = 0.8
-				has_opinion = { target = ENG value > 50 }
-			}
-			modifier = {
-				factor = 0.8
-				has_opinion = { target = ENG value > 75 }
-			}
-		}
-		FROM = { country_event = { id = mtg_britain.98 } }
-	}
+	# option = {
+		# name = mtg_britain.96.b
+		# ai_chance = {
+			# factor = 50
+			# modifier = {
+				# factor = 0.8
+				# has_opinion = { target = ENG value > 0 }
+			# }
+			# modifier = {
+				# factor = 0.8
+				# has_opinion = { target = ENG value > 25 }
+			# }
+			# modifier = {
+				# factor = 0.8
+				# has_opinion = { target = ENG value > 50 }
+			# }
+			# modifier = {
+				# factor = 0.8
+				# has_opinion = { target = ENG value > 75 }
+			# }
+		# }
+		# FROM = { country_event = { id = mtg_britain.98 } }
+	# }
 }
 
 # Event for ENG telling FROM voted yes on Appeasement
@@ -7286,34 +7285,34 @@ country_event = {
 	is_triggered_only = yes
 	
 	# Accept
-	option = {
-		name = mtg_britain.100.a
-		ai_chance = {
-			factor = 50
-			modifier = {
-				factor = 2
-				FROM = { has_country_flag = ENG_diplomatic_pressure_flag }
-			}
-			modifier = {
-				factor = 3
-				FROM = { has_country_flag = ENG_extensive_diplomatic_pressure_flag }
-			}
-			modifier = {
-				factor = 0
-				tag = RAJ
-				ENG = {
-					AND = {
-						NOT = { has_completed_focus = ENG_indian_autonomy } 
-						NOT = { has_country_leader_with_trait = viceroy_emeritus }
-					}
-				}
-			}
-		}
-		custom_effect_tooltip = mtg_britain.100_tt #"If all accept you will get:"
-		effect_tooltip = { add_ideas = ENG_federal_integration }
-		set_country_flag = ENG_accepted_federation
-		FROM = { country_event = { id = mtg_britain.101 } }
-	}
+	# option = {
+		# name = mtg_britain.100.a
+		# ai_chance = {
+			# factor = 50
+			# modifier = {
+				# factor = 2
+				# FROM = { has_country_flag = ENG_diplomatic_pressure_flag }
+			# }
+			# modifier = {
+				# factor = 3
+				# FROM = { has_country_flag = ENG_extensive_diplomatic_pressure_flag }
+			# }
+			# modifier = {
+				# factor = 0
+				# tag = RAJ
+				# ENG = {
+					# AND = {
+						# NOT = { has_completed_focus = ENG_indian_autonomy } 
+						# NOT = { has_country_leader_with_trait = viceroy_emeritus }
+					# }
+				# }
+			# }
+		# }
+		# custom_effect_tooltip = mtg_britain.100_tt #"If all accept you will get:"
+		# effect_tooltip = { add_ideas = ENG_federal_integration }
+		# set_country_flag = ENG_accepted_federation
+		# FROM = { country_event = { id = mtg_britain.101 } }
+	# }
 
 	# Reject
 	option = {
