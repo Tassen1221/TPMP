@@ -251,7 +251,7 @@ focus_tree = {
 			201 = {
 				if = {
 					limit = { is_controlled_by = ROOT }
-					add_building_construction = {
+					set_building_level = {
 						type = infrastructure
 						level = 5
 						instant_build = yes
@@ -261,7 +261,7 @@ focus_tree = {
 			198 = {
 				if = {
 					limit = { is_controlled_by = ROOT }
-					add_building_construction = {
+					set_building_level = {
 						type = infrastructure
 						level = 5
 						instant_build = yes
@@ -271,7 +271,7 @@ focus_tree = {
 			834 = {
 				if = {
 					limit = { is_controlled_by = ROOT }
-					add_building_construction = {
+					set_building_level = {
 						type = infrastructure
 						level = 5
 						instant_build = yes
@@ -281,7 +281,7 @@ focus_tree = {
 			192 = {
 				if = {
 					limit = { is_controlled_by = ROOT }
-					add_building_construction = {
+					set_building_level = {
 						type = infrastructure
 						level = 5
 						instant_build = yes
@@ -291,7 +291,7 @@ focus_tree = {
 			202 = {
 				if = {
 					limit = { is_controlled_by = ROOT }
-					add_building_construction = {
+					set_building_level = {
 						type = infrastructure
 						level = 5
 						instant_build = yes
@@ -301,7 +301,7 @@ focus_tree = {
 			199 = {
 				if = {
 					limit = { is_controlled_by = ROOT }
-					add_building_construction = {
+					set_building_level = {
 						type = infrastructure
 						level = 5
 						instant_build = yes
@@ -311,7 +311,7 @@ focus_tree = {
 			194 = {
 				if = {
 					limit = { is_controlled_by = SOV }
-					add_building_construction = {
+					set_building_level = {
 						type = infrastructure
 						level = 5
 						instant_build = yes
@@ -321,7 +321,7 @@ focus_tree = {
 			204 = {
 				if = {
 					limit = { is_controlled_by = SOV }
-					add_building_construction = {
+					set_building_level = {
 						type = infrastructure
 						level = 5
 						instant_build = yes
@@ -331,7 +331,7 @@ focus_tree = {
 				206 = {
 				if = {
 					limit = { is_controlled_by = SOV }
-					add_building_construction = {
+					set_building_level = {
 						type = infrastructure
 						level = 5
 						instant_build = yes
@@ -655,9 +655,9 @@ focus_tree = {
 			201 = {
 				if = {
 					limit = { is_controlled_by = ROOT }
-					add_building_construction = {
+					set_building_level = {
 						type = infrastructure
-						level = 3
+						level = 4
 						instant_build = yes
 					}
 				}
@@ -665,9 +665,9 @@ focus_tree = {
 			198 = {
 				if = {
 					limit = { is_controlled_by = ROOT }
-					add_building_construction = {
+					set_building_level = {
 						type = infrastructure
-						level = 3
+						level = 4
 						instant_build = yes
 					}
 				}
@@ -675,9 +675,9 @@ focus_tree = {
 			834 = {
 				if = {
 					limit = { is_controlled_by = ROOT }
-					add_building_construction = {
+					set_building_level = {
 						type = infrastructure
-						level = 3
+						level = 4
 						instant_build = yes
 					}
 				}
@@ -685,9 +685,9 @@ focus_tree = {
 			192 = {
 				if = {
 					limit = { is_controlled_by = ROOT }
-					add_building_construction = {
+					set_building_level = {
 						type = infrastructure
-						level = 3
+						level = 4
 						instant_build = yes
 					}
 				}
@@ -695,9 +695,9 @@ focus_tree = {
 			202 = {
 				if = {
 					limit = { is_controlled_by = ROOT }
-					add_building_construction = {
+					set_building_level = {
 						type = infrastructure
-						level = 3
+						level = 4
 						instant_build = yes
 					}
 				}
@@ -705,9 +705,9 @@ focus_tree = {
 			199 = {
 				if = {
 					limit = { is_controlled_by = ROOT }
-					add_building_construction = {
+					set_building_level = {
 						type = infrastructure
-						level = 3
+						level = 4
 						instant_build = yes
 					}
 				}
@@ -715,9 +715,9 @@ focus_tree = {
 			194 = {
 				if = {
 					limit = { is_controlled_by = SOV }
-					add_building_construction = {
+					set_building_level = {
 						type = infrastructure
-						level = 3
+						level = 4
 						instant_build = yes
 					}
 				}
@@ -725,9 +725,9 @@ focus_tree = {
 			204 = {
 				if = {
 					limit = { is_controlled_by = SOV }
-					add_building_construction = {
+					set_building_level = {
 						type = infrastructure
-						level = 3
+						level = 4
 						instant_build = yes
 					}
 				}
@@ -735,9 +735,9 @@ focus_tree = {
 			206 = {
 				if = {
 					limit = { is_controlled_by = SOV }
-					add_building_construction = {
+					set_building_level = {
 						type = infrastructure
-						level = 3
+						level = 4
 						instant_build = yes
 					}
 				}
@@ -1404,7 +1404,7 @@ focus_tree = {
 		completion_reward = {
 			if = { ## Add rewards based on results
 				limit = {
-					num_of_factories > 110
+					num_of_factories > 120
 				}
 				add_timed_idea = {
 					idea = TPMP_2nd_five_year_plan_reward_idea_0
@@ -1413,7 +1413,7 @@ focus_tree = {
 			}
 			else_if = {
 				limit = {
-					num_of_factories > 130
+					num_of_factories > 140
 				}
 				add_timed_idea = {
 					idea = TPMP_2nd_five_year_plan_reward_idea_1
@@ -1422,7 +1422,7 @@ focus_tree = {
 			}
 			else_if = {
 				limit = {
-					num_of_factories > 150
+					num_of_factories > 160
 				}
 				add_ideas = war_economy
 			}
@@ -1532,6 +1532,9 @@ focus_tree = {
 					add_idea = TPMP_ukraine_truly_independent_idea_1
 				}
 			}
+
+			#Mission gets deleted, so should the variables
+			TPMP_UKR_five_year_plan_mission_deletion_scripted_effect = yes
 		}
 		prerequisite = {
 			focus = ukr_truly_independent
@@ -1864,10 +1867,13 @@ focus_tree = {
 		y = 1
 		cost = 5
 		completion_reward = {
-			swap_ideas = {
-				remove_idea = TPMP_ukraine_will_to_fight_idea_3
-				add_idea = TPMP_ukraine_will_to_fight_idea_4
+			hidden_effect = {
+				set_technology = {
+    				TPMP_survivability_of_artillerymen_tech = 1
+					popup = no
+				}
 			}
+			custom_effect_tooltip = TPMP_survivability_of_artillerymen_bonus_tt
 		}			
 		prerequisite = {
 			focus = ukr_ukrainian_will_to_fight_3
@@ -2024,11 +2030,19 @@ focus_tree = {
 		cost = 5
 		completion_reward = {
 				hidden_effect = {
-				remove_ideas = TPMP_ukraine_training_idea_0
-				remove_ideas = TPMP_ukraine_training_idea_1
-				remove_ideas = TPMP_ukraine_training_idea_2
+					remove_ideas = TPMP_ukraine_training_idea_0
+					remove_ideas = TPMP_ukraine_training_idea_1
+					remove_ideas = TPMP_ukraine_training_idea_2
+					set_technology = {
+    					TPMP_harshest_conditions_are_our_allies_tech = 1
+						popup = no
+					}
 				}
 				add_ideas = TPMP_ukraine_harshest_conditions_are_our_allies_idea
+
+				custom_effect_tooltip = generic_skip_one_line_tt
+				custom_effect_tooltip = TPMP_harshest_conditions_are_our_allies_bonus_tt
+				
 		}			
 		prerequisite = {
 			focus = ukr_instill_communist_spirit
@@ -3785,7 +3799,7 @@ focus_tree = {
 				name = ukr_bane_of_all_armor_bonus
 				bonus = 1.25
 				uses = 2
-				category = cat_heavy_howitzer_tech		
+				category = cat_heavy_anti_tank_tech		
 			}
 
 			swap_ideas = {
@@ -3809,8 +3823,14 @@ focus_tree = {
 
 		cost = 5
 		
-		completion_reward = { #TODO Add tech for bonuses
-
+		completion_reward = {
+			hidden_effect = {
+				set_technology = {
+    				TPMP_specialization_of_artillery_design_tech = 1
+					popup = no
+				}
+			}
+			custom_effect_tooltip = TPMP_specialization_of_artillery_design_bonus_tt
 		}
 	}
 
@@ -3829,9 +3849,9 @@ focus_tree = {
 		cost = 5
 		
 		completion_reward = {
-			add_tech_bonus = {
+			add_doctrine_cost_reduction = {
 				name = ukr_experimental_artillery_doctrine_bonus
-				bonus = 0.5
+				cost_reduction  = 0.5
 				uses = 2
 				category = cat_artillery_doctrine
 			}			
@@ -3874,8 +3894,14 @@ focus_tree = {
 
 		cost = 5
 		
-		completion_reward = { #TODO Add tech for effects
-
+		completion_reward = {
+			hidden_effect = {
+				set_technology = {
+    				TPMP_best_of_the_best_tech = 1
+					popup = no
+				}
+			}
+			custom_effect_tooltip = TPMP_best_of_the_best_bonus_tt
 		}
 	}
 
@@ -3896,8 +3922,14 @@ focus_tree = {
 
 		cost = 5
 		
-		completion_reward = { #TODO Add tech for effects
-
+		completion_reward = {
+			hidden_effect = {
+				set_technology = {
+    				TPMP_terror_of_the_trenches_tech = 1
+					popup = no
+				}
+			}
+			custom_effect_tooltip = TPMP_terror_of_the_trenches_bonus_tt
 		}
 	}
 
@@ -4032,8 +4064,14 @@ focus_tree = {
 
 		cost = 5
 		
-		completion_reward = { #Todo tech bonus
-		
+		completion_reward = {
+			hidden_effect = {
+				set_technology = {
+    				TPMP_innovative_weapon_design_tech = 1
+					popup = no
+				}
+			}
+			custom_effect_tooltip = TPMP_innovative_weapon_design_bonus_tt		
 		}
 	}
 
@@ -4081,9 +4119,9 @@ focus_tree = {
 				remove_idea = TPMP_strenght_in_numbers_idea_R3
 				add_idea = TPMP_strenght_in_numbers_idea_R4		
 			}
-			add_tech_bonus = {
+			add_doctrine_cost_reduction = {
 				name = ukr_mass_wave_assault_tactics_bonus
-				bonus = 0.5
+				cost_reduction = 0.5
 				uses = 2
 				category = cat_infantry_doctrine
 			}			

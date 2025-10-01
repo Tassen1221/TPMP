@@ -328,6 +328,39 @@ characters = {
 
 	# Political + Industry ##TODO Fix scientist not giving specific type bonuses 
 
+
+	TPMP_UKR_Andrey_Yeremenko = {
+		name = TPMP_UKR_Andrey_Yeremenko
+		portraits = {
+			army = {
+				small = "GFX_idea_nikita_khrushchev"
+				#large = 
+			}
+		}
+	
+	    advisor = {
+       		slot = political_advisor
+			cost = 150
+        	traits = { TPMP_UKR_trait_spain } 
+
+			allowed = {
+				tag = UKR
+			}				
+			available = {
+				SPR = {
+					has_civil_war = yes
+				}
+			}	
+		}
+		corps_commander = {
+	    	skill = 3
+	    	attack_skill = 3
+	    	defense_skill = 2
+	    	planning_skill = 4
+	    	logistics_skill = 4
+		}
+	}
+
 	TPMP_UKR_Yevhen_Paton = {
 		name = TPMP_UKR_Yevhen_Paton
 		portraits = {
@@ -356,10 +389,7 @@ characters = {
 					}
 				}
 			}
-	
 		}
-	
-
 	}
 
 	TPMP_UKR_Mykola_Bogolyubov = {

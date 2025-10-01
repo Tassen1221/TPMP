@@ -17,7 +17,9 @@ UKR_resource_mission_cat = {
 			}
 		}
 		cancel_trigger = {
-			always = no
+			is_licensing_to = { #No cheating on my watch
+				tag = SOV
+			} 
 		}
 
 		#icon = 
@@ -47,20 +49,64 @@ UKR_resource_mission_cat = {
 }
 
 UKR_production_mission_cat = { #TODO add this mission
+
+
+	UKR_production_mission_debug = {
+
+		available = {
+			tag = UKR
+		}
+
+		visible = {
+			is_debug = yes
+		}
+
+		cost = 0
+
+		days_remove = 1
+
+		days_re_enable = 1
+
+		complete_effect = {
+			activate_mission = UKR_stalin_production_quotas
+		}
+
+		remove_effect = {
+
+		}
+	}
+
 	UKR_stalin_production_quotas = {
 		activation = {
 			always = no
 		}
 		available = {
-			always = no
+			AND = {
+				OR = {
+					has_equipment = {
+						light_tank_equipment_1 > 500
+					}		
+					has_equipment = {
+						light_tank_equipment_2 > 250
+					}									
+				}
+				has_equipment = {
+					support_equipment_1 > 2000
+				}
+				has_equipment = {
+					line_infantry_equipment_1 > 10000
+				}				
+			}
 		}
 		cancel_trigger = {
-			always = no
+			is_licensing_to = { #No cheating on my watch
+				tag = SOV
+			} 
 		}
 
 		#icon = 
 		is_good = yes
-		days_mission_timeout = 5
+		days_mission_timeout = 365
    		selectable_mission = no
 
 		complete_effect = {
@@ -69,7 +115,22 @@ UKR_production_mission_cat = { #TODO add this mission
 		timeout_effect = {
 				if = {
 					limit = {
-						#DO this
+						AND = {
+							OR = {
+								has_equipment = {
+									light_tank_equipment_1 > 250
+								}		
+								has_equipment = {
+									light_tank_equipment_2 > 150
+								}									
+							}
+							has_equipment = {
+								support_equipment_1 > 1000
+							}
+							has_equipment = {
+								line_infantry_equipment_1 > 8000
+							}
+						}
 					}
 					complete_national_focus = ukr_production_quotas_are_met
 				}
@@ -80,7 +141,64 @@ UKR_production_mission_cat = { #TODO add this mission
 	} 
 }
 
-UKR_stalin_mission_cat = { #TODO Add decisions(lengthen the plan, lower factory requirements, etc...) to make the mission way more interesting
+UKR_stalin_mission_cat = { #TODO Add decisions(lengthen the plan, lower factory requirements, etc...) to make the mission way more interesting ADD anti-license mechanics
+
+	UKR_1st_5year_debug = {
+
+		available = {
+			tag = UKR
+		}
+
+		visible = {
+			is_debug = yes
+		}
+
+		cost = 0
+
+		days_remove = 1
+
+		days_re_enable = 1
+
+		complete_effect = {
+			TPMP_UKR_five_year_plan_mission_initialization_scripted_effect = yes
+			activate_mission = UKR_five_year_plan_mission
+		}
+
+		remove_effect = {
+
+		}
+	}
+
+	UKR_2nd_5year_debug = {
+
+		available = {
+			tag = UKR
+		}
+
+		visible = {
+			is_debug = yes
+		}
+
+		cost = 0
+
+		days_remove = 1
+
+		days_re_enable = 1
+
+		complete_effect = {
+			TPMP_UKR_2nd_five_year_plan_mission_initialization_scripted_effect = yes
+			activate_mission = UKR_second_five_year_plan_mission
+		}
+
+		remove_effect = {
+
+		}
+	}
+
+	##
+	## 1st 5 year
+	##
+
 
 	UKR_five_year_plan_mission = {
 		activation = {
@@ -93,10 +211,10 @@ UKR_stalin_mission_cat = { #TODO Add decisions(lengthen the plan, lower factory 
 				limit = {
 					has_completed_focus = ukr_under_the_guidance_of_stalin_left
 				}
-				num_of_civilian_factories > 30
+				num_of_civilian_factories > var_ukr_tpmp_5year_plan_civs
 			}
 			else = {
-				num_of_military_factories > 25
+				num_of_military_factories > var_ukr_tpmp_5year_plan_mils
 			}
 		}
 		cancel_trigger = {
@@ -105,7 +223,7 @@ UKR_stalin_mission_cat = { #TODO Add decisions(lengthen the plan, lower factory 
 
 		#icon = 
 		is_good = yes
-		days_mission_timeout = 365
+		days_mission_timeout = 420
    		selectable_mission = no
 
 		complete_effect = { ## Win 
@@ -116,15 +234,15 @@ UKR_stalin_mission_cat = { #TODO Add decisions(lengthen the plan, lower factory 
 
 			202 = {
 				
-				add_extra_state_shared_building_slots = 4
+				add_extra_state_shared_building_slots = var_ukr_tpmp_5year_plan_slots_reward
 				add_building_construction = {
 					type = arms_factory
-					level = 2
+					level = var_ukr_tpmp_5year_plan_mils_reward
 					instant_build = yes
 				}
 				add_building_construction = {
 					type = industrial_complex
-					level = 2
+					level = var_ukr_tpmp_5year_plan_civs_reward
 					instant_build = yes
 				}
 			}
@@ -147,6 +265,121 @@ UKR_stalin_mission_cat = { #TODO Add decisions(lengthen the plan, lower factory 
 		}
 	}
 
+
+		#Decizion!! La decisiona!!!
+
+	UKR_five_year_plan_decision_0 = { #Lowering civ/mil requirements
+
+		available = {
+			tag = UKR
+		}
+
+		cancel_trigger = {
+			hidden_effect = {
+				NOT = {
+					has_active_mission = UKR_five_year_plan_mission
+				}
+			}
+		}
+
+		visible = {
+			has_active_mission = UKR_five_year_plan_mission
+		}
+
+		cost = 50
+
+		days_remove = 30
+
+		days_re_enable = 60 
+
+		complete_effect = {
+
+			if = {
+				limit = {
+					has_completed_focus = ukr_under_the_guidance_of_stalin
+				}
+				subtract_from_variable = {
+					var = var_ukr_tpmp_5year_plan_civs
+					value = 2
+					tooltip = TPMP_UKR_five_year_plan_decision_L0_tt
+				}
+			}
+			else = {
+				subtract_from_variable = {
+					var = var_ukr_tpmp_5year_plan_mils
+					value = 2
+					tooltip = TPMP_UKR_five_year_plan_decision_R0_tt
+				}				
+			}
+		}
+
+		remove_effect = {
+
+		}
+	}
+
+	UKR_five_year_plan_decision_1 = { #Increasing civ/mil rewards
+
+		available = {
+			tag = UKR
+		}
+
+		cancel_trigger = {
+			hidden_effect = {
+				NOT = {
+					has_active_mission = UKR_five_year_plan_mission
+				}
+			}
+		}
+
+		visible = {
+			has_active_mission = UKR_five_year_plan_mission
+		}
+
+		cost = 50
+
+		days_remove = 1
+
+		days_re_enable = 2
+
+		complete_effect = {
+
+			if = {
+				limit = {
+					has_completed_focus = ukr_under_the_guidance_of_stalin_left
+				}
+				add_to_variable = {
+					var = 202:var_ukr_tpmp_5year_plan_civs_reward
+					value = 1
+					tooltip = TPMP_UKR_five_year_plan_decision_L1_tt
+				}
+				add_to_variable = {
+					var = 202:var_ukr_tpmp_5year_plan_slots_reward
+					value = 1
+				}
+			}
+			else = {
+				add_to_variable = {
+					var = 202:var_ukr_tpmp_5year_plan_mils_reward
+					value = 2
+					tooltip = TPMP_UKR_five_year_plan_decision_R1_tt
+				}
+				add_to_variable = {
+					var = 202:var_ukr_tpmp_5year_plan_slots_reward
+					value = 2
+				}								
+			}
+		}
+
+		remove_effect = {
+
+		}
+	}
+
+	##
+	## 2nd 5 year
+	##
+
 	UKR_second_five_year_plan_mission = {
 		activation = {
 			always = no
@@ -159,24 +392,24 @@ UKR_stalin_mission_cat = { #TODO Add decisions(lengthen the plan, lower factory 
 					has_completed_focus = ukr_under_the_guidance_of_stalin_left
 					has_country_flag = big_second_five_year_plan_flag
 				}
-				num_of_civilian_factories > 90
+				num_of_civilian_factories > var_ukr_tpmp_2nd_5year_plan_civs_big
 			}
 			else_if = { 
 				limit = { ## Small left
 					has_completed_focus = ukr_under_the_guidance_of_stalin_left
 					has_country_flag = small_second_five_year_plan_flag
 				}
-				num_of_civilian_factories > 70
+				num_of_civilian_factories > var_ukr_tpmp_2nd_5year_plan_civs
 			}
 			else_if = { 
 				limit = { ## Big right
 					has_completed_focus = ukr_under_the_guidance_of_stalin_right
 					has_country_flag = big_second_five_year_plan_flag
 				}
-				num_of_military_factories > 80
+				num_of_military_factories > var_ukr_tpmp_2nd_5year_plan_mils_big
 			}
 			else = { ## Small right
-				num_of_military_factories > 60
+				num_of_military_factories > var_ukr_tpmp_2nd_5year_plan_mils
 			}
 		}
 		cancel_trigger = {
@@ -194,60 +427,24 @@ UKR_stalin_mission_cat = { #TODO Add decisions(lengthen the plan, lower factory 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
 			if = {
-				limit = { ## Big left
-					has_completed_focus = ukr_under_the_guidance_of_stalin_left
-					has_country_flag = big_second_five_year_plan_flag
-					num_of_civilian_factories > 90					
+				limit = { ## left reward
+					has_completed_focus = ukr_under_the_guidance_of_stalin_left				
 				}
-
 				329 = {
-					add_extra_state_shared_building_slots = 10
+					add_extra_state_shared_building_slots = 329:var_ukr_tpmp_2nd_5year_plan_reward
 					add_building_construction = {
 						type = industrial_complex
-						level = 10
-						instant_build = yes
-					}
-				}				
-			}
-			else_if = { 
-				limit = { ## Small left
-					has_completed_focus = ukr_under_the_guidance_of_stalin_left
-					has_country_flag = small_second_five_year_plan_flag
-					num_of_civilian_factories > 70				
-				}
-
-				329 = {
-					add_extra_state_shared_building_slots = 5
-					add_building_construction = {
-						type = industrial_complex
-						level = 5
+						level = 329:var_ukr_tpmp_2nd_5year_plan_reward
 						instant_build = yes
 					}
 				}
 			}
-			else_if = { 
-				limit = { ## Big right
-					has_completed_focus = ukr_under_the_guidance_of_stalin_right
-					has_country_flag = big_second_five_year_plan_flag
-					num_of_military_factories > 80
-				}
-
+			else = { ## right reward
 				329 = {
-					add_extra_state_shared_building_slots = 10
+					add_extra_state_shared_building_slots = 329:var_ukr_tpmp_2nd_5year_plan_reward
 					add_building_construction = {
 						type = arms_factory
-						level = 10
-						instant_build = yes
-					}
-				}
-			}
-			else = { ## Small right
-
-				329 = {
-					add_extra_state_shared_building_slots = 5
-					add_building_construction = {
-						type = arms_factory
-						level = 5
+						level = 329:var_ukr_tpmp_2nd_5year_plan_reward
 						instant_build = yes
 					}
 				}
@@ -257,6 +454,8 @@ UKR_stalin_mission_cat = { #TODO Add decisions(lengthen the plan, lower factory 
 
 			clr_country_flag = small_second_five_year_plan_flag
 			clr_country_flag = big_second_five_year_plan_flag
+
+			TPMP_UKR_2nd_five_year_plan_mission_deletion_scripted_effect = yes				
 		}
 
 		timeout_effect = { ## Fail
@@ -271,16 +470,127 @@ UKR_stalin_mission_cat = { #TODO Add decisions(lengthen the plan, lower factory 
 
 			clr_country_flag = small_second_five_year_plan_flag
 			clr_country_flag = big_second_five_year_plan_flag
+
+			TPMP_UKR_2nd_five_year_plan_mission_deletion_scripted_effect = yes			
 		}
 	}
 	
+		#Decizion!! La decisiona!!!
+
+	UKR_2nd_five_year_plan_decision_0 = { #Lowering civ/mil requirements
+
+		available = {
+			tag = UKR
+		}
+
+		cancel_trigger = {
+			hidden_effect = {
+				NOT = {
+					has_active_mission = UKR_second_five_year_plan_mission
+				}
+			}
+		}
+
+		visible = {
+			has_active_mission = UKR_second_five_year_plan_mission
+		}
+
+		cost = 50
+
+		days_remove = 30
+
+		days_re_enable = 60 
+
+		complete_effect = {
+
+			if = {
+				limit = {
+					has_completed_focus = ukr_under_the_guidance_of_stalin_left
+				}
+				subtract_from_variable = {
+					var = var_ukr_tpmp_2nd_5year_plan_civs
+					value = 2
+					tooltip = TPMP_UKR_2nd_five_year_plan_decision_L0_tt
+				}
+				subtract_from_variable = {
+					var = var_ukr_tpmp_2nd_5year_plan_civs_big
+					value = 2
+				}				
+			}
+			else = {
+				subtract_from_variable = {
+					var = var_ukr_tpmp_2nd_5year_plan_mils
+					value = 3
+					tooltip = TPMP_UKR_2nd_five_year_plan_decision_R0_tt
+				}
+				subtract_from_variable = {
+					var = var_ukr_tpmp_2nd_5year_plan_mils_big
+					value = 3
+				}							
+			}
+		}
+
+		remove_effect = {
+
+		}
+	}
+
+	UKR_2nd_five_year_plan_decision_1 = { #Increasing civ/mil rewards
+
+		available = {
+			tag = UKR
+		}
+
+		cancel_trigger = {
+			hidden_effect = {
+				NOT = {
+					has_active_mission = UKR_second_five_year_plan_mission
+				}
+			}
+		}
+
+		visible = {
+			has_active_mission = UKR_second_five_year_plan_mission
+		}
+
+		cost = 50
+
+		days_remove = 1
+
+		days_re_enable = 2
+
+		complete_effect = {
+
+			if = {
+				limit = {
+					has_completed_focus = ukr_under_the_guidance_of_stalin_left
+				}
+				add_to_variable = {
+					var = 329:var_ukr_tpmp_2nd_5year_plan_reward
+					value = 2
+					tooltip = TPMP_UKR_2nd_five_year_plan_decision_L1_tt
+				}
+			}
+			else = {
+				add_to_variable = {
+					var = 329:var_ukr_tpmp_2nd_5year_plan_reward
+					value = 3
+					tooltip = TPMP_UKR_2nd_five_year_plan_decision_R1_tt
+				}								
+			}
+		}
+
+		remove_effect = {
+
+		}
+	}
 	
 
 }
 
 ### ARMY DEBUFF
 
-UKR_state_of_the_army_cat = { #TODO Add decisions(lengthen the plan, lower factory requirements, etc...) to make the mission way more interesting
+UKR_state_of_the_army_cat = {
 
 
 	## Debug decision

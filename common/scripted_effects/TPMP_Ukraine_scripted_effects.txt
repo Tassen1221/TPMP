@@ -1,3 +1,5 @@
+#Factory management
+
 TPMP_UKR_factory_management_decision_effect = {
 	
 	if = { ##So clicking doesn't increase resource cost on 1st click
@@ -45,6 +47,8 @@ TPMP_UKR_factory_management_decision_effect = {
 		value = 25
 	}
 }
+
+#Army Scaling
 
 TPMP_UKR_state_of_the_army_initialization_scripted_effect = {
 
@@ -163,4 +167,60 @@ TPMP_UKR_state_of_the_army_clamper_scripted_effect = {
 		
 	}
 		
+}
+
+#5year plans
+
+TPMP_UKR_five_year_plan_mission_initialization_scripted_effect = {
+
+	set_variable = { var_ukr_tpmp_5year_plan_civs = 30 }
+	set_variable = { var_ukr_tpmp_5year_plan_mils = 20 }
+
+	202 = {
+		set_variable = { var_ukr_tpmp_5year_plan_civs_reward = 2 }
+		set_variable = { var_ukr_tpmp_5year_plan_mils_reward = 2 }
+		set_variable = { var_ukr_tpmp_5year_plan_slots_reward = 4 }
+	}
+}
+
+TPMP_UKR_five_year_plan_mission_deletion_scripted_effect = {
+	clear_variable = var_ukr_tpmp_5year_plan_civs
+	clear_variable = var_ukr_tpmp_5year_plan_mils
+	clear_variable = var_ukr_tpmp_5year_plan_civs_reward
+	clear_variable = var_ukr_tpmp_5year_plan_mils_reward
+	clear_variable = var_ukr_tpmp_5year_plan_slots_reward
+}
+
+	#2nd FY
+
+TPMP_UKR_2nd_five_year_plan_mission_initialization_scripted_effect = {
+
+	set_variable = { var_ukr_tpmp_2nd_5year_plan_civs = 70 }
+	set_variable = { var_ukr_tpmp_2nd_5year_plan_mils = 60 }
+	set_variable = { var_ukr_tpmp_2nd_5year_plan_civs_big = 90 }
+	set_variable = { var_ukr_tpmp_2nd_5year_plan_mils_big = 80 }
+
+
+
+	if = {
+		limit = {
+			has_country_flag = big_second_five_year_plan_flag
+		}
+		329 = {
+			set_variable = { var_ukr_tpmp_2nd_5year_plan_reward = 10 }
+		}
+	}
+	else = {
+		329 = {
+			set_variable = { var_ukr_tpmp_2nd_5year_plan_reward = 5 }
+		}
+	}
+}
+
+TPMP_UKR_2nd_five_year_plan_mission_deletion_scripted_effect = {
+	clear_variable = var_ukr_tpmp_2nd_5year_plan_civs
+	clear_variable = var_ukr_tpmp_2nd_5year_plan_mils
+	clear_variable = var_ukr_tpmp_2nd_5year_plan_civs_big
+	clear_variable = var_ukr_tpmp_2nd_5year_plan_mils_big
+	clear_variable = var_ukr_tpmp_2nd_5year_plan_reward
 }
