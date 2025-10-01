@@ -1,5 +1,4 @@
-calculate_total_ship_var = {
-	set_variable = { total_ship_var = 0 }
+calculate_total_ship_num = {
 	set_variable = { carrier_var = num_ships_with_type@carrier }
 	set_variable = { sh_battleship_var = num_ships_with_type@sh_battleship }
 	set_variable = { battleship_var = num_ships_with_type@battleship }
@@ -8,14 +7,53 @@ calculate_total_ship_var = {
 	set_variable = { light_cruiser_var = num_ships_with_type@light_cruiser }
 	set_variable = { destroyer_var = num_ships_with_type@destroyer }
 	set_variable = { submarine_var = num_ships_with_type@submarine }
-	multiply_variable = { carrier_var = 8 }
-	multiply_variable = { sh_battleship_var = 12 }
-	multiply_variable = { battleship_var = 8 }
-	multiply_variable = { battle_cruiser_var = 8 }
-	multiply_variable = { heavy_cruiser_var = 4 }
-	multiply_variable = { light_cruiser_var = 3 }
+}
+calculate_reserve_ship_num = {
+	set_variable = { PREV.reserve_carrier_var = num_ships_with_type@carrier }
+	set_variable = { PREV.reserve_sh_battleship_var = num_ships_with_type@sh_battleship }
+	set_variable = { PREV.reserve_battleship_var = num_ships_with_type@battleship }
+	set_variable = { PREV.reserve_battle_cruiser_var = num_ships_with_type@battle_cruiser }
+	set_variable = { PREV.reserve_heavy_cruiser_var = num_ships_with_type@heavy_cruiser }
+	set_variable = { PREV.reserve_light_cruiser_var = num_ships_with_type@light_cruiser }
+	set_variable = { PREV.reserve_destroyer_var = num_ships_with_type@destroyer }
+	set_variable = { PREV.reserve_submarine_var = num_ships_with_type@submarine }
+}
+calculate_fleet_size = {
+	subtract_from_variable = { carrier_var = reserve_carrier_var }
+	subtract_from_variable = { sh_battleship_var = reserve_sh_battleship_var }
+	subtract_from_variable = { battleship_var = reserve_battleship_var }
+	subtract_from_variable = { battle_cruiser_var = reserve_battle_cruiser_var }
+	subtract_from_variable = { heavy_cruiser_var = reserve_heavy_cruiser_var }
+	subtract_from_variable = { light_cruiser_var = reserve_light_cruiser_var }
+	subtract_from_variable = { destroyer_var = reserve_destroyer_var }
+	subtract_from_variable = { submarine_var = reserve_submarine_var }
+
+	#Calculating Naval Contributions of Carriers
+	multiply_variable = { carrier_var = 0 }
+	#Calculating Naval Contributions of Superheavy Battleships
+	set_temp_variable = { shbb_n_var = sh_battleship_var }
+	add_to_variable = { sh_battleship_var = 3 }
+	multiply_variable = { sh_battleship_var = 5 }
+	multiply_variable = { sh_battleship_var = shbb_n_var }
+	divide_variable = { sh_battleship_var = 2 }
+	#Calculating Naval Contributions of Battleships
+	set_temp_variable = { bb_n_var = battleship_var }
+	add_to_variable = { battleship_var = 7 }
+	multiply_variable = { battleship_var = bb_n_var }
+	#Calculating Naval Contributions of Battlecruisers
+	set_temp_variable = { bc_n_var = battle_cruiser_var }
+	add_to_variable = { battle_cruiser_var = 7 }
+	multiply_variable = { battle_cruiser_var = bc_n_var }
+	#Calculating Naval Contributions of Heavy Cruisers
+	multiply_variable = { heavy_cruiser_var = 6 }
+	#Calculating Naval Contributions of Light Cruisers
+	multiply_variable = { light_cruiser_var = 4 }
+	#Calculating Naval Contributions of Destroyers
 	multiply_variable = { destroyer_var = 0 }
+	#Calculating Naval Contributions of Submarines
 	multiply_variable = { submarine_var = 0 }
+
+	set_variable = { total_ship_var = 0 }
 	add_to_variable = { total_ship_var = carrier_var }
 	add_to_variable = { total_ship_var = sh_battleship_var }
 	add_to_variable = { total_ship_var = battleship_var }
@@ -24,31 +62,4 @@ calculate_total_ship_var = {
 	add_to_variable = { total_ship_var = light_cruiser_var }
 	add_to_variable = { total_ship_var = destroyer_var }
 	add_to_variable = { total_ship_var = submarine_var }
-}
-calculate_reserve_ship_var = {
-	set_variable = { PREV.reserve_ship_var = 0 }
-	set_variable = { carrier_var = num_ships_with_type@carrier }
-	set_variable = { sh_battleship_var = num_ships_with_type@sh_battleship }
-	set_variable = { battleship_var = num_ships_with_type@battleship }
-	set_variable = { battle_cruiser_var = num_ships_with_type@battle_cruiser }
-	set_variable = { heavy_cruiser_var = num_ships_with_type@heavy_cruiser }
-	set_variable = { light_cruiser_var = num_ships_with_type@light_cruiser }
-	set_variable = { destroyer_var = num_ships_with_type@destroyer }
-	set_variable = { submarine_var = num_ships_with_type@submarine }
-	multiply_variable = { carrier_var = 8 }
-	multiply_variable = { sh_battleship_var = 12 }
-	multiply_variable = { battleship_var = 8 }
-	multiply_variable = { battle_cruiser_var = 8 }
-	multiply_variable = { heavy_cruiser_var = 4 }
-	multiply_variable = { light_cruiser_var = 3 }
-	multiply_variable = { destroyer_var = 0 }
-	multiply_variable = { submarine_var = 0 }
-	add_to_variable = { PREV.reserve_ship_var = carrier_var }
-	add_to_variable = { PREV.reserve_ship_var = sh_battleship_var }
-	add_to_variable = { PREV.reserve_ship_var = battleship_var }
-	add_to_variable = { PREV.reserve_ship_var = battle_cruiser_var }
-	add_to_variable = { PREV.reserve_ship_var = heavy_cruiser_var }
-	add_to_variable = { PREV.reserve_ship_var = light_cruiser_var }
-	add_to_variable = { PREV.reserve_ship_var = destroyer_var }
-	add_to_variable = { PREV.reserve_ship_var = submarine_var }
 }

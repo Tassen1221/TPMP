@@ -196,6 +196,8 @@ NDefines.NProduction.EQUIPMENT_MODULE_CONVERT_XP_COST = 0	-- XP cost for convert
 NDefines.NProduction.EQUIPMENT_MODULE_REMOVE_XP_COST = 0	-- XP cost for removing an equipment module and leaving the slot empty when creating an equipment variant.
 
 NDefines.NProduction.MINIMUM_NUMBER_OF_FACTORIES_TAKEN_BY_CONSUMER_GOODS_VALUE = 0		-- The minimum number of factories we have to put on consumer goods, by value.
+NDefines.NProduction.MINIMUM_NUMBER_OF_FACTORIES_TAKEN_BY_CONSUMER_GOODS_PERCENT = 0	-- The minimum number of factories we have to put on consumer goods, in percent.
+
 NDefines.NProduction.BASE_LICENSE_IC_COST = 1					-- Base IC cost for lended license
 NDefines.NProduction.LICENSE_IC_COST_YEAR_INCREASE = 0.5			-- IC cost equipment for every year of equipment after 1936
 NDefines.NProduction.LICENSE_EQUIPMENT_BASE_SPEED = -0.40			-- base MIC speed modifier for licensed equipment
@@ -221,20 +223,29 @@ NDefines.NDiplomacy.VOLUNTEERS_DIVISIONS_REQUIRED = 0	-- This many divisons are 
 NDefines.NBuildings.BASE_FACTORY_REPAIR = 0.5			-- Default repair rate in percentage before factories are taken into account (1.0 equals 1%).
 NDefines.NBuildings.BASE_FACTORY_REPAIR_FACTOR = 1.0		-- Factory speed modifier when repairing.
 
-NDefines.NBuildings.MAX_SHARED_SLOTS = 50			-- Max slots shared by factories
+NDefines.NBuildings.MAX_SHARED_SLOTS = 50				-- Max slots shared by factories
 NDefines.NBuildings.AIRBASE_CAPACITY_MULT = 100			-- Each level of airbase building multiplied by this, gives capacity (max operational value). Value is int. 1 for each airplane.
 
-NDefines.NAir.NAVAL_STRIKE_DAMAGE_TO_STR = 2.0			-- Balancing value to convert damage ( naval_strike_attack * hits ) to Strength reduction.
+NDefines.NAir.NAVAL_STRIKE_TARGETTING_TO_AMOUNT = 0.3	-- Balancing value to convert the naval_strike_targetting equipment stats to chances of how many airplanes managed to do successfull strike.
+NDefines.NAir.NAVAL_STRIKE_DAMAGE_TO_STR = 3.0			-- Balancing value to convert damage ( naval_strike_attack * hits ) to Strength reduction.
 NDefines.NAir.NAVAL_STRIKE_DAMAGE_TO_ORG = 3.0			-- Balancing value to convert damage ( naval_strike_attack * hits ) to Organisation reduction.
 NDefines.NAir.NAVAL_STRIKE_CARRIER_MULTIPLIER = 2.0		-- damage bonus when planes are in naval combat where their carrier is present (and can thus sortie faster and more effectively)
 
-NDefines.NNavy.COMBAT_DAMAGE_TO_STR_FACTOR = 0.4		-- casting damage value to ship strength multiplier. Use it ot balance the game difficulty.
-NDefines.NNavy.COMBAT_DAMAGE_TO_ORG_FACTOR = 0.6		-- casting damage value to ship organisation multiplier. Use it to balance the game difficulty.
+NDefines.NNavy.ANTI_AIR_TARGETTING_TO_CHANCE = 0.2		-- Balancing value to convert averaged equipment stats (anti_air_targetting and naval_strike_agility) to probability chances of airplane being hit by navies AA.
+NDefines.NNavy.ANTI_AIR_ATTACK_TO_AMOUNT = 0.003		-- Balancing value to convert equipment stat anti_air_attack to the random % value of airplanes being hit.
+NDefines.NNavy.ANTI_AIR_TARGETING = 0.9					-- how good ships are at hitting aircraft
+NDefines.NNavy.SHIP_TO_FLEET_ANTI_AIR_RATIO	= 0.25		-- total sum of fleet's anti air will be multiplied with this ratio and added to calculations anti-air of individual ships while air damage reduction
+NDefines.NNavy.ANTI_AIR_POW_ON_INCOMING_AIR_DAMAGE = 0.225					-- received air damage is calculated using following: 1 - ( (ship_anti_air + fleet_anti_air * SHIP_TO_FLEET_ANTI_AIR_RATIO )^ANTI_AIR_POW_ON_INCOMING_AIR_DAMAGE ) * ANTI_AIR_MULT_ON_INCOMING_AIR_DAMAGE
+NDefines.NNavy.ANTI_AIR_MULT_ON_INCOMING_AIR_DAMAGE	= 0.18
+NDefines.NNavy.MAX_ANTI_AIR_REDUCTION_EFFECT_ON_INCOMING_AIR_DAMAGE = 0.75	-- damage reduction for incoming air attacks is clamped to this value at maximum.
 
-NDefines.NNavy.SUPPLY_NEED_FACTOR = 0.1				-- multiplies supply usage
+NDefines.NNavy.COMBAT_DAMAGE_TO_STR_FACTOR = 0.2		-- casting damage value to ship strength multiplier. Use it ot balance the game difficulty.
+NDefines.NNavy.COMBAT_DAMAGE_TO_ORG_FACTOR = 0.3		-- casting damage value to ship organisation multiplier. Use it to balance the game difficulty.
+
+NDefines.NNavy.SUPPLY_NEED_FACTOR = 0.1					-- multiplies supply usage
 NDefines.NNavy.BASE_CARRIER_SORTIE_EFFICIENCY = 0.1		-- factor of planes that can sortie by default from a carrier
 
-NDefines.NNavy.CARRIER_STACK_PENALTY = 4			-- The most efficient is 4 carriers in combat. 5+ brings the penalty to the amount of wings in battle.
+NDefines.NNavy.CARRIER_STACK_PENALTY = 4				-- The most efficient is 4 carriers in combat. 5+ brings the penalty to the amount of wings in battle.
 NDefines.NNavy.CARRIER_STACK_PENALTY_EFFECT = 0.20		-- Each carrier above the optimal amount decreases the amount of airplanes being able to takeoff by such %.
 
 NDefines.NNavy.CARRIER_ONLY_COMBAT_ACTIVATE_TIME = 0		-- hours from start of combat when carriers get to fight
@@ -278,24 +289,30 @@ NDefines.NNavy.CAPITAL_RATIO_FOR_FULL_SCREENING_FOR_CONVOYS = 0.1				-- this cap
 
 NDefines.NNavy.ADMIRAL_TASKFORCE_CAP = 999			-- admirals will start getting penalties after this amount of taskforces
 
-NDefines.NNavy.COMBAT_LOW_ORG_HIT_CHANCE_PENALTY = -1		-- % of penalty applied to hit chance when ORG is very low.
+NDefines.NNavy.COMBAT_LOW_ORG_HIT_CHANCE_PENALTY = -0.5		-- % of penalty applied to hit chance when ORG is very low.
 
 NDefines.NNavy.MAX_ORG_ON_MANUAL_MOVE = 1			-- org will clamped to this ratio on manual move
 
 NDefines.NNavy.TRAINING_ACCIDENT_CHANCES = 0			-- Chances one ship get damage each hour while on training
 
 NDefines.NNavy.HIT_PROFILE_MULT = 100.0				-- multiplies hit profile of every ship
-NDefines.NNavy.HIT_PROFILE_SPEED_FACTOR	= 1.0			-- factors speed value when determining it profile (Vis * NDefines.NNavy.HIT_PROFILE_MULT * Ship Hit Profile Mult)
-NDefines.NNavy.HIT_PROFILE_SPEED_BASE	= 0			-- Base value added to hitprofile speed calulation
+NDefines.NNavy.HIT_PROFILE_SPEED_FACTOR	= 1.5		-- factors speed value when determining it profile (Vis * NDefines.NNavy.HIT_PROFILE_MULT * Ship Hit Profile Mult)
+NDefines.NNavy.HIT_PROFILE_SPEED_BASE = -12.5		-- Base value added to hitprofile speed calulation
 
 NDefines.NNavy.SHORE_BOMBARDMENT_CAP = 0.3			-- Vanilla is 0.25
 NDefines.NNavy.HEAVY_GUN_ATTACK_TO_SHORE_BOMBARDMENT = 0.1	-- heavy gun attack value is divided by this value * 100 and added to shore bombardment modifier
 NDefines.NNavy.LIGHT_GUN_ATTACK_TO_SHORE_BOMBARDMENT = 0.05	-- light gun attack value is divided by this value * 100 and added to shore bombardment modifier
 
 NDefines.NNavy.GUN_HIT_PROFILES = { 				-- hit profiles for guns, if target profile is lower the gun will have lower accuracy
-		80.0,	-- big guns
-		100.0,	-- torpedoes
-		45.0,	-- small guns
+		100.0,	-- big guns
+		140.0,	-- torpedoes
+		40.0,	-- small guns
+	}
+
+NDefines.NNavy.BASE_GUN_COOLDOWNS = { -- number of hours for a gun to be ready after shooting
+		1.0,	-- big guns
+		2.0,	-- torpedoes
+		1.0,	-- small guns
 	}
 
 NDefines.NNavy.TRAINING_EXPERIENCE_FACTOR = 0.3			-- Amount of exp each ship gain every 24h while training (before modifiers)
@@ -323,57 +340,6 @@ NDefines.NNavy.NAVAL_COMBAT_AIR_MAX_SPEED_TO_SUB_DETECTION = 0.0				-- Same, but
 NDefines.NNavy.NAVAL_COMBAT_AIR_PLANE_COUNT_TO_SUB_DETECTION = 1.0				-- Factor applied to the number of active plane in a naval combat to deduce their contribution to sub detection
 NDefines.NNavy.NAVAL_COMBAT_AIR_SUB_DETECTION_DECAY_RATE = 1.0					-- Factor to decay the value of sub detection contributed by planes on the last hour. Note: the maximum value between the decayed value and the newly computed one is taken into account. A decay rate of 1 means that nothing is carried over, the previous value is zerod out. A decay rate of 0 means that the previous value is carried over as is.
 NDefines.NNavy.NAVAL_COMBAT_AIR_SUB_DETECTION_FACTOR = 0.0					-- A global factor that applies after all others, right before the sub detection contributed by plane is added to the global sub detection of a combatant
-
-NDefines.NNavy.NAVY_PIERCING_THRESHOLDS = {			-- Our piercing / their armor must be this value to deal damage fraction equal to the index in the array below [higher number = higher penetration]. If armor is 0, 1.00 will be returned.
-		2.00,
-		1.50,
-		1.00,
-		0.90,
-		0.80,
-		0.70,
-		0.60,
-		0.50,
-		0.40,
-		0.30,
-		0.20,
-		0.10,
-		0.00 --there isn't much point setting this higher than 0
-	}
-
-NDefines.NNavy.NAVY_PIERCING_THRESHOLD_CRITICAL_VALUES = {	-- 0 armor will always receive maximum damage (so add overmatching at your own peril). the system expects at least 2 values, with no upper limit.
-		3.00,
-		2.00,
-		1.00,
-		0.00,
-		0.00,
-		0.00,
-		0.00,
-		0.00,
-		0.00,
-		0.00,
-		0.00,
-		0.00,
-		0.00 -- For criticals, you could reduce crit chance unlike damage in army combat, but we do not for now.
-	}
-
-NDefines.NNavy.NAVY_PIERCING_THRESHOLD_DAMAGE_VALUES = {	-- 0 armor will always receive maximum damage (so add overmatching at your own peril). the system expects at least 2 values, with no upper limit.
-		1.00,
-		1.00,
-		1.00,
-		0.90,
-		0.80,
-		0.70,
-		0.60,
-		0.50,
-		0.40,
-		0.30,
-		0.20,
-		0.10,
-		0.00 --there isn't much point setting this higher than 0	
-	}
-
--- all of these NEED to be the same size!!!!
-
 
 -- defines that are used for supply reach for built nodes
 NDefines.NSupply.NODE_INITIAL_SUPPLY_FLOW = 3.0
