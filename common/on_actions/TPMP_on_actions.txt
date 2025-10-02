@@ -12,4 +12,79 @@ on_actions = {
 			}
 		}
 	}
+	on_declare_war = {
+		effect = {
+			if = {
+				limit = {
+					tag = SPR
+					FROM = { tag = SPD }
+				}
+				#Axis Volunteers (14 Total)
+				GER = { 
+					add_ideas = TPMP_SPR_volunteers_axis_2
+					set_variable = { TPMP_spanish_civil_war_consumer_var = 0.1 }
+					set_variable = { TPMP_spanish_civil_war_volunteer_var = 5 }
+				}
+				ITA = { add_ideas = TPMP_SPR_volunteers_axis_2 }
+				HUN = { add_ideas = TPMP_SPR_volunteers_axis_0 }
+				ROM = { add_ideas = TPMP_SPR_volunteers_axis_0 }
+				BUL = { add_ideas = TPMP_SPR_volunteers_axis_0 }
+				FIN = { add_ideas = TPMP_SPR_volunteers_axis_0 }
+				#Allied Volunteers (14 Total)
+				SOV = { add_ideas = TPMP_SPR_volunteers_allies_2 }
+				UKR = { add_ideas = TPMP_SPR_volunteers_allies_0 }
+				ENG = { add_ideas = TPMP_SPR_volunteers_allies_1 }
+				FRA = { add_ideas = TPMP_SPR_volunteers_allies_1 }
+				CAN = { add_ideas = TPMP_SPR_volunteers_allies_0 }
+				RAJ = { add_ideas = TPMP_SPR_volunteers_allies_0 }
+				AST = { add_ideas = TPMP_SPR_volunteers_allies_0 }
+				SAF = { add_ideas = TPMP_SPR_volunteers_allies_0 }
+			}
+		}
+	}
+	on_capitulation = {
+		effect = {
+			if = {
+				limit = {
+					tag = SPD
+					FROM = { tag = SPR }
+				}
+				#Axis Volunteers (14 Total)
+				if = {
+					limit = {
+						GER = { has_idea = TPMP_SPR_volunteers_axis_2 }
+					}
+					GER = { remove_ideas = TPMP_SPR_volunteers_axis_2 }
+				}
+				else_if = {
+					limit = {
+						GER = {
+							has_dynamic_modifier = {
+								modifier = TPMP_SPR_volunteers_axis_3
+							}
+						}
+					}
+					GER = {
+						remove_dynamic_modifier = {
+							modifier = TPMP_SPR_volunteers_axis_3
+						}
+					}
+				}
+				ITA = { remove_ideas = TPMP_SPR_volunteers_axis_2 }
+				HUN = { remove_ideas = TPMP_SPR_volunteers_axis_0 }
+				ROM = { remove_ideas = TPMP_SPR_volunteers_axis_0 }
+				BUL = { remove_ideas = TPMP_SPR_volunteers_axis_0 }
+				FIN = { remove_ideas = TPMP_SPR_volunteers_axis_0 }
+				#Allied Volunteers (14 Total)
+				SOV = { remove_ideas = TPMP_SPR_volunteers_allies_2 }
+				UKR = { remove_ideas = TPMP_SPR_volunteers_allies_0 }
+				ENG = { remove_ideas = TPMP_SPR_volunteers_allies_1 }
+				FRA = { remove_ideas = TPMP_SPR_volunteers_allies_1 }
+				CAN = { remove_ideas = TPMP_SPR_volunteers_allies_0 }
+				RAJ = { remove_ideas = TPMP_SPR_volunteers_allies_0 }
+				AST = { remove_ideas = TPMP_SPR_volunteers_allies_0 }
+				SAF = { remove_ideas = TPMP_SPR_volunteers_allies_0 }
+			}
+		}
+	}
 }

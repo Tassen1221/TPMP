@@ -1,0 +1,22 @@
+
+TPMP_GER_escalate_spain_decision_category = {
+	TPMP_GER_escalate_spain_decision = {
+        allowed = {
+            tag = GER
+        }
+        visible = {
+            SPR = {
+				has_civil_war = yes
+			}
+			has_completed_focus = TPMP_GER_escalate_spain
+        }
+		cost = 25
+        icon = GFX_decision_generic_prepare_civil_war
+		days_re_enable = 30
+        complete_effect = {
+			custom_effect_tooltip = TPMP_escalate_spain_decision_tt
+			add_to_variable = { TPMP_spanish_civil_war_consumer_var = 0.1 }
+			add_to_variable = { TPMP_spanish_civil_war_volunteer_var = 1 }
+        }
+    }
+}

@@ -14198,19 +14198,6 @@ political_actions = {
 		}
 
 		timeout_effect = {
-			if = {
-				limit = {
-					num_of_controlled_states > 1
-				}
-				country_event = lar_spain.10
-			}
-			else = {
-				activate_mission = SPR_government_crackdown_mission
-				add_days_mission_timeout = {
-					mission = SPR_government_crackdown_mission
-					days = -211
-				}
-			}
 		}
 	}
 

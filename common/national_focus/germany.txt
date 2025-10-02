@@ -7873,7 +7873,7 @@ mio:GER_blohm_und_voss_organization = {
 
 	
 	
-		x = 14
+		x = 20
 		y = 1
 		relative_position_id = GER_remilitarize_the_rhineland
 
@@ -7940,6 +7940,32 @@ mio:GER_blohm_und_voss_organization = {
 			}
 		}
 	}
+
+	#TPMP Changes
+	focus = {
+		id = TPMP_GER_escalate_spain
+		icon = GFX_focus_focus_fra_intervention_spain
+		prerequisite = { focus = GER_legion_condor }
+		x = 0
+		y = 1
+		relative_position_id = GER_legion_condor
+
+		cost = 5
+
+		available = {
+			SPR = {
+				has_civil_war = yes
+			}
+		}
+		completion_reward = {
+			remove_ideas = TPMP_SPR_volunteers_axis_2
+			add_dynamic_modifier = {
+				modifier = TPMP_SPR_volunteers_axis_3
+			}
+			unlock_decision_category_tooltip = TPMP_GER_escalate_spain_decision_category
+		}
+	}
+	#TPMP Changes
 	
 	focus = {
 		id = GER_heed_von_neuraths_concerns #Von Neurath
