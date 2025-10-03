@@ -36,28 +36,28 @@ country_event = {
 			SOV = { country_event = { id = bftb_turkey.4 hours = 12 } }
 		}
 	}
-	option = {
-		name = bftb_turkey.1.b #we must not involve ourselves
-		ai_chance = {
-			factor = 20
-			modifier = {
-				OR = {
-					has_completed_focus = ENG_revisit_colonial_policy
-					has_completed_focus = ENG_concessions_to_the_trade_unions
-				}
-				factor = 80
-			}
-		}
-		add_stability = -0.05
-		custom_effect_tooltip = TUR_britain_unentangles_itself_tt
-		hidden_effect = {
-			TUR = {
-				set_country_flag = TUR_no_british_support
-				country_event = { id = bftb_turkey.3 hours = 8 }
-			}
-			SOV = { country_event = { id = bftb_turkey.4 hours = 12 } }
-		}
-	}	
+	# option = {
+		# name = bftb_turkey.1.b #we must not involve ourselves
+		# ai_chance = {
+			# factor = 20
+			# modifier = {
+				# OR = {
+					# has_completed_focus = ENG_revisit_colonial_policy
+					# has_completed_focus = ENG_concessions_to_the_trade_unions
+				# }
+				# factor = 80
+			# }
+		# }
+		# add_stability = -0.05
+		# custom_effect_tooltip = TUR_britain_unentangles_itself_tt
+		# hidden_effect = {
+			# TUR = {
+				# set_country_flag = TUR_no_british_support
+				# country_event = { id = bftb_turkey.3 hours = 8 }
+			# }
+			# SOV = { country_event = { id = bftb_turkey.4 hours = 12 } }
+		# }
+	# }
 }
 #The Montreux Convention - Britain supports us
 country_event = {
@@ -114,20 +114,20 @@ country_event = {
 			}
 		}
 	}
-	option = {
-		name = bftb_turkey.4.b #it matters little to us
-		ai_chance = {
-			factor = 50
-			modifier = {
-				check_variable = { SOV_great_purge_counter > 0 }
-				factor = 0.25
-			}
-		}
-		custom_effect_tooltip = TUR_soviets_allow_militarisation_tt
-		hidden_effect = {
-			TUR = { country_event = { id = bftb_turkey.6 hours = 8 } }
-		}
-	}	
+	# option = {
+		# name = bftb_turkey.4.b #it matters little to us
+		# ai_chance = {
+			# factor = 50
+			# modifier = {
+				# check_variable = { SOV_great_purge_counter > 0 }
+				# factor = 0.25
+			# }
+		# }
+		# custom_effect_tooltip = TUR_soviets_allow_militarisation_tt
+		# hidden_effect = {
+			# TUR = { country_event = { id = bftb_turkey.6 hours = 8 } }
+		# }
+	# }	
 }
 #The Montreux Convention - Soviets Oppose Turkish Remilitarisation of the Straits
 country_event = {
@@ -155,30 +155,30 @@ country_event = {
 			news_event = { id = bftb_news.201 hours = 16 }
 		}
 	}
-	option = {
-		name = bftb_turkey.5.b #we stand firm against Soviet meddling!
-		ai_chance = {
-			factor = 40
-			modifier = {
-				is_historical_focus_on = yes
-				factor = 0
-			}
-		}
-		add_stability = -0.05
-		custom_effect_tooltip = TUR_remaining_defiant_tt
-		hidden_effect = {
-			TUR = {	set_country_flag = TUR_defiance_against_soviet_union }
-			if = {
-				limit = {
-					TUR = { has_country_flag = TUR_british_support }
-				}
-				ENG = { country_event = { id = bftb_turkey.8 hours = 8 } }
-			}
-			else = {
-				SOV = { country_event = { id = bftb_turkey.10 hours = 8 } }
-			}
-		}
-	}	
+	# option = {
+		# name = bftb_turkey.5.b #we stand firm against Soviet meddling!
+		# ai_chance = {
+			# factor = 40
+			# modifier = {
+				# is_historical_focus_on = yes
+				# factor = 0
+			# }
+		# }
+		# add_stability = -0.05
+		# custom_effect_tooltip = TUR_remaining_defiant_tt
+		# hidden_effect = {
+			# TUR = {	set_country_flag = TUR_defiance_against_soviet_union }
+			# if = {
+				# limit = {
+					# TUR = { has_country_flag = TUR_british_support }
+				# }
+				# ENG = { country_event = { id = bftb_turkey.8 hours = 8 } }
+			# }
+			# else = {
+				# SOV = { country_event = { id = bftb_turkey.10 hours = 8 } }
+			# }
+		# }
+	# }	
 }
 #The Montreux Convention - Soviets Allow Remilitarisation
 country_event = {
