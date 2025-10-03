@@ -1291,7 +1291,7 @@ ideas = {
 				cat_artillery_doctrine_cost_factor = -0.05
 
 				army_artillery_attack_factor = 0.1
-				army_artillery_attack_factor = 0.1				
+				army_artillery_defence_factor = 0.1				
 			}
 		}
 
@@ -1302,7 +1302,7 @@ ideas = {
 				cat_artillery_doctrine_cost_factor = -0.05
 
 				army_artillery_attack_factor = 0.1
-				army_artillery_attack_factor = 0.1	
+				army_artillery_defence_factor = 0.1	
 			}
 
 			equipment_bonus = {
@@ -1320,7 +1320,7 @@ ideas = {
 				cat_artillery_doctrine_cost_factor = -0.05
 
 				army_artillery_attack_factor = 0.1
-				army_artillery_attack_factor = 0.1				
+				army_artillery_defence_factor = 0.1				
 			}
 
 			equipment_bonus = {
@@ -1454,6 +1454,68 @@ ideas = {
 			#picture = generic_communist_army
 			modifier = {
 				research_speed_factor = 0.05
+			}
+		}
+
+	}
+
+
+	###Designers
+
+	industrial_concern = {
+		
+		#designer = yes
+
+		
+		TPMP_designer_DniproHES = {
+			name = TPMP_designer_DniproHES
+			picture = GER_philipp_holzmann
+			allowed = {
+				original_tag = UKR
+			}
+			visible = {
+				always = yes
+			}
+			available = {
+				TPMP_UKR_Alexander_Vinter = {
+					is_hired_as_advisor = yes
+				}
+			}
+
+
+			research_bonus = {
+				construction_tech = 0.15
+			}
+			
+			cost = 250
+
+			traits = { TPMP_designer_DniproHES_trait }
+			
+			modifier = {
+				
+			}
+		}
+
+		TPMP_designer_Kharkiv_Tractor_Plant = {
+			name = TPMP_designer_Kharkiv_Tractor_Plant
+			picture = GFX_idea_TPMP_UKR_Andrey_Yeremenko
+			allowed = {
+				original_tag = UKR
+			}
+			visible = {
+				always = yes
+			}
+
+			cost = 250
+
+			research_bonus = {
+				industry = 0.15
+			}
+			
+			traits = { TPMP_designer_Kharkiv_Tractor_Plant_trait }
+			
+			modifier = {
+				
 			}
 		}
 
