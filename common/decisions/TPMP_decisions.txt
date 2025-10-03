@@ -1,5 +1,5 @@
-TPMP_Panda_spawn_things_category = {
-	TPMP_Panda_big_division_decision = {		
+TPMP_game_decisions_category = {
+	TPMP_50w_division_decision = {		
 		icon = rifles
 		complete_effect = {
 			division_template = {
@@ -38,8 +38,7 @@ TPMP_Panda_spawn_things_category = {
 			}
 		}
 	}	
-
-	TPMP_Panda_40w_division_decision = {		
+	TPMP_40w_division_decision = {		
 		icon = rifles
 		complete_effect = {
 			division_template = {
@@ -72,8 +71,7 @@ TPMP_Panda_spawn_things_category = {
 			}
 		}
 	}	
-
-	TPMP_Panda_30w_division_decision = {		
+	TPMP_30w_division_decision = {		
 		icon = rifles
 		complete_effect = {
 			division_template = {
@@ -82,37 +80,79 @@ TPMP_Panda_spawn_things_category = {
 					militia = { x = 0 y = 0 }
 					militia = { x = 0 y = 1 }
 					militia = { x = 0 y = 2 }
+					militia = { x = 0 y = 3 }
+					militia = { x = 0 y = 4 }
 			
 	    	   		militia = { x = 1 y = 0 }
 					militia = { x = 1 y = 1 }
 					militia = { x = 1 y = 2 }
+					militia = { x = 1 y = 3 }
+					militia = { x = 1 y = 4 }
 
 	    	   		militia = { x = 2 y = 0 }
 					militia = { x = 2 y = 1 }
 					militia = { x = 2 y = 2 }
 					militia = { x = 2 y = 3 }
 					militia = { x = 2 y = 4 }
-
-	    	   		militia = { x = 3 y = 0 }
-					militia = { x = 3 y = 1 }
-					militia = { x = 3 y = 2 }
-					militia = { x = 3 y = 3 }
 				}
 			}
 		}
 	}	
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+	TPMP_annex_MON_decision = {		
+        allowed = {
+            tag = UKR
+        }
+        visible = {
+            MON = {
+				is_ai = yes
+			}
+        }
+        available = {
+			MON = {
+				is_ai = yes
+			}
+        }
+        icon = GFX_decision_generic_decision
+		fire_only_once = yes
+        complete_effect = {
+			annex_country = {
+				target = MON
+				transfer_troops = yes
+			}
+			MON = {
+				every_core_state = {
+					add_core_of = UKR
+				}
+			}
+        }
+	}
+	TPMP_annex_SIA_decision = {		
+        allowed = {
+            tag = JAP
+        }
+        visible = {
+            SIA = {
+				is_ai = yes
+			}
+        }
+        available = {
+			SIA = {
+				is_ai = yes
+			}
+        }
+        icon = GFX_decision_generic_decision
+		fire_only_once = yes
+        complete_effect = {
+			annex_country = {
+				target = SIA
+				transfer_troops = yes
+			}
+			SIA = {
+				every_core_state = {
+					add_core_of = JAP
+				}
+			}
+        }
+	}
 }
