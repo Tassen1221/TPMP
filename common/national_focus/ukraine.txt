@@ -21,7 +21,7 @@ focus_tree = {
 	focus = {
 		id = ukr_holdomor_0
 		icon = GFX_focus_hol_abandon_the_gold_standard
-		x = 5
+		x = 12
 		y = 0
 		cost = 10
 		completion_reward = {
@@ -30,6 +30,24 @@ focus_tree = {
 				add_idea = TPMP_UKR_holdomor_idea_1
 			}
 		}
+		offset = {
+			x = 16
+			y = 0
+			trigger = {
+				OR = {
+					has_completed_focus = ukr_under_the_guidance_of_stalin
+				}
+			}
+		}
+		offset = {
+			x = 45
+			y = 0
+			trigger = {
+				OR = {
+					has_completed_focus = ukr_truly_independent
+				}
+			}
+		}					
 	}
 
 	focus = {
@@ -101,9 +119,22 @@ focus_tree = {
 		cost = 10
 		completion_reward = {
 		add_ideas = TPMP_UKR_under_guidance_of_stalin_idea
+		mark_focus_tree_layout_dirty  = yes
+		}
+		offset = {
+			x = 16
+			y = 0
+			trigger = {
+				has_completed_focus = ukr_under_the_guidance_of_stalin
+			}
 		}
 		mutually_exclusive = {
 			focus = ukr_truly_independent
+		}
+		allow_branch = {
+			NOT = {
+				has_completed_focus = ukr_truly_independent
+			}
 		}
 	}
 
@@ -1497,16 +1528,22 @@ focus_tree = {
 	focus = {
 		id = ukr_truly_independent
 		icon = GFX_SOV_socialist_realism_ccp_2d_sov_compatibility
-		x = 65
+		x = 63
 		y = 0
 		cost = 10
 		completion_reward = {
 		add_ideas = TPMP_UKR_truly_independent_idea_0
 		add_political_power = 100
-		}
+		mark_focus_tree_layout_dirty  = yes
+		}		
 		mutually_exclusive = {
 			focus = ukr_under_the_guidance_of_stalin
 		}
+		allow_branch = {
+			NOT = {
+				has_completed_focus = ukr_under_the_guidance_of_stalin
+			}
+		}		
 	}
 
 	focus = {
@@ -2128,7 +2165,7 @@ focus_tree = {
 	focus = {
 		id = ukr_root_out_tsarist_ideas
 		icon = GFX_focus_SOV_the_true_tsars
-		x = 88
+		x = 84
 		y = 0
 		cost = 10
 		completion_reward = {
@@ -2724,7 +2761,7 @@ focus_tree = {
 		id = ukr_feed_the_giant
 		icon = GFX_focus_SOV_socialism_in_one_country
 		relative_position_id = ukr_root_out_tsarist_ideas_left
-		x = -6
+		x = -4
 		y = 1
 		prerequisite = {
 			focus = ukr_root_out_tsarist_ideas_left
@@ -2832,7 +2869,7 @@ focus_tree = {
 		id = ukr_kyiv_aluminium_reserves
 		icon = GFX_focus_generic_aluminum
 		relative_position_id = ukr_root_out_tsarist_ideas_left
-		x = -10
+		x = -8
 		y = 1
 		prerequisite = {
 			focus = ukr_root_out_tsarist_ideas_left
@@ -2912,7 +2949,7 @@ focus_tree = {
 		id = ukr_promote_soviet_ways_of_thinking
 		icon = GFX_focus_SOV_the_path_of_marxism_leninism
 		relative_position_id = ukr_root_out_tsarist_ideas_left
-		x = -13
+		x = -10
 		y = 1
 		prerequisite = {
 			focus = ukr_root_out_tsarist_ideas_left
@@ -2955,9 +2992,9 @@ focus_tree = {
 
 	focus = {
 
-		id = ukr_reoraganize_the_army
+		id = ukr_reorganize_the_army
 		icon = GFX_SOV_military_reorganization_ccp_2d_sov_compatibility
-		x = 110
+		x = 104
 		y = 0
 		prerequisite = {
 			
@@ -2974,7 +3011,7 @@ focus_tree = {
 				value = 0.15
 			}
 
-			custom_effect_tooltip = ukr_reoraganize_the_army_tt
+			custom_effect_tooltip = ukr_reorganize_the_army_tt
 		}
 	}
 
@@ -2984,11 +3021,11 @@ focus_tree = {
 
 		id = ukr_employ_doctrine_theorists
 		icon = GFX_SOV_swap_to_political_advisors_ccp_2d_sov_compatibility
-		relative_position_id = ukr_reoraganize_the_army
-		x = 7
+		relative_position_id = ukr_reorganize_the_army
+		x = 6
 		y = 1
 		prerequisite = {
-			focus = ukr_reoraganize_the_army
+			focus = ukr_reorganize_the_army
 		}
 		cost = 5
 		
@@ -3005,11 +3042,11 @@ focus_tree = {
 
 		id = ukr_employ_professional_training_officers
 		icon = GFX_SOV_keep_commissars_organization_ccp_2d_sov_compatibility
-		relative_position_id = ukr_reoraganize_the_army
-		x = 5
+		relative_position_id = ukr_reorganize_the_army
+		x = 4
 		y = 1
 		prerequisite = {
-			focus = ukr_reoraganize_the_army
+			focus = ukr_reorganize_the_army
 		}
 		cost = 5
 		
@@ -3045,11 +3082,11 @@ focus_tree = {
 
 		id = ukr_mio_subsidities
 		icon = GFX_focus_generic_reorient_production
-		relative_position_id = ukr_reoraganize_the_army
-		x = 10
+		relative_position_id = ukr_reorganize_the_army
+		x = 13
 		y = 1
 		prerequisite = {
-			focus = ukr_reoraganize_the_army
+			focus = ukr_reorganize_the_army
 		}
 		cost = 5
 
@@ -3097,11 +3134,11 @@ focus_tree = {
 
 		id = ukr_mio_development_fund
 		icon = GFX_focus_generic_full_employment
-		relative_position_id = ukr_reoraganize_the_army
-		x = 12
+		relative_position_id = ukr_reorganize_the_army
+		x = 15
 		y = 1
 		prerequisite = {
-			focus = ukr_reoraganize_the_army
+			focus = ukr_reorganize_the_army
 		}
 		cost = 5
 		mutually_exclusive = {
@@ -3148,11 +3185,11 @@ focus_tree = {
 
 		id = ukr_slava_krasnoy_armii
 		icon = GFX_focus_SOV_builder_of_the_red_army
-		relative_position_id = ukr_reoraganize_the_army
+		relative_position_id = ukr_reorganize_the_army
 		x = -5
 		y = 1
 		prerequisite = {
-			focus = ukr_reoraganize_the_army
+			focus = ukr_reorganize_the_army
 		}
 		available = {
 			date > 1943.01.01
@@ -3223,11 +3260,11 @@ focus_tree = {
 
 		id = ukr_state_the_reorganization #F1
 		icon = GFX_SOV_desperate_measures_ccp_2d_sov_compatibility
-		relative_position_id = ukr_reoraganize_the_army
+		relative_position_id = ukr_reorganize_the_army
 		x = 0
 		y = 2
 		prerequisite = {
-			focus = ukr_reoraganize_the_army
+			focus = ukr_reorganize_the_army
 		}
 		available = {
 			OR = {
@@ -3460,11 +3497,11 @@ focus_tree = {
 
 		id = ukr_doctrine_considerations
 		icon = GFX_SOV_cohesion_first_ccp_2d_sov_compatibility
-		relative_position_id = ukr_reoraganize_the_army
-		x = 21
+		relative_position_id = ukr_reorganize_the_army
+		x = 18
 		y = 1
 		prerequisite = {
-			focus = ukr_reoraganize_the_army
+			focus = ukr_reorganize_the_army
 		}
 
 		cost = 5
@@ -3485,7 +3522,7 @@ focus_tree = {
 		id = ukr_wave_of_steel
 		icon = GFX_focus_generic_tank_assault
 		relative_position_id = ukr_doctrine_considerations
-		x = -10
+		x = -8
 		y = 1
 		prerequisite = {
 			focus = ukr_doctrine_considerations
@@ -3945,7 +3982,7 @@ focus_tree = {
 
 		icon = GFX_focus_SOV_restore_cossack_units
 		relative_position_id = ukr_doctrine_considerations
-		x = 10
+		x = 8
 		y = 1
 		prerequisite = {
 			focus = ukr_doctrine_considerations
@@ -4140,7 +4177,7 @@ focus_tree = {
 
 		icon = GFX_focus_generic_army_tanks2
 		relative_position_id = ukr_wave_of_steel
-		x = 5
+		x = 4
 		y = 1
 		prerequisite = {
 			focus = ukr_wave_of_steel
@@ -4165,7 +4202,7 @@ focus_tree = {
 
 		icon = GFX_goal_generic_military_sphere
 		relative_position_id = ukr_strength_in_numbers
-		x = -5
+		x = -2
 		y = 1
 		prerequisite = {
 			focus = ukr_strength_in_numbers
@@ -4190,8 +4227,8 @@ focus_tree = {
 
 		icon = GFX_goal_generic_army_artillery
 		relative_position_id = ukr_strength_in_firepower
-		x = 3
-		y = 2
+		x = 4
+		y = 1
 		prerequisite = {
 			focus = ukr_strength_in_numbers
 			focus = ukr_strength_in_firepower
@@ -4212,8 +4249,8 @@ focus_tree = {
 
 		icon = GFX_goal_generic_small_arms
 		relative_position_id = ukr_strength_in_numbers
-		x = -3
-		y = 2
+		x = -6
+		y = 1
 		prerequisite = {
 			focus = ukr_strength_in_numbers
 			focus = ukr_strength_in_firepower
@@ -4235,12 +4272,12 @@ focus_tree = {
 
 		id = ukr_reorganize_the_arms_industry
 		icon = GFX_SOV_found_the_pcdi_ccp_2d_sov_compatibility
-		relative_position_id = ukr_reoraganize_the_army
-		x = -10
+		relative_position_id = ukr_reorganize_the_army
+		x = -8
 		y = 1
 
 		prerequisite = {
-			focus = ukr_reoraganize_the_army
+			focus = ukr_reorganize_the_army
 		}
 		cost = 5
 		
