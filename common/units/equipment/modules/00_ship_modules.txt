@@ -19,6 +19,9 @@ equipment_modules = {
 			lg_attack = 1
 			build_cost_ic = 90	
 		}
+		build_cost_resources = {
+			steel = 1
+		}
 		multiply_stats = {
 			naval_speed = -0.01
 		}
@@ -103,9 +106,6 @@ equipment_modules = {
 			lg_attack = 3.0
 			build_cost_ic = 175	
 		}
-		build_cost_resources = {
-			steel = 10
-		}
 		multiply_stats = {
 			naval_speed = -0.04
 		}
@@ -139,9 +139,6 @@ equipment_modules = {
 		multiply_stats = {
 			naval_speed = -0.01
 		}
-		build_cost_resources = {
-			steel = 10
-		}
 		add_average_stats = {
 			lg_armor_piercing = 0.5
 		}
@@ -166,9 +163,6 @@ equipment_modules = {
 		}
 		multiply_stats = {
 			naval_speed = -0.02
-		}
-		build_cost_resources = {
-			steel = 10
 		}
 		add_average_stats = {
 			lg_armor_piercing = 1
@@ -200,9 +194,6 @@ equipment_modules = {
 		multiply_stats = {
 			naval_speed = -0.03
 		}
-		build_cost_resources = {
-			steel = 10
-		}
 		add_average_stats = {
 			lg_armor_piercing = 1.75
 		}
@@ -232,9 +223,6 @@ equipment_modules = {
 		}
 		multiply_stats = {
 			naval_speed = -0.04
-		}
-		build_cost_resources = {
-			steel = 10
 		}
 		add_average_stats = {
 			lg_armor_piercing = 1.75
@@ -280,7 +268,8 @@ equipment_modules = {
 			hg_armor_piercing = 31
 		}
 		build_cost_resources = {
-			steel = 10
+			steel = 2
+			chromium = 2
 		}
 		can_convert_from = {
 			module_category = ship_heavy_battery
@@ -307,7 +296,8 @@ equipment_modules = {
 			hg_armor_piercing = 36
 		}
 		build_cost_resources = {
-			steel = 10
+			steel = 2
+			chromium = 2
 		}
 		can_convert_from = {
 			module_category = ship_heavy_battery
@@ -339,7 +329,8 @@ equipment_modules = {
 			hg_armor_piercing = 40
 		}
 		build_cost_resources = {
-			steel = 10
+			steel = 2
+			chromium = 2
 		}
 		can_convert_from = {
 			module_category = ship_heavy_battery
@@ -373,8 +364,8 @@ equipment_modules = {
 			hg_armor_piercing = 45
 		}
 		build_cost_resources = {
-			steel = 10
-			chromium = 10
+			steel = 2
+			chromium = 2
 		}
 		can_convert_from = {
 			module_category = ship_heavy_battery
@@ -400,8 +391,8 @@ equipment_modules = {
 			build_cost_ic = 2000
 		}
 		build_cost_resources = {
-			steel = 10
-			chromium = 10
+			steel = 2
+			chromium = 2
 		}
 		multiply_stats = {
 			naval_speed = -0.08
@@ -437,7 +428,7 @@ equipment_modules = {
 			max_strength = 80
 		}
 		build_cost_resources = {
-			steel = 10
+			steel = 2
 		}
 
 		forbid_module_categories = {
@@ -475,7 +466,7 @@ equipment_modules = {
 			max_strength = 80
 		}
 		build_cost_resources = {
-			steel = 10
+			steel = 2
 		}
 
 		forbid_module_categories = {
@@ -513,7 +504,7 @@ equipment_modules = {
 			max_strength = 80
 		}
 		build_cost_resources = {
-			steel = 20
+			steel = 2
 		}
 
 		forbid_module_categories = {
@@ -526,14 +517,14 @@ equipment_modules = {
 			module_category = ship_medium_battery
 			convert_cost_ic = 500
 			convert_cost_resources = {
-				steel = 20
+				steel = 2
 			}
 		}
 		can_convert_from = {
 			module = ship_medium_battery_2
 			convert_cost_ic = 350
 			convert_cost_resources = {
-				steel = 10
+				steel = 1
 			}
 		}
 		critical_parts = { damaged_heavy_guns }
@@ -557,7 +548,7 @@ equipment_modules = {
 			max_strength = 80
 		}
 		build_cost_resources = {
-			steel = 20
+			steel = 2
 		}
 
 		forbid_module_categories = {
@@ -570,7 +561,7 @@ equipment_modules = {
 			module_category = ship_medium_battery
 			convert_cost_ic = 600
 			convert_cost_resources = {
-				steel = 20
+				steel = 2
 			}
 		}
 		can_convert_from = {
@@ -1989,9 +1980,6 @@ equipment_modules = {
 		multiply_stats = {
 			naval_speed = -0.01			
 		}
-		build_cost_resources = {
-			steel = 0
-		}
 		critical_parts = { damaged_torpedoes }
 	}
 
@@ -2010,21 +1998,12 @@ equipment_modules = {
 		multiply_stats = {
 			naval_speed = -0.02		
 		}
-		build_cost_resources = {
-			steel = 0
-		}
-		 
+
 		dismantle_cost_ic = 60
-		dismantle_cost_resources = {
-			steel = 0
-		}
 
 		can_convert_from = {
 			module_category = ship_torpedo
 			convert_cost_ic = 60
-			convert_cost_resources = {
-				steel = 0
-			}
 		}
 		critical_parts = { damaged_torpedoes }
 	}
@@ -2091,10 +2070,6 @@ equipment_modules = {
 		multiply_stats = {
 			naval_speed = -0.01			
 		}
-		
-		build_cost_resources = {
-			steel = 0
-		}
 		critical_parts = { damaged_torpedoes }
 	}
 
@@ -2113,10 +2088,6 @@ equipment_modules = {
 
 		multiply_stats = {
 			naval_speed = -0.02			
-		}
-		
-		build_cost_resources = {
-			steel = 0
 		}
 		can_convert_from = {
 			module_category = ship_torpedo_sub
@@ -2498,7 +2469,7 @@ equipment_modules = {
 			naval_speed = -0.05
 		}
 		build_cost_resources = {
-			steel = 10
+			steel = 5
 		}
 		dismantle_cost_ic = 700
 	}
@@ -2519,9 +2490,6 @@ equipment_modules = {
 		manpower = 800 #outside the add_stats section for code reasons
 		multiply_stats = {
 			naval_speed = -0.1
-		}
-		build_cost_resources = {
-			steel = 20
 		}
 		dismantle_cost_ic = 1000
 	}
@@ -2631,7 +2599,8 @@ equipment_modules = {
 
 		}
 		build_cost_resources = {
-			steel = 10
+			steel = 7
+			chromium = 7
 		}
 		add_stats = {
 			armor_value = 30
@@ -2654,7 +2623,10 @@ equipment_modules = {
 			naval_speed = 0.05
 			max_strength = 0.05
 		}
-
+		build_cost_resources = {
+			steel = 7
+			chromium = 7
+		}
 		add_stats = {
 			armor_value = 22
 			naval_torpedo_damage_reduction_factor = 0.1
@@ -2676,7 +2648,8 @@ equipment_modules = {
 			max_strength = 0.1
 		}
 		build_cost_resources = {
-			steel = 10
+			steel = 8
+			chromium = 8
 		}
 		add_stats = {
 			armor_value = 36
@@ -2700,7 +2673,8 @@ equipment_modules = {
 			max_strength = 0.1
 		}
 		build_cost_resources = {
-			steel = 10
+			steel = 8
+			chromium = 8
 		}
 		add_stats = {
 			armor_value = 28
@@ -2723,8 +2697,8 @@ equipment_modules = {
 			max_strength = 0.15
 		}
 		build_cost_resources = {
-			steel = 20
-			chromium = 10
+			steel = 9
+			chromium = 9
 		}
 		add_stats = {
 			armor_value = 40
@@ -2749,8 +2723,8 @@ equipment_modules = {
 			max_strength = 0.15
 		}
 		build_cost_resources = {
-			steel = 10
-			chromium = 10
+			steel = 9
+			chromium = 9
 		}
 		add_stats = {
 			armor_value = 34
@@ -2776,7 +2750,7 @@ equipment_modules = {
 			max_strength = 0.1
 		}
 		build_cost_resources = {
-			steel = 20
+			steel = 10
 			chromium = 10
 		}
 		add_stats = {
@@ -2805,6 +2779,10 @@ equipment_modules = {
 		add_stats = {
 			armor_value = 6
 		}
+		build_cost_resources = {
+			steel = 5
+			chromium = 5
+		}
 	}
 	ship_armor_cruiser_2 = {
 		abbreviation = "sdm"
@@ -2822,7 +2800,8 @@ equipment_modules = {
 			armor_value = 8
 		}
 		build_cost_resources = {
-			steel = 10
+			steel = 6
+			chromium = 6
 		}
 	}
 	ship_armor_cruiser_3 = {
@@ -2841,8 +2820,8 @@ equipment_modules = {
 			armor_value = 10
 		}
 		build_cost_resources = {
-			steel = 10
-			chromium = 10
+			steel = 7
+			chromium = 7
 		}
 	}
 	ship_armor_cruiser_4 = {
@@ -2861,8 +2840,8 @@ equipment_modules = {
 			armor_value = 12
 		}
 		build_cost_resources = {
-			steel = 20
-			chromium = 10
+			steel = 8
+			chromium = 8
 		}
 	}
 	ship_armor_carrier_deck = {
@@ -2874,7 +2853,8 @@ equipment_modules = {
 			build_cost_ic = 0.1
 		}
 		build_cost_resources = {
-			steel = 10
+			steel = 5
+			chromium = 5
 		}
 		multiply_stats = {
 			naval_speed = -0.05
@@ -2897,7 +2877,8 @@ equipment_modules = {
 		}
 
 		build_cost_resources = {
-			steel = 20
+			steel = 8
+			chromium = 8
 		}
 
 		add_stats = {
@@ -2920,7 +2901,8 @@ equipment_modules = {
 		}
 
 		build_cost_resources = {
-			steel = 20
+			steel = 9
+			chromium = 9
 		}
 
 		add_stats = {
@@ -2943,7 +2925,8 @@ equipment_modules = {
 		}
 
 		build_cost_resources = {
-			steel = 30
+			steel = 10
+			chromium = 10
 		}
 
 		add_stats = {
