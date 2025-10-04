@@ -44,41 +44,41 @@ country_event = {
 		set_country_flag = bessarabia_ceded
 	}
 
-	option = { # Refuse
-		name = romania.1.b
-		ai_chance = {
-			base = 0
-			modifier = {
-				add = 10
-				is_in_faction = yes
-				NOT = { is_in_faction_with = FROM }
-			}
+	# option = { # Refuse
+	# 	name = romania.1.b
+	# 	ai_chance = {
+	# 		base = 0
+	# 		modifier = {
+	# 			add = 10
+	# 			is_in_faction = yes
+	# 			NOT = { is_in_faction_with = FROM }
+	# 		}
 
-			modifier = {
-				add = 100
-				has_war_with = FROM
-			}
-			modifier = {
-				is_historical_focus_on = yes
-				NOT = {has_war_with = FROM}
-				factor = 0
-			}
-			modifier = {
-				factor = 0
-				is_in_faction_with = FROM
-			}
-		}
-		FROM = {
-			country_event = { days = 1 id = soviet.5 }
-			effect_tooltip = {
-				create_wargoal = {
-					type = take_state
-					target = ROOT
-					generator = { 78 }
-				}
-			}
-		}
-	}
+	# 		modifier = {
+	# 			add = 100
+	# 			has_war_with = FROM
+	# 		}
+	# 		modifier = {
+	# 			is_historical_focus_on = yes
+	# 			NOT = {has_war_with = FROM}
+	# 			factor = 0
+	# 		}
+	# 		modifier = {
+	# 			factor = 0
+	# 			is_in_faction_with = FROM
+	# 		}
+	# 	}
+	# 	FROM = {
+	# 		country_event = { days = 1 id = soviet.5 }
+	# 		effect_tooltip = {
+	# 			create_wargoal = {
+	# 				type = take_state
+	# 				target = ROOT
+	# 				generator = { 78 }
+	# 			}
+	# 		}
+	# 	}
+	# }
 }
 
 # Second Vienna Award - Northern Transylvania
