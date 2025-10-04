@@ -1323,6 +1323,18 @@ ideas = {
 				desc = can_not_access_market_closed_economy
 			}
 
+			allowed_to_remove = {
+				OR = {
+					AND = {
+						original_tag = UKR
+						has_completed_focus = ukr_right_to_trade
+					}
+					NOT = {
+						original_tag = UKR
+					}
+				}
+			}
+
 			cost = 150
 			removal_cost = -1
 

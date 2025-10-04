@@ -1,0 +1,241 @@
+add_namespace = UKR_Stalin_quotas_event
+add_namespace = UKR_great_purge_event
+add_namespace = UKR_five_year_plan
+add_namespace = UKR_negotiations_with_stalin_event
+
+country_event = {
+	id = UKR_Stalin_quotas_event.1
+	title = UKR_Stalin_quotas_event.1.t
+	desc = UKR_Stalin_quotas_event.1.d
+	#picture =
+
+	is_triggered_only = yes
+
+	option = {
+		name = UKR_Stalin_quotas_event.1.a
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+}
+
+country_event = {
+	id = UKR_Stalin_quotas_event.2
+	title = UKR_Stalin_quotas_event.2.t
+	desc = UKR_Stalin_quotas_event.2.d
+	#picture =
+
+	is_triggered_only = yes
+
+	option = {
+		name = UKR_Stalin_quotas_event.2.a
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+}
+
+country_event = {
+	id = UKR_Stalin_quotas_event.3
+	title = UKR_Stalin_quotas_event.3.t
+	desc = UKR_Stalin_quotas_event.3.d
+	#picture =
+
+	is_triggered_only = yes
+
+	option = {
+		name = UKR_Stalin_quotas_event.3.a
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+}
+
+country_event = {
+	id = UKR_Stalin_quotas_event.4
+	title = UKR_Stalin_quotas_event.4.t
+	desc = UKR_Stalin_quotas_event.4.d
+	#picture =
+
+	is_triggered_only = yes
+
+	option = {
+		name = UKR_Stalin_quotas_event.4.a
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+}
+
+country_event = {
+	id = UKR_Stalin_quotas_event.5
+	title = UKR_Stalin_quotas_event.5.t
+	desc = UKR_Stalin_quotas_event.5.d
+	#picture =
+
+	is_triggered_only = yes
+
+	option = {
+		name = UKR_Stalin_quotas_event.5.a
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+}
+
+country_event = {
+	id = UKR_Stalin_quotas_event.6
+	title = UKR_Stalin_quotas_event.6.t
+	desc = UKR_Stalin_quotas_event.6.d
+	#picture =
+
+	is_triggered_only = yes
+
+	option = {
+		name = UKR_Stalin_quotas_event.6.a
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+}
+
+country_event = {
+	id = UKR_great_purge_event.1
+	title = UKR_great_purge_event.1.t
+	desc = UKR_great_purge_event.1.d
+	#picture =
+
+
+	option = {
+		name = UKR_great_purge_event.1.a
+
+		kill_ideology_leader = communism
+	}
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	mean_time_to_happen = {
+		days = 1
+	}
+}
+
+
+
+country_event = {
+	id = UKR_five_year_plan.1
+	title = UKR_five_year_plan.1.t
+	desc = UKR_five_year_plan.1.d
+	#picture =
+
+
+	option = {
+		name = UKR_five_year_plan.1.a
+
+	}
+
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	mean_time_to_happen = {
+		days = 1
+	}
+}
+
+country_event = {
+	id = UKR_five_year_plan.2
+	title = UKR_five_year_plan.2.t
+	desc = UKR_five_year_plan.2.d
+	#picture =
+
+
+	option = {
+		name = UKR_five_year_plan.2.a
+
+	}
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	mean_time_to_happen = {
+		days = 1
+	}
+}
+
+country_event = {
+	id = UKR_five_year_plan.3
+	title = UKR_five_year_plan.3.t
+	desc = UKR_five_year_plan.3.d
+	#picture =
+
+
+	option = {
+		name = UKR_five_year_plan.3.a
+
+	}
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	mean_time_to_happen = {
+		days = 1
+	}
+}
+
+country_event = {
+	id = UKR_five_year_plan.4
+	title = UKR_five_year_plan.4.t
+	desc = UKR_five_year_plan.4.d
+	#picture =
+
+
+	option = {
+		name = UKR_five_year_plan.4.a
+	}
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	mean_time_to_happen = {
+		days = 1
+	}
+}
+
+country_event = {
+	id = UKR_negotiations_with_stalin_event.1
+	title = UKR_negotiations_with_stalin_event.1.t
+	desc = UKR_negotiations_with_stalin_event.1.d
+	#picture =
+
+
+	option = { ##Big plan
+		name = UKR_negotiations_with_stalin_event.1.a
+
+		set_country_flag = big_second_five_year_plan_flag
+		TPMP_UKR_2nd_five_year_plan_mission_initialization_scripted_effect = yes
+
+		activate_mission = UKR_second_five_year_plan_mission
+	}
+	option = { ##Small Plan
+		name = UKR_negotiations_with_stalin_event.1.b
+
+		set_country_flag = small_second_five_year_plan_flag
+		TPMP_UKR_2nd_five_year_plan_mission_initialization_scripted_effect = yes
+
+		activate_mission = UKR_second_five_year_plan_mission
+	}
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	mean_time_to_happen = {
+		days = 1
+	}
+}
