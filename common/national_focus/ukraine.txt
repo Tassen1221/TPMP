@@ -971,10 +971,6 @@ focus_tree = {
 		available = {
 			always = no
 		}
-		mutually_exclusive = { 
-			focus = ukr_production_quotas_are_met 
-			focus = ukr_production_quotas_exceeded 
-		} 
 		completion_reward = {
 			UKR = { country_event = { id = UKR_Stalin_quotas_event.4 days = 1 } }
 		}
@@ -993,10 +989,6 @@ focus_tree = {
 		available = {
 			always = no
 		}
-		mutually_exclusive = { 
-			focus = ukr_production_embarassing_failure
-			focus = ukr_production_quotas_exceeded 
-		} 
 		completion_reward = {
 			add_timed_idea = {
 			idea = TPMP_production_quotas_met_idea
@@ -1019,10 +1011,6 @@ focus_tree = {
 		available = {
 			always = no
 		}
-		mutually_exclusive = { 
-			focus = ukr_production_embarassing_failure
-			focus = ukr_production_quotas_are_met
-		} 
 		completion_reward = {
 			add_timed_idea = {
 				idea = TPMP_production_quotas_exceeded_idea
@@ -1451,6 +1439,7 @@ focus_tree = {
 			if = { ## Add rewards based on results
 				limit = {
 					num_of_factories > 120
+					num_of_factories < 140
 				}
 				add_timed_idea = {
 					idea = TPMP_2nd_five_year_plan_reward_idea_0
@@ -1459,7 +1448,8 @@ focus_tree = {
 			}
 			else_if = {
 				limit = {
-					num_of_factories > 140
+					num_of_factories > 139
+					num_of_factories < 160
 				}
 				add_timed_idea = {
 					idea = TPMP_2nd_five_year_plan_reward_idea_1
@@ -1468,7 +1458,7 @@ focus_tree = {
 			}
 			else_if = {
 				limit = {
-					num_of_factories > 160
+					num_of_factories > 159
 				}
 				add_ideas = war_economy
 			}
@@ -2298,7 +2288,8 @@ focus_tree = {
 		
 		completion_reward = {
 			226 = {
-				add_extra_state_shared_building_slots = 10
+				add_extra_state_shared_building_slots = 3
+				increase_state_category = yes
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
@@ -2404,8 +2395,9 @@ focus_tree = {
 		cost = 5
 		
 		completion_reward = {
-			202 = {		
-				add_extra_state_shared_building_slots = 8
+			202 = {
+				increase_state_category = yes
+				add_extra_state_shared_building_slots = 4
 				add_building_construction = {
 					type = industrial_complex
 					level = 5
@@ -2414,7 +2406,7 @@ focus_tree = {
 
 				add_building_construction = {
 					type = arms_factory
-					level = 3
+					level = 1
 					instant_build = yes
 				}				
 			}
@@ -2562,7 +2554,7 @@ focus_tree = {
 		id = ukr_wind_of_change
 		icon = GFX_focus_ger_great_red_menace
 		relative_position_id = ukr_kharkiv_tractor_plant
-		x = -3
+		x = -2
 		y = 1
 		prerequisite = {
 			focus = ukr_kharkiv_tractor_plant
