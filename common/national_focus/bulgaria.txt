@@ -8780,7 +8780,7 @@ focus_tree = {
 		relative_position_id = BUL_join_the_tripartite_pact
 		x = -4
 		y = 2
-		cost = 20
+		cost = 10
 
 		available = {
 			any_state = {
@@ -8791,42 +8791,12 @@ focus_tree = {
 		
 		search_filters = {FOCUS_FILTER_ANNEXATION}
 		completion_reward = {
-			custom_effect_tooltip = BUL_bulgarian_administration_of_the_balkans_decisions_tt
-			custom_effect_tooltip = BUL_bulgarian_administration_of_the_balkans_cores_tt
-			if = {
-				limit = {
-					has_full_control_of_state = 106
-					106 = { NOT = { is_core_of = ROOT } }
-				}
-				106 = { set_state_flag = BUL_bulgarian_reintegration_campaign_flag }
-				add_state_core = 106
-			}
-			if = {
-				limit = {
-					has_full_control_of_state = 803
-					803 = { NOT = { is_core_of = ROOT } }
-				}
-				803 = { set_state_flag = BUL_bulgarian_reintegration_campaign_flag }
-				add_state_core = 803
-			}
-			if = {
-				limit = {
-					has_full_control_of_state = 77
-					77 = { NOT = { is_core_of = ROOT } }
-				}
-				77 = { set_state_flag = BUL_bulgarian_reintegration_campaign_flag }
-				add_state_core = 77
-			}
-			if = {
-				limit = {
-					has_full_control_of_state = 971
-					971 = { NOT = { is_core_of = ROOT } }
-				}
-				971 = { set_state_flag = BUL_bulgarian_reintegration_campaign_flag }
-				add_state_core = 971
-			}
-			custom_effect_tooltip = BUL_historical_states_tt
-
+			add_state_core = 803
+			add_state_core = 106
+			add_state_core = 731
+			add_state_core = 184
+			add_state_core = 77
+			add_state_core = 971
 			hidden_effect = {
 				news_event = { id = bftb_news.5 hours = 8 random_hours = 4 }
 			}

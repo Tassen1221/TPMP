@@ -5,8 +5,9 @@ tags={
 	"Balance"
 }
 name="Tryhard Party Multiplayer"
-supported_version="1.16.9"
+replace_path="common/ai_strategy"
+replace_path="common/ai_equipment"
+replace_path="common/military_industrial_organization/organizations"
+supported_version="1.16.10"
 path="/Paradox Interactive/Hearts of Iron IV/mod/TPMP"
-replace_path = "common/ai_strategy"
-replace_path = "common/ai_equipment"
-replace_path = "common/military_industrial_organization/organizations"
+remote_file_id="3540127368"

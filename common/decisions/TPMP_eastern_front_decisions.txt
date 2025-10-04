@@ -500,7 +500,7 @@ TPMP_eastern_front_decision_category = {
 			command_power > 49
 		}
 		custom_cost_text = decision_cost_CP_50_pp_50
-        icon = GFX_decision_BHR_example
+        icon = GFX_decision_generic_civil_support
 		fire_only_once = yes
         complete_effect = {
 			every_state = {
@@ -559,6 +559,10 @@ TPMP_eastern_front_decision_category = {
 				}
 			}
 			set_country_flag = TPMP_directive_39_flag
+			hidden_effect = {
+				add_political_power = -50
+				add_command_power = -50
+			}
         }
     }
 	TPMP_haltbefehl_decision = {
@@ -577,11 +581,15 @@ TPMP_eastern_front_decision_category = {
 			command_power > 49
 		}
 		custom_cost_text = decision_cost_CP_50_pp_50
-        icon = GFX_decision_BHR_example
+        icon = GFX_decision_generic_civil_support
 		fire_only_once = yes
         complete_effect = {
 			custom_effect_tooltip = TPMP_haltbefehl_decision_tt
 			add_to_variable = { global.TPMP_hold_our_ground_attack_var = 0.20 }
+			hidden_effect = {
+				add_political_power = -50
+				add_command_power = -50
+			}
         }
     }
 }

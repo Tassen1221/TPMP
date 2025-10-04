@@ -188,7 +188,8 @@ technologies = {
 		
 		enable_equipment_modules = { 
 			tank_radio_3
-			lc_radio_3 #Module for Land Cruiser
+			lc_radio_3
+			lc_command_center
 		}
 		
 		ai_will_do = {
@@ -1085,7 +1086,11 @@ technologies = {
 
 	basic_fortification_tech = {
 		bunker_max_level_terrain_limit = 1
-		coastal_bunker_max_level_terrain_limit = 1	
+		coastal_bunker_max_level_terrain_limit = 1
+
+		enable_equipment_modules = {
+			lc_bunker_emplacement
+		}
 
 		path = {
 			leads_to_tech = coastal_fort_tech_1 
@@ -1127,10 +1132,6 @@ technologies = {
 
 
 	land_fort_tech_1 = {
-		enable_equipment_modules = {
-			lc_bunker_emplacement #Module for Land Cruiser
-		}
-			
 		bunker_max_level_terrain_limit = 1
 
 		path = {

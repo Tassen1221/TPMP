@@ -136,7 +136,7 @@ NDefines.NMilitary.AIR_SUPPORT_BASE = 0.15			-- CAS bonus factor for air support
 NDefines.NMilitary.ENEMY_AIR_SUPERIORITY_IMPACT = -0.8		-- effect on defense due to enemy air superiorty
 NDefines.NMilitary.ENEMY_AIR_SUPERIORITY_SPEED_IMPACT = -0.8	-- effect on speed due to enemy air superiority
 NDefines.NMilitary.ENEMY_AIR_SUPERIORITY_DEFENSE = 1.6		-- more AA attack will approach this amount of help (diminishing returns)
-NDefines.NMilitary.ENEMY_AIR_SUPERIORITY_DEFENSE_STEEPNESS = 30 -- how quickly defense approaches the max impact diminishing returns curve
+NDefines.NMilitary.ENEMY_AIR_SUPERIORITY_DEFENSE_STEEPNESS = 50 -- how quickly defense approaches the max impact diminishing returns curve
 
 NDefines.NMilitary.ANTI_AIR_TARGETTING_TO_CHANCE = 0.1		-- Balancing value to determine the chance of ground AA hitting an attacking airplane, affecting both the effective average damage done by AA to airplanes, and the reduction of damage done by airplanes due to AA support
 NDefines.NMilitary.ANTI_AIR_ATTACK_TO_AMOUNT = 0.001		-- Balancing value to convert equipment stat anti_air_attack to the random % value of airplanes being hit.
@@ -145,6 +145,9 @@ NDefines.NAir.ANTI_AIR_MAXIMUM_DAMAGE_REDUCTION_FACTOR = 0.90	-- Maximum damage 
 
 NDefines.NAir.COMBAT_DAMAGE_SCALE = 0.25			-- Higher value = more shot down planes
 NDefines.NAir.COMBAT_DAMAGE_SCALE_CARRIER = 20			-- same as above but used inside naval combat for carrier battles
+
+NDefines.NAir.DISRUPTION_FACTOR = 5.0						-- multiplier on disruption damage to scale its effects on planes
+NDefines.NAir.DISRUPTION_FACTOR_CARRIER = 7.5				-- multiplier on disruption damage to scale its effects on carrier vs carrier planes
 
 NDefines.NAir.AA_INDUSTRY_AIR_DAMAGE_FACTOR = -0.1		-- 5x levels = 60% defense from bombing
 
@@ -278,7 +281,7 @@ NDefines.NNavy.LOW_ORG_FACTOR_ON_JOIN_COMBAT_DURATION = 2.0	-- low org of the sh
 NDefines.NNavy.BASE_POSITIONING = 0.8				-- base value for positioning
 
 NDefines.NNavy.HIGHER_SHIP_RATIO_POSITIONING_PENALTY_FACTOR = 1.0					-- if one side has more ships than the other, that side will get this penalty for each +100% ship ratio it has
-NDefines.NNavy.MAX_POSITIONING_PENALTY_FROM_HIGHER_SHIP_RATIO = 1.0				-- maximum penalty to get from larger fleets
+NDefines.NNavy.MAX_POSITIONING_PENALTY_FROM_HIGHER_SHIP_RATIO = 2.0				-- maximum penalty to get from larger fleets
 NDefines.NNavy.MIN_SHIPS_FOR_HIGHER_SHIP_RATIO_PENALTY = 51					-- the minimum fleet size in ships that a fleet must be before having the large fleet penalty applied to them
 NDefines.NNavy.DAMAGE_PENALTY_ON_MINIMUM_POSITIONING = 1.0					-- damage penalty at 0% positioning
 
@@ -318,6 +321,18 @@ NDefines.NNavy.BASE_GUN_COOLDOWNS = { -- number of hours for a gun to be ready a
 NDefines.NNavy.TRAINING_EXPERIENCE_FACTOR = 0.3			-- Amount of exp each ship gain every 24h while training (before modifiers)
 
 NDefines.NNavy.NAVY_VISIBILITY_BONUS_ON_RETURN_FOR_REPAIR = 0.1	-- Multiplier for the surface/sub visiblity when the heavily damaged fleet is returning to the home base for reparation. 1.0 = no bonus. 0.0 = invisible.
+
+NDefines.NNavy.COMBAT_RETREAT_DECISION_CHANCE = 0.25 		-- There is also random factor in deciding if we should retreat or not. That causes a delay in taking decision, that sooner or later will be picked. It's needed so damaged fast ships won't troll the combat.
+NDefines.NNavy.REPAIR_AND_RETURN_PRIO_LOW_COMBAT = 0.8		-- % of total Strength. When below, navy will go to home base to repair (in combat).
+NDefines.NNavy.REPAIR_AND_RETURN_PRIO_MEDIUM_COMBAT = 0.6	-- % of total Strength. When below, navy will go to home base to repair (in combat).
+NDefines.NNavy.REPAIR_AND_RETURN_PRIO_HIGH_COMBAT = 0.4		-- % of total Strength. When below, navy will go to home base to repair (in combat).
+
+NDefines.NNavy.BASE_ESCAPE_SPEED = 0.05								-- daily base escape speed (gained as percentagE)
+NDefines.NNavy.SPEED_TO_ESCAPE_SPEED = 2.0							-- ratio to converstion from ship speed to escape speed (divided by hundred)
+NDefines.NNavy.ESCAPE_SPEED_PER_COMBAT_DAY = 0.01					-- daily increase in escape speed during combat duration
+NDefines.NNavy.MAX_ESCAPE_SPEED_FROM_COMBAT_DURATION = 0.15			-- max escape speed that will be gained from combat duration
+NDefines.NNavy.ESCAPE_SPEED_SUB_BASE = 0.10							-- subs get faster escape speed. gets replaced by hidden version below if hidden
+NDefines.NNavy.ESCAPE_SPEED_HIDDEN_SUB = 0.20						-- hidden subs get faster escape speed
 
 -- defines that control submarine visibility
 NDefines.NNavy.NAVAL_COMBAT_SUB_DETECTION_FACTOR = 1.0			-- balance value for sub detection in combat by ships
@@ -392,6 +407,9 @@ NDefines.NCountry.GIE_DIVISION_ATTACK_BONUS_AGAINST_OCCUPIER = 0.1 -- Attack bon
 NDefines.NProject.RECRUIT_SCIENTIST_COST = {			-- Amount of pp to hire a scientist based on available scientist
 		20,			-- pp cost if no available scientist
 	}
+
+NDefines.NProject.BASIC_RESEARCH_TECHNOLOGY_BONUS_FACTOR = 0.05    					-- Bonus research factor applied to technologies per scientist skill level when performing basic research in a matching facility.
+NDefines.NProject.BASIC_RESEARCH_TECHNOLOGY_BONUS_DIMINISHING_RETURN_FACTOR = 0		-- Diminishing return on BASIC_RESEARCH_TECHNOLOGY_BONUS_FACTOR for each extra scientist performing basic research for multiple facilities.	
 NDefines.NProject.BREAKTHROUGH_DAILY_TECHNOLOGY_GAIN = 5	-- Amount in 1/100th percentage. E.g. 25 = 0.25%
 NDefines.NProject.BREAKTHROUGH_DAILY_SCIENTIST_SKILL_GAIN = 20	-- Amount in 1/100th percentage gained per skill when doing basic research. E.g. 5 = 0.05% per skill level.
 

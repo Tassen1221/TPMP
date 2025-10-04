@@ -2736,7 +2736,7 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_INDUSTRY}
 
 		completion_reward = {
-			add_to_variable = { ITA_iri_production_speed_arms_factory_factor = 0.025 }
+			add_to_variable = { ITA_iri_production_speed_arms_factory_factor = 0.05 }
 			custom_effect_tooltip = ITA_steel_industry_in_terni_ricostruzione_industriale_tt
 			2 = {
 				add_extra_state_shared_building_slots = 2
@@ -2769,7 +2769,7 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_INDUSTRY}
 
 		completion_reward = {
-			add_to_variable = { ITA_iri_production_speed_industrial_complex_factor = 0.05 }
+			add_to_variable = { ITA_iri_production_speed_industrial_complex_factor = 0.10 }
 			custom_effect_tooltip = ITA_power_plants_in_terni_ricostruzione_industriale_tt
 
 			2 = {
@@ -3666,8 +3666,8 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_INDUSTRY}
 
 		completion_reward = {
-			add_to_variable = { ITA_military_industry_dm_industrial_capacity_factory = 0.05 }
-			add_to_variable = { ITA_military_industry_dm_factory_max_efficiency_factor = 0.05 }
+			add_to_variable = { ITA_military_industry_dm_industrial_capacity_factory = 0.1 }
+			add_to_variable = { ITA_military_industry_dm_factory_max_efficiency_factor = 0.1 }
 			add_to_variable = { ITA_military_industry_dm_line_change_production_efficiency_factor = 0.2 }
 			add_to_variable = { ITA_military_industry_dm_production_factory_start_efficiency_factor = -0.04 }
 			custom_effect_tooltip = ITA_increase_production_military_industry_tt
@@ -3693,7 +3693,8 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_INDUSTRY}
 
 		completion_reward = {
-			add_to_variable = { ITA_military_industry_dm_industrial_capacity_factory = 0.05 }
+			add_to_variable = { ITA_military_industry_dm_industrial_capacity_factory = 0.1 }
+			add_to_variable = { ITA_military_industry_dm_factory_max_efficiency_factor = 0.05 }
 			add_to_variable = { ITA_military_industry_dm_production_factory_start_efficiency_factor = 0.1 }
 			add_to_variable = { ITA_military_industry_dm_production_factory_efficiency_gain_factor = 0.1 }
 			add_to_variable = { ITA_military_industry_dm_line_change_production_efficiency_factor = -0.2 }
@@ -10010,6 +10011,9 @@ focus_tree = {
 
 		search_filters = {}
 
+		allow_branch = {
+			always = no
+		}
 		completion_reward = {
 			#CLAIM IN CORSICA
 			if = {
@@ -10315,11 +10319,11 @@ focus_tree = {
 	focus = {
 		id = ITA_by_blood_alone
 		icon = GFX_focus_ITA_by_blood_alone
-		prerequisite = { focus = ITA_a_colonial_empire }
+		prerequisite = { focus = ITA_towards_a_greater_italy }
 
 		x = 0
 		y = 1
-		relative_position_id = ITA_a_colonial_empire
+		relative_position_id = ITA_towards_a_greater_italy
 		cost = 10
 		available = {
 		}
@@ -15487,11 +15491,7 @@ focus_tree = {
 			hidden_effect = {
 				news_event = { hours = 6 id = news.184 }
 			}
-			add_timed_idea = {
-				idea = ITA_pact_of_steel
-				days = 365
-			}
-
+			add_ideas = ITA_pact_of_steel
 			custom_effect_tooltip = remove_political_advisor
 			show_ideas_tooltip = ITA_guido_jung
 		}

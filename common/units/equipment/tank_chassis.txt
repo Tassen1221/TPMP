@@ -1467,6 +1467,41 @@ equipments = {
 					lc_secondary_armament
 				}
 			}
+				
+			lc_additional_armament_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					lc_additional_armament
+				}
+			}
+
+			lc_additional_armament_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					lc_additional_armament
+				}
+			}
+
+			lc_additional_armament_slot_3 = {
+				required = no
+				allowed_module_categories = {
+					lc_additional_armament
+				}
+			}
+
+			lc_additional_armament_slot_4 = {
+				required = no
+				allowed_module_categories = {
+					lc_additional_armament
+				}
+			}
+
+			lc_additional_armament_slot_5 = {
+				required = no
+				allowed_module_categories = {
+					lc_additional_armament
+				}
+			}
 
 			lc_special_features_slot_1 = {
 				required = no
@@ -1497,32 +1532,44 @@ equipments = {
 					lc_structural_features
 				}
 			}
-				
-			lc_additional_armament_slot_1 = {
+			
+			lc_special_features_slot_4 = {
 				required = no
 				allowed_module_categories = {
-					lc_additional_armament
+					lc_radio_module
+					lc_aerial_deployment
+					lc_external_features
+					lc_structural_features
 				}
 			}
 
-			lc_additional_armament_slot_2 = {
+			lc_special_features_slot_5 = {
 				required = no
 				allowed_module_categories = {
-					lc_additional_armament
+					lc_radio_module
+					lc_aerial_deployment
+					lc_external_features
+					lc_structural_features
 				}
 			}
 
-			lc_additional_armament_slot_3 = {
+			lc_special_features_slot_6 = {
 				required = no
 				allowed_module_categories = {
-					lc_additional_armament
+					lc_radio_module
+					lc_aerial_deployment
+					lc_external_features
+					lc_structural_features
 				}
 			}
 
-			lc_additional_armament_slot_4 = {
+			lc_special_features_slot_7 = {
 				required = no
 				allowed_module_categories = {
-					lc_additional_armament
+					lc_radio_module
+					lc_aerial_deployment
+					lc_external_features
+					lc_structural_features
 				}
 			}
 		}
@@ -1592,17 +1639,18 @@ equipments = {
 			#lc_secondary_armament_slot = lc_medium_naval_guns
 		}
 
-		fuel_consumption = 12
-		maximum_speed = 5 #shouldn't be slower than infantry, or we ran into problems
-		build_cost_ic = 3300
+		breakthrough = 1000
+		defense = 1000
+		armor_value = 200
+		hardness = 2
+		maximum_speed = 5
 		reliability = 1
-		armor_value = 150
-		defense = 12
-		hardness = 0 #Hardness doesn't apply to support companies, this must be changed if they every become a line battalion. #Was 10
+		build_cost_ic = 2000
+		fuel_consumption = 20
 		
 		resources = {
-			steel = 80
-			chromium = 40
+			steel = 45
+			chromium = 20
 		}
 
 		lend_lease_cost = 80
@@ -1619,10 +1667,5 @@ equipments = {
 		archetype = land_cruiser_chassis
 		priority = 2000
 		module_slots = inherit
-		upgrades = {
-			tank_nsb_engine_upgrade
-			tank_nsb_armor_upgrade
-		}
 	}
-
 }

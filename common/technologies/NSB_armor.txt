@@ -885,6 +885,18 @@ technologies = {
 			super_heavy_tank_chassis_1936
 		}
 
+		on_research_complete = {
+			if = {
+				limit = {
+					has_dlc = "Gotterdammerung"
+				}
+				custom_effect_tooltip = {
+					localization_key = SP_UNLOCK_PROJECT
+					PROJECT = sp_land_land_cruiser
+				}
+			}
+		}	
+
 		path = {
 			leads_to_tech = superheavytankturret1_tech
 			research_cost_coeff = 1

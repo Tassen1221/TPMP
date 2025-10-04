@@ -20,19 +20,6 @@ sub_units = {
 			category_tanks
 			category_frontline_tanks
 		}
-
-		#Size Definitions
-		manpower = 1000 #SH: 500 / Infantry: 1000
-		max_organisation = 60 #SH: 10 / Infantry: 60
-		default_morale = 0.3 #SH: 0.3 / Infantry: 0.3
-		max_strength = 15 #SH: 2 / Infantry: 25
-
-		training_time = 250 #SH: 180 / Infantry: 90
-		weight = 2 #SH: 1 / Infantry: 0.5
-		
-		supply_consumption = 0.6 #SH: 0.4 / Infantry: 0.06
-		
-		suppression = 4 #SH: 2.5 / Infantry: 1.5
 		
 		#Size Definitions
 		combat_width = 30
@@ -56,7 +43,55 @@ sub_units = {
 		supply_consumption = 9
 
 		need = {
-			land_cruiser_chassis = 5
+			land_cruiser_chassis = 10
 		}
+
+		plains = {
+			attack = 0.1
+		}
+		desert = {
+			attack = 0.1
+		}
+		forest = {
+			attack = -0.4
+			defence = -0.4
+			movement = -0.1
+		}
+		jungle = {
+			attack = -0.6
+			defence = -0.6
+			movement = -0.2
+		}
+		hills = {
+			attack = -0.2
+			defence = -0.2
+			movement = -0.1
+		}
+		mountain = {
+			attack = -0.8
+			defence = -0.2
+			movement = -0.3
+		}
+		marsh = {
+			attack = -0.8
+			defence = -0.6
+			movement = -0.5
+		}
+		urban = {
+			attack = -0.6
+			defence = -0.2
+			movement = -0.1
+		}
+		fort = {
+			attack = 0.2
+		}
+		river = {
+			attack = -0.3
+			movement = -0.2
+		}
+		amphibious = {
+			attack = -1.0
+			movement = -0.5
+		}	
 	}
 }
