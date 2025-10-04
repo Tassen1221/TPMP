@@ -434,30 +434,30 @@ country_event = {
 		set_global_flag = sov_yes_pact
 	}
 
-	# option = {
-	# 	name = germany.11.b	#no way
-	# 	ai_chance = {
-	# 		base = 10
-	# 		modifier = {
-	# 			factor = 0
-	# 			is_historical_focus_on = yes
-	# 			GER = {
-	# 				NOT = { has_wargoal_against = SOV }
-	# 				NOT = { is_justifying_wargoal_against = SOV }
-	# 			}
-	# 		}
-	# 		modifier = {
-	# 			factor = 0
-	# 			is_in_faction_with = GER
-	# 		}
-	# 	}
-	# 	add_political_power = -50
-	# 	add_opinion_modifier = { target = GER modifier = refused_MR_pact }# no pact
-	# 	GER = {
-	# 		country_event = { days = 1 id = germany.13 }
-	# 	}
-	# 	set_global_flag = sov_no_pact
-	# }
+	option = {
+		name = germany.11.b	#no way
+		ai_chance = {
+			base = 10
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+				GER = {
+					NOT = { has_wargoal_against = SOV }
+					NOT = { is_justifying_wargoal_against = SOV }
+				}
+			}
+			modifier = {
+				factor = 0
+				is_in_faction_with = GER
+			}
+		}
+		add_political_power = -50
+		add_opinion_modifier = { target = GER modifier = refused_MR_pact }# no pact
+		GER = {
+			country_event = { days = 1 id = germany.13 }
+		}
+		set_global_flag = sov_no_pact
+	}
 }
 
 # Soviets Sign MR Pact
