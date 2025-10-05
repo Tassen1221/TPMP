@@ -14,10 +14,12 @@ UKR_five_year_plan_mission: "First Five Year Plan"
 UKR_five_year_plan_decision_0: "Cheat The Quotas"
 UKR_five_year_plan_decision_1: "Ask for Increased Invesments"
 UKR_five_year_plan_decision_2: "Rapid Urbanization"
+UKR_five_year_plan_decision_3: "Plead for Prolonging The Deadline"
 
 UKR_second_five_year_plan_mission: "Second Five Year Plan"
 UKR_2nd_five_year_plan_decision_0: "Cheat The Quotas"
 UKR_2nd_five_year_plan_decision_1: "Ask for Increased Invesments"
+UKR_2nd_five_year_plan_decision_2: "Plead for Prolonging The Deadline"
 
 UKR_state_of_the_army_cat: "State of the Army"
 UKR_the_reorganization_mission: "Gradual Armed Forces Improvments"
@@ -40,14 +42,68 @@ small_second_five_year_plan_flag: "Steady Paced Industrialization"
 
 #Tooltips
 
+	#Decision TTs
 
+TPMP_UKR_five_year_plan_decision_L0_tt: "Lower mission requirements by 2 £GFX_civ_factory  civilian factories"
+TPMP_UKR_five_year_plan_decision_R0_tt: "Lower mission requirements by 2 £GFX_mil_factory  military factories"
+TPMP_UKR_five_year_plan_decision_L1_tt: "Increase mission reward by 2 £GFX_civ_factory civilian factories"
+TPMP_UKR_five_year_plan_decision_R1_tt: "Increase mission reward by 2 £GFX_mil_factory  military factories"
+
+TPMP_UKR_2nd_five_year_plan_decision_L0_tt: "Lower mission requirements by 2 £GFX_civ_factory  civilian factories"
+TPMP_UKR_2nd_five_year_plan_decision_R0_tt: "Lower mission requirements by 3 £GFX_mil_factory  military factories"
+TPMP_UKR_2nd_five_year_plan_decision_L1_tt: "Increase mission reward by 2 £GFX_civ_factory  civilian factories"
+TPMP_UKR_2nd_five_year_plan_decision_R1_tt: "Increase mission reward by 2 £GFX_mil_factory  military factories"
+
+ukr_right_cancel_tt: "Mission will cancel upon reaching §G+15%§! bonuses"
+ukr_mid_cancel_tt: "Mission will cancel upon reaching §G+5%§! bonuses"
+the_reorganization_mission_tt: "State of The Army penalty will decrease by [?var_ukr_tpmp_incremental_improvement_value|§G%]"
+
+ukr_factory_management_cost_tt: "This decision will cost you §R500§! steel §R100§! Tungsten §R100§! Chromium. Every time you take a decision it will increase its cost by §R200§! steel §R75§! chromium and tungsten as well as §R25§! PP. Decision duriation will increase by §G75§! days"
+ukr_factory_management_reset_tt: "This decision cost will decrease by §G25§! PP, §G250§! Steel, §G100§! Tungsten and Chromium. Decision duriation will decrease by §R75§! days. §2The effect is doubled upon decision removal§!."
+	
 	#Focus Tree TTs
+
 ukr_arms_industry_advisors_tt: "Hire Arms Industry Advisors"
 ukr_heavy_industry_advisors_tt: "Hire Heavy Industry Advisors"
 ukr_cultural_development_advisors_tt: "Hire Advisors For Cultural Development"
 ukr_second_five_year_plan_not_finished_tt: "Stalin is not yet satisfied with your industrial development"
+TPMP_right_to_trade_tt: "Unlock Trade Laws"
+TPMP_promote_soviet_ways_of_thinking_tt: "£GFX_research_icon §G+5%§! Research Speed"
 
-	#Decision TTs
+ukr_factory_management_tt: "\n§GUnlock§! §YCentralized Resource and Production Planning Decisions§!"
+
+ukr_reorganize_the_army_tt: "£GFX_army_experience  §G+5%§! Army Experience Gain \n£army_advisor_cost_texticon  §G-15%§! Advisor Cost"
+ukr_employ_doctrine_theorists_tt: "£army_doctrine_cost_texticon §G-5%§! Land Doctrine Cost"
+ukr_employ_professional_training_officers_tt: "£GFX_army_experience  §G+5%§! Army Experience Gain"
+ukr_employ_military_advisors_tt: "£army_advisor_cost_texticon  §G-15%§! Advisor Cost"
+ukr_doctrine_considerations_tt: "£army_doctrine_cost_texticon §G-5%§! Land Doctrine Cost"
+
+ukr_mio_subsidities_tt: "Add Funds to MIOs"
+ukr_mio_development_fund_tt: "Add 2 levels to MIOs"
+
+	#Army reform TTs
+
+ukr_will_be_quick_tt: "Removes All Army Penalties"
+ukr_and_the_training_0_tt: "§G+0.2%§! Rate to Gradual Armed Forces Improvement"
+ukr_will_take_time_tt: "§G+0.5%§! Rate to Gradual Armed Forces Improvement"
+ukr_and_the_training_1_tt: "§G+0.2%§! Rate to Gradual Armed Forces Improvement"
+ukr_shall_be_tt: "§G+0.1%§! Rate to Gradual Armed Forces Improvement"
+ukr_pride_of_ukrainian_ssr_tt: "§G+1.4%§! Rate to Gradual Armed Forces Improvement"
+
+ukr_and_the_training_0_avl_tt: "Has §R-25%§! or higher Army Offense Penalty\n"
+ukr_will_take_time_avl_tt: "Has §R-7%§! or higher Army Offense Penalty\n"
+ukr_and_the_training_1_avl_tt: "Has §R-25%§! or higher Army Offense Penalty\n"
+ukr_shall_be_avl_tt: "Has §R-12%§! or higher Army Offense Penalty\n"
+ukr_pride_of_ukrainian_ssr_avl_tt: "Has §R-9%§! or higher Army Offense Penalty\n"
+
+	#Unlock Tech TTs
+
+TPMP_survivability_of_artillerymen_bonus_tt: "£GFX_unit_artillery_brigade_icon_small All Frontline Artillery §O+100% £GFX_strenght_texticon  HP§! "
+TPMP_harshest_conditions_are_our_allies_bonus_tt: "All frontline:\nTerrain Modifiers:\nSnow Attack +5% \nDesert Attack 5%"
+TPMP_specialization_of_artillery_design_bonus_tt: "£GFX_unit_artillery_brigade_icon_small Artillery:\n §G+10%§! £soft_attack_texticon Soft Attack\n §G+10%§! £breakthrough_texticon Breakthrough\n\n £GFX_unit_anti_tank_brigade_icon_small Anti-tank:\n §G+10%§! £hard_attack_texticon Hard attack\n §G+10%§! £piercing_texticon Piercing"
+TPMP_best_of_the_best_bonus_tt: "£GFX_unit_artillery_brigade_icon_small Artillery:\n §G+3§! £GFX_organization_texticon Organization\n §G+100%§! £GFX_strenght_texticon HP\n\n £GFX_unit_anti_tank_brigade_icon_small Anti-Tank:\n §G+3§! £GFX_organization_texticon Organization\n §G+100%§! £GFX_strenght_texticon HP"
+TPMP_terror_of_the_trenches_bonus_tt: "£GFX_unit_artillery_brigade_icon_small All Artillery:\n §G+2§! £GFX_organization_texticon Organization\n §G+0.10§! £army_morale_texticon Recovery Rate\n Terrain Attack: \n§G+5%§! Marshes, Hills, Jungles, Mountains, Urban, Forest"
+TPMP_innovative_weapon_design_bonus_tt: "£GFX_unit_infantry_icon_small All Frontline Infantry: \n §G+10%§! £soft_attack_texticon Soft Attack\n §G+10%§! £hard_attack_texticon Hard attack\n §G+10%§! £piercing_texticon Piercing"
 
 #Events
 

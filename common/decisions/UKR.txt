@@ -5,6 +5,32 @@
 ##
 
 UKR_resource_mission_cat = {
+
+	UKR_resource_mission_debug = {
+
+		available = {
+			tag = UKR
+		}
+
+		visible = {
+			is_debug = yes
+		}
+
+		cost = 0
+
+		days_remove = 1
+
+		days_re_enable = 1
+
+		complete_effect = {
+			activate_mission = UKR_stalin_resource_quotas
+		}
+
+		remove_effect = {
+
+		}
+	}
+
 	UKR_stalin_resource_quotas = {
 		activation = {
 			always = no
@@ -22,7 +48,7 @@ UKR_resource_mission_cat = {
 			} 
 		}
 
-		#icon = 
+		icon = GFX_decision_steel
 		is_good = yes
 		days_mission_timeout = 365
    		selectable_mission = no
@@ -104,7 +130,7 @@ UKR_production_mission_cat = { #TODO add this mission
 			} 
 		}
 
-		#icon = 
+		icon = GFX_decision_gre_faction_management 
 		is_good = yes
 		days_mission_timeout = 365
    		selectable_mission = no
@@ -221,7 +247,7 @@ UKR_stalin_mission_cat = { #TODO Add decisions(lengthen the plan, lower factory 
 			has_completed_focus = ukr_truly_independent
 		}
 
-		#icon = 
+		icon = GFX_decision_generic_factory
 		is_good = no
 		days_mission_timeout = 450
    		selectable_mission = no
@@ -341,6 +367,7 @@ UKR_stalin_mission_cat = { #TODO Add decisions(lengthen the plan, lower factory 
 		}
 
 		cost = 50
+		icon = GFX_decision_generic_fundraising
 
 		days_remove = 30
 
@@ -402,7 +429,8 @@ UKR_stalin_mission_cat = { #TODO Add decisions(lengthen the plan, lower factory 
 			has_active_mission = UKR_five_year_plan_mission
 		}
 
-		cost = 75
+		cost = 50
+		icon = GFX_decision_generic_construction
 
 		days_remove = 30
 
@@ -418,6 +446,48 @@ UKR_stalin_mission_cat = { #TODO Add decisions(lengthen the plan, lower factory 
 
 		}
 	}
+
+	UKR_five_year_plan_decision_3 = { #Increasing state category
+
+		available = {
+			tag = UKR
+		}
+
+		cancel_trigger = {
+			hidden_trigger = {
+				NOT = {
+					has_active_mission = UKR_five_year_plan_mission
+				}
+			}
+		}
+
+		visible = {
+			OR = {
+				has_completed_focus = ukr_under_the_guidance_of_stalin_right
+				has_completed_focus = ukr_under_the_guidance_of_stalin_left
+			}
+			has_active_mission = UKR_five_year_plan_mission
+		}
+
+		cost = 50
+		icon = GFX_decision_SOV_the_centre
+
+		days_remove = 45
+
+		days_re_enable = 90
+
+		complete_effect = {
+			add_days_mission_timeout = {
+				mission = UKR_five_year_plan_mission
+				days = 45
+			}
+		}
+
+		remove_effect = {
+
+		}
+	}	
+
 
 	##
 	## 2nd 5 year
@@ -458,7 +528,7 @@ UKR_stalin_mission_cat = { #TODO Add decisions(lengthen the plan, lower factory 
 		cancel_trigger = {
 		}
 
-		#icon = 
+		icon = GFX_decision_generic_factory
 		is_good = no
 		days_mission_timeout = 1825
    		selectable_mission = no
@@ -593,6 +663,7 @@ UKR_stalin_mission_cat = { #TODO Add decisions(lengthen the plan, lower factory 
 		}
 
 		cost = 50
+		icon = GFX_decision_generic_fundraising
 
 		days_remove = 30
 
@@ -623,7 +694,43 @@ UKR_stalin_mission_cat = { #TODO Add decisions(lengthen the plan, lower factory 
 
 		}
 	}
-	
+
+UKR_2nd_five_year_plan_decision_2 = { #Increasing the deadline
+
+		available = {
+			tag = UKR
+		}
+
+		cancel_trigger = {
+			hidden_trigger = {
+				NOT = {
+					has_active_mission = UKR_second_five_year_plan_mission
+				}
+			}
+		}
+
+		visible = {
+			has_active_mission = UKR_second_five_year_plan_mission
+		}
+
+		cost = 50
+		icon = GFX_decision_generic_fundraising
+
+		days_remove = 45
+
+		days_re_enable = 80
+
+		complete_effect = {
+			add_days_mission_timeout = {
+				mission = UKR_five_year_plan_mission
+				days = 60
+			}
+		}
+
+		remove_effect = {
+
+		}
+	}	
 
 }
 
@@ -684,7 +791,7 @@ UKR_state_of_the_army_cat = {
 		}
 	}	
 
-	UKR_the_reorganization_mission = { #TODO 
+	UKR_the_reorganization_mission = {
 		activation = {
 			always = no
 		}
@@ -722,7 +829,7 @@ UKR_state_of_the_army_cat = {
 			}
 		}
 
-		#icon = 
+		icon = GFX_decision_generic_military 
 		is_good = yes
 		days_mission_timeout = 30
    		selectable_mission = no
@@ -768,6 +875,7 @@ UKR_factory_management_cat = { ##TODO: Clamp reset values
 		days_remove = var_factory_management_duration
 
 		days_re_enable = var_factory_management_reset_time
+		icon = GFX_decision_generic_factory
 
 		complete_effect = {
 
@@ -798,6 +906,7 @@ UKR_factory_management_cat = { ##TODO: Clamp reset values
 		days_remove = var_factory_management_duration
 
 		days_re_enable = var_factory_management_reset_time
+		icon = GFX_decision_generic_factory
 
 		complete_effect = {
 			TPMP_UKR_factory_management_decision_effect = yes
@@ -827,6 +936,7 @@ UKR_factory_management_cat = { ##TODO: Clamp reset values
 		days_remove = var_factory_management_duration
 
 		days_re_enable = var_factory_management_reset_time
+		icon = GFX_decision_generic_consumer_goods
 
 		complete_effect = {
 			TPMP_UKR_factory_management_decision_effect = yes
@@ -857,6 +967,7 @@ UKR_factory_management_cat = { ##TODO: Clamp reset values
 		days_remove = var_factory_management_duration
 
 		days_re_enable = var_factory_management_reset_time
+		icon = GFX_decision_generic_industry
 
 		complete_effect = {
 			TPMP_UKR_factory_management_decision_effect = yes
@@ -875,6 +986,11 @@ UKR_factory_management_cat = { ##TODO: Clamp reset values
 
 		available = {
 			tag = UKR
+
+			OR = {
+				has_completed_focus = ukr_under_the_guidance_of_stalin_right
+				has_completed_focus = ukr_stakhanovite_movement_0
+			}
 		}
 
 		visible = {
@@ -915,6 +1031,7 @@ UKR_factory_management_cat = { ##TODO: Clamp reset values
 		days_remove = var_factory_management_duration
 
 		days_re_enable = var_factory_management_reset_time
+		icon = GFX_decision_generic_construction
 
 		complete_effect = {
 			TPMP_UKR_factory_management_decision_effect = yes
@@ -944,6 +1061,7 @@ UKR_factory_management_cat = { ##TODO: Clamp reset values
 		days_remove = var_factory_management_duration
 
 		days_re_enable = var_factory_management_reset_time
+		icon = GFX_decision_steel
 
 		complete_effect = {
 
@@ -1010,7 +1128,7 @@ UKR_factory_management_cat = { ##TODO: Clamp reset values
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
-			custom_effect_tooltip = ukr_factory_management_cost_tt
+			custom_effect_tooltip = ukr_factory_management_reset_tt
 			custom_effect_tooltip = generic_skip_one_line_tt
 		}
 
