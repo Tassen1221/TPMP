@@ -1,0 +1,43 @@
+autonomy_state = {
+	id = autonomy_ukr_ssr
+	
+	is_puppet = yes
+	
+	min_freedom_level = 0.1
+	
+	manpower_influence = 0.1
+	
+	rule = {
+		desc = "RULE_DESC_IS_A_SUBJECT"
+		
+		can_not_declare_war = yes
+		can_decline_call_to_war = no
+		can_be_spymaster = yes
+		contributes_operatives = yes
+		can_create_collaboration_government = no
+	}
+	
+	modifier = {
+		autonomy_manpower_share = 0.1
+		can_master_build_for_us = 1
+		extra_trade_to_overlord_factor = 1
+		overlord_trade_cost_factor = -0.9
+		cic_to_overlord_factor = 0
+		mic_to_overlord_factor = 0
+		autonomy_gain_global_factor = -0.3
+		peace_score_ratio_transferred_to_overlord = 0.05
+		lend_lease_tension_with_overlord = -0.50
+		license_subject_master_purchase_cost = -1
+	}
+
+	allowed = {
+		original_tag = UKR
+	}
+
+	can_take_level = {
+		if = {
+			limit = { original_tag = UKR }
+			has_completed_focus = ukr_right_to_trade
+		}
+	}
+}

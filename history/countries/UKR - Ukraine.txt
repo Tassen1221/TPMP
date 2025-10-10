@@ -48,7 +48,7 @@ if = {
 	set_technology = {
 		gwtank = 1
 		basic_light_tank = 1
-	}
+	}	
 }
 if = {
 	limit = {
@@ -58,6 +58,24 @@ if = {
 		tank0_tech = 1
 		lighttank1_tech = 1
 	}
+	create_equipment_variant = {
+		name = "T-26TU mod. 1933"
+		type = light_tank_chassis_1936
+		parent_version = 0
+		modules = {
+			main_armament_slot = tank_light_cannon_1
+			turret_type_slot = tank_simple_light_turret_1
+			suspension_type_slot = tank_bogie_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_gasoline_engine_1
+			radio_type_slot = tank_radio_1
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 0
+			tank_nsb_armor_upgrade = 0
+		}
+		icon = "GFX_SOV_basic_light_tank_medium"
+	}	
 }
 if = {
 	limit = {
@@ -89,7 +107,7 @@ if = {
 		basic_torpedo = 1
 	}
 }
-set_convoys = 30
+set_convoys = 40
 
 set_politics = {
 	ruling_party = communism
