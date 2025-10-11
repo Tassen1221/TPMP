@@ -173,6 +173,9 @@ technologies = {
 			cv_small_plane_naval_bomber_airframe_1
 			cv_small_plane_suicide_airframe_1
 		}
+		enable_equipment_modules = {
+			parasite_fighter_0
+		}
 	
 		path = {
 			leads_to_tech = improved_small_airframe
@@ -245,6 +248,9 @@ technologies = {
 			cv_small_plane_cas_airframe_2
 			cv_small_plane_naval_bomber_airframe_2
 			cv_small_plane_suicide_airframe_2
+		}
+		enable_equipment_modules = {
+			parasite_fighter_1
 		}
 	
 		path = {
@@ -326,6 +332,9 @@ technologies = {
 			cv_small_plane_cas_airframe_3
 			cv_small_plane_naval_bomber_airframe_3
 			cv_small_plane_suicide_airframe_3
+		}
+		enable_equipment_modules = {
+			parasite_fighter_2
 		}
 		
 		path = {
@@ -409,6 +418,9 @@ technologies = {
 			cv_small_plane_cas_airframe_4
 			cv_small_plane_naval_bomber_airframe_4
 			cv_small_plane_suicide_airframe_4
+		}
+		enable_equipment_modules = {
+			parasite_fighter_3
 		}
 
 		research_cost = 2
@@ -738,6 +750,10 @@ technologies = {
 	
 		path = {
 			leads_to_tech = basic_large_airframe
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = improved_mothership_airframe
 			research_cost_coeff = 1
 		}
 
@@ -2142,15 +2158,15 @@ technologies = {
 		research_cost = 1.75
 		start_year = 1942
 
-		folder = {
-			name = bba_air_techs_folder
-			position = { x = @mothership_x_bba y = 7 }
-		}
+		# folder = {
+		# 	name = bba_air_techs_folder
+		# 	position = { x = @mothership_x_bba y = 7 }
+		# }
 
-		folder = {
-			name = air_techs_folder
-			position = { x = @mothership_x y = 7 }
-		}
+		# folder = {
+		# 	name = air_techs_folder
+		# 	position = { x = @mothership_x y = 7 }
+		# }
 
 		categories = {
 			heavy_air
@@ -2161,7 +2177,7 @@ technologies = {
 		mothership = {
 			air_defence = 0.08
 		}
-		special_project_specialization = { specialization_air }	
+		special_project_specialization = { specialization_air } 
 		ai_will_do = {
 			factor = 1
 		}
@@ -2184,15 +2200,15 @@ technologies = {
 		research_cost = 1.5
 		start_year = 1944
 
-		folder = {
-			name = bba_air_techs_folder
-			position = { x = @mothership_x_bba y = 10 }
-		}
+		# folder = {
+		# 	name = bba_air_techs_folder
+		# 	position = { x = @mothership_x_bba y = 10 }
+		# }
 
-		folder = {
-			name = air_techs_folder
-			position = { x = @mothership_x y = 10 }
-		}
+		# folder = {
+		# 	name = air_techs_folder
+		# 	position = { x = @mothership_x y = 10 }
+		# }
 
 		categories = {
 			heavy_air
@@ -2224,15 +2240,15 @@ technologies = {
 		research_cost = 1.75
 		start_year = 1946
 
-		folder = {
-			name = bba_air_techs_folder
-			position = { x = @mothership_x_bba y = 13 }
-		}
+		# folder = {
+		# 	name = bba_air_techs_folder
+		# 	position = { x = @mothership_x_bba y = 13 }
+		# }
 
-		folder = {
-			name = air_techs_folder
-			position = { x = @mothership_x y = 13 }
-		}
+		# folder = {
+		# 	name = air_techs_folder
+		# 	position = { x = @mothership_x y = 13 }
+		# }
 
 		categories = {
 			heavy_air
@@ -2240,7 +2256,7 @@ technologies = {
 			cat_strategic_bomber
 			mio_cat_all_heavy_aircraft_and_modules
 		}
-		special_project_specialization = { specialization_air }			
+		special_project_specialization = { specialization_air }	
 		mothership = {
 			air_agility = 0.1
 			air_range = 0.2
@@ -2251,4 +2267,78 @@ technologies = {
 			factor = 1
 		}
 	}
+
+	#TPMP Changes
+	improved_mothership_airframe = {
+		allow = {
+			ROOT = {
+				is_special_project_completed = sp:sp_air_mothership_aircraft
+			}
+		}
+
+		is_special_project_tech = yes
+
+		path = {
+			leads_to_tech = advanced_mothership_airframe
+			research_cost_coeff = 1
+		}	
+
+		research_cost = 2
+		start_year = 1941
+
+		folder = {
+			name = bba_air_techs_folder
+			position = { x = @mothership_x_bba y = 7 }
+		}
+
+		categories = {
+			heavy_air
+			air_equipment
+			cat_strategic_bomber
+			mio_cat_all_heavy_aircraft_and_modules
+		}
+		special_project_specialization = { specialization_air }	
+
+		enable_equipments = {
+			mothership_equipment_1
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	advanced_mothership_airframe = {
+		allow = {
+			ROOT = {
+				is_special_project_completed = sp:sp_air_mothership_aircraft
+			}
+		}
+
+		is_special_project_tech = yes	
+
+		research_cost = 2
+		start_year = 1045
+
+		folder = {
+			name = bba_air_techs_folder
+			position = { x = @mothership_x_bba y = 12 }
+		}
+
+		categories = {
+			heavy_air
+			air_equipment
+			cat_strategic_bomber
+			mio_cat_all_heavy_aircraft_and_modules
+		}
+		special_project_specialization = { specialization_air }	
+
+		enable_equipments = {
+			mothership_equipment_2
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#TPMP Changes
 }

@@ -447,7 +447,7 @@ focus_tree = {
 
 			GER_modify_industrial_modifier = yes
 			add_to_variable = { 
-				GER_industrial_production_factory_max_efficiency_factor = 0.05
+				GER_industrial_production_factory_max_efficiency_factor = 0.025
 				tooltip = production_factory_max_efficiency_factor_tt
 			}
 			add_to_variable = { 
@@ -1009,7 +1009,7 @@ focus_tree = {
 				tooltip = conversion_cost_civ_to_mil_factor_tt
 			}
 			add_to_variable = { 
-				GER_industrial_production_factory_max_efficiency_factor = 0.05
+				GER_industrial_production_factory_max_efficiency_factor = 0.025
 				tooltip = production_factory_max_efficiency_factor_tt
 			}
 			add_to_variable = { 
@@ -2296,7 +2296,7 @@ focus_tree = {
 			modify_building_resources = {
         	   building = synthetic_refinery
         	   resource = rubber
-        	   amount = 20
+        	   amount = 30
         	}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
@@ -2852,13 +2852,7 @@ focus_tree = {
 					ratio > 0.5
 				}
 			}
-			OR = {
-				has_idea = tot_economic_mobilisation
-				casualties_inflicted_by = {
-					opponent = SOV
-					thousands > 999
-				}
-			}
+			has_idea = tot_economic_mobilisation
 		}
 
 		continue_if_invalid = yes

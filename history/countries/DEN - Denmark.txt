@@ -27,23 +27,6 @@ if = {
 	}
 }
 
-# Diplomacy
-IF = {
-	limit = {
-		OR = {
-			has_dlc = "Together for Victory"
-			has_dlc = "Man the Guns"
-		}
-	}
-	set_autonomy = {
-		target = ICE
-		autonomous_state = autonomy_dominion
-		freedom_level = 0.4
-	}
-	ELSE = {
-		puppet = ICE
-	}
-}
 
 #### COUNTRY LEADERS ####
 recruit_character = DEN_thorvald_stauning

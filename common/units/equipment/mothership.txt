@@ -1,22 +1,6 @@
 equipments = {
 	mothership_equipment = {
-		year = 1942
-
-		can_be_produced = {
-			if = {
-				limit = {
-					has_dlc = "Arms Against Tyranny"
-				}
-				NOT = {
-					has_idea = BUL_army_restrictions_aat
-				}
-			}
-			else = {
-				NOT = {
-					has_idea = BUL_army_restrictions
-				}
-			}
-		}
+		year = 1937
 
 		is_archetype = yes
 		is_convertable = yes
@@ -24,7 +8,6 @@ equipments = {
 		is_buildable = no
 		type = {
 			fighter
-			
 		}
 
 		allowed_types = {
@@ -38,12 +21,227 @@ equipments = {
 		interface_category = interface_category_air
 		
 		interface_overview_category_index = 1
+
+		air_superiority = 5
+		reliability = 0.8
+		lend_lease_cost = 10
+
+		build_cost_ic = 36
+		manpower = 80
+		fuel_consumption = 0
+
+		module_slots = {
+			fixed_main_weapon_slot = {
+				required = yes
+				allowed_module_categories = {
+					mothership_weapon
+				}
+			}
+
+			fixed_auxiliary_weapon_slot_1 = { 
+				required = no
+				allowed_module_categories = {
+					mothership_weapon
+				}
+			}
+			fixed_auxiliary_weapon_slot_2 = { 
+				required = no
+				allowed_module_categories = {
+					mothership_weapon
+				}
+			}
+
+			engine_type_slot = {
+				required = yes
+				allowed_module_categories = {
+					quad_large_plane_engine_type
+					large_plane_engine_type
+				}
+			}
+
+			special_type_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					plane_special_module_large
+					plane_special_module_defense_turret
+					plane_special_module_defense_turret_x2
+					plane_special_module_bomb_sights
+					plane_special_module_radio_navigation
+					plane_special_module_air_ground_radar
+					plane_special_module_air_air_radar
+					mine_warfare_defense
+				}
+			}
+
+			special_type_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					plane_special_module_large
+					plane_special_module_defense_turret
+					plane_special_module_defense_turret_x2
+					plane_special_module_bomb_sights
+					plane_special_module_radio_navigation
+					plane_special_module_air_ground_radar
+					plane_special_module_air_air_radar
+					mine_warfare_defense
+				}
+			}
+			special_type_slot_3 = {
+				required = no
+				allowed_module_categories = {
+					plane_special_module_large
+					plane_special_module_defense_turret
+					plane_special_module_defense_turret_x2
+					plane_special_module_bomb_sights
+					plane_special_module_radio_navigation
+					plane_special_module_air_ground_radar
+					plane_special_module_air_air_radar
+					mine_warfare_defense
+				}
+			}
+
+			special_type_slot_4 = {
+				required = no
+				allowed_module_categories = {
+					plane_special_module_large
+					plane_special_module_defense_turret
+					plane_special_module_defense_turret_x2
+					plane_special_module_bomb_sights
+					plane_special_module_radio_navigation
+					plane_special_module_air_ground_radar
+					plane_special_module_air_air_radar
+					mine_warfare_defense
+				}
+			}
+
+			special_type_slot_5 = {
+				required = no
+				allowed_module_categories = {
+					plane_special_module_large
+					plane_special_module_defense_turret
+					plane_special_module_defense_turret_x2
+					plane_special_module_bomb_sights
+					plane_special_module_radio_navigation
+					plane_special_module_air_ground_radar
+					plane_special_module_air_air_radar
+					mine_warfare_defense
+				}
+			}
+		}
+
+		module_count_limit = {
+			module = self_sealing_fuel_tanks_large
+			count < 2
+		}
+
+		module_count_limit = {
+			module = non_strategic_materials_large
+			count < 2
+		}
+
+		module_count_limit = {
+			module = flying_boat_large
+			count < 2
+		}
+
+		module_count_limit = {
+			module = demining_coil
+			count < 2
+		}
+
+		module_count_limit = {
+			category = plane_special_module_bomb_sights
+			count < 2
+		}
+
+		module_count_limit = {
+			category = plane_special_module_radio_navigation
+			count < 2
+		}
+
+		module_count_limit = {
+			category = plane_special_module_air_ground_radar
+			count < 2
+		}
+
+		module_count_limit = {
+			category = plane_special_module_air_air_radar
+			count < 2
+		}
+		module_count_limit = {
+			category = plane_special_module_defense_turret
+			count < 7
+		}
+
+		default_modules = {
+			engine_type_slot = engine_1_4x
+		}
 	}
 
-	mothership_equipment_0 = { #Is actually 5 planes strapped to another bigger plane. Its the tuna of the air
-		year = 1942
+	mothership_equipment_0 = { #Equal to Large Airframe 0
+		year = 1937
 
 		archetype = mothership_equipment
+		module_slots = inherit
+		priority = 100
+
+		allow_mission_type = {
+			air_superiority
+			interception
+		}
+
+		air_range = 1000
+		maximum_speed = 425
+		air_agility = 20
+		air_defence = 20
+		weight = 16
+
+		build_cost_ic = 48
+
+		resources = {
+			aluminium = 30
+			rubber = 20
+		}
+	}
+	mothership_equipment_1 = { #Equal to Large Airframe 2
+		year = 1941
+
+		archetype = mothership_equipment
+		module_slots = inherit
+		priority = 100
+
+		allow_mission_type = {
+			air_superiority
+			interception
+		}
+
+		air_range = 2000
+		maximum_speed = 450
+		air_agility = 30
+		air_defence = 35
+		weight = 20
+
+		build_cost_ic = 60
+
+		resources = {
+			aluminium = 40
+			rubber = 20
+		}
+
+		module_slots = {
+			fixed_auxiliary_weapon_slot_3 = { 
+				required = no
+				allowed_module_categories = {
+					mothership_weapon
+				}
+			}
+		}
+	}
+	mothership_equipment_2 = { #Equal to Large Airframe 4
+		year = 1945
+
+		archetype = mothership_equipment
+		module_slots = inherit
 		priority = 100
 
 		allow_mission_type = {
@@ -52,32 +250,31 @@ equipments = {
 		}
 
 		air_range = 3600
-		maximum_speed = 650
-		air_agility = 44 #57
-		air_attack = 190 #53
-		air_defence = 60  #8
+		maximum_speed = 475
+		air_agility = 40
+		air_defence = 54
+		weight = 24
 
-		upgrades = {
-			plane_gun_upgrade
-			plane_range_upgrade
-			plane_engine_upgrade
-			plane_reliability_upgrade
-		}
-		lend_lease_cost = 20
-		air_superiority = 13
-		reliability = 0.8
-
-
-		surface_detection = 40 # For airwing of 100 planes (Destroyer I: 20 surface detection)
+		build_cost_ic = 84
 
 		resources = {
-			#oil = 1
-			aluminium = 80
-			rubber = 30
+			aluminium = 50
+			rubber = 20
 		}
-		build_cost_ic = 200 #
-		manpower = 100
-		fuel_consumption = 1.32
 
+		module_slots = {
+			fixed_auxiliary_weapon_slot_3 = { 
+				required = no
+				allowed_module_categories = {
+					mothership_weapon
+				}
+			}
+			fixed_auxiliary_weapon_slot_4 = { 
+				required = no
+				allowed_module_categories = {
+					mothership_weapon
+				}
+			}
+		}
 	}
 }

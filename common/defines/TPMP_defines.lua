@@ -57,7 +57,7 @@ NDefines.NMilitary.LAND_AIR_COMBAT_MAX_PLANES_PER_ENEMY_WIDTH = 1	-- how many CA
 NDefines.NMilitary.RELIABILITY_ORG_REGAIN = -0.5		-- how much reliability affects org regain
 NDefines.NMilitary.RELIABILTY_RECOVERY = 0.50			-- factor affecting how much equipment is returned "from the dead"
 
-NDefines.NMilitary.LAND_SPEED_MODIFIER = 0.03			-- basic speed control
+NDefines.NMilitary.LAND_SPEED_MODIFIER = 0.04			-- basic speed control
 
 NDefines.NMilitary.PLANNING_DECAY = 0.01
 NDefines.NMilitary.PLAYER_ORDER_PLANNING_DECAY = 0.03		-- Amount of planning lost due to player manual order

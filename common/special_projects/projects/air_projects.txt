@@ -592,7 +592,7 @@ sp_air_mothership_aircraft = {
 	complexity = sp_complexity.medium 
 
 	allowed = {
-		has_dlc = "Gotterdammerung"		
+		has_dlc = "Gotterdammerung"
 	}
 
 	generic_prototype_rewards = {
@@ -609,7 +609,7 @@ sp_air_mothership_aircraft = {
 		sp_air_generic_reward_major_progress_3
 		sp_air_generic_reward_test_failure_1
 		#sp_air_generic_reward_test_failure_2
-		sp_air_generic_reward_test_failure_3	
+		sp_air_generic_reward_test_failure_3
 	}
 
 	available = { 
@@ -618,12 +618,7 @@ sp_air_mothership_aircraft = {
 				has_dlc = "By Blood Alone"
 			}
 			FROM = {
-				has_tech = improved_large_airframe
-			}
-		}
-		else = {
-			FROM = { 
-				has_tech = strategic_bomber2
+				has_tech = iw_large_airframe
 			}
 		}
 	}
@@ -638,29 +633,27 @@ sp_air_mothership_aircraft = {
 			rubber = 80
 		}
 	}
-	
+
 	prototype_time = sp_time.prototype.long
 
 	project_output = {
 		country_effects = {
 			custom_effect_tooltip = {
 				localization_key = SP_UNLOCK_TECH
-				TECH = reinforced_wings_mothership
+				TECH = improved_mothership_airframe
 			}
 			custom_effect_tooltip = {
 				localization_key = SP_UNLOCK_TECH
-				TECH = miniature_fighters
+				TECH = advanced_mothership_airframe
 			}
-			custom_effect_tooltip = {
-				localization_key = SP_UNLOCK_TECH
-				TECH = aerial_hangars
-			}			
 		}		
 
 		enable_equipments = {
 			mothership_equipment_0
 		}
 	}
+
+
 
 	unique_prototype_rewards = {
 		sp_air_mothership_unique_reward = {

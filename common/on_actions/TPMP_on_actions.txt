@@ -48,8 +48,14 @@ on_actions = {
 		effect = {
 			if = {
 				limit = {
-					tag = SPD
-					FROM = { tag = SPR }
+					OR = {
+						tag = SPD
+						tag = SPR
+					}
+					OR = {
+						FROM = { tag = SPD }
+						FROM = { tag = SPR }
+					}
 				}
 				#Axis Volunteers (14 Total)
 				if = {
