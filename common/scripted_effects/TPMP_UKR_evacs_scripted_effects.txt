@@ -1,0 +1,338 @@
+tpmp_evac_calculate_factories = { #Calculates number of factories in state for numbers 1 and 2(edge case, where removing too much is possible). It is needed because removing too much buildings causes erros
+
+	set_variable = { global.var_tpmp_EvacState_mil_count = 0 }
+	set_variable = { global.var_tpmp_EvacState_civ_count = 0 } #How this works is if: those vars are > 2, evacs work normally. If it is =<2, we need to consider number of factories in state as not to cause erros		
+
+	if = {
+		limit = {
+			THIS = {
+				arms_factory > 2
+			}
+		}
+		set_variable = { global.var_tpmp_EvacState_mil_count = 3 }
+		log = "[THIS.GetID] state has 3 or more mils"		
+	}
+	else = {
+		if = {
+			limit = {
+				THIS = { #check for 1
+					arms_factory > 0
+					arms_factory < 2
+				}
+			}
+			set_variable = { global.var_tpmp_EvacState_mil_count = 1 }
+		}
+		if = {
+			limit = {
+				THIS = { #check for 2
+					arms_factory > 1
+					arms_factory < 3
+				}
+			}
+			set_variable = { global.var_tpmp_EvacState_mil_count = 2 }
+		}
+
+		if = {
+			limit = {
+				THIS = { #check for 1
+					industrial_complex > 0
+					industrial_complex < 2
+				}
+			}
+			set_variable = { global.var_tpmp_EvacState_civ_count = 1 }
+		}
+		if = {
+			limit = {
+				THIS = { #check for 2
+					industrial_complex > 1
+					industrial_complex < 3
+				}
+			}
+			set_variable = { global.var_tpmp_EvacState_civ_count = 2 }
+		}
+		
+		log = "[THIS.GetID] state has [?global.var_tpmp_EvacState_mil_count] mils"
+	}
+
+	if = {
+		limit = {
+			THIS = {
+				industrial_complex > 2
+			}
+		}
+		set_variable = { global.var_tpmp_EvacState_civ_count = 3 }
+
+		log = "[THIS.GetID] state has 3 or more civs"
+	}
+	else = {
+		if = {
+			limit = {
+				THIS = { #check for 1
+					industrial_complex > 0
+					industrial_complex < 2
+				}
+			}
+			set_variable = { global.var_tpmp_EvacState_civ_count = 1 }
+		}
+		if = {
+			limit = {
+				THIS = { #check for 2
+					industrial_complex > 1
+					industrial_complex < 3
+				}
+			}
+			set_variable = { global.var_tpmp_EvacState_civ_count = 2 }
+		}
+		
+		log = "[THIS.GetID] state has [?global.var_tpmp_EvacState_civ_count] civs"
+	}	
+}
+
+tpmp_evac_evacuate_factories = { #Removes factories from states
+
+	if = {
+		limit = {
+			check_variable = { global.var_tpmp_EvacState_civ_count > 2 }
+		}
+		remove_building = {
+			type = industrial_complex
+    		level = THIS:var_tpmp_EvacStateAmountScope #Todo add here a variable
+		}
+		log = "Removed [?var_tpmp_EvacStateAmountScope] civs from [THIS.GetID]"	
+		SOV = {
+			random_owned_controlled_state = {
+				limit = {
+					is_evac_SOV_state = yes
+
+					free_building_slots = {
+						building = industrial_complex
+						size > 2
+						include_locked = no
+					}
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = THIS:var_tpmp_EvacStateAmountScope #todo add variable
+					instant_build = yes
+				}
+				log = "[THIS.GetName] Added [?var_tpmp_EvacStateAmountScope] civs to [THIS.GetID]"
+			}
+		}		
+		
+	}
+	else = {
+		if = {
+			limit = {
+				check_variable = { global.var_tpmp_EvacState_civ_count = 1 }
+			}
+			remove_building = {
+				type = industrial_complex
+				level = 1
+			}
+			log = "Removed 1 civ from [THIS.GetID]"
+			SOV = {
+				random_owned_controlled_state = {
+					limit = {
+						is_evac_SOV_state = yes
+
+						free_building_slots = {
+							building = industrial_complex
+							size > 0
+							include_locked = no
+						}
+					}
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+					log = "[THIS.GetName] Added 1 civs to [THIS.GetID]"					
+				}
+			}			
+		}
+		if = {
+			limit = {
+				check_variable = { global.var_tpmp_EvacState_civ_count = 2 }
+				check_variable = { global.var_tpmp_EvacStateAmount > 1 } #needed to not evac last 2 factories, even tho you should evac one
+			}
+			remove_building = {
+				type = industrial_complex
+				level = 2
+			}
+			log = "Removed 2 civs from [THIS.GetID]"			
+			SOV = {
+				random_owned_controlled_state = {
+					limit = {
+						is_evac_SOV_state = yes
+
+						free_building_slots = {
+							building = industrial_complex
+							size > 1
+							include_locked = no
+						}
+					}
+					add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = yes
+					}
+					log = "[THIS.GetName] Added 2 civs to [THIS.GetID]"					
+				}
+			}					
+		}
+		else = {
+			remove_building = {
+				type = industrial_complex
+				level = 1
+			}
+			log = "Removed 1 civs from [THIS.GetID]"			
+			SOV = {
+				random_owned_controlled_state = {
+					limit = {
+						is_evac_SOV_state = yes
+
+						free_building_slots = {
+							building = industrial_complex
+							size > 0
+							include_locked = no
+						}
+					}
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+					log = "[THIS.GetName] Added 1 civs to [THIS.GetID]"					
+				}
+			}			
+		}
+	}
+
+	if = {
+		limit = {
+			check_variable = { global.var_tpmp_EvacState_mil_count > 2 }
+		}
+		remove_building = {
+			type = arms_factory
+    		level = THIS:var_tpmp_EvacStateAmountScope #Todo add here a variable
+		}
+		log = "Removed [?var_tpmp_EvacStateAmountScope] mils from [THIS.GetID]"	
+		SOV = {
+			random_owned_controlled_state = {
+				limit = {
+					is_evac_SOV_state = yes
+
+					free_building_slots = {
+						building = arms_factory
+						size > 2
+						include_locked = no
+					}
+				}
+				add_building_construction = {
+   					type = arms_factory
+    				level = THIS:var_tpmp_EvacStateAmount #Todo Add variable
+  					instant_build = yes
+				}
+				log = "[THIS.GetName] Added [?var_tpmp_EvacStateAmountScope] mils to [THIS.GetID]"
+			}
+		}				
+	}
+	else = {
+		if = {
+			limit = {
+				check_variable = { global.var_tpmp_EvacState_mil_count = 1 }
+			}
+			remove_building = {
+				type = arms_factory
+				level = 1
+			}
+			log = "Removed 1 mil from [THIS.GetID]"				
+			SOV = {
+				random_owned_controlled_state = {
+					limit = {
+						is_evac_SOV_state = yes
+
+						free_building_slots = {
+							building = arms_factory
+							size > 0
+							include_locked = no
+						}
+					}
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+					log = "[THIS.GetName] Added 1 mil to [THIS.GetID]"
+				}
+			}				
+		}
+		if = {
+			limit = {
+				check_variable = { global.var_tpmp_EvacState_mil_count = 2 }
+				check_variable = { global.var_tpmp_EvacStateAmount > 1 }
+			}
+			remove_building = {
+				type = arms_factory
+				level = 2
+			}
+			log = "Removed 2 mils from [THIS.GetID]"				
+			SOV = {
+				random_owned_controlled_state = {
+					limit = {
+						is_evac_SOV_state = yes
+
+						free_building_slots = {
+							building = arms_factory
+							size > 1
+							include_locked = no
+						}
+					}
+					add_building_construction = {
+						type = arms_factory
+						level = 2
+						instant_build = yes
+					}
+					log = "[THIS.GetName] Added 2 mils to [THIS.GetID]"
+				}
+			}					
+		}
+		else = {
+			remove_building = {
+				type = arms_factory
+				level = 1
+			}
+			log = "Removed 1 mils from [THIS.GetID]"				
+			SOV = {
+				random_owned_controlled_state = {
+					limit = {
+						is_evac_SOV_state = yes
+
+						free_building_slots = {
+							building = arms_factory
+							size > 0
+							include_locked = no
+						}
+					}
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+					log = "[THIS.GetName] Added 1 mils to [THIS.GetID]"
+				}
+			}				
+		}
+	}	
+
+}
+
+tpmp_evac_calculate_evac_days = {
+	
+	multiply_variable = { global.var_tpmp_EvacStateDuration = 2 }
+	add_to_variable = { global.var_tpmp_EvacStateDuration = 2 }				
+}
+
+tpmp_evac_calculate_evac_days_initialization = {
+	set_variable = { global.var_tpmp_EvacStateDuration = 5 }
+}

@@ -1,0 +1,170 @@
+on_actions = {
+	#Sets up state array  for evacuation
+
+	on_declare_war = {
+		effect = {
+			if = {
+				limit = {
+					tag = GER
+					FROM = { tag = SOV }
+
+					UKR = {
+						has_completed_focus = ukr_question_of_evacuation
+					}
+				}
+
+				UKR = {
+					every_owned_state = { #00 First - border pass
+						limit = {
+							any_neighbor_state = {
+								owner = {
+									OR = {
+										tag = GER
+										tag = GEN
+										tag = HUN
+										tag = ROM
+									}
+								}
+							}
+						}
+						
+						###Add all the (GER) border states to array
+
+						add_to_array = {
+							array = global.array_tpmp_EvacState_00
+							value = THIS
+						}
+
+						THIS = { set_state_flag = flag_tpmp_marked_EvacState }
+
+						log = "[THIS.GetID] was added to array_tpmp_EvacState_00"
+						log = "[?global.array_tpmp_EvacState_00^num] number of elements in array_tpmp_EvacState_00"
+					}
+
+				}
+
+				UKR = {
+					every_owned_state = { #01 Second - border states of initial border states(00)
+						limit = {
+							any_neighbor_state = {
+								is_in_array = { global.array_tpmp_EvacState_00 = THIS }
+							}
+							NOT = {
+								has_state_flag = flag_tpmp_marked_EvacState
+							}
+						}
+
+						add_to_array = {
+							array = global.array_tpmp_EvacState_01
+							value = THIS
+						}
+
+						THIS = { set_state_flag = flag_tpmp_marked_EvacState }
+
+						log = "[THIS.GetID] was added to array_tpmp_EvacState_01"
+					}
+				}
+
+				UKR = {
+					every_owned_state = { #02
+						limit = {
+							any_neighbor_state = {
+								is_in_array = { global.array_tpmp_EvacState_01 = THIS }
+							}
+							NOT = {
+								has_state_flag = flag_tpmp_marked_EvacState
+							}
+						}
+
+						add_to_array = {
+							array = global.array_tpmp_EvacState_02
+							value = THIS
+						}
+
+						THIS = { set_state_flag = flag_tpmp_marked_EvacState }
+
+						log = "[THIS.GetID] was added to array_tpmp_EvacState_02"
+					}
+				}
+
+				UKR = {
+					every_owned_state = { #03
+						limit = {
+							any_neighbor_state = {
+								is_in_array = { global.array_tpmp_EvacState_02 = THIS }
+							}
+							NOT = {
+								has_state_flag = flag_tpmp_marked_EvacState
+							}
+						}
+
+						add_to_array = {
+							array = global.array_tpmp_EvacState_03
+							value = THIS
+						}
+
+						THIS = { set_state_flag = flag_tpmp_marked_EvacState }
+
+						log = "[THIS.GetID] was added to array_tpmp_EvacState_03"
+					}
+				}
+
+				UKR = {
+					every_owned_state = { #04 - Moscow Line
+						limit = {
+							any_neighbor_state = {
+								is_in_array = { global.array_tpmp_EvacState_03 = THIS }
+							}
+							NOT = {
+								has_state_flag = flag_tpmp_marked_EvacState
+							}
+						}
+
+						add_to_array = {
+							array = global.array_tpmp_EvacState_04
+							value = THIS
+						}
+
+						THIS = { set_state_flag = flag_tpmp_marked_EvacState }
+
+						log = "[THIS.GetID] was added to array_tpmp_EvacState_04"
+					}
+				}
+
+				UKR = {
+					every_owned_state = { #05 - state behind moscow(last ukrainian state too) 
+						limit = {
+							any_neighbor_state = {
+								is_in_array = { global.array_tpmp_EvacState_04 = THIS }
+							}
+							NOT = {
+								has_state_flag = flag_tpmp_marked_EvacState
+							}
+						}
+
+						add_to_array = {
+							array = global.array_tpmp_EvacState_05
+							value = THIS
+						}
+
+						THIS = { set_state_flag = flag_tpmp_marked_EvacState }
+
+						log = "[THIS.GetID] was added to array_tpmp_EvacState_05"
+					}
+				}
+
+				#Clear State Flags and variables
+
+				UKR = {
+					every_owned_state = {
+						clr_state_flag = flag_tpmp_marked_EvacState
+					}
+				}
+				
+				UKR = {
+					activate_mission = TPMP_EvacState_00_mission
+				}
+			}
+		}
+	}
+}
