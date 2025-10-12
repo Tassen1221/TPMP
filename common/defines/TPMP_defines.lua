@@ -81,8 +81,8 @@ NDefines.NMilitary.RIVER_CROSSING_PENALTY_LARGE = -0.5	-- large river crossing
 
 NDefines.NMilitary.COMBAT_OVER_WIDTH_PENALTY = -1		-- over combat width penalty per %.
 NDefines.NMilitary.COMBAT_OVER_WIDTH_PENALTY_MAX = -0.15	-- over combat width max (when you cant join no more).
-NDefines.NMilitary.COMBAT_STACKING_START = 4			-- at what nr of divisions stacking penalty starts
-NDefines.NMilitary.COMBAT_STACKING_EXTRA = 1                    -- extra stacking from directions
+NDefines.NMilitary.COMBAT_STACKING_START = 6			-- at what nr of divisions stacking penalty starts
+NDefines.NMilitary.COMBAT_STACKING_EXTRA = 2                    -- extra stacking from directions
 NDefines.NMilitary.COMBAT_STACKING_PENALTY = -0.25		-- how much stacking penalty per division
 
 NDefines.NMilitary.CORPS_COMMANDER_DIVISIONS_CAP = 24		-- how many divisions a corps commander is limited to. 0 = inf, < 0 = blocked
