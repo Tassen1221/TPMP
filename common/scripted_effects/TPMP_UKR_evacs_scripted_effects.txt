@@ -10,7 +10,7 @@ tpmp_evac_calculate_factories = { #Calculates number of factories in state for n
 			}
 		}
 		set_variable = { global.var_tpmp_EvacState_mil_count = 3 }
-		log = "[THIS.GetID] state has 3 or more mils"		
+		#log = "[THIS.GetID] state has 3 or more mils"		
 	}
 	else = {
 		if = {
@@ -51,7 +51,7 @@ tpmp_evac_calculate_factories = { #Calculates number of factories in state for n
 			set_variable = { global.var_tpmp_EvacState_civ_count = 2 }
 		}
 		
-		log = "[THIS.GetID] state has [?global.var_tpmp_EvacState_mil_count] mils"
+		#log = "[THIS.GetID] state has [?global.var_tpmp_EvacState_mil_count] mils"
 	}
 
 	if = {
@@ -62,7 +62,7 @@ tpmp_evac_calculate_factories = { #Calculates number of factories in state for n
 		}
 		set_variable = { global.var_tpmp_EvacState_civ_count = 3 }
 
-		log = "[THIS.GetID] state has 3 or more civs"
+		#log = "[THIS.GetID] state has 3 or more civs"
 	}
 	else = {
 		if = {
@@ -84,7 +84,7 @@ tpmp_evac_calculate_factories = { #Calculates number of factories in state for n
 			set_variable = { global.var_tpmp_EvacState_civ_count = 2 }
 		}
 		
-		log = "[THIS.GetID] state has [?global.var_tpmp_EvacState_civ_count] civs"
+		#log = "[THIS.GetID] state has [?global.var_tpmp_EvacState_civ_count] civs"
 	}	
 }
 
@@ -98,7 +98,7 @@ tpmp_evac_evacuate_factories = { #Removes factories from states
 			type = industrial_complex
     		level = THIS:var_tpmp_EvacStateAmountScope #Todo add here a variable
 		}
-		log = "Removed [?var_tpmp_EvacStateAmountScope] civs from [THIS.GetID]"	
+		#log = "Removed [?var_tpmp_EvacStateAmountScope] civs from [THIS.GetID]"	
 		SOV = {
 			random_owned_controlled_state = {
 				limit = {
@@ -115,7 +115,7 @@ tpmp_evac_evacuate_factories = { #Removes factories from states
 					level = THIS:var_tpmp_EvacStateAmountScope #todo add variable
 					instant_build = yes
 				}
-				log = "[THIS.GetName] Added [?var_tpmp_EvacStateAmountScope] civs to [THIS.GetID]"
+				#log = "[THIS.GetName] Added [?var_tpmp_EvacStateAmountScope] civs to [THIS.GetID]"
 			}
 		}		
 		
@@ -129,7 +129,7 @@ tpmp_evac_evacuate_factories = { #Removes factories from states
 				type = industrial_complex
 				level = 1
 			}
-			log = "Removed 1 civ from [THIS.GetID]"
+			#log = "Removed 1 civ from [THIS.GetID]"
 			SOV = {
 				random_owned_controlled_state = {
 					limit = {
@@ -146,7 +146,7 @@ tpmp_evac_evacuate_factories = { #Removes factories from states
 						level = 1
 						instant_build = yes
 					}
-					log = "[THIS.GetName] Added 1 civs to [THIS.GetID]"					
+					#log = "[THIS.GetName] Added 1 civs to [THIS.GetID]"					
 				}
 			}			
 		}
@@ -159,7 +159,7 @@ tpmp_evac_evacuate_factories = { #Removes factories from states
 				type = industrial_complex
 				level = 2
 			}
-			log = "Removed 2 civs from [THIS.GetID]"			
+			#log = "Removed 2 civs from [THIS.GetID]"			
 			SOV = {
 				random_owned_controlled_state = {
 					limit = {
@@ -176,7 +176,7 @@ tpmp_evac_evacuate_factories = { #Removes factories from states
 						level = 2
 						instant_build = yes
 					}
-					log = "[THIS.GetName] Added 2 civs to [THIS.GetID]"					
+					#log = "[THIS.GetName] Added 2 civs to [THIS.GetID]"					
 				}
 			}					
 		}
@@ -185,7 +185,7 @@ tpmp_evac_evacuate_factories = { #Removes factories from states
 				type = industrial_complex
 				level = 1
 			}
-			log = "Removed 1 civs from [THIS.GetID]"			
+			#log = "Removed 1 civs from [THIS.GetID]"			
 			SOV = {
 				random_owned_controlled_state = {
 					limit = {
@@ -202,7 +202,7 @@ tpmp_evac_evacuate_factories = { #Removes factories from states
 						level = 1
 						instant_build = yes
 					}
-					log = "[THIS.GetName] Added 1 civs to [THIS.GetID]"					
+					#log = "[THIS.GetName] Added 1 civs to [THIS.GetID]"					
 				}
 			}			
 		}
@@ -216,7 +216,7 @@ tpmp_evac_evacuate_factories = { #Removes factories from states
 			type = arms_factory
     		level = THIS:var_tpmp_EvacStateAmountScope #Todo add here a variable
 		}
-		log = "Removed [?var_tpmp_EvacStateAmountScope] mils from [THIS.GetID]"	
+		#log = "Removed [?var_tpmp_EvacStateAmountScope] mils from [THIS.GetID]"	
 		SOV = {
 			random_owned_controlled_state = {
 				limit = {
@@ -233,7 +233,7 @@ tpmp_evac_evacuate_factories = { #Removes factories from states
     				level = THIS:var_tpmp_EvacStateAmount #Todo Add variable
   					instant_build = yes
 				}
-				log = "[THIS.GetName] Added [?var_tpmp_EvacStateAmountScope] mils to [THIS.GetID]"
+				#log = "[THIS.GetName] Added [?var_tpmp_EvacStateAmountScope] mils to [THIS.GetID]"
 			}
 		}				
 	}
@@ -246,7 +246,7 @@ tpmp_evac_evacuate_factories = { #Removes factories from states
 				type = arms_factory
 				level = 1
 			}
-			log = "Removed 1 mil from [THIS.GetID]"				
+			#log = "Removed 1 mil from [THIS.GetID]"				
 			SOV = {
 				random_owned_controlled_state = {
 					limit = {
@@ -263,7 +263,7 @@ tpmp_evac_evacuate_factories = { #Removes factories from states
 						level = 1
 						instant_build = yes
 					}
-					log = "[THIS.GetName] Added 1 mil to [THIS.GetID]"
+					#log = "[THIS.GetName] Added 1 mil to [THIS.GetID]"
 				}
 			}				
 		}
@@ -276,7 +276,7 @@ tpmp_evac_evacuate_factories = { #Removes factories from states
 				type = arms_factory
 				level = 2
 			}
-			log = "Removed 2 mils from [THIS.GetID]"				
+			#log = "Removed 2 mils from [THIS.GetID]"				
 			SOV = {
 				random_owned_controlled_state = {
 					limit = {
@@ -293,7 +293,7 @@ tpmp_evac_evacuate_factories = { #Removes factories from states
 						level = 2
 						instant_build = yes
 					}
-					log = "[THIS.GetName] Added 2 mils to [THIS.GetID]"
+					#log = "[THIS.GetName] Added 2 mils to [THIS.GetID]"
 				}
 			}					
 		}
@@ -302,7 +302,7 @@ tpmp_evac_evacuate_factories = { #Removes factories from states
 				type = arms_factory
 				level = 1
 			}
-			log = "Removed 1 mils from [THIS.GetID]"				
+			#log = "Removed 1 mils from [THIS.GetID]"				
 			SOV = {
 				random_owned_controlled_state = {
 					limit = {
@@ -319,7 +319,7 @@ tpmp_evac_evacuate_factories = { #Removes factories from states
 						level = 1
 						instant_build = yes
 					}
-					log = "[THIS.GetName] Added 1 mils to [THIS.GetID]"
+					#log = "[THIS.GetName] Added 1 mils to [THIS.GetID]"
 				}
 			}				
 		}
