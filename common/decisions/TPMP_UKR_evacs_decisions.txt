@@ -1,0 +1,890 @@
+UKR_evacuation_mission_cat = {
+
+	UKR_TPMP_EvacState_statemark_debug = { #TODO copy to on actions
+
+		available = {
+			tag = UKR
+		}
+
+		visible = {
+			is_debug = yes
+		}
+
+		cost = 0
+
+		days_remove = 1
+
+		days_re_enable = 1
+
+		complete_effect = {
+			UKR = {
+				every_owned_state = { #00 First - border pass
+					limit = {
+						any_neighbor_state = {
+							owner = {
+								OR = {
+									tag = GER
+									tag = GEN
+									tag = HUN
+									tag = ROM
+								}
+							}
+						}
+					}
+					
+					###Add all the (GER) border states to array
+
+					add_to_array = {
+						array = global.array_tpmp_EvacState_00
+						value = THIS
+					}
+
+					THIS = { set_state_flag = flag_tpmp_marked_EvacState }
+
+					#log = "[THIS.GetID] was added to array_tpmp_EvacState_00"
+					#log = "[?global.array_tpmp_EvacState_00^num] number of elements in array_tpmp_EvacState_00"
+				}
+
+			}
+
+			UKR = {
+				every_owned_state = { #01 Second - border states of initial border states(00)
+					limit = {
+						any_neighbor_state = {
+							is_in_array = { global.array_tpmp_EvacState_00 = THIS }
+						}
+						NOT = {
+							has_state_flag = flag_tpmp_marked_EvacState
+						}
+					}
+
+					add_to_array = {
+						array = global.array_tpmp_EvacState_01
+						value = THIS
+					}
+
+					THIS = { set_state_flag = flag_tpmp_marked_EvacState }
+
+					#log = "[THIS.GetID] was added to array_tpmp_EvacState_01"
+				}
+			}
+
+			UKR = {
+				every_owned_state = { #02
+					limit = {
+						any_neighbor_state = {
+							is_in_array = { global.array_tpmp_EvacState_01 = THIS }
+						}
+						NOT = {
+							has_state_flag = flag_tpmp_marked_EvacState
+						}
+					}
+
+					add_to_array = {
+						array = global.array_tpmp_EvacState_02
+						value = THIS
+					}
+
+					THIS = { set_state_flag = flag_tpmp_marked_EvacState }
+
+					#log = "[THIS.GetID] was added to array_tpmp_EvacState_02"
+				}
+			}
+
+			UKR = {
+				every_owned_state = { #03
+					limit = {
+						any_neighbor_state = {
+							is_in_array = { global.array_tpmp_EvacState_02 = THIS }
+						}
+						NOT = {
+							has_state_flag = flag_tpmp_marked_EvacState
+						}
+					}
+
+					add_to_array = {
+						array = global.array_tpmp_EvacState_03
+						value = THIS
+					}
+
+					THIS = { set_state_flag = flag_tpmp_marked_EvacState }
+
+					#log = "[THIS.GetID] was added to array_tpmp_EvacState_03"
+				}
+			}
+
+			UKR = {
+				every_owned_state = { #04 - Moscow Line
+					limit = {
+						any_neighbor_state = {
+							is_in_array = { global.array_tpmp_EvacState_03 = THIS }
+						}
+						NOT = {
+							has_state_flag = flag_tpmp_marked_EvacState
+						}
+					}
+
+					add_to_array = {
+						array = global.array_tpmp_EvacState_04
+						value = THIS
+					}
+
+					THIS = { set_state_flag = flag_tpmp_marked_EvacState }
+
+					#log = "[THIS.GetID] was added to array_tpmp_EvacState_04"
+				}
+			}
+
+			UKR = {
+				every_owned_state = { #05 - state behind moscow(last ukrainian state too) 
+					limit = {
+						any_neighbor_state = {
+							is_in_array = { global.array_tpmp_EvacState_04 = THIS }
+						}
+						NOT = {
+							has_state_flag = flag_tpmp_marked_EvacState
+						}
+					}
+
+					add_to_array = {
+						array = global.array_tpmp_EvacState_05
+						value = THIS
+					}
+
+					THIS = { set_state_flag = flag_tpmp_marked_EvacState }
+
+					#log = "[THIS.GetID] was added to array_tpmp_EvacState_05"
+				}
+			}
+
+			UKR = {
+				every_owned_state = {
+					clr_state_flag = flag_tpmp_marked_EvacState
+				}
+			}		
+		}
+
+		remove_effect = {
+
+		}
+	}
+
+	UKR_TPMP_EvacState_mission_debug = {
+
+		available = {
+			tag = UKR
+		}
+
+		visible = {
+			is_debug = yes
+		}
+
+		cost = 0
+
+		days_remove = 1
+
+		days_re_enable = 1
+
+		complete_effect = {
+			activate_mission = TPMP_EvacState_00_mission
+		}
+
+		remove_effect = {
+
+		}
+	}
+
+	TPMP_EvacState_00_mission = {
+
+		activation = {
+			always = no
+		}
+
+		allowed = {
+   			original_tag = UKR
+		}
+
+		available = {
+			always = no
+		}
+
+		visible = {
+    		always = yes
+		}
+
+		icon = GFX_decision_generic_factory
+		days_mission_timeout = global.var_tpmp_EvacStateDuration
+   		selectable_mission = no
+		is_good = no
+
+		timeout_effect = {
+			hidden_effect = {
+				UKR = {
+					
+					every_owned_state = {
+						limit = {
+							is_in_array = { global.array_tpmp_EvacState_00 = THIS }
+						}
+						if = {
+							limit = {
+								THIS = {
+									OR = {
+										industrial_complex > 0
+										arms_factory > 0
+									}
+								}
+							}
+
+							set_variable = { THIS:var_tpmp_EvacStateAmountScope = global.var_tpmp_EvacStateAmount }
+							tpmp_evac_calculate_factories = yes
+
+							tpmp_evac_evacuate_factories = yes
+
+
+
+							#log = "[THIS.GetID] is NOT empty"
+								
+							}
+						else = {
+							#log = "[THIS.GetID] is empty"
+							set_state_flag = flag_tpmp_state_is_evacuated
+						}
+					}
+
+					if = {
+						limit = {
+							all_of_scopes = {
+								array =  global.array_tpmp_EvacState_00
+								OR = {
+									has_state_flag = flag_tpmp_state_is_evacuated
+									NOT = {
+										is_controlled_by = UKR
+									}
+								}
+
+							}
+						}
+						#log = "All States are evaced"
+						tpmp_evac_calculate_evac_days = yes
+						activate_mission = TPMP_EvacState_01_mission
+					}
+					else = {
+						#log = "All state ARE NOT evaced"
+						activate_mission = TPMP_EvacState_00_mission
+					}
+
+					every_owned_state = { #Todo Question of optimization. If it is evaced, is it not better to do limit = in every owned state? Possible problem - building a mil after evaced doesn't let it evac
+						clr_state_flag = flag_tpmp_state_is_evacuated
+					}
+				}
+			}			
+		}
+	}
+
+	TPMP_EvacState_01_mission = {
+		
+		activation = {
+			always = no
+		}
+
+		allowed = {
+   			original_tag = UKR
+		}
+
+		available = {
+			always = no
+		}
+
+		visible = {
+    		always = yes
+		}
+
+		icon = GFX_decision_generic_factory
+		days_mission_timeout = global.var_tpmp_EvacStateDuration
+   		selectable_mission = no
+		is_good = no
+
+		timeout_effect = {
+			hidden_effect = {
+				UKR = {
+					
+					every_owned_state = {
+						limit = {
+							is_in_array = { global.array_tpmp_EvacState_01 = THIS }
+						}
+						if = {
+							limit = {
+								THIS = {
+									OR = {
+										industrial_complex > 0
+										arms_factory > 0
+									}
+								}
+							}
+
+							set_variable = { THIS:var_tpmp_EvacStateAmountScope = global.var_tpmp_EvacStateAmount }
+							tpmp_evac_calculate_factories = yes
+
+							tpmp_evac_evacuate_factories = yes
+
+
+
+							#log = "[THIS.GetID] is NOT empty"
+								
+							}
+						else = {
+							#log = "[THIS.GetID] is empty"
+							set_state_flag = flag_tpmp_state_is_evacuated
+						}
+					}
+
+					if = {
+						limit = {
+							all_of_scopes = {
+								array =  global.array_tpmp_EvacState_01
+								OR = {
+									has_state_flag = flag_tpmp_state_is_evacuated
+									NOT = {
+										is_controlled_by = UKR
+									}
+								}
+
+							}
+						}
+						#log = "All States are evaced"
+						tpmp_evac_calculate_evac_days = yes
+						activate_mission = TPMP_EvacState_02_mission
+					}
+					else = {
+						#log = "All state ARE NOT evaced"
+						tpmp_evac_calculate_evac_days = yes
+						activate_mission = TPMP_EvacState_01_mission
+					}
+
+					every_owned_state = { #Todo Question of optimization. If it is evaced, is it not better to do limit = in every owned state? Possible problem - building a mil after evaced doesn't let it evac. 
+					#You can technically do check after all evacs are done, but it sucks and is a debuff for UKR.
+						clr_state_flag = flag_tpmp_state_is_evacuated
+					}
+				}
+			}			
+		}
+
+	}
+
+	TPMP_EvacState_02_mission = {
+
+		activation = {
+			always = no
+		}
+
+		allowed = {
+   			original_tag = UKR
+		}
+
+		available = {
+			always = no
+		}
+
+		visible = {
+    		always = yes
+		}
+
+		icon = GFX_decision_generic_factory
+		days_mission_timeout = global.var_tpmp_EvacStateDuration
+   		selectable_mission = no
+		is_good = no
+
+		timeout_effect = {
+			hidden_effect = {
+				UKR = {
+					
+					every_owned_state = {
+						limit = {
+							is_in_array = { global.array_tpmp_EvacState_02 = THIS }
+						}
+						if = {
+							limit = {
+								THIS = {
+									OR = {
+										industrial_complex > 0
+										arms_factory > 0
+									}
+								}
+							}
+
+							set_variable = { THIS:var_tpmp_EvacStateAmountScope = global.var_tpmp_EvacStateAmount }
+							tpmp_evac_calculate_factories = yes
+
+							tpmp_evac_evacuate_factories = yes
+
+
+
+							#log = "[THIS.GetID] is NOT empty"
+								
+							}
+						else = {
+							#log = "[THIS.GetID] is empty"
+							set_state_flag = flag_tpmp_state_is_evacuated
+						}
+					}
+
+					if = {
+						limit = {
+							all_of_scopes = {
+								array =  global.array_tpmp_EvacState_02
+								OR = {
+									has_state_flag = flag_tpmp_state_is_evacuated
+									NOT = {
+										is_controlled_by = UKR
+									}
+								}
+
+							}
+						}
+						#log = "All States are evaced"
+						tpmp_evac_calculate_evac_days = yes
+						activate_mission = TPMP_EvacState_03_mission
+					}
+					else = {
+						#log = "All state ARE NOT evaced"
+						activate_mission = TPMP_EvacState_02_mission
+					}
+
+					every_owned_state = { #Todo Question of optimization. If it is evaced, is it not better to do limit = in every owned state? Possible problem - building a mil after evaced doesn't let it evac
+						clr_state_flag = flag_tpmp_state_is_evacuated
+					}
+				}
+			}			
+		}
+
+	}
+	
+	TPMP_EvacState_03_mission = {
+
+		activation = {
+			always = no
+		}
+
+		allowed = {
+   			original_tag = UKR
+		}
+
+		available = {
+			always = no
+		}
+
+		visible = {
+    		always = yes
+		}
+
+		icon = GFX_decision_generic_factory
+		days_mission_timeout = global.var_tpmp_EvacStateDuration
+   		selectable_mission = no
+		is_good = no
+
+		timeout_effect = {
+			hidden_effect = {
+				UKR = {
+					
+					every_owned_state = {
+						limit = {
+							is_in_array = { global.array_tpmp_EvacState_03 = THIS }
+						}
+						if = {
+							limit = {
+								THIS = {
+									OR = {
+										industrial_complex > 0
+										arms_factory > 0
+									}
+								}
+							}
+
+							set_variable = { THIS:var_tpmp_EvacStateAmountScope = global.var_tpmp_EvacStateAmount }
+							tpmp_evac_calculate_factories = yes
+
+							tpmp_evac_evacuate_factories = yes
+
+
+
+							#log = "[THIS.GetID] is NOT empty"
+								
+							}
+						else = {
+							#log = "[THIS.GetID] is empty"
+							set_state_flag = flag_tpmp_state_is_evacuated
+						}
+					}
+
+					if = {
+						limit = {
+							all_of_scopes = {
+								array =  global.array_tpmp_EvacState_03
+								OR = {
+									has_state_flag = flag_tpmp_state_is_evacuated
+									NOT = {
+										is_controlled_by = UKR
+									}
+								}
+
+							}
+						}
+						#log = "All States are evaced"
+						tpmp_evac_calculate_evac_days = yes
+						activate_mission = TPMP_EvacState_04_mission
+					}
+					else = {
+						#log = "All state ARE NOT evaced"
+						activate_mission = TPMP_EvacState_03_mission
+					}
+
+					every_owned_state = { #Todo Question of optimization. If it is evaced, is it not better to do limit = in every owned state? Possible problem - building a mil after evaced doesn't let it evac
+						clr_state_flag = flag_tpmp_state_is_evacuated
+					}
+				}
+			}			
+		}
+	}	
+
+	TPMP_EvacState_04_mission = {
+
+		activation = {
+			always = no
+		}
+
+		allowed = {
+   			original_tag = UKR
+		}
+
+		available = {
+			always = no
+		}
+
+		visible = {
+    		always = yes
+		}
+
+		icon = GFX_decision_generic_factory
+		days_mission_timeout = global.var_tpmp_EvacStateDuration
+   		selectable_mission = no
+		is_good = no
+
+		timeout_effect = {
+			hidden_effect = {
+				UKR = {
+					
+					every_owned_state = {
+						limit = {
+							is_in_array = { global.array_tpmp_EvacState_04 = THIS }
+						}
+						if = {
+							limit = {
+								THIS = {
+									OR = {
+										industrial_complex > 0
+										arms_factory > 0
+									}
+								}
+							}
+
+							set_variable = { THIS:var_tpmp_EvacStateAmountScope = global.var_tpmp_EvacStateAmount }
+							tpmp_evac_calculate_factories = yes
+
+							tpmp_evac_evacuate_factories = yes
+
+
+
+							#log = "[THIS.GetID] is NOT empty"
+								
+							}
+						else = {
+							#log = "[THIS.GetID] is empty"
+							set_state_flag = flag_tpmp_state_is_evacuated
+						}
+					}
+
+					if = {
+						limit = {
+							all_of_scopes = {
+								array =  global.array_tpmp_EvacState_04
+								OR = {
+									has_state_flag = flag_tpmp_state_is_evacuated
+									NOT = {
+										is_controlled_by = UKR
+									}
+								}
+
+							}
+						}
+						#log = "All States are evaced"
+						#tpmp_evac_calculate_evac_days = yes #Too many days
+						activate_mission = TPMP_EvacState_05_mission
+					}
+					else = {
+						#log = "All state ARE NOT evaced"
+						activate_mission = TPMP_EvacState_04_mission
+					}
+
+					every_owned_state = { #Todo Question of optimization. If it is evaced, is it not better to do limit = in every owned state? Possible problem - building a mil after evaced doesn't let it evac
+						clr_state_flag = flag_tpmp_state_is_evacuated
+					}
+				}
+			}			
+		}
+	}
+
+	TPMP_EvacState_05_mission = {
+
+		activation = {
+			always = no
+		}
+
+		allowed = {
+   			original_tag = UKR
+		}
+
+		available = {
+			always = no
+		}
+
+		visible = {
+    		always = yes
+		}
+
+		icon = GFX_decision_generic_factory
+		days_mission_timeout = global.var_tpmp_EvacStateDuration
+   		selectable_mission = no
+		is_good = no
+
+		timeout_effect = {
+			hidden_effect = {
+				UKR = {
+					
+					every_owned_state = {
+						limit = {
+							is_in_array = { global.array_tpmp_EvacState_05 = THIS }
+						}
+						if = {
+							limit = {
+								THIS = {
+									OR = {
+										industrial_complex > 0
+										arms_factory > 0
+									}
+								}
+							}
+
+							set_variable = { THIS:var_tpmp_EvacStateAmountScope = global.var_tpmp_EvacStateAmount }
+							tpmp_evac_calculate_factories = yes
+
+							tpmp_evac_evacuate_factories = yes
+
+
+
+							#log = "[THIS.GetID] is NOT empty"
+								
+							}
+						else = {
+							#log = "[THIS.GetID] is empty"
+							set_state_flag = flag_tpmp_state_is_evacuated
+						}
+					}
+
+					if = {
+						limit = {
+							all_of_scopes = {
+								array =  global.array_tpmp_EvacState_05
+								OR = {
+									has_state_flag = flag_tpmp_state_is_evacuated
+									NOT = {
+										is_controlled_by = UKR
+									}
+								}
+
+							}
+						}
+						#log = "All States are evaced"
+						if = {
+							limit = {
+								UKR = {
+									NOT = {
+										has_country_flag = flag_tpmp_second_pass
+									}
+								}
+							}
+							tpmp_evac_calculate_evac_days = yes
+							tpmp_evac_calculate_evac_days_initialization = yes
+							activate_mission = TPMP_EvacState_00_mission
+							set_country_flag = flag_tpmp_second_pass
+							#log = "Second Evac Pass has been started"
+						}
+						else = { #Closing Evac state system 
+							#log = "Closing Evac System"
+							clr_country_flag = flag_tpmp_second_pass
+							every_owned_state = {
+								clear_array = global.array_tpmp_EvacState_00
+								clear_array = global.array_tpmp_EvacState_01
+								clear_array = global.array_tpmp_EvacState_02
+								clear_array = global.array_tpmp_EvacState_03
+								clear_array = global.array_tpmp_EvacState_04
+								clear_array = global.array_tpmp_EvacState_05	
+							}
+							clear_variable = global.var_tpmp_EvacStateDuration
+							clear_variable = global.var_tpmp_EvacStateAmount
+							clear_variable = global.var_tpmp_EvacState_mil_count
+							clear_variable = global.var_tpmp_EvacState_civ_count
+						}
+
+					}
+					else = {
+						#log = "All state ARE NOT evaced"
+						activate_mission = TPMP_EvacState_05_mission
+					}
+
+					every_owned_state = { #Todo Question of optimization. If it is evaced, is it not better to do limit = in every owned state? Possible problem - building a mil after evaced doesn't let it evac
+						clr_state_flag = flag_tpmp_state_is_evacuated
+					}
+				}
+			}			
+		}
+	}
+
+	UKR_TPMP_EvacState_variable_debug = {
+
+		
+		available = {
+			tag = UKR
+		}
+
+		visible = {
+			is_debug = yes
+		}
+
+		cost = 0
+
+		days_remove = 1
+
+		days_re_enable = 1
+
+		complete_effect = {
+			set_variable = { global.var_tpmp_EvacStateDuration = 1 }
+			set_variable = { global.var_tpmp_EvacStateAmount = 3 }
+		}
+
+		remove_effect = {
+
+		}
+	}
+	
+	UKR_TPMP_EvacState_debug = {
+
+		available = {
+			tag = UKR
+		}
+
+		visible = {
+			is_debug = yes
+		}
+
+		cost = 0
+
+		days_remove = 1
+
+		days_re_enable = 1
+
+		complete_effect = {
+
+			UKR = {
+				
+				every_owned_state = {
+					limit = {
+						is_in_array = { global.array_tpmp_EvacState_00 = THIS }
+					}
+					if = {
+						limit = {
+							THIS = {
+								OR = {
+									industrial_complex > 0
+									arms_factory > 0
+								}
+							}
+						}
+
+						set_variable = { THIS:var_tpmp_EvacStateAmountScope = global.var_tpmp_EvacStateAmount }
+						tpmp_evac_calculate_factories = yes
+
+						tpmp_evac_evacuate_factories = yes
+
+
+
+						#log = "[THIS.GetID] is NOT empty"
+							
+						}
+					else = {
+						#log = "[THIS.GetID] is empty"
+						set_state_flag = flag_tpmp_state_is_evacuated
+					}
+				}
+
+				if = {
+					limit = {
+						all_of_scopes = {
+							array =  global.array_tpmp_EvacState_00
+							has_state_flag = flag_tpmp_state_is_evacuated
+						}
+					}
+					#log = "All States are evaced"
+				}
+				else = {
+					#log = "NOT EVACED"
+				}
+			}			
+		}							
+
+		remove_effect = {
+			UKR = {
+				every_owned_state = {
+					clr_state_flag = flag_tpmp_state_is_evacuated
+				}
+			}
+		}
+
+	}
+	
+
+
+	UKR_TPMP_EvacState_array_clear_debug = {
+
+		available = {
+			tag = UKR
+		}
+
+		visible = {
+			is_debug = yes
+		}
+
+		cost = 0
+
+		days_remove = 1
+
+		days_re_enable = 1
+
+		complete_effect = {
+			UKR = {
+				every_owned_state = {
+					clear_array = global.array_tpmp_EvacState_00
+					clear_array = global.array_tpmp_EvacState_01
+					clear_array = global.array_tpmp_EvacState_02
+					clear_array = global.array_tpmp_EvacState_03
+					clear_array = global.array_tpmp_EvacState_04
+					clear_array = global.array_tpmp_EvacState_05	
+				}
+			}					
+		}
+
+		remove_effect = {
+
+		}
+	}
+
+}

@@ -52,16 +52,7 @@ focus_tree = {
 		available = {
 		}
 		allow_branch = {
-			IF = {
-				limit = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-				}
-				NOT = { has_completed_focus = BRA_end_the_state_of_emergency }
-				NOT = { has_completed_focus = BRA_prepare_for_second_intentona }
-			}
+			always = no
 		}
 		search_filters = { FOCUS_FILTER_HISTORICAL }
 
@@ -2016,6 +2007,10 @@ focus_tree = {
 			}
 		}
 
+		allow_branch={
+			always=no
+		}
+
 		search_filters = { FOCUS_FILTER_HISTORICAL }
 
 		completion_reward = {
@@ -3000,6 +2995,10 @@ focus_tree = {
 				has_government = neutrality
 			}
 			has_army_manpower = { size > 199999 }
+		}
+
+		allow_branch={
+			always=no
 		}
 
 		search_filters = { }
@@ -5173,17 +5172,7 @@ focus_tree = {
 		id = BRA_invite_foreign_companies
 		icon = GFX_focus_generic_american_investments
 		allow_branch = {
-			has_dlc = "Arms Against Tyranny"
-			IF = {
-				limit = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-				}
-				NOT = { has_completed_focus = BRA_tribunal_de_seguranca_nacional }
-				NOT = { has_completed_focus = BRA_prepare_for_second_intentona }
-			}
+			always=no
 		}
 		x = 1
 		y = 1
@@ -5287,16 +5276,7 @@ focus_tree = {
 		}
 		search_filters = { }
 		allow_branch = {
-			IF = {
-				limit = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-				}
-				NOT = { has_completed_focus = BRA_end_the_state_of_emergency }
-				NOT = { has_completed_focus = BRA_tribunal_de_seguranca_nacional }
-			}
+			always = no
 		}
 		completion_reward = {
 			custom_effect_tooltip = BRA_modify_aotci_ns_intro
@@ -6752,7 +6732,9 @@ focus_tree = {
 		}
 		available = {
 		}
-
+		allow_branch={
+			always = no
+		}
 		search_filters = { FOCUS_FILTER_POLITICAL }
 
 		completion_reward = {
