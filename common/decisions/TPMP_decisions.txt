@@ -99,34 +99,7 @@ TPMP_game_decisions_category = {
 		}
 	}	
 
-	TPMP_annex_MON_decision = {		
-        allowed = {
-            tag = UKR
-        }
-        visible = {
-            MON = {
-				is_ai = yes
-			}
-        }
-        available = {
-			MON = {
-				is_ai = yes
-			}
-        }
-        icon = GFX_decision_generic_decision
-		fire_only_once = yes
-        complete_effect = {
-			annex_country = {
-				target = MON
-				transfer_troops = yes
-			}
-			MON = {
-				every_core_state = {
-					add_core_of = UKR
-				}
-			}
-        }
-	}
+
 	TPMP_annex_SIA_decision = {		
         allowed = {
             tag = JAP

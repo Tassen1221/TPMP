@@ -1219,7 +1219,7 @@ focus_tree = {
 		relative_position_id = ukr_reform_the_government_0
 		x = -4
 		y = 1
-		cost = 10
+		cost = 5
 		completion_reward = {
 			custom_effect_tooltip = ukr_heavy_industry_advisors_tt
 		}
@@ -1436,8 +1436,8 @@ focus_tree = {
 		completion_reward = {
 			if = { ## Add rewards based on results
 				limit = {
-					num_of_factories > 120
-					num_of_factories < 140
+					num_of_factories > 89
+					num_of_factories < 110
 				}
 				add_timed_idea = {
 					idea = TPMP_2nd_five_year_plan_reward_idea_0
@@ -1446,8 +1446,8 @@ focus_tree = {
 			}
 			else_if = {
 				limit = {
-					num_of_factories > 139
-					num_of_factories < 160
+					num_of_factories > 109
+					num_of_factories < 130
 				}
 				add_timed_idea = {
 					idea = TPMP_2nd_five_year_plan_reward_idea_1
@@ -1456,9 +1456,22 @@ focus_tree = {
 			}
 			else_if = {
 				limit = {
-					num_of_factories > 159
+					num_of_factories > 129
 				}
-				add_ideas = war_economy
+				if = {
+					limit = {
+						has_idea = war_economy
+					}
+					add_timed_idea = {
+						idea = TPMP_2nd_five_year_plan_reward_idea_1
+						days = 720
+					}
+					add_stability = 0.05
+					add_war_support = 0.05					
+				}
+				else = {
+					add_ideas = war_economy
+				}
 			}
 			else = {
 				custom_effect_tooltip = ukr_second_five_year_plan_not_finished_tt
@@ -1581,7 +1594,7 @@ focus_tree = {
 		x = -1
 		y = 1
 		
-		cost = 10
+		cost = 5
 		completion_reward = {
 			if = {
 				limit = {
@@ -1615,7 +1628,7 @@ focus_tree = {
 		relative_position_id = ukr_truly_independent
 		x = 1
 		y = 1
-		cost = 10
+		cost = 5
 		completion_reward = {
 			if = {
 				limit = {
@@ -1744,7 +1757,7 @@ focus_tree = {
 		completion_reward = {
 			add_offsite_building = { 
 				type = industrial_complex
-				level = 4 
+				level = 5 
 			}
 		}			
 		prerequisite = {
@@ -1777,7 +1790,7 @@ focus_tree = {
 		completion_reward = {
 			add_offsite_building = { 
 				type = arms_factory
-				level = 4 
+				level = 5 
 			}
 		}			
 		prerequisite = {
@@ -1976,7 +1989,7 @@ focus_tree = {
 		completion_reward = {
 			add_offsite_building = { 
 				type = arms_factory
-				level = 4 
+				level = 5 
 			}
 		}			
 		prerequisite = {
@@ -1994,7 +2007,7 @@ focus_tree = {
 		completion_reward = {
 			add_offsite_building = { 
 				type = industrial_complex
-				level = 4 
+				level = 5 
 			}
 		}			
 		prerequisite = {
@@ -2160,7 +2173,7 @@ focus_tree = {
 
 			add_offsite_building = { 
 				type = arms_factory
-				level = 10
+				level = 15
 			}		
 		}			
 		prerequisite = {
@@ -3226,7 +3239,7 @@ focus_tree = {
 			focus = ukr_reorganize_the_army
 		}
 		available = {
-			date > 1943.01.01
+			date > 1943.03.01
 			has_completed_focus = ukr_truly_independent
 		}
 		cost = 10
@@ -3247,7 +3260,7 @@ focus_tree = {
 			focus = ukr_slava_krasnoy_armii
 		}
 		available = {
-			date > 1943.06.01
+			date > 1943.09.01
 		}	
 
 		cost = 10
@@ -3273,7 +3286,7 @@ focus_tree = {
 			focus = ukr_slava_krasnoy_armii
 		}
 		available = {
-			date > 1943.06.01
+			date > 1943.09.01
 		}
 
 		cost = 10		
@@ -3309,10 +3322,10 @@ focus_tree = {
 				limit = {
 					has_completed_focus = ukr_truly_independent
 				}
-				date > 1936.11.14
+				date > 1937.03.22 #statside will be more punishing for people who do not greed stat focuses, no 1 month leniency, but no holding focus days adjustments 
 			}
 			else = {
-				date > 1936.1.1
+				date > 1936.9.22 #should be month later + holding focus days for every focus, but fuck it, surely UKR players are dumb enough to not figure out to do it
 			}
 		}
 		cost = 10
