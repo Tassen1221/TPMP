@@ -236,10 +236,10 @@ UKR_evacuation_mission_cat = {
 							}
 
 							set_variable = { THIS:var_tpmp_EvacStateAmountScope = global.var_tpmp_EvacStateAmount }
-							tpmp_evac_calculate_factories = yes
+							#tpmp_evac_calculate_factories = yes
 
-							tpmp_evac_evacuate_factories = yes
-
+							#tpmp_evac_evacuate_factories = yes
+							tpmp_evac_calculate_evacuate_factories = yes
 
 
 							#log = "[THIS.GetID] is NOT empty"
@@ -323,10 +323,10 @@ UKR_evacuation_mission_cat = {
 							}
 
 							set_variable = { THIS:var_tpmp_EvacStateAmountScope = global.var_tpmp_EvacStateAmount }
-							tpmp_evac_calculate_factories = yes
+							#tpmp_evac_calculate_factories = yes
 
-							tpmp_evac_evacuate_factories = yes
-
+							#tpmp_evac_evacuate_factories = yes
+							tpmp_evac_calculate_evacuate_factories = yes
 
 
 							#log = "[THIS.GetID] is NOT empty"
@@ -357,7 +357,6 @@ UKR_evacuation_mission_cat = {
 					}
 					else = {
 						#log = "All state ARE NOT evaced"
-						tpmp_evac_calculate_evac_days = yes
 						activate_mission = TPMP_EvacState_01_mission
 					}
 
@@ -413,10 +412,10 @@ UKR_evacuation_mission_cat = {
 							}
 
 							set_variable = { THIS:var_tpmp_EvacStateAmountScope = global.var_tpmp_EvacStateAmount }
-							tpmp_evac_calculate_factories = yes
+							#tpmp_evac_calculate_factories = yes
 
-							tpmp_evac_evacuate_factories = yes
-
+							#tpmp_evac_evacuate_factories = yes
+							tpmp_evac_calculate_evacuate_factories = yes
 
 
 							#log = "[THIS.GetID] is NOT empty"
@@ -501,9 +500,10 @@ UKR_evacuation_mission_cat = {
 							}
 
 							set_variable = { THIS:var_tpmp_EvacStateAmountScope = global.var_tpmp_EvacStateAmount }
-							tpmp_evac_calculate_factories = yes
+							#tpmp_evac_calculate_factories = yes
 
-							tpmp_evac_evacuate_factories = yes
+							#tpmp_evac_evacuate_factories = yes
+							tpmp_evac_calculate_evacuate_factories = yes
 
 
 
@@ -588,9 +588,10 @@ UKR_evacuation_mission_cat = {
 							}
 
 							set_variable = { THIS:var_tpmp_EvacStateAmountScope = global.var_tpmp_EvacStateAmount }
-							tpmp_evac_calculate_factories = yes
+							#tpmp_evac_calculate_factories = yes
 
-							tpmp_evac_evacuate_factories = yes
+							#tpmp_evac_evacuate_factories = yes
+							tpmp_evac_calculate_evacuate_factories = yes
 
 
 
@@ -675,9 +676,10 @@ UKR_evacuation_mission_cat = {
 							}
 
 							set_variable = { THIS:var_tpmp_EvacStateAmountScope = global.var_tpmp_EvacStateAmount }
-							tpmp_evac_calculate_factories = yes
+							#tpmp_evac_calculate_factories = yes
 
-							tpmp_evac_evacuate_factories = yes
+							#tpmp_evac_evacuate_factories = yes
+							tpmp_evac_calculate_evacuate_factories = yes
 
 
 
@@ -712,7 +714,6 @@ UKR_evacuation_mission_cat = {
 									}
 								}
 							}
-							tpmp_evac_calculate_evac_days = yes
 							tpmp_evac_calculate_evac_days_initialization = yes
 							activate_mission = TPMP_EvacState_00_mission
 							set_country_flag = flag_tpmp_second_pass
@@ -811,10 +812,10 @@ UKR_evacuation_mission_cat = {
 						}
 
 						set_variable = { THIS:var_tpmp_EvacStateAmountScope = global.var_tpmp_EvacStateAmount }
-						tpmp_evac_calculate_factories = yes
+						#tpmp_evac_calculate_factories = yes
 
-						tpmp_evac_evacuate_factories = yes
-
+						#tpmp_evac_evacuate_factories = yes
+						tpmp_evac_calculate_evacuate_factories = yes
 
 
 						#log = "[THIS.GetID] is NOT empty"
@@ -880,6 +881,61 @@ UKR_evacuation_mission_cat = {
 					clear_array = global.array_tpmp_EvacState_05	
 				}
 			}					
+		}
+
+		remove_effect = {
+
+		}
+	}
+
+	UKR_TPMP_EvacState_sov_factory_calc_debug = {
+
+		
+		available = {
+			tag = UKR
+		}
+
+		visible = {
+			is_debug = yes
+		}
+
+		cost = 0
+
+		days_remove = 1
+
+		days_re_enable = 1
+
+		complete_effect = {
+			tpmp_evac_calculate_SOV_factories = yes
+		}
+
+		remove_effect = {
+
+		}
+	}
+
+	UKR_TPMP_EvacState_state_factory_calc_debug = {
+
+		
+		available = {
+			tag = UKR
+		}
+
+		visible = {
+			is_debug = yes
+		}
+
+		cost = 0
+
+		days_remove = 1
+
+		days_re_enable = 1
+
+		complete_effect = {
+			#tpmp_evac_calculate_evacuate_factories = yes
+
+			set_variable = { global.var_tpmp_Evac_factory_return_cic = 1 }
+			set_variable = { global.var_tpmp_Evac_factory_return_mic = 0.1 }			
 		}
 
 		remove_effect = {
