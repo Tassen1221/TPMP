@@ -236,9 +236,9 @@ UKR_evacuation_mission_cat = {
 							}
 
 							set_variable = { THIS:var_tpmp_EvacStateAmountScope = global.var_tpmp_EvacStateAmount }
-							#tpmp_evac_calculate_factories = yes
+							
 
-							#tpmp_evac_evacuate_factories = yes
+							
 							tpmp_evac_calculate_evacuate_factories = yes
 
 
@@ -271,6 +271,9 @@ UKR_evacuation_mission_cat = {
 					else = {
 						#log = "All state ARE NOT evaced"
 						activate_mission = TPMP_EvacState_00_mission
+
+						tpmp_evac_calculate_factory_return_civ = yes
+						tpmp_evac_calculate_factory_return_mil = yes
 					}
 
 					every_owned_state = { #Todo Question of optimization. If it is evaced, is it not better to do limit = in every owned state? Possible problem - building a mil after evaced doesn't let it evac
@@ -323,9 +326,9 @@ UKR_evacuation_mission_cat = {
 							}
 
 							set_variable = { THIS:var_tpmp_EvacStateAmountScope = global.var_tpmp_EvacStateAmount }
-							#tpmp_evac_calculate_factories = yes
+							
 
-							#tpmp_evac_evacuate_factories = yes
+							
 							tpmp_evac_calculate_evacuate_factories = yes
 
 
@@ -358,6 +361,9 @@ UKR_evacuation_mission_cat = {
 					else = {
 						#log = "All state ARE NOT evaced"
 						activate_mission = TPMP_EvacState_01_mission
+						
+						tpmp_evac_calculate_factory_return_civ = yes
+						tpmp_evac_calculate_factory_return_mil = yes						
 					}
 
 					every_owned_state = { #Todo Question of optimization. If it is evaced, is it not better to do limit = in every owned state? Possible problem - building a mil after evaced doesn't let it evac. 
@@ -412,9 +418,9 @@ UKR_evacuation_mission_cat = {
 							}
 
 							set_variable = { THIS:var_tpmp_EvacStateAmountScope = global.var_tpmp_EvacStateAmount }
-							#tpmp_evac_calculate_factories = yes
+							
 
-							#tpmp_evac_evacuate_factories = yes
+							
 							tpmp_evac_calculate_evacuate_factories = yes
 
 
@@ -447,6 +453,9 @@ UKR_evacuation_mission_cat = {
 					else = {
 						#log = "All state ARE NOT evaced"
 						activate_mission = TPMP_EvacState_02_mission
+						
+						tpmp_evac_calculate_factory_return_civ = yes
+						tpmp_evac_calculate_factory_return_mil = yes						
 					}
 
 					every_owned_state = { #Todo Question of optimization. If it is evaced, is it not better to do limit = in every owned state? Possible problem - building a mil after evaced doesn't let it evac
@@ -500,9 +509,9 @@ UKR_evacuation_mission_cat = {
 							}
 
 							set_variable = { THIS:var_tpmp_EvacStateAmountScope = global.var_tpmp_EvacStateAmount }
-							#tpmp_evac_calculate_factories = yes
+							
 
-							#tpmp_evac_evacuate_factories = yes
+							
 							tpmp_evac_calculate_evacuate_factories = yes
 
 
@@ -536,6 +545,9 @@ UKR_evacuation_mission_cat = {
 					else = {
 						#log = "All state ARE NOT evaced"
 						activate_mission = TPMP_EvacState_03_mission
+						
+						tpmp_evac_calculate_factory_return_civ = yes
+						tpmp_evac_calculate_factory_return_mil = yes						
 					}
 
 					every_owned_state = { #Todo Question of optimization. If it is evaced, is it not better to do limit = in every owned state? Possible problem - building a mil after evaced doesn't let it evac
@@ -588,9 +600,9 @@ UKR_evacuation_mission_cat = {
 							}
 
 							set_variable = { THIS:var_tpmp_EvacStateAmountScope = global.var_tpmp_EvacStateAmount }
-							#tpmp_evac_calculate_factories = yes
+							
 
-							#tpmp_evac_evacuate_factories = yes
+							
 							tpmp_evac_calculate_evacuate_factories = yes
 
 
@@ -624,6 +636,9 @@ UKR_evacuation_mission_cat = {
 					else = {
 						#log = "All state ARE NOT evaced"
 						activate_mission = TPMP_EvacState_04_mission
+						
+						tpmp_evac_calculate_factory_return_civ = yes
+						tpmp_evac_calculate_factory_return_mil = yes						
 					}
 
 					every_owned_state = { #Todo Question of optimization. If it is evaced, is it not better to do limit = in every owned state? Possible problem - building a mil after evaced doesn't let it evac
@@ -676,9 +691,9 @@ UKR_evacuation_mission_cat = {
 							}
 
 							set_variable = { THIS:var_tpmp_EvacStateAmountScope = global.var_tpmp_EvacStateAmount }
-							#tpmp_evac_calculate_factories = yes
+							
 
-							#tpmp_evac_evacuate_factories = yes
+							
 							tpmp_evac_calculate_evacuate_factories = yes
 
 
@@ -722,24 +737,34 @@ UKR_evacuation_mission_cat = {
 						else = { #Closing Evac state system 
 							#log = "Closing Evac System"
 							clr_country_flag = flag_tpmp_second_pass
-							every_owned_state = {
-								clear_array = global.array_tpmp_EvacState_00
-								clear_array = global.array_tpmp_EvacState_01
-								clear_array = global.array_tpmp_EvacState_02
-								clear_array = global.array_tpmp_EvacState_03
-								clear_array = global.array_tpmp_EvacState_04
-								clear_array = global.array_tpmp_EvacState_05	
-							}
+
+							clear_array = global.array_tpmp_EvacState_00
+							clear_array = global.array_tpmp_EvacState_01
+							clear_array = global.array_tpmp_EvacState_02
+							clear_array = global.array_tpmp_EvacState_03
+							clear_array = global.array_tpmp_EvacState_04
+							clear_array = global.array_tpmp_EvacState_05
+
 							clear_variable = global.var_tpmp_EvacStateDuration
 							clear_variable = global.var_tpmp_EvacStateAmount
 							clear_variable = global.var_tpmp_EvacState_mil_count
 							clear_variable = global.var_tpmp_EvacState_civ_count
+
+							clear_variable = global.var_tpmp_Evac_factory_return_cic
+							clear_variable = global.var_tpmp_Evac_factory_return_mic
+							clear_variable = global.var_tpmp_SOV_civ_factories
+							clear_variable = global.var_tpmp_SOV_mil_factories
+							clear_variable = global.var_tpmp_evaced_civ_factories
+							clear_variable = global.var_tpmp_evaced_civ_factories
 						}
 
 					}
 					else = {
 						#log = "All state ARE NOT evaced"
 						activate_mission = TPMP_EvacState_05_mission
+						
+						tpmp_evac_calculate_factory_return_civ = yes
+						tpmp_evac_calculate_factory_return_mil = yes						
 					}
 
 					every_owned_state = { #Todo Question of optimization. If it is evaced, is it not better to do limit = in every owned state? Possible problem - building a mil after evaced doesn't let it evac
@@ -812,9 +837,9 @@ UKR_evacuation_mission_cat = {
 						}
 
 						set_variable = { THIS:var_tpmp_EvacStateAmountScope = global.var_tpmp_EvacStateAmount }
-						#tpmp_evac_calculate_factories = yes
+						
 
-						#tpmp_evac_evacuate_factories = yes
+						
 						tpmp_evac_calculate_evacuate_factories = yes
 
 
@@ -871,16 +896,31 @@ UKR_evacuation_mission_cat = {
 		days_re_enable = 1
 
 		complete_effect = {
-			UKR = {
-				every_owned_state = {
-					clear_array = global.array_tpmp_EvacState_00
-					clear_array = global.array_tpmp_EvacState_01
-					clear_array = global.array_tpmp_EvacState_02
-					clear_array = global.array_tpmp_EvacState_03
-					clear_array = global.array_tpmp_EvacState_04
-					clear_array = global.array_tpmp_EvacState_05	
-				}
-			}					
+
+				#Arrays
+
+			clear_array = global.array_tpmp_EvacState_00
+			clear_array = global.array_tpmp_EvacState_01
+			clear_array = global.array_tpmp_EvacState_02
+			clear_array = global.array_tpmp_EvacState_03
+			clear_array = global.array_tpmp_EvacState_04
+			clear_array = global.array_tpmp_EvacState_05
+
+				#System Variables	
+
+			clear_variable = global.var_tpmp_EvacStateDuration
+			clear_variable = global.var_tpmp_EvacStateAmount
+			clear_variable = global.var_tpmp_EvacState_mil_count
+			clear_variable = global.var_tpmp_EvacState_civ_count
+
+				#Spirit Calculations
+
+			clear_variable = global.var_tpmp_Evac_factory_return_cic
+			clear_variable = global.var_tpmp_Evac_factory_return_mic
+			clear_variable = global.var_tpmp_SOV_civ_factories
+			clear_variable = global.var_tpmp_SOV_mil_factories
+			clear_variable = global.var_tpmp_evaced_civ_factories
+			clear_variable = global.var_tpmp_evaced_civ_factories				
 		}
 
 		remove_effect = {

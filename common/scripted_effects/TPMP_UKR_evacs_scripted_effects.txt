@@ -1,18 +1,40 @@
+#UKR factory evac scripted effects
+
 tpmp_evac_calculate_evacuate_factories = {
 	THIS = {
 		set_variable = { global.var_tpmp_EvacState_mil_count = arms_factory_level }
 		set_variable = { global.var_tpmp_EvacState_civ_count = industrial_complex_level }	
 	}
-
+	
 	if = {
 		limit = {
-			check_variable = { global.var_tpmp_EvacState_civ_count > var_tpmp_EvacStateAmountScope }
+			THIS = {
+				industrial_complex > 0
+			}
 		}
+
+		#Calculating Civs
+
+		set_temp_variable = { var_temp_tpmp_Evac_civ_count = var_tpmp_EvacStateAmountScope }
+		if = {
+			limit = {
+				check_variable = {
+					var = global.var_tpmp_EvacState_civ_count
+					value = var_tpmp_EvacStateAmountScope
+					compare = less_than_or_equals
+				}
+			}
+			set_temp_variable = { var_temp_tpmp_Evac_civ_count = global.var_tpmp_EvacState_civ_count }
+		}
+
+		#Removing Civs
+
 		remove_building = {
 			type = industrial_complex
-    		level = THIS:var_tpmp_EvacStateAmountScope #Todo add here a variable
+			level = THIS:var_temp_tpmp_Evac_civ_count
 		}
-		#log = "Removed [?var_tpmp_EvacStateAmountScope] civs from [THIS.GetID]"	
+		#log = "Removed [?var_temp_tpmp_Evac_civ_count] civs from [THIS.GetID]"
+
 		SOV = {
 			random_owned_controlled_state = {
 				limit = {
@@ -21,177 +43,82 @@ tpmp_evac_calculate_evacuate_factories = {
 					free_building_slots = {
 						building = industrial_complex
 						size > 2
-						include_locked = no
-					}
+						include_locked = yes
+					}					
 				}
+				add_extra_state_shared_building_slots = THIS:var_temp_tpmp_Evac_civ_count
 				add_building_construction = {
 					type = industrial_complex
-					level = THIS:var_tpmp_EvacStateAmountScope
+					level = THIS:var_temp_tpmp_Evac_civ_count
 					instant_build = yes
 				}
-				#log = "[THIS.GetName] Added [?var_tpmp_EvacStateAmountScope] civs to [THIS.GetID]"
-				tpmp_evac_calculate_factory_return_civ_3 = yes
+				#log = "[THIS.GetName] Added [?var_temp_tpmp_Evac_civ_count] civs to [THIS.GetID]"
+				tpmp_evac_counter_factory_return_civ = yes
 			}
 		}
-	}
-	else = {
-		if = {
-			limit = {
-				check_variable = { global.var_tpmp_EvacState_civ_count > 1 }
-				check_variable = { global.var_tpmp_EvacStateAmount > 1 }
-			}
-			remove_building = {
-				type = industrial_complex
-				level = 2
-			}
-			#log = "Removed 2 civ from [THIS.GetID]"
-			SOV = {
-				random_owned_controlled_state = {
-					limit = {
-						is_evac_SOV_state = yes
 
-						free_building_slots = {
-							building = industrial_complex
-							size > 1
-							include_locked = no
-						}
-					}
-					add_building_construction = {
-						type = industrial_complex
-						level = 2
-						instant_build = yes
-					}
-					#log = "[THIS.GetName] Added 2 civs to [THIS.GetID]"
-					tpmp_evac_calculate_factory_return_civ_2 = yes				
-				}
-			}			
-		}
-		else_if = {
-			limit = {
-				check_variable = { global.var_tpmp_EvacState_civ_count > 0 }				
-			}
-			remove_building = {
-				type = industrial_complex
-				level = 1
-			}
-			#log = "Removed 1 civ from [THIS.GetID]"
-			SOV = {
-				random_owned_controlled_state = {
-					limit = {
-						is_evac_SOV_state = yes
+		#Civs Counter
+		add_to_variable = { global.var_tpmp_evaced_civ_factories = var_temp_tpmp_Evac_civ_count }
 
-						free_building_slots = {
-							building = industrial_complex
-							size > 0
-							include_locked = no
-						}
-					}
-					add_building_construction = {
-						type = industrial_complex
-						level = 1
-						instant_build = yes
-					}
-					#log = "[THIS.GetName] Added 1 civs to [THIS.GetID]"
-					tpmp_evac_calculate_factory_return_civ_1 = yes				
-				}
-			}			
-		}
+		#log = "      Total UKR evaced civs: [?global.var_tpmp_evaced_civ_factories]"		
 	}
 
 	if = {
 		limit = {
-			check_variable = { global.var_tpmp_EvacState_mil_count > var_tpmp_EvacStateAmountScope }
+			THIS = {
+				arms_factory > 0
+			}
 		}
+
+		#Calculating Mils
+
+		set_temp_variable = { var_temp_tpmp_Evac_mil_count = var_tpmp_EvacStateAmountScope }
+		if = {
+			limit = {
+				check_variable = {
+					var = global.var_tpmp_EvacState_mil_count
+					value = var_tpmp_EvacStateAmountScope
+					compare = less_than_or_equals
+				}
+			}
+			set_temp_variable = { var_temp_tpmp_Evac_mil_count = global.var_tpmp_EvacState_mil_count }
+		}		
+
+		#Removing mils
+
 		remove_building = {
 			type = arms_factory
-    		level = THIS:var_tpmp_EvacStateAmountScope
+			level = THIS:var_temp_tpmp_Evac_mil_count
 		}
-		#log = "Removed [?var_tpmp_EvacStateAmountScope] mils from [THIS.GetID]"	
+		#log = "Removed [?var_temp_tpmp_Evac_mil_count] mils from [THIS.GetID]"
+
 		SOV = {
 			random_owned_controlled_state = {
 				limit = {
 					is_evac_SOV_state = yes
 
-					free_building_slots = {
+					free_building_slots = { #useless-ass non-variable-accepting piece of shit
 						building = arms_factory
 						size > 2
-						include_locked = no
+						include_locked = yes
 					}
 				}
+				add_extra_state_shared_building_slots = THIS:var_temp_tpmp_Evac_mil_count
 				add_building_construction = {
 					type = arms_factory
-					level = THIS:var_tpmp_EvacStateAmountScope
+					level = THIS:var_temp_tpmp_Evac_mil_count
 					instant_build = yes
 				}
-				#log = "[THIS.GetName] Added [?var_tpmp_EvacStateAmountScope] mils to [THIS.GetID]"
-				tpmp_evac_calculate_factory_return_mil_3 = yes
+				#log = "[THIS.GetName] Added [?var_temp_tpmp_Evac_mil_count] mils to [THIS.GetID]"
+				tpmp_evac_counter_factory_return_mil = yes
 			}
 		}
+
+		#Mils Counter
+		add_to_variable = { global.var_tpmp_evaced_mil_factories = var_temp_tpmp_Evac_mil_count }
+
+		#log = "      Total UKR evaced mils: [?global.var_tpmp_evaced_mil_factories]"		
 	}
-	else = {
-		if = {
-			limit = {
-				check_variable = { global.var_tpmp_EvacState_mil_count > 1 }
-				check_variable = { global.var_tpmp_EvacStateAmount > 1 }
-			}
-			remove_building = {
-				type = arms_factory
-				level = 2
-			}
-			#log = "Removed 2 mil from [THIS.GetID]"
-			SOV = {
-				random_owned_controlled_state = {
-					limit = {
-						is_evac_SOV_state = yes
-
-						free_building_slots = {
-							building = arms_factory
-							size > 1
-							include_locked = no
-						}
-					}
-					add_building_construction = {
-						type = arms_factory
-						level = 2
-						instant_build = yes
-					}
-					#log = "[THIS.GetName] Added 2 mils to [THIS.GetID]"
-					tpmp_evac_calculate_factory_return_mil_2 = yes				
-				}
-			}			
-		}
-		else_if = {
-			limit = {
-				check_variable = { global.var_tpmp_EvacState_mil_count > 0 }				
-			}
-			remove_building = {
-				type = arms_factory
-				level = 1
-			}
-			#log = "Removed 1 mil from [THIS.GetID]"
-			SOV = {
-				random_owned_controlled_state = {
-					limit = {
-						is_evac_SOV_state = yes
-
-						free_building_slots = {
-							building = arms_factory
-							size > 0
-							include_locked = no
-						}
-					}
-					add_building_construction = {
-						type = arms_factory
-						level = 1
-						instant_build = yes
-					}
-					#log = "[THIS.GetName] Added 1 mils to [THIS.GetID]"
-					tpmp_evac_calculate_factory_return_mil_1 = yes				
-				}
-			}			
-		}
-	}
-
 }
 
 tpmp_evac_calculate_evac_days = {
@@ -204,6 +131,8 @@ tpmp_evac_calculate_evac_days_initialization = {
 	set_variable = { global.var_tpmp_EvacStateDuration = 5 }
 }
 
+#UKR factory return scripted effects
+
 tpmp_evac_calculate_SOV_factories = {
 	SOV = {
 		set_variable = { global.var_tpmp_SOV_mil_factories = num_of_military_factories }
@@ -212,63 +141,53 @@ tpmp_evac_calculate_SOV_factories = {
 }
 
 tpmp_evac_factory_return_initialization = {
+	#Initialization of counting variables
+
 	set_variable = { global.var_tpmp_Evac_factory_return_cic = 0 }
-	set_variable = { global.var_tpmp_Evac_factory_return_mic = 0 } 
+	set_variable = { global.var_tpmp_Evac_factory_return_mic = 0 }
+
+	set_variable = { global.var_tpmp_evaced_mil_factories = 0 }
+	set_variable = { global.var_tpmp_evaced_civ_factories = 0 }	
 }
 
+# Return calculation
 
-tpmp_evac_calculate_factory_return_mil_1 = { #to avoid unnecessary checks and keep a way to have all the calculations in 1 place, we'll spit them for factories evaced
+tpmp_evac_calculate_factory_return_mil = { #to avoid unnecessary checks and keep a way to have all the calculations in 1 place, we'll spit them for factories evaced
 
-	add_to_variable = { global.var_tpmp_SOV_mil_factories = 1 }
-	set_variable = { global.var_tpmp_evac_increment = 1 } 
-	divide_variable = { global.var_tpmp_evac_increment = global.var_tpmp_SOV_mil_factories }
+	#Get Sov mils
 
-	add_to_variable = { global.var_tpmp_Evac_factory_return_mic = global.var_tpmp_evac_increment } 
+	SOV = {
+		set_variable = { global.var_tpmp_SOV_mil_factories = num_of_military_factories }
+	}
+
+	#log = "    Total sov mils: [?global.var_tpmp_SOV_mil_factories]"
+	
+	#Calculator
+
+	set_temp_variable = { var_temp_tpmp_Evac_calculator = global.var_tpmp_evaced_mil_factories }
+	divide_temp_variable = { var_temp_tpmp_Evac_calculator = global.var_tpmp_SOV_mil_factories }
+
+	set_variable = { global.var_tpmp_Evac_factory_return_mic = var_temp_tpmp_Evac_calculator }
+
+	#log = "% of mil factories that UKR should recieve = [?global.var_tpmp_Evac_factory_return_mic]"
 }
 
-tpmp_evac_calculate_factory_return_mil_2 = {
+tpmp_evac_calculate_factory_return_civ = {
 
-	add_to_variable = { global.var_tpmp_SOV_mil_factories = 2 }
-	set_variable = { global.var_tpmp_evac_increment = 1 } 
-	divide_variable = { global.var_tpmp_evac_increment = global.var_tpmp_SOV_mil_factories }
+	#Get Sov civs
 
-	add_to_variable = { global.var_tpmp_Evac_factory_return_mic = global.var_tpmp_evac_increment } 
-}
+	SOV = {
+		set_variable = { global.var_tpmp_SOV_civ_factories = num_of_civilian_factories }
+	}
 
-tpmp_evac_calculate_factory_return_mil_3 = {
+	#log = "    Total sov civs: [?global.var_tpmp_SOV_civ_factories]"
 
-	add_to_variable = { global.var_tpmp_SOV_mil_factories = global.var_tpmp_EvacStateAmount }
-	set_variable = { global.var_tpmp_evac_increment = 1 } 
-	divide_variable = { global.var_tpmp_evac_increment = global.var_tpmp_SOV_mil_factories }
+	#Calculator
 
-	add_to_variable = { global.var_tpmp_Evac_factory_return_mic = global.var_tpmp_evac_increment } 
-}
+	set_temp_variable = { var_temp_tpmp_Evac_calculator = global.var_tpmp_evaced_civ_factories }
+	divide_temp_variable = { var_temp_tpmp_Evac_calculator = global.var_tpmp_SOV_civ_factories }
 
-#civs
+	set_variable = { global.var_tpmp_Evac_factory_return_cic = var_temp_tpmp_Evac_calculator }
 
-tpmp_evac_calculate_factory_return_civ_1 = {
-
-	add_to_variable = { global.var_tpmp_SOV_civ_factories = 1 }
-	set_variable = { global.var_tpmp_evac_increment = 1 } 
-	divide_variable = { global.var_tpmp_evac_increment = global.var_tpmp_SOV_civ_factories }
-
-	add_to_variable = { global.var_tpmp_Evac_factory_return_cic = global.var_tpmp_evac_increment } 
-}
-
-tpmp_evac_calculate_factory_return_civ_2 = {
-
-	add_to_variable = { global.var_tpmp_SOV_civ_factories = 2 }
-	set_variable = { global.var_tpmp_evac_increment = 1 } 
-	divide_variable = { global.var_tpmp_evac_increment = global.var_tpmp_SOV_civ_factories }
-
-	add_to_variable = { global.var_tpmp_Evac_factory_return_cic = global.var_tpmp_evac_increment } 
-}
-
-tpmp_evac_calculate_factory_return_civ_3 = {
-
-	add_to_variable = { global.var_tpmp_SOV_civ_factories = global.var_tpmp_EvacStateAmount }
-	set_variable = { global.var_tpmp_evac_increment = 1 } 
-	divide_variable = { global.var_tpmp_evac_increment = global.var_tpmp_SOV_civ_factories }
-
-	add_to_variable = { global.var_tpmp_Evac_factory_return_cic = global.var_tpmp_evac_increment } 
+	#log = "% of civ factories that UKR should recieve = [?global.var_tpmp_Evac_factory_return_cic]"
 }
