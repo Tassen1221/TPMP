@@ -1146,7 +1146,7 @@ focus_tree = {
 		completion_reward = {
 			create_intelligence_agency = {
     			name = "NKVDU"
-    			icon = GFX_intelligence_agency_logo_agency
+    			icon = nkvd_2 #TODO fix this
 			}
 			add_ideas = TPMP_operative_slot_idea
 		}
@@ -4344,7 +4344,170 @@ focus_tree = {
 	}	
 
 ###
-### To implements
+### War Tree
 ###
+
+	focus = {
+
+		id = ukr_facists_at_our_doorstep
+		icon = GFX_focus_GER_create_asian_reichskommissariat
+		x = 52
+		y = 8
+
+		cost = 5
+
+		available = {
+			has_war_with = GER
+		}
+		
+		completion_reward = {
+
+			if = {
+				limit = {
+					MON = {
+						is_ai = yes
+					}
+				}
+				hidden_effect = {
+					MON = {
+						every_core_state = {
+							add_core_of = UKR
+						}
+					}				
+				}				
+				UKR = {
+					annex_country = {
+						target = MON
+						transfer_troops = yes
+					}
+				}
+			}
+			add_timed_idea = {
+				idea = TPMP_facists_are_coming_idea
+				days = 90				
+			}
+		}
+	}
+
+	focus = {
+
+		id = ukr_logistical_miracle
+		icon = GFX_SOV_move_industry_to_the_urals_ccp_2d_sov_compatibility
+		x = 0
+		y = 1
+		relative_position_id = ukr_facists_at_our_doorstep
+		prerequisite = {
+			focus = ukr_facists_at_our_doorstep
+		}
+
+		cost = 5
+
+		available = {
+			custom_trigger_tooltip = {
+				is_evacuating_UKR = yes
+				tooltip = ukr_is_evacuating_tt
+			}
+
+			TPMP_UKR_Anastas_Mikoyan = {
+				is_hired_as_advisor = yes
+			}
+		}
+		
+		completion_reward = {
+			add_to_variable = { global.var_tpmp_EvacStateAmount = 1 }
+			custom_effect_tooltip = ukr_logistical_miracle_tt
+		}
+	}
+
+	focus = {
+
+		id = ukr_every_civilian_helps_the_cause
+		icon = GFX_SOV_positive_heroism_ccp_2d_sov_compatibility
+		x = 0
+		y = 1
+		relative_position_id = ukr_logistical_miracle
+		prerequisite = {
+			focus = ukr_logistical_miracle
+		}
+
+		available = {
+			custom_trigger_tooltip = {
+				is_evacuating_UKR = yes
+				tooltip = ukr_is_evacuating_tt
+			}
+		}
+
+		cost = 5
+		
+		completion_reward = {
+
+			divide_variable = { global.var_tpmp_EvacStateDuration = 2 }
+			round_variable = global.var_tpmp_EvacStateDuration
+
+			#Cutting current mission time in half
+
+			UKR = {
+				set_temp_variable = { var_temp_tpmp_halven_mission_days = global.var_tpmp_EvacStateDuration }
+				divide_temp_variable = { var_temp_tpmp_halven_mission_days = -2 }
+				round_temp_variable = var_temp_tpmp_halven_mission_days
+
+				if = {
+					limit = {
+						has_active_mission = TPMP_EvacState_00_mission
+					}
+					add_days_mission_timeout = {
+						mission = TPMP_EvacState_00_mission
+						days = var:var_temp_tpmp_halven_mission_days
+					}				
+				}
+				else_if = {
+					limit = {
+						has_active_mission = TPMP_EvacState_01_mission
+					}
+					add_days_mission_timeout = {
+						mission = TPMP_EvacState_01_mission
+						days = var:var_temp_tpmp_halven_mission_days
+					}				
+				}
+				else_if = {
+					limit = {
+						has_active_mission = TPMP_EvacState_02_mission
+					}
+					add_days_mission_timeout = {
+						mission = TPMP_EvacState_02_mission
+						days = var:var_temp_tpmp_halven_mission_days
+					}				
+				}
+				else_if = {
+					limit = {
+						has_active_mission = TPMP_EvacState_03_mission
+					}
+					add_days_mission_timeout = {
+						mission = TPMP_EvacState_03_mission
+						days = var:var_temp_tpmp_halven_mission_days
+					}				
+				}
+				else_if = {
+					limit = {
+						has_active_mission = TPMP_EvacState_04_mission
+					}
+					add_days_mission_timeout = {
+						mission = TPMP_EvacState_04_mission
+						days = var:var_temp_tpmp_halven_mission_days
+					}				
+				}
+				else_if = {
+					limit = {
+						has_active_mission = TPMP_EvacState_05_mission
+					}
+					add_days_mission_timeout = {
+						mission = TPMP_EvacState_05_mission
+						days = var:var_temp_tpmp_halven_mission_days
+					}				
+				}				
+			}
+			custom_effect_tooltip = ukr_every_civilian_helps_the_cause_tt
+		}
+	}
 
 }
