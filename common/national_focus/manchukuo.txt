@@ -901,40 +901,6 @@
 	}
 
 	focus = {
-		id = MAN_national_defense_state
-		icon = GFX_goal_generic_build_tank
-		prerequisite = { focus = MAN_second_five_year_plan }
-		x = 0
-		y = 1
-		relative_position_id = MAN_second_five_year_plan
-
-		cost = 10
-
-		ai_will_do = {
-			factor = 5
-		}
-
-		available = {
-
-		}
-
-		bypass = {
-
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = yes
-
-		
-
-		search_filters = { FOCUS_FILTER_INDUSTRY }
-		completion_reward = {
-			add_ideas = MAN_national_defense_state
-		}
-	}
-
-	focus = {
 		id = MAN_mukden_arsenal
 		icon = GFX_goal_generic_construct_mil_factory
 		prerequisite = { focus = MAN_first_five_year_plan }
@@ -1024,6 +990,42 @@
 				show_ideas_tooltip = MAN_mamc_medium
 				show_ideas_tooltip = MAN_mamc_heavy
 			}
+		}
+	}
+
+	focus = {
+		id = MAN_national_defense_state
+		icon = GFX_goal_generic_build_tank
+		prerequisite = { focus = MAN_mamc }
+		x = 0
+		y = 1
+		relative_position_id = MAN_mamc
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 5
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			add_ideas = MAN_national_defense_state
+			add_ideas = tot_economic_mobilisation
+			add_ideas = nationalized_military_industry
 		}
 	}
 
@@ -1160,9 +1162,6 @@
 		}
 
 		available = {
-			NOT = {
-				country_exists = CHI
-			}
 		}
 
 		bypass = {
@@ -1177,9 +1176,17 @@
 
 		search_filters = { FOCUS_FILTER_ANNEXATION FOCUS_FILTER_POLITICAL }
 		completion_reward = {
-			every_state = {
-				limit = { is_core_of = CHI }
-				add_core_of = ROOT
+			621 = {
+				add_core_of = MAN
+			}
+			746 = {
+				add_core_of = MAN
+			}
+			615 = {
+				add_core_of = MAN
+			}
+			622 = {
+				add_core_of = MAN
 			}
 		}
 	}
@@ -1199,9 +1206,6 @@
 		}
 
 		available = {
-			arms_factory  > 49
-
-
 		}
 
 		bypass = {

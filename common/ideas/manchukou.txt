@@ -212,7 +212,8 @@ ideas = {
 			picture = ast_naval_auxiliary_patrol
 			
 			modifier = {
-				industrial_capacity_factory = 0.05
+				production_factory_max_efficiency_factor = 0.05
+				industrial_capacity_factory = 0.1
 			}
 		}
 
@@ -275,8 +276,34 @@ ideas = {
 			research_bonus = { air_equipment = 0.1 }
 
 			modifier = {
-				production_speed_arms_factory_factor = 0.05
-				production_speed_air_base_factor = 0.05
+				production_speed_arms_factory_factor = 0.1
+				production_speed_industrial_complex_factor = 0.1
+			}
+			equipment_bonus = {
+				small_plane_airframe = {
+					instant = yes
+					build_cost_ic = -0.1
+				}
+				cv_small_plane_airframe = {
+					instant = yes
+					build_cost_ic = -0.1
+				}
+				small_plane_cas_airframe = {
+					instant = yes
+					build_cost_ic = -0.1
+				}
+				cv_small_plane_cas_airframe = {
+					instant = yes
+					build_cost_ic = -0.1
+				}
+				small_plane_naval_bomber_airframe = {
+					instant = yes
+					build_cost_ic = -0.1
+				}
+				cv_small_plane_naval_bomber_airframe = {
+					instant = yes
+					build_cost_ic = -0.1
+				}
 			}
 		}
 		MAN_five_year_plan_tank = {
@@ -295,10 +322,17 @@ ideas = {
 
 			picture = man_five_year_plan_tank
 
-			research_bonus = { armor = 0.05 }
+			research_bonus = { armor = 0.1 }
 			
 			modifier = {
-				production_speed_arms_factory_factor = 0.05
+				production_speed_arms_factory_factor = 0.1
+				production_speed_industrial_complex_factor = 0.1
+			}
+			equipment_bonus = {
+				armor = {
+					instant = yes
+					build_cost_ic = -0.1
+				}
 			}
 		}
 		MAN_five_year_plan_industry = {
@@ -319,7 +353,8 @@ ideas = {
 			
 			research_bonus = { industry = 0.05 }
 			modifier = {
-				production_speed_industrial_complex_factor = 0.05
+				production_speed_arms_factory_factor = 0.2
+				production_speed_industrial_complex_factor = 0.1
 			}
 		}
 		MAN_underground_gun_shops = {

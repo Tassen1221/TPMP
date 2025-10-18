@@ -25,16 +25,27 @@ country_event = {
 		effect_tooltip = {
 			SAF = {
 				transfer_state = 542
+				add_state_core = 542
 				transfer_state = 545
+				add_state_core = 545
 				transfer_state = 546
+				add_state_core = 546
 				transfer_state = 547
+				add_state_core = 547
 				transfer_state = 903
+				add_state_core = 903
 				transfer_state = 904
+				add_state_core = 904
 				transfer_state = 905
+				add_state_core = 905
 				transfer_state = 548
+				add_state_core = 548
 				transfer_state = 771
+				add_state_core = 771
 				transfer_state = 770
+				add_state_core = 770
 				transfer_state = 981
+				add_state_core = 981
 			}
 		}
 		hidden_effect = {
@@ -44,51 +55,51 @@ country_event = {
 		}
 	}
 	
-	option = {
-		name = tfv_south_africa.1.b # ENG refuses the proposal
+	# option = {
+	# 	name = tfv_south_africa.1.b # ENG refuses the proposal
 		
-		ai_chance = {
-			base = 0
-		}
+	# 	ai_chance = {
+	# 		base = 0
+	# 	}
 		
-		hidden_effect = {
-			SAF = {
-				country_event = { id = tfv_south_africa.3 }
-			}
-		}
-	}
-	option = {
-		name = tfv_south_africa.1.c # ENG compromises
-		trigger = {
-			KEN = { exists = no }
-			ZIM = { exists = no }
-			BOT = { exists = no }
-			ZAM = { exists = no }
-			MLW = { exists = no }
-			TZN = { exists = no }
-			UGA = { exists = no }
-		}
+	# 	hidden_effect = {
+	# 		SAF = {
+	# 			country_event = { id = tfv_south_africa.3 }
+	# 		}
+	# 	}
+	# }
+	# option = {
+	# 	name = tfv_south_africa.1.c # ENG compromises
+	# 	trigger = {
+	# 		KEN = { exists = no }
+	# 		ZIM = { exists = no }
+	# 		BOT = { exists = no }
+	# 		ZAM = { exists = no }
+	# 		MLW = { exists = no }
+	# 		TZN = { exists = no }
+	# 		UGA = { exists = no }
+	# 	}
 		
-		ai_chance = {
-			base = 20
-			modifier = {
-				is_historical_focus_on = yes
-				factor = 0 #don't do this if we are historical!
-			}
-			modifier = {
-				SAF = { NOT = { has_government = democratic} }
-				factor = 4
-			}
-		}
-		effect_tooltip = {
-			custom_effect_tooltip = SAF_colonies_tt
-		}
-		hidden_effect = {
-			SAF = {
-				country_event = { id = tfv_south_africa.4 }
-			}
-		}
-	}
+	# 	ai_chance = {
+	# 		base = 20
+	# 		modifier = {
+	# 			is_historical_focus_on = yes
+	# 			factor = 0 #don't do this if we are historical!
+	# 		}
+	# 		modifier = {
+	# 			SAF = { NOT = { has_government = democratic} }
+	# 			factor = 4
+	# 		}
+	# 	}
+	# 	effect_tooltip = {
+	# 		custom_effect_tooltip = SAF_colonies_tt
+	# 	}
+	# 	hidden_effect = {
+	# 		SAF = {
+	# 			country_event = { id = tfv_south_africa.4 }
+	# 		}
+	# 	}
+	# }
 }
 
 #ENG transfers colonies
@@ -102,114 +113,29 @@ country_event = {
 	
 	option = {
 		name = tfv_south_africa.2.a
-		if = {
-			limit = { 
-				ZIM = { exists = no }
-			}
-			transfer_state = 545
-		}
-		if = {
-			limit = { 
-				ZIM = {
-					exists = yes
-					is_subject_of = ENG
-				}
-			}
-			puppet = ZIM
-		}
-		if = {
-			limit = { 
-				BOT = { exists = no }
-			}
+		SAF = {
 			transfer_state = 542
-		}
-		if = {
-			limit = { 
-				BOT = {
-					exists = yes
-					is_subject_of = ENG
-				}
-			}
-			puppet = BOT
-		}
-		if = {
-			limit = { 
-				ZAM = { exists = no }
-			}
-			transfer_state = 771
-			transfer_state = 981
-		}
-		if = {
-			limit = { 
-				ZAM = {
-					exists = yes
-					is_subject_of = ENG
-				}
-			}
-			puppet = ZAM
-		}
-		if = {
-			limit = { 
-				MLW = { exists = no }
-			}
-			transfer_state = 770
-		}
-		if = {
-			limit = { 
-				MLW = {
-					exists = yes
-					is_subject_of = ENG
-				}
-			}
-			puppet = MLW
-		}
-		if = {
-			limit = { 
-				TZN = { exists = no }
-			}
+			add_state_core = 542
+			transfer_state = 545
+			add_state_core = 545
 			transfer_state = 546
-		}
-		if = {
-			limit = { 
-				TZN = {
-					exists = yes
-					is_subject_of = ENG
-				}
-			}
-			puppet = TZN
-		}
-		if = {
-			limit = { 
-				KEN = { exists = no }
-			}
+			add_state_core = 546
 			transfer_state = 547
+			add_state_core = 547
 			transfer_state = 903
+			add_state_core = 903
 			transfer_state = 904
+			add_state_core = 904
 			transfer_state = 905
-		}
-		if = {
-			limit = { 
-				KEN = {
-					exists = yes
-					is_subject_of = ENG
-				}
-			}
-			puppet = KEN
-		}
-		if = {
-			limit = { 
-				UGA = { exists = no }
-			}
+			add_state_core = 905
 			transfer_state = 548
-		}
-		if = {
-			limit = { 
-				UGA = {
-					exists = yes
-					is_subject_of = ENG
-				}
-			}
-			puppet = UGA
+			add_state_core = 548
+			transfer_state = 771
+			add_state_core = 771
+			transfer_state = 770
+			add_state_core = 770
+			transfer_state = 981
+			add_state_core = 981
 		}
 		hidden_effect = {
 			news_event = { id = news.260 hours = 6 }
