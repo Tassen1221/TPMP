@@ -1008,15 +1008,16 @@ focus_tree = {
 		available_if_capitulated = yes
 
 		completion_reward = {
-			GER = {
-				add_timed_idea = { idea = SPR_equipment_shipments days = 730 }
-				add_ai_strategy = { type = send_lend_lease_desire id = SPA value = 200 }
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 5000
+				producer = GER
 			}
-			ITA = {
-				add_timed_idea = { idea = SPR_equipment_shipments days = 730 }
-				add_ai_strategy = { type = send_lend_lease_desire id = SPA value = 200 }
+			add_equipment_to_stockpile = {
+				type = artillery_equipment
+				amount = 300
+				producer = GER
 			}
-			add_timed_idea = { idea = SPR_equipment_shipments_spain days = 730 }
 		}
 	}
 
@@ -1048,6 +1049,7 @@ focus_tree = {
 		available_if_capitulated = yes
 
 		completion_reward = {
+			add_manpower = 50000
 			army_experience = 50
 			add_timed_idea = { idea = SPA_foreign_training_staff days = 730 }
 		}
