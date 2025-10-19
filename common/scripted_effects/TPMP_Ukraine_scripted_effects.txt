@@ -56,7 +56,6 @@ TPMP_UKR_state_of_the_army_initialization_scripted_effect = {
 
 	set_variable = { var_ukr_tpmp_offence = -0.31 }
 	set_variable = { var_ukr_tpmp_defence = -0.31 }
-	set_variable = { var_ukr_tpmp_army_org_factor = -0.31 }
 
 	set_variable = { var_ukr_tpmp_land_doctrine_cost_factor = 0.1 }
 	set_variable = { var_ukr_tpmp_army_advisor_cost_factor = 0.3 }
@@ -75,10 +74,6 @@ TPMP_UKR_state_of_the_army_remover_scripted_effect = {
 	}
 	add_to_variable = {
 		var = var_ukr_tpmp_defence
-		value = var_ukr_tpmp_incremental_improvement_value
-	}
-	add_to_variable = {
-		var = var_ukr_tpmp_army_org_factor
 		value = var_ukr_tpmp_incremental_improvement_value
 	}	
 }
@@ -101,11 +96,6 @@ TPMP_UKR_state_of_the_army_clamper_scripted_effect = {
 			min = -0.31	
 			max = 0.15
 		}	
-		clamp_variable = {
-			var = var_ukr_tpmp_army_org_factor
-			min = -0.31
-			max = 0.15
-		}
 
 		#The case of army exp gain
 
@@ -138,12 +128,7 @@ TPMP_UKR_state_of_the_army_clamper_scripted_effect = {
 			var = var_ukr_tpmp_defence
 			min = -0.31	
 			max = 0.05
-		}	
-		clamp_variable = {
-			var = var_ukr_tpmp_army_org_factor
-			min = -0.31
-			max = 0.05
-		}	
+		}		
 
 		#The case of army exp gain
 
