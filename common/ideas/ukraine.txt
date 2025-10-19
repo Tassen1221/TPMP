@@ -246,7 +246,7 @@ ideas = {
 			removal_cost = -1
 			picture = generic_production_bonus
 			modifier = {
-				production_factory_max_efficiency_factor = 0.15
+				production_factory_max_efficiency_factor = 0.10
 				production_factory_start_efficiency_factor = -0.1
 				production_factory_efficiency_gain_factor = -0.2
 				line_change_production_efficiency_factor = -0.1
@@ -259,7 +259,7 @@ ideas = {
 			modifier = {
 				production_factory_max_efficiency_factor = -0.05
 				line_change_production_efficiency_factor = 0.05
-				industrial_capacity_factory = 0.1
+				industrial_capacity_factory = 0.05
 			}
 		}	
 
@@ -271,7 +271,7 @@ ideas = {
 				production_factory_start_efficiency_factor = 0.1
 				production_factory_efficiency_gain_factor = 0.2
 				line_change_production_efficiency_factor = 0.1
-				industrial_capacity_factory = 0.15
+				industrial_capacity_factory = 0.1
 			}
 		}
 
@@ -279,7 +279,7 @@ ideas = {
 			removal_cost = -1
 			picture = por_nation_in_arms
 			modifier = {
-				consumer_goods_factor = -0.1
+				consumer_goods_factor = -0.05
 				production_speed_buildings_factor = 0.05
 			}
 		}
@@ -288,7 +288,7 @@ ideas = {
 			removal_cost = -1
 			picture = por_nation_in_arms
 			modifier = {
-				consumer_goods_factor = -0.1
+				consumer_goods_factor = -0.05
 				production_speed_buildings_factor = 0.05
 				local_resources_factor = 0.05
 			}
@@ -298,7 +298,7 @@ ideas = {
 			removal_cost = -1
 			picture = por_nation_in_arms
 			modifier = {
-				consumer_goods_factor = -0.1
+				consumer_goods_factor = -0.05
 				production_speed_buildings_factor = 0.05
 				local_resources_factor = 0.1
 			}
@@ -308,7 +308,7 @@ ideas = {
 			removal_cost = -1
 			picture = por_nation_in_arms
 			modifier = {
-				consumer_goods_factor = -0.1
+				consumer_goods_factor = -0.05
 				production_speed_buildings_factor = 0.05
 				local_resources_factor = 0.1
 				production_lack_of_resource_penalty_factor = -0.15
@@ -515,10 +515,18 @@ ideas = {
 			removal_cost = -1
 			picture = generic_acquire_tanks
 			equipment_bonus = {
-				armor = {
+				medium_tank_chassis = {
 					build_cost_ic = 0.5
 					instant = yes	
 				}
+				heavy_tank_chassis = {
+					build_cost_ic = 0.5
+					instant = yes	
+				}
+				light_tank_chassis = {
+					build_cost_ic = 0.5
+					instant = yes	
+				}								
 			}
 			research_bonus = { 
 				armor = -0.5
@@ -530,7 +538,7 @@ ideas = {
 			picture = SOV_stakhanovite_movement
 			modifier = {
 				conscription = -0.02
-				stability_factor = 0.1
+				stability_factor = 0.05
 			}
 		}
 
@@ -539,7 +547,7 @@ ideas = {
 			picture = SOV_stakhanovite_movement
 			modifier = {
 				conscription = -0.02
-				stability_factor = 0.1
+				stability_factor = 0.05
 			}
 			equipment_bonus = {
 				artillery_equipment = {
@@ -571,9 +579,9 @@ ideas = {
 			picture = SOV_stakhanovite_movement
 			modifier = {
 				conscription = -0.02
-				stability_factor = 0.1
+				stability_factor = 0.05
 
-				army_morale_factor = 0.1
+				army_morale_factor = 0.05
 				command_power_gain_mult = 0.1
 			}
 			equipment_bonus = {
@@ -813,7 +821,7 @@ ideas = {
 			modifier = {
 				stability_factor = 0.05
 				production_speed_buildings_factor = 0.05
-				industrial_capacity_factory = 0.1
+				industrial_capacity_factory = 0.05
 			}
 		}
 
@@ -822,7 +830,7 @@ ideas = {
 			picture = SOV_organize_wreckers
 			modifier = {
 				stability_factor = 0.05
-				production_factory_max_efficiency_factor = 0.05
+				production_factory_max_efficiency_factor = 0.025
 			}
 		}
 
@@ -963,7 +971,7 @@ ideas = {
 			modifier = {
 				stability_factor = 0.05
 				weekly_manpower = 250
-				stability_weekly = 0.002
+				stability_weekly = 0.001
 			}
 		}
 
@@ -971,7 +979,7 @@ ideas = {
 			removal_cost = -1
 			picture = generic_agrarian_reform
 			modifier = {
-				stability_weekly = 0.001
+				stability_factor = 0.05
 			}
 		}		
 	
