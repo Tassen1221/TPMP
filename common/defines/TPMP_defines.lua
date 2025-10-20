@@ -77,10 +77,11 @@ NDefines.NMilitary.STRATEGIC_SPEED_RAIL_BASE = 15.0		-- Base speed of strategic 
 NDefines.NMilitary.STRATEGIC_SPEED_RAIL_MAX = 25.0		-- Additional speed of strategic redeployment on max-level railways
 
 
-NDefines.NMilitary.RRIVER_CROSSING_PENALTY = -0.3               -- small river crossing
-NDefines.NMilitary.RRIVER_CROSSING_PENALTY_LARGE = -0.5		-- large river crossing
-NDefines.NMilitary.RRIVER_CROSSING_SPEED_PENALTY = -0.3		-- small river crossing
-NDefines.NMilitary.RRIVER_CROSSING_SPEED_PENALTY_LARGE = -0.5	-- large river crossing
+NDefines.NMilitary.RIVER_CROSSING_PENALTY = -0.3		-- small river crossing
+NDefines.NMilitary.RIVER_CROSSING_PENALTY_LARGE = -0.5		-- large river crossing
+NDefines.NMilitary.RIVER_CROSSING_SPEED_PENALTY = -0.3		-- small river crossing
+NDefines.NMilitary.RIVER_CROSSING_SPEED_PENALTY_LARGE = -0.5	-- large river crossing
+NDefines.NMilitary.MULTIPLE_COMBATS_PENALTY = -0.3              -- defender penalty if attacked from multiple directions
 
 NDefines.NMilitary.COMBAT_OVER_WIDTH_PENALTY = -1		-- over combat width penalty per %.
 NDefines.NMilitary.COMBAT_OVER_WIDTH_PENALTY_MAX = -0.15	-- over combat width max (when you cant join no more).
