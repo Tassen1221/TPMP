@@ -2109,6 +2109,10 @@ focus_tree = {
 			factor = 1
 		}
 		available = {
+			OR = {
+				has_war = yes
+				has_war_support > 0.3
+			}
 			democratic > 0.95
 		}
 		bypass = {
@@ -2224,6 +2228,12 @@ focus_tree = {
 				}
 				set_state_flag = USA_arsenal_of_democracy_3AF
 			}
+			if = {
+				limit = {
+					has_idea = undisturbed_isolation 
+				}
+				add_ideas = isolation
+			}
 		}
 	}
 	focus = {
@@ -2233,7 +2243,7 @@ focus_tree = {
 		available = {
 			OR = {
 				has_war = yes
-				has_war_support > 0.3
+				has_war_support > 0.5
 			}
 			democratic > 0.95
 		}
@@ -5217,12 +5227,7 @@ focus_tree = {
 			else = {
 				add_political_power = 150
 			}
-			if = {
-				limit = {
-					has_war_support < 0.1
-				}
-				set_war_support = 0.1
-			}
+			add_war_support = 0.1
 			if = {
 				limit = {
 					has_war_support < 0.4 

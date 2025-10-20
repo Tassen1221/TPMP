@@ -34,10 +34,8 @@ ideas = {
 					limit = {
 						original_tag = USA
 					}
-					OR = {
-						has_war_support > 0.5
-						has_war = yes
-						has_completed_focus = USA_limited_intervention
+					hidden_trigger = {
+						always = no
 					}
 				}
 				ELSE = {
@@ -79,10 +77,8 @@ ideas = {
 					limit = {
 						original_tag = USA
 					}
-					OR = {
-						has_war_support > 0.75
-						has_war = yes
-						has_completed_focus = USA_limited_intervention
+					hidden_trigger = {
+						always = no
 					}
 				}
 				ELSE = {
@@ -179,11 +175,12 @@ ideas = {
 
 				if = {
 					limit = {
-						has_completed_focus = USA_limited_intervention
-						has_defensive_war = no
+						original_tag = USA
 					}
-					has_war_support > 0.3
-					congress_high_support_trigger = yes
+					OR = {
+						has_war_support > 0.55
+						has_war = yes
+					}
 				}
 				if = {
 					limit = {
@@ -291,14 +288,14 @@ ideas = {
 						}
 					}
 				}
-
 				if = {
 					limit = {
-						has_completed_focus = USA_limited_intervention
-						has_defensive_war = no
+						original_tag = USA
 					}
-					has_war_support > 0.5
-					congress_high_support_trigger = yes
+					OR = {
+						has_war_support > 0.60
+						has_war = yes
+					}
 				}
 				if = {
 					limit = {
@@ -457,7 +454,6 @@ ideas = {
 						}
 					}
 				}
-
 				if = {
 					limit = {
 						has_completed_focus = USA_limited_intervention
