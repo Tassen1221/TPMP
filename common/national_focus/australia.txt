@@ -128,16 +128,8 @@
 			add_tech_bonus = {
 				name = AST_royal_australian_artillery
 				bonus = 1.0
-				uses = 1
+				uses = 2
 				category = cat_artillery_tech
-			}
-			if = {
-				limit = { has_dlc = "Arms Against Tyranny" }
-				add_doctrine_cost_reduction = {
-					cost_reduction = 0.5
-					uses = 1
-					category = cat_special_forces_doctrine
-				}
 			}
 		}
 	}
@@ -266,8 +258,9 @@
 			add_tech_bonus = {
 				name = AST_hmas_assault
 				bonus = 1.0
-				uses = 1
-				category = cat_armour_tech
+				ahead_reduction = 2
+				uses = 2
+				category = cat_marine_tech
 			}
 		}
 	}
@@ -303,7 +296,7 @@
 			add_tech_bonus = {
 				name = AST_specialize_equipment
 				bonus = 1.0
-				uses = 1
+				uses = 2
 				category = cat_infantry_tech
 				category = cat_artillery_tech
 			}
@@ -375,10 +368,7 @@
 				name = AST_fund_owen_gun_research
 				bonus = 1.0
 				uses = 3
-				technology = tech_logistics_company
-				technology = tech_logistics_company2
-				technology = tech_logistics_company3
-				technology = tech_logistics_company4
+				category = cat_logistics_tech
 			}
 			custom_effect_tooltip = available_political_advisor
 			show_ideas_tooltip = AST_cederic_hicks
@@ -415,9 +405,10 @@
 		completion_reward = {
 			add_tech_bonus = {
 				name = AST_fund_owen_gun_research
-				bonus = 1.0
+				bonus = 1
+				ahead_reduction = 2
 				uses = 1
-				category = cat_infantry_tech
+				category = cat_cqc_tech
 			}
 		}
 	}
@@ -457,7 +448,8 @@
 			add_tech_bonus = {
 				name = AST_sentinel_tank_project
 				bonus = 1.0
-				uses = 2
+				ahead_reduction = 2
+				uses = 1
 				category = cat_armour_tech
 			}
 		}
@@ -495,8 +487,8 @@
 			add_tech_bonus = {
 				name = AST_airborne_defence
 				bonus = 1.0
-				uses = 1
-				category = para_tech
+				uses = 2
+				category = cat_anti_air_tech
 			}
 			if = {
 				limit = { has_dlc = "Arms Against Tyranny" }
@@ -537,34 +529,13 @@
 		search_filters = { FOCUS_FILTER_RESEARCH  }
 
 		completion_reward = {
-			army_experience = 35
-			navy_experience = 35
-			if = {
-				limit = { has_dlc = "Arms Against Tyranny" }
-				custom_effect_tooltip = CHL_skip_one_line_tt
-				add_potential_special_forces_tree = yes
-				custom_effect_tooltip = CHL_skip_one_line_tt
-				add_doctrine_cost_reduction = {
-					name = AST_introduce_unconventional_warfare
-					cost_reduction = 0.5
-					uses = 1
-					category = cat_special_forces_doctrine
-				}
+			add_doctrine_cost_reduction = {
+				name = AST_introduce_unconventional_warfare
+				cost_reduction = 0.75
+				uses = 2
+				category = cat_special_forces_doctrine
 			}
-			else = {
-				add_doctrine_cost_reduction = {
-					name = AST_introduce_unconventional_warfare
-					cost_reduction = 0.5
-					uses = 1
-					category = cat_land_doctrine
-				}
-				add_doctrine_cost_reduction = {
-					name = AST_introduce_unconventional_warfare
-					cost_reduction = 0.5
-					uses = 1
-					category = naval_doctrine
-				}
-			}
+			add_ideas = TPMP_AST_unconventional_warfare_idea_0
 		}
 	}
 
@@ -599,9 +570,9 @@
 			add_tech_bonus = {
 				name = AST_z_special_unit
 				bonus = 1.0
-				uses = 1
-				category = cat_armour_tech
-				category = para_tech
+				ahead_reduction = 2
+				uses = 2
+				category = cat_commandos_tech
 			}
 			if = {
 				limit = { has_dlc = "Arms Against Tyranny" }
@@ -611,6 +582,21 @@
 					category = cat_special_forces_doctrine
 				}
 			}
+			if = {
+				limit = {
+					has_idea = TPMP_AST_unconventional_warfare_idea_0
+				}
+				swap_ideas = {
+					remove_idea = TPMP_AST_unconventional_warfare_idea_0
+					add_idea = TPMP_AST_unconventional_warfare_idea_1
+				}
+			}
+			else = {
+				swap_ideas = {
+					remove_idea = TPMP_AST_unconventional_warfare_idea_1
+					add_idea = TPMP_AST_unconventional_warfare_idea_2
+				}
+			}	
 		}
 	}
 
@@ -647,10 +633,7 @@
 				bonus = 1.0
 				ahead_reduction = 2
 				uses = 1
-				technology = tech_recon
-				technology = tech_recon2
-				technology = tech_recon3
-				technology = tech_recon4
+				category = cat_recon_tech
 			}
 			if = {
 				limit = { has_dlc = "Arms Against Tyranny" }
@@ -660,6 +643,21 @@
 					category = cat_special_forces_doctrine
 				}
 			}
+			if = {
+				limit = {
+					has_idea = TPMP_AST_unconventional_warfare_idea_0
+				}
+				swap_ideas = {
+					remove_idea = TPMP_AST_unconventional_warfare_idea_0
+					add_idea = TPMP_AST_unconventional_warfare_idea_1
+				}
+			}
+			else = {
+				swap_ideas = {
+					remove_idea = TPMP_AST_unconventional_warfare_idea_1
+					add_idea = TPMP_AST_unconventional_warfare_idea_2
+				}
+			}			
 		}
 	}
 	
@@ -696,15 +694,12 @@
 				bonus = 1.0
 				ahead_reduction = 2
 				uses = 2
-				technology = tech_signal_company
-				technology = tech_signal_company2
-				technology = tech_signal_company3
-				technology = tech_signal_company4
+				category = cat_signal_company_tech
 			}
 			if = {
 				limit = { has_dlc = "La Resistance" }
 				add_ideas = AST_central_bureau_idea
-			}
+			}	
 		}
 	}
 
@@ -1993,7 +1988,7 @@
 			add_tech_bonus = {
 				name = industrial_bonus
 				bonus = 1.0
-				uses = 1
+				uses = 2
 				category = industry
 			}			
 		}
@@ -2033,39 +2028,32 @@
 
 		completion_reward = {
 			build_railway = {
+				level = 2
 				path = { 1652 2157 10983 1526 10949 8200 10969 2191 12948 5197 8165 10927 8186 }
 			}
-
-			random_owned_state = {
-				limit = {
-					free_building_slots = {
-						building = infrastructure
-						size > 0
-					}
-					NOT = {state = 674}
-				}
-
+			522 = {
 				add_building_construction = {
 					type = infrastructure
-					level = 1
+					level = 2
 					instant_build = yes
 				}
+				add_extra_state_shared_building_slots = 1
 			}
-
-			random_owned_state = {
-				limit = {
-					free_building_slots = {
-						building = infrastructure
-						size > 0
-					}
-					NOT = {state = 674}
-				}
-
+			519 = {
 				add_building_construction = {
 					type = infrastructure
-					level = 1
+					level = 2
 					instant_build = yes
 				}
+				add_extra_state_shared_building_slots = 1
+			}
+			871 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
 			}
 		}
 	}
@@ -2097,20 +2085,6 @@
 		available_if_capitulated = no
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 
-		complete_tooltip = {
-			random_state = {
-				limit = {
-					has_state_flag = AST_south_australian_housing_trust_IC
-				}
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = industrial_complex
-					level = 2
-					instant_build = yes
-				}
-			}
-		}
-
 		completion_reward = {
 			random_owned_controlled_state = {
 				prioritize = { 519 }
@@ -2128,7 +2102,23 @@
 					level = 2
 					instant_build = yes
 				}
-				set_state_flag = AST_south_australian_housing_trust_IC
+			}
+			random_owned_controlled_state = {
+				prioritize = { 817 }
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+					NOT = { state = 674 }
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
 			}
 		}
 	}
@@ -2160,38 +2150,23 @@
 		available_if_capitulated = no
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 
-		complete_tooltip = {
-			random_state = {
-				limit = {
-					has_state_flag = AST_department_of_supply_and_development_AF
-				}
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = arms_factory
-					level = 1
-					instant_build = yes
-				}
-			}
-		}
-
 		completion_reward = {
 			random_owned_controlled_state = {
 				prioritize = { 285 517 }
 				limit = {
 					free_building_slots = {
 						building = arms_factory
-						size > 0
+						size > 2
 						include_locked = yes
 					}
 					NOT = { state = 674 }
 				}
-				add_extra_state_shared_building_slots = 1
+				add_extra_state_shared_building_slots = 3
 				add_building_construction = {
 					type = arms_factory
-					level = 1
+					level = 3
 					instant_build = yes
 				}
-				set_state_flag = AST_department_of_supply_and_development_AF
 			}
 		}
 	}
@@ -2223,35 +2198,21 @@
 		available_if_capitulated = no
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 
-		complete_tooltip = {
-			random_state = {
-				limit = {
-					has_state_flag = AST_expand_lithgow_small_arms_factory_AF
-				}
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = arms_factory
-					level = 1
-					instant_build = yes
-				}
-			}
-		}
-
 		completion_reward = {
 			random_owned_controlled_state = {
 				prioritize = { 285 }
 				limit = {
 					free_building_slots = {
 						building = arms_factory
-						size > 1
+						size > 4
 						include_locked = yes
 					}
 					NOT = { state = 674 }
 				}
-				add_extra_state_shared_building_slots = 2
+				add_extra_state_shared_building_slots = 5
 				add_building_construction = {
 					type = arms_factory
-					level = 2
+					level = 5
 					instant_build = yes
 				}
 				set_state_flag = AST_expand_lithgow_small_arms_factory_AF
@@ -2384,8 +2345,30 @@
 				level = 2
 				path = { 7669 1431 12104 1454 }
 			}
-
-
+			870 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			520 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			872 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
 		}
 	}
 
@@ -2739,14 +2722,6 @@
 					is_in_faction_with = ENG
 				}
 			}
-			#Requires UK at war in Africa
-			any_country = {
-				has_war_with = ENG
-				any_state = {
-					is_controlled_by = PREV
-					is_on_continent = africa
-				}
-			}
 		}
 		
 		bypass = {
@@ -2759,101 +2734,64 @@
 		search_filters = {  }
 
 		completion_reward = {
-			#Starts with recon and engineers
-			hidden_effect = {
-				if = {
-					limit = {
-						has_tech = tech_logistics_company
-					}
-					division_template = {
-						name = "Rats of Tobruk"
-						division_names_group = AST_INF_01
-						regiments = {
-							infantry = { x = 0 y = 0 }
-							infantry = { x = 0 y = 1 }
-							infantry = { x = 0 y = 2 }
-							infantry = { x = 1 y = 0 }
-							infantry = { x = 1 y = 1 }
-							infantry = { x = 1 y = 2 }
-							infantry = { x = 2 y = 0 }
-							infantry = { x = 2 y = 1 }
-							infantry = { x = 2 y = 2 }
-							infantry = { x = 3 y = 0 }
-							infantry = { x = 3 y = 1 }
-						}
-						support = {
-					        recon = { x = 0 y = 0 }
-					        engineer = { x = 0 y = 1 }
-					        logistics_company = { x = 0 y = 2 }
-						}
-					}
-					else = {
-						division_template = {
-							name = "Rats of Tobruk"
-							division_names_group = AST_INF_01
-							regiments = {
-								infantry = { x = 0 y = 0 }
-								infantry = { x = 0 y = 1 }
-								infantry = { x = 0 y = 2 }
-								infantry = { x = 1 y = 0 }
-								infantry = { x = 1 y = 1 }
-								infantry = { x = 1 y = 2 }
-								infantry = { x = 2 y = 0 }
-								infantry = { x = 2 y = 1 }
-								infantry = { x = 2 y = 2 }
-								infantry = { x = 3 y = 0 }
-								infantry = { x = 3 y = 1 }
-							}
-							support = {
-						        recon = { x = 0 y = 0 }
-						        engineer = { x = 0 y = 1 }
-							}
-						}
-					}
-				}
+			custom_effect_tooltip = TPMP_AST_rats_of_tobruk_tt
+			division_template = {
+				name = "Rats of Tobruk"
+				division_names_group = AST_INF_01
+				regiments = {
+					infantry = { x = 0 y = 0 }
+					infantry = { x = 0 y = 1 }
+					infantry = { x = 0 y = 2 }
+					infantry = { x = 0 y = 3 }
 
-				#Spawn unit in Africa
-				if = {
-					limit = {
-						any_country = {
-							is_in_faction_with = AST
-							controls_state = 273
-						}
-						any_country = {
-							is_in_faction_with = AST
-							controls_state = 552
-						}
-					}
-					load_oob = "AST_TFV_rats_africa"					
-					else = {
-						if = {
-							limit = {
-								controls_state = 285
-							}
-							load_oob = "AST_TFV_rats_australia"
-						}
-					}
+					infantry = { x = 1 y = 0 }
+					infantry = { x = 1 y = 1 }
+					infantry = { x = 1 y = 2 }
+					infantry = { x = 1 y = 3 }
+
+					infantry = { x = 2 y = 0 }
+					infantry = { x = 2 y = 1 }
+					infantry = { x = 2 y = 2 }
+					infantry = { x = 2 y = 3 }
+
+					artillery_brigade = { x = 3 y = 0 }
+					artillery_brigade = { x = 3 y = 1 }
+					artillery_brigade = { x = 3 y = 2 }
+
+					artillery_brigade = { x = 4 y = 0 }
+					artillery_brigade = { x = 4 y = 1 }
+					artillery_brigade = { x = 4 y = 2 }
+				}
+				support = {
+					artillery = { x = 0 y = 0 }
+					engineer = { x = 0 y = 1 }
+					recon = { x = 0 y = 2 }
 				}
 			}
-			if = {
-				limit = {
-					any_country = {
-						is_in_faction_with = AST
-						controls_state = 273
-					}
-					any_country = {
-						is_in_faction_with = AST
-						controls_state = 552
-					}
+			random_owned_controlled_state = {
+				limit = { ROOT = { has_full_control_of_state = PREV } }
+				prioritize = { 285 }
+				create_unit = {
+					division = "name = \"Rats of Tobruk\" division_template = \"Rats of Tobruk\" start_experience_factor = 1.0" 
+					owner = AST
 				}
-				custom_effect_tooltip = AST_rats_of_tobruk_effect_1
-				else = {
-					if = {
-						limit = {
-							controls_state = 285
-						}
+				create_unit = {
+					division = "name = \"Rats of Tobruk\" division_template = \"Rats of Tobruk\" start_experience_factor = 1.0" 
+					owner = AST
+				}
+				create_unit = {
+					division = "name = \"Rats of Tobruk\" division_template = \"Rats of Tobruk\" start_experience_factor = 1.0" 
+					owner = AST
+				}
+				random_state_division = {
+					add_history_entry = {
+						key = TPMP_AST_rats_of_tobruk_history
+						subject = "Rats of Tobruk"
+						allow = yes
 					}
-					custom_effect_tooltip = AST_rats_of_tobruk_effect_2
+					add_unit_medal_to_latest_entry = {
+						unit_medals = TPMP_AST_rats_of_tobruk_medal
+					}
 				}
 			}
 		}

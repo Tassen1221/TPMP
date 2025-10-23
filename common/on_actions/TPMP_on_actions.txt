@@ -24,9 +24,7 @@ on_actions = {
 					FROM = { tag = SPD }
 				}
 				#Axis Volunteers (14 Total)
-				GER = { 
-					add_ideas = TPMP_SPR_volunteers_axis_2
-				}
+				GER = { add_ideas = TPMP_SPR_volunteers_axis_2 }
 				ITA = { add_ideas = TPMP_SPR_volunteers_axis_2 }
 				HUN = { add_ideas = TPMP_SPR_volunteers_axis_0 }
 				ROM = { add_ideas = TPMP_SPR_volunteers_axis_0 }
@@ -92,6 +90,18 @@ on_actions = {
 				RAJ = { remove_ideas = TPMP_SPR_volunteers_allies_0 }
 				AST = { remove_ideas = TPMP_SPR_volunteers_allies_0 }
 				SAF = { remove_ideas = TPMP_SPR_volunteers_allies_0 }
+			}
+		}
+	}
+	on_capitulation = {
+		effect = {
+			if = {
+				limit = {
+					tag = HOL
+				}
+				AST = {
+					country_event = TPMP_AST.1
+				}
 			}
 		}
 	}
