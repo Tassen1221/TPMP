@@ -117,7 +117,10 @@
 		available_if_capitulated = no
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
-			add_ideas = SAF_emergency_workers
+			add_timed_idea = {
+				idea = SAF_emergency_workers
+				days = 365
+			}
 		}
 	}
 
@@ -172,6 +175,11 @@
 					instant_build = yes
 				}
 			}
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 2
+				category = cat_artillery_tech
+			}
 		}
 	}
 	
@@ -213,10 +221,9 @@
 		id = SAF_expand_the_cape_corps
 		icon = GFX_goal_generic_demand_territory
 		prerequisite = { focus = SAF_reconstitute_the_cape_corps }
-		mutually_exclusive = { focus = SAF_outlaw_strikes }
 		x = 0
-		y = 5
-		relative_position_id = SAF_war_measures_act
+		y = 1
+		relative_position_id = SAF_reconstitute_the_cape_corps
 
 		cost = 10
 
@@ -240,43 +247,6 @@
 			remove_ideas = SAF_history_of_segregation_2
 		}
 	}
-
-	focus = {
-		id = SAF_outlaw_strikes
-		icon = GFX_goal_generic_consumer_goods
-		prerequisite = { focus = SAF_work_for_all_poor }
-		mutually_exclusive = { focus = SAF_expand_the_cape_corps }
-		x = 2
-		y = 5
-		relative_position_id = SAF_war_measures_act
-
-		cost = 10
-
-		ai_will_do = {
-			factor = 1
-		}
-
-		available = {
-
-		}
-		
-		bypass = {
-
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-
-		search_filters = { FOCUS_FILTER_INDUSTRY }
-		completion_reward = {
-			swap_ideas = {
-				remove_idea = SAF_cheap_labor_2
-				add_idea = SAF_cheap_labor_3
-			}
-		}
-	}
-
 
 	############################
 	# GO COMMONWEALTH SECTION ##
@@ -595,6 +565,41 @@
 			}
 		}
 	}
+
+	focus = {
+		id = SAF_outlaw_strikes
+		icon = GFX_goal_generic_consumer_goods
+		prerequisite = { focus = SAF_work_for_all_poor }
+		x = 0
+		y = 1
+		relative_position_id = SAF_work_for_all_poor
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = SAF_cheap_labor_2
+				add_idea = SAF_cheap_labor_3
+			}
+		}
+	}	
 
 	############################
 	#### GO FASCIST SECTION ####
@@ -2016,7 +2021,7 @@
 			}
 			add_equipment_to_stockpile = { 
 				type = train_equipment_1
-				amount = 15 
+				amount = 100
 				producer = ENG
 			}
 
@@ -2054,33 +2059,19 @@
 		available_if_capitulated = no
         search_filters = { FOCUS_FILTER_INDUSTRY}
 
-		complete_tooltip = {
-			random_state = {
-				limit = {
-					has_state_flag = SAF_expand_the_mining_industry_IC
-				}
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = industrial_complex
-					level = 2
-					instant_build = yes
-				}
-			}
-		}
-
 		completion_reward = {
 			random_owned_controlled_state = {
 				limit = {
 					free_building_slots = {
 						building = industrial_complex
-						size > 0
+						size > 2
 						include_locked = yes
 					}
 				}
-				add_extra_state_shared_building_slots = 2
+				add_extra_state_shared_building_slots = 3
 				add_building_construction = {
 					type = industrial_complex
-					level = 2
+					level = 3
 					instant_build = yes
 				}
 				set_state_flag = SAF_expand_the_mining_industry_IC
@@ -2129,7 +2120,7 @@
 			add_tech_bonus = {
 				name = SAF_heavy_engineering
 				bonus = 1.0
-				uses = 1
+				uses = 2
 				category = industry
 			}
 		}
@@ -2162,49 +2153,6 @@
 		available_if_capitulated = no
         search_filters = { FOCUS_FILTER_INDUSTRY }
 
-		complete_tooltip = {
-			random_state = {
-				limit = {
-					has_state_flag = SAF_infrastructure_effort_Inf
-				}
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
-			}
-			random_state = {
-				limit = {
-					has_state_flag = SAF_infrastructure_effort_Inf2
-				}
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
-			}
-			random_state = {
-				limit = {
-					has_state_flag = SAF_infrastructure_effort_Inf3
-				}
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
-			}
-			random_state = {
-				limit = {
-					has_state_flag = SAF_infrastructure_effort_Inf4
-				}
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
-			}
-		}
-
 		completion_reward = {
 			random_owned_controlled_state = {
 				limit = {
@@ -2215,54 +2163,34 @@
 				}
 				add_building_construction = {
 					type = infrastructure
-					level = 1
+					level = 2
 					instant_build = yes
 				}
-				set_state_flag = SAF_infrastructure_effort_Inf
-				random_neighbor_state = { # done like this to prevent double selection of previous state
-					limit = {
-						is_controlled_by = ROOT
-						free_building_slots = {
-							building = infrastructure
-							size > 0
-						}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 0
 					}
-					add_building_construction = {
-						type = infrastructure
-						level = 1
-						instant_build = yes
-					}
-					set_state_flag = SAF_infrastructure_effort_Inf2
 				}
-				random_neighbor_state = { # done like this to prevent double selection of previous state
-					limit = {
-						is_controlled_by = ROOT
-						free_building_slots = {
-							building = infrastructure
-							size > 0
-						}
-					}
-					add_building_construction = {
-						type = infrastructure
-						level = 1
-						instant_build = yes
-					}
-					set_state_flag = SAF_infrastructure_effort_Inf3
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
 				}
-				random_neighbor_state = { # done like this to prevent double selection of previous state
-					limit = {
-						is_controlled_by = ROOT
-						free_building_slots = {
-							building = infrastructure
-							size > 0
-						}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 0
 					}
-					add_building_construction = {
-						type = infrastructure
-						level = 1
-						instant_build = yes
-					}
-					set_state_flag = SAF_infrastructure_effort_Inf4
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
 				}
 			}
 		}
@@ -2295,33 +2223,19 @@
 		available_if_capitulated = no
         search_filters = { FOCUS_FILTER_INDUSTRY }
 
-		complete_tooltip = {
-			random_state = {
-				limit = {
-					has_state_flag = SAF_armament_effort_AF
-				}
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = arms_factory
-					level = 2
-					instant_build = yes
-				}
-			}
-		}
-
 		completion_reward = {
 			random_owned_controlled_state = {
 				limit = {
 					free_building_slots = {
 						building = arms_factory
-						size > 0
+						size > 2
 						include_locked = yes
 					}
 				}
-				add_extra_state_shared_building_slots = 2
+				add_extra_state_shared_building_slots = 3
 				add_building_construction = {
 					type = arms_factory
-					level = 2
+					level = 3
 					instant_build = yes
 				}
 				set_state_flag = SAF_armament_effort_AF
@@ -2360,7 +2274,7 @@
 			275 = {
 				add_resource = {
 					type = steel
-					amount = 160
+					amount = 320
 				}
 			}
 		}
@@ -2394,33 +2308,19 @@
 		available_if_capitulated = no
         search_filters = { FOCUS_FILTER_INDUSTRY }
 
-		complete_tooltip = {
-			random_state = {
-				limit = {
-					has_state_flag = SAF_pretoria_arms_AF
-				}
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = arms_factory
-					level = 2
-					instant_build = yes
-				}
-			}
-		}
-
 		completion_reward = {
 			random_owned_controlled_state = {
 				limit = {
 					free_building_slots = {
 						building = arms_factory
-						size > 1
+						size > 2
 						include_locked = yes
 					}
 				}
-				add_extra_state_shared_building_slots = 2
+				add_extra_state_shared_building_slots = 3
 				add_building_construction = {
 					type = arms_factory
-					level = 2
+					level = 3
 					instant_build = yes
 				}
 				set_state_flag = SAF_pretoria_arms_AF
@@ -2557,7 +2457,6 @@
 		}
 
 		available = {
-			is_subject = no
 		}
 		
 		bypass = {
@@ -2590,15 +2489,6 @@
 
 		available = {
 			is_subject = no
-			has_war = yes
-			is_in_faction = yes
-			OR = {
-				num_of_factories > 50
-				any_other_country = {
-					is_in_faction_with = ROOT
-					num_of_factories > 50
-				}
-			}
 		}
 		
 		bypass = {
@@ -2646,10 +2536,10 @@
         search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			army_experience = 10
+			army_experience = 100
 			add_doctrine_cost_reduction = {
 				name = SAF_special_service_battalion
-				cost_reduction = 0.25
+				cost_reduction = 0.5
 				uses = 1
 				category = cat_land_doctrine
 			}
@@ -2725,11 +2615,7 @@
 				name = SAF_q_services_corps
 				bonus = 1.0
 				uses = 2
-				technology = motorised_infantry
-				technology = tech_logistics_company
-				technology = tech_logistics_company2
-				technology = tech_logistics_company3
-				technology = tech_logistics_company4
+				category = cat_logistics_tech
 			}
 		}
 	}
@@ -2762,11 +2648,11 @@
         search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			army_experience = 10
+			army_experience = 100
 			add_doctrine_cost_reduction = {
 				name = SAF__south_african_military_college
 				cost_reduction = 0.5
-				uses = 1
+				uses = 2
 				category = cat_land_doctrine
 			}
 		}
@@ -2803,7 +2689,7 @@
 			add_tech_bonus = {
 				name = SAF_expand_the_south_african_artillery
 				bonus = 1.0
-				uses = 1
+				uses = 2
 				category = cat_artillery_tech
 			}
 		}
@@ -2840,7 +2726,7 @@
 			add_tech_bonus = {
 				name = SAF_sa_engineer_corps
 				bonus = 1.0
-				uses = 1
+				uses = 2
 				category = cat_support_tech
 			}
 		}
@@ -2877,7 +2763,7 @@
 			add_tech_bonus = {
 				name = SAF_equipment_effort
 				bonus = 1.0
-				uses = 1
+				uses = 2
 				category = cat_infantry_tech
 				category = cat_artillery_tech
 			}
@@ -2952,9 +2838,10 @@
 			add_tech_bonus = {
 				name = SAF_south_african_special_forces
 				bonus = 1.0
-				uses = 1
+				uses = 2
 				category = cat_para_tech
 				category = cat_marine_tech
+				category = cat_rangers_tech
 				category = cat_mountaineers_tech
 			}
 			if = {
@@ -2999,7 +2886,7 @@
 			add_tech_bonus = {
 				name = SAF_armor_effort
 				bonus = 1.0
-				uses = 1
+				uses = 2
 				category = cat_armour_tech
 			}
 		}
@@ -3344,10 +3231,10 @@
 				limit = {
 					has_state_flag = SAF_seaward_defence_force_DY
 				}
-				add_extra_state_shared_building_slots = 1
+				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = dockyard
-					level = 1
+					level = 2
 					instant_build = yes
 				}
 			}
@@ -3361,14 +3248,14 @@
 					is_coastal = yes
 					free_building_slots = {
 						building = dockyard
-						size > 0
+						size > 1
 						include_locked = yes
 					}
 				}
-				add_extra_state_shared_building_slots = 1
+				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = dockyard
-					level = 1
+					level = 2
 					instant_build = yes
 				}
 				set_state_flag = SAF_seaward_defence_force_DY

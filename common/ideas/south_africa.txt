@@ -37,8 +37,8 @@ ideas = {
 			picture = saf_ossewabrandwag_2
 
 			modifier = {
-				industrial_capacity_factory = -0.10
-				industrial_capacity_dockyard = -0.10
+				industrial_capacity_factory = -0.05
+				industrial_capacity_dockyard = -0.05
 			}
 		}
 
@@ -76,7 +76,7 @@ ideas = {
 			picture = saf_history_of_segregation
 
 			modifier = {
-				conscription_factor = -0.55
+				conscription_factor = -0.5
 			}
 
 		}
@@ -95,7 +95,7 @@ ideas = {
 			picture = saf_history_of_segregation_2
 
 			modifier = {
-				conscription_factor = -0.40
+				conscription_factor = -0.35
 			}
 
 		}
@@ -176,9 +176,11 @@ ideas = {
 			picture = generic_production_bonus
 
 			modifier = {
-				production_speed_industrial_complex_factor = 0.07
-				production_speed_arms_factory_factor = 0.07
-				production_speed_infrastructure_factor = 0.07
+				conscription_factor = -0.25
+				production_speed_industrial_complex_factor = 0.2
+				production_speed_arms_factory_factor = 0.2
+				production_cost_industrial_complex_factor = -0.2
+				production_cost_arms_factory_factor = -0.2
 			}
 
 		}
@@ -197,9 +199,10 @@ ideas = {
 			picture = generic_manpower_bonus
 
 			modifier = {
-				industrial_capacity_factory = 0.03
-				industrial_capacity_dockyard = 0.03
 				conscription_factor = -0.05
+				consumer_goods_factor = -0.15
+				industrial_capacity_factory = 0.025
+				industrial_capacity_dockyard = 0.025
 			}
 
 		}
@@ -218,12 +221,11 @@ ideas = {
 			picture = generic_manpower_bonus
 
 			modifier = {
-				industrial_capacity_factory = 0.03
-				industrial_capacity_dockyard = 0.03
-				consumer_goods_factor = -0.10
-				conscription_factor = -0.05
+				conscription_factor = -0.1
+				consumer_goods_factor = -0.2
+				industrial_capacity_factory = 0.05
+				industrial_capacity_dockyard = 0.05
 			}
-
 		}
 
 		SAF_cheap_labor_3 = {
@@ -240,10 +242,11 @@ ideas = {
 			picture = generic_manpower_bonus
 
 			modifier = {
-				industrial_capacity_factory = 0.06
-				industrial_capacity_dockyard = 0.06
-				consumer_goods_factor = -0.20
-				conscription_factor = -0.05
+				conscription_factor = -0.15
+				consumer_goods_factor = -0.2
+				industrial_capacity_factory = 0.1
+				industrial_capacity_dockyard = 0.1
+				production_factory_max_efficiency_factor = 0.05
 			}
 
 		}
@@ -262,7 +265,7 @@ ideas = {
 			picture = triumphant_will
 
 			modifier = {
-				stability_factor = 0.07
+				stability_factor = 0.15
 				autonomy_gain = 0.5
 			}
 		}
@@ -460,6 +463,7 @@ ideas = {
 
 			modifier = {
 				consumer_goods_factor = -0.15
+				industrial_factory_donations = 5
 			}
 
 		}
@@ -586,6 +590,28 @@ ideas = {
 			}
 			
 			traits = { railway_company }
+			
+			modifier = {
+			}
+		}
+		SAF_ISCOR = {
+			
+			picture = generic_industrial_concern_2
+
+			allowed = {
+				original_TAG = SAF
+				has_dlc = "Together for Victory"
+			}
+			
+			available = {
+				has_idea = SAF_hendrik_van_der_bijl
+				NOT = {
+					has_completed_focus = SAF_pretoria_arms
+				}
+			}
+			cost = 150
+			
+			traits = { TPMP_SAF_steel_company }
 			
 			modifier = {
 			}
