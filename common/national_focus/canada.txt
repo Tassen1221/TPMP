@@ -128,6 +128,11 @@ focus_tree = {
 		available_if_capitulated = yes
 
 		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1.0
+				uses = 1
+				category = industry
+			}
 			custom_effect_tooltip = available_political_advisor
 			show_ideas_tooltip = CAN_c_d_howe
 		}
@@ -170,51 +175,17 @@ focus_tree = {
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 
-		complete_tooltip = {
-			random_state = {
-				limit = {
-					has_state_flag = CAN_national_housing_act_IC
-				}
-				add_extra_state_shared_building_slots = 3
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-			}
-
-			IF = {
-				limit = {
-					has_country_leader = {
-						ruling_only = yes
-						character = CAN_mackenzie_king
-					}
-				}
-
-				add_trait = {
-					character = CAN_mackenzie_king
-					trait = CAN_father_of_the_canadian_welfare_state
-					ideology = liberalism 
-				}
-			}
-		}
-
 		completion_reward = {
-			random_owned_controlled_state = {
-				limit = {
-					free_building_slots = {
-						building = industrial_complex
-						size > 0
-						include_locked = yes
-					}
+			if = {
+				limit = { has_idea = CAN_great_depression_1 }
+				swap_ideas = {
+					remove_idea = CAN_great_depression_1
+					add_idea = CAN_great_depression_2		
 				}
-				add_extra_state_shared_building_slots = 3
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-				set_state_flag = CAN_national_housing_act_IC
+			}
+			else_if = {
+				limit = { has_idea = CAN_great_depression_2 }
+				remove_ideas = CAN_great_depression_2
 			}
 
 			IF = {
@@ -305,40 +276,27 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 
 		completion_reward = {
-			random_owned_state = {
-				limit = {
-					free_building_slots = {
-						building = infrastructure
-						size > 0
-					}
-				}
-
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
-			}
-
-			random_owned_state = {
-				limit = {
-					free_building_slots = {
-						building = infrastructure
-						size > 0
-					}
-				}
-
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
-			}
 			build_railway = { #Vancouver - NW Canada
 				path = {
 					1408 1858 10273 4870 10548
 				}
 			}
+			473 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				set_state_category = pastoral
+			}	
+			471 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				set_state_category = large_city
+			}	
 
 			custom_effect_tooltip = available_industrial_concern
 			show_ideas_tooltip = canadian_pacific_railway
@@ -388,23 +346,21 @@ focus_tree = {
 			build_railway = {
 				path = { 7433 12149 }
 			}
-
-			random_owned_state = {
-				limit = {
-					free_building_slots = {
-						building = industrial_complex
-						size > 1
-						include_locked = yes
-					}
-				}
-
-				add_extra_state_shared_building_slots = 2
-
+			465 = {
 				add_building_construction = {
-					type = industrial_complex
-					level = 2
+					type = infrastructure
+					level = 1
 					instant_build = yes
 				}
+				set_state_category = town
+			}
+			464 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				set_state_category = town
 			}
 		}
 	}
@@ -461,6 +417,7 @@ focus_tree = {
 		}
 
 		completion_reward = {
+			add_ideas = TPMP_CAN_tank_industry_idea
 			random_owned_controlled_state = {
 				prioritize = { 285 517 }
 				limit = {
@@ -515,25 +472,25 @@ focus_tree = {
 			470 = {
 				add_resource = {
 					type = oil
-					amount = 20
+					amount = 100
 				}
 			}
 			471 = {
 				add_resource = {
 					type = oil
-					amount = 40
+					amount = 200
 				}
 			}
 			472 = {
 				add_resource = {
 					type = oil
-					amount = 40
+					amount = 200
 				}
 			}
 			683 = {
 				add_resource = {
 					type = oil
-					amount = 40
+					amount = 200
 				}
 			}
 		}
@@ -653,44 +610,19 @@ focus_tree = {
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 
-		complete_tooltip = {
-			random_state = {
-				limit = {
-					has_state_flag = CAN_department_of_munitions_and_supply_AF1
-				}
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = arms_factory
-					level = 1
-					instant_build = yes
-				}
-			}
-			random_state = {
-				limit = {
-					has_state_flag = CAN_department_of_munitions_and_supply_AF2
-				}
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = arms_factory
-					level = 1
-					instant_build = yes
-				}
-			}
-		}
-
 		completion_reward = {
 			random_owned_controlled_state = {
 				limit = {
 					free_building_slots = {
 						building = arms_factory
-						size > 0
+						size > 1
 						include_locked = yes
 					}
 				}
-				add_extra_state_shared_building_slots = 1
+				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = arms_factory
-					level = 1
+					level = 2
 					instant_build = yes
 				}
 				set_state_flag = CAN_department_of_munitions_and_supply_AF1
@@ -699,14 +631,14 @@ focus_tree = {
 				limit = {
 					free_building_slots = {
 						building = arms_factory
-						size > 0
+						size > 1
 						include_locked = yes
 					}
 				}
-				add_extra_state_shared_building_slots = 1
+				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = arms_factory
-					level = 1
+					level = 2
 					instant_build = yes
 				}
 				set_state_flag = CAN_department_of_munitions_and_supply_AF2
@@ -885,7 +817,7 @@ focus_tree = {
 				}
 				add_resource = {
 					type = steel
-					amount = 20
+					amount = 300
 				}
 			}
 			random_owned_controlled_state = {
@@ -895,7 +827,7 @@ focus_tree = {
 				}
 				add_resource = {
 					type = steel
-					amount = 20
+					amount = 300
 				}
 			}
 			random_owned_controlled_state = {
@@ -905,7 +837,7 @@ focus_tree = {
 				}
 				add_resource = {
 					type = chromium
-					amount = 30
+					amount = 400
 				}
 			}
 		}
@@ -1023,6 +955,7 @@ focus_tree = {
 		}
 
 		completion_reward = {
+			add_ideas = TPMP_CAN_air_industry_idea
 			random_owned_controlled_state = {
 				prioritize = { 276 682 }
 				limit = {
@@ -1096,20 +1029,6 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_INDUSTRY }
-
-		complete_tooltip = {
-			random_state = {
-				limit = {
-					has_state_flag = CAN_alberta_coal_towns_IC
-				}
-				add_extra_state_shared_building_slots = 3
-				add_building_construction = {
-					type = industrial_complex
-					level = 3
-					instant_build = yes
-				}
-			}
-		}
 
 		completion_reward = {
 			random_owned_controlled_state = {
@@ -1263,6 +1182,11 @@ focus_tree = {
 					instant_build = yes
 				}
 				set_state_flag = CAN_john_inglis_and_company_AF2
+			}
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 2
+				category = cat_infantry_gun_tech
 			}
 		}
 	}
@@ -1608,7 +1532,6 @@ focus_tree = {
 		}
 
 		available = {
-			num_of_factories > 50
 			is_subject = no
 		}
 		
@@ -1710,10 +1633,10 @@ focus_tree = {
 		completion_reward = {
 			add_tech_bonus = {
 				name = CAN_long_branch_arsenal
-				bonus = 1.0
-				uses = 1
-				category = cat_infantry_tech
-				category = cat_artillery_tech
+				bonus = 1
+				ahead_reduction = 2
+				uses = 2
+				category = cat_rifle_tech
 			}
 		}
 	}
@@ -1747,12 +1670,12 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			army_experience = 50
-			add_doctrine_cost_reduction = {
-				name = CAN_independent_command
-				cost_reduction = 0.5
-				uses = 1
-				category = cat_land_doctrine
+			add_ideas = TPMP_CAN_indepdendent_command_idea
+			every_army_leader = {
+				add_attack = 1
+				add_defense = 1
+				add_planning = 1
+				add_logistics = 1
 			}
 		}
 	}
@@ -1802,7 +1725,7 @@ focus_tree = {
 		y = 6
 		relative_position_id = CAN_defence_of_canada_regulations
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 25
@@ -1845,7 +1768,12 @@ focus_tree = {
 		}
 
 		available = {
-
+			NOT = {
+				OR = {
+					has_idea = CAN_great_depression_1
+					has_idea = CAN_great_depression_2
+				}
+			}
 		}
 		
 		bypass = {
@@ -1857,72 +1785,24 @@ focus_tree = {
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 
-		complete_tooltip = {
-			random_state = {
-				limit = {
-					has_state_flag = CAN_war_fueled_economy_AF1
-				}
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = arms_factory
-					level = 1
-					instant_build = yes
-				}
-			}
-			random_state = {
-				limit = {
-					has_state_flag = CAN_war_fueled_economy_AF2
-				}
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = arms_factory
-					level = 1
-					instant_build = yes
-				}
-			}
-			random_state = {
-				limit = {
-					has_state_flag = CAN_war_fueled_economy_AF3
-				}
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = arms_factory
-					level = 1
-					instant_build = yes
-				}
-			}
-		}
-
 		completion_reward = {
-			if = {
-				limit = { 
-					OR = {
-						has_idea = CAN_great_depression_1
-						has_idea = CAN_great_depression_2
-					}
-				}
-				remove_ideas = CAN_great_depression_2
-				custom_effect_tooltip = if_no_depression_get_stuff_TT
-			}
-			else = {
-				add_timed_idea = {
-					idea = CAN_booming_economy
-					days = 1095
-				}
+			add_timed_idea = {
+				idea = CAN_booming_economy
+				days = 1095
 			}
 			random_owned_controlled_state = {
 				limit = {
 					is_in_home_area = yes
 					free_building_slots = {
 						building = arms_factory
-						size > 0
+						size > 1
 						include_locked = yes
 					}
 				}
-				add_extra_state_shared_building_slots = 1
+				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = arms_factory
-					level = 1
+					level = 2
 					instant_build = yes
 				}
 				set_state_flag = CAN_war_fueled_economy_AF1
@@ -1932,14 +1812,14 @@ focus_tree = {
 					is_in_home_area = yes
 					free_building_slots = {
 						building = arms_factory
-						size > 0
+						size > 1
 						include_locked = yes
 					}
 				}
-				add_extra_state_shared_building_slots = 1
+				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = arms_factory
-					level = 1
+					level = 2
 					instant_build = yes
 				}
 				set_state_flag = CAN_war_fueled_economy_AF2
@@ -1949,14 +1829,14 @@ focus_tree = {
 					is_in_home_area = yes
 					free_building_slots = {
 						building = arms_factory
-						size > 0
+						size > 1
 						include_locked = yes
 					}
 				}
-				add_extra_state_shared_building_slots = 1
+				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = arms_factory
-					level = 1
+					level = 2
 					instant_build = yes
 				}
 				set_state_flag = CAN_war_fueled_economy_AF3
@@ -2036,7 +1916,7 @@ focus_tree = {
 			add_tech_bonus = {
 				name = CAN_canadian_infantry_corps
 				bonus = 1.0
-				uses = 1
+				uses = 2
 				category = cat_infantry_tech
 				category = cat_artillery_tech
 			}
@@ -2162,7 +2042,7 @@ focus_tree = {
 			add_tech_bonus = {
 				name = CAN_royal_regiment_of_canadian_artillery
 				bonus = 1.0
-				uses = 1
+				uses = 2
 				category = cat_artillery_tech
 			}
 		}
@@ -2199,20 +2079,8 @@ focus_tree = {
 			add_tech_bonus = {
 				name = CAN_a_motorized_army
 				bonus = 1.0
-				uses = 1
+				uses = 2
 				category = cat_motorized_tech
-				technology = tech_field_hospital
-				technology = tech_field_hospital2
-				technology = tech_field_hospital3
-				technology = tech_field_hospital4
-				technology = tech_logistics_company
-				technology = tech_logistics_company2
-				technology = tech_logistics_company3
-				technology = tech_logistics_company4
-				technology = tech_signal_company
-				technology = tech_signal_company2
-				technology = tech_signal_company3
-				technology = tech_signal_company4
 			}
 		}
 	}
@@ -2245,7 +2113,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			army_experience = 30
+			army_experience = 100
 			add_doctrine_cost_reduction = {
 				name = CAN_red_deer_training_camp
 				cost_reduction = 0.5
@@ -2331,9 +2199,8 @@ focus_tree = {
 			add_tech_bonus = {
 				name = CAN_the_black_devils
 				bonus = 1.00
-				uses = 1
-				category = cat_marine_tech
-				category = cat_para_tech
+				uses = 2
+				category = cat_commandos_tech
 			}
 		}
 	}
@@ -2369,7 +2236,7 @@ focus_tree = {
 			add_tech_bonus = {
 				name = CAN_the_rocky_mountain_rangers
 				bonus = 1.00
-				uses = 1
+				uses = 2
 				category = cat_mountaineers_tech
 			}
 		}
@@ -2403,28 +2270,53 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-
-			add_breakthrough_progress = {
-				specialization = specialization_land
-				value = 0.5
-			}
-
 			add_tech_bonus = {
 				name = CAN_the_valentine_tank
 				bonus = 1.0
 				uses = 1
 				category = cat_armour_tech
 			}
+		}
+	}
+
+	#TPMP Changes
+	focus = {
+		id = TPMP_CAN_the_ram_tank
+		icon = GFX_focus_generic_army_tanks2
+		prerequisite = { focus = CAN_the_valentine_tank }
+		x = 0
+		y = 1
+		relative_position_id = CAN_the_valentine_tank 
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 25
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
 			add_tech_bonus = {
-				name = CAN_the_valentine_tank
 				ahead_reduction = 2
 				bonus = 1.0
 				uses = 1
-				category = cat_light_chassis_tech
+				category = cat_armour_tech
 			}
-
 		}
 	}
+	#TPMP Changes
 
 
 	############################
@@ -2512,55 +2404,19 @@ focus_tree = {
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 
-		complete_tooltip = {
-			random_state = {
-				limit = {
-					has_state_flag = CAN_shadow_factories_AF1
-				}
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = arms_factory
-					level = 1
-					instant_build = yes
-				}
-			}
-			random_state = {
-				limit = {
-					has_state_flag = CAN_shadow_factories_AF2
-				}
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = arms_factory
-					level = 1
-					instant_build = yes
-				}
-			}
-			random_state = {
-				limit = {
-					has_state_flag = CAN_shadow_factories_AF3
-				}
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = arms_factory
-					level = 1
-					instant_build = yes
-				}
-			}
-		}
-
 		completion_reward = {
 			random_owned_controlled_state = {
 				limit = {
 					free_building_slots = {
 						building = arms_factory
-						size > 0
+						size > 1
 						include_locked = yes
 					}
 				}
-				add_extra_state_shared_building_slots = 1
+				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = arms_factory
-					level = 1
+					level = 2
 					instant_build = yes
 				}
 				set_state_flag = CAN_shadow_factories_AF1
@@ -2569,14 +2425,14 @@ focus_tree = {
 				limit = {
 					free_building_slots = {
 						building = arms_factory
-						size > 0
+						size > 1
 						include_locked = yes
 					}
 				}
-				add_extra_state_shared_building_slots = 1
+				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = arms_factory
-					level = 1
+					level = 2
 					instant_build = yes
 				}
 				set_state_flag = CAN_shadow_factories_AF2
@@ -2585,14 +2441,14 @@ focus_tree = {
 				limit = {
 					free_building_slots = {
 						building = arms_factory
-						size > 0
+						size > 1
 						include_locked = yes
 					}
 				}
-				add_extra_state_shared_building_slots = 1
+				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = arms_factory
-					level = 1
+					level = 2
 					instant_build = yes
 				}
 				set_state_flag = CAN_shadow_factories_AF3
@@ -2635,6 +2491,7 @@ focus_tree = {
         			bonus = 0.05  
     			}
 			}
+			add_research_slot = 1
 		}
 	}
 
@@ -2758,6 +2615,12 @@ focus_tree = {
 			add_tech_bonus = {
 				name = CAN_supply_the_empire
 				bonus = 1.0
+				uses = 1
+				category = industry
+			}
+			add_tech_bonus = {
+				name = CAN_supply_the_empire
+				bonus = 1.0
 				uses = 3
 				technology = excavation1
 				technology = excavation2
@@ -2801,19 +2664,19 @@ focus_tree = {
 			682 = {
 				add_resource = {
 					type = aluminium
-					amount = 200
+					amount = 300
 				}
 			}
 			863 = {
 				add_resource = {
 					type = aluminium
-					amount = 80
+					amount = 120
 				}
 			}
 			468 = {
 				add_resource = {
 					type = aluminium
-					amount = 80
+					amount = 120
 				}
 			}
 		}
@@ -2850,7 +2713,7 @@ focus_tree = {
 			470 = {
 				add_resource = {
 					type = oil
-					amount = 360
+					amount = 480
 				}
 			}
 		}
@@ -3031,6 +2894,7 @@ focus_tree = {
 		}
 
 		available = {
+			has_tech = improved_ship_hull_carrier
 		}
 		
 		bypass = {
@@ -3043,52 +2907,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-
-			add_breakthrough_progress = {
-				specialization = specialization_naval
-				value = 0.5
-			}
-
-			custom_effect_tooltip = generic_skip_one_line_tt
-
-			if = {
-				limit = {
-					has_dlc = "Gotterdammerung"
-				}
-				if = {
-					limit = {
-						has_dlc = "Man the Guns"
-					}
-					add_ideas = habakkuk_carriers_ns_mtg
-					custom_effect_tooltip = generic_skip_one_line_tt
-					
-					add_tech_bonus = {
-						name = CAN_habakkuk_carrier
-						bonus = 0.5
-						uses = 1 
-						category = pykrete_tech
-					}
-				}
-				else = {
-					add_ideas = habakkuk_carriers_ns
-					custom_effect_tooltip = generic_skip_one_line_tt
-				}
-
-				add_tech_bonus = {
-					name = CAN_habakkuk_carrier
-					bonus = 1.0
-					uses = 1
-					category = cv_tech
-				}
-			}
-			else = {
-				add_tech_bonus = {
-					name = CAN_habakkuk_carrier
-					bonus = 1.0
-					uses = 2
-					category = cv_tech
-				}
-			}
+			complete_special_project = sp:sp_naval_ice_carrier
 		}
 	}
 
