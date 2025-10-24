@@ -354,17 +354,17 @@ HUN_gyor_program_initiatives_category = {
 						include_locked = yes
 					}
 				}
-				add_extra_state_shared_building_slots = 1
+				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = arms_factory
-					level = 1
+					level = 2
 					instant_build = yes
 				}	
 			}
 
 			add_equipment_to_stockpile = { 
 				type = infantry_equipment
-				amount = 500
+				amount = 3000
 				producer = ROOT
 			}	
 
@@ -400,27 +400,18 @@ HUN_gyor_program_initiatives_category = {
 		available = {
 			has_completed_focus = wuw_HUN_announce_the_gyor_program
 			has_completed_focus = wuw_HUN_quantity_over_quality
-			IF = {
-				limit = {
-					has_dlc = "No Step Back"
-				}
-				has_tech = heavytank1_tech
-			}
-			ELSE = {
-				has_tech = basic_heavy_tank
-			}
 			has_country_flag = HUN_activated_huba_ii_flag
 			any_core_state = {
 				is_fully_controlled_by = ROOT
 			}
 		} 
 
-		days_remove = 84
+		days_remove = 90
 
 		cost = 75
 
 		modifier = {
-			consumer_goods_factor = 0.15
+			consumer_goods_factor = 0.2
 		}
 
 		complete_effect = { 
@@ -441,10 +432,10 @@ HUN_gyor_program_initiatives_category = {
 						include_locked = yes
 					}
 				}
-				add_extra_state_shared_building_slots = 1
+				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = arms_factory
-					level = 1
+					level = 2
 					instant_build = yes
 				}	
 			}
@@ -452,7 +443,7 @@ HUN_gyor_program_initiatives_category = {
 			add_tech_bonus = {
 				bonus = 1
 				uses = 1
-				category = cat_heavy_chassis_tech
+				category = cat_armour_tech
 			}	
 			
 
@@ -496,7 +487,7 @@ HUN_gyor_program_initiatives_category = {
 		cost = 50
 
 		modifier = {
-			consumer_goods_factor = 0.15
+			consumer_goods_factor = 0.2
 		}
 
 		complete_effect = { 
@@ -517,10 +508,10 @@ HUN_gyor_program_initiatives_category = {
 						include_locked = yes
 					}
 				}
-				add_extra_state_shared_building_slots = 1
+				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = arms_factory
-					level = 1
+					level = 2
 					instant_build = yes
 				}	
 			}
@@ -576,7 +567,7 @@ HUN_gyor_program_initiatives_category = {
 		cost = 50
 
 		modifier = {
-			consumer_goods_factor = 0.15
+			consumer_goods_factor = 0.2
 		}
 
 		complete_effect = { 
@@ -597,22 +588,22 @@ HUN_gyor_program_initiatives_category = {
 						include_locked = yes
 					}
 				}
-				add_extra_state_shared_building_slots = 1
+				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = arms_factory
-					level = 1
+					level = 2
 					instant_build = yes
 				}	
 			}
 			
 			add_tech_bonus = {
-				bonus = 0.3
+				bonus = 0.5
 				uses = 1
 				category = motorized_equipment
 			}
 
 			add_tech_bonus = {
-				bonus = 0.3
+				bonus = 0.5
 				uses = 1
 				category = light_air
 			}	
@@ -677,7 +668,7 @@ HUN_gyor_program_initiatives_category = {
 					is_core_of = ROOT
 					free_building_slots = {
 						building = arms_factory
-						size > 1
+						size > 0
 						include_locked = yes
 					}
 				}
@@ -694,7 +685,7 @@ HUN_gyor_program_initiatives_category = {
 					is_core_of = ROOT
 					free_building_slots = {
 						building = industrial_complex
-						size > 1
+						size > 0
 						include_locked = yes
 					}
 				}
@@ -704,7 +695,24 @@ HUN_gyor_program_initiatives_category = {
 					level = 1
 					instant_build = yes
 				}	
-			}	 
+			}
+			
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}	
+			}
 			
 			random_owned_controlled_state = {
 				limit = {
@@ -713,7 +721,7 @@ HUN_gyor_program_initiatives_category = {
 				}
 				add_resource = {
 					type = steel
-					amount = 80
+					amount = 160
 				}		
 			}
 
@@ -767,7 +775,7 @@ HUN_gyor_program_initiatives_category = {
 			}
 		} 
 
-		days_remove = 84
+		days_remove = 90
 
 		cost = 100
 
@@ -789,7 +797,7 @@ HUN_gyor_program_initiatives_category = {
 					is_core_of = ROOT
 					free_building_slots = {
 						building = arms_factory
-						size > 1
+						size > 0
 						include_locked = yes
 					}
 				}
@@ -801,26 +809,60 @@ HUN_gyor_program_initiatives_category = {
 				}	
 			}
 
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}	
+			}
+			
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}	
+			}
+
 			add_tech_bonus = {
-				bonus = 0.5
+				ahead_reduction = 1
 				uses = 1
 				category = air_equipment
 			}
 
 			add_tech_bonus = {
-				bonus = 0.5
+				ahead_reduction = 1
 				uses = 1
 				category = artillery
 			}
 
 			add_tech_bonus = {
-				bonus = 0.5
+				ahead_reduction = 1
 				uses = 1
 				category = cat_armour_tech
 			}
 
 			add_tech_bonus = {
-				bonus = 0.5
+				ahead_reduction = 1
 				uses = 1
 				category = infantry_weapons
 			}
@@ -860,12 +902,12 @@ HUN_gyor_program_initiatives_category = {
 			}
 		} 
 
-		days_remove = 35
+		days_remove = 60
 
 		cost = 50
 
 		modifier = {
-			consumer_goods_factor = 0.1
+			consumer_goods_factor = 0.2
 		}
 
 		complete_effect = { 
@@ -876,13 +918,11 @@ HUN_gyor_program_initiatives_category = {
 			hidden_effect = {
 				set_country_flag = HUN_reverse_engineered_skoda_tanks
 			}
-
 			army_experience = 25
-			
 			add_tech_bonus = {
 				bonus = 0.5
-				uses = 1
-				category = cat_medium_chassis_tech
+				uses = 2
+				category = cat_armour_module_tech
 			}	
 			
 
@@ -921,7 +961,7 @@ HUN_gyor_program_initiatives_category = {
 			}
 		} 
 
-		days_remove = 84
+		days_remove = 90
 
 		cost = 50
 
@@ -947,10 +987,10 @@ HUN_gyor_program_initiatives_category = {
 						include_locked = yes
 					}
 				}
-				add_extra_state_shared_building_slots = 1
+				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = arms_factory
-					level = 1
+					level = 2
 					instant_build = yes
 				}	
 			}
@@ -1000,12 +1040,12 @@ HUN_gyor_program_initiatives_category = {
 			}
 		} 
 
-		days_remove = 35
+		days_remove = 60
 
 		cost = 25
 
 		modifier = {
-			consumer_goods_factor = 0.15
+			consumer_goods_factor = 0.2
 		}
 
 		complete_effect = { 
@@ -1028,10 +1068,10 @@ HUN_gyor_program_initiatives_category = {
 						include_locked = yes
 					}
 				}
-				add_extra_state_shared_building_slots = 1
+				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = arms_factory
-					level = 1
+					level = 2
 					instant_build = yes
 				}
 			}
@@ -1075,12 +1115,12 @@ HUN_gyor_program_initiatives_category = {
 			}
 		} 
 
-		days_remove = 35
+		days_remove = 60
 
 		cost = 35
 
 		modifier = {
-			consumer_goods_factor = 0.15
+			consumer_goods_factor = 0.2
 		}
 
 		complete_effect = { 
@@ -1092,11 +1132,26 @@ HUN_gyor_program_initiatives_category = {
 				set_country_flag = HUN_invested_in_dunai_repulogepgyar_flag
 			}
 
-			air_experience = 15
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					free_building_slots = {
+						building = arms_factory
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
 
 			add_tech_bonus = {
 				name = HUN_tac_focus
-				bonus = 0.3
+				bonus = 0.5
 				uses = 1
 				category = medium_air
 			}
@@ -1136,12 +1191,12 @@ HUN_gyor_program_initiatives_category = {
 			}
 		} 
 
-		days_remove = 35
+		days_remove = 60
 
 		cost = 50
 
 		modifier = {
-			consumer_goods_factor = 0.15
+			consumer_goods_factor = 0.2
 		}
 
 		complete_effect = { 
@@ -1167,10 +1222,6 @@ HUN_gyor_program_initiatives_category = {
 		} 
 
 	}
-
-
-
-
 }
 
 # Greater Hungarian Territorial Revision

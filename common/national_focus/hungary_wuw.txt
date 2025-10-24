@@ -7784,75 +7784,74 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_MANPOWER FOCUS_FILTER_MILITARY_CHARACTER FOCUS_FILTER_HISTORICAL }
 
 		completion_reward = {
-
-			add_manpower = 16000
-
 			custom_effect_tooltip = generic_skip_one_line_tt
 
-			custom_effect_tooltip = HUN_rongyos_garda_militia_recruitment
+			custom_effect_tooltip = TPMP_wuw_HUN_reestablish_the_rongyos_garda_tt
 
-			hidden_effect = {
-				delete_unit_template_and_units = {
-					division_template = "Rongyos Gárda"
-					disband = yes #if yes, will refund equipment/manpower.
+			division_template = {
+				name = "Rongyos Gárda"
+				division_names_group = HUN_MIL_01
+				role = garrison
+				template_counter = 90
+				regiments = {
+					militia = { x = 0 y = 0 }
+					militia = { x = 0 y = 1 }
+					militia = { x = 0 y = 2 }
+					militia = { x = 0 y = 3 }
+					militia = { x = 0 y = 4 }
+
+					militia = { x = 1 y = 0 }
+					militia = { x = 1 y = 1 }
+					militia = { x = 1 y = 2 }
+					militia = { x = 1 y = 3 }
+					militia = { x = 1 y = 4 }
+
+					militia = { x = 2 y = 0 }
+					militia = { x = 2 y = 1 }
+					militia = { x = 2 y = 2 }
+					militia = { x = 2 y = 3 }
+					militia = { x = 2 y = 4 }
 				}
+				support = {
+				}
+			}
 
-				division_template = {
-					name = "Rongyos Gárda"
-					division_names_group = HUN_MIL_01
-					role = garrison
-					template_counter = 90
-					
-					force_allow_recruiting = yes
-					division_cap = 12
-					regiments = {
-						militia = { x = 0 y = 0 }
-						militia = { x = 0 y = 1 }
-						militia = { x = 0 y = 2 }
-						militia = { x = 1 y = 0 }
-						militia = { x = 1 y = 1 }
-					}
-					support = {
+			random_owned_state = {
+				limit = {
+					is_controlled_by = ROOT
+					is_core_of = ROOT
+				}
+				create_unit = {
+					division = "name = \"Rongyos Gárda 'Lajtabánság'\" division_template = \"Rongyos Gárda\" start_experience_factor = 0.2"
+					owner = ROOT
+					officer = {
+						name = HUN_miklos_kozma
+						portraits = {
+							army = {
+								large = GFX_portrait_HUN_miklos_kozma
+								small = GFX_portrait_HUN_miklos_kozma_small
+							}
+						}
 					}
 				}
-
-				random_owned_state = {
-					limit = {
-						is_controlled_by = ROOT
-						is_core_of = ROOT
+				create_unit = {
+					division = "name = \"Rongyos Gárda 'Sopron'\" division_template = \"Rongyos Gárda\" start_experience_factor = 0.2"
+					owner = ROOT
+					officer = {
+						name = HUN_ivan_hejjas
+						portraits = {
+							army = {
+								large = GFX_portrait_HUN_ivan_hejjas
+								small = GFX_portrait_HUN_ivan_hejjas_small
+							}
+						}
 					}
-					create_unit = {
-					    division = "name = \"Rongyos Gárda 'Lajtabánság'\" division_template = \"Rongyos Gárda\" start_experience_factor = 0.4 start_equipment_factor = 0.6"
-					    owner = ROOT
-					    officer = {
-					    	name = HUN_miklos_kozma
-					    	portraits = {
-					    		army = {
-					    			large = GFX_portrait_HUN_miklos_kozma
-					    			small = GFX_portrait_HUN_miklos_kozma_small
-					    		}
-					    	}
-					    }
-					}
-					create_unit = {
-					    division = "name = \"Rongyos Gárda 'Sopron'\" division_template = \"Rongyos Gárda\" start_experience_factor = 0.3 start_equipment_factor = 0.8"
-					    owner = ROOT
-					    officer = {
-					    	name = HUN_ivan_hejjas
-					    	portraits = {
-					    		army = {
-					    			large = GFX_portrait_HUN_ivan_hejjas
-					    			small = GFX_portrait_HUN_ivan_hejjas_small
-					    		}
-					    	}
-					    }
-					}
-					create_unit = {
-					    division = "name = \"Rongyos Gárda 'Komárno'\" division_template = \"Rongyos Gárda\" start_experience_factor = 0.2 start_equipment_factor = 0.5"
-					    owner = ROOT
-					    officer = {
-					    	name = HUN_huszein_durics_hilmi
-					    }
+				}
+				create_unit = {
+					division = "name = \"Rongyos Gárda 'Komárno'\" division_template = \"Rongyos Gárda\" start_experience_factor = 0.2"
+					owner = ROOT
+					officer = {
+						name = HUN_huszein_durics_hilmi
 					}
 				}
 			}
@@ -8814,17 +8813,17 @@ focus_tree = {
 				limit = {
 					free_building_slots = {
 						building = industrial_complex
-						size > 0
+						size > 1
 						include_locked = yes
 					}
 					is_core_of = ROOT
 					is_fully_controlled_by = ROOT
 				}
 				random_select_amount = 2
-				add_extra_state_shared_building_slots = 1
+				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = industrial_complex
-					level = 1
+					level = 2
 					instant_build = yes
 				}
 			}
@@ -8835,17 +8834,17 @@ focus_tree = {
 				limit = {
 					free_building_slots = {
 						building = arms_factory
-						size > 0
+						size > 1
 						include_locked = yes
 					}
 					is_core_of = ROOT
 					is_fully_controlled_by = ROOT
 				}
 				random_select_amount = 2
-				add_extra_state_shared_building_slots = 1
+				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = arms_factory
-					level = 1
+					level = 2
 					instant_build = yes
 				}
 			}
@@ -10869,7 +10868,7 @@ focus_tree = {
 				}
 				add_resource = {
 					type = steel
-					amount = 40
+					amount = 80
 				}
 			}
 
@@ -10916,7 +10915,7 @@ focus_tree = {
 			43 = {
 				add_resource = {
 					type = aluminium
-					amount = 160
+					amount = 320
 				}
 			}
 
@@ -14853,7 +14852,7 @@ focus_tree = {
 			}
 		}
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 10
@@ -14872,15 +14871,15 @@ focus_tree = {
 		available_if_capitulated = no
 
 		completion_reward = {
-			add_political_power = 100
+			add_political_power = 150
 			random_owned_controlled_state = {
 				limit = {
 					is_core_of = ROOT
 				}
-				add_extra_state_shared_building_slots = 1
+				add_extra_state_shared_building_slots = 3
 				add_building_construction = {
 					type = industrial_complex
-					level = 1
+					level = 3
 					instant_build = yes
 				}
 			}
@@ -15351,7 +15350,7 @@ focus_tree = {
 
 			add_tech_bonus = {
 				name = HUN_industrial_revitalization
-				bonus = 0.75
+				bonus = 1
 				uses = 1
 				category = industry
 			}
@@ -15369,7 +15368,7 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_POLITICAL }
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 10
@@ -15593,10 +15592,10 @@ focus_tree = {
 					}
 				}
 				43 = {
-					add_extra_state_shared_building_slots = 1
+					add_extra_state_shared_building_slots = 2
 					add_building_construction = {
 						type = industrial_complex
-						level = 1
+						level = 2
 						instant_build = yes
 					}
 				}
@@ -15663,15 +15662,15 @@ focus_tree = {
 					}
 				}
 				43 = {
-					add_extra_state_shared_building_slots = 1
+					add_extra_state_shared_building_slots = 2
 					add_building_construction = {
 						type = industrial_complex
-						level = 1
+						level = 2
 						instant_build = yes
 					}
 					add_resource = {
 						type = steel
-						amount = 60
+						amount = 100
 					}
 				}
 				ELSE = {
@@ -15685,10 +15684,10 @@ focus_tree = {
 								include_locked = yes
 							}
 						}
-						add_extra_state_shared_building_slots = 1
+						add_extra_state_shared_building_slots = 2
 						add_building_construction = {
 							type = industrial_complex
-							level = 1
+							level = 2
 							instant_build = yes
 						}
 					}
@@ -16639,10 +16638,10 @@ focus_tree = {
 					}
 				}
 				43 = {
-					add_extra_state_shared_building_slots = 1
+					add_extra_state_shared_building_slots = 2
 					add_building_construction = {
 						type = arms_factory
-						level = 1
+						level = 2
 						instant_build = yes
 					}
 				}
@@ -16659,10 +16658,10 @@ focus_tree = {
 					}
 				}
 				155 = {
-					add_extra_state_shared_building_slots = 1
+					add_extra_state_shared_building_slots = 2
 					add_building_construction = {
 						type = arms_factory
-						level = 1
+						level = 2
 						instant_build = yes
 					}
 				}
@@ -16715,7 +16714,7 @@ focus_tree = {
 					is_core_of = ROOT
 				}
 				prioritize = { 43 }
-				add_extra_state_shared_building_slots = 2
+				add_extra_state_shared_building_slots = 3
 				add_building_construction = {
 					type = arms_factory
 					level = 1
@@ -16723,7 +16722,7 @@ focus_tree = {
 				}
 				add_building_construction = {
 					type = industrial_complex
-					level = 1
+					level = 2
 					instant_build = yes
 				}
 				add_resource = {
@@ -16821,21 +16820,21 @@ focus_tree = {
 					155 = {
 						free_building_slots = {
 							building = industrial_complex
-							size > 2
+							size > 3
 							include_locked = yes
 						}
 					}
 				}
 				155 = {
-					add_extra_state_shared_building_slots = 2
+					add_extra_state_shared_building_slots = 4
 					add_building_construction = {
 						type = industrial_complex
-						level = 2
+						level = 4
 						instant_build = yes
 					}
 					add_resource = {
 						type = steel
-						amount = 20
+						amount = 80
 					}
 				}
 			}
@@ -16888,20 +16887,20 @@ focus_tree = {
 			155 = {
 				add_resource = {
 					type = oil
-					amount = 50
+					amount = 100
 				}
 			}
 			974 = {
 				add_resource = {
 					type = oil
-					amount = 40
+					amount = 100
 				}
 			}
 
 			973 = {
 				add_resource = {
 					type = oil
-					amount = 60
+					amount = 100
 				}
 			}
 
@@ -17094,10 +17093,10 @@ focus_tree = {
 					}
 				}
 				43 = {
-					add_extra_state_shared_building_slots = 1
+					add_extra_state_shared_building_slots = 2
 					add_building_construction = {
 						type = industrial_complex
-						level = 1
+						level = 2
 						instant_build = yes
 					}
 				}
@@ -17143,7 +17142,7 @@ focus_tree = {
 			43 = {
 				add_resource = {
 					type = aluminium
-					amount = 140
+					amount = 280
 				}
 			}
 		}
@@ -17227,14 +17226,14 @@ focus_tree = {
 					is_core_of = ROOT
 					free_building_slots = {
 						building = arms_factory
-						size > 1
+						size > 2
 						include_locked = yes
 					}
 				}
-				add_extra_state_shared_building_slots = 1
+				add_extra_state_shared_building_slots = 3
 				add_building_construction = {
 					type = arms_factory
-					level = 1
+					level = 3
 					instant_build = yes
 				}
 			}
@@ -17907,7 +17906,7 @@ focus_tree = {
 				limit = {
 					free_building_slots = {
 						building = arms_factory
-						size > 2
+						size > 1
 						include_locked = yes
 					}
 				}
@@ -17918,7 +17917,21 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
-
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
 		}
 	}
 
@@ -17955,9 +17968,10 @@ focus_tree = {
 
 			add_tech_bonus = {
 				name = HUN_danuvia_submachine_guns
-				bonus = 0.75
+				bonus = 1
+				ahead_reduction = 2
 				uses = 1
-				category = cat_infantry_tech
+				category = cat_cqc_tech
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
@@ -18026,67 +18040,44 @@ focus_tree = {
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
+			custom_effect_tooltip = TPMP_wuw_HUN_form_the_gyorshadtest_tt
 			IF = {
 				limit = {
 					NOT = {
 						has_tech = mechanised_infantry
 					}
 				}
+				division_template = {
+					name = "Gyorshadtest"
+					division_names_group = HUN_MOT_01
+					role = mobile
+					is_locked = no
+					regiments = {
+						motorized = { x = 0 y = 0 }
+						motorized = { x = 0 y = 1 }
+						motorized = { x = 0 y = 2 }
+						motorized = { x = 0 y = 3 }
+						motorized = { x = 0 y = 4 }
 
-				custom_effect_tooltip = gyordshadtest_division_mot_tt
+						motorized = { x = 1 y = 0 }
+						motorized = { x = 1 y = 1 }
+						motorized = { x = 1 y = 2 }
+						motorized = { x = 1 y = 3 }
+						motorized = { x = 1 y = 4 }
 
-				hidden_effect = {
-					delete_unit_template_and_units = {
-						division_template = "Gyorshadtest"
-						disband = yes #if yes, will refund equipment/manpower.
+						motorized = { x = 2 y = 0 }
+						motorized = { x = 2 y = 1 }
+						motorized = { x = 2 y = 2 }
+						motorized = { x = 2 y = 3 }
+						motorized = { x = 2 y = 4 }
 					}
-
-					division_template = {
-						name = "Gyorshadtest"
-						division_names_group = HUN_MOT_01
-						role = mobile
-						is_locked = no
-						regiments = {
-							motorized = { x = 0 y = 0 }
-							motorized = { x = 0 y = 1 }
-							infantry = { x = 1 y = 0 }
-							infantry = { x = 1 y = 1 }
-						}
-						support = {
-							light_tank_recon = { x = 0 y = 0 }   # recon bn of tankettes, ACs etc
-							artillery = { x = 0 y = 1 } # Represents the 105mm howitzer battalion
-						}
-					}
-
-					random_owned_state = {
-						limit = {
-							is_controlled_by = ROOT
-							is_core_of = ROOT
-						}
-						create_unit = {
-						    division = "name = \"Első Gyorshadtest\" division_template = \"Gyorshadtest\" start_experience_factor = 0.8 start_equipment_factor = 1"
-						    owner = ROOT
-						    officer = {
-						    	name = HUN_jeno_major
-						    	portraits = {
-						    		army = {
-						    			large = GFX_portrait_HUN_jeno_major
-						    			small = GFX_portrait_HUN_jeno_major_small
-						    		}
-						    	}
-						    }
-						}
-						create_unit = {
-						    division = "name = \"Második Gyorshadtest\" division_template = \"Gyorshadtest\" start_experience_factor = 0.8 start_equipment_factor = 1"
-						    owner = ROOT
-						    officer = {
-						    	name = HUN_ferenc_bisza
-						    }
-						}
+					support = {
+						artillery = { x = 0 y = 0 } # Represents the 105mm howitzer battalion
+						engineer = { x = 0 y = 1 }
+						light_tank_recon = { x = 0 y = 2 }   # recon bn of tankettes, ACs etc
 					}
 				}
 			}
-
 			ELSE_IF = {
 				limit = {
 					has_tech = mechanised_infantry
@@ -18094,55 +18085,60 @@ focus_tree = {
 
 				custom_effect_tooltip = gyordshadtest_division_mech_tt
 
-				hidden_effect = {
-					delete_unit_template_and_units = {
-						division_template = "Gyorshadtest"
-						disband = yes #if yes, will refund equipment/manpower.
-					}
+				division_template = {
+					name = "Gyorshadtest"
+					division_names_group = HUN_MOT_01
+					role = mobile
+					is_locked = no
+					regiments = {
+						mechanized = { x = 0 y = 0 }
+						mechanized = { x = 0 y = 1 }
+						mechanized = { x = 0 y = 2 }
+						mechanized = { x = 0 y = 3 }
+						mechanized = { x = 0 y = 4 }
 
-					division_template = {
-						name = "Gyorshadtest"
-						division_names_group = HUN_INF_01
-						role = mobile
-						is_locked = no
-						regiments = {
-							mechanized = { x = 0 y = 0 }
-							mechanized = { x = 0 y = 1 }
-							infantry = { x = 1 y = 0 }
-							infantry = { x = 1 y = 1 }
-						}
-						support = {
-							light_tank_recon = { x = 0 y = 0 }   # recon bn of tankettes, ACs etc
-							artillery = { x = 0 y = 1 } # Represents the 105mm howitzer battalion
+						mechanized = { x = 1 y = 0 }
+						mechanized = { x = 1 y = 1 }
+						mechanized = { x = 1 y = 2 }
+						mechanized = { x = 1 y = 3 }
+						mechanized = { x = 1 y = 4 }
+
+						mechanized = { x = 2 y = 0 }
+						mechanized = { x = 2 y = 1 }
+						mechanized = { x = 2 y = 2 }
+						mechanized = { x = 2 y = 3 }
+						mechanized = { x = 2 y = 4 }
+					}
+					support = {
+						artillery = { x = 0 y = 0 } # Represents the 105mm howitzer battalion
+						engineer = { x = 0 y = 1 }
+						light_tank_recon = { x = 0 y = 2 }   # recon bn of tankettes, ACs etc
+					}
+				}
+			}
+			random_owned_state = {
+				limit = {
+					is_controlled_by = ROOT
+					is_core_of = ROOT
+				}
+				create_unit = {
+					division = "name = \"Első Gyorshadtest\" division_template = \"Gyorshadtest\" start_experience_factor = 1"
+					owner = ROOT
+					officer = {
+						name = HUN_jeno_major
+						portraits = {
+							army = {
+								large = GFX_portrait_HUN_jeno_major
+								small = GFX_portrait_HUN_jeno_major_small
+							}
 						}
 					}
-
-					random_state = {
-						limit = {
-							is_fully_controlled_by = ROOT
-							is_owned_by = ROOT
-							is_core_of = ROOT
-						}
-						create_unit = {
-						    division = "name = \"Első Gyorshadtest\" division_template = \"Gyorshadtest\" start_experience_factor = 0.8 start_equipment_factor = 1"
-						    owner = ROOT
-						    officer = {
-						    	name = HUN_jeno_major
-						    	portraits = {
-						    		army = {
-						    			large = GFX_portrait_HUN_jeno_major
-						    			small = GFX_portrait_HUN_jeno_major_small
-						    		}
-						    	}
-						    }
-						}
-						create_unit = {
-						    division = "name = \"Második Gyorshadtest\" division_template = \"Gyorshadtest\" start_experience_factor = 0.8 start_equipment_factor = 1"
-						    owner = ROOT
-						    officer = {
-						    	name = HUN_ferenc_bisza
-						    }
-						}
+				}
+				create_unit = {
+					division = "name = \"Második Gyorshadtest\" division_template = \"Gyorshadtest\" start_experience_factor = 1"
+					owner = ROOT
+					officer = {
+						name = HUN_ferenc_bisza
 					}
 				}
 			}
@@ -18185,7 +18181,6 @@ focus_tree = {
 		available_if_capitulated = no
 
 		completion_reward = {
-
 			random_owned_state = {
 				limit = {
 					is_fully_controlled_by = ROOT
@@ -18197,6 +18192,11 @@ focus_tree = {
 					level = 2
 					instant_build = yes
 				}
+			}
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 1
+				category = cat_armour_tech
 			}
 		}
 	}
@@ -18433,63 +18433,52 @@ focus_tree = {
 		available_if_capitulated = no
 
 		completion_reward = {
+			custom_effect_tooltip = TPMP_wuw_HUN_light_infantry_divisions_doctrine_tt
+			division_template = {
+				name = "Light Division"
+				division_names_group = HUN_INF_01
+				role = infantry
+				priority = 2
 
-			custom_effect_tooltip = HUN_light_infantry_divisions_doctrine_tech_tt
-			custom_effect_tooltip = HUN_light_infantry_divisions_doctrine_unit_tt
-			hidden_effect = {
-				IF = {
-					limit = { has_tech = tech_engineers }
-					division_template = {
-						name = "Light Division"
-						division_names_group = HUN_INF_01
-						role = infantry
-						priority = 2
+				regiments = {
+					infantry = { x = 0 y = 0 }
+					infantry = { x = 0 y = 1 }
+					infantry = { x = 0 y = 2 }
+					infantry = { x = 0 y = 3 }
+					infantry = { x = 0 y = 4 }
 
-						regiments = {
-							infantry = { x = 0 y = 0 }
-							infantry = { x = 0 y = 1 }
-							infantry = { x = 0 y = 2 }
+					infantry = { x = 1 y = 0 }
+					infantry = { x = 1 y = 1 }
+					infantry = { x = 1 y = 2 }
+					infantry = { x = 1 y = 3 }
+					infantry = { x = 1 y = 4 }
 
-		    	   		 	infantry = { x = 1 y = 0 }
-							infantry = { x = 1 y = 1 }
-							infantry = { x = 1 y = 2 }
-						}
-						support = {
-							engineer = { x = 0 y = 0 }
-							recon = { x = 0 y = 1 }
-							artillery = { x = 0 y = 2 }
-						}
-					}
-					ELSE = {
-						division_template = {
-							name = "Light Division"
-							division_names_group = HUN_INF_01
-							role = infantry
-							priority = 2
-
-							regiments = {
-								infantry = { x = 0 y = 0 }
-								infantry = { x = 0 y = 1 }
-								infantry = { x = 0 y = 2 }
-
-			    	   		 	infantry = { x = 1 y = 0 }
-								infantry = { x = 1 y = 1 }
-								infantry = { x = 1 y = 2 }
-							}
-							support = {
-								recon = { x = 0 y = 0 }
-								artillery = { x = 0 y = 1 }
-							}
-						}
-					}
+					infantry = { x = 2 y = 0 }
+					infantry = { x = 2 y = 1 }
+					infantry = { x = 2 y = 2 }
+					infantry = { x = 2 y = 3 }
+					infantry = { x = 2 y = 4 }
 				}
-				random_owned_controlled_state = {
-					prioritize = { 43 }
-					limit = { ROOT = { has_full_control_of_state = PREV } }
-					create_unit = {
-						division = "name = \"1. Light Division\" division_template = \"Light Division\" start_experience_factor = 1.0"
-						owner = HUN
-					}
+				support = {
+					artillery = { x = 0 y = 0 }
+					engineer = { x = 0 y = 1 }
+					recon = { x = 0 y = 2 }
+				}
+			}
+			random_owned_controlled_state = {
+				prioritize = { 43 }
+				limit = { ROOT = { has_full_control_of_state = PREV } }
+				create_unit = {
+					division = "name = \"1. Light Division\" division_template = \"Light Division\" start_experience_factor = 1"
+					owner = HUN
+				}
+				create_unit = {
+					division = "name = \"1. Light Division\" division_template = \"Light Division\" start_experience_factor = 1"
+					owner = HUN
+				}
+				create_unit = {
+					division = "name = \"1. Light Division\" division_template = \"Light Division\" start_experience_factor = 1"
+					owner = HUN
 				}
 			}
 
@@ -18531,65 +18520,72 @@ focus_tree = {
 
 			add_equipment_to_stockpile = {
 				type = infantry_equipment
-				amount = 1400
+				amount = 3000
 				producer = ROOT
 			}
 
 			add_equipment_to_stockpile = {
 				type = artillery_equipment
-				amount = 150
+				amount = 600
 				producer = ROOT
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
-			custom_effect_tooltip = wuw_HUN_szent_laszlo_infantry_division_tt
+			custom_effect_tooltip = TPMP_wuw_HUN_szent_laszlo_infantry_division_tt
 
-			hidden_effect = {
-				delete_unit_template_and_units = {
-					division_template = "Szent László Hadosztály"
-					disband = yes #if yes, will refund equipment/manpower.
+			division_template = {
+				name = "Szent László Hadosztály"
+				division_names_group = HUN_INF_01
+				regiments = {
+					infantry = { x = 0 y = 0 }
+					infantry = { x = 0 y = 1 }
+					infantry = { x = 0 y = 2 }
+					infantry = { x = 0 y = 3 }
+					infantry = { x = 0 y = 4 }
+
+					infantry = { x = 1 y = 0 }
+					infantry = { x = 1 y = 1 }
+					infantry = { x = 1 y = 2 }
+					infantry = { x = 1 y = 3 }
+					infantry = { x = 1 y = 4 }
+
+					artillery_brigade = { x = 2 y = 0 }
+					artillery_brigade = { x = 2 y = 1 }
+					artillery_brigade = { x = 2 y = 2 }
+					artillery_brigade = { x = 2 y = 3 }
+					artillery_brigade = { x = 2 y = 4 }
+
+					artillery_brigade = { x = 3 y = 0 }
+					artillery_brigade = { x = 3 y = 1 }
+					artillery_brigade = { x = 3 y = 2 }
+					artillery_brigade = { x = 3 y = 3 }
+					artillery_brigade = { x = 3 y = 4 }
 				}
-
-				division_template = {
-					name = "Szent László Hadosztály"
-					division_names_group = HUN_INF_01
-					role = infantry
-					is_locked = no
-					regiments = {
-						infantry = { x = 0 y = 0 }
-						infantry = { x = 0 y = 1 }
-						infantry = { x = 0 y = 2 }
-						infantry = { x = 1 y = 0 }
-						infantry = { x = 1 y = 1 }
-						infantry = { x = 1 y = 2 }
-						artillery_brigade = { x = 2 y = 0 }
-					}
-					support = {
-						recon = { x = 0 y = 0 }
-						engineer = { x = 0 y = 1 }
-						artillery = { x = 0 y = 2 }
-					}
+				support = {
+					artillery = { x = 0 y = 0 }
+					engineer = { x = 0 y = 1 }
+					recon = { x = 0 y = 2 }
 				}
+			}
 
-				random_state = {
-					limit = {
-						is_fully_controlled_by = ROOT
-						is_owned_by = ROOT
-						is_core_of = ROOT
-					}
-					create_unit = {
-					    division = "name = \"Szent László Hadosztály\" division_template = \"Szent László Hadosztály\" start_experience_factor = 0.6 start_equipment_factor = 1"
-					    owner = ROOT
-					    officer = {
-					    	name = HUN_zoltan_zsugyi
-					    	portraits = {
-					    		army = {
-					    			large = GFX_portrait_HUN_zoltan_szugyi
-					    			small = GFX_portrait_HUN_zoltan_szugyi_small
-					    		}
-					    	}
-					    }
+			random_state = {
+				limit = {
+					is_fully_controlled_by = ROOT
+					is_owned_by = ROOT
+					is_core_of = ROOT
+				}
+				create_unit = {
+					division = "name = \"Szent László Hadosztály\" division_template = \"Szent László Hadosztály\" start_experience_factor = 1"
+					owner = ROOT
+					officer = {
+						name = HUN_zoltan_zsugyi
+						portraits = {
+							army = {
+								large = GFX_portrait_HUN_zoltan_szugyi
+								small = GFX_portrait_HUN_zoltan_szugyi_small
+							}
+						}
 					}
 				}
 			}
@@ -18892,6 +18888,49 @@ focus_tree = {
 			custom_effect_tooltip = generic_skip_one_line_tt
 		}
 	}
+
+	#TPMP Changes
+	focus = {
+		id = TPMP_HUN_the_44m
+		icon = GFX_focus_generic_army_tanks2
+		prerequisite = { focus = wuw_HUN_the_turan }
+		x = 0
+		y = 2
+		relative_position_id = wuw_HUN_the_turan
+
+		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_HISTORICAL }
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 20
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = no
+		continue_if_invalid = yes
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = HUN_develop_tanks
+				ahead_reduction = 1
+				bonus = 1
+				uses = 1
+				category = cat_medium_chassis_tech
+				category = cat_heavy_chassis_tech
+			}
+			set_technology = {
+				largemediumcannon1_tech = 1
+			}
+		}
+	}	
+	#TPMP Changes
 
 	focus = {
 		id = wuw_HUN_assault_gun_focus
@@ -19928,51 +19967,57 @@ focus_tree = {
 
 		completion_reward = {
 
-			custom_effect_tooltip = wuw_HUN_the_szekel_command_division_tt
+			custom_effect_tooltip = TPMP_wuw_HUN_the_szekel_command_tt
+			division_template = {
+				name = "Székel Command Group"
+				division_names_group = HUN_MTN_01
+				regiments = {
+					mountaineers = { x = 0 y = 0 }
+					mountaineers = { x = 0 y = 1 }
+					mountaineers = { x = 0 y = 2 }
+					mountaineers = { x = 0 y = 3 }
 
-			hidden_effect = {
-				delete_unit_template_and_units = {
-					division_template = "Székel Command"
-					disband = yes #if yes, will refund equipment/manpower.
+					mountaineers = { x = 1 y = 0 }
+					mountaineers = { x = 1 y = 1 }
+					mountaineers = { x = 1 y = 2 }
+					mountaineers = { x = 1 y = 3 }
+
+					mountaineers = { x = 2 y = 0 }
+					mountaineers = { x = 2 y = 1 }
+					mountaineers = { x = 2 y = 2 }
+					mountaineers = { x = 2 y = 3 }
+
+					artillery_brigade = { x = 3 y = 0 }
+					artillery_brigade = { x = 3 y = 1 }
+					artillery_brigade = { x = 3 y = 2 }
+
+					artillery_brigade = { x = 4 y = 0 }
+					artillery_brigade = { x = 4 y = 1 }
+					artillery_brigade = { x = 4 y = 2 }
 				}
-
-				division_template = {
-					name = "Székel Command Group"
-					division_names_group = HUN_MTN_01
-					role = mountaineers
-					is_locked = no
-					regiments = {
-						mountaineers = { x = 0 y = 0 }
-						mountaineers = { x = 0 y = 1 }
-						mountaineers = { x = 1 y = 0 }
-						mountaineers = { x = 1 y = 1 }
-						artillery_brigade = { x = 2 y = 0 }
-					}
-					support = {
-						recon = { x = 0 y = 0 }
-						engineer = { x = 0 y = 1 }
-						artillery = { x = 0 y = 2 }
+				support = {
+					artillery = { x = 0 y = 0 }
+					engineer = { x = 0 y = 1 }
+					recon = { x = 0 y = 2 }
+				}
+			}
+			random_owned_controlled_state = {
+				prioritize = { 76 }
+				create_unit = {
+					division = "name = \"First Székel Command\" division_template = \"Székel Command Group\" start_experience_factor = 1"
+					owner = ROOT
+					officer = {
+						name = HUN_istvan_kozma
 					}
 				}
-
-				76 = {
-					create_unit = {
-					    division = "name = \"First Székel Command\" division_template = \"Székel Command Group\" start_experience_factor = 0.6 start_equipment_factor = 0.8"
-					    owner = ROOT
-					    officer = {
-					    	name = HUN_istvan_kozma
-					    }
-					}
-					create_unit = {
-					    division = "name = \"Second Székel Command\" division_template = \"Székel Command Group\" start_experience_factor = 0.6 start_equipment_factor = 0.6"
-					    owner = ROOT
-					    officer = {
-					    	name = HUN_ferenc_horvath
-					    }
+				create_unit = {
+					division = "name = \"Second Székel Command\" division_template = \"Székel Command Group\" start_experience_factor = 1"
+					owner = ROOT
+					officer = {
+						name = HUN_ferenc_horvath
 					}
 				}
 			}
-
 		}
 	}
 
