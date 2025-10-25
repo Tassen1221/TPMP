@@ -1991,26 +1991,10 @@
 		available_if_capitulated = no
 
 		search_filters = { FOCUS_FILTER_INDUSTRY }
-		complete_tooltip = {
-			random_state = {
-				limit = {
-					has_state_flag = JAP_zaibatsus_factories
-				}
-				add_building_construction = {
-					type = industrial_complex
-					level = 2
-					instant_build = yes
-				}
-			}
-			custom_effect_tooltip = generic_skip_one_line_tt
-			swap_ideas = {
-				remove_idea = JAP_zaibatsus
-				add_idea = JAP_guide_the_zaibatsus				
-			}
-		}
 
 		completion_reward = {
-			random_owned_controlled_state = {
+			every_owned_state = {
+				random_select_amount = 2
 				limit = {
 					ROOT = { has_full_control_of_state = PREV }
 					is_core_of = ROOT
@@ -2023,14 +2007,14 @@
 					}
 					free_building_slots = {
 						building = industrial_complex
-						size > 1
+						size > 2
 						include_locked = yes
 					}
 				}
-				add_extra_state_shared_building_slots = 2
+				add_extra_state_shared_building_slots = 3
 				add_building_construction = {
 					type = industrial_complex
-					level = 2
+					level = 3
 					instant_build = yes
 				}
 				set_state_flag = JAP_zaibatsus_factories
@@ -2073,28 +2057,6 @@
 		available_if_capitulated = no
 
 		search_filters = { FOCUS_FILTER_INDUSTRY }
-		complete_tooltip = {
-			random_state = {
-				limit = {
-					has_state_flag = JAP_nationalize_war_industry_AF
-				}
-				add_building_construction = {
-					type = arms_factory
-					level = 2
-					instant_build = yes
-				}
-			}
-			random_state = {
-				limit = {
-					has_state_flag = JAP_nationalize_war_industry_IC
-				}
-				add_building_construction = {
-					type = industrial_complex
-					level = 2
-					instant_build = yes
-				}
-			}
-		}
 
 		completion_reward = {
 			random_owned_controlled_state = {
@@ -2110,14 +2072,14 @@
 					}
 					free_building_slots = {
 						building = arms_factory
-						size > 1
+						size > 2
 						include_locked = yes
 					}
 				}
-				add_extra_state_shared_building_slots = 2
+				add_extra_state_shared_building_slots = 3
 				add_building_construction = {
 					type = arms_factory
-					level = 2
+					level = 3
 					instant_build = yes
 				}
 				set_state_flag = JAP_nationalize_war_industry_AF
@@ -2135,14 +2097,14 @@
 					}					
 					free_building_slots = {
 						building = industrial_complex
-						size > 1
+						size > 2
 						include_locked = yes
 					}
 				}
-				add_extra_state_shared_building_slots = 2
+				add_extra_state_shared_building_slots = 3
 				add_building_construction = {
 					type = industrial_complex
-					level = 2
+					level = 3
 					instant_build = yes
 				}
 				set_state_flag = JAP_nationalize_war_industry_IC
@@ -2563,12 +2525,54 @@
 		}
 	}
 
+	#TPMP Changes
+	focus = {
+		id = TPMP_JAP_total_defense_state
+		icon = GFX_focus_generic_total_war
+		prerequisite = { focus = JAP_spiritual_mobilization }
+		prerequisite = { focus = JAP_warrior_spirit }
+		x = 0
+		y = 1
+		relative_position_id = JAP_warrior_spirit
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				has_war = no
+			}
+			modifier = {
+				factor = 10
+				surrender_progress > 0.9
+			}
+		}
+
+		available = {
+			date > 1943.01.01
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_ideas = kokumin_soryoku_sen_economy
+		}
+	}
+	#TPMP Changes
+
 	focus = {
 		id = JAP_strengthen_the_divine_wind
 		icon = GFX_goal_generic_secret_weapon
 		prerequisite = { focus = JAP_spiritual_mobilization }
 		prerequisite = { focus = JAP_warrior_spirit }
-		x = 1
+		x = 0
 		y = 1
 		relative_position_id = JAP_spiritual_mobilization
 
@@ -4339,19 +4343,14 @@
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
 			716 = {
-				if = {
-					limit = {
-						MAN = { has_focus_tree = generic_focus }
-					}
-					add_resource = {
-						type = steel
-						amount = 160
-					}				
+				add_resource = {
+					type = steel
+					amount = 320
 				}
-				add_extra_state_shared_building_slots = 2
+				add_extra_state_shared_building_slots = 4
 				add_building_construction = {
 					type = industrial_complex
-					level = 2
+					level = 4
 					instant_build = yes
 				}
 			}
@@ -4458,6 +4457,14 @@
 							11771 987 9781 11764 964 3783 6851 1150
 						}
 					}
+					716 = {
+						add_building_construction = {
+							type = infrastructure
+							level = 1
+							instant_build = yes
+						}
+						set_state_category = large_city
+					}
 				}
 				if = {
 					limit = {
@@ -4466,6 +4473,14 @@
 					}
 					build_railway = { #Mukden - Chinese border
 						path = { 11771 6951 11815 9835 6837 11886 3900 }
+					}
+					610 = {
+						add_building_construction = {
+							type = infrastructure
+							level = 1
+							instant_build = yes
+						}
+						set_state_category = town
 					}
 				}
 			}
@@ -4511,6 +4526,22 @@
 					instant_build = yes
 				}
 			}
+			716 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			328 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
 		}
 	}
 
@@ -4545,7 +4576,23 @@
 
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
+			715 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
 			716 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			328 = {
 				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = arms_factory
@@ -4590,9 +4637,18 @@
 
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
-			715 = { add_extra_state_shared_building_slots = 1 }
-			610 = { add_extra_state_shared_building_slots = 1 }
-			328 = { add_extra_state_shared_building_slots = 1 }
+			715 = {
+				add_extra_state_shared_building_slots = 2
+				set_state_category = large_city
+			}
+			610 = {
+				add_extra_state_shared_building_slots = 2
+				set_state_category = large_town
+			}
+			328 = {
+				add_extra_state_shared_building_slots = 2
+				set_state_category = large_town
+			}
 		}
 	}
 
@@ -4646,6 +4702,16 @@
 							level < 2
 						}
 					}
+				}	
+				add_tech_bonus = {
+					bonus = 1
+					uses = 2
+					category = cat_artillery_tech
+				}
+				add_tech_bonus = {
+					bonus = 1
+					uses = 2
+					category = cat_infantry_tech
 				}				
 			}
 		}
@@ -4682,7 +4748,11 @@
 
 
 		completion_reward = {
-			army_experience = 30
+			army_experience = 100
+			add_timed_idea = {
+				idea = TPMP_JAP_army_expansion_idea
+				days = 365
+			}
 		}
 	}
 
@@ -4720,7 +4790,7 @@
 		completion_reward = {
 			add_tech_bonus = {
 				name = JAP_small_arms_modernization
-				bonus = 1.0
+				bonus = 2.0
 				uses = 1
 				category = cat_infantry_tech	
 			}
@@ -4731,7 +4801,6 @@
 		id = JAP_supremacy_of_technology
 		icon = GFX_goal_generic_production
 		prerequisite = { focus = JAP_small_arms_modernization }
-		mutually_exclusive = { focus = JAP_supremacy_of_will }
 		x = 0
 		y = 1
 		relative_position_id = JAP_small_arms_modernization
@@ -4888,7 +4957,6 @@
 		}
 
 		available = {
-
 		}
 
 		bypass = {
@@ -4901,6 +4969,21 @@
 
 
 		completion_reward = {
+			if = {
+				limit = {
+					has_idea = TPMP_JAP_army_expansion_idea
+				}
+				modify_timed_idea = {
+					idea = TPMP_JAP_army_expansion_idea
+					days = 365
+				}
+			}
+			else = {
+				add_timed_idea = {
+					idea = TPMP_JAP_army_expansion_idea
+					days = 365
+				}
+			}
 			custom_effect_tooltip = available_chief_of_army
 			show_ideas_tooltip = hajime_sugiyama
 		}
@@ -4910,7 +4993,6 @@
 		id = JAP_supremacy_of_will
 		icon = GFX_goal_demand_sudetenland
 		prerequisite = { focus = JAP_army_expansion }
-		mutually_exclusive = { focus = JAP_supremacy_of_technology }
 		x = 0
 		y = 1
 		relative_position_id = JAP_army_expansion
@@ -5019,6 +5101,18 @@
 
 
 		completion_reward = {
+			if = {
+				limit = {
+					has_idea = TPMP_JAP_air_agility_idea
+				}
+				swap_ideas = {
+					remove_idea = TPMP_JAP_air_agility_idea
+					add_idea = TPMP_JAP_air_range_agility_idea
+				}
+			}
+			else = {
+				add_ideas = TPMP_JAP_air_range_idea
+			}
 			IF = {
 				limit = {
 					has_dlc = "Arms Against Tyranny"
@@ -5063,12 +5157,23 @@
 
 
 		completion_reward = {
-
+			if = {
+				limit = {
+					has_idea = TPMP_JAP_air_range_idea
+				}
+				swap_ideas = {
+					remove_idea = TPMP_JAP_air_range_idea
+					add_idea = TPMP_JAP_air_range_agility_idea
+				}
+			}
+			else = {
+				add_ideas = TPMP_JAP_air_agility_idea
+			}
 			IF = {
 				limit = {
 					has_dlc = "Arms Against Tyranny"
 				}	
-custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = generic_skip_one_line_tt
 			}
 			ELSE = {
 				custom_effect_tooltip = available_designer
@@ -5329,28 +5434,6 @@ custom_effect_tooltip = generic_skip_one_line_tt
 		available_if_capitulated = no
 
 		search_filters = { FOCUS_FILTER_INDUSTRY }
-		complete_tooltip = {
-			random_state = {
-				limit = {
-					has_state_flag = JAP_new_naval_estimates_DY1
-				}
-				add_building_construction = {
-					type = dockyard
-					level = 2
-					instant_build = yes
-				}
-			}
-			random_state = {
-				limit = {
-					has_state_flag = JAP_new_naval_estimates_DY2
-				}
-				add_building_construction = {
-					type = dockyard
-					level = 2
-					instant_build = yes
-				}
-			}
-		}
 
 		completion_reward = {
 			if = {
@@ -5380,14 +5463,14 @@ custom_effect_tooltip = generic_skip_one_line_tt
 					}
 					free_building_slots = {
 						building = dockyard
-						size > 1
+						size > 2
 						include_locked = yes
 					}
 				}
-				add_extra_state_shared_building_slots = 2
+				add_extra_state_shared_building_slots = 3
 				add_building_construction = {
 					type = dockyard
-					level = 2
+					level = 3
 					instant_build = yes
 				}
 				set_state_flag = JAP_new_naval_estimates_DY1
@@ -5405,14 +5488,14 @@ custom_effect_tooltip = generic_skip_one_line_tt
 					}				
 					free_building_slots = {
 						building = dockyard
-						size > 1
+						size > 2
 						include_locked = yes
 					}
 				}
-				add_extra_state_shared_building_slots = 2
+				add_extra_state_shared_building_slots = 3
 				add_building_construction = {
 					type = dockyard
-					level = 2
+					level = 3
 					instant_build = yes
 				}
 				set_state_flag = JAP_new_naval_estimates_DY2
@@ -5424,7 +5507,6 @@ custom_effect_tooltip = generic_skip_one_line_tt
 		id = JAP_carrier_warfare_experiments
 		icon = GFX_goal_generic_navy_doctrines_tactics
 		prerequisite = { focus = JAP_new_naval_estimates }
-		mutually_exclusive = { focus = JAP_supremacy_of_the_battlefleet }
 		x = -1
 		y = 1
 		relative_position_id = JAP_new_naval_estimates
@@ -5499,11 +5581,10 @@ custom_effect_tooltip = generic_skip_one_line_tt
 				limit = {
 					has_dlc = "Arms Against Tyranny"
 				}
-				add_potential_special_forces_tree = yes
 				add_doctrine_cost_reduction = {
 					name = JAP_expand_the_snlf
-					cost_reduction = 0.25
-					uses = 2
+					cost_reduction = 0.5
+					uses = 4
 					category = cat_special_forces_doctrine
 				}
 			}
@@ -5595,7 +5676,6 @@ custom_effect_tooltip = generic_skip_one_line_tt
 		id = JAP_supremacy_of_the_battlefleet
 		icon = GFX_goal_generic_navy_doctrines_tactics
 		prerequisite = { focus = JAP_new_naval_estimates }
-		mutually_exclusive = { focus = JAP_carrier_warfare_experiments }
 		x = 1
 		y = 1
 		relative_position_id = JAP_new_naval_estimates

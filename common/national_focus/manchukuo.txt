@@ -113,7 +113,14 @@
 		
 
 		completion_reward = {
-			army_experience = 30
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 3
+				category = cat_infantry_tech
+				category = cat_artillery_tech
+				category = cat_armour_tech
+				category = cat_motorized_tech
+			}
 		}
 	}
 
@@ -147,6 +154,11 @@
 		
 		completion_reward = {
 			add_ideas = MAN_mukden_military_academy
+			add_doctrine_cost_reduction = {
+				cost_reduction = 0.5
+				uses = 2
+				category = cat_land_doctrine
+			}
 		}
 	}
 
@@ -442,7 +454,6 @@
 		id = MAN_obedience
 		icon = GFX_focus_CZE_german_puppet
 		prerequisite = { focus = MAN_army_modernization }
-		mutually_exclusive = { focus = MAN_assertiveness }
 		x = -2
 		y = 4
 		relative_position_id = MAN_army_modernization
@@ -753,17 +764,11 @@
 
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
-			if = {
-				limit = { has_tech = excavation1 }
-				add_tech_bonus = {
-					name = MAN_develop_aluminum_sources
-					bonus = 1.0
-					uses = 1
-					category = excavation_tech
-				}
-			}
-			else = {
-				set_technology = { excavation1 = 1 }
+			add_tech_bonus = {
+				name = MAN_develop_aluminum_sources
+				bonus = 1.0
+				uses = 2
+				category = excavation_tech
 			}
 			unlock_decision_tooltip = MAN_develop_kirin_aluminium_deposits
 		}
@@ -937,6 +942,12 @@
 					level = 1
 					instant_build = yes
 				}
+			}
+			add_tech_bonus = {
+				bonus = 1
+				uses = 1
+				category = cat_infantry_tech
+				category = cat_artillery_tech
 			}
 		}
 	}
@@ -1232,7 +1243,6 @@
 		id = MAN_assertiveness
 		icon = GFX_goal_generic_demand_territory
 		prerequisite = { focus = MAN_trade_delegation }
-		mutually_exclusive = { focus = MAN_obedience }
 		x = 2
 		y = 4
 		relative_position_id = MAN_trade_delegation
@@ -1245,9 +1255,6 @@
 
 		available = {
 
-		}
-		allow_branch = {
-			always = no
 		}
 
 		bypass = {
@@ -1310,7 +1317,6 @@
 
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
-			unlock_decision_tooltip = MAN_divert_machine_tools
 			if = {
 				limit = { 716 = { is_fully_controlled_by = ROOT } }
 				716 = {
@@ -1419,46 +1425,55 @@
 
 		search_filters = { FOCUS_FILTER_MANPOWER }
 		completion_reward = {
-			custom_effect_tooltip = MAN_expand_the_imperial_guards_tt
-			hidden_effect = {
-				division_template = {
-					name = "Imperial Guards Division"
-					priority = 2
-					division_names_group = MAN_INF_01
-					regiments = {
-						infantry = { x = 0 y = 0 }
-						infantry = { x = 0 y = 1 }
-						infantry = { x = 0 y = 2 }
-			
-	    	   		 	infantry = { x = 1 y = 0 }
-						infantry = { x = 1 y = 1 }
-						infantry = { x = 1 y = 2 }
-			
-	    	   		 	infantry = { x = 2 y = 0 }
-						artillery_brigade = { x = 2 y = 1 }
-						artillery_brigade = { x = 2 y = 2 }
-					}
+			custom_effect_tooltip = TPMP_MAN_expand_the_imperial_guards_tt
+			division_template = {
+				name = "Imperial Guards Division"
+				priority = 2
+				division_names_group = MAN_INF_01
+				regiments = {
+					infantry = { x = 0 y = 0 }
+					infantry = { x = 0 y = 1 }
+					infantry = { x = 0 y = 2 }
+					infantry = { x = 0 y = 3 }
+		
+					infantry = { x = 1 y = 0 }
+					infantry = { x = 1 y = 1 }
+					infantry = { x = 1 y = 2 }
+					infantry = { x = 1 y = 3 }
+		
+					infantry = { x = 2 y = 0 }
+					infantry = { x = 2 y = 1 }
+					infantry = { x = 2 y = 2 }
+					infantry = { x = 2 y = 3 }
+
+					artillery_brigade = { x = 3 y = 0 }
+					artillery_brigade = { x = 3 y = 1 }
+					artillery_brigade = { x = 3 y = 2 }
+
+					artillery_brigade = { x = 4 y = 0 }
+					artillery_brigade = { x = 4 y = 1 }
+					artillery_brigade = { x = 4 y = 2 }
 				}
-				random_owned_controlled_state = {
-					limit = { ROOT = { has_full_control_of_state = PREV } }
-					prioritize = { 328 }
-					create_unit = {
-						division = "name = \"1. Imperial Guards Division\" division_template = \"Imperial Guards Division\" start_experience_factor = 1.0" 
-						owner = MAN
-					}
-					create_unit = {
-						division = "name = \"2. Imperial Guards Division\" division_template = \"Imperial Guards Division\" start_experience_factor = 1.0" 
-						owner = MAN
-					}
-					create_unit = {
-						division = "name = \"3. Imperial Guards Division\" division_template = \"Imperial Guards Division\" start_experience_factor = 1.0" 
-						owner = MAN
-					}
-					create_unit = {
-						division = "name = \"4. Imperial Guards Division\" division_template = \"Imperial Guards Division\" start_experience_factor = 1.0" 
-						owner = MAN
-					}
-				}			
+			}
+			random_owned_controlled_state = {
+				limit = { ROOT = { has_full_control_of_state = PREV } }
+				prioritize = { 328 }
+				create_unit = {
+					division = "name = \"1. Imperial Guards Division\" division_template = \"Imperial Guards Division\" start_experience_factor = 1.0" 
+					owner = MAN
+				}
+				create_unit = {
+					division = "name = \"2. Imperial Guards Division\" division_template = \"Imperial Guards Division\" start_experience_factor = 1.0" 
+					owner = MAN
+				}
+				create_unit = {
+					division = "name = \"3. Imperial Guards Division\" division_template = \"Imperial Guards Division\" start_experience_factor = 1.0" 
+					owner = MAN
+				}
+				create_unit = {
+					division = "name = \"4. Imperial Guards Division\" division_template = \"Imperial Guards Division\" start_experience_factor = 1.0" 
+					owner = MAN
+				}
 			}			
 		}
 	}
@@ -1491,7 +1506,6 @@
 
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		complete_tooltip = {
-			unlock_decision_tooltip = MAN_fund_underground_gun_shops
 			every_state = {
 				limit = {
 					has_state_flag = MAN_local_arms_procurement_AF
@@ -1506,7 +1520,6 @@
 		}
 
 		completion_reward = {
-			unlock_decision_tooltip = MAN_fund_underground_gun_shops
 			random_owned_controlled_state = {
 				limit = {
 					is_core_of = ROOT 	
@@ -1709,51 +1722,62 @@
 		search_filters = { FOCUS_FILTER_MANPOWER }
 		completion_reward = {
 			add_ideas = MAN_five_people_armies
-			unlock_decision_tooltip = MAN_raise_manchu_banner
-			custom_effect_tooltip = MAN_five_people_armies_tt
-			hidden_effect = {
-				division_template = {
-					name = "People's Volunteers Division"
-					priority = 2
-					division_names_group = MAN_INF_01
-					regiments = {
-						infantry = { x = 0 y = 0 }
-						infantry = { x = 0 y = 1 }
-						infantry = { x = 0 y = 2 }
-					}
+			custom_effect_tooltip = TPMP_MAN_five_people_armies_tt
+			division_template = {
+				name = "People's Volunteers Division"
+				priority = 2
+				division_names_group = MAN_INF_01
+				regiments = {
+					militia = { x = 0 y = 0 }
+					militia = { x = 0 y = 1 }
+					militia = { x = 0 y = 2 }
+					militia = { x = 0 y = 3 }
+					militia = { x = 0 y = 4 }
+
+					militia = { x = 1 y = 0 }
+					militia = { x = 1 y = 1 }
+					militia = { x = 1 y = 2 }
+					militia = { x = 1 y = 3 }
+					militia = { x = 1 y = 4 }
+
+					militia = { x = 2 y = 0 }
+					militia = { x = 2 y = 1 }
+					militia = { x = 2 y = 2 }
+					militia = { x = 2 y = 3 }
+					militia = { x = 2 y = 4 }
 				}
-				random_owned_controlled_state = {
-					limit = { ROOT = { has_full_control_of_state = PREV } }
-					prioritize = { 328 }
-					create_unit = {
-						division = "name = \"People's Volunteers Division\" division_template = \"People's Volunteers Division\" start_experience_factor = 1.0" 
-						owner = MAN
-					}
-					create_unit = {
-						division = "name = \"People's Volunteers Division\" division_template = \"People's Volunteers Division\" start_experience_factor = 1.0" 
-						owner = MAN
-					}
-					create_unit = {
-						division = "name = \"People's Volunteers Division\" division_template = \"People's Volunteers Division\" start_experience_factor = 1.0" 
-						owner = MAN
-					}
-					create_unit = {
-						division = "name = \"People's Volunteers Division\" division_template = \"People's Volunteers Division\" start_experience_factor = 1.0" 
-						owner = MAN
-					}
-					create_unit = {
-						division = "name = \"People's Volunteers Division\" division_template = \"People's Volunteers Division\" start_experience_factor = 1.0" 
-						owner = MAN
-					}
-					create_unit = {
-						division = "name = \"People's Volunteers Division\" division_template = \"People's Volunteers Division\" start_experience_factor = 1.0" 
-						owner = MAN
-					}
-					create_unit = {
-						division = "name = \"People's Volunteers Division\" division_template = \"People's Volunteers Division\" start_experience_factor = 1.0" 
-						owner = MAN
-					}
-				}			
+			}
+			random_owned_controlled_state = {
+				limit = { ROOT = { has_full_control_of_state = PREV } }
+				prioritize = { 328 }
+				create_unit = {
+					division = "name = \"People's Volunteers Division\" division_template = \"People's Volunteers Division\" start_experience_factor = 0.2" 
+					owner = MAN
+				}
+				create_unit = {
+					division = "name = \"People's Volunteers Division\" division_template = \"People's Volunteers Division\" start_experience_factor = 0.2" 
+					owner = MAN
+				}
+				create_unit = {
+					division = "name = \"People's Volunteers Division\" division_template = \"People's Volunteers Division\" start_experience_factor = 0.2" 
+					owner = MAN
+				}
+				create_unit = {
+					division = "name = \"People's Volunteers Division\" division_template = \"People's Volunteers Division\" start_experience_factor = 0.2" 
+					owner = MAN
+				}
+				create_unit = {
+					division = "name = \"People's Volunteers Division\" division_template = \"People's Volunteers Division\" start_experience_factor = 0.2" 
+					owner = MAN
+				}
+				create_unit = {
+					division = "name = \"People's Volunteers Division\" division_template = \"People's Volunteers Division\" start_experience_factor = 0.2" 
+					owner = MAN
+				}
+				create_unit = {
+					division = "name = \"People's Volunteers Division\" division_template = \"People's Volunteers Division\" start_experience_factor = 0.2" 
+					owner = MAN
+				}
 			}
 		}
 	}
@@ -1770,6 +1794,9 @@
 
 		ai_will_do = {
 			factor = 10
+		}
+		allow_branch = {
+			always = no
 		}
 
 		available = {
@@ -2025,10 +2052,10 @@
 	focus = {
 		id = MAN_claim_the_mandate_of_heaven
 		icon = GFX_focus_man_claim_the_mandate_of_heaven
-		prerequisite = { focus = MAN_move_capitals }
+		prerequisite = { focus = MAN_bolster_nationalism }
 		x = 0
 		y = 1
-		relative_position_id = MAN_move_capitals
+		relative_position_id = MAN_bolster_nationalism
 
 		cost = 10
 
@@ -2037,18 +2064,16 @@
 		}
 
 		available = {
-			all_state = { 
-				OR = {
-					NOT = { is_core_of = ROOT }
-					state = 729
-					state = 326
-					state = 728
-					state = 524
-					is_controlled_by = ROOT
-				}
-				
+			is_subject = no
+			CHI = {
+				exists = no
 			}
+			has_army_manpower = {
+				size > 1000000
+			}
+			num_of_factories > 100
 		}
+		
 
 		bypass = {
 
@@ -2062,23 +2087,7 @@
 
 		search_filters = { FOCUS_FILTER_ANNEXATION }
 		completion_reward = {
-			MAN_low_legitimacy_clear_all = yes	
-			set_cosmetic_tag = MAN_restored
-			hidden_effect = {
-				news_event = { id = wtt_news.44 days = 2 }
-
-				MAN_aisin_gioro_puyi = {
-					set_portraits = {
-						civilian = {
-							large = "GFX_portrait_man_henry_pu_yi_emperor" 
-						}
-					}
-					set_character_name = {
-						name = MAN_aisin_gioro_puyi_xuantong_name
-					}
-				}
-
-			}
+			add_ideas = TPMP_MAN_legacy_of_qing
 		}
 	}
 
