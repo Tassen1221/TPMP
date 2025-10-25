@@ -2724,7 +2724,6 @@ focus_tree = {
 		id = ITA_steel_industry_in_terni
 		icon = GFX_focus_generic_steel
 		prerequisite = { focus = ITA_italian_highways_bba }
-		mutually_exclusive = { focus = ITA_power_plants_in_terni }
 		x = -1
 		y = 1
 		relative_position_id = ITA_italian_highways_bba
@@ -2739,10 +2738,10 @@ focus_tree = {
 			add_to_variable = { ITA_iri_production_speed_arms_factory_factor = 0.05 }
 			custom_effect_tooltip = ITA_steel_industry_in_terni_ricostruzione_industriale_tt
 			2 = {
-				add_extra_state_shared_building_slots = 2
+				add_extra_state_shared_building_slots = 3
 				add_building_construction = {
 					type = industrial_complex
-					level = 2
+					level = 3
 					instant_build = yes
 				}
 				add_resource = {
@@ -2757,7 +2756,6 @@ focus_tree = {
 		id = ITA_power_plants_in_terni
 		icon = GFX_goal_generic_construct_civ_factory
 		prerequisite = { focus = ITA_italian_highways_bba }
-		mutually_exclusive = { focus = ITA_steel_industry_in_terni }
 		x = 1
 		y = 1
 		relative_position_id = ITA_italian_highways_bba
@@ -2773,10 +2771,10 @@ focus_tree = {
 			custom_effect_tooltip = ITA_power_plants_in_terni_ricostruzione_industriale_tt
 
 			2 = {
-				add_extra_state_shared_building_slots = 1
+				add_extra_state_shared_building_slots = 3
 				add_building_construction = {
 					type = industrial_complex
-					level = 1
+					level = 3
 					instant_build = yes
 				}
 			}
@@ -2852,7 +2850,6 @@ focus_tree = {
 		id = ITA_strengthen_northern_industry
 		icon = GFX_focus_ITA_northern_industry
 		prerequisite = { focus = ITA_industria_della_gomma_sintetica }
-		mutually_exclusive = { focus = ITA_modernize_the_mezzogiorno }
 		x = -1
 		y = 1
 		relative_position_id = ITA_industria_della_gomma_sintetica
@@ -3029,7 +3026,6 @@ focus_tree = {
 		id = ITA_modernize_the_mezzogiorno
 		icon = GFX_focus_ITA_southern_industry
 		prerequisite = { focus = ITA_industria_della_gomma_sintetica }
-		mutually_exclusive = { focus = ITA_strengthen_northern_industry }
 		x = 1
 		y = 1
 		relative_position_id = ITA_industria_della_gomma_sintetica
@@ -3235,6 +3231,11 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH}
 
 		completion_reward = {
+			add_to_variable = { ITA_military_industry_dm_production_factory_efficiency_gain_factor = 0.1 }
+			add_to_variable = { ITA_military_industry_dm_line_change_production_efficiency_factor = 0.1 }
+			add_to_variable = { ITA_military_industry_dm_production_factory_start_efficiency_factor = 0.05 }
+			custom_effect_tooltip = TPMP_ITA_new_industrialization_program_tt
+
 			add_to_variable = { ITA_iri_consumer_goods_factor = 0.02 }
 			custom_effect_tooltip = ITA_ricostruzione_industriale_cg_penalty_tt
 
@@ -3294,10 +3295,10 @@ focus_tree = {
 						include_locked = yes
 					}
 				}
-				add_extra_state_shared_building_slots = 1
+				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = industrial_complex
-					level = 1
+					level = 2
 					instant_build = yes
 				}
 			}
@@ -3438,16 +3439,16 @@ focus_tree = {
 					159 = {
 						free_building_slots = {
 							building = arms_factory
-							size > 1
+							size > 3
 							include_locked = yes
 						}
 					}
 				}
 				159 = { #LOMBARDY (Milano)
-					add_extra_state_shared_building_slots = 2
+					add_extra_state_shared_building_slots = 4
 					add_building_construction = {
 						type = arms_factory
-						level = 2
+						level = 4
 						instant_build = yes
 					}
 				}
@@ -3458,15 +3459,15 @@ focus_tree = {
 						is_controlled_by = ROOT
 						free_building_slots = {
 							building = arms_factory
-							size > 1
+							size > 3
 							include_locked = yes
 						}
 					}
 					prioritize = { 736 852 } #LITORALE as main fallback
-					add_extra_state_shared_building_slots = 2
+					add_extra_state_shared_building_slots = 4
 					add_building_construction = {
 						type = arms_factory
-						level = 2
+						level = 4
 						instant_build = yes
 					}
 				}
@@ -3495,16 +3496,16 @@ focus_tree = {
 					159 = {
 						free_building_slots = {
 							building = arms_factory
-							size > 0
+							size > 1
 							include_locked = yes
 						}
 					}
 				}
 				159 = { #LOMBARDY
-					add_extra_state_shared_building_slots = 1
+					add_extra_state_shared_building_slots = 2
 					add_building_construction = {
 						type = arms_factory
-						level = 1
+						level = 2
 						instant_build = yes
 					}
 				}
@@ -3515,15 +3516,15 @@ focus_tree = {
 						is_controlled_by = ROOT
 						free_building_slots = {
 							building = arms_factory
-							size > 0
+							size > 1
 							include_locked = yes
 						}
 					}
 					prioritize = { 160 852 736 } #VENETO as main fallback
-					add_extra_state_shared_building_slots = 1
+					add_extra_state_shared_building_slots = 2
 					add_building_construction = {
 						type = arms_factory
-						level = 1
+						level = 2
 						instant_build = yes
 					}
 				}
@@ -3531,9 +3532,9 @@ focus_tree = {
 
 			add_tech_bonus = {
 				name = ITA_brescia_small_arms_industry
-				bonus = 0.75
-				uses = 1
-				category = cat_infantry_tech
+				bonus = 0.5
+				uses = 3
+				category = cat_infantry_gun_tech
 			}
 		}
 	}
@@ -3775,14 +3776,14 @@ focus_tree = {
 					arms_factory > 0
 					free_building_slots = {
 						building = arms_factory
-						size > 0
+						size > 1
 						include_locked = yes
 					}
 				}
-				add_extra_state_shared_building_slots = 1
+				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = arms_factory
-					level = 1
+					level = 2
 					instant_build = yes
 				}
 			}
@@ -3792,14 +3793,14 @@ focus_tree = {
 					arms_factory > 0
 					free_building_slots = {
 						building = arms_factory
-						size > 0
+						size > 1
 						include_locked = yes
 					}
 				}
-				add_extra_state_shared_building_slots = 1
+				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = arms_factory
-					level = 1
+					level = 2
 					instant_build = yes
 				}
 			}
@@ -4159,27 +4160,18 @@ focus_tree = {
 
 			add_tech_bonus = {
 				name = ITA_a_bandits_war
-				uses = 2
-				bonus = 0.5
+				uses = 1
+				bonus = 1
 				category = cat_motorized_tech
-				category = cat_recon_tech
 			}
 
-			if = {
-				limit = {
-					has_dlc = "La Resistance"
-				}
-				add_tech_bonus = {
-					name = ITA_a_bandits_war
-					bonus = 1
-					uses = 1
-					category = cat_armored_cars
-				}
-				add_ideas = ITA_bandits_war
+			add_tech_bonus = {
+				name = ITA_a_bandits_war
+				bonus = 1
+				uses = 1
+				category = cat_armour_tech
 			}
-			else = {
-				add_ideas = ITA_bandits_war_no_lar
-			}
+			add_ideas = ITA_bandits_war
 		}
 	}
 
@@ -4271,9 +4263,6 @@ focus_tree = {
 		relative_position_id = ITA_preserve_army_traditions
 		cost = 5
 		available = {
-			any_enemy_country = {
-				is_major_not_original_tag_root = yes
-			}
 		}
 
 		search_filters = {FOCUS_FILTER_ARMY_XP}
@@ -4395,7 +4384,7 @@ focus_tree = {
 			add_to_variable = { ITA_re_special_forces_cap = 0.05 }
 			add_to_variable = { ITA_re_special_forces_attack_factor = 0.03 }
 			add_to_variable = { ITA_re_special_forces_defence_factor = 0.03 }
-			custom_effect_tooltip = ITA_bersaglieri_re_tt
+			custom_effect_tooltip = TPMP_ITA_bersaglieri_tt
 
 			army_experience = 15
 
@@ -4412,18 +4401,36 @@ focus_tree = {
 				regiments = { 
 					infantry = { x = 0 y = 0 }
 					infantry = { x = 0 y = 1 }
+					infantry = { x = 0 y = 2 }
+					infantry = { x = 0 y = 3 }
+
 					infantry = { x = 1 y = 0 }
 					infantry = { x = 1 y = 1 }
+					infantry = { x = 1 y = 2 }
+					infantry = { x = 1 y = 3 }
+
+					infantry = { x = 2 y = 0 }
+					infantry = { x = 2 y = 1 }
+					infantry = { x = 2 y = 2 }
+					infantry = { x = 2 y = 3 }
+
+					artillery_brigade = { x = 3 y = 0 }
+					artillery_brigade = { x = 3 y = 1 }
+					artillery_brigade = { x = 3 y = 2 }
+
+					artillery_brigade = { x = 4 y = 0 }
+					artillery_brigade = { x = 4 y = 1 }
+					artillery_brigade = { x = 4 y = 2 }
 				}
 				support = { 
-					engineer = { x = 0 y = 0 }
-					artillery = { x = 0 y = 1 }
-					#anti_tank = { x = 0 y = 2 }
+					artillery = { x = 0 y = 0 }
+					engineer = { x = 0 y = 1 }
+					recon = { x = 0 y = 2 }
 				}
 			}
 			capital_scope = {
 				create_unit = {
-					division = "division_template = \"Reggimento Bersaglieri\" start_experience_factor = 0.5 start_equipment_factor = 1.0"
+					division = "division_template = \"Reggimento Bersaglieri\" start_experience_factor = 1"
 					owner = ROOT
 					count = 3
 				}
@@ -4482,16 +4489,36 @@ focus_tree = {
 			add_to_variable = { ITA_re_special_forces_cap = 0.02 }
 			add_to_variable = { ITA_re_special_forces_out_of_supply_factor = -0.1 }
 			add_to_variable = { ITA_re_modifier_army_sub_unit_paratrooper_max_org_factor = 0.05 }
-			custom_effect_tooltip = ITA_fanti_dell_aria_re_tt
+			custom_effect_tooltip = TPMP_ITA_fanti_dell_aria_tt
 
 			army_experience = 15
 
-			hidden_effect = {
-				if = {
-					limit = {
-						NOT = { has_template = "Paratroopers" }
-					}
-					load_oob = "unlock_paratroopers"
+			division_template = { 
+				name = "Paratroopers" 
+				division_names_group = ITA_INF_01
+				regiments = { 
+					paratrooper = { x = 0 y = 0 }
+					paratrooper = { x = 0 y = 1 }
+					paratrooper = { x = 0 y = 2 }
+					paratrooper = { x = 0 y = 3 }
+					paratrooper = { x = 0 y = 4 }
+
+					paratrooper = { x = 1 y = 0 }
+					paratrooper = { x = 1 y = 1 }
+					paratrooper = { x = 1 y = 2 }
+					paratrooper = { x = 1 y = 3 }
+					paratrooper = { x = 1 y = 4 }
+
+					paratrooper = { x = 2 y = 0 }
+					paratrooper = { x = 2 y = 1 }
+					paratrooper = { x = 2 y = 2 }
+					paratrooper = { x = 2 y = 3 }
+					paratrooper = { x = 2 y = 4 }
+				}
+				support = { 
+					artillery = { x = 0 y = 0 }
+					engineer = { x = 0 y = 1 }
+					recon = { x = 0 y = 2 }
 				}
 			}
 			random_owned_controlled_state = {
@@ -4503,66 +4530,9 @@ focus_tree = {
 				custom_effect_tooltip = ITA_fanti_dell_aria_spawn_divs_tt
 				hidden_effect = {
 					create_unit = {
-						division = "division_template = \"Paratroopers\" start_experience_factor = 0.4 start_equipment_factor = 1.0"
+						division = "division_template = \"Paratroopers\" start_experience_factor = 1"
 						owner = ROOT
 						count = 3
-					}
-				}
-			}
-			#ASCARI
-			if = {
-				limit = {
-					any_owned_state = {
-						is_core_of = LBA
-						is_fully_controlled_by = ROOT
-					}
-				}
-				random_owned_controlled_state = {
-					limit = {
-						is_core_of = LBA
-						is_fully_controlled_by = ROOT
-					}
-					prioritize = { 448 450 }
-					custom_effect_tooltip = ITA_fanti_dell_aria_spawn_divs_libya_tt
-					hidden_effect = {
-						create_unit = {
-							division = "name = \"Ascari del Cielo\" division_template = \"Paratroopers\" start_experience_factor = 0.4 start_equipment_factor = 1.0"
-							owner = ROOT
-							count = 1
-						}
-					}
-				}
-			}
-			else_if = {
-				limit = {
-					any_subject_country = {
-						any_controlled_state = {
-							is_core_of = LBA
-							is_fully_controlled_by = PREV
-						}
-					}
-				}
-				random_subject_country = {
-					limit = {
-						any_controlled_state = {
-							is_core_of = LBA
-							is_fully_controlled_by = PREV
-						}
-					}
-					random_owned_controlled_state = {
-						limit = {
-							is_core_of = LBA
-							is_fully_controlled_by = ROOT
-						}
-						prioritize = { 448 450 }
-						custom_effect_tooltip = ITA_fanti_dell_aria_spawn_divs_libya_tt
-						hidden_effect = {
-							create_unit = {
-								division = "name = \"Ascari del Cielo\" division_template = \"Paratroopers\" start_experience_factor = 0.4 start_equipment_factor = 1.0"
-								owner = ROOT
-								count = 1
-							}
-						}
 					}
 				}
 			}
@@ -5168,9 +5138,6 @@ focus_tree = {
 		relative_position_id = ITA_citta_dell_aria
 		cost = 5
 		available = {
-			any_enemy_country = {
-				is_major_not_original_tag_root = yes
-			}
 		}
 
 		search_filters = {FOCUS_FILTER_AIR_XP}
@@ -6215,9 +6182,6 @@ focus_tree = {
 		relative_position_id = ITA_expand_naval_facilities
 		cost = 5
 		available = {
-			any_enemy_country = {
-				is_major_not_original_tag_root = yes
-			}
 		}
 
 		search_filters = {FOCUS_FILTER_NAVY_XP}
@@ -8323,7 +8287,7 @@ focus_tree = {
 		y = 1
 		
 		relative_position_id = ITA_solid_progress
-		cost = 10
+		cost = 5
 		available = {
 		}
 
