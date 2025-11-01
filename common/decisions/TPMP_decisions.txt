@@ -101,13 +101,13 @@ TPMP_game_decisions_category = {
 	TPMP_tassen_escalate_decision = {		
 		icon = GFX_decision_generic_ignite_civil_war
 		allowed = {
-            tag = MAN #Change this to whatever nation Tassen is playing
+            tag = GER #Change this to whatever nation Tassen is playing
         }
 		complete_effect = {
 			custom_effect_tooltip = TPMP_tassen_escalation_tt
 			add_to_variable = {
 				var = TPMP_tassen_var
-				value = 0.05
+				value = 0.5
 				tooltip = army_attack_factor_tt
 			}
 			hidden_effect = {
@@ -129,7 +129,7 @@ TPMP_game_decisions_category = {
 	TPMP_tassen_deescalate_decision = {		
 		icon = GFX_decision_generic_ignite_civil_war
 		allowed = {
-            tag = MAN #Change this to whatever nation Tassen is playing
+            tag = GER #Change this to whatever nation Tassen is playing
         }
 		visible = {
             has_dynamic_modifier = {
@@ -140,14 +140,14 @@ TPMP_game_decisions_category = {
 			custom_effect_tooltip = TPMP_tassen_escalation_tt
 			add_to_variable = {
 				var = TPMP_tassen_var
-				value = -0.05
+				value = -0.5
 				tooltip = army_attack_factor_tt
 			}
 			hidden_effect = {
 				if = {
 					limit = {
 						check_variable = {
-							TPMP_tassen_escalation = 0
+							TPMP_tassen_var = 0
 						}
 					}
 					remove_dynamic_modifier = {
