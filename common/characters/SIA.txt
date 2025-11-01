@@ -47,17 +47,17 @@ characters={
 				large=GFX_portrait_Nangklao_Suriyawongse
 			}
 		}
-		country_leader={
-			ideology=gen_nazism
-			expire="1953.1.1.12"
-			id=-1
-		}
+		# country_leader={
+		# 	ideology=gen_nazism
+		# 	expire="1953.1.1.12"
+		# 	id=-1
+		# }
 	}
 	SIA_plaek_phibunsongkhram={
 		name="Plaek Phibunsongkhram"
 		portraits={
 			civilian={
-				large=GFX_portrait_Plaek_Phibunsongkhram
+				large="gfx/leaders/SIA/Portrait_Siam_Plaek_Phibunsongkhram.dds"
 			}
 		}
 		country_leader={
@@ -496,6 +496,44 @@ characters={
 			army={
 				small="GFX_idea_generic_political_advisor_asia_2"
 			}
+		}
+	}
+#Teng's cool Tryhard real people
+	SIA_fuen_ronnaphagrad_rfitthakhanee={
+		advisor={
+			
+			
+			slot = air_chief
+			idea_token = SIA_Fuen_Ronnaphagrad_Ritthakhanee
+			allowed = {
+					original_tag = SIA
+				}
+				traits = {
+					air_chief_old_guard
+				}
+				cost = 50
+				ai_will_do = {
+					factor = 1.000
+				}
+		}
+		name="Fuen Ronnaphagrad Ritthakhanee"
+		portraits={
+			army={
+				small= GFX_idea_TPMP_SIA_Fuen_Ronnaphagrad_Ritthakhanee
+			}
+		}
+	}
+	SIA_plaek_phibunsongkhram_real={
+		name="Plaek Phibunsongkhram"
+		portraits={
+			civilian={
+				large="gfx/leaders/SIA/Portrait_Siam_Plaek_Phibunsongkhram.dds"
+			}
+		}
+		country_leader={
+			ideology=gen_nazism
+			expire="1953.1.1.12"
+			id=-1
 		}
 	}
 }
