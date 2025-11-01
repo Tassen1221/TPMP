@@ -333,33 +333,11 @@ tpmp_evac_spirit_assign_system = {
 			limit = {
 				check_variable = {
 					var = global.var_tpmp_Evac_factory_return_cic
-					value = 0.300
-					compare = greater_than_or_equals
-				}
-				check_variable = { global.var_tpmp_Evac_factory_return_cic < 0.35 }
-			}
-			add_ideas = TPMP_UKR_SOV_evac_return_factories_civ_11_idea
-		}
-		else_if = {
-			limit = {
-				check_variable = {
-					var = global.var_tpmp_Evac_factory_return_cic
-					value = 0.35
-					compare = greater_than_or_equals
-				}
-				check_variable = { global.var_tpmp_Evac_factory_return_cic < 0.40 }			
-			}
-			add_ideas = TPMP_UKR_SOV_evac_return_factories_civ_12_idea
-		}
-		else_if = {
-			limit = {
-				check_variable = {
-					var = global.var_tpmp_Evac_factory_return_cic
-					value = 0.40
+					value = 0.30
 					compare = greater_than_or_equals
 				}		
 			}
-			add_ideas = TPMP_UKR_SOV_evac_return_factories_civ_13_idea
+			add_ideas = TPMP_UKR_SOV_evac_return_factories_civ_11_idea
 			set_country_flag = flag_tpmp_abort_civ_assign_system
 		}				
 	}
@@ -454,7 +432,7 @@ tpmp_evac_spirit_assign_system = {
 				check_variable = { global.var_tpmp_Evac_factory_return_mic < 0.200 }
 			}
 			add_ideas = TPMP_UKR_SOV_evac_return_factories_mil_6_idea
-		}
+		}				
 		else_if = {
 			limit = {
 				check_variable = {
@@ -462,52 +440,9 @@ tpmp_evac_spirit_assign_system = {
 					value = 0.200
 					compare = greater_than_or_equals
 				}
-				check_variable = { global.var_tpmp_Evac_factory_return_mic < 0.225 }
 			}
 			add_ideas = TPMP_UKR_SOV_evac_return_factories_mil_7_idea
-		}
-		else_if = {
-			limit = {
-				check_variable = {
-					var = global.var_tpmp_Evac_factory_return_mic
-					value = 0.225
-					compare = greater_than_or_equals
-				}
-				check_variable = { global.var_tpmp_Evac_factory_return_mic < 0.250 }
-			}
-			add_ideas = TPMP_UKR_SOV_evac_return_factories_mil_8_idea
-		}
-		else_if = {
-			limit = {
-				check_variable = {
-					var = global.var_tpmp_Evac_factory_return_mic
-					value = 0.250
-					compare = greater_than_or_equals
-				}
-				check_variable = { global.var_tpmp_Evac_factory_return_mic < 0.275 }
-			}
-			add_ideas = TPMP_UKR_SOV_evac_return_factories_mil_9_idea
-		}
-		else_if = {
-			limit = {
-				check_variable = {
-					var = global.var_tpmp_Evac_factory_return_mic
-					value = 0.275
-					compare = greater_than_or_equals
-				}
-				check_variable = { global.var_tpmp_Evac_factory_return_mic < 0.3 }
-			}
-			add_ideas = TPMP_UKR_SOV_evac_return_factories_mil_10_idea
-		}				
-		else_if = {
-			limit = {
-				check_variable = {
-					var = global.var_tpmp_Evac_factory_return_mic
-					value = 0.300
-					compare = greater_than_or_equals
-				}
-			}
-			add_ideas = TPMP_UKR_SOV_evac_return_factories_mil_11_idea
+			set_country_flag = flag_tpmp_abort_mil_assign_system
 		}
 	}	
 
