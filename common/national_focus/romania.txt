@@ -576,6 +576,9 @@ focus_tree = {
 			factor = 5
 		}
 
+		allow_branch = {
+			always = no
+		}
 		available = {
 			POL = { 
 				exists = yes 
@@ -904,7 +907,7 @@ focus_tree = {
 		id = ROM_civil_works
 		icon = GFX_goal_generic_construction
 		prerequisite = { focus = ROM_preserve_greater_romania }
-		x = 5
+		x = 4
 		y = 1
 		relative_position_id = ROM_preserve_greater_romania
 
@@ -1015,6 +1018,110 @@ focus_tree = {
 			}
 		}
 	}
+
+	#TPMP Changes
+	focus = {
+		id = TPMP_ROM_expand_factories
+		icon = GFX_focus_generic_modernize_industry
+		prerequisite = { focus = ROM_civil_works }
+		x = -1
+		y = 1
+		relative_position_id = ROM_civil_works
+
+		cost = 10
+
+		available = {
+		}
+		completion_reward = {
+			add_ideas = TPMP_ROM_expand_factory_idea
+			every_owned_state = {
+				random_select_amount = 3
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+					is_controlled_by = ROOT
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = TPMP_ROM_appoint_malaxa
+		icon = GFX_goal_generic_production
+		prerequisite = { focus = TPMP_ROM_expand_factories }
+		x = 0
+		y = 1
+		relative_position_id = TPMP_ROM_expand_factories
+
+		cost = 10
+
+		available = {
+		}
+		completion_reward = {
+			add_trait = {
+				character = ROM_nicolae_malaxa
+				slot = political_advisor
+				trait = war_industrialist
+			}
+		}
+	}
+	focus = {
+		id = TPMP_ROM_domestic_gun_production
+		icon = GFX_goal_generic_production2
+		prerequisite = { focus = ROM_national_defense_industry }
+		x = 1
+		y = 1
+		relative_position_id = ROM_national_defense_industry
+
+		cost = 10
+
+		available = {
+		}
+		completion_reward = {
+			add_ideas = TPMP_ROM_domestic_gun_idea
+		}
+	}
+	focus = {
+		id = TPMP_ROM_resita_works
+		icon = GFX_focus_generic_military_industry
+		prerequisite = { focus = TPMP_ROM_domestic_gun_production }
+		x = 0
+		y = 1
+		relative_position_id = TPMP_ROM_domestic_gun_production
+
+		cost = 10
+
+		available = {
+		}
+		completion_reward = {
+			random_owned_state = {
+				prioritize = { 82 }
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 2
+						include_locked = yes
+					}
+					is_controlled_by = ROOT
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}
+			}
+		}
+	}
+	#TPMP Changes
 
 	focus = {
 		id = ROM_agrarian_reform
@@ -1862,7 +1969,7 @@ focus_tree = {
 	focus = {
 		id = ROM_institute_royal_dictatorship
 		icon = GFX_focus_rom_royal_dictatorship
-		x = 15
+		x = 14
 		y = 0
 
 		cost = 10
@@ -1915,7 +2022,7 @@ focus_tree = {
 		id = ROM_fortify_the_borders
 		icon = GFX_goal_generic_construct_military
 		prerequisite = { focus = ROM_institute_royal_dictatorship }
-		x = -1
+		x = -2
 		y = 1
 		relative_position_id = ROM_institute_royal_dictatorship
 
@@ -1958,6 +2065,9 @@ focus_tree = {
 			factor = 5
 		}
 
+		allow_branch = {
+			always = no
+		}
 		available = {
 			# OR = {
 				# has_country_flag = ROM_HUN_aligned
@@ -2078,7 +2188,7 @@ focus_tree = {
 		id = ROM_revise_the_constitution
 		icon = GFX_goal_generic_forceful_treaty
 		prerequisite = { focus = ROM_institute_royal_dictatorship }
-		x = 1
+		x = 0
 		y = 1
 		relative_position_id = ROM_institute_royal_dictatorship
 
@@ -2145,7 +2255,7 @@ focus_tree = {
 		id = ROM_crack_down_on_extremism
 		icon = GFX_goal_generic_political_pressure
 		prerequisite = { focus = ROM_institute_royal_dictatorship }
-		x = 3
+		x = 2
 		y = 1
 		relative_position_id = ROM_institute_royal_dictatorship
 
@@ -2202,7 +2312,7 @@ focus_tree = {
 		icon = GFX_goal_generic_improve_relations
 		prerequisite = { focus = ROM_revise_the_constitution }
 		mutually_exclusive = { focus = ROM_his_majestys_loyal_government }
-		x = 1
+		x = 0
 		y = 2
 		relative_position_id = ROM_institute_royal_dictatorship
 
@@ -2247,6 +2357,9 @@ focus_tree = {
 			}
 		}
 
+		allow_branch = {
+			always = no
+		}
 		available = {
 			is_subject = no
 			SOV = {
@@ -2424,7 +2537,7 @@ focus_tree = {
 		id = ROM_appoint_german_friendly_government
 		icon = GFX_goal_support_fascism
 		prerequisite = { focus = ROM_flexible_foreign_policy }
-		x = 3
+		x = 0
 		y = 1
 		relative_position_id = ROM_flexible_foreign_policy
 
@@ -2735,7 +2848,7 @@ focus_tree = {
 		icon = GFX_focus_rom_abdicate
 		prerequisite = { focus = ROM_iron_guard focus = ROM_securitate focus = ROM_national_christian_party }
 		mutually_exclusive = { focus = ROM_handle_the_king }
-		x = 1				
+		x = 0		
 		y = 2
 		relative_position_id = ROM_appoint_soviet_friendly_government
 
@@ -2932,6 +3045,9 @@ focus_tree = {
 			}
 		}
 
+		allow_branch = {
+			always = no
+		}
 		available = {
 			is_subject = no
 			ENG = {
@@ -3109,7 +3225,7 @@ focus_tree = {
 	focus = {
 		id = ROM_expand_the_air_force
 		icon = GFX_goal_generic_build_airforce
-		x = 26
+		x = 22
 		y = 0
 
 		cost = 10
@@ -3786,7 +3902,7 @@ focus_tree = {
 	focus = {
 		id = ROM_army_maneuvers
 		icon = GFX_goal_generic_army_doctrines
-		x = 34`
+		x = 30
 		y = 0
 
 		cost = 10
@@ -4046,6 +4162,25 @@ focus_tree = {
 			}
 		}
 	}
+
+	#TPMP Changes
+	focus = {
+		id = TPMP_ROM_resita_m43
+		icon = GFX_focus_generic_anti_tank_guns
+		prerequisite = { focus = ROM_modern_at_guns }
+		x = 0
+		y = 1
+		relative_position_id = ROM_modern_at_guns
+
+		cost = 10
+
+		available = {
+		}
+		completion_reward = {
+			add_ideas = TPMP_ROM_antitank_idea
+		}
+	}
+	#TPMP Changes
 
 	focus = {
 		id = ROM_mountain_artillery
@@ -4395,7 +4530,7 @@ focus_tree = {
 	focus = {
 		id = ROM_expand_the_galati_shipyards
 		icon = GFX_goal_generic_construct_naval_dockyard
-		x = 42
+		x = 38
 		y = 0
 
 		cost = 10

@@ -209,11 +209,41 @@ ideas = {
 				extra_trade_to_target_factor = 0.25
 			}
 		}
+		TPMP_ROM_expand_factory_idea = {
+			removal_cost = -1
+			picture = man_five_year_plan_industry
+			modifier = {
+				production_cost_industrial_complex_factor = 0.1
+				production_speed_buildings_factor = 0.1
+				global_building_slots_factor = 0.05
+			}
+		}
+		TPMP_ROM_domestic_gun_idea = {
+			removal_cost = -1
+			picture = raj_rifle_factory_ishapore
+			equipment_bonus = {
+				TPMP_cat_eq_all_inf = {
+					build_cost_ic = -0.15
+					instant = yes
+				}
+			}
+		}
 		TPMP_ROM_mountain_artillery_idea = {
 			removal_cost = -1
 			picture = generic_mountain_warfare
 			modifier = {
 				special_forces_attack_factor = 0.15
+			}
+		}
+		TPMP_ROM_antitank_idea = {
+			removal_cost = -1
+			picture = generic_artillery_regiments
+			equipment_bonus = {
+				TPMP_cat_eq_all_AT = {
+					hard_attack = 0.10
+					soft_attack = 0.10
+					instant = yes
+				}
 			}
 		}
 		TPMP_AST_unconventional_warfare_idea_0 = {
@@ -247,15 +277,7 @@ ideas = {
 			removal_cost = -1
 			picture = raj_rifle_factory_ishapore
 			equipment_bonus = {
-				infantry_equipment = {
-					build_cost_ic = -0.15
-					instant = yes
-				}
-				mobile_infantry_equipment = {
-					build_cost_ic = -0.15
-					instant = yes
-				}
-				special_infantry_equipment = {
+				TPMP_cat_eq_all_inf = {
 					build_cost_ic = -0.15
 					instant = yes
 				}
@@ -356,6 +378,15 @@ ideas = {
 				army_attack_factor = 0.025
 				stability_factor = 0.1
 				political_power_factor = 0.1
+			}
+		}
+		TPMP_MON_army = {
+			removal_cost = -1
+			picture = MEX_revolutionary_army
+			modifier = {
+				supply_consumption_factor = -0.1
+				breakthrough_factor = 0.1
+				consumer_goods_factor = -0.15
 			}
 		}
 	}
