@@ -5,6 +5,66 @@ TPMP_game_decisions_category = {
 		always = yes
 	}
 }
+TPMP_pacific_front_decision_category = {
+	icon = GFX_decision_category_generic_naval
+	picture = GFX_decision_cat_pacific_front
+	priority = 1000
+	
+	allowed = {
+		OR = {
+			tag = USA
+			tag = JAP
+		}
+	}
+	visible = {
+		OR = {
+			has_war_with = JAP
+			has_war_with = USA
+		}
+	}
+	visible_when_empty = yes
+
+	on_map_area = {
+		state = 327
+		name = TPMP_pacific_front_phillipines
+		zoom = 250
+	}
+	on_map_area = {
+		state = 336
+		name = TPMP_pacific_front_singapore
+		zoom = 250
+	}
+	on_map_area = {
+		state = 523
+		name = TPMP_pacific_front_new_guinea
+		zoom = 250
+	}
+	on_map_area = {
+		state = 629
+		name = TPMP_pacific_front_hawaii
+		zoom = 250
+	}
+	on_map_area = {
+		state = 526
+		name = TPMP_pacific_front_okinawa
+		zoom = 250
+	}
+	on_map_area = {
+		state = 524
+		name = TPMP_pacific_front_formosa
+		zoom = 250
+	}
+	on_map_area = {
+		state = 685
+		name = TPMP_pacific_front_panama
+		zoom = 250
+	}
+	on_map_area = {
+		state = 463
+		name = TPMP_pacific_front_alaska
+		zoom = 250
+	}
+}
 TPMP_eastern_front_decision_category = {
 	icon = GFX_decision_category_ger_military_buildup
 	picture = GFX_decision_cat_eastern_front

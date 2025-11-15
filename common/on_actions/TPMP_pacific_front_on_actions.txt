@@ -1,0 +1,534 @@
+on_actions = {
+	#Setting up national spirits and variables
+	on_declare_war = {
+		effect = {
+			if = {
+				limit = {
+					tag = JAP
+					FROM = { tag = USA }
+				}
+				JAP = {
+					add_ideas = TPMP_JAP_pacific_front_debuff_idea_10
+					hidden_effect = {
+						add_ideas = TPMP_JAP_formosa_idea
+						add_ideas = TPMP_JAP_okinawa_idea
+					}
+				}
+				USA = {
+					add_ideas = TPMP_USA_pacific_front_debuff_idea_6
+					hidden_effect = {
+						add_ideas = TPMP_USA_alaska_idea
+						add_ideas = TPMP_USA_hawaii_idea
+						add_ideas = TPMP_USA_new_guinea_idea
+						add_ideas = TPMP_USA_singapore_idea
+						add_ideas = TPMP_USA_panama_idea
+						add_ideas = TPMP_USA_phillipenes_idea
+					}
+				}
+			}
+		}
+	}
+	#Islands Changing Hands Affects the Debuffs
+	on_state_control_changed = {
+		effect = {
+			if = {
+				limit = {
+					FROM.FROM = {
+						OR = {
+							state = 1017
+							state = 650
+							state = 645
+							state = 648
+							state = 632
+							state = 631
+							state = 647
+							state = 684
+							state = 638
+							state = 646
+							state = 633
+							state = 630
+							state = 737
+							state = 634
+							state = 642
+							state = 727
+						}
+					}
+				}
+				#Japan Takes USA Held Island
+				if =  {
+					limit = {
+						OR = {
+							tag = GER
+							is_in_faction_with = GER
+							tag = JAP
+							is_in_faction_with = JAP
+						}
+						FROM = {
+							OR = {
+								tag = USA
+								is_in_faction_with = USA
+								tag = ENG
+								is_in_faction_with = ENG
+								tag = SOV
+								is_in_faction_with = SOV
+							}
+						}
+					}
+					JAP = {
+						decrease_pacific_front_debuff_JAP = yes
+					}
+					USA = {
+						increase_pacific_front_debuff_USA = yes
+					}
+				}
+				#USA Takes Japan Held Island
+				else_if = {
+					limit = {
+						OR = {
+							tag = USA
+							is_in_faction_with = USA
+							tag = ENG
+							is_in_faction_with = ENG
+							tag = SOV
+							is_in_faction_with = SOV
+						}
+						FROM = {
+							OR = {
+								tag = GER
+								is_in_faction_with = GER
+								tag = JAP
+								is_in_faction_with = JAP
+							}
+						}
+					}
+					JAP = {
+						increase_pacific_front_debuff_JAP = yes
+					}
+					USA = {
+						decrease_pacific_front_debuff_USA = yes
+					}
+				}
+			}
+		}
+	}
+	#Strategic Regions - Phillipenes
+	on_state_control_changed = {
+		effect = {
+			if = {
+				limit = {
+					FROM.FROM = { OR = { state = 327 } }
+				}
+				#Japan Takes USA Held Area
+				if = {
+					limit = {
+						OR = {
+							tag = GER
+							is_in_faction_with = GER
+							tag = JAP
+							is_in_faction_with = JAP
+						}
+						FROM = {
+							OR = {
+								tag = USA
+								is_in_faction_with = USA
+								tag = ENG
+								is_in_faction_with = ENG
+								tag = SOV
+								is_in_faction_with = SOV
+							}
+						}
+					}
+					JAP = { add_ideas = TPMP_JAP_phillipenes_idea }
+					USA = { remove_ideas = TPMP_USA_phillipenes_idea }
+				}
+				#USA Takes Japan Held Area
+				else_if = {
+					limit = {
+						OR = {
+							tag = USA
+							is_in_faction_with = USA
+							tag = ENG
+							is_in_faction_with = ENG
+							tag = SOV
+							is_in_faction_with = SOV
+						}
+						FROM = {
+							OR = {
+								tag = GER
+								is_in_faction_with = GER
+								tag = JAP
+								is_in_faction_with = JAP
+							}
+						}
+					}
+					JAP = { remove_ideas = TPMP_JAP_phillipenes_idea }
+					USA = { add_ideas = TPMP_USA_phillipenes_idea }
+				}
+			}
+		}
+	}
+	#Strategic Regions - Singapore
+	on_state_control_changed = {
+		effect = {
+			if = {
+				limit = { FROM.FROM = { OR = { state = 336 } } }
+				if = {
+					limit = {
+						OR = {
+							tag = GER
+							is_in_faction_with = GER
+							tag = JAP
+							is_in_faction_with = JAP
+						}
+						FROM = {
+							OR = {
+								tag = USA
+								is_in_faction_with = USA
+								tag = ENG
+								is_in_faction_with = ENG
+								tag = SOV
+								is_in_faction_with = SOV
+							}
+						}
+					}
+					JAP = { add_ideas = TPMP_JAP_singapore_idea }
+					USA = { remove_ideas = TPMP_USA_singapore_idea }
+				}
+				else_if = {
+					limit = {
+						OR = {
+							tag = USA
+							is_in_faction_with = USA
+							tag = ENG
+							is_in_faction_with = ENG
+							tag = SOV
+							is_in_faction_with = SOV
+						}
+						FROM = {
+							OR = {
+								tag = GER
+								is_in_faction_with = GER
+								tag = JAP
+								is_in_faction_with = JAP
+							}
+						}
+					}
+					JAP = { remove_ideas = TPMP_JAP_singapore_idea }
+					USA = { add_ideas = TPMP_USA_singapore_idea }
+				}
+			}
+		}
+	}
+	#Strategic Regions - New Guinea
+	on_state_control_changed = {
+		effect = {
+			if = {
+				limit = { FROM.FROM = { OR = { state = 523 } } }
+				if = {
+					limit = {
+						OR = {
+							tag = GER
+							is_in_faction_with = GER
+							tag = JAP
+							is_in_faction_with = JAP
+						}
+						FROM = {
+							OR = {
+								tag = USA
+								is_in_faction_with = USA
+								tag = ENG
+								is_in_faction_with = ENG
+								tag = SOV
+								is_in_faction_with = SOV
+							}
+						}
+					}
+					JAP = { add_ideas = TPMP_JAP_new_guinea_idea }
+					USA = { remove_ideas = TPMP_USA_new_guinea_idea }
+				}
+				else_if = {
+					limit = {
+						OR = {
+							tag = USA
+							is_in_faction_with = USA
+							tag = ENG
+							is_in_faction_with = ENG
+							tag = SOV
+							is_in_faction_with = SOV
+						}
+						FROM = {
+							OR = {
+								tag = GER
+								is_in_faction_with = GER
+								tag = JAP
+								is_in_faction_with = JAP
+							}
+						}
+					}
+					JAP = { remove_ideas = TPMP_JAP_new_guinea_idea }
+					USA = { add_ideas = TPMP_USA_new_guinea_idea }
+				}
+			}
+		}
+	}
+	#Strategic Regions - Hawaii
+	on_state_control_changed = {
+		effect = {
+			if = {
+				limit = { FROM.FROM = { OR = { state = 629 } } }
+				if = {
+					limit = {
+						OR = {
+							tag = GER
+							is_in_faction_with = GER
+							tag = JAP
+							is_in_faction_with = JAP
+						}
+						FROM = {
+							OR = {
+								tag = USA
+								is_in_faction_with = USA
+								tag = ENG
+								is_in_faction_with = ENG
+								tag = SOV
+								is_in_faction_with = SOV
+							}
+						}
+					}
+					JAP = { add_ideas = TPMP_JAP_hawaii_idea }
+					USA = { remove_ideas = TPMP_USA_hawaii_idea }
+				}
+				else_if = {
+					limit = {
+						OR = {
+							tag = USA
+							is_in_faction_with = USA
+							tag = ENG
+							is_in_faction_with = ENG
+							tag = SOV
+							is_in_faction_with = SOV
+						}
+						FROM = {
+							OR = {
+								tag = GER
+								is_in_faction_with = GER
+								tag = JAP
+								is_in_faction_with = JAP
+							}
+						}
+					}
+					JAP = { remove_ideas = TPMP_JAP_hawaii_idea }
+					USA = { add_ideas = TPMP_USA_hawaii_idea }
+				}
+			}
+		}
+	}
+	#Strategic Regions - Okinawa
+	on_state_control_changed = {
+		effect = {
+			if = {
+				limit = { FROM.FROM = { OR = { state = 526 } } }
+				if = {
+					limit = {
+						OR = {
+							tag = GER
+							is_in_faction_with = GER
+							tag = JAP
+							is_in_faction_with = JAP
+						}
+						FROM = {
+							OR = {
+								tag = USA
+								is_in_faction_with = USA
+								tag = ENG
+								is_in_faction_with = ENG
+								tag = SOV
+								is_in_faction_with = SOV
+							}
+						}
+					}
+					JAP = { add_ideas = TPMP_JAP_okinawa_idea }
+					USA = { remove_ideas = TPMP_USA_okinawa_idea }
+				}
+				else_if = {
+					limit = {
+						OR = {
+							tag = USA
+							is_in_faction_with = USA
+							tag = ENG
+							is_in_faction_with = ENG
+							tag = SOV
+							is_in_faction_with = SOV
+						}
+						FROM = {
+							OR = {
+								tag = GER
+								is_in_faction_with = GER
+								tag = JAP
+								is_in_faction_with = JAP
+							}
+						}
+					}
+					JAP = { remove_ideas = TPMP_JAP_okinawa_idea }
+					USA = { add_ideas = TPMP_USA_okinawa_idea }
+				}
+			}
+		}
+	}
+	#Strategic Regions - Formosa
+	on_state_control_changed = {
+		effect = {
+			if = {
+				limit = { FROM.FROM = { OR = { state = 524 } } }
+				if = {
+					limit = {
+						OR = {
+							tag = GER
+							is_in_faction_with = GER
+							tag = JAP
+							is_in_faction_with = JAP
+						}
+						FROM = {
+							OR = {
+								tag = USA
+								is_in_faction_with = USA
+								tag = ENG
+								is_in_faction_with = ENG
+								tag = SOV
+								is_in_faction_with = SOV
+							}
+						}
+					}
+					JAP = { add_ideas = TPMP_JAP_formosa_idea }
+					USA = { remove_ideas = TPMP_USA_formosa_idea }
+				}
+				else_if = {
+					limit = {
+						OR = {
+							tag = USA
+							is_in_faction_with = USA
+							tag = ENG
+							is_in_faction_with = ENG
+							tag = SOV
+							is_in_faction_with = SOV
+						}
+						FROM = {
+							OR = {
+								tag = GER
+								is_in_faction_with = GER
+								tag = JAP
+								is_in_faction_with = JAP
+							}
+						}
+					}
+					JAP = { remove_ideas = TPMP_JAP_formosa_idea }
+					USA = { add_ideas = TPMP_USA_formosa_idea }
+				}
+			}
+		}
+	}
+	#Strategic Regions - Panama
+	on_state_control_changed = {
+		effect = {
+			if = {
+				limit = { FROM.FROM = { OR = { state = 685 } } }
+				if = {
+					limit = {
+						OR = {
+							tag = GER
+							is_in_faction_with = GER
+							tag = JAP
+							is_in_faction_with = JAP
+						}
+						FROM = {
+							OR = {
+								tag = USA
+								is_in_faction_with = USA
+								tag = ENG
+								is_in_faction_with = ENG
+								tag = SOV
+								is_in_faction_with = SOV
+							}
+						}
+					}
+					JAP = { add_ideas = TPMP_JAP_panama_idea }
+					USA = { remove_ideas = TPMP_USA_panama_idea }
+				}
+				else_if = {
+					limit = {
+						OR = {
+							tag = USA
+							is_in_faction_with = USA
+							tag = ENG
+							is_in_faction_with = ENG
+							tag = SOV
+							is_in_faction_with = SOV
+						}
+						FROM = {
+							OR = {
+								tag = GER
+								is_in_faction_with = GER
+								tag = JAP
+								is_in_faction_with = JAP
+							}
+						}
+					}
+					JAP = { remove_ideas = TPMP_JAP_panama_idea }
+					USA = { add_ideas = TPMP_USA_panama_idea }
+				}
+			}
+		}
+	}
+	#Strategic Regions - Alaska
+	on_state_control_changed = {
+		effect = {
+			if = {
+				limit = { FROM.FROM = { OR = { state = 463 } } }
+				if = {
+					limit = {
+						OR = {
+							tag = GER
+							is_in_faction_with = GER
+							tag = JAP
+							is_in_faction_with = JAP
+						}
+						FROM = {
+							OR = {
+								tag = USA
+								is_in_faction_with = USA
+								tag = ENG
+								is_in_faction_with = ENG
+								tag = SOV
+								is_in_faction_with = SOV
+							}
+						}
+					}
+					JAP = { add_ideas = TPMP_JAP_alaska_idea }
+					USA = { remove_ideas = TPMP_USA_alaska_idea }
+				}
+				else_if = {
+					limit = {
+						OR = {
+							tag = USA
+							is_in_faction_with = USA
+							tag = ENG
+							is_in_faction_with = ENG
+							tag = SOV
+							is_in_faction_with = SOV
+						}
+						FROM = {
+							OR = {
+								tag = GER
+								is_in_faction_with = GER
+								tag = JAP
+								is_in_faction_with = JAP
+							}
+						}
+					}
+					JAP = { remove_ideas = TPMP_JAP_alaska_idea }
+					USA = { add_ideas = TPMP_USA_alaska_idea }
+				}
+			}
+		}
+	}
+}
