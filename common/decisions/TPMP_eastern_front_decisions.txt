@@ -7,6 +7,7 @@ TPMP_eastern_front_decision_category = {
 		activation = {
 			has_war_with = SOV
 			NOT = {
+				has_idea = TPMP_GER_barbarossa_idea_0
 				has_country_flag = TPMP_eastern_front_debuff_mission_flag
 			}
 		}
@@ -20,7 +21,7 @@ TPMP_eastern_front_decision_category = {
 		timeout_effect = {
 			custom_effect_tooltip = TPMP_eastern_front_debuff_mission_tt
 			add_to_variable = { global.TPMP_eastern_front_attack_var_0 = -0.005 }
-			add_to_variable = { global.TPMP_eastern_front_supply_build_var_0 = -0.125 }
+			# add_to_variable = { global.TPMP_eastern_front_supply_build_var_0 = -0.125 }
 			calculate_eastern_front_variables = yes
 			hidden_effect = {
 				activate_mission = TPMP_eastern_front_debuff_mission
@@ -331,7 +332,7 @@ TPMP_eastern_front_decision_category = {
 			}
 		}
 		icon = GFX_decision_generic_operation
-		days_mission_timeout = 15
+		days_mission_timeout = 30
 		timeout_effect = {
 			custom_effect_tooltip = TPMP_barb_buff_mission_tt
 			calculate_phase_1_barb_states_SOV_control = yes

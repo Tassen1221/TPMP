@@ -1469,10 +1469,6 @@
 		}
 
 		bypass = {
-			OR = {
-				has_war_with = PHI
-				has_wargoal_against = PHI
-			}
 		}
 
 		cancel_if_invalid = yes
@@ -1483,15 +1479,8 @@
 		search_filters = { FOCUS_FILTER_ANNEXATION }
 		completion_reward = {
 			create_wargoal = {
-				target = "PHI"
-				type = puppet_wargoal_focus
-				expire = 0
-				expire = 0
-			}
-			add_ai_strategy = {
-				type = conquer
-				id = "PHI"
-				value = 200
+				target = USA
+				type = annex_everything
 			}
 		}
 	}
