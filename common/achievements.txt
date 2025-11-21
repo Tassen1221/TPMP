@@ -196,26 +196,24 @@ master_of_war = {
 	}
 	
 	happened = {
-		OR = {
-			#Fleet in being
-			AND = {
-				has_tech = grand_battlefleet
-				has_tech = submarine_offensive
-			}
-			#Trade Interdiction
-			AND = {
-				has_tech = floating_airfield_ti
-				has_tech = combined_operations_raiding
-			}
-			#Base Strike 
-			AND = {
-				has_tech = carrier_battlegroups
-				has_tech = integrated_convoy_defence_bs
-				has_tech = submarine_offensive_bs
-			}
+        #Land doctrines
+        has_completed_track = infantry
+        has_completed_track = combat_support
+        has_completed_track = armor
+        has_completed_track = operations
 
-		}
-	}
+        #Naval doctrines
+        has_completed_track = capital_ships
+        has_completed_track = carriers
+        has_completed_track = screens
+        has_completed_track = submarines
+
+        #Air doctrines
+        has_completed_track = fighter_aircraft
+        has_completed_track = strike_aircraft
+        has_completed_track = medium_aircraft
+        has_completed_track = heavy_aircraft
+    }
 }
 
 mine_is_bigger_than_yours = {
@@ -1359,7 +1357,7 @@ the_people_have_stood_up = {
 						NOT = { state = 606 }
 						NOT = { state = 607 }
 						NOT = { state = 608 }
-						NOT = { state = 613 }
+						NOT = { state = 1035 }
 						NOT = { state = 614 }
 						NOT = { state = 620 }
 						NOT = { state = 743 }
@@ -1505,6 +1503,15 @@ battlecry = {
 			tag = SHX
 			tag = XSM
 			tag = SIK
+			tag = KHM
+			tag = NXM
+			tag = GSM
+			tag = SIC
+			tag = GDC
+			tag = XIC
+			tag = SND
+			tag = HBC
+			tag = KUM
 		}
 		is_ironman = yes
 		difficulty > 1
@@ -4223,6 +4230,8 @@ nothing_personal_adolf = {
 		owns_state = 152
 		owns_state = 153
 		owns_state = 848
+		owns_state = 975
+		owns_state = 976
 		GER = { NOT = { has_country_flag = AUS_annexed } }
 	}
 }
@@ -5415,8 +5424,12 @@ chilean_empire = {
 		controls_state = 409
 		controls_state = 408
 		# Korea
-		controls_state = 527
 		controls_state = 525
+		controls_state = 1029
+		controls_state = 1031
+		controls_state = 1030
+		controls_state = 527
+		controls_state = 1028
 		# China
 		controls_state = 716
 		controls_state = 745
@@ -5427,7 +5440,7 @@ chilean_empire = {
 		controls_state = 597
 		controls_state = 743
 		controls_state = 598
-		controls_state = 613
+		controls_state = 1035
 		controls_state = 596
 		controls_state = 595
 		controls_state = 593
@@ -5750,6 +5763,13 @@ america_decolonized = {
 	  }
 	}
 }
+	 #  #						#  #
+ ##   ##  ### ### ### ###  ###   ##  #   # #   # ### ###  #  # #  #  ##  
+#    #  #  #   #  #   #  # #  # #  # ## ## ## ## #   #  # #  # ## # #    
+# ## #  #  #   #  ##  ###  #  # #### # # # # # # ##  ###  #  # # ## # ## 
+#  # #  #  #   #  #   #  # #  # #  # #   # #   # #   #  # #  # #  # #  # 
+ ##   ##   #   #  ### #  # ###  #  # #   # #   # ### #  #  ##  #  #  ##  
+
 antischluss = {
 	id = 213
 	possible = {
@@ -6650,6 +6670,13 @@ the_true_successor = {
 	}
 }
 
+ ##  ###   ##  #   # ### #   #  ##  ###  ###       ##  ###     ### #   # ###  ### ###  ###  ## 
+#    #  # #  # #   # #    # #  #  # #  # #  #     #  # #       #   ## ## #  #  #  #  # #   #   
+# ## ###  ####  # #  ##    #   #### ###  #  #     #  # ##      ##  # # # ###   #  ###  ##   #  
+#  # #  # #  #  # #  #     #   #  # #  # #  #     #  # #       #   #   # #     #  #  # #     # 
+ ##  #  # #  #   #   ###   #   #  # #  # ###       ##  #       ### #   # #    ### #  # ### ##  
+
+
 graveyard_of_empires = {
 	id = 233
 	possible = {
@@ -7085,9 +7112,16 @@ oh_how_the_turntables = {
 			has_subject = ENG
 		}
 		ENG = {
-			has_country_leader = {
-				ruling_only = yes # default = yes
-				character = ENG_winston_churchill
+			OR = {
+				has_country_flag = winston_achievement
+				has_country_leader = {
+					ruling_only = yes # default = yes
+					name = "Winston Churchill"
+				}
+				has_country_leader = {
+					ruling_only = yes # default = yes
+					character = ENG_winston_churchill	
+				}		
 			}
 		}
 	}
@@ -7161,6 +7195,487 @@ i_shall_either_find_a_way_or_make_one = {
 				any_state_division  = {
 					division_has_battalion_in_template = cavalry
 				}
+			}
+		}
+	}
+}
+
+#  #  ##       ##   ##  #   # ###  ###   ##  #   # ###  ## ###     #  #  ##       ## #  # ###  ###  ### #  # ###  ### ###  
+## # #  #     #  # #  # ## ## #  # #  # #  # ## ##  #  #   #       ## # #  #     #   #  # #  # #  # #   ## # #  # #   #  # 
+# ## #  #     #    #  # # # # ###  ###  #  # # # #  #   #  ##      # ## #  #      #  #  # ###  ###  ##  # ## #  # ##  ###  
+#  # #  #     #  # #  # #   # #    #  # #  # #   #  #    # #       #  # #  #       # #  # #  # #  # #   #  # #  # #   #  # 
+#  #  ##       ##   ##  #   # #    #  #  ##  #   # ### ##  ###     #  #  ##      ##   ##  #  # #  # ### #  # ###  ### #  # 
+
+battle_royale = {
+	id = 251
+	possible = {
+		tag = PRC
+		is_ironman = yes
+		difficulty > 1
+		has_start_date < 1936.01.02
+		has_any_custom_difficulty_setting = no
+		game_rules_allow_achievements = yes
+	}
+
+	happened = {
+		custom_trigger_tooltip = {
+			tooltip = battle_royale_tt
+			has_global_flag = achievement_PRC_battle_royale #This flag is set if you're at war with both China and Japan within 90 days of the first war starting
+			PRC = {
+				has_country_flag = PRC_capitulated_CHI
+				has_country_flag = PRC_capitulated_JAP
+			}
+		}
+	}
+}
+
+the_winner_takes_it_all = {
+	id = 252
+	possible = {
+		tag = PRC
+		is_ironman = yes
+		difficulty > 1
+		has_start_date < 1936.01.02
+		has_any_custom_difficulty_setting = no
+		game_rules_allow_achievements = yes
+	}
+
+	happened = {
+		custom_trigger_tooltip = {
+			tooltip = the_winner_takes_it_all_tt
+			all_of_scopes = {
+				array = global.PRC_starting_PRC_core_states
+				is_owned_and_controlled_by = PRC
+			}
+		}
+	}
+}
+
+master_infiltrator = {
+	id = 253
+	possible = {
+		tag = PRC
+		is_ironman = yes
+		difficulty > 1
+		has_start_date < 1936.01.02
+		has_any_custom_difficulty_setting = no
+		game_rules_allow_achievements = yes
+		has_dlc = "No Compromise, No Surrender"
+	}
+
+	happened = {
+		custom_trigger_tooltip = {
+			tooltip = master_infiltrator_tt
+			has_global_flag = achievement_PRC_master_infiltrator
+		}
+	}
+}
+
+its_all_coming_together = {
+	id = 254
+	possible = {
+		tag = CHI
+		is_ironman = yes
+		difficulty > 1
+		has_start_date < 1936.01.02
+		has_any_custom_difficulty_setting = no
+		game_rules_allow_achievements = yes
+	}
+
+	happened = {
+		custom_trigger_tooltip = {
+			tooltip = its_all_coming_together_tt
+			CHI = {
+				all_of_scopes = {
+					array = global.PRC_starting_PRC_core_states
+					state_is_fully_controlled_by_ROOT_or_subject = yes
+				}
+			}
+		}
+	}
+}
+
+the_coast_is_clear = {
+	id = 255
+	possible = {
+		tag = CHI
+		is_ironman = yes
+		difficulty > 1
+		has_start_date < 1936.01.02
+		has_any_custom_difficulty_setting = no
+		game_rules_allow_achievements = yes
+	}
+
+	happened = {
+		custom_trigger_tooltip = {
+			tooltip = the_coast_is_clear_tt
+			date > 1945.9.2
+			CHI = {
+				NOT = { has_country_flag = CHI_lost_a_coastal_state }
+			}
+		}
+	}
+}
+
+a_fullmetal_brotherhood = {
+	id = 256
+	possible = {
+		tag = CHI
+		is_ironman = yes
+		difficulty > 1
+		has_start_date < 1936.01.02
+		has_any_custom_difficulty_setting = no
+		game_rules_allow_achievements = yes
+	}
+
+	happened = {
+		CHI = {
+			has_government = fascism
+			has_resources_in_country = {
+				resource = steel
+				amount > 299
+				extracted = yes
+			}
+			has_resources_in_country = {
+				resource = tungsten
+				amount > 299
+				extracted = yes
+			}
+			has_resources_in_country = {
+				resource = chromium
+				amount > 299
+				extracted = yes
+			}
+		}
+	}
+}
+
+paradisus_paradoxum = {
+	id = 257
+	possible = {
+		tag = JAP
+		is_ironman = yes
+		difficulty > 1
+		has_start_date < 1936.01.02
+		has_any_custom_difficulty_setting = no
+		game_rules_allow_achievements = yes
+		has_dlc = "No Compromise, No Surrender"
+	}
+
+	happened = {
+		custom_trigger_tooltip = {
+			tooltip = paradisus_paradoxum_tt
+			JAP = {
+				has_cosmetic_tag = JAP_pure_buddhist_land_tag
+			}
+		}
+	}
+}
+
+an_equivalent_exchange = {
+	id = 258
+	possible = {
+		tag = JAP
+		is_ironman = yes
+		difficulty > 1
+		has_start_date < 1936.01.02
+		has_any_custom_difficulty_setting = no
+		game_rules_allow_achievements = yes
+		has_dlc = "No Compromise, No Surrender"
+	}
+
+	happened = {
+		custom_trigger_tooltip = {
+			tooltip = an_equivalent_exchange_tt
+			JAP = {
+				has_government = democratic
+				has_completed_focus = JAP_democratic_foreign_exchange_allocation_policy
+				has_global_flag = achievement_JAP_capitulated_fascist_germany
+			}
+		}
+	}
+}
+
+the_sun_will_never_set = {
+	id = 259
+	possible = {
+		tag = JAP
+		is_ironman = yes
+		difficulty > 1
+		has_start_date < 1936.01.02
+		has_any_custom_difficulty_setting = no
+		game_rules_allow_achievements = yes
+	}
+
+	happened = {
+		JAP = {
+			has_completed_focus = JAP_the_eternal_kingdom
+			all_core_state = {
+				is_fully_controlled_by = ROOT
+			}
+		}
+	}
+}
+
+the_juannines = {
+	id = 260
+	possible = {
+		tag = PHI
+		is_ironman = yes
+		difficulty > 1
+		has_start_date < 1936.01.02
+		has_any_custom_difficulty_setting = no
+		game_rules_allow_achievements = yes
+		has_dlc = "No Compromise, No Surrender"
+	}
+
+	happened = {
+		PHI = {
+			SPR = {
+				all_core_state = {
+					is_fully_controlled_by = PHI
+					is_core_of = PHI
+				}
+			}
+		}
+	}
+}
+
+declare_military_emergency = {
+	id = 261
+	possible = {
+		tag = PHI
+		is_ironman = yes
+		difficulty > 1
+		has_start_date < 1936.01.02
+		has_any_custom_difficulty_setting = no
+		game_rules_allow_achievements = yes
+		has_dlc = "No Compromise, No Surrender"
+	}
+
+	happened = {
+		custom_trigger_tooltip = {
+			tooltip = declare_military_emergency_tt
+			PHI = {
+				has_country_flag = PHI_military_emergency_flag
+			}
+		}
+	}
+}
+
+cobalt_sea = {
+	id = 262
+	possible = {
+		tag = PHI
+		is_ironman = yes
+		difficulty > 1
+		has_start_date < 1936.01.02
+		has_any_custom_difficulty_setting = no
+		game_rules_allow_achievements = yes
+		has_dlc = "Gotterdammerung"
+	}
+
+	happened = {
+		custom_trigger_tooltip = {
+			tooltip = cobalt_sea_tt
+			has_global_flag = achievement_PHI_cobalt_sea_flag
+		}
+	}
+}
+
+the_neverending_story = {
+	id = 263
+	possible = {
+		OR = {		
+			tag = GXC
+			tag = YUN
+			tag = SHX
+			tag = XSM
+			tag = SIK
+			tag = GDC
+			tag = SND
+			tag = SIC
+			tag = NXM
+			tag = GSM
+			tag = XIC
+			tag = KHM
+			tag = KUM
+			tag = HBC
+		}
+		is_ironman = yes
+		difficulty > 1
+		has_start_date < 1936.01.02
+		has_any_custom_difficulty_setting = no
+		game_rules_allow_achievements = yes
+		has_dlc = "No Compromise, No Surrender"
+	}
+
+	happened = {
+		custom_trigger_tooltip = {
+			tooltip = the_neverending_story_tt
+			AND = {
+				OR = {		
+					tag = GXC
+					tag = YUN
+					tag = SHX
+					tag = XSM
+					tag = SIK
+					tag = GDC
+					tag = SND
+					tag = SIC
+					tag = NXM
+					tag = GSM
+					tag = XIC
+					tag = KHM
+					tag = KUM
+					tag = HBC
+				}
+				ROOT = {
+					has_completed_focus = CHI_tsr_restoration_of_the_chinese_empire
+				}
+				all_of_scopes = {
+					array = global.PRC_starting_PRC_core_states
+					is_fully_controlled_by = ROOT
+				}
+			}
+		}	
+	}
+}
+
+genghis_khant = {
+	id = 264
+	possible = {
+		OR = {
+			tag = CHI
+			tag = PRC
+			tag = GXC
+			tag = YUN
+			tag = SHX
+			tag = XSM
+			tag = SIK
+			tag = GDC
+			tag = SND
+			tag = SIC
+			tag = NXM
+			tag = GSM
+			tag = XIC
+			tag = KHM
+			tag = KUM
+			tag = RNG
+			tag = HBC
+			tag = MAN
+		}
+		is_ironman = yes
+		difficulty > 1
+		has_start_date < 1936.01.02
+		has_any_custom_difficulty_setting = no
+		game_rules_allow_achievements = yes
+	}
+
+	happened = {
+		AND = {
+			OR = {
+				tag = CHI
+				tag = PRC
+				tag = GXC
+				tag = YUN
+				tag = SHX
+				tag = XSM
+				tag = SIK
+				tag = GDC
+				tag = SND
+				tag = SIC
+				tag = NXM
+				tag = GSM
+				tag = XIC
+				tag = KHM
+				tag = KUM
+				tag = RNG
+				tag = HBC
+				tag = MAN				
+			}
+			MON = {
+				all_core_state = {
+					is_owned_and_controlled_by = ROOT
+				}
+			}
+		}
+	}
+}
+
+i_have_avenged_you_father = {
+	id = 265
+	possible = {
+		tag = XIC
+		is_ironman = yes
+		difficulty > 1
+		has_start_date < 1936.01.02
+		has_any_custom_difficulty_setting = no
+		game_rules_allow_achievements = yes
+		has_dlc = "No Compromise, No Surrender"
+	}
+
+	happened = {
+		XIC = {
+			has_country_leader = {
+				ruling_only = yes 
+				character = CHI_zhang_xueliang
+			}
+			has_global_flag = achievement_XIC_i_have_avenged_you_father
+		}
+		716 = {
+			is_fully_controlled_by = XIC
+		}
+	}
+}
+
+manifesting_a_better_tomorrow = {
+	id = 266
+	possible = {
+		#tag = 
+		is_ironman = yes
+		difficulty > 1
+		has_start_date < 1936.01.02
+		has_any_custom_difficulty_setting = no
+		game_rules_allow_achievements = yes
+		has_dlc = "No Compromise, No Surrender"
+	}
+
+	happened = {
+		faction_manifest_fulfillment > 0.99
+	}
+}
+
+doctrine_of_choice = {
+	id = 267
+	possible = {
+		#tag = 
+		is_ironman = yes
+		difficulty > 1
+		has_start_date < 1936.01.02
+		has_any_custom_difficulty_setting = no
+		game_rules_allow_achievements = yes
+	}
+
+	happened = {
+		custom_trigger_tooltip = {
+			tooltip = doctrine_of_choice_tt
+			OR = {
+				#LAND
+				check_variable = { infantry_milestone_var > 2 }
+				check_variable = { support_milestone_var > 2 }
+				check_variable = { armor_milestone_var > 2 }
+				check_variable = { operations_milestone_var > 2 }
+				#NAVY
+				check_variable = { capital_ships_milestone_var > 2 }
+				check_variable = { carriers_milestone_var > 2 }
+				check_variable = { screens_milestone_var > 2 }
+				check_variable = { submarines_milestone_var > 2 }
+				#AIR
+				check_variable = { fighters_milestone_var > 2 }
+				check_variable = { strikers_milestone_var > 2 }
+				check_variable = { mediums_milestone_var > 2 }
+				check_variable = { heavies_milestone_var > 2 }
 			}
 		}
 	}

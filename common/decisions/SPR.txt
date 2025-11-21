@@ -17194,12 +17194,9 @@ SPR_the_seeds_of_revolution = {
 			
 		}
 
-		visible = {
+		target_root_trigger = {
 			tag = SPC
 			has_completed_focus = SPR_plant_the_seeds_of_revolution
-			FROM = {
-				exists = yes
-			}
 		}
 
 		complete_effect = {
@@ -18165,10 +18162,6 @@ SPR_recovering_from_civil_war = {
 
 		icon = generic_civil_support
 
-		allowed = {
-			original_tag = SPR
-		}
-
 		available = {
 			has_equipment = {
 			    infantry_equipment > 200
@@ -18187,6 +18180,7 @@ SPR_recovering_from_civil_war = {
 				has_completed_focus = SPR_all_must_do_their_part
 				has_completed_focus = SPR_red_bulwark_in_the_west
 				has_completed_focus = SPR_stabilize_the_nation
+				has_country_flag = SPR_agreed_to_be_annexed
 			}
 			FROM = {
 				is_owned_by = ROOT
@@ -18218,6 +18212,7 @@ SPR_recovering_from_civil_war = {
 				has_completed_focus = SPR_all_must_do_their_part
 				has_completed_focus = SPR_red_bulwark_in_the_west
 				has_completed_focus = SPR_stabilize_the_nation
+				has_country_flag = SPR_agreed_to_be_annexed
 			}
 		}
 

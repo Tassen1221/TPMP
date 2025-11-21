@@ -249,20 +249,16 @@ form_nordic_league_category = {
 				}
 			}
 			else = {
-				custom_trigger_tooltip = {
+				custom_override_tooltip = {
 					tooltip = control_all_nordic_states_tt
-					all_state = {
-						OR = {
-							controls_or_subject_of = yes
-							controller = {
-								original_tag = FIN
-								is_in_faction_with = ROOT
-							}
-							NOT = {
-								AND = {
-									is_core_of = NOR
-									is_core_of = DEN
-									is_core_of = SWE
+					all_country_of = {
+						target = { NOR DEN SWE }
+						all_core_state = {
+							or = {
+								controls_or_subject_of = yes
+								controller = {
+									original_tag = FIN
+									is_in_faction_with = ROOT
 								}
 							}
 						}
@@ -2230,7 +2226,7 @@ form_ottoman_empire_category = {
 
 		complete_effect = {
 			# French Syria
-			custom_effect_tooltip = form_persia_france_coring_states_tt 
+			custom_effect_tooltip = form_ottoman_syria_coring_states_tt		#only Syria formable decision that doesn't and shouldn't core Lebanon, that's its own decision 
 			hidden_effect = {
 				677 = { add_core_of = ROOT }
 				680 = { add_core_of = ROOT }
@@ -8504,15 +8500,15 @@ form_majapahit_empire_category = {
 				state = 669
 				state = 336
 				state = 333
+				state = 1021
+				state = 1023
+				state = 1024
+				state = 1022
 			}
 		}
 
 		allowed = {
-			OR = {
-				original_tag = INS
-				original_tag = MAL
-			}
-			has_dlc = "Waking the Tiger"
+			
 		}
 
 		available = {
@@ -8535,14 +8531,13 @@ form_majapahit_empire_category = {
 				tooltip = form_majapahit_malaya_required_states_tt
 				controls_state = 336
 				controls_state = 333
+				controls_state = 1023
+				controls_state = 1024
 			}
+			controls_state = 1021
 		}
 
 		visible = {
-			OR = {
-				original_tag = INS
-				original_tag = MAL
-			}
 			NOT = { has_global_flag = form_majapahit_empire_flag }
 		}
 
@@ -8566,10 +8561,14 @@ form_majapahit_empire_category = {
 			hidden_effect = {
 				336 = { add_core_of = ROOT }
 				333 = { add_core_of = ROOT }
+				1023 = { add_core_of = ROOT }
+				1024 = { add_core_of = ROOT }
 			}
 			721 = { add_core_of = ROOT }
 			711 = { add_core_of = ROOT }
 			712 = { add_core_of = ROOT }
+			1021 = { add_core_of = ROOT }
+			1022 = { add_core_of = ROOT }
 			hidden_effect = {
 				news_event = { id = wtt_news.68 hours = 6 }
 				set_global_flag = form_majapahit_empire_flag
@@ -8595,11 +8594,7 @@ form_majapahit_empire_category = {
 		}
 
 		allowed = {
-			OR = {
-				original_tag = INS
-				original_tag = MAL
-			}
-			has_dlc = "Waking the Tiger"
+			
 		}
 
 		fire_only_once = yes
@@ -8610,10 +8605,6 @@ form_majapahit_empire_category = {
 		}
 
 		visible = {
-			OR = {
-				original_tag = INS
-				original_tag = MAL
-			}
 			has_global_flag = form_majapahit_empire_flag 
 		}
 
@@ -8640,11 +8631,7 @@ form_majapahit_empire_category = {
 		}
 
 		allowed = {
-			OR = {
-				original_tag = INS
-				original_tag = MAL
-			}
-			has_dlc = "Waking the Tiger"
+			
 		}
 
 		fire_only_once = yes
@@ -8654,10 +8641,6 @@ form_majapahit_empire_category = {
 		}
 
 		visible = {
-			OR = {
-				original_tag = INS
-				original_tag = MAL
-			}
 			has_global_flag = form_majapahit_empire_flag 
 		}
 
@@ -8685,15 +8668,14 @@ form_majapahit_empire_category = {
 				state = 628
 				state = 625
 				state = 627
+				state = 1025
+				state = 1026
+				state = 1027
 			}
 		}
 
 		allowed = {
-			OR = {
-				original_tag = INS
-				original_tag = MAL
-			}
-			has_dlc = "Waking the Tiger"
+			
 		}
 
 		fire_only_once = yes
@@ -8706,13 +8688,12 @@ form_majapahit_empire_category = {
 			controls_state = 628
 			controls_state = 625
 			controls_state = 627
+			controls_state = 1025
+			controls_state = 1026
+			controls_state = 1027
 		}
 
 		visible = {
-			OR = {
-				original_tag = INS
-				original_tag = MAL
-			}
 			has_global_flag = form_majapahit_empire_flag 
 		}
 
@@ -8724,6 +8705,9 @@ form_majapahit_empire_category = {
 			628 = { add_core_of = ROOT }
 			625 = { add_core_of = ROOT }
 			627 = { add_core_of = ROOT }
+			1025 = { add_core_of = ROOT }
+			1026 = { add_core_of = ROOT }
+			1027 = { add_core_of = ROOT }
 		}
 
 		ai_will_do = {
@@ -8731,6 +8715,276 @@ form_majapahit_empire_category = {
 		}
 	}
 
+}
+
+form_maphilindo_category = {
+	form_maphilindo = {
+		icon = generic_form_nation
+
+		on_map_mode = decision_view_only
+
+		highlight_states = { 
+			highlight_state_targets = {
+				state = 672
+				state = 335
+				state = 334
+				state = 667
+				state = 673
+				state = 668
+				state = 667
+				state = 738
+				state = 669
+				state = 336
+				state = 333
+				state = 1023
+				state = 1024
+				state = 1022
+				state = 623 
+				state = 327
+				state = 624
+				state = 626
+				state = 628
+				state = 625
+				state = 627
+				state = 1025
+				state = 1026
+				state = 1027
+			}
+		}
+
+		available = {
+			# Dutch East Indies
+			custom_trigger_tooltip = {
+				tooltip = form_majapahit_nei_required_states_tt
+				controls_state = 672
+				controls_state = 335
+				controls_state = 334
+				controls_state = 667
+				controls_state = 673
+				controls_state = 668
+				controls_state = 667
+				controls_state = 738
+				controls_state = 669
+			}
+			# British Malaya
+			custom_trigger_tooltip = {
+				tooltip = form_majapahit_malaya_required_states_tt
+				controls_state = 336
+				controls_state = 333
+				controls_state = 1023
+				controls_state = 1024
+			}
+			# Philippines
+			custom_trigger_tooltip = {
+				tooltip = form_maphilindo_philippines_required_states_tt
+				controls_state = 623 
+				controls_state = 327
+				controls_state = 624
+				controls_state = 626
+				controls_state = 628
+				controls_state = 625
+				controls_state = 627
+				controls_state = 1025
+				controls_state = 1026
+				controls_state = 1027
+			}
+		}
+
+		fire_only_once = yes
+
+		complete_effect = {
+			set_cosmetic_tag = PHI_maphilindo_tag
+			set_global_flag = PHI_maphilindo_flag
+			# Dutch East Indies
+			custom_effect_tooltip = form_country_nei_coring_states_tt
+			hidden_effect = {
+				672 = { add_core_of = ROOT }
+				335 = { add_core_of = ROOT }
+				334 = { add_core_of = ROOT }
+				667 = { add_core_of = ROOT }
+				673 = { add_core_of = ROOT }
+				668 = { add_core_of = ROOT }
+				667 = { add_core_of = ROOT }
+				738 = { add_core_of = ROOT }
+				669 = { add_core_of = ROOT }
+				1022 = { add_core_of = ROOT }
+			}
+			# British Malaya
+			custom_effect_tooltip = form_country_malaya_coring_states_tt
+			hidden_effect = {
+				336 = { add_core_of = ROOT }
+				333 = { add_core_of = ROOT }
+				1023 = { add_core_of = ROOT }
+				1024 = { add_core_of = ROOT }
+			}
+			721 = { add_core_of = ROOT }
+			711 = { add_core_of = ROOT }
+			712 = { add_core_of = ROOT }
+			1021 = { add_core_of = ROOT }
+		}
+
+		ai_will_do = {
+			base = 200
+		}
+	}
+
+	integrate_siam = {
+		highlight_states = { 
+			highlight_state_targets = {
+				state = 289
+				state = 868
+				state = 869
+				state = 724
+			}
+		}
+
+		on_map_mode = decision_view_only
+
+		available = {
+			controls_state = 289
+			controls_state = 868
+			controls_state = 869
+			controls_state = 724
+		}
+
+		visible = {
+			has_global_flag = PHI_maphilindo_flag 
+		}
+
+		fire_only_once = yes
+
+		ai_will_do = {
+			base = 200
+		}
+
+		complete_effect = {
+			if = {
+				limit = {
+					NOT = {
+						has_global_flag = PHI_ASEAN_flag
+					}
+				}
+				set_global_flag = PHI_ASEAN_flag
+				set_cosmetic_tag = PHI_asean_tag
+			}
+			289 = { add_core_of = ROOT }
+			868 = { add_core_of = ROOT }
+			869 = { add_core_of = ROOT }
+			724 = { add_core_of = ROOT }
+		}
+	}
+
+	integrate_indochina = {
+
+		highlight_states = { 
+			highlight_state_targets = {
+				state = 670
+				state = 671
+				state = 1017
+				state = 286
+				state = 741
+			}
+		}
+
+		on_map_mode = decision_view_only
+
+		available = {
+			controls_state = 670
+			controls_state = 671
+			controls_state = 1017
+			controls_state = 286
+			controls_state = 741
+		}
+
+		visible = {
+			has_global_flag = PHI_maphilindo_flag 
+		}
+
+		fire_only_once = yes
+
+		ai_will_do = {
+			base = 200
+		}
+
+		complete_effect = {
+			if = {
+				limit = {
+					NOT = {
+						has_global_flag = PHI_ASEAN_flag
+					}
+				}
+				set_global_flag = PHI_ASEAN_flag
+				set_cosmetic_tag = PHI_asean_tag
+			}
+			670 = { add_core_of = ROOT }
+			671 = { add_core_of = ROOT }
+			1017 = { add_core_of = ROOT }
+			286 = { add_core_of = ROOT }
+			741 = { add_core_of = ROOT }
+		}
+	}
+
+	integrate_burma = {
+
+		highlight_states = { 
+			highlight_state_targets = {
+				state = 998
+				state = 288
+				state = 997
+				state = 996
+				state = 640
+				state = 999
+				state = 993
+				state = 995
+				state = 994
+			}
+		}
+
+		on_map_mode = decision_view_only
+
+		available = {
+			controls_state = 998
+			controls_state = 288
+			controls_state = 997
+			controls_state = 996
+			controls_state = 640
+			controls_state = 999
+			controls_state = 993
+			controls_state = 995
+			controls_state = 994
+		}
+
+		visible = {
+			has_global_flag = PHI_maphilindo_flag 
+		}
+
+		fire_only_once = yes
+
+		ai_will_do = {
+			base = 200
+		}
+
+		complete_effect = {
+			if = {
+				limit = {
+					NOT = {
+						has_global_flag = PHI_ASEAN_flag
+					}
+				}
+				set_global_flag = PHI_ASEAN_flag
+				set_cosmetic_tag = PHI_asean_tag
+			}
+			998 = { add_core_of = ROOT }
+			288 = { add_core_of = ROOT }
+			997 = { add_core_of = ROOT }
+			996 = { add_core_of = ROOT }
+			640 = { add_core_of = ROOT }
+			999 = { add_core_of = ROOT }
+			993 = { add_core_of = ROOT }
+			995 = { add_core_of = ROOT }
+			994 = { add_core_of = ROOT }
+		}
+	}
 }
 
 form_rattanakosin_kingdom_category = {
@@ -8843,6 +9097,7 @@ form_hre_category = {
 			controls_state = 736
 			controls_state = 852
 			controls_state = 102
+			controls_state = 853
 
 			# Switzerland
 			custom_trigger_tooltip = {
@@ -8948,6 +9203,7 @@ form_hre_category = {
 			850 = { add_core_of = ROOT } #Trentino
 			852 = { add_core_of = ROOT } #Istria
 			102 = { add_core_of = ROOT } #North Slovenia
+			853 = { add_core_of = ROOT } #Ljubljana
 
 			#Czechoslovakia, not all
 			69 = { add_core_of = ROOT } #Sudetenland
@@ -10380,6 +10636,7 @@ form_polynesia_category = {
 				original_tag = FIJ
 				original_tag = NZL
 				original_tag = RAP
+				original_tag = PLU
 			}
 		}
 
@@ -10410,6 +10667,7 @@ form_polynesia_category = {
 				original_tag = FIJ
 				original_tag = NZL
 				original_tag = RAP
+				original_tag = PLU
 			}
 			NOT = { has_global_flag = form_polynesia_flag }
 		}
@@ -10491,6 +10749,8 @@ form_polynesia_category = {
 							original_tag = SOL
 							original_tag = FIJ
 							original_tag = NZL
+							original_tag = PLU
+							original_tag = RAP
 						}
 					}
 					OR = {
@@ -10543,6 +10803,8 @@ form_polynesia_category = {
 							original_tag = SOL
 							original_tag = FIJ
 							original_tag = NZL
+							original_tag = PLU
+							original_tag = RAP
 						}
 					}
 					OR = {
@@ -10591,6 +10853,8 @@ form_polynesia_category = {
 							original_tag = SOL
 							original_tag = FIJ
 							original_tag = NZL
+							original_tag = PLU
+							original_tag = RAP
 						}
 					}
 					OR = {
@@ -11877,6 +12141,37 @@ form_turkestan_category = {
 				original_tag = BUK # Bukhara
 				original_tag = KHI # Khiva
 				original_tag = KKP # Karakalpakstan
+				original_tag = KUM # Kumul Khanate
+			}
+		}
+
+		on_map_mode = decision_view_only
+
+		highlight_states = { 
+			highlight_state_targets = {
+				state = 402
+				state = 404
+				state = 406
+				state = 407
+				state = 583
+				state = 586
+				state = 587
+				state = 588
+				state = 589
+				state = 590
+				state = 881
+				state = 882
+				state = 405
+				state = 585
+				state = 831
+				state = 823
+				state = 830
+				state = 732 
+				state = 742 
+				state = 584 
+				state = 832 
+				state = 881
+				state = 882
 			}
 		}
 
@@ -11924,6 +12219,7 @@ form_turkestan_category = {
 				original_tag = BUK # Bukhara
 				original_tag = KHI # Khiva
 				original_tag = KKP # Karakalpakstan
+				original_tag = KUM # Kumul Khanate 
 			}
 			NOT = { has_global_flag = form_turkestan_flag }
 		}
@@ -17142,6 +17438,200 @@ neo_mesopotamia_category = {
 			hidden_effect = {
 				set_global_flag = neo_mesopotamia_formed_flag
 			}
+		}
+	}
+}
+
+greater_mongolia_category = {
+	
+	unite_greater_mongolia = { 
+
+		icon = generic_form_nation
+
+		allowed = {
+		}
+
+		visible = {
+			NOT = { has_global_flag = greater_mongolia_formed_flag }
+		}
+
+		available = {
+			
+			controls_state = 818
+			controls_state = 817
+			controls_state = 330
+			controls_state = 820
+			controls_state = 819
+			controls_state = 564
+			controls_state = 329
+			controls_state = 654
+			controls_state = 760
+			controls_state = 756
+			controls_state = 621
+			controls_state = 746
+			controls_state = 612
+			controls_state = 611
+			controls_state = 761
+			controls_state = 563
+			controls_state = 566
+			controls_state = 616
+			controls_state = 1043 
+			controls_state = 1040 
+
+		}
+
+		on_map_mode = decision_view_only
+
+		highlight_states = { 
+			highlight_state_targets = {
+				state = 818
+				state = 817
+				state = 330
+				state = 820
+				state = 819
+				state = 564
+				state = 329
+				state = 654
+				state = 760
+				state = 756
+				state = 621
+				state = 746
+				state = 612
+				state = 611
+				state = 761
+				state = 563
+				state = 566
+				state = 616
+				state = 1043 
+				state = 1040 
+			}
+		}
+
+		complete_effect = {
+			hidden_effect = {
+				drop_cosmetic_tag = yes
+			}
+			set_cosmetic_tag = greater_mongolia 
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+			
+			add_state_core = 818
+			add_state_core = 817
+			add_state_core = 330
+			add_state_core = 820
+			add_state_core = 819
+			add_state_core = 564
+			add_state_core = 329
+			add_state_core = 654
+			add_state_core = 760
+			add_state_core = 756
+			add_state_core = 621
+			add_state_core = 746
+			add_state_core = 612
+			add_state_core = 611
+			add_state_core = 761
+			add_state_core = 563
+			add_state_core = 566
+			add_state_core = 616
+			add_state_core = 1043 
+			add_state_core = 1040 
+
+			hidden_effect = {
+			
+				set_global_flag = greater_mongolia_formed_flag
+
+			}
+		}
+
+		ai_will_do = {
+			base = 2000
+		}
+	}
+}
+
+greater_hui_state_category = {
+	
+	unite_hui_states = { 
+
+		icon = generic_form_nation
+
+		allowed = {
+		}
+
+		visible = {
+			NOT = { has_global_flag = greater_ma_state_formed_flag }
+		}
+
+		available = {
+			
+			controls_state = 756
+			controls_state = 616
+			#controls_state = 283
+			#controls_state = 753
+			controls_state = 754
+			controls_state = 755
+			controls_state = 604
+			controls_state = 759
+			#controls_state = 287
+			#controls_state = 619 
+			controls_state = 1042 
+			controls_state = 1040
+			controls_state = 1044
+			#controls_state = 1045
+
+		}
+
+		on_map_mode = decision_view_only
+
+		highlight_states = { 
+			highlight_state_targets = {
+				state = 756
+				state = 616
+				#state = 283
+				#state = 753
+				state = 754
+				state = 755
+				state = 604
+				state = 759
+				state = 287
+				#state = 619 
+				state = 1042 
+				state = 1040
+				state = 1044
+				#state = 1045
+			}
+		}
+
+		complete_effect = {
+			hidden_effect = {
+				drop_cosmetic_tag = yes
+			}
+			set_cosmetic_tag = united_ma_clique_tag 
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+			
+			add_state_core = 756
+			add_state_core = 616
+			add_state_core = 283
+			add_state_core = 753
+			add_state_core = 754
+			add_state_core = 755
+			add_state_core = 604
+			add_state_core = 759
+			add_state_core = 287
+			add_state_core = 619 
+			add_state_core = 1042 
+			add_state_core = 1040
+			add_state_core = 1044
+			add_state_core = 1045
+
+			hidden_effect = {
+				set_global_flag = greater_ma_state_formed_flag
+			}
+		}
+
+		ai_will_do = {
+			base = 2000
 		}
 	}
 }

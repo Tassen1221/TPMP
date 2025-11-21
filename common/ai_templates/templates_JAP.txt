@@ -44,13 +44,13 @@ armor_JAP = {
 			
 			support = {
 				engineer = 1
-				recon = 1
+				light_tank_recon = 1
 				artillery = 1
 			}
 			
 			regiments = {
 				light_armor = 5
-				motorized = 4
+				cavalry = 4
 			}
 		}
 		
@@ -148,7 +148,7 @@ armor_JAP = {
 			
 			support = {
 				engineer = 1
-				recon = 1
+				light_tank_recon = 1
 				maintenance_company = 1
 				logistics_company = 1
 			}
@@ -179,7 +179,7 @@ armor_JAP = {
 			
 			support = {
 				engineer = 1
-				recon = 1
+				light_tank_recon = 1
 				maintenance_company = 1
 				logistics_company = 1
 			}
@@ -233,6 +233,7 @@ infantry_JAP = {
 			
 			support = {
 				engineer = 1
+				recon = 1 
 				artillery = 1
 			}
 			
@@ -374,12 +375,14 @@ marines_JAP = {
 		target_template = {
 			
 			support = {
+				engineer = 1
+				artillery = 1
 				recon = 1
 				logistics_company = 1
 			}
 			
 			regiments = {
-				marine = 9
+				marine = 10
 			}
 		}
 	}
@@ -452,7 +455,7 @@ paratrooper_JAP = {
 			}
 			
 			regiments = {
-				paratrooper= 5 
+				paratrooper = 5 
 			}
 		}
 	}
@@ -480,7 +483,7 @@ garrison_JAP = {
 	garrison_JAP = {
 	
 		reinforce_prio = 0
-		custom_icon = 7
+		custom_icon = 109
 	
 		upgrade_prio = {
 			factor = 200
@@ -492,13 +495,10 @@ garrison_JAP = {
 		
 		target_template = {
 			
-			support = {
-				military_police = 1
+			regiments = {
+				infantry = 6
 			}
 			
-			regiments = {
-				infantry = 5
-			}
 		}
 	}
 }

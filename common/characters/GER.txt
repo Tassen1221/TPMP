@@ -512,11 +512,11 @@ characters = {
 		}
 		corps_commander = {
 			traits = {  }
-			skill = 1
+			skill = 2
 			attack_skill = 1
 			defense_skill = 1
-			planning_skill = 1
-			logistics_skill = 1
+			planning_skill = 3
+			logistics_skill = 2
 			legacy_id = 3
 		}
 	}
@@ -3925,6 +3925,22 @@ characters = {
 			}
 
 			visible = {
+				owner = {
+					if = { #AAT
+						limit = {
+							has_dlc = "Arms Against Tyranny"
+						}
+						mio:GER_porsche_organization = {
+							is_mio_trait_completed = GER_mio_trait_involve_porsche_in_special_projects
+						}
+					}
+					else = { #NO-AAT
+						OR = {
+							has_idea = porsche
+							has_idea = GER_porsche_improved
+						}
+					}
+				}
 			}
 		}
 	}
@@ -3944,6 +3960,22 @@ characters = {
 			}
 
 			visible = {
+				owner = {
+					if = { #AAT
+						limit = {
+							has_dlc = "Arms Against Tyranny"
+						}
+						mio:GER_henschel_organization = {
+							is_mio_trait_completed = GER_mio_trait_involve_henschel_in_special_projects
+						}
+					}
+					else = { #NO-AAT
+						OR = {
+							has_idea = henschel
+							has_idea = GER_henschel_improved
+						}
+					}
+				}
 			}
 		}
 	}

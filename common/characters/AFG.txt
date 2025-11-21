@@ -1134,9 +1134,9 @@ characters={
 				original_tag = AFG
 			}
 			visible = {
-				NOT = {
-					has_completed_focus = AFG_against_kabul
-				}
+				#NOT = {
+				#	has_completed_focus = AFG_against_kabul
+				#}
 			}
 			available = {
 				has_completed_focus = AFG_socialist_coup
@@ -1351,20 +1351,44 @@ characters={
 		}
 	}
 
-	AFG_nisar_muhammad_yousafzai={
+	AFG_nisar_muhammad_yousafzai = {
 		name = AFG_nisar_muhammad_yousafzai
-		portraits={
+		portraits = {
 			civilian = {
 				large = GFX_portrait_AFG_nisar_muhammad_yousafzai
 				small = GFX_portrait_AFG_nisar_muhammad_yousafzai_small
 			}
 		}
+
 		country_leader={
 			ideology=stalinism
 			expire="1965.1.1.1"
 			id=-1
 			traits = {AFG_general_secretary}
 		}
+
+		advisor = {
+			slot = political_advisor
+			idea_token = AFG_nisar_muhammad_yousafzai
+			allowed  = {
+				original_tag = AFG
+			}
+			visible = {
+			}
+			available = {
+				has_completed_focus = AFG_renew_soviet_trade_agreement
+				NOT = {
+					has_country_leader = {
+						ruling_only = yes
+						character = AFG_nisar_muhammad_yousafzai
+					}	
+				}
+			}
+			traits  = {
+				ARG_communist_insurrectionist
+			}
+		}
+
 	}
 
 	GER_oskar_von_nidermayer={

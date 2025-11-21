@@ -1146,6 +1146,26 @@ characters = {
 		}
 	}
 
+	SOV_aleksandr_cherepanov = {
+		name = SOV_aleksandr_cherepanov
+		portraits = {
+			army = {
+				large = GFX_portrait_sov_aleksandr_cherepanov
+				small = GFX_idea_SOV_aleksandr_cherepanov
+			}
+		}
+		corps_commander = {
+			traits = { infantry_officer career_officer }
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
+			legacy_id = -1
+			visible = { NOT = { has_character_flag = SOV_exiled_flag } }
+		}
+	}
+
 ######################
 #### NAVY LEADRES ####
 ######################
@@ -3627,16 +3647,22 @@ characters = {
 			}
 			available = {
 				if = { 
-					limit = { tag = MAN }
+					limit = { original_tag = MAN }
 					custom_trigger_tooltip = {
 					 	tooltip = SOV_grigory_semyonov_man_tt
-					 	SOV_soviet_civil_war_not_started = yes 
-					 	NOT = { SOV = { has_completed_focus = SOV_approach_semyonov } }
+					 	IF = {
+					 		limit = {
+					 			SOV = { 
+					 				has_completed_focus = SOV_approach_semyonov 
+					 			}
+					 		}
+					 		SOV_soviet_civil_war_not_started = yes 
+					 	}
 					}
 				}
 				
 				if = {
-					limit = { tag = SOV }
+					limit = { original_tag = SOV }
 					has_completed_focus = SOV_approach_semyonov
 				}
 				if = {

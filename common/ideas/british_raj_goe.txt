@@ -1743,12 +1743,15 @@ ideas = {
 				has_completed_focus = RAJ_give_me_blood_and_i_will_grant_you_freedom
 			}
 			on_add = {
-				add_doctrine_cost_reduction = {
-					cost_reduction = 0.4
-					uses = 1
-					category = cat_army_doctrine
+
+				add_mastery_bonus = {
+					name = idea_RAJ_bose_hiding_ussr
+					bonus = 0.1
+					days = 180
+					grand_doctrine = mass_assault
 				}
 			}
+				
 
 			on_remove = {
 				if = {
@@ -2158,10 +2161,11 @@ ideas = {
 			}
 
 			on_add = {
-				add_doctrine_cost_reduction = {
-					cost_reduction = 0.4
-					uses = 1
-					category = cat_tank_doctrine
+				add_mastery_bonus = {
+					name = idea_RAJ_bose_hiding_ger
+					bonus = 0.1
+					days = 180
+					grand_doctrine = new_mobile_warfare
 				}
 			}
 
@@ -2201,13 +2205,16 @@ ideas = {
 			allowed_civil_war = {
 				always = yes
 			}
-
+				
 			on_add = {
-				add_doctrine_cost_reduction = {
-					cost_reduction = 0.1
-					uses = 1
-					category = ss_tech
+				add_mastery_bonus = {
+					name = idea_RAJ_bose_submarine
+					bonus = 0.1
+					days = 180
+					track = submarines
 				}
+
+				
 			}
 			cancel = {
 				has_completed_focus = RAJ_give_me_blood_and_i_will_grant_you_freedom
@@ -2246,11 +2253,14 @@ ideas = {
 				has_completed_focus = RAJ_give_me_blood_and_i_will_grant_you_freedom
 			}
 			on_add = {
-				add_doctrine_cost_reduction = {
-					cost_reduction = 0.4
-					uses = 1
-					category = cat_infantry_doctrine
+
+				add_mastery_bonus = {
+					name = idea_RAJ_bose_jap
+					bonus = 0.1
+					days = 180
+					grand_doctrine = grand_battleplan
 				}
+				
 			}
 
 			cancel = {
@@ -2798,7 +2808,7 @@ ideas = {
 			}
 
 			modifier = {
-				supply_factor = 0.075
+				supply_consumption_factor = -0.075
 			}
 		}
 
@@ -3452,7 +3462,6 @@ ideas = {
 			picture = raj_ordnance_factory_medak
 
 			allowed = {
-
 				has_dlc = "Graveyard of Empires" 
 				is_raj_or_raj_inheritor = yes
 			}
@@ -3476,7 +3485,8 @@ ideas = {
 			picture = raj_ordnance_factory_medak
 
 			allowed = {
-
+				has_dlc = "Graveyard of Empires" 
+				is_raj_or_raj_inheritor = yes
 			}
 			
 			cost = 150
