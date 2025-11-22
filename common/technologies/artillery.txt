@@ -365,6 +365,18 @@ technologies = {
 			heavy_artillery_equipment_1
 		}
 
+		on_research_complete = {
+			if = {
+				limit = {
+					has_dlc = "Gotterdammerung"
+				}
+				custom_effect_tooltip = {
+					localization_key = SP_UNLOCK_PROJECT
+					PROJECT = sp_land_super_heavy_howitzer
+				}
+			}
+		}
+
 		path = {
 			leads_to_tech = heavyartillery2_tech
 			research_cost_coeff = 1
