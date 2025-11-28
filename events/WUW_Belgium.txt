@@ -156,7 +156,7 @@ country_event = {
 	fire_only_once = yes
 
 	mean_time_to_happen = {
-		days = 140
+		days = 100
 	}
 
 	option = { #Is There No End?
@@ -1332,7 +1332,7 @@ country_event = { #To GER/USA/ENG: BEL requests equipment
 	}
 
 	option = { #sure, support
-		name = ww_BEL_event_diplomatic.15.b
+		name = ww_BEL_event_diplomatic.15.c
 		ai_chance = {
 			base = 10
 			modifier = {
@@ -1346,7 +1346,7 @@ country_event = { #To GER/USA/ENG: BEL requests equipment
 		ROOT = {
 			send_equipment = {
 				equipment = support_equipment
-				amount = 2000
+				amount = 250
 				target = FROM
 			}
 		}
@@ -1365,7 +1365,7 @@ country_event = { #To GER/USA/ENG: BEL requests equipment
 	}
 
 	option = { #no
-		name = ww_BEL_event_diplomatic.15.c
+		name = ww_BEL_event_diplomatic.15.b
 		ai_chance = {
 			base = 1
 			modifier = {
@@ -1532,7 +1532,7 @@ country_event = { #To BEL: Generic accept
 
 			clr_country_flag = BEL_got_support_eqiupment_flag
 
-			event_option_tooltip = ww_BEL_event_diplomatic.15.b
+			event_option_tooltip = ww_BEL_event_diplomatic.15.c
 		}
 
 		IF = {
@@ -3039,7 +3039,11 @@ country_event = { #Event for SPD: BEL proposes faction
 		}		
 		
 		FROM = {
-			create_faction = BEL_SPR_alliance
+			create_faction_from_template = {
+				template = faction_template_anti_fascist
+				name = BEL_SPR_alliance
+				icon = GFX_faction_logo_generic_11
+			}
 			add_to_faction = ROOT
 			country_event = {
 				id = ww_BEL_event_spanish_interaction.7
@@ -3086,7 +3090,11 @@ country_event = { #Event for BEL: SPD accepts
 		}		
 		
 		effect_tooltip = {
-			create_faction = BEL_SPR_alliance
+			create_faction_from_template = {
+				template = faction_template_anti_fascist
+				name = BEL_SPR_alliance
+				icon = GFX_faction_logo_generic_11
+			}
 			add_to_faction = FROM
 		}
 	}

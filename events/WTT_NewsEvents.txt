@@ -1009,7 +1009,7 @@ news_event = {
 	}
 }
 
-# News event for Phillipine Independence
+# News event for Japanese Young Officer Coup 
 news_event = {
 	id = wtt_news.27
 	title = wtt_news.27.t
@@ -1159,6 +1159,9 @@ news_event = {
 	title = wtt_news.32.t
 	desc = wtt_news.32.desc
 	picture = GFX_news_event_chinese_soldiers_march
+	immediate = {
+		set_global_flag = chiang_needs_to_die
+	}
 
 	is_triggered_only = yes
 	major = yes
@@ -1209,6 +1212,9 @@ news_event = {
 	title = wtt_news.33.t
 	desc = wtt_news.33.desc
 	picture = GFX_news_event_chinese_soldiers_march
+	immediate = {
+		set_global_flag = chiang_needs_to_die
+	}
 
 	is_triggered_only = yes
 	major = yes
@@ -2080,6 +2086,7 @@ news_event = {
 				controls_state = 670
 				controls_state = 286
 				controls_state = 741
+				controls_state = 1017
 			}
 		}
 	}
@@ -2092,6 +2099,7 @@ news_event = {
 				controls_state = 670
 				controls_state = 286
 				controls_state = 741
+				controls_state = 1017
 			}
 			NOT = { tag = USA }
 		}

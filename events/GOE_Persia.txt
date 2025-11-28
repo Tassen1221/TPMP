@@ -860,6 +860,10 @@ country_event = { #Negotiating Capitulations ENG
 		name = PER_imperial_events.120.b
 		ai_chance = {
 			base = 5
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
 		}
 		PER = {
 			country_event = {
@@ -1021,6 +1025,10 @@ country_event = { #Negotiating Capitulations SOV
 		name = PER_imperial_events.130.b
 		ai_chance = {
 			base = 5
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
 		}
 				PER = {
 					country_event = {
@@ -3559,7 +3567,7 @@ country_event = {
 	}
 	# back down
 	option = {
-		name = PER_communist_events.10.a
+		name = PER_communist_events.10.b
 		ai_chance = {
 			base = 3
 			modifier = {
@@ -3572,7 +3580,7 @@ country_event = {
 			country_event = {
 				id = PER_communist_events.9
 				days = 1
-			 }
+			}
 		}
 	}
 }

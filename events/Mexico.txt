@@ -137,6 +137,11 @@ country_event = {
 					planning_skill = 2
 					logistics_skill = 2
 				}
+				ROOT = {
+					MEX_manuel_sanchez = {
+						set_nationality = PREV.PREV
+					}
+				}
 				add_corps_commander_role = { # Fictitious
 					character = MEX_manuel_sanchez
 					traits = { harsh_leader }
@@ -2138,7 +2143,7 @@ country_event = {
 		
 		modifier = {
 			factor = 0.5
-			has_tech = unrestricted_submarine_warfare
+			has_doctrine = new_convoy_raiding
 		}
 	}
 	
@@ -2486,6 +2491,19 @@ country_event = {
 				limit = {
 					original_tag = MEX
 					has_war_with = ROOT
+				}
+				ROOT = {
+					every_character = {
+						limit = {
+							OR = {
+								is_character = MEX_jesus_degollado_guizar
+								is_character = MEX_alberto_gorostieta_vega
+								is_character = MEX_dionisio_navarro_anguiano
+								is_character = MEX_luis_maria_martinez
+							}
+						}
+						set_nationality = PREV.PREV
+					}
 				}
 				MEX_remove_church_power = yes
 				set_cosmetic_tag = MEX_cristero

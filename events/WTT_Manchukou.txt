@@ -21,7 +21,11 @@ country_event = {
 		}
 		FROM = {
 			puppet = ROOT
-			country_event = { id = wtt_manchukou.2 }
+			country_event = { 
+				id = wtt_manchukou.2 
+				hours = 2
+				random_hours = 4
+			}
 		}
 	}
 
@@ -32,7 +36,11 @@ country_event = {
 			base = 10 
 		}
 		FROM = {
-			country_event = { id = wtt_manchukou.3 }
+			country_event = { 
+				id = wtt_manchukou.3 
+				hours = 2
+				random_hours = 4
+			}
 		}
 	}
 }
@@ -48,6 +56,11 @@ country_event = {
 	
 	option = {
 		name = wtt_manchukou.2.a
+
+		effect_tooltip = {
+			puppet = FROM
+		}
+
 	}
 }
 
@@ -63,10 +76,13 @@ country_event = {
 	
 	option = {
 		name = wtt_manchukou.3.a
+
 		create_wargoal = {
 			type = puppet_wargoal_focus
 			target = FROM
+			expire = 0
 		}
+
 	}
 }
 

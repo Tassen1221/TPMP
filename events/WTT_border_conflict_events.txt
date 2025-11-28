@@ -25,6 +25,14 @@ country_event = {
 				check_variable = {
 					FROM.FROM.num_owned_states > 1
 				}
+				FROM.FROM = {
+					any_owned_state = {
+						NOT = {
+							state = FROM.FROM.FROM
+						}
+						impassable = no
+					}
+				}
 			}
 			transfer_state = FROM.FROM.FROM
 		}
