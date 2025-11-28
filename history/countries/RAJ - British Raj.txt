@@ -41,8 +41,8 @@ set_technology = {
 	tech_support = 1		
 	tech_engineers = 1
 	tech_recon = 1
-	
-	fleet_in_being = 1
+	#trench_warfare = 1
+	#fleet_in_being = 1
 	fuel_silos = 1
 	fuel_refining = 1
 	basic_train = 1
@@ -50,6 +50,9 @@ set_technology = {
 }
 
 recruit_character = TPMP_RAJ_reserve_fleet
+set_grand_doctrine = grand_battleplan
+set_grand_doctrine = new_fleet_in_being
+
 recruit_character = RAJ_lord_linlithgow
 recruit_character = RAJ_v_d_savarkar
 recruit_character = RAJ_p_krishna_pillai
@@ -278,7 +281,26 @@ set_cosmetic_tag = RAJ_UK # British Raj
 		limit = {
 			has_dlc = "Graveyard of Empires"
 		}
-		complete_national_focus = RAJ_provincial_autonomy
+		unlock_national_focus = RAJ_provincial_autonomy
+
+		retire_character = RAJ_freeman_freeman_thomas
+		add_country_leader_role = {
+			character =  RAJ_lord_linlithgow
+			promote_leader = yes
+			country_leader={
+				ideology=centrism
+				expire="1965.1.1.1"
+				id=-1
+				traits = {
+					aloof_authority
+				}
+			}
+		}
+
+		add_dynamic_modifier = {
+			modifier = idea_RAJ_independence_movement
+		}
+
 		complete_national_focus = RAJ_purna_swaraj
 		complete_national_focus = RAJ_uplifting_the_people_of_india
 		complete_national_focus = RAJ_tenancy_reforms
@@ -335,17 +357,16 @@ set_cosmetic_tag = RAJ_UK # British Raj
 		
 		#doctrines
 		#Air
-		
-		
-
-
-		
-		
-		battlefleet_concentration = 1
-		subsidiary_carrier_role = 1
-		convoy_sailing = 1
-		convoy_escorts = 1
-		submarine_operations = 1
+		#force_rotation = 1
+		#fighter_baiting = 1
+		#grand_battle_plan = 1
+		#trench_warfare = 1
+		#prepared_defense = 1
+		#battlefleet_concentration = 1
+		#subsidiary_carrier_role = 1
+		#convoy_sailing = 1
+		#convoy_escorts = 1
+		#submarine_operations = 1
 
 		#electronics
 		electronic_mechanical_engineering = 1
@@ -371,6 +392,9 @@ set_cosmetic_tag = RAJ_UK # British Raj
 	complete_special_project = {
 		project = sp:sp_air_radar
 	}
+	set_grand_doctrine = grand_battleplan
+	set_grand_doctrine = new_fleet_in_being
+	set_grand_doctrine = new_operational_integrity
 }
 
 set_politics = {
@@ -519,8 +543,14 @@ if = {
 		add_core_of = RAJ
 	}
 }
-country_event = { id = GOE_RAJ_partition.1 days = 40 random_days = 25 }
-country_event = { id = GOE_RAJ.32 days = 30 random_days = 80 }
+
+if = {
+	limit = {
+		has_start_date < 1939.1.1
+	}
+	country_event = { id = GOE_RAJ_partition.1 days = 40 random_days = 25 }
+	country_event = { id = GOE_RAJ.32 days = 30 random_days = 80 }
+}
 
 if = {
 	limit = {

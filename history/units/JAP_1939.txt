@@ -51,10 +51,13 @@ division_template = {
 		infantry = { x = 0 y = 2 }
 		infantry = { x = 1 y = 0 }
 		infantry = { x = 1 y = 1 }
-		light_armor = { x= 2 y = 0 }
+		medium_armor = { x= 2 y = 0 }
+		medium_armor = { x= 2 y = 1 }
 	}
 	support = {
-		engineer = { x = 0 y = 0 }
+		light_tank_recon = { x = 0 y = 0 }
+		engineer = { x = 0 y = 1 } 
+		artillery = { x = 0 y = 2 }
 	}
 }
 division_template = {
@@ -124,7 +127,7 @@ division_template = {
 division_template = {
 	name = "Chuton-chi Shidan" 			# Manchukuo Shidan  Represents Imperial Manchukuo Army infantry divisions (militia; lowest experience, oldest equipment)
 	division_names_group = JAP_GAR_01
-
+	template_counter = 109
 	regiments = {
 		infantry = { x = 0 y = 0 }
 		infantry = { x = 0 y = 1 }
@@ -1095,6 +1098,28 @@ units = {
 		division_template = "Dokuritsu Konsei Ryodan"
 		start_experience_factor = 0.3
 	}
+
+	division = { # "Ginrinbutai"
+		name = "1. Ginrinbutai"
+		location = 10004
+		division_template = "Ginrinbutai"
+		start_experience_factor = 0.3
+	}
+
+	division = { # "Ginrinbutai"
+		name = "2. Ginrinbutai"
+		location = 1070
+		division_template = "Ginrinbutai"
+		start_experience_factor = 0.3
+	}
+
+	division = { # "Ginrinbutai"
+		name = "3. Ginrinbutai"
+		location = 1047
+		division_template = "Ginrinbutai"
+		start_experience_factor = 0.3
+	}
+
 }
 
 
@@ -1107,39 +1132,43 @@ units = {
 ## STARTING PRODUCTION ##
 #########################
 instant_effect = {
+
 	add_equipment_production = {
 		equipment = {
 			type = line_infantry_equipment_1
-			creator = "JAP"
+			creator = JAP
 		}
 		requested_factories = 8
 		progress = 0.1
 		efficiency = 100
 
 	}
+
 	add_equipment_production = {
 		equipment = {
 			type = support_equipment_1
-			creator = "JAP" 
+			creator = JAP 
 		}
 		requested_factories = 1
 		progress = 0.3
 		efficiency = 100
 	}
+
 	add_equipment_production = {
 		equipment = {
 			type = motorized_equipment_1
-			creator = "JAP" 
+			creator = JAP 
 		}
 		requested_factories = 2
 		progress = 0.4
 		efficiency = 100
 
 	}
+
 	add_equipment_production = {
 		equipment = {
 			type = light_tank_equipment_1
-			creator = "JAP" 
+			creator = JAP 
 		}
 		requested_factories = 1
 		progress = 0.4

@@ -37,6 +37,7 @@ recruit_character = MON_gomgchigryn_bumtsend
 recruit_character = MON_dansrabilegyin_dogsam
 recruit_character = MON_yundunwangcug
 recruit_character = MON_pai_yun_ti
+recruit_character = MON_khorloogiin_choibalsan
 
 1939.1.1 = {
 
@@ -61,11 +62,10 @@ recruit_character = MON_pai_yun_ti
 		artillery0_tech = 1
 		
 		#doctrines
-		
-		
-		
-		
-		
+		#air_superiority = 1
+		#mass_assault = 1
+		#pocket_defence = 1
+		#defence_in_depth = 1
 
 		#electronics
 		electronic_mechanical_engineering = 1
@@ -81,6 +81,10 @@ recruit_character = MON_pai_yun_ti
 		concentrated_industry = 1
 		concentrated_industry2 = 1
 	}
+
+set_grand_doctrine = mass_assault
+set_grand_doctrine = new_strategic_destruction
+
 	complete_special_project = {
 		project = sp:sp_air_radar
 	}
@@ -101,8 +105,6 @@ set_popularities = {
 		limited_conscription
 	}
 
-	recruit_character = MON_khorloogiin_choibalsan
-	promote_character = MON_khorloogiin_choibalsan
 	retire_character = MON_anandyn_amar
 }
 
@@ -124,4 +126,15 @@ create_equipment_variant = {
 		uniform_type_slot = helmet
 		support_type_slot_0 = improvised_at_grenades
 	}
+}	add_country_leader_role = {
+		character = MON_khorloogiin_choibalsan
+		promote_leader = yes
+		country_leader = {
+			ideology = stalinism
+			expire = "1948.1.1.12"
+			traits = { MON_pan_mongolian_stalinist } 
+		}
+	}	
+	set_global_flag = MON_choibalsan_ascended_flag 
+	
 }

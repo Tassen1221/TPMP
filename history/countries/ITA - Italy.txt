@@ -373,6 +373,10 @@ set_technology = {
 	fuel_refining = 1
 	basic_train = 1
 }
+
+set_grand_doctrine = grand_battleplan
+set_grand_doctrine = new_fleet_in_being
+
 if = {
 	limit = {
 		has_dlc = "La Resistance"
@@ -619,18 +623,11 @@ if = {
 		infantrysupport2_tech = 1
 		tech_recon = 1
 
-		#doctrines
-
-		
-		battlefleet_concentration = 1
-		submarine_operations = 1
-		
 		#Air
-		
-		
-		
-		
-
+		#force_rotation = 1
+		#fighter_baiting = 1
+		#low_echelon_support = 1
+		#dispersed_fighting = 1
 
 		#electronics
 		electronic_mechanical_engineering = 1
@@ -653,6 +650,15 @@ if = {
 		concentrated_industry2 = 1
 		concentrated_industry3 = 1
 	}
+
+set_grand_doctrine = grand_battleplan
+set_grand_doctrine = new_fleet_in_being
+set_grand_doctrine = new_operational_integrity	
+set_sub_doctrine = defensive_postures
+add_mastery = {
+    amount = 100
+    sub_doctrine = defensive_postures
+}
 	
 	complete_special_project = {
 		project = sp:sp_air_radar
