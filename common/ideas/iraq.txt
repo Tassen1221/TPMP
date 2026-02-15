@@ -277,7 +277,7 @@ ideas = {
 			
 			modifier = {
 				consumer_goods_factor = -0.15
-				supply_factor = 0.1
+				supply_consumption_factor = -0.1
 				attrition = -0.05
 			}
 		}
@@ -322,7 +322,7 @@ ideas = {
 			
 			modifier = {
 				consumer_goods_factor = -0.15
-				supply_factor = 0.1
+				supply_consumption_factor = -0.1
 				attrition = -0.05
 				production_speed_arms_factory_factor = 0.1
 			}
@@ -658,7 +658,10 @@ ideas = {
 
 		IRQ_command_of_the_faithful = {
 			allowed = {
-				original_tag = IRQ
+				OR = {
+					original_tag = IRQ
+					original_tag = KUM
+				}
 			}
 			removal_cost = -1
 			picture = raj_marginalized_muslim_community_angry

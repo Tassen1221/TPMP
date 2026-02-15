@@ -290,6 +290,15 @@ ideas = {
 					factor = 0
 					NOT = { has_idea = volunteer_only }
 				}
+				modifier = {
+					original_tag = JAP
+					has_idea = volunteer_only
+					OR = {
+						has_active_mission = JAP_army_faction_demands_conscription_law_change
+						has_active_mission = JAP_naval_faction_demands_conscription_law_change
+					}
+					factor = 10
+				}
 			}
 
 			cancel_if_invalid = no
@@ -302,6 +311,29 @@ ideas = {
 				OR = {
 					has_government = fascism
 					has_government = communism
+					if = {
+						limit = {
+							PHI_SEA = yes
+						}
+						if = {
+							limit = {
+								has_idea = PHI_ties_with_republican_spain
+							}
+							has_idea = PHI_ties_with_republican_spain
+						}
+						else_if = {
+							limit = {
+								has_idea = PHI_ties_with_republican_spain_2
+							}
+							has_idea = PHI_ties_with_republican_spain_2
+						}
+						else = {
+							hidden_trigger = { always = no } #NEED TO HAVE AN ALWAYS AS AN END STATEMENT IF URE USING AN IF ELSE IN AN OR STATEMENT OTHERWISE THE EVALUATION BREAKS!!
+						}
+					}
+					else = {
+						hidden_trigger = { always = no } #NEED TO HAVE AN ALWAYS AS AN END STATEMENT IF URE USING AN IF ELSE IN AN OR STATEMENT OTHERWISE THE EVALUATION BREAKS!!
+					}
 					SWE_rapid_mob_manpower_law_trigger = yes 
 					if = {
 						limit = {
@@ -454,8 +486,7 @@ ideas = {
 						original_tag = AFG
 					}
 					has_completed_focus = AFG_adopt_nufus
-				}
-				
+				}				
 			}
 			ai_will_do = {
    				factor = 1
@@ -516,6 +547,16 @@ ideas = {
 					has_completed_focus = GUAY_coup_detat
 				}
 
+				modifier = {
+					original_tag = JAP
+					has_idea = limited_conscription
+					OR = {
+						has_active_mission = JAP_army_faction_demands_conscription_law_change
+						has_active_mission = JAP_naval_faction_demands_conscription_law_change
+					}
+					factor = 10
+				}
+
 			}
 
 			cost = 150
@@ -540,6 +581,29 @@ ideas = {
 				OR = {
 					has_government = fascism
 					has_government = communism
+					if = {
+						limit = {
+							PHI_SEA = yes
+						}
+						if = {
+							limit = {
+								has_idea = PHI_ties_with_republican_spain
+							}
+							has_idea = PHI_ties_with_republican_spain
+						}
+						else_if = {
+							limit = {
+								has_idea = PHI_ties_with_republican_spain_2
+							}
+							has_idea = PHI_ties_with_republican_spain_2
+						}
+						else = {
+							hidden_trigger = { always = no } #NEED TO HAVE AN ALWAYS AS AN END STATEMENT IF URE USING AN IF ELSE IN AN OR STATEMENT OTHERWISE THE EVALUATION BREAKS!!
+						}
+					}
+					else = {
+						hidden_trigger = { always = no } #NEED TO HAVE AN ALWAYS AS AN END STATEMENT IF URE USING AN IF ELSE IN AN OR STATEMENT OTHERWISE THE EVALUATION BREAKS!!
+					}
 					SWE_rapid_mob_manpower_law_trigger = yes
 					AND = {
 						has_war = yes
@@ -583,6 +647,7 @@ ideas = {
 					}
 					is_subject = no
 				}
+
 				IF = {
 					limit = {
 						original_tag = HUN
@@ -652,6 +717,25 @@ ideas = {
 						has_dlc = "La Resistance"
 					}
 					NOT = { has_completed_focus = SPR_all_must_bear_the_torch }
+				}
+				if = {
+					limit = {
+						original_tag = BUL
+						has_dlc = "Battle for the Bosporus"
+					}
+					if = {
+						limit = {
+							has_dlc = "Arms Against Tyranny"
+						}
+						NOT = {
+							has_idea = BUL_army_restrictions_aat
+						}
+					}
+					else = {
+						NOT = {
+							has_idea = BUL_army_restrictions
+						}
+					}
 				}
 				if = {
 					limit = {
@@ -736,6 +820,16 @@ ideas = {
 						original_tag = PAR
 					}
 					has_completed_focus = GUAY_coup_detat
+				}
+
+				modifier = {
+					original_tag = JAP
+					has_idea = extensive_conscription
+					OR = {
+						has_active_mission = JAP_army_faction_demands_conscription_law_change
+						has_active_mission = JAP_naval_faction_demands_conscription_law_change
+					}
+					factor = 5
 				}
 
 			}
@@ -930,6 +1024,16 @@ ideas = {
 					NOT = { has_idea = service_by_requirement }
 				}
 
+				modifier = {
+					original_tag = JAP
+					has_idea = service_by_requirement
+					OR = {
+						has_active_mission = JAP_army_faction_demands_conscription_law_change
+						has_active_mission = JAP_naval_faction_demands_conscription_law_change
+					}
+					factor = 3
+				}
+
 			}
 
 			on_add = {
@@ -953,6 +1057,7 @@ ideas = {
 				industrial_capacity_factory = -0.3
 				industrial_capacity_dockyard = -0.3
 				production_speed_buildings_factor = -0.3
+				#XP from reinforcement penalty (small)
 				training_time_factor = 0.3
 			}
 
@@ -1093,7 +1198,7 @@ ideas = {
 						original_tag = AFG
 					}
 					has_completed_focus = AFG_adopt_nufus
-				}		
+				}	
 			}
 
 			ai_will_do = {
@@ -1117,6 +1222,16 @@ ideas = {
 				modifier = {
 					factor = 0
 					NOT = { has_idea = all_adults_serve }
+				}
+
+				modifier = {
+					original_tag = JAP
+					has_idea = all_adults_serve
+					OR = {
+						has_active_mission = JAP_army_faction_demands_conscription_law_change
+						has_active_mission = JAP_naval_faction_demands_conscription_law_change
+					}
+					factor = 2
 				}
 
 			}
