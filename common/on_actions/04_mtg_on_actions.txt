@@ -2032,6 +2032,7 @@ on_actions = {
 					release = UAE
 					release = FSA
 					release = BHR
+					release = CYP
 				}
 				RAJ = {
 					release = KAS
@@ -2040,6 +2041,7 @@ on_actions = {
 					release = FSA
 					release = SKK
 					release = MPU
+					drop_cosmetic_tag = yes
 				}
 				ENG = {
 					set_autonomy = { target = RAJ autonomy_state = autonomy_free }
@@ -2092,6 +2094,7 @@ on_actions = {
 					delete_unit = { state = 741 }
 					delete_unit = { state = 286 }
 					delete_unit = { state = 671 }
+					delete_unit = { state = 1017 }
 					release = VIN
 					release = CAM
 					release = LAO
@@ -2107,17 +2110,37 @@ on_actions = {
 					transfer_state = 320
 					transfer_state = 733
 				}
+				YEM = {
+					transfer_state = 906
+				}
 				AST = {
 					transfer_state = 712
 					transfer_state = 711
 				}
-				728 = { add_core_of = GXC }
-				729 = { add_core_of = GXC }
-				326 = { add_core_of = GXC }
-				GXC = {
-					transfer_state = 728
-					transfer_state = 729
-					transfer_state = 326
+				if = {
+					limit = {
+						NOT = {
+							has_dlc = "No Compromise, No Surrender"
+						}
+					}
+					728 = { add_core_of = GXC }
+					729 = { add_core_of = GXC }
+					326 = { add_core_of = GXC }
+					GXC = {
+						transfer_state = 728
+						transfer_state = 729
+						transfer_state = 326
+					}
+				}
+				else = {
+					728 = { add_core_of = GDC }
+					729 = { add_core_of = GDC }
+					326 = { add_core_of = GDC }
+					GDC = {
+						transfer_state = 728
+						transfer_state = 729
+						transfer_state = 326
+					}
 				}
 				JAP = {
 					set_autonomy = { target = MAN autonomy_state = autonomy_free }

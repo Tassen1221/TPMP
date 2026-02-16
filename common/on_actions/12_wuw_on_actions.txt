@@ -1419,9 +1419,9 @@ on_actions = {
 						is_major = yes
 					}
 				}
-			}
-			FROM = {
-				add_to_variable = { GER_capitulated_major_countries = 1 }
+				FROM = {
+					add_to_variable = { GER_capitulated_major_countries = 1 }
+				}
 			}
 		}
 	}
@@ -2500,6 +2500,36 @@ on_actions = {
 					}
 				}
 			}			
+		}
+
+		#Remove Inner Circle on ideology change despite going down the fascist path (e.g. being puppeted)
+		effect = {
+			if = {
+				limit = {
+					original_tag = GER
+					NOT = {
+						has_government = fascism
+					}
+				}
+				if = {
+					limit = {
+						check_variable = { GER_ascended_advisor_1 = 0 compare = not_equals }
+					}
+					GER_remove_replaced_advisor_1_effects = yes
+				}
+				if = {
+					limit = {
+						check_variable = { GER_ascended_advisor_2 = 0 compare = not_equals }
+					}
+					GER_remove_replaced_advisor_2_effects = yes
+				}
+				if = {
+					limit = {
+						check_variable = { GER_ascended_advisor_3 = 0 compare = not_equals }
+					}
+					GER_remove_replaced_advisor_3_effects = yes
+				}
+			}
 		}
 	}
 
