@@ -540,11 +540,11 @@ generic_escort_ship_organization = {
 	icon = GFX_idea_generic_naval_manufacturer_1
 
 	allowed = {
-		NOT = { OR = { original_tag = GER tag = ENG tag = SOV tag = FRA tag = ITA tag = JAP tag = USA tag = BEL tag = CAN tag = SWE tag = HUN tag = CZE tag = ROM tag = YUG tag = POR tag = GRE tag = TUR tag = LAT tag = EST } }
-		NOT = { OR = { tag = SPR tag = SPA tag = SPB tag = SPC tag = SPD } }
+		NOT = { OR = { original_tag = GER original_tag = ENG original_tag = SOV original_tag = FRA original_tag = ITA original_tag = JAP original_tag = USA original_tag = BEL original_tag = CAN original_tag = SWE original_tag = HUN original_tag = CZE original_tag = ROM original_tag = YUG original_tag = POR original_tag = GRE original_tag = TUR original_tag = LAT original_tag = EST } }
+		NOT = { OR = { original_tag = SPR original_tag = SPA original_tag = SPB original_tag = SPC original_tag = SPD } }
 		NOT = {
 			AND = {
-				tag = POL
+				original_tag = POL
 				OR = {
 					has_dlc = "Poland: United and Ready"
 					has_dlc = "No Step Back"
@@ -553,43 +553,43 @@ generic_escort_ship_organization = {
 		}
 		NOT = {
 			AND = {
-				OR = { tag = AST tag = NZL tag = RAJ }
+				OR = { original_tag = AST original_tag = NZL original_tag = RAJ }
 				has_dlc = "Together for Victory"
 			}
 		}
 		NOT = {
 			AND = {
-				OR = { tag = CHI tag = PRC tag = MAN tag = SHX tag = XSM tag = GXC tag = YUN tag = SIK tag = MEN }
+				OR = { original_tag = CHI original_tag = PRC original_tag = MAN original_tag = SHX original_tag = XSM original_tag = GXC original_tag = YUN original_tag = SIK original_tag = MEN }
 				has_dlc = "Waking the Tiger"
 			}
 		}
 		NOT = {
 			AND = {
-				OR = { tag = MEX tag = HOL }
+				OR = { original_tag = MEX original_tag = HOL }
 				has_dlc = "Man the Guns"
 			}
 		}
 		NOT = {
 			AND = {
-				tag = BUL
+				original_tag = BUL
 				has_dlc = "Battle for the Bosporus"
 			}
 		}
 		NOT = {
 			AND = {
-				OR = { tag = EST  tag = LAT }
+				OR = { original_tag = EST  original_tag = LAT }
 				has_dlc = "No Step Back"
 			}
 		}
 		NOT = {
 			AND = {
-				OR = { tag = ETH tag = SWI }
+				OR = { original_tag = ETH original_tag = SWI }
 				has_dlc = "By Blood Alone"
 			}
 		}
 		NOT = {
 			AND = {
-				OR = { original_tag = FIN tag = NOR tag = DEN tag = SWE tag = ICE }
+				OR = { original_tag = FIN original_tag = NOR original_tag = DEN original_tag = SWE original_tag = ICE }
 				has_dlc = "Arms Against Tyranny"
 			}
 		}
@@ -621,6 +621,23 @@ generic_escort_ship_organization = {
 					original_tag = IRQ
 				}
 				has_dlc = "Graveyard of Empires"
+			}
+		}
+
+		NOT = {
+			AND = {
+				OR = {
+					original_tag = PHI
+					original_tag = SND
+					original_tag = HBC
+					original_tag = XIC
+					original_tag = GDC
+					original_tag = SIC
+					original_tag = NXM
+					original_tag = GSM
+					original_tag = KHM
+				}
+				has_dlc = "No Compromise, No Surrender"
 			}
 		}
 	}
@@ -1768,6 +1785,8 @@ generic_black_sea_fleet_organization = {
 	}	
 }
 
+
+
 generic_refurbishment_repair_organization = {
 	icon = GFX_idea_generic_naval_manufacturer_1
 
@@ -2056,10 +2075,10 @@ generic_general_aircraft_organization = {
 
 	allowed = {
 		NOT = { 
-			OR = { original_tag = GER tag = ENG tag = SOV tag = FRA tag = ITA tag = JAP tag = USA tag = BEL tag = CAN tag = YUG tag = ROM tag = CZE tag = HUN tag = CHI tag = MAN tag = HOL tag = BUL tag = GRE tag = TUR tag = LAT tag = LIT 
+			OR = { original_tag = GER original_tag = ENG original_tag = SOV original_tag = FRA original_tag = ITA original_tag = JAP original_tag = USA original_tag = BEL original_tag = CAN original_tag = YUG original_tag = ROM original_tag = CZE original_tag = HUN original_tag = CHI original_tag = MAN original_tag = HOL original_tag = BUL original_tag = GRE original_tag = TUR original_tag = LAT original_tag = LIT 
 			} 
 		}
-		NOT = { tag = SPR tag = SPA tag = SPB tag = SPC tag = SPD }
+		NOT = { original_tag = SPR original_tag = SPA original_tag = SPB original_tag = SPC original_tag = SPD }
 		NOT = {
 			AND = {
 				original_tag = POL
@@ -2150,6 +2169,22 @@ generic_general_aircraft_organization = {
 					original_tag = IRQ
 				}
 				has_dlc = "Graveyard of Empires"
+			}
+		}
+		NOT = {
+			AND = {
+				OR = {
+					original_tag = PHI
+					original_tag = SND
+					original_tag = HBC
+					original_tag = XIC
+					original_tag = GDC
+					original_tag = SIC
+					original_tag = NXM
+					original_tag = GSM
+					original_tag = KHM
+				}
+				has_dlc = "No Compromise, No Surrender"
 			}
 		}
 	}
@@ -3676,6 +3711,10 @@ generic_naval_aircraft_organization = {
 		production_bonus = {
 			production_capacity_factor = 0.05
 		}
+
+		equipment_bonus = {
+			naval_strike_attack = 0.05
+		}
 	}
 
 	trait = {
@@ -3687,6 +3726,8 @@ generic_naval_aircraft_organization = {
 
 		equipment_bonus = {
 			reliability = 0.05
+			surface_detection = 0.05
+			sub_detection = 0.05
 		}
 	}
 
@@ -3725,6 +3766,7 @@ generic_naval_aircraft_organization = {
 
 		equipment_bonus = {
 			maximum_speed = 0.05
+			naval_strike_attack = 0.05
 		}
 	}
 
@@ -3742,6 +3784,9 @@ generic_naval_aircraft_organization = {
 
 		equipment_bonus = {
 			surface_detection = 0.05
+			sub_detection = 0.05
+			naval_strike_attack = 0.05
+			naval_strike_targetting = 0.05
 		}
 	}
 
@@ -3809,6 +3854,7 @@ generic_naval_aircraft_organization = {
 
 		equipment_bonus = {
 			air_attack = 0.05
+			air_ground_attack = 0.05
 		}
 	}
 
@@ -3823,7 +3869,8 @@ generic_naval_aircraft_organization = {
 		all_parents = { generic_mio_strength_wing_design }
 
 		equipment_bonus = {
-			air_ground_attack = 0.05
+			naval_strike_attack = 0.05
+			naval_strike_targetting = 0.05
 		}
 	}
 
@@ -4916,7 +4963,7 @@ generic_range_focused_aircraft_organization = {
 #fuel_consumption
 #build_cost_ic
 #manpower
-#naval_supremacy_factor
+#naval_dominance_factor
 #naval_torpedo_enemy_critical_chance_factor (if you have modules adding it)
 #naval_torpedo_damage_reduction_factor (if you have modules adding it)
 #carrier_size (this will get very bad for you I promise, equipment modifiers are a mistake)
