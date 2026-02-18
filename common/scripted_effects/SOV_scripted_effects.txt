@@ -2933,6 +2933,41 @@ SOV_approach_sinkiang_diplomacy_effect = {
 			id = MAN		
 			value = -5
 		}
+		add_ai_strategy = {
+			type = alliance
+			id = GDC		
+			value = -5
+		}
+		add_ai_strategy = {
+			type = alliance
+			id = XIC		
+			value = -5
+		}
+		add_ai_strategy = {
+			type = alliance
+			id = SND		
+			value = -5
+		}
+		add_ai_strategy = {
+			type = alliance
+			id = KHM		
+			value = -5
+		}
+		add_ai_strategy = {
+			type = alliance
+			id = NXM		
+			value = -5
+		}
+		add_ai_strategy = {
+			type = alliance
+			id = GSM		
+			value = -5
+		}
+		add_ai_strategy = {
+			type = alliance
+			id = HBC		
+			value = -5
+		}
 	}
 }
 
@@ -8787,6 +8822,30 @@ SOV_exiles_civil_war_start = {
 				remove_country_leader_role = {
 				    ideology = despotism
 				}
+				set_nationality = SOV
+			}
+		}
+
+	}
+
+	# Ivan Belyaev
+	IF = {
+		limit = {
+			PAR = {
+				OR = {
+					exists = no
+					has_capitulated = yes
+					NOT = {
+						has_idea = PAR_ivan_belyaev
+					}
+				}
+			}
+		}
+
+		set_country_flag = PAR_ivan_belyaev_went_to_rejoin_the_russian_whites_flag
+
+		PAR = {
+			PAR_ivan_belyaev = {
 				set_nationality = SOV
 			}
 		}

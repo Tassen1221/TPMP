@@ -121,7 +121,7 @@ PRC_soviet_tribute_level_down = { #Not needed atm, but who knows...
 	}
 }
 
-warlord_rule_all_parties = {
+warlord_rule_all_parties = { 
 	hidden_effect = {
 		if = {
 			limit = {
@@ -152,6 +152,45 @@ warlord_rule_all_parties = {
 			}	
 			add_country_leader_role = {
 				character = SHX_yan_xishan
+				country_leader = {
+					expire = "1965.1.1"
+					ideology = rexism
+					traits = {
+						#
+					}
+				}
+				promote_leader = yes				
+			}
+		}
+		if = {
+			limit = {
+				tag = HBC
+			}
+			add_country_leader_role = {
+				character = CHI_song_zheyuan
+				country_leader = {
+					expire = "1965.1.1"
+					ideology = anti_revisionism
+					traits = {
+						#
+					}
+				}
+				promote_leader = yes				
+			}			
+			add_country_leader_role = {
+				character = CHI_song_zheyuan
+				country_leader = {
+					expire = "1965.1.1"
+					ideology = socialism
+					traits = {
+						#
+					}
+				}
+				promote_leader = yes				
+				
+			}	
+			add_country_leader_role = {
+				character = CHI_song_zheyuan
 				country_leader = {
 					expire = "1965.1.1"
 					ideology = rexism
@@ -241,6 +280,48 @@ warlord_rule_all_parties = {
 		if = {
 			limit = {
 				tag = XSM
+				has_dlc = "No Compromise, No Surrender"
+			}
+			add_country_leader_role = {
+				character = QHM_ma_lin
+				country_leader = {
+					expire = "1965.1.1"
+					ideology = anti_revisionism
+					traits = {
+						#
+					}
+				}
+				promote_leader = yes				
+			}
+			add_country_leader_role = {
+				character = QHM_ma_lin
+				country_leader = {
+					expire = "1965.1.1"
+					ideology = socialism
+					traits = {
+						#
+					}
+				}
+				promote_leader = yes	
+			}
+			add_country_leader_role = {
+				character = QHM_ma_lin
+				country_leader = {
+					expire = "1965.1.1"
+					ideology = rexism
+					traits = {
+						#
+					}
+				}
+				promote_leader = yes				
+			}
+		}
+		else_if = {
+			limit = {
+				tag = XSM
+				NOT = {
+					has_dlc = "No Compromise, No Surrender"
+				}
 			}
 			add_country_leader_role = {
 				character = XSM_ma_bufang
@@ -314,5 +395,291 @@ warlord_rule_all_parties = {
 				promote_leader = yes
 			}			
 		}
+		if = {
+			limit = {
+				tag = GSM
+			}
+			add_country_leader_role = {
+				character = XSM_ma_buqing
+				country_leader = {
+					expire = "1965.1.1"
+					ideology = anti_revisionism
+					traits = {
+						#
+					}
+				}
+				promote_leader = yes				
+			}			
+			add_country_leader_role = {
+				character = XSM_ma_buqing
+				country_leader = {
+					expire = "1965.1.1"
+					ideology = socialism
+					traits = {
+						#
+					}
+				}
+				promote_leader = yes				
+				
+			}	
+			add_country_leader_role = {
+				character = XSM_ma_buqing
+				country_leader = {
+					expire = "1965.1.1"
+					ideology = rexism
+					traits = {
+						#
+					}
+				}
+				promote_leader = yes				
+			}
+		}
+		if = {
+			limit = {
+				tag = KHM
+			}
+			add_country_leader_role = {
+				character = KHM_ma_hushan
+				country_leader = {
+					expire = "1965.1.1"
+					ideology = anti_revisionism
+					traits = {
+						#
+					}
+				}
+				promote_leader = yes				
+			}			
+			add_country_leader_role = {
+				character = KHM_ma_hushan
+				country_leader = {
+					expire = "1965.1.1"
+					ideology = socialism
+					traits = {
+						#
+					}
+				}
+				promote_leader = yes				
+				
+			}	
+			add_country_leader_role = {
+				character = KHM_ma_hushan
+				country_leader = {
+					expire = "1965.1.1"
+					ideology = rexism
+					traits = {
+						#
+					}
+				}
+				promote_leader = yes				
+			}
+		}
+		if = {
+			limit = {
+				tag = SND
+			}
+			add_country_leader_role = {
+				character = SND_han_fuju
+				country_leader = {
+					expire = "1965.1.1"
+					ideology = anti_revisionism
+					traits = {
+						#
+					}
+				}
+				promote_leader = yes				
+			}			
+			add_country_leader_role = {
+				character = SND_han_fuju
+				country_leader = {
+					expire = "1965.1.1"
+					ideology = socialism
+					traits = {
+						#
+					}
+				}
+				promote_leader = yes				
+				
+			}	
+			add_country_leader_role = {
+				character = SND_han_fuju
+				country_leader = {
+					expire = "1965.1.1"
+					ideology = rexism
+					traits = {
+						#
+					}
+				}
+				promote_leader = yes				
+			}
+		}
+		if = {
+			limit = {
+				tag = GDC
+			}
+			add_country_leader_role = {
+				character = GXC_chen_jitang
+				country_leader = {
+					expire = "1965.1.1"
+					ideology = anti_revisionism
+					traits = {
+						#
+					}
+				}
+				promote_leader = yes				
+			}			
+			add_country_leader_role = {
+				character = GXC_chen_jitang
+				country_leader = {
+					expire = "1965.1.1"
+					ideology = socialism
+					traits = {
+						#
+					}
+				}
+				promote_leader = yes				
+				
+			}	
+			add_country_leader_role = {
+				character = GXC_chen_jitang
+				country_leader = {
+					expire = "1965.1.1"
+					ideology = rexism
+					traits = {
+						#
+					}
+				}
+				promote_leader = yes				
+			}
+		}
+		if = {
+			limit = {
+				tag = SIC
+			}
+			add_country_leader_role = {
+				character = SIC_liu_xiang
+				country_leader = {
+					expire = "1965.1.1"
+					ideology = anti_revisionism
+					traits = {
+						#
+					}
+				}
+				promote_leader = yes				
+			}			
+			add_country_leader_role = {
+				character = SIC_liu_xiang
+				country_leader = {
+					expire = "1965.1.1"
+					ideology = socialism
+					traits = {
+						#
+					}
+				}
+				promote_leader = yes				
+				
+			}	
+			add_country_leader_role = {
+				character = SIC_liu_xiang
+				country_leader = {
+					expire = "1965.1.1"
+					ideology = rexism
+					traits = {
+						#
+					}
+				}
+				promote_leader = yes				
+			}
+		}
+		if = {
+			limit = {
+				tag = XIC
+			}
+			add_country_leader_role = {
+				character = CHI_zhang_xueliang
+				country_leader = {
+					expire = "1965.1.1"
+					ideology = anti_revisionism
+					traits = {
+						#
+					}
+				}
+				promote_leader = yes				
+			}			
+			add_country_leader_role = {
+				character = CHI_zhang_xueliang
+				country_leader = {
+					expire = "1965.1.1"
+					ideology = socialism
+					traits = {
+						#
+					}
+				}
+				promote_leader = yes				
+				
+			}	
+			add_country_leader_role = {
+				character = CHI_zhang_xueliang
+				country_leader = {
+					expire = "1965.1.1"
+					ideology = rexism
+					traits = {
+						#
+					}
+				}
+				promote_leader = yes				
+			}
+		}
+		if = {
+			limit = {
+				tag = NXM
+			}
+			add_country_leader_role = {
+				character = XSM_ma_hongkui
+				country_leader = {
+					expire = "1965.1.1"
+					ideology = anti_revisionism
+					traits = {
+						#
+					}
+				}
+				promote_leader = yes				
+			}			
+			add_country_leader_role = {
+				character = XSM_ma_hongkui
+				country_leader = {
+					expire = "1965.1.1"
+					ideology = socialism
+					traits = {
+						#
+					}
+				}
+				promote_leader = yes				
+				
+			}	
+			add_country_leader_role = {
+				character = XSM_ma_hongkui
+				country_leader = {
+					expire = "1965.1.1"
+					ideology = rexism
+					traits = {
+						#
+					}
+				}
+				promote_leader = yes				
+			}
+		}
+	}
+}
+
+RNG_add_or_modify_state_shintoism = {
+	IF = {
+		limit = {
+			NOT = { has_dynamic_modifier = { modifier = RNG_state_shintoism_dm } }
+		}
+		custom_effect_tooltip = RNG_add_state_shinotism_modifier_tt
+		hidden_effect = { add_dynamic_modifier = { modifier = RNG_state_shintoism_dm } }
+	}
+	ELSE = {
+		custom_effect_tooltip = RNG_modify_state_shinotism_modifier_tt
 	}
 }

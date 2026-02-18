@@ -1113,26 +1113,27 @@ JUNO_create_osmar_hellmuth_operative = { #INITIAL
 ### Brazil
 
 BRA_remove_economy_modifier = {
+	effect_tooltip = {	#its not yet counting the focus itself
+		IF = {
+			limit = {
+				has_dynamic_modifier = { modifier = BRA_undiversified_economy_modifier }
+				OR = {
+					has_completed_focus = BRA_war_production
+					AND = {
+						has_completed_focus = BRA_desenvolvimentismo
+						has_completed_focus = BRA_banco_do_brasil
+					}
+				}
+			}
+			remove_dynamic_modifier = { modifier = BRA_undiversified_economy_modifier }
+		}
+	}
 	IF = {
 		limit = {
-			AND = {
-				has_dynamic_modifier = { modifier = BRA_undiversified_economy_modifier }
-				check_variable = {
-					var = BRA_economy_industrial_capacity_factor
-					value = -0.1
-					compare = greater_than
-				}
-				check_variable = {
-					var = BRA_economy_production_efficiency_gain_factor
-					value = -0.1
-					compare = greater_than
-				}
-				check_variable = {
-					var = BRA_economy_production_max_efficiency_factor
-					value = -0.1
-					compare = greater_than
-				}				 						
-			}
+			has_dynamic_modifier = { modifier = BRA_undiversified_economy_modifier }
+			has_completed_focus = BRA_war_production
+			has_completed_focus = BRA_desenvolvimentismo
+			has_completed_focus = BRA_banco_do_brasil
 		}
 		remove_dynamic_modifier = { modifier = BRA_undiversified_economy_modifier }
 	}
