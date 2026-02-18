@@ -2868,6 +2868,16 @@ focus_tree = {
 			if = {
 				limit = {
 					USA = {
+						is_faction_leader = yes
+					}
+				}
+				USA = {
+					country_event = generic.2
+				}
+			}
+			else_if = {
+				limit = {
+					USA = {
 						has_government = ROOT
 						NOT = { is_faction_leader = yes }
 					}
@@ -4817,7 +4827,7 @@ focus_tree = {
 				bonus = 0.5
 				ahead_reduction = 2
 				uses = 1
-				category = cl_tech
+				category = ca_tech
 			}
 			IF = {
 				limit = {
@@ -4922,11 +4932,18 @@ focus_tree = {
 				specialization = specialization_naval
 				value = 0.15
 			}
+
+			add_mastery_bonus = {
+				name = CAN_escort_fleet
+				bonus = 0.1
+				days = 180
+				sub_doctrine = convoy_escort
+			}
 			add_doctrine_cost_reduction = {
 				name = CAN_escort_fleet
 				cost_reduction = 0.25
 				uses = 2
-				category = convoy_defense_tree
+				category = naval_doctrine
 			}
 		}
 	}
@@ -4965,11 +4982,18 @@ focus_tree = {
 				specialization = specialization_naval
 				value = 0.15
 			}
+			add_mastery_bonus = {
+				name = CAN_fleet_in_being
+				bonus = 0.1
+				days = 180
+				grand_doctrine = new_fleet_in_being
+				track = capital_ships
+			}
 			add_doctrine_cost_reduction = {
 				name = CAN_fleet_in_being
 				cost_reduction = 0.25
 				uses = 2
-				category = cat_fleet_in_being
+				category = naval_doctrine
 			}			
 		}
 	}

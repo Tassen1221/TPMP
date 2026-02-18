@@ -1938,8 +1938,8 @@ custom_effect_tooltip = generic_skip_one_line_tt
 				custom_effect_tooltip = AFG_quami_intro_tt
 			}
 			add_to_variable = { 
-				AFG_army_supply_factor = 0.05 
-				tooltip = supply_factor_tt
+				AFG_army_supply_consumption_factor = -0.05 
+				tooltip = supply_consumption_factor_tt
 			}
 			add_to_variable = { 
 				AFG_army_supply_combat_penalties_on_core_factor = -0.15 
@@ -2768,7 +2768,7 @@ custom_effect_tooltip = generic_skip_one_line_tt
 				name = AFG_research_bonus_1
 				bonus = 1.0
 				uses = 2
-				category = cl_tech
+				category = ca_tech
 				category = dd_tech
 			}
 		}
@@ -3296,6 +3296,7 @@ custom_effect_tooltip = generic_skip_one_line_tt
 		}
 		available = {
 			is_subject = no
+			has_civil_war = no
 		}
 		
 		search_filters = { FOCUS_FILTER_POLITICAL }
@@ -3809,11 +3810,18 @@ custom_effect_tooltip = generic_skip_one_line_tt
 
 		completion_reward = {
 
-			set_rule = { 
-				can_create_factions = yes 
+			IF = {
+				limit = {
+					has_dlc = "No Compromise, No Surrender"
+				}
+				set_rule = { can_create_factions = yes }
+				create_faction_from_template = faction_template_AFG_united_islamic_world_faction
+				add_faction_initiative = 1
 			}
-
-			create_faction = AFG_united_islamic_world_faction
+			ELSE = {
+				set_rule = { can_create_factions = yes }
+				create_faction = AFG_united_islamic_world_faction
+			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
@@ -3882,7 +3890,7 @@ custom_effect_tooltip = generic_skip_one_line_tt
 						original_tag = BLC		
 						original_tag = IMO		
 						original_tag = KLT		
-						original_tag = KBD		
+						original_tag = KBK		
 						original_tag = DJI		
 						original_tag = HAR		
 						original_tag = SEN		
@@ -3892,7 +3900,14 @@ custom_effect_tooltip = generic_skip_one_line_tt
 						original_tag = VOL		
 						original_tag = GNA		
 						original_tag = XSM		
-						original_tag = SIK		
+						original_tag = SIK
+						original_tag = KHM
+						original_tag = GSM
+						original_tag = NXM
+						original_tag = KUM
+						original_tag = SAB
+						original_tag = BRN
+						original_tag = CHM		
 					}
 				}
 				hidden_effect = {
@@ -6238,6 +6253,7 @@ custom_effect_tooltip = generic_skip_one_line_tt
 		}
 		available = {
 			is_subject = no
+			has_civil_war = no
 			fascism > 0.2
 		}
 
@@ -7359,7 +7375,10 @@ custom_effect_tooltip = generic_skip_one_line_tt
 				limit = {
 					is_in_faction = no
 				}
-				create_faction = AFG_turko_persian_union
+				create_faction_from_template = {
+					template = faction_template_AFG_united_islamic_world_faction
+					name = AFG_turko_persian_union
+				}
 			}
 		}
 	}
@@ -8345,7 +8364,10 @@ custom_effect_tooltip = generic_skip_one_line_tt
 			}
 		}
 		available = {
-			is_in_faction = no
+			OR = {
+				is_in_faction = no
+				is_in_faction_with = GER
+			}
 			is_subject = no
 			OR = {
 				has_government = fascism
@@ -8488,8 +8510,10 @@ custom_effect_tooltip = generic_skip_one_line_tt
 			factor = 10
 		}
 		bypass = { 
-			is_in_faction_with = GER 
-			is_subject = yes
+			OR = {
+				is_in_faction_with = GER 
+				is_subject = yes
+			}
 		}
 		available = {
 			is_subject = no
@@ -9387,7 +9411,10 @@ custom_effect_tooltip = generic_skip_one_line_tt
 			factor = 10
 		}
 		available = {
-			is_in_faction = no
+			OR = {
+				is_in_faction = no
+				is_faction_leader = yes
+			}
 			has_army_manpower = { size > 120000 }
 			has_war_support > 0.40
 		}
@@ -9418,7 +9445,10 @@ custom_effect_tooltip = generic_skip_one_line_tt
 			}
 		}
 		available = {
-			is_in_faction = no
+			OR = {
+				is_in_faction = no
+				is_in_faction_with = ENG
+			}
 			is_subject = no
 			OR = {
 				has_government = democratic
@@ -10576,6 +10606,7 @@ custom_effect_tooltip = generic_skip_one_line_tt
 		}
 
 		available = {
+			has_civil_war = no
 			democratic > 0.2
 			OR = {
 				is_subject = no
@@ -10642,6 +10673,9 @@ custom_effect_tooltip = generic_skip_one_line_tt
 					    			ideology = oligarchism
 					    		}
 					    	}
+					    }
+					    PREV.PREV = {
+					    	remove_ideas = AFG_counter_elite_on_the_rise
 					    }
 					}
 				}
@@ -10760,6 +10794,12 @@ custom_effect_tooltip = generic_skip_one_line_tt
 				has_government = communism
 			}
 			has_civil_war = no
+			NOT = {
+				has_country_leader = {
+					ruling_only = yes 
+					character = AFG_provisional_government
+				}	
+			}
 		}
 		#allow_branch = {
 		#}
@@ -11247,6 +11287,7 @@ custom_effect_tooltip = generic_skip_one_line_tt
 		}
 
 		available = {
+			has_civil_war = no
 			communism > 0.2
 			OR = {
 				is_subject = no
@@ -11865,9 +11906,9 @@ custom_effect_tooltip = generic_skip_one_line_tt
 		}
 		available = {
 			#is_in_faction_with = SOU
-			any_state = {
+			any_owned_state = {
 				is_core_of = TAJ
-				is_owned_and_controlled_by = ROOT
+				is_controlled_by = ROOT
 			}
 		}
 		#allow_branch = {
