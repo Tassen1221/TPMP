@@ -1154,7 +1154,26 @@ focus_tree = {
 		}
 
 		bypass = {
-
+			ENG = {
+				NOT = {
+					has_resources_rights = {
+						state = 291
+						resources = { oil }
+					}
+				}
+				NOT = {
+					has_resources_rights = {
+						state = 676
+						resources = { oil }
+					}
+				}
+				NOT = {
+					has_resources_rights = {
+						state = 1010
+						resources = { oil }
+					}
+				}
+			}
 		}
 
 		search_filters = { FOCUS_FILTER_POLITICAL }
@@ -1223,6 +1242,7 @@ focus_tree = {
 		}
 
 		available = {
+			NOT = { has_completed_focus = IRQ_revoke_anglo_iraq_treaty }
 			NOT = { has_country_flag = IRQ_is_kurdistan }
 			291 = {
 				is_owned_and_controlled_by = ROOT
@@ -1372,12 +1392,15 @@ focus_tree = {
 			set_rule = { 
 				can_create_factions = yes 
 			}	
-
 			IF = {
 				limit = {
 					is_in_faction = no
 				}
-				create_faction = PER_opec
+				create_faction_from_template = {
+					template = faction_template_regional
+					name = PER_opec
+					icon = GFX_faction_logo_generic_15
+				}
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
@@ -2529,7 +2552,15 @@ focus_tree = {
 		}
 
 		available = {
-			
+		    country_exists = ENG
+		    NOT = { has_war_with = ENG }
+		    ENG = {
+		        has_capitulated = no
+		        OR = {
+		        	has_design_based_on = small_plane_airframe
+		        	has_tech = fighter1
+		        }
+		    }
 		}
 
 		bypass = {
@@ -3516,7 +3547,7 @@ focus_tree = {
 				name = IRQ_navy_research_bonus
 				bonus = 1.0
 				uses = 1
-				category = cl_tech
+				category = ca_tech
 			}			
 		}
 	}
@@ -4161,10 +4192,15 @@ focus_tree = {
 				}
 				leave_faction = yes
 			}
-			create_faction = IRQ_arab_league_faction
 			set_rule = {
 				can_create_factions = yes
 			}
+			create_faction_from_template = {
+				template = faction_template_AFG_united_islamic_world_faction
+				name = IRQ_arab_league_faction
+				icon = GFX_faction_logo_generic_10
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
 			set_rule = {
 				can_send_volunteers = yes
 			}	
@@ -6090,9 +6126,13 @@ focus_tree = {
 
 		completion_reward = {
 
-			create_faction = IRQ_meto
 			set_rule = {
 				can_create_factions = yes
+			}
+			create_faction_from_template = {
+				template = faction_template_regional
+				name = IRQ_meto
+				icon = GFX_faction_logo_generic_15
 			}
 
 			IF = {
@@ -7126,11 +7166,16 @@ focus_tree = {
 					relation = guarantee
 					active = no
 				}
-                                diplomatic_relation = {
-                                        country = ROOT
-                                        relation = military_access
-                                        active = no
-                                }
+                diplomatic_relation = {
+                    country = ROOT
+                    relation = military_access
+                    active = no
+                }
+                diplomatic_relation = { 
+                	country = ROOT
+                	relation = air_base_access 	
+                	active = no
+                }
 				add_ai_strategy = {
 					type = conquer 
 					id = FROM
@@ -9758,6 +9803,9 @@ focus_tree = {
 				}
 			}
 		}
+
+		search_filters = {FOCUS_FILTER_POLITICAL}
+
 		completion_reward = {
 			if = {
 				limit = {

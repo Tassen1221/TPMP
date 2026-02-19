@@ -1607,8 +1607,18 @@
         search_filters = { FOCUS_FILTER_POLITICAL }
 
 		completion_reward = {
-			set_rule = { can_create_factions = yes }
-			create_faction = SAF_faction_uotap
+			IF = {
+				limit = {
+					has_dlc = "No Compromise, No Surrender"
+				}
+				set_rule = { can_create_factions = yes }
+				create_faction_from_template = faction_template_SAF_faction_uotap
+				add_faction_initiative = 1
+			}
+			ELSE = {
+				set_rule = { can_create_factions = yes }
+				create_faction = SAF_faction_uotap
+			}
 			hidden_effect = {
 				news_event = { hours = 6 id = news.264 }
 			}
@@ -1858,12 +1868,28 @@
 
 		completion_reward = {
 			add_ideas = SAF_soviet_advisers
-			add_doctrine_cost_reduction = {
-				name = SAF_invite_soviet_advisers
-				cost_reduction = 0.25
-				uses = 2
-				category = cat_army_doctrine
+			if = {
+				limit = {
+					has_doctrine = mass_assault
+				}
+				add_mastery_bonus = {
+					name = SAF_invite_soviet_advisers
+					bonus = 0.1
+					days = 180
+				grand_doctrine = mass_assault
+				}
 			}
+				else = {
+					add_mastery_bonus = {
+					name = SAF_invite_soviet_advisers
+					bonus = 0.05
+					days = 180
+				}
+			}
+			
+
+			
+			
 			add_doctrine_cost_reduction = {
 				name = SAF_invite_soviet_advisers
 				cost_reduction = 0.5
@@ -3075,11 +3101,12 @@
 
 		completion_reward = {
 			air_experience = 25
-			add_doctrine_cost_reduction = {
+
+			add_mastery_bonus = {
 				name = SAF_perfect_the_cab_rank_technique
-				cost_reduction = 0.5
-				uses = 1
-				category = cat_battlefield_support
+				bonus = 0.1
+				days = 180
+				track = heavy_aircraft
 			}
 		}
 	}
@@ -3299,12 +3326,14 @@
         search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			add_doctrine_cost_reduction = {
+
+			add_mastery_bonus = {
 				name = SAF_protect_the_trade
-				cost_reduction = 0.5
-				uses = 1
-				category = convoy_defense_tree
+				bonus = 0.1
+				days = 240
+				track = screens
 			}
+			
 		}
 	}
 
@@ -3341,12 +3370,13 @@
         search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			add_doctrine_cost_reduction = {
+			add_mastery_bonus = {
 				name = SAF_disrupt_the_trade
-				cost_reduction = 0.5
-				uses = 1
-				category = cat_trade_interdiction
+				bonus = 0.1
+				days = 240 
+				track = submarines
 			}
+			
 		}
 	}
 

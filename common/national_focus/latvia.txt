@@ -2200,14 +2200,25 @@ focus_tree = {
 		available_if_capitulated = no
 		search_filters = { FOCUS_FILTER_ANNEXATION }
 		completion_reward = {
+
 				set_rule = {
 					can_create_factions = yes
 				}
+
 				if = {
 					limit = {
 						is_in_faction = no
 					}
-					create_faction = BROTHERHOOD
+					IF = {
+						limit = {
+							has_dlc = "No Compromise, No Surrender"
+						}
+						create_faction_from_template = faction_template_BROTHERHOOD
+						add_faction_initiative = 1
+					}
+					ELSE = {
+						create_faction = BROTHERHOOD
+					}
 					if = {
 						limit = {
 							EST = {
