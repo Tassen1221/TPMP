@@ -3124,18 +3124,18 @@ focus_tree = {
         search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY FOCUS_FILTER_WAR_SUPPORT}
 
         completion_reward = {
-            if = {
-                limit = {
-                    NOT = { has_completed_focus = RAJ_unite_the_subcontinent }
-                }
+           # if = {
+                #limit = {
+                #    NOT = { has_completed_focus = RAJ_unite_the_subcontinent }
+                #}
                 #custom_effect_tooltip = newline_tt
-                custom_effect_tooltip = if_not_subcontinent_tt
+                #custom_effect_tooltip = if_not_subcontinent_tt
                 set_capital = { state = 415 }
                 drop_cosmetic_tag = yes
                 #set_cosmetic_tag = RAJ_silk_road_empire
                 set_cosmetic_tag = RAJ_timurid_empire
                 #custom_effect_tooltip = unlock_decisions_silk_road_tt
-            }
+            #}
             every_state = {
                 limit = {
                     OR = {
@@ -3281,6 +3281,9 @@ focus_tree = {
                 add_dynamic_modifier = {
                     modifier = idea_RAJ_eic_dividends_investment
                 }
+                OVERLORD = {
+                    save_global_event_target_as = EIC_FORMER
+                }
             }
             
             OVERLORD = {
@@ -3309,7 +3312,7 @@ focus_tree = {
                         }
                         PREV = { transfer_state = PREV } 
                     }
-                    ENG = {
+                    event_target:EIC_FORMER = {
                         set_autonomy = {
                             target=PREV
                             autonomy_state = autonomy_colony
@@ -3524,6 +3527,23 @@ focus_tree = {
                     has_idea = idea_RAJ_price_controls_2
                 }
                 remove_ideas = idea_RAJ_price_controls_2
+            }
+
+            hidden_effect = {
+                every_country = {
+                    limit = {
+                        OR = {
+                            original_tag = RAJ
+                            is_major = yes
+                            is_neighbor_of = RAJ
+                            is_neighbor_of = event_target:UK_INDIA
+                        }
+                    }
+                    news_event = {
+                        id = GOE_RAJ_news.1
+                        hours = 12
+                    }
+                }
             }
         }
     }
@@ -5998,6 +6018,22 @@ focus_tree = {
                 custom_effect_tooltip = RAJ_deathknell_to_the_raj_trigger_tt
             }
 
+            hidden_effect = {
+                every_country = {
+                    limit = {
+                        OR = {
+                            original_tag = RAJ
+                            is_major = yes
+                            is_neighbor_of = RAJ
+                            is_neighbor_of = event_target:UK_INDIA
+                        }
+                    }
+                    news_event = {
+                        id = GOE_RAJ_news.3
+                        hours = 12
+                    }
+                }
+            }
         }
     }
 
@@ -9501,6 +9537,25 @@ focus_tree = {
 
 
            add_stability = -0.15
+
+           hidden_effect = {
+                every_country = {
+                    limit = {
+                        OR = {
+                            original_tag = RAJ
+                            is_major = yes
+                            is_neighbor_of = RAJ
+                            tag = PAK
+                            is_neighbor_of = PAK
+                        }
+                    }
+                    news_event = {
+                        id = GOE_RAJ_news.2
+                        hours = 12
+                    }
+                }
+           }
+
         }
     }
 
@@ -9652,7 +9707,7 @@ focus_tree = {
         continue_if_invalid = no
         available_if_capitulated = no
 
-        search_filters = {FOCUS_FILTER_STABILITY FOCUS_FILTER_INDUSTRY FOCUS_FILTER_POLITICAL}
+        search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_WAR_SUPPORT}
 
         completion_reward = {
             add_popularity = {
@@ -10821,7 +10876,7 @@ focus_tree = {
         continue_if_invalid = no
         available_if_capitulated = no
 
-        search_filters = {FOCUS_FILTER_RESEARCH FOCUS_FILTER_STABILITY}
+        search_filters = {FOCUS_FILTER_INDUSTRY FOCUS_FILTER_STABILITY}
 
         completion_reward = {
             add_timed_idea = {
@@ -10914,7 +10969,7 @@ focus_tree = {
         continue_if_invalid = no
         available_if_capitulated = no
 
-        search_filters = {FOCUS_FILTER_INDUSTRY}
+        search_filters = {FOCUS_FILTER_POLITICAL}
 
         completion_reward = {
             if = {
@@ -10955,7 +11010,7 @@ focus_tree = {
         continue_if_invalid = no
         available_if_capitulated = no
 
-        search_filters = {FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY}
+        search_filters = {FOCUS_FILTER_INDUSTRY}
 
         completion_reward = {
             custom_effect_tooltip = RAJ_five_year_plan_modify_tt
@@ -11047,7 +11102,7 @@ focus_tree = {
         continue_if_invalid = no
         available_if_capitulated = no
 
-        search_filters = {FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY}
+        search_filters = {FOCUS_FILTER_INDUSTRY}
 
         completion_reward = {
             custom_effect_tooltip = RAJ_five_year_plan_modify_tt
@@ -11085,7 +11140,7 @@ focus_tree = {
         continue_if_invalid = no
         available_if_capitulated = no
 
-        search_filters = {FOCUS_FILTER_RESEARCH FOCUS_FILTER_MANPOWER }
+        search_filters = {FOCUS_FILTER_MANPOWER }
 
         completion_reward = {
             add_ideas = idea_RAJ_armed_peasantry      
@@ -11118,7 +11173,7 @@ focus_tree = {
         continue_if_invalid = no
         available_if_capitulated = no
 
-        search_filters = {FOCUS_FILTER_RESEARCH}
+        search_filters = {FOCUS_FILTER_MANPOWER FOCUS_FILTER_INDUSTRY }
 
         completion_reward = {
             swap_ideas = {
@@ -11495,8 +11550,7 @@ focus_tree = {
         continue_if_invalid = no
         available_if_capitulated = no
 
-        search_filters = {FOCUS_FILTER_POLITICAL}
-        search_filters = {FOCUS_FILTER_POLITICAL_CHARACTER FOCUS_FILTER_INDUSTRY}
+        search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY}
 
         completion_reward = {
             try_build_civ_in_core_otherwise_build_in_controlled_2_civs = yes
@@ -11861,13 +11915,41 @@ focus_tree = {
                 ### Restore cores and spawn divisions ####
                 for_each_scope_loop = {
                     array =  RAJ.owned_states_at_game_start 
+
                     if = {
-                        limit = {  
+                        limit = {
+                            AND = {
+                                ROOT = {
+                                    is_ai = yes
+                                }
+                                OR = {
+                                    state = 430
+                                    state = 431
+                                    state = 985
+                                    state = 432
+                                    state = 434
+                                    state = 990
+                                    state = 435
+                                }
+                            }
+                        }
+                        transfer_state_to = ROOT
+                        add_core_of = ROOT
+                        create_unit = {
+                            division = "name = \"Azad Hind Legion\" division_template = \"Azad Hind Legion\" start_experience_factor = 0.2 start_equipment_factor = 1 start_manpower_factor = 1"
+                            owner = ROOT
+                            allow_spawning_on_enemy_provs = yes 
+                            count = 3
+                        }
+                    }
+
+                    if = {
+                        limit = {
                             has_resistance = yes
                             resistance > 85 
                         }
 
-                        ROOT = { 
+                        ROOT = {
                             transfer_state  = PREV 
                         }
                         add_core_of = ROOT
@@ -11900,7 +11982,28 @@ focus_tree = {
                         }
                         set_resistance = 0
                     }
-                    else = {
+                    else_if = {
+                        limit = {
+                            OR = {
+                                AND = {
+                                    ROOT = {
+                                        is_ai = yes
+                                    }
+                                    NOT = {
+                                        state = 430
+                                        state = 431
+                                        state = 985
+                                        state = 432
+                                        state = 434
+                                        state = 990
+                                        state = 435
+                                    }
+                                }
+                                ROOT = {
+                                    is_ai = no
+                                }
+                            }
+                        }
                         create_unit = {
                             division = "name = \"District Garrison\" division_template = \"District Garrison\" start_experience_factor = 0.2 start_equipment_factor = 1 start_manpower_factor = 1"
                             owner = var:RAJ.revolter_tag
@@ -11936,7 +12039,7 @@ focus_tree = {
                     create_unit = {
                         division = "name = \"Royal Tank Division\" division_template = \"Royal Tank Division\" start_experience_factor = 0.2 start_equipment_factor = 1 start_manpower_factor = 1"
                         owner = var:RAJ.revolter_tag
-                        allow_spawning_on_enemy_provs = yes 
+                        allow_spawning_on_enemy_provs = no 
                         count = 1
                     }
                 }
@@ -12395,6 +12498,66 @@ focus_tree = {
                 }
                 set_nationality =  var:RAJ.revolter_tag
             }
+
+            var:RAJ.revolter_tag = {
+                IF = {
+                    limit = {
+                        ROOT = {
+                            is_ai = yes
+                        }
+                    }
+                    430 = { # Just teleport all units 
+                        teleport_armies = {
+                            limit = {
+                            }
+                            to_state_array = owned_controlled_states
+                        }
+                    }
+                    431 = { # Just teleport all units 
+                        teleport_armies = {
+                            limit = {
+                            }
+                            to_state_array = owned_controlled_states
+                        }
+                    }
+                    985 = { # Just teleport all units 
+                        teleport_armies = {
+                            limit = {
+                            }
+                            to_state_array = owned_controlled_states
+                        }
+                    }
+                    432 = { # Just teleport all units 
+                        teleport_armies = {
+                            limit = {
+                            }
+                            to_state_array = owned_controlled_states
+                        }
+                    }
+                    434 = { # Just teleport all units 
+                        teleport_armies = {
+                            limit = {
+                            }
+                            to_state_array = owned_controlled_states
+                        }
+                    }
+                    990 = { # Just teleport all units 
+                        teleport_armies = {
+                            limit = {
+                            }
+                            to_state_array = owned_controlled_states
+                        }
+                    }
+                    435 = { # Just teleport all units 
+                        teleport_armies = {
+                            limit = {
+                            }
+                            to_state_array = owned_controlled_states
+                        }
+                    }
+                }
+            }
+
         }
     }
 
@@ -14491,7 +14654,7 @@ focus_tree = {
 
     focus = {
         id = RAJ_the_hindu_martial_tradition
-        icon = GFX_focus_focus_fra_fascist_threat
+        icon = GFX_focus_RAJ_forge_the_kshatriya_army
         prerequisite = { focus = RAJ_hindi_as_a_national_language }
         prerequisite = { focus = RAJ_rashtriya_swayamsevak_sangh }
         x = -2
@@ -15160,7 +15323,7 @@ focus_tree = {
             else = {
                 is_subject = no
                 hidden_trigger = {
-                    has_global_flag = { flag = RAJ_GOE_partition_has_happened }
+                    has_country_flag = { flag = RAJ_GOE_partition_has_happened }
                 }
                 custom_trigger_tooltip = {
                     tooltip = RAJ_hedgemony_of_the_subcontinent_tt
@@ -15691,7 +15854,11 @@ focus_tree = {
                 }
             }
             else = {
-                create_faction = "Indian-Prosperity-Sphere"
+                create_faction_from_template = {
+                    template = faction_template_anti_communist
+                    name = RAJ_indian_prosperity_sphere
+                    icon = GFX_faction_logo_generic_12
+                }
                 set_rule = { 
                     can_create_factions  = yes
                 }
@@ -25430,7 +25597,7 @@ focus = {
         continue_if_invalid = no
         available_if_capitulated = no
 
-        search_filters = {FOCUS_FILTER_ARMY_XP}
+        search_filters = {FOCUS_FILTER_ANNEXATION}
 
         completion_reward = {
             unlock_decision_tooltip = {
@@ -25480,7 +25647,7 @@ focus = {
         continue_if_invalid = no
         available_if_capitulated = no
 
-        search_filters = {FOCUS_FILTER_ARMY_XP}
+        search_filters = {FOCUS_FILTER_ANNEXATION}
 
         completion_reward = {
             unlock_decision_tooltip = {
@@ -25528,7 +25695,7 @@ focus = {
         continue_if_invalid = no
         available_if_capitulated = no
 
-        search_filters = {FOCUS_FILTER_ARMY_XP}
+        search_filters = {FOCUS_FILTER_ANNEXATION}
 
         completion_reward = {
             unlock_decision_tooltip = {
