@@ -2560,7 +2560,11 @@ focus_tree = {
 				}
 				GER = {
 					set_rule = { can_create_factions = yes }
-					create_faction = "GER_central_powers_faction"
+					create_faction_from_template = {
+						template = faction_template_GER_mitteleuropa_alliance
+						name = GER_central_powers_faction
+						icon = GFX_faction_logo_generic_13
+					}
 					country_event = { id = generic.2 }
 				}
 			}
@@ -2574,7 +2578,11 @@ focus_tree = {
 					}
 				}
 				set_rule = { can_create_factions = yes }
-				create_faction = "GER_central_powers_faction"
+				create_faction_from_template = {
+					template = faction_template_GER_mitteleuropa_alliance
+					name = GER_central_powers_faction
+					icon = GFX_faction_logo_generic_13
+				}
 				HUN = {
 					if = {
 						limit = { ROOT = { is_in_faction = yes } }
@@ -2771,7 +2779,10 @@ focus_tree = {
 					limit = {
 						is_in_faction = no
 					}
-					create_faction = the_saadabad_concordat
+					create_faction_from_template = {
+						template = faction_template_AFG_united_islamic_world_faction
+						name = the_saadabad_concordat
+					}
 					every_country = {
 						limit = {
 							has_country_flag = TUR_saadabad_pact_member
@@ -2833,7 +2844,10 @@ focus_tree = {
 					limit = {
 						is_in_faction = no
 					}
-					create_faction = the_saadabad_concordat
+					create_faction_from_template = {
+						template = faction_template_AFG_united_islamic_world_faction
+						name = the_saadabad_concordat
+					}
 				}
 				custom_effect_tooltip = SSB_faction_invite_tt
 				if = {
@@ -3537,8 +3551,18 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		completion_reward = {
-			set_rule = { can_create_factions = yes }
-			create_faction = TUR_balkan_pact
+			IF = {
+				limit = {
+					has_dlc = "No Compromise, No Surrender"
+				}
+				set_rule = { can_create_factions = yes }
+				create_faction_from_template = faction_template_TUR_balkan_pact
+				add_faction_initiative = 1
+			}
+			ELSE = {
+				set_rule = { can_create_factions = yes }
+				create_faction = TUR_balkan_pact
+			}
 			every_country = {
 				limit = {
 					AND = {
@@ -5450,14 +5474,8 @@ focus_tree = {
 		completion_reward = {
 			add_tech_bonus = {
 				name = TUR_expanding_our_navy
-				bonus = 1.5
-				uses = 1
-				category = cl_tech
-			}
-			add_tech_bonus = {
-				name = TUR_expanding_our_navy
 				bonus = 1.0
-				uses = 1
+				uses = 2
 				category = ca_tech
 			}
 			add_doctrine_cost_reduction = {
@@ -5768,7 +5786,18 @@ focus_tree = {
 		icon = GFX_focus_TUR_taking_over_defense_of_the_gulf
 		prerequisite = { focus = TUR_british_dockyards_in_turkey }
 		prerequisite = { focus = TUR_securing_iran }
-		available = { is_in_faction_with = ENG }
+		available = {
+			is_in_faction_with = ENG
+			OR = {
+				656 = { is_owned_and_controlled_by = ENG }
+				658 = { is_owned_and_controlled_by = ENG }
+				765 = { is_owned_and_controlled_by = ENG }
+				659 = { is_owned_and_controlled_by = ENG }
+				1014 = { is_owned_and_controlled_by = ENG }
+				992 = { is_owned_and_controlled_by = ENG }
+				906 = { is_owned_and_controlled_by = ENG }
+			}
+		}
 		x = 0
 		y = 2
 		relative_position_id = TUR_british_dockyards_in_turkey
@@ -6024,7 +6053,10 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		completion_reward = {
 			set_rule = { can_create_factions = yes }
-			create_faction = TUR_covenant_of_the_mediterranean
+			create_faction_from_template = {
+				template = faction_template_ITA_italian_league
+				name = TUR_covenant_of_the_mediterranean
+			}
 			ITA = { country_event = { id = bftb_turkey.41 } }
 		}
 	}
@@ -7492,7 +7524,10 @@ focus_tree = {
 				SPR = { country_event = { id = generic.5 } }
 			}
 			set_rule = { can_create_factions = yes }
-			create_faction = TUR_anti_bolshevik_accord
+			create_faction_from_template = {
+				template = faction_template_regional_anti_communist
+				name = TUR_anti_bolshevik_accord
+			}
 		}
 	}
 
@@ -9214,7 +9249,9 @@ focus_tree = {
 		}
 
 		search_filters = { FOCUS_FILTER_ANNEXATION }
+
 		completion_reward = {
+
 			every_state = {
 				limit = {
 					OR = {
@@ -9223,9 +9260,21 @@ focus_tree = {
 						is_core_of = MON
 						is_core_of = MEN
 						is_core_of = TAN
+						is_core_of = GSM
+						is_core_of = NXM 
+						is_core_of = KHM 
+						is_core_of = SHX 
+						is_core_of = MAN 
+						is_core_of = SIC 
 					}
 				}
-				add_claim_by = TUR
+				add_claim_by = ROOT
+			}
+			601 = {
+				add_claim_by = ROOT
+			}
+			1039 = {
+				add_claim_by = ROOT
 			}
 			if = { 
 				limit = {
@@ -9272,7 +9321,103 @@ focus_tree = {
 					target = TAN
 				}
 			}
+			if = { 
+				limit = {
+					GSM = { exists = yes }
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = GSM
+				}
+			}
+			if = { 
+				limit = {
+					NXM = { exists = yes }
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = NXM
+				}
+			}
+			if = { 
+				limit = {
+					KHM = { exists = yes }
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = KHM
+				}
+			}
+			if = { 
+				limit = {
+					SHX = { exists = yes }
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = SHX
+				}
+			}
+			if = { 
+				limit = {
+					MAN = { exists = yes }
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = MAN
+				}
+			}
+			if = { 
+				limit = {
+					SIC = { exists = yes }
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = SIC
+				}
+			}
+			if = { 
+				limit = {
+					601 = {
+						NOT = {
+							is_owned_by = ROOT
+						}
+					}
+				}
+				601 = {
+					OWNER = {
+						ROOT = {
+							create_wargoal = {
+								type = take_claimed_state
+								target = PREV
+								generator = { 601 }
+							}	
+						}
+					}
+				}
+			}
+			if = { 
+				limit = {
+					1039 = {
+						NOT = {
+							is_owned_by = ROOT
+						}
+					}
+				}
+				1039 = {
+					OWNER = {
+						ROOT = {
+							create_wargoal = {
+								type = take_claimed_state
+								target = PREV
+								generator = { 1039 }
+							}	
+						}
+					}
+				}
+			}
+
 		}
+
 	}
 
 	focus = {
@@ -9903,7 +10048,7 @@ focus_tree = {
 				name = TUR_the_legacy_of_osmanli_donanmasi
 				bonus = 1.50
 				uses = 1
-				category = cl_tech
+				category = ca_tech
 			}
 			add_tech_bonus = {
 				name = TUR_the_legacy_of_osmanli_donanmasi
@@ -9934,11 +10079,12 @@ focus_tree = {
 				uses = 1
 				category = ss_tech
 			}
-			add_doctrine_cost_reduction = {
+			add_mastery_bonus = {
 				name = TUR_the_path_of_the_wolf
-				cost_reduction = 0.35
-				uses = 2
-				category = trade_interdiction_tree
+				bonus = 0.2
+				days = 180
+				track = submarines
+
 			}
 		}
 	}

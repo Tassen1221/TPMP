@@ -291,8 +291,7 @@ shared_focus = {
 	cost = 5
 
 	available = {
-		any_state = {
-			is_owned_by = ROOT
+		any_owned_state = {
 			is_controlled_by = ROOT
 			free_building_slots = {
 			    building = arms_factory
@@ -303,22 +302,21 @@ shared_focus = {
 	}
 
 	bypass = {
-		NOT = {
-			any_state = {
-				is_owned_by = ROOT
-				is_controlled_by = ROOT
+		all_owned_state = {
+			OR = {
+				NOT = { is_controlled_by = ROOT }
 				free_building_slots = {
-				    building = arms_factory
-				    size > 1
-				    include_locked = yes
+					building = arms_factory
+					size < 1
+					include_locked = no
 				}
 			}
 		}
 	}
 
 	ai_will_do = {
-			factor = 20
-		}
+		factor = 20
+	}
 
 	completion_reward = {
 
@@ -4173,7 +4171,7 @@ shared_focus = {
 			name = SMB_coastal_fleet
 			bonus = 1.0
 			uses = 2
-			category = cl_tech
+			category = ca_tech
 			category = dd_tech
 		}
 	}
@@ -4289,12 +4287,40 @@ shared_focus = {
 
 	completion_reward = {
 		navy_experience = 15
-		add_doctrine_cost_reduction = {
-			name = SMB_escort_fleet
-			cost_reduction = 0.5
-			uses = 2
-			category = fleet_in_being_tree
+
+
+		if = {
+			limit = {
+				has_doctrine = new_convoy_raiding
+			}
+				add_mastery_bonus = {
+					name = SMB_escort_fleet
+					bonus = 0.2
+					days = 180
+					grand_doctrine = new_convoy_raiding
+				}
+				add_mastery_bonus = {
+					name = SMB_escort_fleet
+					bonus = 0.1
+					days = 180
+					track = screens
+				}
 		}
+		else = {
+			add_mastery_bonus = {
+				name = SMB_escort_fleet
+				bonus = 0.1
+				days = 180
+				
+			}
+			add_mastery_bonus = {
+				name = SMB_escort_fleet
+				bonus = 0.1
+				days = 180
+				track = screens
+			}
+		}
+		
 	}
 }
 
@@ -4323,12 +4349,38 @@ shared_focus = {
 
 	completion_reward = {
 		navy_experience = 15
-		add_doctrine_cost_reduction = {
-			name = SMB_raiding_fleet
-			cost_reduction = 0.5
-			uses = 2
-			category = trade_interdiction_tree
+		if = {
+			limit = {
+				has_doctrine = new_convoy_raiding
+			}
+				add_mastery_bonus = {
+					name = SMB_raiding_fleet
+					bonus = 0.2
+					days = 180
+					grand_doctrine = new_convoy_raiding
+				}
+				add_mastery_bonus = {
+					name = SMB_raiding_fleet
+					bonus = 0.1
+					days = 180
+					track = submarines
+				}
 		}
+		else = {
+			add_mastery_bonus = {
+				name = SMB_raiding_fleet
+				bonus = 0.1
+				days = 180
+				
+			}
+			add_mastery_bonus = {
+				name = SMB_raiding_fleet
+				bonus = 0.1
+				days = 180
+				track = submarines
+			}
+		}
+
 	}
 }
 
