@@ -2927,7 +2927,10 @@
 
 		completion_reward = {
 			set_rule = { can_create_factions = yes }
-			create_faction = "CZE_little_entente"
+			create_faction_from_template = {
+				template = faction_template_the_little_entente
+				name = CZE_little_entente
+			}
 		}
 	}
 
@@ -4230,8 +4233,7 @@
 		}
 
 		available = {
-			any_state = {
-				is_controlled_by = ROOT
+			any_controlled_state = {
 				is_coastal = yes
 			}
 		}
@@ -4431,7 +4433,6 @@
 			add_tech_bonus = {
 				bonus = 1.0
 				uses = 2
-				category = cl_tech
 				category = ca_tech
 			}
 		}
@@ -4471,11 +4472,24 @@
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
+			add_mastery_bonus = {
+				name = CZE_raiding_focus
+				bonus = 0.1
+				days = 240
+				track = screens
+			}
+			add_mastery_bonus = {
+				name = CZE_raiding_focus
+				bonus = 0.1
+				days = 240
+				track = submarines
+			}
+
 			add_doctrine_cost_reduction = {
-				name = naval_doc_bonus
+				name = CZE_raiding_focus
 				cost_reduction = 0.25
 				uses = 2
-				category = cat_trade_interdiction
+				category = naval_doctrine
 			}
 		}
 	}
@@ -4514,11 +4528,24 @@
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
+
+			add_mastery_bonus = {
+				name = CZE_capital_focus
+				bonus = 0.1
+				days = 240
+				track = carriers
+			}
+			add_mastery_bonus = {
+				name = CZE_capital_focus
+				bonus = 0.1
+				days = 240
+				track = capital_ships
+			}
 			add_doctrine_cost_reduction = {
-				name = naval_doc_bonus
+				name = CZE_capital_focus
 				cost_reduction = 0.25
 				uses = 2
-				category = cat_fleet_in_being
+				category = naval_doctrine
 			}
 		}
 	}
