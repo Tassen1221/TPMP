@@ -31,10 +31,10 @@ fire_concentration = {
      # EFFECTS
      enable_tactic = tactic_overwhelming_fire
 
-    category_line_artillery = {
+    category_frontline_artillery = {
         defense = 0.05
     }
-    category_line_artillery = {
+    category_frontline_artillery = {
         max_organisation = 5
     }
 
@@ -42,7 +42,7 @@ fire_concentration = {
         
         predicted_fire = {
         #1
-            category_line_artillery = {
+            category_frontline_artillery = {
                 defense = 0.05
             }
         }
@@ -59,7 +59,7 @@ fire_concentration = {
         }
         artillery_groups = {
         #3
-            category_line_artillery = {
+            category_frontline_artillery = {
                 breakthrough = 0.1
             }
         }
@@ -105,7 +105,7 @@ anti_tank_frontline = {
 
     engineer = {
         battalion_mult = {
-            category = category_line_artillery
+            category = category_frontline_artillery
             entrenchment = 0.2
             add = yes
         }
@@ -186,7 +186,7 @@ flying_batteries = {
         }
     }
 
-    category_line_artillery = {
+    category_frontline_artillery = {
         soft_attack = 0.1
     }
 
@@ -206,7 +206,7 @@ flying_batteries = {
             
             recon = {
                 battalion_mult = {
-                    category = category_line_artillery 
+                    category = category_frontline_artillery 
                     soft_attack = 0.05
                     defense = 0.1
                 }
@@ -214,7 +214,7 @@ flying_batteries = {
             }
             mot_recon = {
                 battalion_mult = {
-                    category = category_line_artillery 
+                    category = category_frontline_artillery 
                     soft_attack = 0.05
                     defense = 0.1
                 }
@@ -224,7 +224,7 @@ flying_batteries = {
         ballistics_corrections = {
             armored_signal = {
                 battalion_mult = {
-                    category = category_line_artillery
+                    category = category_frontline_artillery
                     initiative = 0.02
                     supply_consumption = -0.01
                 }
@@ -232,7 +232,7 @@ flying_batteries = {
 
         }
         mobile_barrages = {
-            category_line_artillery = {
+            category_frontline_artillery = {
                 default_morale = 0.05
                 breakthrough = 0.05
             }
@@ -298,7 +298,7 @@ air_cavalry = {
         rescue_liasions = {
             helicopter_field_hospital = {
             battalion_mult = {
-                category = category_all_infantry
+                category = category_infantry
                     max_strength = 0.05 
                     default_morale = 0.05 
                 }
@@ -310,7 +310,7 @@ air_cavalry = {
         transport_assault = {
             helicopter_transport = {
                 battalion_mult = {
-                    category = category_light_infantry
+                    category = category_leg_infantry
                     maximum_speed = 0.2
                     breakthrough = 0.05
                 }
@@ -322,7 +322,7 @@ air_cavalry = {
         intervention_units = {
             helicopter_brigade = {
                 battalion_mult = {
-                    category = category_all_infantry
+                    category = category_infantry
                     soft_attack = 0.1
                 }
                 max_organisation = 10
@@ -378,7 +378,7 @@ mobile_recon_and_assault = {
     rewards = {
 
         motorization_support = {
-            category_mobile_and_mobile_combat_sup = {
+            category_mobile_infantry = {
                 maximum_speed = 0.1
                 default_morale = 0.1
             }
@@ -392,7 +392,7 @@ mobile_recon_and_assault = {
         mobile_operational_deployments = {
             light_tank_recon = {
                 battalion_mult = {
-                    category = category_all_armor
+                    category = category_frontline_tanks
                     breakthrough = 0.1
                 }
             }
@@ -402,14 +402,14 @@ mobile_recon_and_assault = {
 
         }
         self_propelled_support_elements = {
-            category_self_propelled_artillery = {
+            category_spgs = {
                 soft_attack = 0.10
             }
-            category_self_propelled_anti_air= {
+            category_spaa= {
                 air_attack = 0.15
                 soft_attack = 0.05
             }
-            category_tank_destroyers = {
+            category_tds = {
                 hard_attack = 0.1
                 ap_attack = 0.03
             }
@@ -474,7 +474,7 @@ mobile_recon_and_assault_no_lar = {
     rewards = {
 
         motorization_support = {
-            category_mobile_and_mobile_combat_sup = {
+            category_mobile_infantry = {
                 maximum_speed = 0.1
                 default_morale = 0.1
             }
@@ -488,7 +488,7 @@ mobile_recon_and_assault_no_lar = {
         mobile_operational_deployments = {
             light_tank_recon = {
                 battalion_mult = {
-                    category = category_all_armor
+                    category = category_frontline_tanks
                     breakthrough = 0.1
                 }
             }
@@ -498,14 +498,14 @@ mobile_recon_and_assault_no_lar = {
 
         }
         self_propelled_support_elements = {
-            category_self_propelled_artillery = {
+            category_spgs = {
                 soft_attack = 0.10
             }
-            category_self_propelled_anti_air= {
+            category_spaa= {
                 air_attack = 0.15
                 soft_attack = 0.05
             }
-            category_tank_destroyers = {
+            category_tds = {
                 hard_attack = 0.1
                 ap_attack = 0.03
             }
@@ -543,13 +543,13 @@ self_propelled_support = {
     ai_will_do = { base = 0 }
 
 
-    category_self_propelled_artillery = {
+    category_spgs = {
         soft_attack = 0.1
     }
-    category_self_propelled_anti_air= {
+    category_spaa= {
         air_attack = 0.1
     }
-    category_tank_destroyers = {
+    category_tds = {
         hard_attack = 0.05
     }
 
@@ -557,13 +557,13 @@ self_propelled_support = {
     rewards = {
 
         mobile_battery_management_platoons = {
-            category_self_propelled_artillery = {
+            category_spgs = {
                 max_organisation = 10
             }
-            category_self_propelled_anti_air= {
+            category_spaa= {
                 max_organisation = 10
             }
-            category_tank_destroyers = {
+            category_tds = {
                 max_organisation = 10
             }
         }
@@ -571,59 +571,59 @@ self_propelled_support = {
             
             recon = {
                 battalion_mult = {
-                    category = category_self_propelled_artillery
+                    category = category_spgs
                     soft_attack = 0.1
                     default_morale = 0.1
                 }
             }
             mot_recon = {
                 battalion_mult = {
-                    category = category_self_propelled_artillery
+                    category = category_spgs
                     soft_attack = 0.1
                     default_morale = 0.1
                 }
             }
             light_tank_recon = {
                 battalion_mult = {
-                    category = category_self_propelled_artillery
+                    category = category_spgs
                     soft_attack = 0.1
                     default_morale = 0.1
                 }
             }
         }
         all_terrain_mobility = {
-            category_self_propelled_artillery = {
+            category_spgs = {
                 maximum_speed = 0.3
             }
-            category_self_propelled_anti_air = {
+            category_spaa = {
                 maximum_speed = 0.3
             }
-            category_tank_destroyers = {
+            category_tds = {
                 maximum_speed = 0.3
             }
         }
         multirole_support_vehicles = {
-            category_self_propelled_artillery = {
+            category_spgs = {
                 hard_attack = 0.05
             }
-            category_self_propelled_anti_air = {
+            category_spaa = {
                 soft_attack = 0.1
                 hard_attack = 0.05
             }
-            category_tank_destroyers = {
+            category_tds = {
                 soft_attack = 0.1
             }
         }
         shoot_and_scoot = {
-            category_self_propelled_artillery = {
+            category_spgs = {
                 max_organisation = 10
                 default_morale = 0.2
             }
-            category_self_propelled_anti_air = {
+            category_spaa = {
                 max_organisation = 10
                 default_morale = 0.2
             }
-            category_tank_destroyers = {
+            category_tds = {
                 max_organisation = 10
                 hard_attack = 0.15
                 default_morale = 0.2
@@ -688,7 +688,7 @@ siege_artillery = {
             }
         }
         improved_transport_preparation = {
-            category_line_artillery = {
+            category_frontline_artillery = {
                 default_morale = 0.1
             }
             super_heavy_artillery = {
@@ -816,7 +816,7 @@ field_engineering = {
             engineer = {
                 max_organisation = 5
                 battalion_mult = {
-                    category = category_all_infantry
+                    category = category_infantry
                     entrenchment = 0.02
                 }
             }
@@ -842,7 +842,7 @@ field_engineering = {
                     defense = 0.1
                 }
                 battalion_mult = {
-                    category = category_all_infantry
+                    category = category_infantry
                     soft_attack = 0.05
                 }
             }

@@ -28,8 +28,8 @@ infantry = {
             # Any specific subunits could go here, but probably best left for subdoctrine overrides
         }
         categories = { # Which subunit categories constribute to mastery gain?
-	        category_all_infantry
-	        category_cavalry
+	        category_infantry
+	        cavalry
         }
         equipment = { # Subunits with this equipment category will contribute to mastery gain
             screen
