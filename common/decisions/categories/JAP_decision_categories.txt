@@ -370,3 +370,33 @@ JAP_imperial_influence_decision_cat = {
 	}
 
 }
+
+########################################################
+################ THE BURMESE OIL FIELDS ################
+########################################################
+
+BRM_burmah_oils_oil_fields = {
+
+	priority = 5
+
+	icon = GFX_decision_category_generic_prospect_for_resources
+
+	allowed = {
+		
+	}
+
+	visible = {
+		OR = {
+			AND = {
+				controls_state = 288 
+				is_subject = no
+			}
+			AND = {
+				any_subject_country = {
+					is_subject_of = ROOT
+					controls_state = 288 
+				}
+			}
+		}
+	}	
+}

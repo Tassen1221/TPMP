@@ -104,6 +104,24 @@ ideas = {
 			}
 		}
 
+		idea_MAN_central_government_integration_pressure = {
+			picture = ast_classify_aliens
+		
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes			
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				autonomy_gain = -3
+			}
+		}
+
 		MAN_low_legitimacy_5 = {
 			
 			name = MAN_low_legitimacy
@@ -924,6 +942,25 @@ ideas = {
 				tag = KOR
 				attack_bonus_against = 0.1
 				defense_bonus_against = 0.1
+			}
+		}
+
+		MAN_korean_liberation_army_no_korea = {
+
+			name = MAN_korean_liberation_army
+
+			allowed = {
+				always = no
+			}
+			
+			removal_cost = -1
+
+			picture = KOR_korean_liberation_army_idea    
+			
+			targeted_modifier = {
+				tag = JAP
+				attack_bonus_against = 0.05
+				defense_bonus_against = 0.05
 			}
 		}
 
