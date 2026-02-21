@@ -10411,9 +10411,6 @@ focus_tree = {
 		relative_position_id = CHI_decisive_battles
 		cost = 5
 		available = {
-			NOT = {
-				has_tech = mountain_gun
-			}
 		}
 			   	 
 		search_filters = {}
@@ -10423,20 +10420,6 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			IF = {
-				limit = {
-					NOT = {
-						has_tech = mountain_gun
-					}
-				}
-				custom_effect_tooltip = mountain_guns_tt
-				hidden_effect = { 
-					set_technology = { 
-						mountain_gun = 1 
-						popup = no
-					} 
-				}
-			}
 		}
 	}
 
@@ -10714,32 +10697,6 @@ focus_tree = {
 		}
 
 		completion_reward = { 
-			hidden_effect = {
-				IF = {
-					limit = {
-						has_dlc = "No Step Back"
-					}
-					create_equipment_variant = {
-						name = "T-26TU mod. 1933"
-						allow_without_tech = yes
-						type = light_tank_chassis_1
-						parent_version = 0
-						modules = {
-							main_armament_slot = tank_small_cannon_2
-							turret_type_slot = tank_light_two_man_tank_turret
-							suspension_type_slot = tank_bogie_suspension
-							armor_type_slot = tank_riveted_armor
-							engine_type_slot = tank_gasoline_engine
-							special_type_slot_1 = tank_radio_1
-						}
-						upgrades = {
-							tank_nsb_engine_upgrade = 2
-							tank_nsb_armor_upgrade = 2
-						}
-						icon = "GFX_SOV_basic_light_tank_medium"
-					}
-				}
-			}
 			custom_effect_tooltip = CHI_organise_the_200th_division_tt
 			division_template = { 
 				name = "200th Division"

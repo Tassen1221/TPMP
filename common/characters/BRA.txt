@@ -189,13 +189,21 @@ characters={
 				slot = political_advisor 
 				idea_token = BRA_eurico_gaspar_dutra
 				allowed = {
-					original_tag = BRA
+					OR = {
+						original_tag = BRA
+						original_tag = POR
+					}
 					has_dlc = "Trial of Allegiance"
 				}
 				available = {
-					OR = { 
-						has_completed_focus = BRA_posts_for_generals 
-						has_completed_focus = BRA_issue_lordships
+					IF = {
+						limit = {
+							original_tag = BRA
+						}
+						OR = { 
+							has_completed_focus = BRA_posts_for_generals 
+							has_completed_focus = BRA_issue_lordships
+						}
 					}
 					is_country_leader = no
 				}
@@ -319,7 +327,10 @@ characters={
 			idea_token = BRA_newton_cavalcanti
 			ledger = army
 			allowed = {
-				original_tag = BRA
+				OR = {
+					original_tag = POR
+					original_tag = BRA
+				}
 			}
 			
 			traits = {
@@ -346,7 +357,10 @@ characters={
 				idea_token = BRA_eduardo_gomes
 				ledger = air
 				allowed = {
-					original_tag = BRA
+					OR = {
+						original_tag = BRA
+						original_tag = POR
+					}
 				}
 				
 				traits = {
@@ -1462,14 +1476,22 @@ characters={
 			slot = political_advisor
 			idea_token = BRA_geremia_lunarelli
 			allowed  = {
-				original_tag  = BRA
+				OR = {
+					original_tag  = BRA
+					original_tag  = POR
+				}
 				has_dlc = "Trial of Allegiance"
 			}
 			available  = {
-				has_completed_focus = BRA_promote_agriculture
+				IF = {
+					limit = {
+						original_tag = BRA
+					}
+					has_completed_focus = BRA_promote_agriculture
+				}
 			}
 			traits  = {
-				 BRA_coffee_king
+				BRA_coffee_king
 			}
 		}		
 	}
@@ -1797,7 +1819,10 @@ characters={
 			slot = navy_chief
 			idea_token = BRA_henrique_aristides_guilhem
 			allowed = {
-				original_tag = BRA
+				OR = {
+					original_tag = BRA
+					original_tag = POR
+				}
 			}
 			traits = {
 				navy_chief_naval_aviation_2

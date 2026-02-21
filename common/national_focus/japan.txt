@@ -28615,70 +28615,6 @@ focus_tree = {
 			add_to_variable = { JAP_army_motorized_attack_factor = 0.05 tooltip = motorized_attack_factor_tt }
 			add_to_variable = { JAP_army_mechanized_attack_factor = 0.05 tooltip = mechanized_attack_factor_tt }
 
-			IF = {
-				limit = {
-					has_dlc = "No Step Back"
-				}
-
-				IF = {
-					limit = {
-						has_tech = super_heavy_tank_chassis
-					}
-					custom_effect_tooltip = generic_skip_one_line_tt
-					#O-I
-					create_equipment_variant = {
-						name = "O-I"
-						type = super_heavy_tank_chassis_1
-						parent_version = 0
-						design_team = mio:JAP_mitsubishi_heavy_industries_organization
-						modules = {
-							main_armament_slot = tank_super_heavy_cannon
-							turret_type_slot = tank_super_heavy_four_man_tank_turret
-							suspension_type_slot = tank_christie_suspension
-							armor_type_slot = tank_cast_armor
-							engine_type_slot = tank_gasoline_engine
-							special_type_slot_1 = secondary_turret_hmg
-							special_type_slot_2 = additional_machine_guns
-							special_type_slot_3 = squeezebore_adaptor
-						}
-						upgrades = {
-							tank_nsb_engine_upgrade = 5
-							tank_nsb_armor_upgrade = 8
-						}
-						icon = "GFX_JAP_improved_heavy_tank_medium" 
-					}
-				}
-				ELSE = {
-					custom_effect_tooltip = JAP_the_ultimate_tank_tt
-					effect_tooltip = {
-						#O-I
-						create_equipment_variant = {
-							name = "O-I"
-							type = super_heavy_tank_chassis_1
-							parent_version = 0
-							design_team = mio:JAP_mitsubishi_heavy_industries_organization
-							modules = {
-								main_armament_slot = tank_super_heavy_cannon
-								turret_type_slot = tank_super_heavy_four_man_tank_turret
-								suspension_type_slot = tank_christie_suspension
-								armor_type_slot = tank_cast_armor
-								engine_type_slot = tank_gasoline_engine
-								special_type_slot_1 = secondary_turret_hmg
-								special_type_slot_2 = additional_machine_guns
-								special_type_slot_3 = squeezebore_adaptor
-							}
-							upgrades = {
-								tank_nsb_engine_upgrade = 5
-								tank_nsb_armor_upgrade = 8
-							}
-							icon = "GFX_JAP_improved_heavy_tank_medium" 
-						}
-					}
-				}
-
-				custom_effect_tooltip = generic_skip_one_line_tt
-
-			}
 
 			IF = {
 				limit = {
@@ -30667,19 +30603,6 @@ focus_tree = {
 					has_dlc = "Arms Against Tyranny"
 					has_dlc = "La Resistance"
 				}
-				custom_effect_tooltip = generic_skip_one_line_tt
-				mio:JAP_tokyo_automobile_industries_organization = {
-					set_mio_name_key = JAP_isuzu_motors
-					add_mio_size = 2
-					add_mio_funds_gain_factor = 0.05
-					
-				}
-				hidden_effect = {
-					mio:JAP_tokyo_automobile_industries_organization = {
-						set_mio_icon = GFX_idea_JAP_isuzu_mot_2
-					}
-				}
-
 			}
 
 		}

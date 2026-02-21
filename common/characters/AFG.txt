@@ -926,11 +926,13 @@ characters={
 			visible = {
 				NOT = {
 					has_completed_focus = AFG_remember_the_khost_rebellion
-					has_completed_focus = AFG_support_king_zahir
 				}
 			}
 			available = {
-				has_completed_focus = AFG_education_for_women_and_girls
+				OR = {
+					has_completed_focus = AFG_ally_the_young_afghans
+					has_completed_focus = AFG_education_for_women_and_girls
+				}
 			}
 			traits  = {
 				education_reformer 
@@ -1204,6 +1206,33 @@ characters={
 		portraits = {
 			civilian = {
 				small = GFX_portrait_AFG_sher_khan_nashir_small
+			}
+		}
+	}
+
+	AFG_abdul_hadi_dawi = {
+		advisor = {
+			slot = political_advisor
+			idea_token = AFG_abdul_hadi_dawi
+			allowed  = {
+				original_tag = AFG
+			}
+			available = {
+				OR = {
+					has_completed_focus = AFG_revive_the_1923_constitution
+					has_completed_focus = AFG_ally_the_young_afghans
+				}
+			}
+			traits  = {
+				JAP_minister_of_finance 
+			}
+		}
+
+		name = AFG_abdul_hadi_dawi
+
+		portraits = {
+			civilian = {
+				small = GFX_portrait_AFG_abdul_hadi_davi_small
 			}
 		}
 	}

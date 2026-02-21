@@ -1012,6 +1012,65 @@ characters={
 		}
 	}
 
+	PHI_basilio_j_valdez = {
+		instance = {
+			allowed = {
+				has_dlc = "No Compromise, No Surrender"
+			}
+
+			name = PHI_basilio_j_valdez
+
+			portraits = { 
+				army = {
+					small = GFX_portrait_PHI_basilio_j_valdez_small
+				}
+			}
+
+			advisor={
+				slot = army_chief
+				idea_token = PHI_basilio_j_valdez
+				ledger = army
+				traits = {
+					army_chief_defensive_2
+				}
+				cost = 100
+				ai_will_do = {
+					factor = 1
+				}
+			}
+		}
+		instance = {
+			allowed = {
+				NOT = {
+					has_dlc = "No Compromise, No Surrender"
+				}
+			}
+
+			advisor={
+				slot = army_chief
+				idea_token = PHI_basilio_j_valdez
+				allowed = {
+						original_tag = PHI
+					}
+					traits = {
+						army_chief_defensive_2
+					}
+					cost = 100
+					ai_will_do = {
+						factor = 1.000
+					}
+			}
+			name="PHI_basilio_j_valdez"
+			portraits={
+				army={
+					small="GFX_idea_generic_army_asia_3"
+				}
+			}
+			
+		}
+	}
+
+
 ### Theorists
 
 
@@ -1781,32 +1840,6 @@ characters={
 		}
 	}
 
-	PHI_basilio_j_valdez={
-		advisor={
-			
-			
-			slot = army_chief
-			idea_token = PHI_basilio_j_valdez
-			allowed = {
-					original_tag = phi
-				}
-				traits = {
-					army_chief_defensive_2
-				}
-				cost = 100
-				ai_will_do = {
-					factor = 1.000
-				}
-		}
-# TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
-		name=PHI_basilio_j_valdez
-		portraits={
-			army={
-				small="GFX_idea_generic_army_asia_4"
-			}
-		}
-	}
-
 	PHI_santiago_nuval={
 		advisor={
 			
@@ -1959,5 +1992,4 @@ characters={
 			}
 		}
 	}
-
 }

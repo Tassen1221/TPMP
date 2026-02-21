@@ -213,53 +213,6 @@ on_actions = {
 		}
 	}
 
-	on_daily_SWE = {
-		effect = {
-			if = {
-				limit = {
-					#is_ironman =  = yes
-					original_tag = SWE
-					has_completed_focus = SWE_per_albin_bus
-					divisions_in_state = {
-						state = 141
-						size > 0 # use < or ><state_id>
-						unit = bus # optional. specific unit eg. mountaineers, light_tank
-					}
-				}
-				set_variable = { global.achievement_days_since_bus_left_stockholm = 0 }
-		
-			}
-
-			if = {
-				limit = {
-					divisions_in_state = {
-						state = 141
-						size < 1 # use < or ><state_id>
-						unit = bus # optional. specific unit eg. mountaineers, light_tank
-					}
-					check_variable = { global.achievement_days_since_bus_left_stockholm < 100 }
-				}
-				add_to_variable = { global.achievement_days_since_bus_left_stockholm = 1 }
-			}
-			
-			if = {
-				limit = {
-					original_tag = SWE
-					has_completed_focus = SWE_per_albin_bus
-					divisions_in_state = {
-						state = 681
-						size > 0 # use < or ><state_id>
-						unit = bus # optional. specific unit eg. mountaineers, light_tank
-					}
-
-					check_variable = { global.achievement_days_since_bus_left_stockholm < 19 }
-				}
-
-				set_global_flag = achievement_has_managed_to_travel_to_cape_town_in_18_days
-			}
-		}
-	}
-
 	# Ace pilots
 	# country, FROM = ace
 	on_ace_promoted = {

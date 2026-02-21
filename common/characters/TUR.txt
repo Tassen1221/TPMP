@@ -1975,6 +1975,48 @@ characters={
 		}		
 	}
 
+	TUR_kamil_tolon = {
+		name = TUR_kamil_tolon
+		portraits = {
+			civilian = {
+				small = GFX_idea_tur_kamil_tolon
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = TUR_kamil_tolon
+			cost = 75 
+			allowed = {
+				original_tag = TUR
+				has_dlc = "Battle for the Bosporus"
+			}
+			available = {
+				TUR_debt_council_has_no_sway = yes 
+			}
+			traits = {
+				inventive_genius 
+			}
+			on_add = {
+				hidden_effect = {
+					ROOT = {
+						add_ideas = {
+							TUR_inventive_genius_hidden_idea
+						}
+					}
+				}
+			}
+			on_remove = {
+				hidden_effect = {
+					ROOT = {
+						remove_ideas = {
+							TUR_inventive_genius_hidden_idea
+						}
+					}
+				}
+			}
+		}		
+	}
+
 	TUR_hilmi_uran={
 		name=TUR_hilmi_uran
 		portraits={
@@ -2472,11 +2514,12 @@ characters={
 		}
 	}
 
-	TUR_nihal_atsiz={
-		name=TUR_nihal_atsiz
-		portraits={
-			army={
-				small="GFX_idea_tur_nihal_atsiz"
+	TUR_nihal_atsiz = {
+		name = TUR_nihal_atsiz
+		portraits = {
+			civilian = {
+				large = GFX_portrait_tur_nihal_atsiz
+				small = GFX_idea_tur_nihal_atsiz
 			}
 		}
 		advisor={
@@ -2505,9 +2548,21 @@ characters={
 						}
 					}
 				}
+				NOT = {
+					has_country_leader = {
+						ruling_only = yes
+						character = TUR_nihal_atsiz
+					}	
+				}
 			}
 			visible = {
 				has_completed_focus = TUR_turanist_ambition 
+				NOT = {
+					has_country_leader = {
+						ruling_only = yes
+						character = TUR_nihal_atsiz
+					}	
+				}
 			}
 			traits = {
 				prime_minister_atsiz 

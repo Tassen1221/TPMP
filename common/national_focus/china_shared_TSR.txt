@@ -451,22 +451,22 @@ shared_focus = {
 				if = {
 					limit = {
 						not = {
-							has_tech = gwtank_chassis
+							has_tech = lighttank1_tech
 						}
 					}
-					set_technology = { gwtank_chassis = 1 }
+					set_technology = { lighttank1_tech = 1 }
 				}
 				if = {
 					limit = {
 						has_completed_focus = CHI_sea_closer_ties_with_germany
 					}
-					add_equipment_to_stockpile = { type = light_tank_chassis_1 amount = 100 producer = GER  variant_name = "Panzer I Ausf. A"} 
+					add_equipment_to_stockpile = { type = light_tank_chassis_1936 amount = 100 producer = GER  variant_name = "Panzer I Ausf. A"} 
 				}
 				if = {
 					limit = {
 						has_completed_focus = CHI_sea_rapprochement_with_soviet_union
 					}
-					add_equipment_to_stockpile = { type = light_tank_chassis_1 amount = 100 producer = SOV variant_name = "T-26TU mod. 1933" }
+					add_equipment_to_stockpile = { type = light_tank_chassis_1936 amount = 100 producer = SOV variant_name = "T-26TU mod. 1933" }
 				}
 			}
 		}
@@ -846,7 +846,7 @@ shared_focus = {
 					}
 					capital_scope = {
 						create_unit = {
-							division = "name = \"200. Mechanised Division\" division_template = \"Experimental Mechanised Division\" start_experience_factor = 1.0 force_equipment_variants = { light_tank_chassis_1 = { creator = \"GER\" version_name = \"Panzer I Ausf. A\"} }" 
+							division = "name = \"200. Mechanised Division\" division_template = \"Experimental Mechanised Division\" start_experience_factor = 1.0 force_equipment_variants = { light_tank_chassis_1936 = { creator = \"GER\" version_name = \"Panzer I Ausf. A\"} }" 
 							owner = ROOT
 						}
 					}
@@ -857,7 +857,7 @@ shared_focus = {
 					}
 					capital_scope = {
 						create_unit = {
-							division = "name = \"200. Mechanised Division\" division_template = \"Experimental Mechanised Division\" start_experience_factor = 1.0 force_equipment_variants = { light_tank_chassis_1 = { creator = \"SOV\" version_name = \"T-26TU mod. 1933\"} }" 
+							division = "name = \"200. Mechanised Division\" division_template = \"Experimental Mechanised Division\" start_experience_factor = 1.0 force_equipment_variants = { light_tank_chassis_1936 = { creator = \"SOV\" version_name = \"T-26TU mod. 1933\"} }" 
 							owner = ROOT
 						}
 					}
@@ -3482,9 +3482,6 @@ shared_focus = {
 			limit = {
 				has_dlc = "Arms Against Tyranny"
 			}
-			mio:CHI_camco_medium_organization = {
-				has_mio_size > 3
-			}
 		}
 		else = {
 			has_idea = CHI_camco_1
@@ -3532,9 +3529,6 @@ shared_focus = {
 		if = {
 			limit = {
 				has_dlc = "Arms Against Tyranny"
-			}
-			mio:CHI_camco_fighter_organization = {
-				has_mio_size > 3
 			}
 		}
 		else = {
