@@ -62,19 +62,20 @@ AFG_oil_concessions_category = {
 				267 = {
 					add_resource = {
 						type = oil
-						amount = 100
+						amount = 10
 					}
 					set_state_flag = AFG_oil_concession_here_flag
 				}
 				415 = {
 					add_resource = {
 						type = oil
-						amount = 100
+						amount = 10
 					}
 				}
 				give_resource_rights = {
 					receiver = FROM
 					state = 267
+					resources = { oil }
 				}
 			}
 		}
@@ -336,6 +337,11 @@ AFG_radical_students_category = {
 			}
 			if = {
 				limit = { has_dlc = "Arms Against Tyranny"}
+				custom_effect_tooltip = AFG_shipyards_tt_2
+				show_mio_tooltip = AFG_tanks_organization
+				mio:AFG_tanks_organization = {
+					add_mio_size = 1
+				}
 			}
 			else = {
 				army_experience = 50
@@ -380,6 +386,11 @@ AFG_radical_students_category = {
 			}
 			if = {
 				limit = { has_dlc = "Arms Against Tyranny" }
+				custom_effect_tooltip = AFG_shipyards_tt_2
+				show_mio_tooltip = AFG_aircraft_organization
+				mio:AFG_aircraft_organization = {
+					add_mio_size = 1
+				}
 			}
 			else = {
 				air_experience = 50
@@ -424,6 +435,11 @@ AFG_radical_students_category = {
 			}
 			if = {
 				limit = { has_dlc = "Arms Against Tyranny" }
+				custom_effect_tooltip = AFG_shipyards_tt_2
+				show_mio_tooltip = AFG_artillery_organization
+				mio:AFG_artillery_organization = {
+					add_mio_size = 1
+				}
 			}
 			else = {
 				add_tech_bonus = {
@@ -1701,17 +1717,19 @@ AFG_turkestan_legion_cat = {
 
 		target_root_trigger = {
 			original_tag = AFG
-
 		}
 		state_target = yes
 		targets = { 49 229 651 586 732 830 742 405 823 831 584 619 249 137 676 329 1000 }
 	    target_trigger = {   
 	    }
 	    on_map_mode = map_and_decisions_view 
-		custom_cost_trigger = {
-			command_power > 24.9
-		}
-		custom_cost_text = BRA_decision_cost_cangaceiro
+		
+	    custom_cost_trigger = {
+	    	command_power > 24.9
+	    	has_equipment = { infantry_equipment > 1999 }
+	    }
+		
+		custom_cost_text = decision_cost_cp_25_ie_2000
 		
 		fire_only_once = yes
 		days_remove = 30
@@ -1747,6 +1765,66 @@ AFG_turkestan_legion_cat = {
 }
 
 political_actions = {
+
+	AFG_a_royal_successor_decision = {
+
+		icon = GFX_decision_generic_monarchy
+
+		allowed = {
+			original_tag = AFG
+		}
+
+		priority = 100
+
+		fire_only_once = yes
+
+		cost = 150 
+
+		visible = {
+			has_completed_focus = AFG_secure_dynasty
+			has_government = neutrality
+		}
+
+		available = {
+			
+			has_country_leader = {
+				ruling_only = yes
+				character = AFG_mohammad_hashim_khan
+			}	
+
+			OR = {
+				has_war = yes
+				has_completed_focus = AFG_expel_axis_nationals
+				has_completed_focus = AFG_expel_allied_nationals
+			}
+
+		}
+
+		complete_effect = {
+
+			add_stability = 0.15
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+
+			country_event = {
+				id = AFG_political_events.173
+			}	
+
+		}
+
+		ai_will_do = {
+			base = 100 
+			modifier = {
+				factor = 0
+				date < 1942.1.1 # Historically he was swapped out in 1946 but there should at least be no chance of it happening before 42 
+			}
+			modifier = {
+				factor = 0.5
+				date < 1946.1.1 # Historically he was swapped out in 1946 but there will be a smaller chance of it happening between 1942 and then 
+			}
+		}
+
+	}
 	
 	AFG_caliphate_core_state = {
 		icon = GFX_decision_infiltrate_state
@@ -1990,7 +2068,7 @@ AFG_sikh_recruitment_cat = {
 					}
 				}
 			}
-			has_tech = artillery0_tech
+			has_tech = gw_artillery
 		}
 		
 		target_root_trigger = {
