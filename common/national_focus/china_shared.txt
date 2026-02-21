@@ -628,39 +628,6 @@ shared_focus = {
 			limit = {
 				has_dlc = "Arms Against Tyranny"
 			}
-			IF = {
-				limit = {
-					NOT = {
-						has_completed_focus = CHI_closer_ties_with_germany
-						has_completed_focus = CHI_rapprochement_with_soviet_union
-					}
-				}
-				add_equipment_subsidy = {
-					cic = 500
-					equipment_type = motorized_equipment
-					seller_trigger = CHI_tank_seller_for_subsidy
-				}
-			}
-			ELSE_IF = {
-				limit = {
-					has_completed_focus = CHI_closer_ties_with_germany
-				}
-				add_equipment_subsidy = {
-					cic = 500
-					equipment_type = motorized_equipment
-					seller_tags = { GER } 
-				}
-			}
-			ELSE_IF = {
-				limit = {
-					has_completed_focus = CHI_rapprochement_with_soviet_union
-				}
-				add_equipment_subsidy = {
-					cic = 500
-					equipment_type = motorized_equipment
-					seller_tags = { SOV } 
-				}
-			}
 		}
 
 		hidden_effect = {

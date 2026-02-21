@@ -786,16 +786,6 @@ focus_tree = {
 				limit = {
 					has_dlc = "Arms Against Tyranny"
 				}
-				add_equipment_subsidy = {
-					cic = 1000
-					equipment_type = small_plane_airframe
-					seller_tags = { USA JAP ENG FRA ITA GER BEL SOV } 
-				}
-				add_equipment_subsidy = {
-					cic = 1000
-					equipment_type = medium_plane_airframe
-					seller_tags = { USA JAP ENG FRA ITA GER BEL SOV } 
-				}
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
@@ -1358,13 +1348,6 @@ focus_tree = {
 			IF = {
 				limit = {
 					has_dlc = "Arms Against Tyranny"
-				}
-				add_potential_special_forces_tree = yes
-				add_doctrine_cost_reduction = {
-					name = COG_31e_brigade_parachutiste
-					cost_reduction = 0.5
-					uses = 2
-					category = cat_paratroopers_doctrine
 				}
 			}
 
@@ -3999,26 +3982,6 @@ focus_tree = {
 				IF = {
 					limit = {
 						has_dlc = "Arms Against Tyranny"
-					}
-					add_equipment_subsidy = {
-						cic = 1000
-						equipment_type = small_plane_airframe
-						seller_trigger = is_allied_seller_trigger
-					}
-					add_equipment_subsidy = {
-						cic = 1000
-						equipment_type = infantry_equipment
-						seller_trigger = is_allied_seller_trigger
-					}
-					add_equipment_subsidy = {
-						cic = 1000
-						equipment_type = artillery_equipment
-						seller_trigger = is_allied_seller_trigger
-					}
-					add_equipment_subsidy = {
-						cic = 1000
-						equipment_type = motorized_equipment
-						seller_trigger = is_allied_seller_trigger
 					}
 				}
 				ELSE = {

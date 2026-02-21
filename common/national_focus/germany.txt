@@ -6004,8 +6004,6 @@ focus_tree = {
 				limit = {
 					has_dlc = "Arms Against Tyranny"
 				}
-				custom_effect_tooltip = generic_skip_one_line_tt
-				custom_effect_tooltip = GER_aerodynamic_research_institute_tt
 			}
 		}
 	}
@@ -12491,11 +12489,6 @@ mio:GER_blohm_und_voss_organization = {
 			IF = {
 				limit = {
 					has_dlc = "Arms Against Tyranny"
-				}
-				add_doctrine_cost_reduction = {
-					cost_reduction = 0.5
-					uses = 2
-					category = cat_marines_doctrine
 				}
 			}
 
@@ -23150,9 +23143,6 @@ mio:GER_blohm_und_voss_organization = {
 				limit = {
 					has_dlc = "Arms Against Tyranny"
 				}
-
-				add_to_variable = { GER_industrial_capacity_military_industrial_organization_funds_gain = 0.1 tooltip =  military_industrial_organization_funds_gain_tt }
-				add_to_variable  = { GER_industrial_capacity_military_industrial_organization_research_bonus = 0.1 tooltip = military_industrial_organization_research_bonus_tt }
 			}
 
 			ELSE = {
@@ -33268,28 +33258,6 @@ mio:GER_blohm_und_voss_organization = {
 					IF = {
 						limit = {
 							has_dlc = "Arms Against Tyranny"
-						}
-						custom_effect_tooltip = generic_skip_one_line_tt
-
-						add_equipment_subsidy = {
-							cic = 1000
-							equipment_type = small_plane_airframe
-							seller_tags = { GER } 
-						}
-						add_equipment_subsidy = {
-							cic = 1000
-							equipment_type = infantry_equipment
-							seller_tags = { GER } 
-						}
-						add_equipment_subsidy = {
-							cic = 1000
-							equipment_type = motorized_equipment
-							seller_tags = { GER } 
-						}
-						add_equipment_subsidy = {
-							cic = 1000
-							equipment_type = artillery_equipment
-							seller_tags = { GER } 
 						}
 					}
 				}

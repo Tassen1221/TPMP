@@ -2148,28 +2148,6 @@ focus_tree = {
 				limit = {
 					has_dlc = "Arms Against Tyranny"
 				}
-				add_equipment_subsidy = {
-					cic = 500
-					equipment_type = light_tank_chassis
-					seller_tags = { ITA ENG } 
-				}
-				IF = {
-					limit = {
-						has_dlc = "No Step Back"
-					}
-					add_equipment_to_stockpile = { 
-						type = light_tank_chassis_1936
-						amount = 400
-						producer = ITA
-					}
-				}
-				ELSE = {
-					add_equipment_to_stockpile = { 
-						type = light_tank_equipment_1
-						amount = 400
-						producer = ITA
-					}
-				}
 			}
 			ELSE_IF = {
 				limit = {
@@ -2265,12 +2243,6 @@ focus_tree = {
 				limit = {
 					has_dlc = "Arms Against Tyranny"
 				}
-				custom_effect_tooltip = generic_skip_one_line_tt
-				add_equipment_subsidy = {
-					cic = 1500
-					equipment_type = artillery_equipment
-					seller_tags = { ENG } 
-				}	
 			}
 			
 		}
@@ -2596,8 +2568,6 @@ focus_tree = {
 				limit = {
 					has_dlc = "Arms Against Tyranny"
 				}
-
-				custom_effect_tooltip = generic_skip_one_line_tt
 }
 			
 		}
@@ -2700,97 +2670,6 @@ focus_tree = {
 				limit = {
 					has_dlc = "Arms Against Tyranny"
 				}
-				custom_effect_tooltip = IRQ_purchase_british_aircraft_AAT_tt
-				###
-				IF = {
-					limit = {
-						has_idea = IRQ_anglo_iraqi_treaty
-					}
-					add_equipment_subsidy = {
-						cic = 1000
-						equipment_type = small_plane_airframe
-						seller_tags = { ENG } 
-					}
-				}
-				ELSE = {
-					add_equipment_subsidy = {
-						cic = 500
-						equipment_type = small_plane_airframe
-						seller_tags = { ENG } 
-					}
-				}
-
-				###
-				IF = {
-					limit = {
-						has_idea = IRQ_anglo_iraqi_treaty
-					}
-					IF = {
-						limit = {
-							has_dlc = "By Blood Alone"
-						}
-						IF = {
-							limit = {
-								has_equipment = {
-									small_plane_airframe_1 > 0
-								}
-							}
-							add_equipment_to_stockpile = { 
-								type = small_plane_airframe_1
-								amount = 50
-								producer = ENG
-							}
-						}
-						ELSE = {
-							add_equipment_to_stockpile = { 
-								type = small_plane_airframe_0
-								amount = 50
-								producer = ENG
-							}
-						}
-					}
-					ELSE = {
-						add_equipment_to_stockpile = { 
-							type = fighter_equipment_1
-							amount = 50
-							producer = ENG
-						}
-					}
-				}
-				ELSE = {
-					IF = {
-						limit = {
-							has_dlc = "By Blood Alone"
-						}
-						IF = {
-							limit = {
-								has_equipment = {
-									small_plane_airframe_1 > 0
-								}
-							}
-							add_equipment_to_stockpile = { 
-								type = small_plane_airframe_1
-								amount = 50
-								producer = ENG
-							}
-						}
-						ELSE = {
-							add_equipment_to_stockpile = { 
-								type = small_plane_airframe_0
-								amount = 50
-								producer = ENG
-							}
-						}
-					}
-					ELSE = {
-						add_equipment_to_stockpile = { 
-							type = fighter_equipment_1
-							amount = 25
-							producer = ENG
-						}
-					}
-				}
-
 			}
 			ELSE_IF = {
 				limit = {
@@ -2916,28 +2795,6 @@ focus_tree = {
 				limit = {
 					has_dlc = "Arms Against Tyranny"
 				}
-				add_equipment_subsidy = {
-					cic = 500
-					equipment_type = small_plane_airframe
-					seller_tags = { ITA } 
-				}
-				IF = {
-					limit = {
-						has_dlc = "By Blood Alone"
-					}
-					add_equipment_to_stockpile = { 
-						type = small_plane_airframe_0
-						amount = 30
-						producer = ITA
-					}
-				}
-				ELSE = {
-					add_equipment_to_stockpile = { 
-						type = fighter_equipment_0
-						amount = 30
-						producer = ITA
-					}
-				}
 			}
 			ELSE_IF = {
 				limit = {
@@ -3029,8 +2886,6 @@ focus_tree = {
 				limit = {
 					has_dlc = "Arms Against Tyranny"
 				}
-
-				custom_effect_tooltip = generic_skip_one_line_tt
 }	
 
 		}
@@ -3225,8 +3080,6 @@ focus_tree = {
 				limit = {
 					has_dlc = "Arms Against Tyranny"
 				}
-
-				custom_effect_tooltip = generic_skip_one_line_tt
 }
 
 		}
@@ -3337,20 +3190,6 @@ focus_tree = {
 				limit = {
 					has_dlc = "Arms Against Tyranny"
 				}
-				add_potential_special_forces_tree = yes
-				add_doctrine_cost_reduction = {
-					name = IRQ_special_forces
-					cost_reduction = 0.25
-					uses = 1
-					category = cat_special_forces_doctrine
-				}
-				add_tech_bonus = {
-					name = IRQ_special_forces
-					bonus = 0.5
-					uses = 1
-					category = cat_special_forces_tech
-				}	
-				custom_effect_tooltip = generic_skip_one_line_tt
 			}
 			ELSE = {
 				add_tech_bonus = {
@@ -3446,8 +3285,6 @@ focus_tree = {
 				limit = {
 					has_dlc = "Arms Against Tyranny"
 				}
-
-				custom_effect_tooltip = generic_skip_one_line_tt
 }
 
 		}
@@ -3629,8 +3466,6 @@ focus_tree = {
 				limit = {
 					has_dlc = "Arms Against Tyranny"
 				}
-
-				custom_effect_tooltip = generic_skip_one_line_tt
 }
 
 		}
@@ -3854,8 +3689,6 @@ focus_tree = {
 				limit = {
 					has_dlc = "Arms Against Tyranny"
 				}
-
-				custom_effect_tooltip = generic_skip_one_line_tt
 }
 
 		}
@@ -10383,13 +10216,6 @@ focus_tree = {
 
 			IF = {
 				limit = { has_dlc = "Arms Against Tyranny" }
-
-				add_doctrine_cost_reduction = {
-					name = IRQ_support_from_the_mountains
-					cost_reduction = 0.2
-					uses = 2
-					category = cat_mountaineers_doctrine
-				}
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt

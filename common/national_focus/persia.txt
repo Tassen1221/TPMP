@@ -432,18 +432,6 @@ focus_tree = {
 				limit = {
 					has_dlc = "Arms Against Tyranny"
 				}
-
-				add_equipment_subsidy = {
-					cic = 2000
-					equipment_type = train_equipment
-					seller_tags = { GER } 
-				}
-
-				add_equipment_to_stockpile = {
-					type = train_equipment
-					amount = 15
-					producer = GER
-				}
 			}
 
 			ELSE = {
@@ -505,18 +493,6 @@ focus_tree = {
 			IF = {
 				limit = {
 					has_dlc = "Arms Against Tyranny"
-				}
-
-				add_equipment_subsidy = {
-				cic = 2000
-				equipment_type = train_equipment
-				seller_tags = { ENG } 
-				}
-
-				add_equipment_to_stockpile = {
-					type = train_equipment
-					amount = 15
-					producer = ENG
 				}
 			}
 
@@ -1317,7 +1293,6 @@ focus_tree = {
 				limit = {
 					has_dlc = "Arms Against Tyranny"
 				}
-				custom_effect_tooltip = available_mio_tt
 			}
 			ELSE = {
 				custom_effect_tooltip = available_designer
@@ -1452,17 +1427,6 @@ focus_tree = {
 				limit = {
 					has_dlc = "Arms Against Tyranny"
 				}
-
-				266 = { #Tehran
-					add_extra_state_shared_building_slots = 1
-					add_building_construction = {
-						type = arms_factory
-						level = 1
-						instant_build = yes
-					}
-				}
-
-				custom_effect_tooltip = CHL_skip_one_line_tt
 }
 
 			ELSE = {
@@ -2070,13 +2034,6 @@ focus_tree = {
 				limit = {
 					has_dlc = "Arms Against Tyranny"
 				}
-				add_potential_special_forces_tree = yes
-				add_doctrine_cost_reduction = {
-					name = PER_special_units_boost
-					cost_reduction = 0.25
-					uses = 1
-					category = cat_special_forces_doctrine
-				}
 			}
 			ELSE = {
 				custom_effect_tooltip = PER_modify_special_forces_ns_intro
@@ -2124,12 +2081,6 @@ focus_tree = {
 			IF = {
 				limit = {
 					has_dlc = "Arms Against Tyranny"
-				}
-				add_doctrine_cost_reduction = {
-					name = PER_bakhtiari_boost
-					cost_reduction = 0.5
-					uses = 1
-					category = cat_special_forces_doctrine
 				}
 			}
 		}
@@ -2467,23 +2418,6 @@ focus_tree = {
 				limit = {
 					has_dlc = "Arms Against Tyranny"
 				}
-				add_equipment_subsidy = {
-					cic = 1000
-					equipment_type = small_plane_airframe
-					seller_tags = { ENG } 
-				}
-				add_equipment_subsidy = {
-					cic = 1000
-					equipment_type = medium_plane_airframe
-					seller_tags = { ENG } 
-				}
-				add_equipment_subsidy = {
-					cic = 1000
-					equipment_type = large_plane_airframe
-					seller_tags = { ENG } 
-				}
-
-				custom_effect_tooltip = generic_skip_one_line_tt
 			}
 			if = {
 				limit = {
@@ -2549,23 +2483,6 @@ focus_tree = {
 				limit = {
 					has_dlc = "Arms Against Tyranny"
 				}
-				add_equipment_subsidy = {
-					cic = 1000
-					equipment_type = small_plane_airframe
-					seller_tags = { GER } 
-				}
-				add_equipment_subsidy = {
-					cic = 1000
-					equipment_type = medium_plane_airframe
-					seller_tags = { GER } 
-				}
-				add_equipment_subsidy = {
-					cic = 1000
-					equipment_type = large_plane_airframe
-					seller_tags = { GER } 
-				}
-
-				custom_effect_tooltip = generic_skip_one_line_tt
 			}
 			if = {
 				limit = {
@@ -5522,16 +5439,6 @@ focus_tree = {
 		completion_reward = {
 			IF = {
 				limit = { has_dlc = "Arms Against Tyranny" }
-				add_equipment_subsidy = {
-					cic = 1500
-					equipment_type = infantry_equipment
-					seller_tags  = { overlord }
-				}
-				add_equipment_subsidy = {
-					cic = 700
-					equipment_type = artillery_equipment
-					seller_tags  = { overlord }
-				}
 			}
 			ELSE = {
 				add_equipment_to_stockpile = { 

@@ -913,7 +913,6 @@ focus_tree = {
 				limit = {
 					has_dlc = "Arms Against Tyranny"
 				}
-custom_effect_tooltip = generic_skip_one_line_tt
 			}
 
 			random_owned_controlled_state = {
@@ -1613,13 +1612,6 @@ custom_effect_tooltip = generic_skip_one_line_tt
 				limit = {
 					has_dlc = "Arms Against Tyranny"
 				}
-				add_doctrine_cost_reduction = {
-					name = AFG_mountain_training
-					cost_reduction = 0.25
-					uses = 1
-					category = cat_special_forces_doctrine
-				}
-				custom_effect_tooltip = generic_skip_one_line_tt
 			}
 
 			IF = {
@@ -1667,13 +1659,6 @@ custom_effect_tooltip = generic_skip_one_line_tt
 				limit = {
 					has_dlc = "Arms Against Tyranny"
 				}
-				add_doctrine_cost_reduction = {
-					name = AFG_mountain_training
-					cost_reduction = 0.25
-					uses = 1
-					category = cat_special_forces_doctrine
-				}
-				custom_effect_tooltip = generic_skip_one_line_tt
 			}
 			IF = {
 				limit = {
@@ -2270,12 +2255,6 @@ custom_effect_tooltip = generic_skip_one_line_tt
 				limit = {
 					has_dlc = "Arms Against Tyranny"
 				}
-				add_equipment_subsidy = {
-					cic = 500
-					equipment_type = light_tank_chassis
-					seller_tags = { USA JAP ENG FRA ITA GER SOV } 
-				}
-				custom_effect_tooltip = generic_skip_one_line_tt
 			}
 
 			IF = {
@@ -2345,12 +2324,6 @@ custom_effect_tooltip = generic_skip_one_line_tt
 				limit = {
 					has_dlc = "Arms Against Tyranny"
 				}
-				add_equipment_subsidy = {
-					cic = 500
-					equipment_type = small_plane_airframe
-					seller_tags = { USA JAP ENG FRA ITA GER SOV } 
-				}
-				custom_effect_tooltip = generic_skip_one_line_tt
 			}
 			ELSE = {
 				custom_effect_tooltip = SMB_purchase_aircraft_tt
@@ -2479,27 +2452,6 @@ custom_effect_tooltip = generic_skip_one_line_tt
 				limit = {
 					has_dlc = "Arms Against Tyranny"
 				}
-				add_equipment_subsidy = {
-					cic = 500
-					equipment_type = infantry_equipment
-					seller_tags = { ENG FRA GER ITA SOV JAP USA } 
-				}
-				add_equipment_subsidy = {
-					cic = 500
-					equipment_type = artillery_equipment
-					seller_tags = { ENG FRA GER ITA SOV JAP USA } 
-				}
-				custom_effect_tooltip = generic_skip_one_line_tt
-				add_equipment_to_stockpile = { 
-					type = artillery_equipment 
-					amount = 300  
-					producer = AFG
-				}
-				add_equipment_to_stockpile = { 
-					type = infantry_equipment 
-					amount = 500  
-					producer = ITA
-				}
 			}
 			ELSE = {
 				add_equipment_to_stockpile = { 
@@ -2540,22 +2492,6 @@ custom_effect_tooltip = generic_skip_one_line_tt
 				limit = {
 					has_dlc = "Arms Against Tyranny"
 				}
-				add_equipment_subsidy = {
-					cic = 500
-					equipment_type = small_plane_airframe
-					seller_tags = { USA JAP ENG FRA ITA GER SOV } 
-				}
-				add_equipment_subsidy = {
-					cic = 500
-					equipment_type = large_plane_airframe
-					seller_tags = { USA JAP ENG FRA ITA GER SOV } 
-				}
-				add_equipment_subsidy = {
-					cic = 500
-					equipment_type = medium_plane_airframe
-					seller_tags = { USA JAP ENG FRA ITA GER SOV } 
-				}
-				custom_effect_tooltip = generic_skip_one_line_tt
 			}
 
 			IF = {
@@ -8611,22 +8547,6 @@ custom_effect_tooltip = generic_skip_one_line_tt
 				limit = {
 					has_dlc = "Arms Against Tyranny"
 				}
-				add_equipment_subsidy = {
-					cic = 1000
-					equipment_type = infantry_equipment
-					seller_tags = { GER } 
-				}
-				add_equipment_subsidy = {
-					cic = 1000
-					equipment_type = artillery_equipment
-					seller_tags = { GER } 
-				}
-				add_equipment_subsidy = {
-					cic = 1000
-					equipment_type = light_tank_chassis
-					seller_tags = { GER } 
-				}
-				custom_effect_tooltip = generic_skip_one_line_tt
 			}
 			ELSE = {
 				add_equipment_to_stockpile = { 

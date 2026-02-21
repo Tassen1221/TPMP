@@ -195,10 +195,6 @@ infiltration_tactics = {
                     category = category_leg_infantry
                     soft_attack = 0.1
                 }
-                battalion_mult = {
-                    category = cavalry
-                    soft_attack = 0.1
-                }
 
             }
             mot_recon = {
@@ -206,22 +202,12 @@ infiltration_tactics = {
                     category = category_leg_infantry
                     soft_attack = 0.1
                 }
-                battalion_mult = {
-                    category = cavalry
-                    soft_attack = 0.1
-                }
-
             }
             light_tank_recon = {
                 battalion_mult = {
                     category = category_leg_infantry
                     soft_attack = 0.1
                 }
-                battalion_mult = {
-                    category = cavalry
-                    soft_attack = 0.1
-                }
-
             }
 
             category_recon = {
@@ -609,7 +595,7 @@ guerilla_war = {
             factor = 0
             NOT = {
                 OR = {
-                has_template_containing_unit = irregular_infantry
+                has_template_containing_unit = militia
                 has_template_containing_unit = militia
                 }
             }
@@ -619,7 +605,7 @@ guerilla_war = {
 
     # EFFECTS
     enable_tactic = tactic_guerrilla_tactics
-    irregular_infantry = {
+    militia = {
         soft_attack = 0.1
         defense = 0.2
     }

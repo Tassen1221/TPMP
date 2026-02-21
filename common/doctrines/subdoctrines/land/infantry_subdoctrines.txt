@@ -353,7 +353,6 @@ mounted_infantry = {
 
     mastery = {
         categories = {
-            cavalry
             category_infantry
         }
     }
@@ -586,13 +585,13 @@ irregulars = {
             factor = 0
             NOT = {
                 OR = {
-                has_template_containing_unit = irregular_infantry
+                has_template_containing_unit = militia
                 has_template_containing_unit = militia
                 }
             }
         }
     }
-    irregular_infantry = {
+    militia = {
         defense = 0.1
         supply_consumption = -0.05
     }
@@ -608,7 +607,7 @@ irregulars = {
             mobilization_speed = 0.05
         }
         partisan_regiments = {
-            irregular_infantry = {
+            militia = {
                 combat_width = -0.4
             }
             militia = {

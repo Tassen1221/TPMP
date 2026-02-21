@@ -10939,7 +10939,6 @@ focus_tree = {
 				limit = {
 					has_dlc = "Arms Against Tyranny"
 				}
-				custom_effect_tooltip = CHI_relocate_factories_from_the_coast_tt
 			}
 			ELSE = {
 				custom_effect_tooltip = CHI_relocate_factories_from_the_coast_tt_no_aat
@@ -12413,14 +12412,6 @@ focus_tree = {
 				limit = {
 					has_dlc = "Arms Against Tyranny"
 				}
-				custom_effect_tooltip = generic_skip_one_line_tt
-				add_potential_special_forces_tree = yes
-				add_doctrine_cost_reduction = {
-					name = CHI_hongxiang_force
-					cost_reduction = 0.5
-					uses = 2
-					category = cat_paratroopers_doctrine
-				}	
 			}
 			
 		}
@@ -12691,51 +12682,6 @@ focus_tree = {
 				limit = {
 					has_dlc = "Arms Against Tyranny"
 				}
-				mio:CHI_camco_organization_sea = {
-					add_mio_size = 2
-					add_mio_funds_gain_factor = 0.25
-					add_mio_research_bonus = 0.05
-				}
-				custom_effect_tooltip = generic_skip_one_line_tt
-				if = {
-					limit = {
-						596 = { # Zhejiang
-							is_fully_controlled_by = ROOT
-							free_building_slots = {
-								building = arms_factory
-								size > 1
-								include_locked = yes
-							}
-						}
-					}
-					596 = {
-						add_extra_state_shared_building_slots = 2
-						add_building_construction = {
-							type = arms_factory
-							level = 2
-							instant_build = yes
-						}
-					}
-				}
-				else = {
-					every_core_state = {
-						limit = {
-							is_fully_controlled_by = ROOT
-							free_building_slots = {
-								building = arms_factory
-								size > 1
-								include_locked = yes
-							}
-						}
-						random_select_amount = 2
-						add_extra_state_shared_building_slots = 1
-						add_building_construction = {
-							type = arms_factory
-							level = 1
-							instant_build = yes
-						}
-					}
-				}
 			}
 			ELSE = {
 				custom_effect_tooltip = available_designer
@@ -12822,51 +12768,6 @@ focus_tree = {
 			IF = { 
 				limit = {
 					has_dlc = "Arms Against Tyranny"
-				}
-				mio:CHI_sinaw_organization_sea = {
-					add_mio_size = 2
-					add_mio_funds_gain_factor = 0.25
-					add_mio_research_bonus = 0.05
-				}
-				custom_effect_tooltip = generic_skip_one_line_tt
-				if = {
-					limit = {
-						600 = { # Jiangxi
-							is_fully_controlled_by = ROOT
-							free_building_slots = {
-								building = arms_factory
-								size > 0
-								include_locked = yes
-							}
-						}
-					}
-					600 = {
-						add_extra_state_shared_building_slots = 2
-						add_building_construction = {
-							type = arms_factory
-							level = 2
-							instant_build = yes
-						}
-					}
-				}
-				else = {
-					every_core_state = {
-						limit = {
-							is_fully_controlled_by = ROOT
-							free_building_slots = {
-								building = arms_factory
-								size > 0
-								include_locked = yes
-							}
-						}
-						random_select_amount = 2
-						add_extra_state_shared_building_slots = 1
-						add_building_construction = {
-							type = arms_factory
-							level = 1
-							instant_build = yes
-						}
-					}
 				}
 			}
 			ELSE = {
@@ -14707,10 +14608,6 @@ focus = CHI_long_range }
 			IF = {
 				limit = {
 					has_dlc = "Arms Against Tyranny"
-				}
-				custom_effect_tooltip = generic_skip_one_line_tt
-				mio:CHI_hanyan_arsenal_organization_sea = {
-					add_mio_size = 1
 				}
 			}
 			ELSE = {
