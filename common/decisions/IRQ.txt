@@ -72,24 +72,26 @@ IRQ_arab_free_legion_cat = {
 			}
 			NOT = { has_country_flag = IRQ_recruiting_arab_legion }
 			
-			has_equipment = {
-				infantry_equipment > 1999
-			}	
 		}
 
 		target_root_trigger = {
 			original_tag = IRQ
-
 		}
+
 		state_target = yes
 		targets = { 292 455 454 677 553 907 448 458 459 461 293 294	658 765 656 }
+
 	    target_trigger = {   
 	    }
+
 	    on_map_mode = map_and_decisions_view 
+
 		custom_cost_trigger = {
 			command_power > 24.9
+			has_equipment = { infantry_equipment > 1999 }
 		}
-		custom_cost_text = BRA_decision_cost_cangaceiro
+
+		custom_cost_text = decision_cost_cp_25_ie_2000
 		
 		fire_only_once = yes
 		days_remove = 30
@@ -141,7 +143,7 @@ greater_iraq_decision_cat = {
 
 		target_root_trigger = { original_tag = IRQ }
 
-		state_target = any_owned_state
+		state_target = any_controlled_state
 	    
 	    target_trigger = {
 	        FROM = {
@@ -160,7 +162,7 @@ greater_iraq_decision_cat = {
 	    on_map_mode = map_and_decisions_view 
 	    cost = 50		
 		fire_only_once = yes
-		days_remove = 30
+		days_remove = 14 
 		complete_effect = {
 			hidden_effect = {
 				set_country_flag = { flag = IRQ_coring_state_in_progress value = 1 days = 31 }
@@ -569,4 +571,132 @@ IRQ_flood_the_plains_cat = {
 		}
 
 	}
+}
+
+KUR_syrian_border_skrimish_cat = {
+	
+	KUR_syrian_border_skrimish_decision = {
+		icon = border_war
+
+		allowed = {
+			original_tag = IRQ
+		}
+
+		visible = {
+			has_completed_focus = IRQ_kurdish_reject_ankara_treaty
+			676 = {
+				is_controlled_by = IRQ
+			}
+		}
+
+		available = {
+			680 = {
+				owner = {
+					NOT = {
+						has_war_with = IRQ
+						is_in_faction_with = IRQ
+						has_non_aggression_pact_with = IRQ
+						is_puppet_of = IRQ
+					}
+				}
+			}
+		}
+
+		
+
+		highlight_states = {
+	 		highlight_state_targets = {
+				state = 676
+				state = 680
+			} 
+		}
+		
+		fire_only_once = yes
+
+		cost = 50 
+
+		complete_effect = {
+
+			activate_mission = IRQ_march_on_syrian_kurdistan_mission
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+
+			start_border_war = {
+				change_state_after_war = no #overrides the transfer of state at the end of war
+				combat_width = 180 #combat width for border war
+				minimum_duration_in_days = 40 #minimum duration for combat
+				attacker = {
+					on_win = IRQ_political_events.77
+					on_lose = IRQ_political_events.78
+					on_cancel = IRQ_political_events.78
+					state = 676 # state to start border war
+					num_provinces = 2 #number of provinces we want border war to be
+					
+					leader_score = { # Optional score for selecting a leader 
+						base = 1
+						modifier = {
+						    skill > 2
+						    factor = 5
+						}
+						modifier = {
+						    skill > 3
+						    factor = 10
+						}
+					}
+					
+					dig_in_factor = 0 #dig in modifier factor (default value: 1.0)
+					terrain_factor = 0 #terrain modifier factor(default value: 1.0)
+				}
+				
+				defender = {
+					state = 680 # state to start border war
+					num_provinces = 2 #number of provinces we want border war to be
+					on_lose = IRQ_political_events.77
+					on_win = IRQ_political_events.78
+					on_cancel = IRQ_political_events.78
+				}
+			}
+	
+		}
+	}
+
+	IRQ_march_on_syrian_kurdistan_mission = {
+		icon = border_war
+		
+		allowed = { always = no }
+
+		available = {
+			hidden_trigger = { always = no }
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 676
+				state = 680
+			}
+		}
+
+		days_mission_timeout = 120
+
+		cancel_trigger = {
+			680 = {	
+				is_fully_controlled_by = ROOT
+			}
+		}
+
+		cancel_effect = {
+			effect_tooltip = {
+				country_event = { id = IRQ_political_events.77 }
+				transfer_state = 680
+			}
+		}
+
+		timeout_effect = { #Fails
+			cancel_border_war = {
+				attacker = 676
+				defender = 680
+			}
+		}
+	}
+
 }

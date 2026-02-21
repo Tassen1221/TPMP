@@ -210,6 +210,24 @@ ideas = {
 			}
 		}
 
+		PHI_sea_of_cobalt_idea = {
+			picture = PRC_china_national_nuclear_corporation
+			name = PHI_sea_of_cobalt
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			modifier = {
+				sp_tag_nuclear_warfare_speed_factor = 0.10
+				production_speed_nuclear_reactor_factor = 0.25
+				nuclear_production_factor = 0.10
+			}
+		}
+
 		PHI_cobalt_supremacy_idea = {
 			picture = PRC_china_national_nuclear_corporation
 			allowed = {
@@ -223,6 +241,7 @@ ideas = {
 			modifier = {
 				sp_tag_nuclear_warfare_speed_factor = 0.10
 				production_speed_nuclear_reactor_factor = 0.50
+				nuclear_production_factor = 0.25
 			}
 		}
 
@@ -890,6 +909,10 @@ ideas = {
 			visible = {
 			}
 
+			research_bonus = {
+				industry = 0.10
+			}
+
 			cost = 100
 					
 			traits = { railway_company } 
@@ -912,6 +935,10 @@ ideas = {
 			}
 
 			visible = {
+			}
+
+			research_bonus = {
+				electronics = 0.10
 			}
 
 			cost = 100

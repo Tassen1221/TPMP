@@ -5345,26 +5345,6 @@ on_actions = {
 			}
 		}
 	}
-	
-	# root is the state that was dropped into
-	# from is the dropping country
-	# this differs from on_paradrop in that it is run once per paradrop, not once per unit dropped
-	on_units_paradropped_in_state = {
-		effect = {
-			if = {
-				limit = { 
-					FROM = { has_tech = special_forces_doctrine_5c } 
-					NOT = { 
-						has_state_flag = {
-						    flag = para_drop_effect
-						    value = 0
-						}
-					}
-				}
-				SF_PARA_combat_effect = yes
-			}
-		}
-	}
 
 	on_peaceconference_started = {
 		effect = {
