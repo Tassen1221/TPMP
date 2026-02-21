@@ -109,7 +109,7 @@ division_template = {
 }
 division_template = {
 	name = "Ginrinbutai"		#This template covers the Bicycle Detachments nicknamed the Silver Wheel Units 
-	division_names_group = JAP_INF_01
+	division_names_group = JAP_BIC_01
 	regiments = {
 		bicycle_battalion = { x = 0 y = 0 }
 		bicycle_battalion = { x = 0 y = 1 }
@@ -158,7 +158,7 @@ units = {
 		location = 12446 #Toyohara
 		division_template = "Dokuritsu Konsei Ryodan"
 		start_equipment_factor = 0.8
-		force_equipment_variants = { light_tank_chassis_1936 = { owner = JAP version_name = "Type 94 Tankette" } }
+		force_equipment_variants = { light_tank_chassis_1 = { owner = JAP version_name = "Type 94 Tankette" } }
 	}
 
 	#Chuo Homengun - East Japan Army
@@ -535,7 +535,7 @@ units = {
 		}
 		location = 12469
 		division_template = "Kihei Shidan"
-		force_equipment_variants = { line_infantry_equipment_0 = { owner = "JAP" } }
+		force_equipment_variants = { line_infantry_equipment_1 = { owner = "JAP" } }
 		start_experience_factor = 0.2
 	}
 	division = { # "2 Mouko Kiheishidan"
@@ -545,7 +545,7 @@ units = {
 		}
 		location = 12469
 		division_template = "Kihei Shidan"
-		force_equipment_variants = { line_infantry_equipment_0 = { owner = "JAP" } }
+		force_equipment_variants = { line_infantry_equipment_1 = { owner = "JAP" } }
 		start_experience_factor = 0.2
 	}
 	division = { # "3 Mouko Kiheishidan"
@@ -555,7 +555,7 @@ units = {
 		}
 		location = 7812
 		division_template = "Kihei Shidan"
-		force_equipment_variants = { line_infantry_equipment_0 = { owner = "JAP" } }
+		force_equipment_variants = { line_infantry_equipment_1 = { owner = "JAP" } }
 		start_experience_factor = 0.2
 	}
 	division = { # "4 Mouko Kiheishidan"
@@ -565,7 +565,7 @@ units = {
 		}
 		location = 7812
 		division_template = "Kihei Shidan"
-		force_equipment_variants = { line_infantry_equipment_0 = { owner = "JAP" } }
+		force_equipment_variants = { line_infantry_equipment_1 = { owner = "JAP" } }
 		start_experience_factor = 0.2
 	}
 	division = { # "5 Mouko Kiheishidan"
@@ -575,7 +575,7 @@ units = {
 		}
 		location = 10429
 		division_template = "Kihei Shidan"
-		force_equipment_variants = { line_infantry_equipment_0 = { owner = "JAP" } }
+		force_equipment_variants = { line_infantry_equipment_1 = { owner = "JAP" } }
 		start_experience_factor = 0.2
 	}
 	division = { # "6 Mouko Kiheishidan"
@@ -585,7 +585,7 @@ units = {
 		}
 		location = 10429
 		division_template = "Kihei Shidan"
-		force_equipment_variants = { line_infantry_equipment_0 = { owner = "JAP" } }
+		force_equipment_variants = { line_infantry_equipment_1 = { owner = "JAP" } }
 		start_experience_factor = 0.2
 	}
 	division = { # "7 Mouko Kiheishidan"
@@ -595,7 +595,7 @@ units = {
 		}
 		location = 3978
 		division_template = "Kihei Shidan"
-		force_equipment_variants = { line_infantry_equipment_0 = { owner = "JAP" } }
+		force_equipment_variants = { line_infantry_equipment_1 = { owner = "JAP" } }
 		start_experience_factor = 0.2
 	}
 	division = { # "8 Mouko Kiheishidan"
@@ -605,7 +605,7 @@ units = {
 		}
 		location = 3978
 		division_template = "Kihei Shidan"
-		force_equipment_variants = { line_infantry_equipment_0 = { owner = "JAP" } }
+		force_equipment_variants = { line_infantry_equipment_1 = { owner = "JAP" } }
 		start_experience_factor = 0.2
 	}
 
@@ -629,7 +629,7 @@ units = {
 		location = 3900 #East Hebei Autonomous Council
 		division_template = "Dokuritsu Konsei Ryodan"
 		start_experience_factor = 0.3
-		force_equipment_variants = { light_tank_chassis_1936 = { owner = JAP version_name = "Type 94 Tankette" } }
+		force_equipment_variants = { light_tank_chassis_1 = { owner = JAP version_name = "Type 94 Tankette" } }
 	}
 	division = { # "11 Dokuritsu Konsei Ryodan"
 		division_name = {
@@ -639,7 +639,7 @@ units = {
 		location = 11822 #East Hebei Autonomous Council
 		division_template = "Dokuritsu Konsei Ryodan"
 		start_experience_factor = 0.3
-		force_equipment_variants = { light_tank_chassis_1936 = { owner = JAP version_name = "Type 94 Tankette" } }
+		force_equipment_variants = { light_tank_chassis_1 = { owner = JAP version_name = "Type 94 Tankette" } }
 	}
 
 	#2 Homengun - 2nd Field Army
@@ -705,7 +705,7 @@ instant_effect = {
 
 	add_equipment_production = {
 		equipment = {
-			type = light_tank_chassis_1936
+			type = light_tank_chassis_1
 			creator = JAP 
 			version_name = "Type 94 Tankette"
 		}
@@ -717,7 +717,7 @@ instant_effect = {
 
 	add_equipment_production = {
 		equipment = {
-			type = medium_tank_chassis_1936
+			type = medium_tank_chassis_0
 			creator = JAP 
 			version_name = "Type 89 I-Go"
 		}
@@ -742,8 +742,10 @@ instant_effect = {
 		equipment = {
 			type = train_equipment_1
 			creator = JAP
+		}
 		requested_factories = 1
 		progress = 0.6
+		efficiency = 40
 	}
 
 }

@@ -398,6 +398,73 @@ ideas = {
 			}
 		}
 
+		KHM_anti_communist_campaign = {
+			allowed = { always = no }
+
+			name = tsr_anti_communist_campaign
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			picture =  generic_communism_banned
+
+			removal_cost = -1
+
+			modifier = {
+				communism_drift = -0.05
+			}
+			targeted_modifier = {
+				tag = PRC
+				attack_bonus_against = 0.05
+				defense_bonus_against = 0.05
+			}
+			targeted_modifier = {
+				tag = SIK
+				attack_bonus_against = 0.05
+				defense_bonus_against = 0.05
+			}
+		}
+
+		XSM_wool_and_hide_bureau = {
+			removal_cost = -1
+			picture = generic_agrarian_society 
+
+			allowed = {
+ 				always = no
+ 			}
+
+ 			available = {
+ 				always = yes
+			}
+
+ 			modifier = {
+				consumer_goods_factor = -0.1
+				supply_combat_penalties_on_core_factor = -0.1
+				supply_consumption_factor = -0.1
+			}
+		}
+
+		XSM_salar_officers_idea = {
+			removal_cost = -1
+			picture = tur_kemalist_army_officers_limited_power_neutral 
+
+			allowed = {
+ 				always = no
+ 			}
+
+ 			available = {
+ 				always = yes
+			}
+
+ 			modifier = {
+				army_leader_cost_factor = -0.25 
+				army_leader_start_logistics_level = 1 
+				army_leader_start_attack_level = 1
+				army_core_defence_factor = 0.05
+			}
+		}
+
 		XSM_tsr_diarchy = {
 			allowed = { always = no }
 
@@ -602,6 +669,252 @@ ideas = {
 				tag = MAN
 				attack_bonus_against = 0.1
 			}
+		}
+
+		CHI_soviet_military_cooperation_idea = {
+
+			name = SIK_soviet_military_cooperation
+
+			allowed = {
+				always = no
+			}
+
+			picture = generic_communist_army
+
+			removal_cost = -1
+
+			cancel = {
+				has_war_with = SOV
+			}
+
+			modifier = {
+				experience_gain_army = 0.05
+				army_org_factor = 0.05
+				custom_modifier_tooltip = SIK_if_war_with_sov_this_disappears_tt
+			}
+
+		}
+
+		XSM_new_ninghai_army_idea = {
+			allowed = { always = no }
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			picture = tur_coordinated_balkan_armed_forces
+
+			removal_cost = -1
+
+			modifier = {
+				conscription_factor = 0.1
+				army_org_factor = 0.05
+			}
+
+			targeted_modifier = {
+				tag = TIB
+				attack_bonus_against = 0.1
+			}
+		}
+
+		GXC_uneasy_minds_idea = {
+			allowed = { always = no }
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			picture = chi_war_of_resistance
+
+			removal_cost = -1
+
+			modifier = {
+				political_power_factor = -0.05
+				stability_factor = -0.1
+			}
+
+		}
+
+		CHI_warlord_looting_idea = {
+			allowed = { always = no }
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			picture = CHI_neglected_countryside
+
+			removal_cost = -1
+
+			modifier = {
+				consumer_goods_factor = 0.1 
+				production_speed_buildings_factor = -0.05
+				army_morale_factor = 0.05
+			}
+
+		}
+
+		YUN_the_democratic_fortress_idea = {
+
+			name = YUN_the_democratic_fortress
+
+			allowed = { 
+				original_tag = YUN 
+			}
+
+			allowed_civil_war = {
+				NOT = {
+					has_government = fascism
+					has_government = communism
+				}
+			}
+
+			cancel = {
+				NOT = {
+					has_country_leader = {
+						ruling_only = yes
+						character = YUN_long_yun
+					}
+				}
+			}
+
+			picture = YUG_federal_defense_council
+
+			removal_cost = -1
+
+			modifier = {
+				political_power_factor = 0.05
+				stability_factor = 0.1
+				enemy_justify_war_goal_time = 0.1 
+				drift_defence_factor = 0.15
+				custom_modifier_tooltip = YUN_will_be_removed_if_no_long_yun_tt
+			}
+
+		}
+
+		YUN_the_democratic_fortress_idea_2 = {
+
+			name = YUN_the_democratic_fortress
+			
+			allowed = { 
+				original_tag = YUN 
+			}
+
+			allowed_civil_war = {
+				NOT = {
+					has_government = fascism
+					has_government = communism
+				}
+			}
+
+			cancel = {
+				NOT = {
+					has_country_leader = {
+						ruling_only = yes
+						character = YUN_long_yun
+					}
+				}
+			}
+
+			picture = YUG_federal_defense_council
+
+			removal_cost = -1
+
+			modifier = {
+				political_power_factor = 0.1
+				stability_factor = 0.15
+				enemy_justify_war_goal_time = 0.15
+				drift_defence_factor = 0.15
+				production_speed_buildings_factor = 0.05
+				consumer_goods_factor = -0.05
+				custom_modifier_tooltip = YUN_will_be_removed_if_no_long_yun_tt
+			}
+
+		}
+
+		YUN_the_democratic_fortress_idea_3 = {
+
+			name = YUN_the_democratic_fortress
+			
+			allowed = { 
+				original_tag = YUN 
+			}
+
+			allowed_civil_war = {
+				NOT = {
+					has_government = fascism
+					has_government = communism
+				}
+			}
+
+			cancel = {
+				NOT = {
+					has_country_leader = {
+						ruling_only = yes
+						character = YUN_long_yun
+					}
+				}
+			}
+
+			picture = YUG_federal_defense_council
+
+			removal_cost = -1
+
+			modifier = {
+				political_power_factor = 0.1
+				stability_factor = 0.15
+				enemy_justify_war_goal_time = 0.15
+				drift_defence_factor = 0.25
+				production_speed_buildings_factor = 0.05
+				consumer_goods_factor = -0.05
+				research_speed_factor = 0.08
+				custom_modifier_tooltip = YUN_will_be_removed_if_no_long_yun_tt
+			}
+
+		}
+
+		YUN_the_democratic_fortress_idea_4 = {
+
+			name = YUN_the_democratic_fortress
+			
+			allowed = { 
+				original_tag = YUN 
+			}
+
+			allowed_civil_war = {
+				NOT = {
+					has_government = fascism
+					has_government = communism
+				}
+			}
+
+			cancel = {
+				NOT = {
+					has_country_leader = {
+						ruling_only = yes
+						character = YUN_long_yun
+					}
+				}
+			}
+
+			picture = YUG_federal_defense_council
+
+			removal_cost = -1
+
+			modifier = {
+				political_power_factor = 0.1
+				stability_factor = 0.15
+				enemy_justify_war_goal_time = 0.15
+				drift_defence_factor = 0.25
+				production_speed_buildings_factor = 0.1
+				consumer_goods_factor = -0.05
+				research_speed_factor = 0.08
+				conscription_factor = 0.1
+				army_core_defence_factor = 0.15
+				war_support_factor = 0.1
+				custom_modifier_tooltip = YUN_will_be_removed_if_no_long_yun_tt
+			}
+
 		}
 
 
