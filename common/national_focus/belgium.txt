@@ -1281,13 +1281,6 @@ focus_tree = {
 				limit = {
 					has_dlc = "Arms Against Tyranny"
 				}
-				add_potential_special_forces_tree = yes
-				add_doctrine_cost_reduction = {
-					name = BEL_belgian_special_forces
-					cost_reduction = 0.25
-					uses = 1
-					category = cat_special_forces_doctrine
-				}
 			}
 			show_unit_leaders_tooltip = BEL_eddy_blondeel
 		}
@@ -2110,7 +2103,7 @@ focus_tree = {
 
 		relative_position_id = BEL_government_resigns
 
-		search_filters = { FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_COMPLETED_BY_EVENT }
 			
 		x = 2
 		y = 1
@@ -2248,7 +2241,7 @@ focus_tree = {
 
 		relative_position_id = BEL_royal_intervention
 
-		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL FOCUS_FILTER_COMPLETED_BY_EVENT }
 			
 		x = -2
 		y = 1
@@ -2468,11 +2461,19 @@ focus_tree = {
 
 				custom_effect_tooltip = generic_skip_one_line_tt
 
-				create_faction = BEL_benelux_union_faction
+				create_faction_from_template = {
+					template = faction_template_defensive_democratic
+					name = BEL_benelux_union_faction
+					icon = GFX_faction_logo_generic_13
+				}
 			}
 
 			ELSE = {
-				create_faction = BEL_benelux_union_faction
+				create_faction_from_template = {
+					template = faction_template_defensive_democratic
+					name = BEL_benelux_union_faction
+					icon = GFX_faction_logo_generic_13
+				}
 			}
 			
 
@@ -2603,11 +2604,19 @@ focus_tree = {
 
 				custom_effect_tooltip = generic_skip_one_line_tt
 
-				create_faction = BEL_european_union
+				create_faction_from_template = {
+					template = faction_template_european_unity
+					name = BEL_european_union
+					icon = GFX_faction_logo_eu
+				}
 			}
 
 			ELSE = {
-				create_faction = BEL_european_union
+				create_faction_from_template = {
+					template = faction_template_european_unity
+					name = BEL_european_union
+					icon = GFX_faction_logo_eu
+				}
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
@@ -2680,7 +2689,7 @@ focus_tree = {
 
 		mutually_exclusive = { focus = BEL_paul_emile_janson }	
 
-		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL_CHARACTER }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL_CHARACTER FOCUS_FILTER_COMPLETED_BY_EVENT }
 			
 		x = 3
 		y = 1
@@ -3983,6 +3992,8 @@ focus = {
 
 		search_filters = { FOCUS_FILTER_POLITICAL }
 
+		will_lead_to_war_with = FRA
+
 		x = -6
 		y = 1
 	
@@ -4038,7 +4049,11 @@ focus = {
 	
 		completion_reward = {
 			set_rule = { can_create_factions = yes }
-			create_faction = BEL_pride_of_the_golden_lion
+			create_faction_from_template = {
+				template = faction_template_european_dominance
+				name = BEL_pride_of_the_golden_lion
+				icon = GFX_faction_logo_generic_fascist
+			}
 		}
 
 	}
@@ -4674,6 +4689,7 @@ focus = {
 			}
 			
 		}
+		enable_automatic_bypass = no
 	
 		completion_reward = {
 
@@ -5223,7 +5239,12 @@ focus = {
 	
 		completion_reward = {
 
-			complete_special_project = sp:sp_land_stronghold_network
+			IF = {
+				limit = {
+					not = { is_special_project_completed = sp:sp_land_stronghold_network }
+				}
+				complete_special_project = sp:sp_land_stronghold_network
+			}
 
 			IF = {
 				limit = {
@@ -5259,7 +5280,7 @@ focus = {
 
 		relative_position_id = BEL_government_resigns	
 
-		search_filters = { FOCUS_FILTER_POLITICAL }		
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_COMPLETED_BY_EVENT }		
 
 		x = 23
 		y = 1
@@ -5994,11 +6015,19 @@ focus = {
 
 				custom_effect_tooltip = generic_skip_one_line_tt
 
-				create_faction = BEL_european_union
+				create_faction_from_template = {
+					template = faction_template_european_unity
+					name = BEL_european_union
+					icon = GFX_faction_logo_eu
+				}
 			}
 
 			ELSE = {
-				create_faction = BEL_european_union
+				create_faction_from_template = {
+					template = faction_template_european_unity
+					name = BEL_european_union
+					icon = GFX_faction_logo_eu
+				}
 			}
 			
 
@@ -7992,21 +8021,6 @@ focus = {
 				limit = {
 					has_dlc = "Arms Against Tyranny"
 				}
-				add_equipment_subsidy = {
-					cic = 1000
-					equipment_type = small_plane_airframe
-					seller_tags = { USA ENG FRA ITA GER SOV HOL POL } 
-				}
-				add_equipment_subsidy = {
-					cic = 1000
-					equipment_type = large_plane_airframe
-					seller_tags = { USA ENG FRA ITA GER SOV HOL POL } 
-				}
-				add_equipment_subsidy = {
-					cic = 1000
-					equipment_type = medium_plane_airframe
-					seller_tags = { USA ENG FRA ITA GER SOV HOL POL } 
-				}
 			}
 			else = {
 				add_ideas = BEL_license_air_idea
@@ -8380,7 +8394,6 @@ focus = {
 
 			IF = {
 				limit = { has_dlc = "Arms Against Tyranny"}
-
 			}
 
 			ELSE = {

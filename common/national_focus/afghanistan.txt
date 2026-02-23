@@ -278,7 +278,7 @@ focus_tree = {
 					level = 1
 					instant_build = yes
 					province = {
-						id = 12769
+						id = 10852
 					}
 				}
 			}
@@ -913,7 +913,6 @@ focus_tree = {
 				limit = {
 					has_dlc = "Arms Against Tyranny"
 				}
-custom_effect_tooltip = generic_skip_one_line_tt
 			}
 
 			random_owned_controlled_state = {
@@ -1613,13 +1612,6 @@ custom_effect_tooltip = generic_skip_one_line_tt
 				limit = {
 					has_dlc = "Arms Against Tyranny"
 				}
-				add_doctrine_cost_reduction = {
-					name = AFG_mountain_training
-					cost_reduction = 0.25
-					uses = 1
-					category = cat_special_forces_doctrine
-				}
-				custom_effect_tooltip = generic_skip_one_line_tt
 			}
 
 			IF = {
@@ -1667,13 +1659,6 @@ custom_effect_tooltip = generic_skip_one_line_tt
 				limit = {
 					has_dlc = "Arms Against Tyranny"
 				}
-				add_doctrine_cost_reduction = {
-					name = AFG_mountain_training
-					cost_reduction = 0.25
-					uses = 1
-					category = cat_special_forces_doctrine
-				}
-				custom_effect_tooltip = generic_skip_one_line_tt
 			}
 			IF = {
 				limit = {
@@ -1938,8 +1923,8 @@ custom_effect_tooltip = generic_skip_one_line_tt
 				custom_effect_tooltip = AFG_quami_intro_tt
 			}
 			add_to_variable = { 
-				AFG_army_supply_factor = 0.05 
-				tooltip = supply_factor_tt
+				AFG_army_supply_consumption_factor = -0.05 
+				tooltip = supply_consumption_factor_tt
 			}
 			add_to_variable = { 
 				AFG_army_supply_combat_penalties_on_core_factor = -0.15 
@@ -2270,12 +2255,6 @@ custom_effect_tooltip = generic_skip_one_line_tt
 				limit = {
 					has_dlc = "Arms Against Tyranny"
 				}
-				add_equipment_subsidy = {
-					cic = 500
-					equipment_type = light_tank_chassis
-					seller_tags = { USA JAP ENG FRA ITA GER SOV } 
-				}
-				custom_effect_tooltip = generic_skip_one_line_tt
 			}
 
 			IF = {
@@ -2345,12 +2324,6 @@ custom_effect_tooltip = generic_skip_one_line_tt
 				limit = {
 					has_dlc = "Arms Against Tyranny"
 				}
-				add_equipment_subsidy = {
-					cic = 500
-					equipment_type = small_plane_airframe
-					seller_tags = { USA JAP ENG FRA ITA GER SOV } 
-				}
-				custom_effect_tooltip = generic_skip_one_line_tt
 			}
 			ELSE = {
 				custom_effect_tooltip = SMB_purchase_aircraft_tt
@@ -2479,27 +2452,6 @@ custom_effect_tooltip = generic_skip_one_line_tt
 				limit = {
 					has_dlc = "Arms Against Tyranny"
 				}
-				add_equipment_subsidy = {
-					cic = 500
-					equipment_type = infantry_equipment
-					seller_tags = { ENG FRA GER ITA SOV JAP USA } 
-				}
-				add_equipment_subsidy = {
-					cic = 500
-					equipment_type = artillery_equipment
-					seller_tags = { ENG FRA GER ITA SOV JAP USA } 
-				}
-				custom_effect_tooltip = generic_skip_one_line_tt
-				add_equipment_to_stockpile = { 
-					type = artillery_equipment 
-					amount = 300  
-					producer = AFG
-				}
-				add_equipment_to_stockpile = { 
-					type = infantry_equipment 
-					amount = 500  
-					producer = ITA
-				}
 			}
 			ELSE = {
 				add_equipment_to_stockpile = { 
@@ -2540,22 +2492,6 @@ custom_effect_tooltip = generic_skip_one_line_tt
 				limit = {
 					has_dlc = "Arms Against Tyranny"
 				}
-				add_equipment_subsidy = {
-					cic = 500
-					equipment_type = small_plane_airframe
-					seller_tags = { USA JAP ENG FRA ITA GER SOV } 
-				}
-				add_equipment_subsidy = {
-					cic = 500
-					equipment_type = large_plane_airframe
-					seller_tags = { USA JAP ENG FRA ITA GER SOV } 
-				}
-				add_equipment_subsidy = {
-					cic = 500
-					equipment_type = medium_plane_airframe
-					seller_tags = { USA JAP ENG FRA ITA GER SOV } 
-				}
-				custom_effect_tooltip = generic_skip_one_line_tt
 			}
 
 			IF = {
@@ -2768,7 +2704,7 @@ custom_effect_tooltip = generic_skip_one_line_tt
 				name = AFG_research_bonus_1
 				bonus = 1.0
 				uses = 2
-				category = cl_tech
+				category = ca_tech
 				category = dd_tech
 			}
 		}
@@ -3296,6 +3232,7 @@ custom_effect_tooltip = generic_skip_one_line_tt
 		}
 		available = {
 			is_subject = no
+			has_civil_war = no
 		}
 		
 		search_filters = { FOCUS_FILTER_POLITICAL }
@@ -3809,11 +3746,18 @@ custom_effect_tooltip = generic_skip_one_line_tt
 
 		completion_reward = {
 
-			set_rule = { 
-				can_create_factions = yes 
+			IF = {
+				limit = {
+					has_dlc = "No Compromise, No Surrender"
+				}
+				set_rule = { can_create_factions = yes }
+				create_faction_from_template = faction_template_AFG_united_islamic_world_faction
+				add_faction_initiative = 1
 			}
-
-			create_faction = AFG_united_islamic_world_faction
+			ELSE = {
+				set_rule = { can_create_factions = yes }
+				create_faction = AFG_united_islamic_world_faction
+			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
@@ -3882,7 +3826,7 @@ custom_effect_tooltip = generic_skip_one_line_tt
 						original_tag = BLC		
 						original_tag = IMO		
 						original_tag = KLT		
-						original_tag = KBD		
+						original_tag = KBK		
 						original_tag = DJI		
 						original_tag = HAR		
 						original_tag = SEN		
@@ -3892,7 +3836,14 @@ custom_effect_tooltip = generic_skip_one_line_tt
 						original_tag = VOL		
 						original_tag = GNA		
 						original_tag = XSM		
-						original_tag = SIK		
+						original_tag = SIK
+						original_tag = KHM
+						original_tag = GSM
+						original_tag = NXM
+						original_tag = KUM
+						original_tag = SAB
+						original_tag = BRN
+						original_tag = CHM		
 					}
 				}
 				hidden_effect = {
@@ -4732,6 +4683,7 @@ custom_effect_tooltip = generic_skip_one_line_tt
 					set_state_flag = AFG_empire_can_core_this_state_flag
 				}
 			}
+			custom_effect_tooltip = AFG_can_core_once_controlled_tt
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
@@ -5232,6 +5184,13 @@ custom_effect_tooltip = generic_skip_one_line_tt
 					set_state_flag = AFG_mughals_can_integrate_flag
 				}
 			}
+			KHM = {
+				every_core_state = {
+					add_claim_by = ROOT
+					set_state_flag = AFG_mughals_can_integrate_flag
+				}
+			}
+			custom_effect_tooltip = AFG_can_core_once_controlled_tt
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
@@ -5271,6 +5230,7 @@ custom_effect_tooltip = generic_skip_one_line_tt
             IF = {
                 limit = {
                     SIK = {
+                    	exists = yes
                         all_core_state = {
                             is_fully_controlled_by = PREV
                         }
@@ -5280,6 +5240,7 @@ custom_effect_tooltip = generic_skip_one_line_tt
                 create_wargoal = {
                     type = annex_everything
                     target = SIK
+                    expire = 0
                 }
             }
             ELSE = {
@@ -5296,11 +5257,25 @@ custom_effect_tooltip = generic_skip_one_line_tt
                                 create_wargoal = {
                                     type = annex_everything
                                     target = PREV.controller
+                                    expire = 0
                                 }
                             }
                         }
                     }
                 }
+            }
+
+            IF = {
+            	limit = {
+            		KHM = {
+            			exists = yes
+            		}
+            	}
+            	create_wargoal = {
+            	    type = annex_everything
+            	    target = KHM
+            	    expire = 0
+            	}
             }
 			
 		}
@@ -5489,6 +5464,7 @@ custom_effect_tooltip = generic_skip_one_line_tt
         			}
         		}
         	}
+        	custom_effect_tooltip = AFG_can_core_once_controlled_tt
 			
 		}
 
@@ -6238,6 +6214,7 @@ custom_effect_tooltip = generic_skip_one_line_tt
 		}
 		available = {
 			is_subject = no
+			has_civil_war = no
 			fascism > 0.2
 		}
 
@@ -7006,9 +6983,14 @@ custom_effect_tooltip = generic_skip_one_line_tt
 		available = {
 			is_subject = no
 		}
-		
 		bypass = {
-			is_subject = yes
+			OR = {
+				is_subject = yes
+				any_country_with_original_tag = {
+					original_tag_to_check = SOU
+					exists = no 
+				}
+			}
 		}
 		search_filters = { FOCUS_FILTER_ANNEXATION } 
 		completion_reward = {
@@ -7124,6 +7106,16 @@ custom_effect_tooltip = generic_skip_one_line_tt
 			is_subject = no
 			RAJ = {
 				exists = yes
+			}
+		}
+
+		bypass = {
+			OR = {
+				is_subject = yes
+				any_country_with_original_tag = {
+					original_tag_to_check = RAJ
+					exists = no 
+				}
 			}
 		}
 		
@@ -7359,7 +7351,10 @@ custom_effect_tooltip = generic_skip_one_line_tt
 				limit = {
 					is_in_faction = no
 				}
-				create_faction = AFG_turko_persian_union
+				create_faction_from_template = {
+					template = faction_template_AFG_united_islamic_world_faction
+					name = AFG_turko_persian_union
+				}
 			}
 		}
 	}
@@ -8345,7 +8340,10 @@ custom_effect_tooltip = generic_skip_one_line_tt
 			}
 		}
 		available = {
-			is_in_faction = no
+			OR = {
+				is_in_faction = no
+				is_in_faction_with = GER
+			}
 			is_subject = no
 			OR = {
 				has_government = fascism
@@ -8488,8 +8486,10 @@ custom_effect_tooltip = generic_skip_one_line_tt
 			factor = 10
 		}
 		bypass = { 
-			is_in_faction_with = GER 
-			is_subject = yes
+			OR = {
+				is_in_faction_with = GER 
+				is_subject = yes
+			}
 		}
 		available = {
 			is_subject = no
@@ -8587,22 +8587,6 @@ custom_effect_tooltip = generic_skip_one_line_tt
 				limit = {
 					has_dlc = "Arms Against Tyranny"
 				}
-				add_equipment_subsidy = {
-					cic = 1000
-					equipment_type = infantry_equipment
-					seller_tags = { GER } 
-				}
-				add_equipment_subsidy = {
-					cic = 1000
-					equipment_type = artillery_equipment
-					seller_tags = { GER } 
-				}
-				add_equipment_subsidy = {
-					cic = 1000
-					equipment_type = light_tank_chassis
-					seller_tags = { GER } 
-				}
-				custom_effect_tooltip = generic_skip_one_line_tt
 			}
 			ELSE = {
 				add_equipment_to_stockpile = { 
@@ -9022,7 +9006,7 @@ custom_effect_tooltip = generic_skip_one_line_tt
 		x = -1
 		y = 2
 		relative_position_id = AFG_biding_our_time
-		mutually_exclusive = { focus = AFG_seek_british_investment }
+		#mutually_exclusive = { focus = AFG_seek_british_investment }
 
 		cost = 10
 
@@ -9040,6 +9024,12 @@ custom_effect_tooltip = generic_skip_one_line_tt
 		}
 
 		available = {
+			OR = {
+				NOT = {
+					has_completed_focus = AFG_seek_british_investment
+				}
+				has_completed_focus = AFG_expel_allied_nationals
+			}
 			GER = {
 				exists = yes
 				NOT = {
@@ -9080,7 +9070,7 @@ custom_effect_tooltip = generic_skip_one_line_tt
 		x = 1
 		y = 2
 		relative_position_id = AFG_biding_our_time
-		mutually_exclusive = { focus = AFG_placeholder_1 }
+		#mutually_exclusive = { focus = AFG_placeholder_1 }
 		cost = 10
 		ai_will_do = {
 			factor = 10
@@ -9096,6 +9086,12 @@ custom_effect_tooltip = generic_skip_one_line_tt
 		}
 
 		available = {
+			OR = {
+				NOT = {
+					has_completed_focus = AFG_placeholder_1
+				}
+				has_completed_focus = AFG_expel_axis_nationals
+			}
 			ENG = {
 				exists = yes
 				NOT = {
@@ -9193,11 +9189,11 @@ custom_effect_tooltip = generic_skip_one_line_tt
 		}
 		available = {
 		}
-		#allow_branch = {
-		#}
+		
 		search_filters = { FOCUS_FILTER_POLITICAL_CHARACTER }
 		completion_reward = {
-			#custom_effect_tooltip = "TODO_ASD: Decision system for changing country leader"
+			unlock_decision_tooltip = AFG_a_royal_successor_decision 
+			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = AFG_promote_the_counter_elite_tt
 			IF = {
 				limit = { has_character = AFG_shah_mahmud_khan }
@@ -9271,6 +9267,10 @@ custom_effect_tooltip = generic_skip_one_line_tt
 			factor = 10
 		}
 		available = {
+			has_completed_focus = AFG_placeholder_1
+			NOT = {
+				has_government = fascism
+			}
 			NOT = {
 				is_ally_with = GER
 			}
@@ -9297,6 +9297,13 @@ custom_effect_tooltip = generic_skip_one_line_tt
 			}
 			add_stability = 0.05
 
+			IF = {
+				limit = {
+					has_idea = AFG_fascist_influence
+				}
+				remove_ideas = AFG_fascist_influence
+			}
+
 		}
 
 	}
@@ -9318,6 +9325,10 @@ custom_effect_tooltip = generic_skip_one_line_tt
 			}
 		}
 		available = {
+			has_completed_focus = AFG_seek_british_investment
+			NOT = {
+				has_government = democratic
+			}
 			NOT = {
 				is_ally_with = ENG
 				is_ally_with = USA
@@ -9370,6 +9381,12 @@ custom_effect_tooltip = generic_skip_one_line_tt
 				}
 				#custom_effect_tooltip = AFG_ideology_on_the_rise_tt
 			}
+			IF = {
+				limit = {
+					has_idea = AFG_democratic_influence_2
+				}
+				remove_ideas = AFG_democratic_influence_2
+			}
 		}
 
 	}
@@ -9387,7 +9404,10 @@ custom_effect_tooltip = generic_skip_one_line_tt
 			factor = 10
 		}
 		available = {
-			is_in_faction = no
+			OR = {
+				is_in_faction = no
+				is_faction_leader = yes
+			}
 			has_army_manpower = { size > 120000 }
 			has_war_support > 0.40
 		}
@@ -9418,7 +9438,10 @@ custom_effect_tooltip = generic_skip_one_line_tt
 			}
 		}
 		available = {
-			is_in_faction = no
+			OR = {
+				is_in_faction = no
+				is_in_faction_with = ENG
+			}
 			is_subject = no
 			OR = {
 				has_government = democratic
@@ -10563,6 +10586,47 @@ custom_effect_tooltip = generic_skip_one_line_tt
 	}
 
 	focus = {
+		id = AFG_ally_the_young_afghans
+		icon = GFX_focus_AFG_revive_the_1923_constitution 
+		prerequisite = { focus = AFG_promote_the_counter_elite }
+		x = -4
+		y = 1
+		relative_position_id = AFG_promote_the_counter_elite
+		
+		cost = 5
+
+		ai_will_do = {
+			factor = 10
+		}
+
+		available = {
+			OR = {
+				has_government = neutrality
+				has_government = democratic
+			}
+		}
+		
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_POLITICAL_CHARACTER }
+
+		completion_reward = {
+			
+			add_timed_idea = {
+				idea = AFG_new_young_afghan_movement
+				days = 480
+			}	
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = AFG_abdul_hadi_dawi
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = AFG_soraya_tarzi
+
+		}
+
+	}
+
+	focus = {
 		id = AFG_parliamentary_democracy
 		icon = GFX_focus_AFG_parliamentary_democracy 
 		prerequisite = { focus = AFG_promote_the_counter_elite }
@@ -10576,6 +10640,7 @@ custom_effect_tooltip = generic_skip_one_line_tt
 		}
 
 		available = {
+			has_civil_war = no
 			democratic > 0.2
 			OR = {
 				is_subject = no
@@ -10643,6 +10708,9 @@ custom_effect_tooltip = generic_skip_one_line_tt
 					    		}
 					    	}
 					    }
+					    PREV.PREV = {
+					    	remove_ideas = AFG_counter_elite_on_the_rise
+					    }
 					}
 				}
 	
@@ -10652,6 +10720,11 @@ custom_effect_tooltip = generic_skip_one_line_tt
 						fascism = 0
 						communism = 0
 						democratic = 100
+					}
+					set_party_name = {
+						ideology = democratic
+						name = BRA_provisional_government
+						long_name = BRA_provisional_government_long
 					}
 					division_template = {
 						name = "Loyalist Militia"		
@@ -10760,6 +10833,12 @@ custom_effect_tooltip = generic_skip_one_line_tt
 				has_government = communism
 			}
 			has_civil_war = no
+			NOT = {
+				has_country_leader = {
+					ruling_only = yes 
+					character = AFG_provisional_government
+				}	
+			}
 		}
 		#allow_branch = {
 		#}
@@ -11247,6 +11326,7 @@ custom_effect_tooltip = generic_skip_one_line_tt
 		}
 
 		available = {
+			has_civil_war = no
 			communism > 0.2
 			OR = {
 				is_subject = no
@@ -11865,9 +11945,9 @@ custom_effect_tooltip = generic_skip_one_line_tt
 		}
 		available = {
 			#is_in_faction_with = SOU
-			any_state = {
+			any_owned_state = {
 				is_core_of = TAJ
-				is_owned_and_controlled_by = ROOT
+				is_controlled_by = ROOT
 			}
 		}
 		#allow_branch = {

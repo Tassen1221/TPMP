@@ -751,15 +751,24 @@ focus_tree = {
 		cost = 5
 
 		search_filters = {  }
+
 		completion_reward = {
+
 			add_stability = -0.1
 			add_war_support = 0.15
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+
 			set_rule = { CAN_DECLARE_WAR_ON_SAME_IDEOLOGY = yes }
 			set_rule = { can_only_justify_war_on_threat_country = no }
 			set_rule = { can_join_opposite_factions = yes }
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+
 			add_ideas = idea_PAR_emergency_powers
 
 		}
+
 	}
 
 	focus = {
@@ -1474,7 +1483,11 @@ focus_tree = {
 		mutually_exclusive = { }
 		cost = 10
 		search_filters = { FOCUS_FILTER_HISTORICAL }
+
 		completion_reward = {
+
+			set_rule = { can_join_factions = no }
+
 			custom_effect_tooltip = par_has_accepted_american_funds_tt
 			add_timed_idea = {
 				idea = idea_PAR_accepted_american_investment
@@ -1494,6 +1507,7 @@ focus_tree = {
 
 				leave_faction = yes
 			}
+
 		}
 	}
 
@@ -1725,7 +1739,11 @@ focus_tree = {
 		mutually_exclusive = { focus = PAR_join_the_axis focus = PAR_join_the_cominterm }
 		cost = 5
 		search_filters = {  }
+
 		completion_reward = {
+
+			set_rule = { can_join_factions = yes }
+
 			if = {
 				limit = {
 					ENG = { 

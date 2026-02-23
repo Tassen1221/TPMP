@@ -4393,11 +4393,25 @@ ideas = {
 					NOT = { has_country_flag = SOV_merge_tank_morozov_2_flag }
 					NOT = { has_country_flag = SOV_merge_tank_morozov_3_flag }
 				}
+				IF = {
+					limit = {
+						has_dlc = "No Compromise, No Surrender"
+						FROM = { original_tag = CHI }
+					}
+					FROM = { 
+						has_completed_focus = CHI_secure_the_soviet_border 
+						NOT = {
+							has_country_flag = SOV_accepted_Astrov
+							has_country_flag = SOV_accepted_OKMO
+						}
+					}
+				}	
 			}
 
 			available = {
-				if = {
+				IF = {
 					limit = {
+						NOT = { has_dlc = "No Compromise, No Surrender" }
 						OR = {
 							is_literally_china = yes
 							tag = MAN
@@ -4407,6 +4421,13 @@ ideas = {
 					NOT = {
 						has_war_with = SOV
 					}
+				}
+				IF = {
+					limit = {
+						has_dlc = "No Compromise, No Surrender" 
+						original_tag = CHI
+					}
+					has_country_flag = SOV_accepted_Morozov
 				}
 			}
 
@@ -4457,6 +4478,7 @@ ideas = {
 
 			allowed = {
 				original_tag = SOV
+
 			}
 
 			visible = {
@@ -4680,7 +4702,13 @@ ideas = {
 			picture = astrov_design_bureau
 
 			allowed = {
-				original_tag = SOV
+				OR = {
+					original_tag = SOV
+					AND = {
+						tag = CHI
+						has_dlc = "No Compromise, No Surrender"
+					}
+				}
 			}
 
 			visible = {
@@ -4688,6 +4716,28 @@ ideas = {
 					has_country_flag = SOV_merge_tank_astrov_1_flag
 					NOT = { has_country_flag = SOV_merge_tank_astrov_2_flag }
 					NOT = { has_country_flag = SOV_merge_tank_astrov_3_flag }
+				}
+				IF = {
+					limit = {
+						has_dlc = "No Compromise, No Surrender"
+						FROM = { original_tag = CHI }
+					}
+					FROM = { 
+						has_completed_focus = CHI_secure_the_soviet_border 
+						NOT = {
+							has_country_flag = SOV_accepted_Morozov
+							has_country_flag = SOV_accepted_OKMO
+						}
+					}
+				}
+			}
+			available = {
+				IF = {
+					limit = {
+						has_dlc = "No Compromise, No Surrender" 
+						original_tag = CHI
+					}
+					has_country_flag = SOV_accepted_Astrov
 				}
 			}
 
@@ -4934,7 +4984,13 @@ ideas = {
 			picture = okmo
 
 			allowed = {
-				original_tag = SOV
+				OR = {
+					original_tag = SOV
+					AND = {
+						tag = CHI
+						has_dlc = "No Compromise, No Surrender"
+					}
+				}
 			}
 
 			visible = {
@@ -4942,6 +4998,29 @@ ideas = {
 					has_country_flag = SOV_merge_tank_okmo_1_flag
 					NOT = { has_country_flag = SOV_merge_tank_okmo_2_flag }
 					NOT = { has_country_flag = SOV_merge_tank_okmo_3_flag }
+				}
+				IF = {
+					limit = {
+						has_dlc = "No Compromise, No Surrender"
+						FROM = { original_tag = CHI }
+					}
+					FROM = { 
+						has_completed_focus = CHI_secure_the_soviet_border 
+						NOT = {
+							has_country_flag = SOV_accepted_Morozov
+							has_country_flag = SOV_accepted_Astrov
+						}
+					}
+				}
+			}
+
+			available = {
+				IF = {
+					limit = {
+						has_dlc = "No Compromise, No Surrender" 
+						original_tag = CHI
+					}
+					has_country_flag = SOV_accepted_OKMO
 				}
 			}
 
@@ -10173,5 +10252,5 @@ ideas = {
 				industrial_capacity_dockyard = 0.05
 			}
 		}
-	}
+
 }

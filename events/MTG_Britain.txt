@@ -1,3 +1,7 @@
+﻿###########################
+# ENG Events
+###########################
+
 add_namespace = mtg_britain 
 
 # Abdication Crisis Edward VIII
@@ -381,7 +385,11 @@ country_event = {
 					CAN = { has_country_flag = ENG_abdication_crisis_dominion_will_leave }
 				}
 				CAN = {
-					create_faction = "ENG_commonwealth_of_nations"
+					create_faction_from_template = {
+						template = faction_template_allies
+						name = ENG_commonwealth_of_nations
+						icon = GFX_faction_logo_generic_2
+					}
 					if = {
 						limit = {
 							SAF = { has_country_flag = ENG_abdication_crisis_dominion_will_leave }
@@ -407,7 +415,11 @@ country_event = {
 					SAF = { has_country_flag = ENG_abdication_crisis_dominion_will_leave }
 				}
 				SAF = {
-					create_faction = "ENG_commonwealth_of_nations"
+					create_faction_from_template = {
+						template = faction_template_allies
+						name = ENG_commonwealth_of_nations
+						icon = GFX_faction_logo_generic_2
+					}
 					if = {
 						limit = {
 							SAF = { has_country_flag = ENG_abdication_crisis_dominion_will_leave }
@@ -427,7 +439,11 @@ country_event = {
 					AST = { has_country_flag = ENG_abdication_crisis_dominion_will_leave }
 				}
 				AST = {
-					create_faction = "ENG_commonwealth_of_nations"
+					create_faction_from_template = {
+						template = faction_template_allies
+						name = ENG_commonwealth_of_nations
+						icon = GFX_faction_logo_generic_2
+					}
 					if = {
 						limit = {
 							NZL = { has_country_flag = ENG_abdication_crisis_dominion_will_leave }
@@ -1096,7 +1112,11 @@ country_event = {
 			}
 			FROM = { set_autonomy = { target = CAN autonomy_state = autonomy_free } }
 			drop_cosmetic_tag = yes
-			create_faction = "ENG_commonwealth_of_nations"
+			create_faction_from_template = {
+				template = faction_template_allies
+				name = ENG_commonwealth_of_nations
+				icon = GFX_faction_logo_generic_2
+			}
 			if = {
 				limit = {
 					SAF = { has_country_flag = ENG_abdication_crisis_dominion_will_leave }
@@ -1143,7 +1163,11 @@ country_event = {
 					CAN = { NOT = { has_country_flag = ENG_abdication_crisis_dominion_will_leave } }
 					AST = { NOT = { has_country_flag = ENG_abdication_crisis_dominion_will_leave } }
 				}
-				create_faction = "ENG_commonwealth_of_nations"
+				create_faction_from_template = {
+					template = faction_template_allies
+					name = ENG_commonwealth_of_nations
+					icon = GFX_faction_logo_generic_2
+				}
 				if = {
 					limit = {
 						NZL = { has_country_flag = ENG_abdication_crisis_dominion_will_leave }
@@ -1178,7 +1202,11 @@ country_event = {
 					CAN = { NOT = { has_country_flag = ENG_abdication_crisis_dominion_will_leave } }
 					AST = { NOT = { has_country_flag = ENG_abdication_crisis_dominion_will_leave } }
 				}
-				create_faction = "ENG_commonwealth_of_nations"
+				create_faction_from_template = {
+					template = faction_template_allies
+					name = ENG_commonwealth_of_nations
+					icon = GFX_faction_logo_generic_2
+				}
 				if = {
 					limit = {
 						NZL = { has_country_flag = ENG_abdication_crisis_dominion_will_leave }
@@ -1239,7 +1267,11 @@ country_event = {
 				limit = {
 					CAN = { NOT = { has_country_flag = ENG_abdication_crisis_dominion_will_leave } }
 				}
-				create_faction = "ENG_commonwealth_of_nations"
+				create_faction_from_template = {
+					template = faction_template_allies
+					name = ENG_commonwealth_of_nations
+					icon = GFX_faction_logo_generic_2
+				}
 				if = {
 					limit = {
 						SAF = { has_country_flag = ENG_abdication_crisis_dominion_will_leave }
@@ -1567,7 +1599,9 @@ country_event = {
 	picture = GFX_report_event_generic_parliament
 
 	is_triggered_only = yes
-	
+	immediate = { 
+		hidden_effect = { set_country_flag = winston_achievement }
+	}
 	# Ok
 	option = {
 		name = mtg_britain.22.a
@@ -1748,7 +1782,11 @@ country_event = {
 			limit = {
 				NOT = { is_in_faction = yes }
 			}
-			create_faction = GER_central_powers_faction
+			create_faction_from_template = {
+				template = faction_template_GER_mitteleuropa_alliance
+				name = GER_central_powers_faction
+				icon = GFX_faction_logo_generic_13
+			}
 		}
 		FROM = { country_event = { id = mtg_britain.28 hours = 6 } }
 	}
@@ -2187,7 +2225,7 @@ country_event = {
 					limit = {
 						has_completed_focus = CAN_strengthen_the_commonwealth_ties
 					}
-					set_faction_name = "ENG_commonwealth_of_nations"
+					set_faction_name = ENG_commonwealth_of_nations
 					every_other_country = {
 						limit = {
 							NOT = { tag = SAF }
@@ -2244,7 +2282,7 @@ country_event = {
 		ai_chance = {
 			base = 0
 			modifier = {
-				add = 1
+				add = 2
 				OR = {
 					ITA_is_historical_ai = yes #Historical ITA has 50%-50% chances of accepting
 					ITA_is_alt_fascist_balbo_ai = yes
@@ -2255,11 +2293,11 @@ country_event = {
 		}
 
 		FROM = {
-			if = {
+			IF = {
 				limit = {
 					is_in_faction = no
 				}
-				create_faction = anglo_italian_pact
+				create_faction_from_template = faction_template_anglo_italian_pact
 			}
 			add_to_faction = ROOT
 			country_event = { id = mtg_britain.37 hours = 6 }
@@ -3297,6 +3335,8 @@ country_event = {
 				has_full_control_of_state = 671
 				owns_state = 286
 				has_full_control_of_state = 286
+				owns_state = 1017
+				has_full_control_of_state = 1017
 			}
 			release = VIN
 		}
@@ -3922,7 +3962,7 @@ country_event = {
 					has_country_flag = harry_pollitt
 				}
 				create_country_leader = {
-					name = "Harry Pollitt"
+					name = ENG_harry_pollitt
 					desc = "POLITICS_HARRY_POLLITT_DESC"
 					picture = GFX_portrait_Harry_Pollitt
 					expire = "1965.1.1"

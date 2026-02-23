@@ -367,12 +367,14 @@ set_technology = {
 	motorised_infantry = 1
 	artillery0_tech = 1
 	antiair0_tech = 1
-	
-	fleet_in_being = 1
 	fuel_silos = 1
 	fuel_refining = 1
 	basic_train = 1
 }
+
+set_grand_doctrine = grand_battleplan
+set_grand_doctrine = new_fleet_in_being
+
 if = {
 	limit = {
 		has_dlc = "La Resistance"
@@ -423,7 +425,6 @@ if = {
 		basic_battery = 1
 		basic_cruiser_armor_scheme = 1
 		basic_heavy_battery = 1
-		basic_medium_battery = 1
 		basic_light_battery = 1
 		basic_heavy_armor_scheme = 1
 		early_ship_hull_submarine = 1
@@ -436,7 +437,6 @@ if = {
 		basic_ship_hull_heavy = 1
 		mtg_transport = 1
 		coastal_defense_ships = 1
-		improved_airplane_launcher = 1
 	}
 	set_naval_oob = "ITA_1936_naval_mtg"
 }
@@ -619,18 +619,11 @@ if = {
 		infantrysupport2_tech = 1
 		tech_recon = 1
 
-		#doctrines
-
-		
-		battlefleet_concentration = 1
-		submarine_operations = 1
-		
 		#Air
-		
-		
-		
-		
-
+		#force_rotation = 1
+		#fighter_baiting = 1
+		#low_echelon_support = 1
+		#dispersed_fighting = 1
 
 		#electronics
 		electronic_mechanical_engineering = 1
@@ -653,6 +646,15 @@ if = {
 		concentrated_industry2 = 1
 		concentrated_industry3 = 1
 	}
+
+set_grand_doctrine = grand_battleplan
+set_grand_doctrine = new_fleet_in_being
+set_grand_doctrine = new_operational_integrity	
+set_sub_doctrine = defensive_postures
+add_mastery = {
+    amount = 100
+    sub_doctrine = defensive_postures
+}
 	
 	complete_special_project = {
 		project = sp:sp_air_radar
@@ -718,10 +720,6 @@ if = {
 	if = {
 		limit = {
 			has_dlc = "Man the Guns"
-		}
-		set_technology = {
-			improved_airplane_launcher = 1
-			
 		}
 		set_naval_oob = "ITA_1939_naval_mtg"
 	}

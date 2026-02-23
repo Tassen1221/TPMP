@@ -1457,7 +1457,10 @@ focus_tree = {
 						is_in_faction = no 
 					} 
 				}
-				create_faction = NORDIC_alliance_communist
+				create_faction_from_template = {
+					template = faction_template_world_revolution
+					name = NORDIC_alliance_communist
+				}
 				every_other_country = {
 					limit = {
 						NORDIC_is_nordic = yes 
@@ -1499,7 +1502,10 @@ focus_tree = {
 				}
 			}
 			else = {
-				create_faction = NOR_northern_international
+				create_faction_from_template = {
+					template = faction_template_world_revolution
+					name = NOR_northern_international
+				}
 				every_other_country = {
 					limit = {
 						has_government = communism 
@@ -1929,7 +1935,20 @@ focus_tree = {
 					is_in_faction = no 
 					NORDIC_alliance_created_already = no 
 				}
-				create_faction = NORDIC_alliance_democratic
+				IF = {
+					limit = {
+						has_dlc = "No Compromise, No Surrender"
+					}
+					set_rule = { can_create_factions = yes }
+					create_faction_from_template = faction_template_NORDIC_alliance_democratic
+					add_faction_initiative = 1
+					add_to_faction = FROM
+				}
+				ELSE = {
+					set_rule = { can_create_factions = yes }
+					create_faction = NORDIC_alliance_democratic
+					add_to_faction = FROM
+				}
 				complete_national_focus = NORDIC_form_joint_alliance
 			}
 		}
@@ -6317,7 +6336,10 @@ focus_tree = {
 					is_in_faction = no 
 					NORDIC_alliance_created_already = no 
 				}
-				create_faction = NORDIC_alliance_monarchist
+				create_faction_from_template = {
+					template = faction_template_DEN_nordic_cooperation_alliance
+					name = NORDIC_alliance_monarchist
+				}
 				complete_national_focus = NORDIC_form_joint_alliance
 			}
 			hidden_effect = { set_country_flag = NOR_included_in_generic_political }
@@ -6336,8 +6358,8 @@ focus_tree = {
 		relative_position_id = NOR_encourage_recruitment
 		cost = 10
 		available = {
-			any_state = {
-				is_owned_and_controlled_by = ROOT
+			any_owned_state = {
+				is_controlled_by = ROOT
 			}
 		}
 
@@ -9477,7 +9499,7 @@ focus_tree = {
 			add_to_variable = {
 				var = NOR.NOR_royal_navy_dmod_sortie_efficiency
 				value = 0.2
-				tooltip = CARRIER_SORTIE_EFFICIENCY_FACTOR_TT
+				tooltip = sortie_efficiency_tt
 			}
 
 		}

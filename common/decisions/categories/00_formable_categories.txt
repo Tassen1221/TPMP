@@ -269,6 +269,16 @@ form_majapahit_empire_category = {
 	picture = GFX_decision_cat_generic_majapahit_empire
 
 	allowed = {
+		OR = {
+			original_tag = INS # Indonesia
+			original_tag = MAL # Malaysia
+			original_tag = TML # Timor-leste
+			original_tag = SNG # Singapore
+			original_tag = WPG # West Papua
+			original_tag = SAR # Sarawak
+			original_tag = SAB # Sabah
+			original_tag = BRN # Brunei
+		}
 		has_dlc = "Waking the Tiger"
 	}
 }
@@ -612,6 +622,38 @@ germany_formable_category = {
 	}
 }
 
+greater_mongolia_category = {
+
+	icon = generic_formable_nations
+
+	picture = GFX_decision_cat_picture_form_greater_mongolia
+	
+	allowed = {
+		OR = {
+			original_tag = MON # Mongolia
+			original_tag = BYA # Buryatia
+			original_tag = MEN # Mengkukuo
+			original_tag = KUM # Kumul Khanate
+		}
+	}
+}
+
+greater_hui_state_category = {
+
+	icon = generic_formable_nations
+
+	picture = GFX_decision_cat_picture_form_united_hui_state
+	
+	allowed = {
+		OR = {
+			original_tag = XSM # Qinghai Ma 
+			original_tag = GSM # Gansu Ma
+			original_tag = KHM # Khotan Ma
+			original_tag = NXM # Ningxia Ma
+		}
+	}
+}
+
 neo_assyrian_empire_category = {
 
 	icon = generic_formable_nations
@@ -650,3 +692,13 @@ neo_mesopotamia_category = {
 	}
 }
 
+form_maphilindo_category = {
+
+	icon = generic_formable_nations
+	picture = GFX_decision_cat_picture_form_maphilindo
+
+	allowed = {
+		original_tag = PHI
+		has_dlc = "No Compromise, No Surrender"
+	}
+}

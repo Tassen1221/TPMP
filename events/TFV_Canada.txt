@@ -23,7 +23,11 @@ country_event = {
 		}
 		
 		effect_tooltip = {
-			create_faction = "north_american_alliance"
+			create_faction_from_template = {
+				template = faction_template_regional
+				name = north_american_alliance
+				icon = GFX_faction_logo_generic_17
+			}
 			add_to_faction = CAN
 		}
 		hidden_effect = {
@@ -60,7 +64,11 @@ country_event = {
 		name = tfv_canada.2.a
 		
 		USA = {
-			create_faction = "north_american_alliance"
+			create_faction_from_template = {
+				template = faction_template_regional
+				name = north_american_alliance
+				icon = GFX_faction_logo_generic_17
+			}
 			add_to_faction = CAN
 		}
 		
@@ -383,7 +391,11 @@ country_event = {
 		
 		effect_tooltip = {
 			CAN = {
-				create_faction = "northern_sovereignty_coalition"
+				create_faction_from_template = {
+					template = faction_template_generic_dominance
+					name = northern_sovereignty_coalition
+					icon = GFX_faction_logo_generic_fascist
+				}
 				random_country = {
 					limit = {
 						original_tag = MEX
@@ -434,7 +446,11 @@ country_event = {
 	option = {
 		name = tfv_canada.41.a
 		
-		create_faction = "northern_sovereignty_coalition"
+		create_faction_from_template = {
+			template = faction_template_generic_dominance
+			name = northern_sovereignty_coalition
+			icon = GFX_faction_logo_generic_fascist
+		}
 		random_country = {
 			limit = {
 				original_tag = MEX

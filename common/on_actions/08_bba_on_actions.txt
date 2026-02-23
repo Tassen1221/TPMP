@@ -570,7 +570,7 @@ on_actions = {
 			IF = {
 				limit = {
 					tag = ETH
-					has_country_flag = ETH_selassie_left_ethiopia_flag
+					has_country_flag = ETH_selassie_left_flag
 					has_government = neutrality
 				}
 				var:ETH.host_nation = {
@@ -591,7 +591,7 @@ on_actions = {
 						random_hours = 6
 					}
 				}
-				clr_country_flag = ETH_selassie_left_ethiopia_flag # He's now the government in exile, not personally left the country, so no need for this flag anymore.
+				clr_country_flag = ETH_selassie_left_flag # He's now the government in exile, not personally left the country, so no need for this flag anymore.
 			}
 			# Ethiopian civil war capitulation
 			IF = {
@@ -742,7 +742,7 @@ on_actions = {
 						num_divisions_in_states = {
 							 count > 24
 							 states = { 550 559 271 835 836 837 838 839 840 841 842 843 844 }
-							 exclude = { irregular_infantry }
+							 exclude = { militia }
 						}
 					}
 				}
@@ -1474,16 +1474,18 @@ on_actions = {
 						has_completed_focus = ITA_cooperate_with_the_mafia
 					}
 				}
-				if = {
-					limit = {
-						has_dynamic_modifier = { modifier = ITA_mafia_on_the_rise_no_lar }
+				FROM.FROM = {
+					if = {
+						limit = {
+							has_dynamic_modifier = { modifier = ITA_mafia_on_the_rise_no_lar }
+						}
+						remove_dynamic_modifier = { modifier = ITA_mafia_on_the_rise_no_lar }
+						add_dynamic_modifier = { modifier = ITA_established_mafia_no_lar }
 					}
-					remove_dynamic_modifier = { modifier = ITA_mafia_on_the_rise_no_lar }
-					add_dynamic_modifier = { modifier = ITA_established_mafia_no_lar }
-				}
-				else = {
-					remove_dynamic_modifier = { modifier = ITA_mafia_on_the_rise }
-					add_dynamic_modifier = { modifier = ITA_established_mafia }
+					else = {
+						remove_dynamic_modifier = { modifier = ITA_mafia_on_the_rise }
+						add_dynamic_modifier = { modifier = ITA_established_mafia }
+					}
 				}
 			}
 			else_if = {
@@ -1495,16 +1497,18 @@ on_actions = {
 						NOT = { original_tag = ITA }
 					}
 				}
-				if = {
-					limit = {
-						has_dynamic_modifier = { modifier = ITA_established_mafia_no_lar }
+				FROM.FROM = {
+					if = {
+						limit = {
+							has_dynamic_modifier = { modifier = ITA_established_mafia_no_lar }
+						}
+						remove_dynamic_modifier = { modifier = ITA_established_mafia_no_lar }
+						add_dynamic_modifier = { modifier = ITA_mafia_on_the_rise_no_lar }
 					}
-					remove_dynamic_modifier = { modifier = ITA_established_mafia_no_lar }
-					add_dynamic_modifier = { modifier = ITA_mafia_on_the_rise_no_lar }
-				}
-				else = {
-					remove_dynamic_modifier = { modifier = ITA_established_mafia }
-					add_dynamic_modifier = { modifier = ITA_mafia_on_the_rise }
+					else = {
+						remove_dynamic_modifier = { modifier = ITA_established_mafia }
+						add_dynamic_modifier = { modifier = ITA_mafia_on_the_rise }
+					}
 				}
 			}
 		}

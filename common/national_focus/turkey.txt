@@ -66,6 +66,7 @@ focus_tree = {
 
 		completion_reward = {
 			add_ideas = TUR_etatism
+			custom_effect_tooltip = generic_skip_one_line_tt
 			add_ideas = TUR_ismet_inonu
 			custom_effect_tooltip = TUR_sanayiciler_etatism_tt
 			hidden_effect = {
@@ -93,9 +94,252 @@ focus_tree = {
 
 		completion_reward = {
 			add_political_power = 120
+			custom_effect_tooltip = generic_skip_one_line_tt
 			add_ideas = TUR_celal_bayar
+			custom_effect_tooltip = generic_skip_one_line_tt
 			add_ideas = free_trade
 			custom_effect_tooltip = TUR_sanayiciler_liberals_tt
+		}
+	}
+
+	focus = {
+		id = TUR_continue_the_sumerbank_industrialization_scheme
+		icon = GFX_focus_CHL_enlarge_the_textile_industries
+		#mutually_exclusive = { focus = TUR_fully_integrate_the_is_bank }
+		prerequisite = { focus = TUR_continue_the_policy_of_etatism focus = TUR_fully_integrate_the_is_bank }
+		available = {
+			
+		}
+		x = -1
+		y = 1
+		relative_position_id = TUR_continue_the_policy_of_etatism
+
+		cost = 10
+
+		ai_will_do = {
+			base = 10
+		}
+
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_TUR_KEMALISM }
+
+		completion_reward = {
+			
+			custom_effect_tooltip = available_industrial_concern
+			show_ideas_tooltip = sumerbank
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+
+			IF = {
+				limit = {
+					has_idea = TUR_first_five_year_plan
+				}
+				custom_effect_tooltip = TUR_continue_the_sumerbank_industrialization_scheme_tt
+				IF = {
+					limit = {
+						356 = {
+							is_controlled_by = ROOT
+							free_building_slots = {
+								building = industrial_complex
+								size > 0
+								include_locked = yes
+							}	
+						}
+					}
+					356 = {
+						add_extra_state_shared_building_slots = 1
+						add_building_construction = {
+							type = industrial_complex
+							level = 1
+							instant_build = yes
+						}	
+					}
+				}
+				IF = {
+					limit = {
+						339 = {
+							is_controlled_by = ROOT
+							free_building_slots = {
+								building = industrial_complex
+								size > 0
+								include_locked = yes
+							}	
+						}
+					}
+					339 = {
+						add_extra_state_shared_building_slots = 1
+						add_building_construction = {
+							type = industrial_complex
+							level = 1
+							instant_build = yes
+						}	
+					}
+				}
+				IF = {
+					limit = {
+						344 = {
+							is_controlled_by = ROOT
+						}
+					}
+					344 = {
+						add_resource = {
+							type = steel
+							amount = 6
+						}		
+					}
+				}
+				IF = {
+					limit = {
+						348 = {
+							is_controlled_by = ROOT
+						}
+					}
+					348 = {
+						add_resource = {
+							type = steel
+							amount = 4
+						}		
+					}
+				}
+				custom_effect_tooltip = generic_skip_one_line_tt
+				custom_effect_tooltip = TUR_continue_the_sumerbank_industrialization_scheme_2_tt
+				effect_tooltip = {
+					IF = {
+						limit = {
+							356 = {
+								is_controlled_by = ROOT
+								free_building_slots = {
+									building = industrial_complex
+									size > 0
+									include_locked = yes
+								}	
+							}
+						}
+						356 = {
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+								type = industrial_complex
+								level = 1
+								instant_build = yes
+							}	
+						}
+					}
+					IF = {
+						limit = {
+							344 = {
+								is_controlled_by = ROOT
+							}
+						}
+						344 = {
+							add_resource = {
+								type = steel
+								amount = 4
+							}		
+						}
+					}
+					IF = {
+						limit = {
+							348 = {
+								is_controlled_by = ROOT
+							}
+						}
+						348 = {
+							add_resource = {
+								type = steel
+								amount = 2
+							}		
+						}
+					}
+				}
+			}
+			ELSE_IF = {
+				limit = {
+					NOT = {
+						has_idea = TUR_first_five_year_plan
+					}
+				}
+				IF = {
+					limit = {
+						356 = {
+							is_controlled_by = ROOT
+							free_building_slots = {
+								building = industrial_complex
+								size > 0
+								include_locked = yes
+							}	
+						}
+					}
+					356 = {
+						add_extra_state_shared_building_slots = 1
+						add_building_construction = {
+							type = industrial_complex
+							level = 1
+							instant_build = yes
+						}	
+					}
+				}
+				IF = {
+					limit = {
+						344 = {
+							is_controlled_by = ROOT
+						}
+					}
+					344 = {
+						add_resource = {
+							type = steel
+							amount = 4
+						}		
+					}
+				}
+				IF = {
+					limit = {
+						348 = {
+							is_controlled_by = ROOT
+						}
+					}
+					348 = {
+						add_resource = {
+							type = steel
+							amount = 2
+						}		
+					}
+				}
+			}
+
+		}
+	}
+
+	focus = {
+		id = TUR_millet_mektebi_focus 
+		icon = GFX_focus_AFG_education_reform
+		#mutually_exclusive = { focus = TUR_fully_integrate_the_is_bank }
+		prerequisite = { focus = TUR_continue_the_policy_of_etatism focus = TUR_fully_integrate_the_is_bank }
+		available = {
+			
+		}
+		x = -5
+		y = 1
+		relative_position_id = TUR_continue_the_policy_of_etatism
+
+		cost = 10
+
+		ai_will_do = {
+			base = 10
+		}
+
+		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_TUR_KEMALISM }
+
+		completion_reward = {
+
+			add_political_power = 50
+			
+			IF = {
+				limit = {
+					has_idea = TUR_widespread_illiteracy_idea
+				}
+				custom_effect_tooltip = generic_skip_one_line_tt
+				remove_ideas = TUR_widespread_illiteracy_idea
+			}
+
 		}
 	}
 
@@ -106,7 +350,7 @@ focus_tree = {
 		x = 0
 		y = 2
 		relative_position_id = TUR_the_montreux_convention
-		cost = 10
+		cost = 5
 		ai_will_do = {
 			base = 10
 		}
@@ -887,7 +1131,12 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_TUR_KEMALISM }
 		completion_reward = {
+
+			custom_effect_tooltip = available_industrial_concern
 			show_ideas_tooltip = tcdd
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+
 			every_owned_state = {
 				limit = { 
 					has_dynamic_modifier = { modifier = kemalist_loyalties }
@@ -1019,8 +1268,21 @@ focus_tree = {
 			base = 10
 		}
 
+		available = {
+
+		}
+
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
+
+			IF = {
+				limit = {
+					has_idea = TUR_first_five_year_plan
+				}
+				remove_ideas = TUR_first_five_year_plan
+				custom_effect_tooltip = generic_skip_one_line_tt
+			}
+
 			if = {
 				limit = {
 					NOT = {
@@ -2560,7 +2822,11 @@ focus_tree = {
 				}
 				GER = {
 					set_rule = { can_create_factions = yes }
-					create_faction = "GER_central_powers_faction"
+					create_faction_from_template = {
+						template = faction_template_GER_mitteleuropa_alliance
+						name = GER_central_powers_faction
+						icon = GFX_faction_logo_generic_13
+					}
 					country_event = { id = generic.2 }
 				}
 			}
@@ -2574,7 +2840,11 @@ focus_tree = {
 					}
 				}
 				set_rule = { can_create_factions = yes }
-				create_faction = "GER_central_powers_faction"
+				create_faction_from_template = {
+					template = faction_template_GER_mitteleuropa_alliance
+					name = GER_central_powers_faction
+					icon = GFX_faction_logo_generic_13
+				}
 				HUN = {
 					if = {
 						limit = { ROOT = { is_in_faction = yes } }
@@ -2771,7 +3041,10 @@ focus_tree = {
 					limit = {
 						is_in_faction = no
 					}
-					create_faction = the_saadabad_concordat
+					create_faction_from_template = {
+						template = faction_template_AFG_united_islamic_world_faction
+						name = the_saadabad_concordat
+					}
 					every_country = {
 						limit = {
 							has_country_flag = TUR_saadabad_pact_member
@@ -2833,7 +3106,10 @@ focus_tree = {
 					limit = {
 						is_in_faction = no
 					}
-					create_faction = the_saadabad_concordat
+					create_faction_from_template = {
+						template = faction_template_AFG_united_islamic_world_faction
+						name = the_saadabad_concordat
+					}
 				}
 				custom_effect_tooltip = SSB_faction_invite_tt
 				if = {
@@ -3537,8 +3813,18 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		completion_reward = {
-			set_rule = { can_create_factions = yes }
-			create_faction = TUR_balkan_pact
+			IF = {
+				limit = {
+					has_dlc = "No Compromise, No Surrender"
+				}
+				set_rule = { can_create_factions = yes }
+				create_faction_from_template = faction_template_TUR_balkan_pact
+				add_faction_initiative = 1
+			}
+			ELSE = {
+				set_rule = { can_create_factions = yes }
+				create_faction = TUR_balkan_pact
+			}
 			every_country = {
 				limit = {
 					AND = {
@@ -5450,14 +5736,8 @@ focus_tree = {
 		completion_reward = {
 			add_tech_bonus = {
 				name = TUR_expanding_our_navy
-				bonus = 1.5
-				uses = 1
-				category = cl_tech
-			}
-			add_tech_bonus = {
-				name = TUR_expanding_our_navy
 				bonus = 1.0
-				uses = 1
+				uses = 2
 				category = ca_tech
 			}
 			add_doctrine_cost_reduction = {
@@ -5768,7 +6048,18 @@ focus_tree = {
 		icon = GFX_focus_TUR_taking_over_defense_of_the_gulf
 		prerequisite = { focus = TUR_british_dockyards_in_turkey }
 		prerequisite = { focus = TUR_securing_iran }
-		available = { is_in_faction_with = ENG }
+		available = {
+			is_in_faction_with = ENG
+			OR = {
+				656 = { is_owned_and_controlled_by = ENG }
+				658 = { is_owned_and_controlled_by = ENG }
+				765 = { is_owned_and_controlled_by = ENG }
+				659 = { is_owned_and_controlled_by = ENG }
+				1014 = { is_owned_and_controlled_by = ENG }
+				992 = { is_owned_and_controlled_by = ENG }
+				906 = { is_owned_and_controlled_by = ENG }
+			}
+		}
 		x = 0
 		y = 2
 		relative_position_id = TUR_british_dockyards_in_turkey
@@ -6024,7 +6315,10 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		completion_reward = {
 			set_rule = { can_create_factions = yes }
-			create_faction = TUR_covenant_of_the_mediterranean
+			create_faction_from_template = {
+				template = faction_template_ITA_italian_league
+				name = TUR_covenant_of_the_mediterranean
+			}
 			ITA = { country_event = { id = bftb_turkey.41 } }
 		}
 	}
@@ -7492,7 +7786,10 @@ focus_tree = {
 				SPR = { country_event = { id = generic.5 } }
 			}
 			set_rule = { can_create_factions = yes }
-			create_faction = TUR_anti_bolshevik_accord
+			create_faction_from_template = {
+				template = faction_template_regional_anti_communist
+				name = TUR_anti_bolshevik_accord
+			}
 		}
 	}
 
@@ -9214,7 +9511,9 @@ focus_tree = {
 		}
 
 		search_filters = { FOCUS_FILTER_ANNEXATION }
+
 		completion_reward = {
+
 			every_state = {
 				limit = {
 					OR = {
@@ -9223,9 +9522,21 @@ focus_tree = {
 						is_core_of = MON
 						is_core_of = MEN
 						is_core_of = TAN
+						is_core_of = GSM
+						is_core_of = NXM 
+						is_core_of = KHM 
+						is_core_of = SHX 
+						is_core_of = MAN 
+						is_core_of = SIC 
 					}
 				}
-				add_claim_by = TUR
+				add_claim_by = ROOT
+			}
+			601 = {
+				add_claim_by = ROOT
+			}
+			1039 = {
+				add_claim_by = ROOT
 			}
 			if = { 
 				limit = {
@@ -9272,7 +9583,103 @@ focus_tree = {
 					target = TAN
 				}
 			}
+			if = { 
+				limit = {
+					GSM = { exists = yes }
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = GSM
+				}
+			}
+			if = { 
+				limit = {
+					NXM = { exists = yes }
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = NXM
+				}
+			}
+			if = { 
+				limit = {
+					KHM = { exists = yes }
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = KHM
+				}
+			}
+			if = { 
+				limit = {
+					SHX = { exists = yes }
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = SHX
+				}
+			}
+			if = { 
+				limit = {
+					MAN = { exists = yes }
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = MAN
+				}
+			}
+			if = { 
+				limit = {
+					SIC = { exists = yes }
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = SIC
+				}
+			}
+			if = { 
+				limit = {
+					601 = {
+						NOT = {
+							is_owned_by = ROOT
+						}
+					}
+				}
+				601 = {
+					OWNER = {
+						ROOT = {
+							create_wargoal = {
+								type = take_claimed_state
+								target = PREV
+								generator = { 601 }
+							}	
+						}
+					}
+				}
+			}
+			if = { 
+				limit = {
+					1039 = {
+						NOT = {
+							is_owned_by = ROOT
+						}
+					}
+				}
+				1039 = {
+					OWNER = {
+						ROOT = {
+							create_wargoal = {
+								type = take_claimed_state
+								target = PREV
+								generator = { 1039 }
+							}	
+						}
+					}
+				}
+			}
+
 		}
+
 	}
 
 	focus = {
@@ -9352,6 +9759,7 @@ focus_tree = {
 				limit = {
 					NOT = { has_completed_focus = TUR_hava_okulu }
 				}
+				custom_effect_tooltip = generic_skip_one_line_tt
 				unlock_decision_category_tooltip = TUR_reforming_our_armed_forces_category
 			}
 		}
@@ -9376,7 +9784,9 @@ focus_tree = {
 				uses = 2
 				category = cat_land_doctrine
 			}
+			custom_effect_tooltip = generic_skip_one_line_tt
 			unlock_decision_tooltip = TUR_modernize_our_tactics
+			custom_effect_tooltip = generic_skip_one_line_tt
 			unlock_decision_tooltip = TUR_commence_an_overhaul_of_our_training_methods
 		}
 	}
@@ -9393,12 +9803,14 @@ focus_tree = {
 
 		completion_reward = {
 			air_experience = 5
+			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = available_military_high_command
 			show_ideas_tooltip = TUR_sabiha_gokcen
 			if = {
 				limit = {
 					NOT = { has_completed_focus = TUR_learning_from_the_great_war }
 				}
+				custom_effect_tooltip = generic_skip_one_line_tt
 				unlock_decision_category_tooltip = TUR_reforming_our_armed_forces_category
 			}
 		}
@@ -9477,7 +9889,13 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+
 			unlock_decision_tooltip = TUR_teach_the_proper_use_of_modern_infrastructure
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+
 			unlock_decision_tooltip = TUR_put_new_safety_regulations_regarding_the_operation_of_aircraft_into_effect
 		}
 	}
@@ -9784,6 +10202,9 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+
 			add_doctrine_cost_reduction = {
 				name = TUR_turkish_air_defense_platforms
 				cost_reduction = 0.25
@@ -9830,7 +10251,9 @@ focus_tree = {
 					}
 				}
 			}
+			custom_effect_tooltip = generic_skip_one_line_tt
 			navy_experience = 5
+			custom_effect_tooltip = generic_skip_one_line_tt
 			unlock_decision_tooltip = TUR_streamline_communication_methods_between_ships
 		}
 	}
@@ -9903,7 +10326,7 @@ focus_tree = {
 				name = TUR_the_legacy_of_osmanli_donanmasi
 				bonus = 1.50
 				uses = 1
-				category = cl_tech
+				category = ca_tech
 			}
 			add_tech_bonus = {
 				name = TUR_the_legacy_of_osmanli_donanmasi
@@ -9934,11 +10357,12 @@ focus_tree = {
 				uses = 1
 				category = ss_tech
 			}
-			add_doctrine_cost_reduction = {
+			add_mastery_bonus = {
 				name = TUR_the_path_of_the_wolf
-				cost_reduction = 0.35
-				uses = 2
-				category = trade_interdiction_tree
+				bonus = 0.2
+				days = 180
+				track = submarines
+
 			}
 		}
 	}
@@ -9964,12 +10388,16 @@ focus_tree = {
 				value = 0.75
 			}
 
+			custom_effect_tooltip = generic_skip_one_line_tt
+
 			add_tech_bonus = {
 				name = TUR_fortified_defensive_bases
 				bonus = 1
 				uses = 1 # was 2
 				category = radar_tech
 			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
 
 			add_timed_idea = {
 				idea = TUR_emergency_deployment_of_defensive_bases
@@ -9994,6 +10422,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_WAR_SUPPORT }
 		completion_reward = {
 			add_war_support = 0.15
+			custom_effect_tooltip = generic_skip_one_line_tt
 			if = {
 				limit = {
 					OR = {

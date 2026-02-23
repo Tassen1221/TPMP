@@ -340,21 +340,24 @@ country_event = {
 			if = {
 				limit = { is_in_faction = no }
 				set_rule = { can_create_factions = yes }
-				create_faction = "domination_francaise"
+				create_faction_from_template = {
+					template = faction_template_european_dominance
+					name = domination_francaise
+				}
 			}
 		}
 		FRA = {	add_to_faction = ITA }
 		ITA = {
 			add_ai_strategy = {
 				type = alliance
-				id = "FRA"
+				id = FRA
 				value = 200
 			}
 		}
 		FRA = {
 			add_ai_strategy = {
 				type = alliance
-				id = "ITA"
+				id = ITA
 				value = 200
 			}
 		}

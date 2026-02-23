@@ -30,6 +30,10 @@ add_breakthrough_progress = {
 	value = 0.3
 }
 
+set_grand_doctrine = new_mobile_warfare
+set_grand_doctrine = new_convoy_raiding
+set_grand_doctrine = new_battlefield_support
+
 if = {
 	limit = { has_dlc = "By Blood Alone" }
 		set_air_oob = "GER_1936_air_bba"
@@ -87,8 +91,7 @@ set_technology = {
 	antiair0_tech = 1
 	heavyantiair1_tech = 1
 	basic_train = 1
-	
-	trade_interdiction = 1
+	#formation_flying = 1
 	synth_oil_experiments = 1
 	fuel_silos = 1
 	fuel_refining = 1
@@ -159,7 +162,7 @@ if = {
 		improved_ship_torpedo_launcher = 1
 		basic_battery = 1
 		basic_light_battery = 1
-		basic_medium_battery = 1
+		#basic_medium_battery = 1
 		basic_heavy_battery = 1
 		basic_depth_charges = 1
 		sonar = 1
@@ -255,7 +258,7 @@ set_variable = { GER_military_army_infantry_attack_factor = 0 }
 set_variable = { GER_military_army_artillery_attack_factor = 0 }
 set_variable = { GER_military_army_org_factor = 0.05 }
 set_variable = { GER_military_planning_speed = 0.25 }
-set_variable = { GER_military_supply_factor = 0.15 }
+set_variable = { GER_military_supply_consumption_factor = 0.15 }
 set_variable = { GER_military_equipment_capture = 0 }
 set_variable = { GER_military_initiative_factor = 0 }
 set_variable = { GER_military_army_fuel_consumption_factor = 0 }
@@ -678,19 +681,10 @@ set_war_support = 0.3
 		paratroopers = 1
 
 		# Doctrines
-		
-		
-		
-		
-		
-		convoy_interdiction_ti = 1
-		unrestricted_submarine_warfare = 1
-		raider_patrols = 1
-
 		# Air
-				
-		
-		
+		#formation_flying = 1		
+		#dive_bombing = 1
+		#direct_ground_support = 1
 
 		# Electronics
 		electronic_mechanical_engineering = 1
@@ -717,6 +711,36 @@ set_war_support = 0.3
 		dispersed_industry4 = 1
 		basic_fortification_tech = 1
 	}
+
+	set_grand_doctrine = new_mobile_warfare
+	set_grand_doctrine = new_convoy_raiding
+	set_grand_doctrine = new_battlefield_support
+	set_sub_doctrine = mobile_infantry
+	add_mastery = {
+		amount = 200
+		sub_doctrine = mobile_infantry
+	}
+	set_sub_doctrine = mission_type_tactics
+	add_mastery = {
+		amount = 100
+		sub_doctrine = mission_type_tactics
+	}
+	set_sub_doctrine = mobile_recon_and_assault
+	add_mastery = {
+		amount = 150
+		sub_doctrine = mobile_recon_and_assault
+	}
+	set_sub_doctrine = air_subdoctrine_tactical_flexibility
+	add_mastery = {
+		amount = 100
+		sub_doctrine = air_subdoctrine_tactical_flexibility
+	}
+	set_sub_doctrine = air_subdoctrine_dive_bombers
+	add_mastery = {
+		amount = 50
+		sub_doctrine = air_subdoctrine_dive_bombers
+	}
+
 	
 	complete_special_project = {
 		project = sp:sp_air_radar
@@ -805,7 +829,7 @@ set_popularities = {
 }
 
 # Wowow nice faction
-create_faction = Axis
+create_faction_from_template = faction_template_axis
 add_to_faction = GER
 
 # Setup of National Spirits
@@ -1364,6 +1388,7 @@ if = {
 			plane_reliability_upgrade = 5
 		}
 		obsolete = yes
+		icon = GFX_GER_early_bomber_medium
 	}
 	
 	create_equipment_variant = {
@@ -1400,6 +1425,7 @@ if = {
 			special_type_slot_4 = empty
 		}
 		obsolete = yes
+		icon = GFX_GER_early_bomber_medium
 	}
 	create_equipment_variant = {
 		name = "Ju 86"
@@ -1417,6 +1443,7 @@ if = {
 			special_type_slot_4 = empty
 		}
 		obsolete = yes
+		icon = GFX_GER_early_bomber_medium
 	}
 
 	create_equipment_variant = {
@@ -1468,6 +1495,7 @@ if = {
 			special_type_slot_1 = empty
 		}
 		obsolete = yes
+		icon = GFX_GER_cv_fighter1_medium
 	}
 	create_equipment_variant = {
 		name = "Bf 109 D"

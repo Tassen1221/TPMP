@@ -2747,8 +2747,7 @@ characters = {
 				}
 				IF = {
 					limit = {
-						# TODO:JA: Change this later!
-						has_dlc = "By Blood Alone"
+						has_dlc = "Gotterdammerung"
 					}
 					has_completed_focus = wuw_HUN_end_the_regency
 				}
@@ -2898,9 +2897,17 @@ characters = {
 						has_autonomy_state = autonomy_supervised_state
 					}
 				}
-				OR = {
-					has_completed_focus = wuw_HUN_elect_a_democratic_king
-					has_completed_focus = wuw_HUN_elections_in_the_revolutionary_council
+				if = {
+					limit = {
+						has_dlc = "Gotterdammerung"
+					}
+					OR = {
+						has_completed_focus = wuw_HUN_elect_a_democratic_king
+						has_completed_focus = wuw_HUN_elections_in_the_revolutionary_council
+					}
+				}
+				else = {
+					has_completed_focus = HUN_elect_a_democratic_king
 				}
 			}
 

@@ -1527,6 +1527,8 @@ ideas = {
 						has_dlc = "Gotterdammerung"
 					}
 				}
+
+				PHI_SEA = no
 			}
 			
 			cost = 150
@@ -1603,6 +1605,8 @@ ideas = {
 						has_dlc = "Gotterdammerung"
 					}
 				}
+
+				PHI_SEA = no
 			}
 			
 			cost = 150
@@ -1679,6 +1683,8 @@ ideas = {
 						has_dlc = "Gotterdammerung"
 					}
 				}
+
+				PHI_SEA = no
 			}
 			
 			cost = 150
@@ -1751,6 +1757,7 @@ ideas = {
 					}
 				}
 
+				PHI_SEA = no
 			}
 			
 			cost = 150
@@ -1821,6 +1828,8 @@ ideas = {
 						has_dlc = "Gotterdammerung"
 					}
 				}
+
+				PHI_SEA = no
 			}
 			
 			cost = 150
@@ -1889,6 +1898,7 @@ ideas = {
 					}
 				}
 
+				PHI_SEA = no
 			}
 			
 			cost = 150
@@ -1909,56 +1919,56 @@ ideas = {
 			picture = generic_industrial_concern_1
 
 			allowed = {
-				NOT = { OR = { tag = GER tag = ENG tag = SOV tag = FRA tag = ITA tag = JAP tag = USA tag = HUN tag = FIN } }
+				NOT = { OR = { original_tag = GER original_tag = ENG original_tag = SOV original_tag = FRA original_tag = ITA original_tag = JAP original_tag = USA original_tag = HUN original_tag = FIN } }
 				NOT = {
 					has_allowed_idea_with_traits = { idea = industrial_concern limit = 1 }
 				}
 				NOT = {
 					AND = {
-						OR = { tag = CHI tag = PRC tag = MAN tag = SHX tag = XSM tag = GXC tag = YUN tag = SIK tag = MEN }
+						OR = { original_tag = CHI original_tag = PRC original_tag = MAN original_tag = SHX original_tag = XSM original_tag = GXC original_tag = YUN original_tag = SIK }
 						has_dlc = "Waking the Tiger"
 					}
 				}
 				NOT = {
 					AND = {
-						OR = { tag = MEX tag = HOL }
+						OR = { original_tag = MEX original_tag = HOL }
 						has_dlc = "Man the Guns"
 					}
 				}
 				NOT = {
 					AND = {
-						OR = { tag = SPR tag = SPA tag = SPB tag = SPC tag = SPD }
+						OR = { original_tag = SPR original_tag = SPA original_tag = SPB original_tag = SPC original_tag = SPD }
 						has_dlc = "La Resistance"
 					}
 				}
 				NOT = {
 					AND = {
-						OR = { tag = BUL tag = GRE tag = TUR }
+						OR = { original_tag = BUL original_tag = GRE original_tag = TUR }
 						has_dlc = "Battle for the Bosporus"
 					}
 				}
 				NOT = {
 					AND = {
-						tag = ETH
+						original_tag = ETH
 						has_dlc = "By Blood Alone"
 					}
 				}
 				NOT = {
 					AND = {
-						OR = { tag = ICE tag = DEN }
+						OR = { original_tag = ICE original_tag = DEN }
 						has_dlc = "Arms Against Tyranny"
 					}
 				}
 				NOT = {
 					AND = {
-						tag = BRA
+						original_tag = BRA
 						has_dlc = "Trial of Allegiance"
 					}
 				}
 
 				NOT = {
 					AND = {
-						OR = { tag = HUN tag = AUS tag = BEL tag = COG }
+						OR = { original_tag = HUN original_tag = AUS original_tag = BEL original_tag = COG }
 						has_dlc = "Gotterdammerung"
 					}
 				}
@@ -1971,6 +1981,24 @@ ideas = {
 							original_tag = RAJ
 						}
 						has_dlc = "Graveyard of Empires"
+					}
+				}
+
+				NOT = {
+					AND = {
+						OR = {
+							original_tag = PHI
+							original_tag = SND
+							original_tag = HBC
+							original_tag = XIC
+							original_tag = GDC
+							original_tag = SIC
+							original_tag = NXM
+							original_tag = GSM
+							original_tag = KHM
+							original_tag = KUM 
+						}
+						has_dlc = "No Compromise, No Surrender"
 					}
 				}
 			}
@@ -1990,7 +2018,7 @@ ideas = {
 			picture = generic_electronics_concern_1
 
 			allowed = {
-				NOT = { OR = { tag = GER tag = ENG tag = SOV tag = FRA tag = ITA tag = JAP tag = USA tag = FIN } }
+				NOT = { OR = { original_tag = GER original_tag = ENG original_tag = SOV original_tag = FRA original_tag = ITA original_tag = JAP original_tag = USA original_tag = FIN } }
 				NOT = {
 					has_allowed_idea_with_traits = { idea = electronics_concern limit = 1 }
 				}
@@ -2005,31 +2033,31 @@ ideas = {
 				}
 				NOT = {
 					AND = {
-						OR = { tag = HOL tag = MEX }
+						OR = { original_tag = HOL original_tag = MEX }
 						has_dlc = "Man the Guns"
 					}
 				}
 				NOT = {
 					AND = {
-						OR = { tag = SPR tag = SPA tag = SPB tag = SPC tag = SPD }
+						OR = { original_tag = SPR original_tag = SPA original_tag = SPB original_tag = SPC original_tag = SPD }
 						has_dlc = "La Resistance"
 					}
 				}
 				NOT = {
 					AND = {
-						OR = { tag = BUL tag = GRE tag = TUR }
+						OR = { original_tag = BUL original_tag = GRE original_tag = TUR }
 						has_dlc = "Battle for the Bosporus"
 					}
 				}
 				NOT = {
 					AND = {
-						OR = { tag = ETH tag = SWI }
+						OR = { original_tag = ETH original_tag = SWI }
 						has_dlc = "By Blood Alone"
 					}
 				}
 				NOT = {
 					AND = {
-						OR = { tag = FIN tag = ICE tag = SWE }
+						OR = { original_tag = FIN original_tag = ICE original_tag = SWE }
 						has_dlc = "Arms Against Tyranny"
 					}
 				}
@@ -2042,7 +2070,7 @@ ideas = {
 
 				NOT = {
 					AND = {
-						OR = { tag = HUN tag = AUS tag = BEL tag = COG }
+						OR = { original_tag = HUN original_tag = AUS original_tag = BEL original_tag = COG }
 						has_dlc = "Gotterdammerung"
 					}
 				}
@@ -2055,6 +2083,15 @@ ideas = {
 							original_tag = RAJ
 						}
 						has_dlc = "Graveyard of Empires"
+					}
+				}
+
+				NOT = {
+					AND = {
+#						OR = {
+							original_tag = PHI
+#						}
+						has_dlc = "No Compromise, No Surrender"
 					}
 				}
 			}

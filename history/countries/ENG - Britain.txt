@@ -4,15 +4,35 @@ if = {
 	limit = {
 		NOT = {
 			has_dlc = "No Step Back"
+			has_dlc = "La Resistance"
 		}
 	}
 	set_oob = "ENG_1936"
 }
 if = {
 	limit = {
+		NOT = {
+			has_dlc = "No Step Back"
+		}
+		has_dlc = "La Resistance"
+	}
+	set_oob = "ENG_1936_LaR"
+}
+if = {
+	limit = {
+		NOT = {
+			has_dlc = "La Resistance"
+		}
 		has_dlc = "No Step Back"
 	}
 	set_oob = "ENG_1936_nsb"
+}
+if = {
+	limit = {
+		has_dlc = "La Resistance"
+		has_dlc = "No Step Back"
+	}
+	set_oob = "ENG_1936_nsb_LaR"
 }
 
 starting_train_buffer = 4
@@ -24,6 +44,15 @@ if = {
 	set_naval_oob = "ENG_1936_Naval"
 	else = {
 		set_naval_oob = "ENG_1936_Naval_Legacy"
+	}
+}
+
+if = {
+	limit = {
+		has_dlc = "La Resistance"
+	}
+	set_technology = {
+		armored_car1 = 1
 	}
 }
 
@@ -57,7 +86,8 @@ if = {
 		}
 	}
 }
-if = {
+
+IF = {
 	limit = {
 		has_dlc = "Gotterdammerung"
 	}
@@ -84,13 +114,14 @@ set_technology = {
 	artillery0_tech = 1
 	antiair0_tech = 1
 	basic_train = 1
-	
-	fleet_in_being = 1
 	electronic_mechanical_engineering = 1
 	radio = 1
 	fuel_silos = 1
 	fuel_refining = 1
 }
+
+set_grand_doctrine = grand_battleplan
+set_grand_doctrine = new_fleet_in_being
 
 complete_special_project = {
 	project = sp:sp_air_radar
@@ -159,7 +190,7 @@ if = {
 		basic_ship_hull_carrier = 1
 		basic_battery = 1
 		basic_light_battery = 1
-		basic_medium_battery = 1
+		#basic_medium_battery = 1
 		basic_heavy_battery = 1
 		basic_torpedo = 1
 		sonar = 1
@@ -174,25 +205,6 @@ if = {
 	add_ideas = MTG_naval_treaty_adherent
 	set_global_flag = MTG_second_london_conference
 	set_global_flag = { flag = MTG_naval_treaty_signatories value = 5 }
-}
-
-if = {
-	limit = {
-		has_dlc = "La Resistance"
-	}
-	set_technology = {
-		armored_car1 = 1
-	}
-}
-
-IF = {
-	limit = {
-		has_dlc = "La Resistance"
-	}
-	load_oob = "ENG_LAR_Motorized"
-	ELSE = {
-		load_oob = "ENG_Motorized"
-	}
 }
 
 set_variable = { var = eng_gateway_to_europe_influence value = 0 }
@@ -374,18 +386,9 @@ if = {
 
 		#doctrines
 		#Air
-		
-		
-		
-
-	
-
-		
-		battlefleet_concentration = 1
-		subsidiary_carrier_role = 1
-		convoy_sailing = 1
-		convoy_escorts = 1
-		submarine_operations = 1
+		#air_superiority = 1
+		#home_defence = 1
+		#naval_strike_tactics = 1
 
 		#electronics
 		electronic_mechanical_engineering = 1
@@ -411,6 +414,46 @@ if = {
 		dispersed_industry2 = 1
 		dispersed_industry3 = 1
 	}
+
+	set_grand_doctrine = grand_battleplan
+	set_grand_doctrine = new_fleet_in_being
+	set_grand_doctrine = new_strategic_destruction
+	set_sub_doctrine = defensive_postures
+	add_mastery = {
+	    amount = 100
+	    sub_doctrine = defensive_postures
+	}
+	set_sub_doctrine = grand_assault
+	add_mastery = {
+	    amount = 50
+	    sub_doctrine = grand_assault
+	}
+	set_sub_doctrine = convoy_escort
+	add_mastery = {
+	    amount = 100
+	    sub_doctrine = convoy_escort
+	}
+	set_sub_doctrine = line_of_battle
+	add_mastery = {
+	    amount = 50
+	    sub_doctrine = line_of_battle
+	}
+	set_sub_doctrine = floating_airfields
+	add_mastery = {
+	    amount = 25
+	    sub_doctrine = floating_airfields
+	}
+	set_sub_doctrine = air_subdoctrine_dogfighting_mastery
+	add_mastery = {
+	    amount = 75
+	    sub_doctrine = air_subdoctrine_dogfighting_mastery
+	}
+	set_sub_doctrine = air_subdoctrine_flying_artillery
+	add_mastery = {
+	    amount = 25
+	    sub_doctrine = air_subdoctrine_flying_artillery
+	}
+
 
 	if = {
 		limit = {
@@ -491,7 +534,16 @@ set_popularities = {
 }
 
 
-create_faction = Allies
+create_faction_from_template = faction_template_allies
+IF= {
+	limit = {
+		has_dlc = "No Compromise, No Surrender"
+	}
+	add_faction_goal_slot = {
+		category  = long_term
+		value = 1 
+	}
+}
 add_to_faction = ENG
 add_to_faction = CAN
 add_to_faction = AST

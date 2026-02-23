@@ -2754,7 +2754,6 @@ country_event = {
 				transfer_state = 350
 				transfer_state = 352
 				transfer_state = 353
-				transfer_state = 799
 				transfer_state = 800
 				release_autonomy = { 
 					target = KUR
@@ -2767,13 +2766,49 @@ country_event = {
 					set_cosmetic_tag = KUR_FRA
 				}
 				country_event = { id = bftb_greece.210 days = 7 }
-				FRA = {
-					transfer_state = 680
+
+				# Handing Back Deir az Zur 
+				IF = {
+					limit = {
+						FRA = {
+							has_subject = SYR
+						}
+					}
+					SYR = {
+						transfer_state = 680
+					}
 				}
-				680 = { 
-					set_resistance = 0
-					set_compliance = 70
+				ELSE = {
+					FRA = {
+						transfer_state = 680
+					}
+					680 = { 
+						set_resistance = 0
+						set_compliance = 70
+					}
 				}
+
+				# Handing "Back" Hatay 
+				IF = {
+					limit = {
+						FRA = {
+							has_subject = SYR
+						}
+					}
+					SYR = {
+						transfer_state = 799
+					}
+				}
+				ELSE = {
+					FRA = {
+						transfer_state = 799
+					}
+					799 = { 
+						set_resistance = 0
+						set_compliance = 70
+					}
+				}
+				
 			}
 		}
 		if = { 
@@ -2963,11 +2998,10 @@ country_event = {
 	}
 }
 
-#MM: Never used. Unlocalized
 #Tow the Stalinist Line - Soviet Union is informed of Greece's submission and of Turkey's new hostile move
 country_event = {
 	id = bftb_greece.30
-	title = bftb_greece.30.t
+	title =  bftb_greece.29.t	#reused
 	desc = bftb_greece.30.desc
 	picture = GFX_report_event_tur_military_affair
 
@@ -2975,11 +3009,42 @@ country_event = {
 	
 	option = {
 		name = bftb_greece.30.a
+		ai_chance = {
+			base = 4
+			modifier = {
+				any_other_country = {
+					is_major = yes
+					has_guaranteed = TUR
+				}
+				factor = 0.5
+			}
+			modifier = {
+				any_other_country = {
+					has_guaranteed = TUR
+					strength_ratio = {
+						tag = ROOT
+						ratio > 1
+					}
+				}
+				factor = 0
+			}
+			modifier = {
+				surrender_progress > 0.1
+				factor = 0
+			}
+			modifier = {
+				has_war_with_major = yes
+				factor = 0
+			}
+		}
 		add_war_support = 0.05
 		give_guarantee = GRE
 		add_opinion_modifier = {
 		    target = GRE
 		    modifier = offered_support
+		}
+		FROM = {
+			country_event = bftb_greece.237
 		}
 		hidden_effect = { 
 			set_country_flag = SOV_isolating_turkey
@@ -2987,6 +3052,15 @@ country_event = {
 		   		target = TUR
 		   		modifier = GRE_strategic_enemy
 			}
+		}
+	}
+	option = {
+		name = bftb_greece.30.b
+		ai_chance = {
+			base = 1
+		}
+		FROM = {
+			country_event = bftb_greece.236
 		}
 	}
 }
@@ -4144,7 +4218,10 @@ country_event = {
 			limit = {
 				is_in_faction = no
 			}
-			create_faction = spazio_vitale
+			create_faction_from_template = {
+				template = faction_template_ITA_italian_league
+				name = spazio_vitale
+			}
 			add_to_faction = GRE
 			add_to_faction = TUR
 		}
@@ -4154,7 +4231,10 @@ country_event = {
 				is_faction_leader = no
 			}
 			remove_from_faction = ROOT
-			create_faction = spazio_vitale
+			create_faction_from_template = {
+				template = faction_template_ITA_italian_league
+				name = spazio_vitale
+			}
 			add_to_faction = GRE
 			add_to_faction = TUR
 		}
@@ -4263,7 +4343,10 @@ country_event = {
 			limit = {
 				is_in_faction = no
 			}
-			create_faction = spazio_vitale
+			create_faction_from_template = {
+				template = faction_template_ITA_italian_league
+				name = spazio_vitale
+			}
 			add_to_faction = GRE
 		}
 		else_if = {
@@ -4272,7 +4355,10 @@ country_event = {
 				is_faction_leader = no
 			}
 			remove_from_faction = ROOT
-			create_faction = spazio_vitale
+			create_faction_from_template = {
+				template = faction_template_ITA_italian_league
+				name = spazio_vitale
+			}
 			add_to_faction = GRE
 		}
 		else = {
@@ -7160,5 +7246,61 @@ country_event = {
 				modifier = BFTB_ROM_abandoned_us
 			}
 		}
+	}
+}
+
+country_event = {
+	id = bftb_greece.236
+	title =  bftb_greece.236.t
+	desc = bftb_greece.236.desc
+	picture = GFX_report_event_tur_military_affair
+
+	is_triggered_only = yes
+	
+	option = {
+		name = bftb_greece.236.a
+		ai_chance = {
+			base = 2
+			modifier = {
+				strength_ratio = {
+					tag = TUR
+					ratio < 1
+				}
+				factor = 0
+			}
+			modifier = {
+				any_other_country = {
+					has_guaranteed = TUR
+					strength_ratio = {
+						tag = ROOT
+						ratio > 1
+					}
+				}
+				factor = 0
+			}
+		}
+		create_wargoal = {
+			type = puppet_wargoal_focus
+			target = TUR
+		}
+	}
+	option = {
+		name = bftb_greece.236.b
+		ai_chance = {
+			base = 1
+		}
+	}
+}
+
+country_event = {
+	id = bftb_greece.237
+	title =  bftb_greece.237.t
+	desc = bftb_greece.237.desc
+	picture = GFX_report_event_tur_military_affair
+
+	is_triggered_only = yes
+
+	option = {
+		name = bftb_greece.237.a
 	}
 }

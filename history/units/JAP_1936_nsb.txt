@@ -1,7 +1,6 @@
 ﻿division_template = {
 	name = "Hohei Shidan" 			# (Square) Infantry Division - 4 infantry regiments (3k men each), 1 field artillery regiment - abstracted into infantry,
 	division_names_group = JAP_INF_01
-									# 1 engineering regiment, 1 recon regiment
 	regiments = {
 		infantry = { x = 0 y = 0 }
 		infantry = { x = 0 y = 1 }
@@ -16,28 +15,29 @@
 		infantry = { x = 3 y = 1 }
 		infantry = { x = 3 y = 2 }
 	}
-	support = {
+	support = { # 1 engineering regiment, 1 recon regiment
 		engineer = { x = 0 y = 0 }
 		recon = { x = 0 y = 1 }
+		artillery = { x = 0 y = 2 }
 	}
 }
 division_template = {
 	name = "Dokuritsu Konsei Ryodan" 	# Independent Mixed Brigade: 5 infantry battalions (4k men total), 1 field artillery basttalion - abstracted into infantry,
 	division_names_group = JAP_IMB_01
-	role = armor
-
-										# 1 engineering battalion
+	role = armor			
 	regiments = {
 		infantry = { x = 0 y = 0 }
 		infantry = { x = 0 y = 1 }
 		infantry = { x = 0 y = 2 }
 		infantry = { x = 1 y = 0 }
 		infantry = { x = 1 y = 1 }
-		light_armor = { x= 2 y = 0 }
-		light_armor = { x= 2 y = 1 }
+		medium_armor = { x= 2 y = 0 }
+		medium_armor = { x= 2 y = 1 }
 	}
-	support = {
-		engineer = { x = 0 y = 0 }
+	support = { # 1 engineering battalion
+		light_tank_recon = { x = 0 y = 0 }
+		engineer = { x = 0 y = 1 } 
+		artillery = { x = 0 y = 2 }
 	}
 }
 division_template = {
@@ -94,8 +94,9 @@ division_template = {
 }
 division_template = {
 	name = "Chuton-chi Shidan" 			# Garrison template - represents Imperial Manchukuo Army infantry divisions: 2 infantry regiments (3k men) -- militia (lowest equipment, experience)
-	division_names_group = JAP_GAR_01
-										# Also represents (over-sized) IJN Base Defense Unit (island, city and naval base garrisons): 2 infantry rgts (3k men), 1 field artillery rgt (abstracted), 1 engineering rgt
+	division_names_group = JAP_GAR_01 # Also represents (over-sized) IJN Base Defense Unit (island, city and naval base garrisons): 2 infantry rgts (3k men), 1 field artillery rgt (abstracted), 1 engineering rgt
+	template_counter = 109
+	role = garrison 
 	regiments = {
 		infantry = { x = 0 y = 0 }
 		infantry = { x = 0 y = 1 }
@@ -105,6 +106,19 @@ division_template = {
 		infantry = { x = 1 y = 2 }
 	}
 	priority = 0
+}
+division_template = {
+	name = "Ginrinbutai"		#This template covers the Bicycle Detachments nicknamed the Silver Wheel Units 
+	division_names_group = JAP_BIC_01
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }
+	}	
 }
 
 
@@ -424,7 +438,7 @@ units = {
 			is_name_ordered = yes
 			name_order = 14
 		}
-		location = 3843 #Eastern Manchuria
+		location = 6811 #Eastern Manchuria
 		division_template = "Hohei Shidan"
 		start_equipment_factor = 0.9
 	}
@@ -654,23 +668,22 @@ units = {
 #########################
 ## STARTING PRODUCTION ##
 #########################
-instant_effect = 
-{
+instant_effect = {
+
 	add_equipment_production = {
 		equipment = {
 			type = line_infantry_equipment_1
-			creator = "JAP"
+			creator = JAP
 		}
 		requested_factories = 3
 		progress = 0.1
 		efficiency = 50
-
 	}
 
 	add_equipment_production = {
 		equipment = {
 			type = support_equipment_1
-			creator = "JAP" 
+			creator = JAP 
 		}
 		requested_factories = 1
 		progress = 0.3
@@ -680,22 +693,53 @@ instant_effect =
 	add_equipment_production = {
 		equipment = {
 			type = artillery_equipment_0
-			creator = "JAP" 
+			creator = JAP
 		}
 		requested_factories = 1
 		progress = 0.4
 		efficiency = 50
-
 	}
 
 	add_equipment_production = {
 		equipment = {
 			type = light_tank_chassis_1936
-			creator = "JAP" 
-			version_name = "Type 95 Ha-Go"
+			creator = JAP 
+			version_name = "Type 94 Tankette"
 		}
 		requested_factories = 1
 		progress = 0.4
 		efficiency = 50
 	}
+
+	add_equipment_production = {
+		equipment = {
+			type = medium_tank_chassis_1936
+			creator = JAP 
+			version_name = "Type 89 I-Go"
+		}
+		requested_factories = 1
+		progress = 0.4
+		efficiency = 50
+	}
+
+	add_equipment_production = {
+		equipment = {
+			type = motorized_equipment_1
+			creator = JAP
+		}
+		requested_factories = 1
+		progress = 0.5
+		efficiency = 40
+	}
+
+	add_equipment_production = {
+		equipment = {
+			type = train_equipment_1
+			creator = JAP
+		}
+		requested_factories = 1
+		progress = 0.6
+		efficiency = 40
+	}
+
 }

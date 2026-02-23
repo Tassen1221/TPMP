@@ -51,6 +51,14 @@ country_event = {
 			}
 			if = {
 				limit = {
+					1017 = {
+						is_fully_controlled_by = FRA
+					}
+				}
+				FROM = { transfer_state = 1017 }
+			}
+			if = {
+				limit = {
 					671 = {
 						is_fully_controlled_by = FRA
 					}
@@ -183,12 +191,93 @@ country_event = {
 		ai_chance = {
 			base = 10
 		}
+
 		diplomatic_relation = {
 			country = FROM
 			relation = non_aggression_pact
 			active = yes
 		}
-		FROM = { country_event = { id = wtt_japan.12 days = 1 } }
+
+		IF = {
+			limit = {
+				original_tag = CHI
+			}
+			add_opinion_modifier = {
+				target = FROM
+				modifier = trautmann_agreement_opm
+			}
+
+			FROM = {
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = trautmann_agreement_opm
+				}	
+			}
+		}
+		ELSE_IF = {
+			limit = {
+				original_tag = SOV
+				655 = {
+					is_owned_and_controlled_by = ROOT
+				}
+			}
+			655 = {
+				add_resource = {
+					type = oil
+					amount = 8
+				}	
+				add_resource = {
+					type = coal
+					amount = 2
+				}	
+				IF = {
+					limit = {
+						infrastructure < 5
+					}
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build = yes
+					}	
+				}
+				IF = {
+					limit = {
+						free_building_slots = {
+							building = industrial_complex
+							size > 0
+							include_locked = yes
+						}	
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}	
+				}
+			}
+		}
+
+		FROM = { 
+			country_event = { 
+				id = wtt_japan.12 
+				days = 1 
+			}
+			if = {
+				limit = {
+					original_tag = SOV
+				}
+				hidden_effect = {
+					PRC = {
+						country_event = { 
+							id = SEA_PRC_misc_events.12
+							days = 2
+						}
+					}
+				}
+			}
+		}
+
 	}
 
 
@@ -198,7 +287,14 @@ country_event = {
 		ai_chance = {
 			base = 0
 		}
-		FROM = { country_event = { id = wtt_japan.13 days = 1 } }	
+
+		FROM = { 
+			country_event = { 
+				id = wtt_japan.13 
+				days = 1 
+			} 
+		}	
+
 	}
 }
 
@@ -216,13 +312,78 @@ country_event = {
 		ai_chance = {
 			base = 10
 		}
+
 		effect_tooltip = {
 			diplomatic_relation = {
 				country = FROM
 				relation = non_aggression_pact
 				active = yes
 			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			IF = {
+				limit = {
+					FROM = {
+						original_tag = CHI
+					}
+				}
+				add_opinion_modifier = {
+					target = FROM
+					modifier = trautmann_agreement_opm
+				}
+				FROM = {
+					add_opinion_modifier = {
+						target = ROOT
+						modifier = trautmann_agreement_opm
+					}	
+				}
+			}
+			ELSE_IF = {
+				limit = {
+					FROM = {
+						original_tag = SOV
+					}
+					655 = {
+						is_owned_and_controlled_by = FROM
+					}
+				}
+				655 = {
+					add_resource = {
+						type = oil
+						amount = 8
+					}	
+					add_resource = {
+						type = coal
+						amount = 2
+					}	
+					IF = {
+						limit = {
+							infrastructure < 5
+						}
+						add_building_construction = {
+							type = infrastructure
+							level = 1
+							instant_build = yes
+						}	
+					}
+					IF = {
+						limit = {
+							free_building_slots = {
+								building = industrial_complex
+								size > 0
+								include_locked = yes
+							}	
+						}
+						add_extra_state_shared_building_slots = 1
+						add_building_construction = {
+							type = industrial_complex
+							level = 1
+							instant_build = yes
+						}
+					}	
+				}
+			}
 		}
+
 	}
 }
 
@@ -241,6 +402,7 @@ country_event = {
 			base = 10
 		}
 	}
+
 }
 
  ##  ### #  # ### ###   ##  #    ##     ###  ##      #   #  ##  #  # 
@@ -266,8 +428,13 @@ country_event = {
 			base = 10
 		}
 		FROM = {		
-			every_character = {
-				limit = { has_trait = JAP_samurai_lineage }
+			every_army_leader = {
+				limit = { 
+					OR = {
+						has_trait = JAP_samurai_lineage
+						has_trait = JAP_royal_lineage
+					}
+				}
 				set_nationality = ROOT
 			}
 		}		
@@ -321,12 +488,17 @@ country_event = {
 		ai_chance = {
 			base = 5
 		}
+
 		MAN = {
-			country_event = { id = wtt_japan.32 }
+			country_event = { 
+				id = wtt_japan.32 
+				hours = 3
+			}
 			effect_tooltip = {
 				add_ideas = MAN_exiled_imperial_family
 			}
 		}
+
 	}
 
 	#Execute them
@@ -335,7 +507,9 @@ country_event = {
 		ai_chance = {
 			base = 5
 		}
-		add_stability = -0.1
+
+		add_stability = -0.2
+
 	}
 }
 
@@ -353,8 +527,11 @@ country_event = {
 		ai_chance = {
 			base = 10
 		}
+
 		add_ideas = MAN_exiled_imperial_family
+
 	}
+
 }
 
 #Event from Communist China: turn over Manchuria OR ELSE
@@ -575,9 +752,15 @@ country_event = {
 		ai_chance = {
 			base = 1
 		}
-		set_autonomy = { target = PHI autonomy_state = autonomy_free }
+
+		set_autonomy = { 
+			target = PHI 
+			autonomy_state = autonomy_free 
+		}
+
 		JAP = { country_event = { id = wtt_japan.105 days = 1 } }
-		"PHI" = { country_event = { id = wtt_japan.107 days = 1 } }
+		PHI = { country_event = { id = wtt_japan.107 days = 1 } }
+
 	}
 
 	# Never!
@@ -648,6 +831,16 @@ country_event = {
 		effect_tooltip = {
 			FROM = { set_autonomy = { target = PHI autonomy_state = autonomy_free } }
 		}
+		IF = {
+			limit = {
+				JAP = {
+					is_faction_leader = yes
+				}
+			}
+			JAP = {
+				add_to_faction = ROOT
+			}
+		}
 		hidden_effect = {
 			news_event = { id = wtt_news.26 hours = 6 }
 		}
@@ -665,9 +858,18 @@ country_event = {
 	
 	option = {
 		name = wtt_japan.108.a
-		set_politics = { ruling_party = neutrality elections_allowed = no }
-		add_popularity = { ideology = neutrality popularity = 0.9 }
+
+		set_cosmetic_tag = JAP_shogunate
+		set_politics = {
+			ruling_party = neutrality
+			elections_allowed = no
+			long_name = JAP_neutrality_party_kodoha_long
+			name = JAP_neutrality_party_kodoha
+		}	
+
+		add_popularity = { ideology = neutrality popularity = 0.2 }
 		add_timed_idea = { idea = JAP_military_purges days = 90 }
+
 		if = { #MM: I honestly have no idea about how this works, so checking just in case
 			limit = {
 				JAP_emperor_hirohito = {
@@ -692,8 +894,11 @@ country_event = {
 			}
 			promote_leader = yes
 		}
+
 		hidden_effect = { news_event = { id = wtt_news.27 hours = 6 } }
+
 	}
+
 }
 
 ### ###  ### ###   ##  ###  ### ### ### ###     ###   ##   ##  ### 
@@ -771,10 +976,25 @@ country_event = {
 		event_target:JAP_initiator = {
 			give_guarantee = event_target:ITA_fascism
 			give_guarantee = event_target:GER_fascism
+			diplomatic_relation = {
+			    country = event_target:ITA_fascism
+			    relation = non_aggression_pact
+			    active = yes
+			}
+			diplomatic_relation = {
+			    country = event_target:GER_fascism
+			    relation = non_aggression_pact
+			    active = yes
+			}
 		}
 		event_target:GER_fascism = {
 			give_guarantee = event_target:ITA_fascism
 			give_guarantee = event_target:JAP_initiator
+			diplomatic_relation = {
+			    country = event_target:ITA_fascism
+			    relation = non_aggression_pact
+			    active = yes
+			}
 		}
 		event_target:ITA_fascism = {
 			give_guarantee = event_target:JAP_initiator
@@ -926,6 +1146,9 @@ country_event = {
 			}
 			MAN = {
 				set_cosmetic_tag = MAN_kwantung_army
+				hidden_effect = {
+					set_country_flag = MAN_kwantung_army_took_control_flag
+				}
 			}
 		}
 		if = {
@@ -933,6 +1156,16 @@ country_event = {
 				MAN = { has_idea = MAN_kwantung_veto }
 			}
 			MAN = { remove_ideas = MAN_kwantung_veto }
+		}
+		if = {
+			limit = {
+				KOR = { is_subject_of = ROOT }
+			}
+			set_autonomy = { target = KOR autonomy_state = autonomy_free }
+			KOR = {
+				retire_character = KOR_jiro_minami
+			}
+
 		}
 		add_popularity = { ideology = democratic popularity = 0.1 }
 		start_civil_war = {
@@ -942,13 +1175,11 @@ country_event = {
 		}
 		if = {
 			limit = {
-				any_state = {
-					is_controlled_by = ROOT
+				any_controlled_state = {
 					is_core_of = KOR
 				}
 			}
 			release = KOR
-			set_autonomy = { target = KOR autonomy_state = autonomy_free }
 		}
 	}
 }
@@ -1033,12 +1264,23 @@ country_event = {
 		ai_chance = {
 			base = 10
 		}
-		FROM = { country_event = { id = wtt_japan.119 hours = 6 } }
+
+		FROM = { 
+			country_event = { 
+				id = wtt_japan.119 
+				hours = 6 
+			} 
+		}
+
 		hidden_effect = { set_country_flag = sent_volunteers_to_JAP }
+
 		add_manpower = -105000
+
 		effect_tooltip = {
 			transfer_state = 537
+			JAP = { remove_resource_rights = 655 }
 		}
+
 	}
 
 	# Decline
@@ -1047,8 +1289,15 @@ country_event = {
 		ai_chance = {
 			base = 0
 		}
-		FROM = { country_event = { id = wtt_japan.120 hours = 6 } }
+
+		FROM = { 
+			country_event = { 
+				id = wtt_japan.120 
+				hours = 6 
+			} 
+		}
 		custom_effect_tooltip = wtt_japan_118_TT
+
 	}
 }
 
@@ -1063,7 +1312,13 @@ country_event = {
 	
 	option = {
 		name = wtt_japan.119.a
-		FROM = { transfer_state = 537 }
+
+		FROM = { 
+			transfer_state = 537 
+		}
+
+		remove_resource_rights = 655
+
 		division_template = { 
 			name = "Soviet Volunteers"
 			division_names_group = SOV_INF_01
@@ -1090,6 +1345,7 @@ country_event = {
 				artillery = { x = 0 y = 2 }
 			}
 		}
+
 		random_owned_controlled_state = {
 			prioritize = { 535 }
 			custom_effect_tooltip = wtt_japan.119.TT
@@ -1127,8 +1383,11 @@ country_event = {
 					owner = ROOT
 				}
 			}
+
 		}
+
 	}
+
 }
 
 # Event for JAP: SOV declined
@@ -1172,6 +1431,8 @@ country_event = {
 			transfer_state = 533
 			transfer_state = 536
 			transfer_state = 555
+			transfer_state = 1018
+			transfer_state = 526
 			country_event = { id = wtt_japan.122 }
 		}
 		if = {
@@ -1185,6 +1446,9 @@ country_event = {
 		}
 		annex_country = { target = event_target:jap_civ_loser transfer_troops = yes }
 		set_cosmetic_tag = MAN_kwantung_army
+		hidden_effect = {
+			set_country_flag = MAN_kwantung_army_took_control_flag
+		}
 	}
 
 	# This is not our fight.
@@ -1229,6 +1493,8 @@ country_event = {
 			transfer_state = 533
 			transfer_state = 536
 			transfer_state = 555
+			transfer_state = 1018
+			transfer_state = 526
 			FROM = { annex_country = { target = event_target:jap_civ_loser transfer_troops = yes } }
 		}
 	}
@@ -1321,6 +1587,10 @@ country_event = {
 						MAN = {
 							controls_state = 525
 							controls_state = 527
+							controls_state = 1029
+							controls_state = 1031
+							controls_state = 1030
+							controls_state = 1028
 						}
 					}
 				}
@@ -1329,7 +1599,12 @@ country_event = {
 			if = {
 				limit = {
 					524 = {
-						is_controlled_by = JAP
+						controller = {
+							OR = {
+								original_tag = JAP
+								is_ally_with = JAP
+							}
+						}
 					}
 				}
 				event_target:WTT_current_china_leader = {
@@ -1344,7 +1619,13 @@ country_event = {
 				}
 				every_country = {
 					limit = {
-						is_literally_china = yes
+						OR = {
+							AND = {
+								tag = MAN
+								is_in_faction_with = event_target:WTT_current_china_leader
+							}
+							is_literally_china = yes
+						}
 						has_war_with = ROOT
 						is_in_faction_with = event_target:WTT_current_china_leader
 					}
@@ -1375,7 +1656,13 @@ country_event = {
 			else = {
 				every_other_country = {
 					limit = {
-						is_literally_china = yes
+						OR = {
+							AND = {
+								tag = MAN
+								is_in_faction_with = event_target:WTT_current_china_leader
+							}
+							is_literally_china = yes
+						}
 						has_war_with = ROOT
 					}
 					every_controlled_state = {
@@ -1395,10 +1682,28 @@ country_event = {
 				}
 				every_other_country = {
 					limit = {
-						is_literally_china = yes
+						OR = {
+							AND = {
+								tag = MAN
+								is_in_faction_with = event_target:WTT_current_china_leader
+							}
+							is_literally_china = yes
+						}
 						has_war_with = ROOT
 					}
 					white_peace = ROOT
+					hidden_effect = {
+						if = {
+							limit = {
+								original_tag = PRC
+								has_government = communism
+							}
+						}
+						country_event = {
+							id = SEA_PRC_misc_events.9
+							days = 15
+						}
+					}
 				}
 			}
 		}
@@ -1506,22 +1811,133 @@ country_event = {
 					MAN = {
 						controls_state = 525
 						controls_state = 527
+						controls_state = 1029
+						controls_state = 1031
+						controls_state = 1030
+						controls_state = 1028
 					}
 				}
 				JAP = {
 					owns_state = 525
 					owns_state = 527
+					owns_state = 1029
+					owns_state = 1031
+					owns_state = 1030
+					owns_state = 1028
 				}
 			}
 			KOR = {
 				transfer_state = 525
 				transfer_state = 527
+				transfer_state = 1029
+				transfer_state = 1031
+				transfer_state = 1030
+				transfer_state = 1028
 			}
+		}
+		else_if = {
+			limit = {
+				KOR = {
+					exists = yes
+					is_subject_of = JAP
+				}
+				MAN = {
+					controls_state = 525
+					controls_state = 527
+					controls_state = 1029
+					controls_state = 1031
+					controls_state = 1030
+					controls_state = 1028
+				}
+			}
+			JAP = {
+				set_autonomy = {
+					target = KOR
+					autonomy_state = autonomy_free
+					end_wars  = yes 
+					end_civil_wars = yes
+				}	
+			}
+			every_other_country = {
+				limit = {
+					is_literally_china = yes
+					has_war_with = KOR
+				}
+				white_peace = KOR
+			}
+			MAN = {
+				puppet = KOR
+			}
+			KOR = {	
+				set_party_name = {
+					ideology = neutrality
+					long_name = KOR_neutrality_party
+					name = KOR_neutrality_party
+				}
+				set_party_name = {
+					ideology = democratic
+					long_name = KOR_democratic_party
+					name = KOR_democratic_party
+				}
+				retire_character = KOR_jiro_minami
+			}
+		}
+		else_if = {
+			limit = {
+				KOR = {
+					exists = yes
+					is_subject_of = JAP
+				}
+			}
+			JAP = {
+				set_autonomy = {
+					target = KOR
+					autonomy_state = autonomy_free
+					end_wars  = yes 
+					end_civil_wars = yes
+				}	
+			}
+			every_other_country = {
+				limit = {
+					OR = {
+						AND = {
+							tag = MAN
+							is_in_faction_with = event_target:WTT_current_china_leader
+						}
+						is_literally_china = yes
+					}
+					has_war_with = KOR
+				}
+				white_peace = KOR
+			}
+			KOR = {	
+				set_politics = {
+					ruling_party = democratic
+					elections_allowed = yes
+				}
+				set_party_name = {
+					ideology = neutrality
+					long_name = KOR_neutrality_party
+					name = KOR_neutrality_party
+				}
+				set_party_name = {
+					ideology = democratic
+					long_name = KOR_democratic_party
+					name = KOR_democratic_party
+				}
+				retire_character = KOR_jiro_minami
+			}
+
 		}
 		if = {
 			limit = {
 				524 = { #Taiwan
-					is_controlled_by = JAP
+					controller = {
+						OR = {
+							original_tag = JAP
+							is_ally_with = JAP
+						}
+					}
 				}
 			}
 			event_target:WTT_current_china_leader = {
@@ -1536,7 +1952,13 @@ country_event = {
 			}
 			every_country = {
 				limit = {
-					is_literally_china = yes
+					OR = {
+						AND = {
+							original_tag = MAN
+							is_in_faction_with = event_target:WTT_current_china_leader
+						}
+						is_literally_china = yes
+					}
 					has_war_with = ROOT
 					is_in_faction_with = event_target:WTT_current_china_leader
 				}
@@ -1557,17 +1979,43 @@ country_event = {
 			}
 			every_other_country = {
 				limit = {
-					is_literally_china = yes
+					OR = {
+						AND = {
+							original_tag = MAN
+							is_in_faction_with = event_target:WTT_current_china_leader
+						}
+						is_literally_china = yes
+					}
 					has_war_with = ROOT
 					is_in_faction_with = event_target:WTT_current_china_leader
 				}
 				white_peace = ROOT
 			}
 		}
+		if = {
+			limit = {
+				RNG = {
+					exists = yes
+					is_ally_with = JAP
+				}
+			}
+			event_target:WTT_current_china_leader = {
+				annex_country = {
+					target = RNG 
+					transfer_troops = no
+				}	
+			}
+		}
 		else = {
 			every_other_country = {
 				limit = {
-					is_literally_china = yes
+					OR = {
+						AND = {
+							original_tag = MAN
+							is_in_faction_with = event_target:WTT_current_china_leader
+						}
+						is_literally_china = yes
+					}
 					has_war_with = ROOT
 				}
 				every_controlled_state = {
@@ -1587,7 +2035,13 @@ country_event = {
 			}
 			every_other_country = {
 				limit = {
-					is_literally_china = yes
+					OR = {
+						AND = {
+							original_tag = MAN
+							is_in_faction_with = event_target:WTT_current_china_leader
+						}
+						is_literally_china = yes
+					}
 					has_war_with = ROOT
 				}
 				white_peace = ROOT
@@ -1620,6 +2074,34 @@ country_event = {
 			}
 			set_truce = {
 				target = SIK
+				days = 730
+			}
+			set_truce = {
+				target = XIC
+				days = 730
+			}
+			set_truce = {
+				target = SND
+				days = 730
+			}
+			set_truce = {
+				target = GDC
+				days = 730
+			}
+			set_truce = {
+				target = SIC
+				days = 730
+			}
+			set_truce = {
+				target = KHM
+				days = 730
+			}
+			set_truce = {
+				target = NXM
+				days = 730
+			}
+			set_truce = {
+				target = GSM
 				days = 730
 			}
 		}
@@ -1664,13 +2146,51 @@ country_event = {
 							is_literally_china = yes
 							controls_state = 525
 							controls_state = 527
+							controls_state = 1029
+							controls_state = 1031
+							controls_state = 1030
+							controls_state = 1028
 						}
+					}
+					JAP = {
+						owns_state = 525
+						owns_state = 527
+						owns_state = 1029
+						owns_state = 1031
+						owns_state = 1030
+						owns_state = 1028
 					}
 				}
 				FROM = { release = KOR }
 				KOR = {
 					transfer_state = 525
 					transfer_state = 527
+					transfer_state = 1029
+					transfer_state = 1031
+					transfer_state = 1030
+					transfer_state = 1028
+				}
+				MAN = {
+					puppet = KOR
+				}
+			}
+			else_if = {
+				limit = {
+					KOR = {
+						exists = yes
+						is_subject_of = JAP
+					}
+				}
+				JAP = {
+					set_autonomy = {
+						target = KOR
+						autonomy_state = autonomy_free
+						end_wars  = yes 
+						end_civil_wars = yes
+					}	
+				}
+				MAN = {
+					puppet = KOR
 				}
 			}
 			if = {
@@ -1694,6 +2214,10 @@ country_event = {
 						NOT = {
 							state = 525
 							state = 527
+							state = 1029
+							state = 1031
+							state = 1030
+							state = 1028
 						}
 					}
 					every_country = {
@@ -1743,13 +2267,76 @@ country_event = {
 						is_literally_china = yes
 						controls_state = 525
 						controls_state = 527
+						controls_state = 1029
+						controls_state = 1031
+						controls_state = 1030
+						controls_state = 1028
 					}
 				}
+				JAP = {
+					owns_state = 525
+					owns_state = 527
+					owns_state = 1029
+					owns_state = 1031
+					owns_state = 1030
+					owns_state = 1028
+				}
 			}
-			release = KOR
+			FROM = { release = KOR }
 			KOR = {
 				transfer_state = 525
 				transfer_state = 527
+				transfer_state = 1029
+				transfer_state = 1031
+				transfer_state = 1030
+				transfer_state = 1028
+			}
+			MAN = {
+				puppet = KOR
+			}
+			KOR = {	
+				set_party_name = {
+					ideology = neutrality
+					long_name = KOR_neutrality_party
+					name = KOR_neutrality_party
+				}
+				set_party_name = {
+					ideology = democratic
+					long_name = KOR_democratic_party
+					name = KOR_democratic_party
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				KOR = {
+					exists = yes
+					is_subject_of = JAP
+				}
+			}
+			JAP = {
+				set_autonomy = {
+					target = KOR
+					autonomy_state = autonomy_free
+					end_wars  = yes 
+					end_civil_wars = yes
+				}	
+			}
+			MAN = {
+				puppet = KOR
+			}
+			KOR = {	
+				set_party_name = {
+					ideology = neutrality
+					long_name = KOR_neutrality_party
+					name = KOR_neutrality_party
+				}
+				set_party_name = {
+					ideology = democratic
+					long_name = KOR_democratic_party
+					name = KOR_democratic_party
+				}
+				retire_character = KOR_jiro_minami
 			}
 		}
 		if = {
@@ -1927,7 +2514,7 @@ country_event = {
 	id = goe_japan.1
 	title = goe_japan.1.t
 	desc = goe_japan.1.desc
-	picture = GFX_report_event_japanese_parade
+	picture = GFX_report_event_JAP_the_azad_hind
 
 	fire_only_once = yes
 	trigger = {

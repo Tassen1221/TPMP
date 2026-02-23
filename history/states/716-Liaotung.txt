@@ -2,25 +2,41 @@ state={
 	id=716
 	name="STATE_716"
 	resources={
-		steel = 270
+		steel=270.000
+		chromium = 40
+		tungsten = 40
+		oil = 30 #Japan extracted 1m barrels annually from Manhuria
+		coal = 11
 	}
 
 	history={
 		owner = MAN
 		add_core_of = MAN
+		add_core_of = CHI
+
 		buildings = {
 			infrastructure = 2
-			arms_factory = 3
-			industrial_complex = 5
+			arms_factory = 2
+			industrial_complex = 1
 			air_base = 5
-			964 = {
+			11764 = {
 				naval_base = 3
 
 			}
-
+			11808 = {
+				landmark_great_wall_section = {
+				    level = 1
+				    allowed = {
+				        has_dlc = "No Compromise, No Surrender"
+				    }
+				}
+			}
 		}
 		victory_points = {
-			11771 3 
+			11771 3
+		}
+		victory_points = {
+			11764 1 
 		}
 
 	}

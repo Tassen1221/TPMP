@@ -12,6 +12,15 @@
 				tag = GXC
 				tag = SHX
 				tag = XSM
+				tag = GDC
+				tag = XIC
+				tag = SND
+				tag = KHM
+				tag = NXM
+				tag = GSM
+				tag = SIC
+				tag = KUM
+				tag = HBC
 			}
 			has_dlc = "Waking the Tiger"
 		}
@@ -108,9 +117,11 @@
 			modifier = {
 				factor = 10
 				OR = {
-					original_tag = GXC
 					original_tag = YUN
 					original_tag = XSM
+					original_tag = GDC
+					original_tag = XIC
+					original_tag = SND
 				}
 			}
 		}
@@ -426,6 +437,10 @@
 
 		ai_will_do = {
 			factor = 1
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes 
+			}
 		}
 
 		available = {
@@ -480,6 +495,10 @@
 
 		ai_will_do = {
 			factor = 1
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes 
+			}
 		}
 
 		available = {
@@ -813,7 +832,10 @@
 				}
 				event_target:WTT_communist_china = {
 					set_rule = { can_create_factions = yes }
-					create_faction = CHI_the_peoples_front
+					create_faction_from_template = {
+						template = faction_template_POR_popular_front_bloc
+						name = CHI_the_peoples_front
+					}
 					add_to_faction = event_target:WTT_communist_china
 					add_to_faction = ROOT
 					country_event = wtt_warlord_vs_prc.35
@@ -886,6 +908,10 @@
 
 		ai_will_do = {
 			factor = 1
+			modifier = {
+				factor = 10
+				original_tag = GXC
+			}
 		}
 
 		available = {
@@ -1161,65 +1187,38 @@
 
 		completion_reward = {
 			add_command_power = 30
-			if = {
-				limit = { ROOT = { tag = GXC } }
-				add_field_marshal_role = {
-					character = "GXC_li_zongren"
-						traits = { infantry_officer } # Many warlord battles as a junior commander
-						skill = 3
+			IF = {
+				limit = {
+					any_character = {
+						is_country_leader = yes
+						is_field_marshal = yes 
+					}
+			
+				}
+				random_character = {
+					limit = {
+						is_country_leader = yes
+						is_field_marshal = yes 
+					}
+					add_attack = 1
+					add_defense = 1
+					add_random_trait = { old_guard brilliant_strategist cavalry_officer politically_connected career_officer infantry_officer war_hero }	
+				}
+			}
+			ELSE = {
+				random_character = {
+					limit = {
+						is_country_leader = yes
+					}
+					add_field_marshal_role = {
+						traits = {  }
+						skill = 2
 						attack_skill = 2
-						defense_skill = 4
+						defense_skill = 2
 						planning_skill = 2
-						logistics_skill = 2	
-				}
-			}
-			else_if = {
-				limit = { ROOT = { tag = YUN } }
-				add_field_marshal_role = {
-					character = "YUN_long_yun"
-						traits = { war_hero } # Fought in the Xinhai Revolution, showed personal bravery fighting Japan
-						skill = 3
-						attack_skill = 3
-						defense_skill = 3
-						planning_skill = 2
-						logistics_skill = 2
-				}
-			}
-			else_if = {
-				limit = { ROOT = { tag = SHX } }
-				add_field_marshal_role = {
-					character = "SHX_yan_xishan"
-					traits = { career_officer infantry_officer } # Educated at officer schools in China and Japan
-					skill = 3
-					attack_skill = 3
-					defense_skill = 3
-					planning_skill = 2
-					logistics_skill = 2
-				}
-			}
-			else_if = {
-				limit = { ROOT = { tag = XSM } }
-				add_field_marshal_role = {
-					character = "XSM_ma_bufang"
-					traits = { cavalry_officer } # Raised 30,000 Muslim Cavalrymen
-					skill = 3
-					attack_skill = 3
-					defense_skill = 3
-					planning_skill = 2
-					logistics_skill = 2
-				}
-			}
-			else_if = {
-				limit = { ROOT = { tag = SIK } }
-				add_field_marshal_role = {
-					character = SIK_sheng_shicai
-					gfx = GFX_portrait_sheng_shicai
-					traits = { politically_connected } # Studied political economy, played Stalin and Chiang against one another
-					skill = 3
-					attack_skill = 3
-					defense_skill = 3
-					planning_skill = 2
-					logistics_skill = 2
+						logistics_skill = 1
+					}
+					add_random_trait = { old_guard brilliant_strategist cavalry_officer politically_connected 	career_officer infantry_officer war_hero }
 				}
 			}
 		}

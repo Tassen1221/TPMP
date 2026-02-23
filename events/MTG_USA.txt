@@ -1984,10 +1984,6 @@ country_event = {
 	option = {
 		name = mtg_usa_civil_war_democrats.23.a
 		add_stability = -0.05
-		set_capital = {
-			state = 362
-			remember_old_capital = no
-		}
 	}
 }
 
@@ -3492,6 +3488,7 @@ country_event = {
 				transfer_state = 671
 				transfer_state = 670
 				transfer_state = 286
+				transfer_state = 1017
 				transfer_state = 741
 			}
 		}
@@ -3544,6 +3541,7 @@ country_event = {
 			transfer_state = 670
 			transfer_state = 286
 			transfer_state = 741
+			transfer_state = 1017
 	}
 }
 
@@ -4292,20 +4290,63 @@ country_event = {
 	hidden = yes
 
 	trigger = {
+		has_start_date < 1939.1.1
   		tag = CHI
  		has_war_with = JAP
  		# This next bit is to make sure that event only fires if JAP has conquered a fair bit of CHI first, so 
  		# Panay incident doesn't fire if it's an arm-wrestle on the JAP/CHI border.
  		OR = {
  			AND = { #JAP has made headway in the north
- 				608 = { is_controlled_by = JAP } #Beijing
-				614 = { is_controlled_by = JAP } #Hebei
-				597 = { is_controlled_by = JAP } #Shandong
-				598 = { is_controlled_by = JAP } #Jiangsu
+ 				608 = { #Beijing
+ 					OR = {
+						is_controlled_by = JAP
+						is_controlled_by = MAN
+						is_controlled_by = MEN
+						is_controlled_by = RNG
+					}
+			 	} 
+				614 = { #Hebei
+					OR = {
+						is_controlled_by = JAP
+						is_controlled_by = MAN
+						is_controlled_by = MEN
+						is_controlled_by = RNG
+					}
+			 	} 
+				597 = { #Shandong
+					OR = {
+						is_controlled_by = JAP
+						is_controlled_by = MAN
+						is_controlled_by = MEN
+						is_controlled_by = RNG
+					}
+				} 
+				598 = { #Jiangsu
+					OR = {
+						is_controlled_by = JAP
+						is_controlled_by = MAN
+						is_controlled_by = MEN
+						is_controlled_by = RNG
+					}
 				}
+			}
 			OR = { #JAP has captured key coastal states in the south
-				597 = { is_controlled_by = JAP } #Shanghai
-				592 = { is_controlled_by = JAP } #Guangzhou
+				597 = {  #Shanghai
+					OR = {
+						is_controlled_by = JAP
+						is_controlled_by = MAN
+						is_controlled_by = MEN
+						is_controlled_by = RNG
+					}
+				}
+				592 = {  #Guangzhou
+					OR = {
+						is_controlled_by = JAP
+						is_controlled_by = MAN
+						is_controlled_by = MEN
+						is_controlled_by = RNG
+					}
+			 	}
 			}
 		}
 		NOT = { #Should only fire if JAP and USA/ENG aren't at war, and CHI and USA/ENG aren't at war.
@@ -4316,6 +4357,9 @@ country_event = {
 				CHI = { has_war_with = ENG }
 			}
 			USA = { has_war_with = ENG }
+			
+			USA = { is_subject_of = JAP}
+			ENG = { is_subject_of = JAP}
 		}
 	}
 

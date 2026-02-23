@@ -49,6 +49,8 @@ set_technology = {
 	basic_train = 1
 }
 
+set_grand_doctrine = grand_battleplan
+
 if = {
 	limit = {
 		NOT = { has_dlc = "No Step Back" }
@@ -216,12 +218,7 @@ if = {
 		artillery1_tech = 1
 
 		#doctrines
-		
-
-		
-		fleet_in_being = 1
-		battlefleet_concentration = 1
-		convoy_sailing = 1
+		#air_superiority = 1
 
 		#electronics
 		electronic_mechanical_engineering = 1
@@ -246,6 +243,11 @@ if = {
 		concentrated_industry3 = 1
 		concentrated_industry4 = 1
 	}
+
+set_grand_doctrine = grand_battleplan
+set_grand_doctrine = new_fleet_in_being
+set_grand_doctrine = new_strategic_destruction
+
 	complete_special_project = {
 		project = sp:sp_air_radar
 	}

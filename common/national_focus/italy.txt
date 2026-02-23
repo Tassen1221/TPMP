@@ -3884,11 +3884,17 @@ focus_tree = {
 
 			army_experience = 25
 
+			add_mastery= {
+				amount = 150
+				grand_doctrine = grand_battleplan
+				track = infantry
+			}
+
 			add_doctrine_cost_reduction = {
 				name = ITA_preserve_army_traditions
-				cost_reduction = 0.75
+				cost_reduction = 0.5
 				uses = 1
-				category = cat_infantry_doctrine
+				category = land_doctrine
 			}
 		}
 	}
@@ -4151,11 +4157,18 @@ focus_tree = {
 			custom_effect_tooltip = available_chief_of_army
 			show_ideas_tooltip = ITA_alberto_pariani
 
+
+			add_mastery_bonus = {
+				name = ITA_a_bandits_war
+				bonus = 0.25
+				days = 240
+				grand_doctrine = new_mobile_warfare
+			}
 			add_doctrine_cost_reduction = {
 				name = ITA_a_bandits_war
 				cost_reduction = 0.5
-				uses = 2
-				category = cat_tank_doctrine
+				uses = 1
+				category = land_doctrine
 			}
 
 			add_tech_bonus = {
@@ -6357,7 +6370,7 @@ focus_tree = {
 		completion_reward = {
 			add_to_variable = { ITA_rm_special_forces_cap = 0.02 }
 			add_to_variable = { ITA_rm_amphibious_invasion = 0.05 }
-			add_to_variable = { ITA_rm_naval_invasion_capacity = 10 }
+			add_to_variable = { ITA_rm_naval_invasion_capacity = 2 }
 			add_to_variable = { ITA_rm_invasion_preparation = -0.1 }
 			custom_effect_tooltip = ITA_forza_navale_especiale_rm_tt
 
@@ -6625,18 +6638,25 @@ focus_tree = {
 
 			navy_experience = 25
 
+			add_mastery_bonus = {
+				name = ITA_incrociatori_leggeri
+				bonus = 0.2
+				days = 180
+				track = screens
+			}
+
 			add_doctrine_cost_reduction = {
 				name = ITA_incrociatori_leggeri
-				cost_reduction = 0.75
-				uses = 2
-				category = cat_trade_interdiction
+				cost_reduction = 0.5
+				uses = 1
+				category = naval_doctrine
 			}
 
 			add_tech_bonus = {
 				name = ITA_incrociatori_leggeri
 				bonus = 1
 				uses = 1
-				category = cl_tech
+				category = ca_tech
 			}
 
 			#Update NS icon
@@ -6670,11 +6690,19 @@ focus_tree = {
 
 			navy_experience = 25
 
+
+			add_mastery_bonus = {
+				name = ITA_incrociatori_pesanti
+				bonus = 0.2
+				days = 180
+				track = capital_ships
+			}
+
 			add_doctrine_cost_reduction = {
 				name = ITA_incrociatori_pesanti
-				cost_reduction = 0.75
-				uses = 2
-				category = cat_fleet_in_being
+				cost_reduction = 0.50
+				uses = 1
+				category = naval_doctrine
 			}
 
 			add_tech_bonus = {
@@ -6765,12 +6793,14 @@ focus_tree = {
 
 		completion_reward = {
 			navy_experience = 15
-			add_doctrine_cost_reduction = {
+
+			add_mastery_bonus = {
 				name = ITA_cruiser_submarines
-				cost_reduction = 0.5
-				uses = 1
-				category = trade_interdiction_tree
+				bonus = 0.1
+				days = 180
+				track = submarines
 			}
+			
 
 			add_tech_bonus = {
 				name = ITA_cruiser_submarines
@@ -6821,12 +6851,14 @@ focus_tree = {
 
 		completion_reward = {
 			navy_experience = 15
-			add_doctrine_cost_reduction = {
+
+			add_mastery_bonus = {
 				name = ITA_midget_submarines
-				cost_reduction = 0.5
-				uses = 1
-				category = trade_interdiction_tree
+				bonus = 0.1
+				days = 180
+				track = submarines
 			}
+			
 
 			add_tech_bonus = {
 				name = ITA_midget_submarines
@@ -6900,11 +6932,19 @@ focus_tree = {
 
 		completion_reward = {
 			navy_experience = 15
+
+			add_mastery_bonus = {
+				name = ITA_cacciatorpediniere_di_scorta
+				bonus = 0.2
+				days = 180
+				grand_doctrine = new_base_strike
+			}
+
 			add_doctrine_cost_reduction = {
 				name = ITA_cacciatorpediniere_di_scorta
-				cost_reduction = 0.50
-				uses = 2
-				category = convoy_defense_tree
+				cost_reduction = 0.25
+				uses = 1
+				category = naval_doctrine
 			}
 
 			add_tech_bonus = {
@@ -7200,11 +7240,18 @@ focus_tree = {
 
 		completion_reward = {
 			navy_experience = 15
+
+			add_mastery_bonus = {
+				name = ITA_navi_da_battaglia
+				bonus = 0.2
+				days = 180
+				grand_doctrine = new_fleet_in_being
+			}
 			add_doctrine_cost_reduction = {
 				name = ITA_navi_da_battaglia
-				cost_reduction = 0.50
-				uses = 2
-				category = fleet_in_being_tree
+				cost_reduction = 0.25
+				uses = 1
+				category = naval_doctrine
 			}
 
 			add_tech_bonus = {
@@ -13474,7 +13521,21 @@ focus_tree = {
 				limit = {
 					is_in_faction = no
 				}
-				create_faction = "italy_empire_faction"
+				create_faction_from_template = faction_template_italy_empire_faction
+				custom_effect_tooltip = generic_skip_one_line_tt
+			}
+			ELSE_IF = {
+				limit = {
+					is_faction_leader = yes
+				}
+				set_faction_name = italy_empire_faction 
+				IF = {
+					limit = {
+						has_dlc = "No Compromise, No Surrender"
+					}
+					set_faction_manifest = faction_manifest_pax_romana
+				}
+				custom_effect_tooltip = generic_skip_one_line_tt
 			}
 
 			unlock_decision_tooltip = form_roman_empire
@@ -13769,7 +13830,7 @@ focus_tree = {
 				custom_effect_tooltip = ITA_modify_regia_aeronautica_dynamic_modifier_ns_intro
 				if = {
 					limit = {
-						NOT = { is_special_project_completed = sp_air_intercontinental_bomber }
+						NOT = { is_special_project_completed = sp:sp_air_intercontinental_bomber }
 					}
 					add_to_variable = { 
 						ITA_ra_sp_air_intercontinental_bomber_speed_factor = 0.2
@@ -13778,7 +13839,7 @@ focus_tree = {
 				}
 				if = {
 					limit = {
-						NOT = { is_special_project_completed = sp_air_mothership_aircraft }
+						NOT = { is_special_project_completed = sp:sp_air_mothership_aircraft }
 					}
 					add_to_variable = { 
 						ITA_ra_sp_air_mothership_aircraft_speed_factor = 0.2
@@ -13863,7 +13924,7 @@ focus_tree = {
 				}
 				if = {
 					limit = {
-						NOT = { is_special_project_completed = sp_land_land_cruiser }
+						NOT = { is_special_project_completed = sp:sp_land_land_cruiser }
 					}
 					custom_effect_tooltip = ITA_modify_regio_esercito_dynamic_modifier_ns_intro
 					add_to_variable = { 
@@ -14024,7 +14085,7 @@ focus_tree = {
 				}
 				if = {
 					limit = {
-						NOT = { is_special_project_completed = sp_naval_ice_carrier }
+						NOT = { is_special_project_completed = sp:sp_naval_ice_carrier }
 					}
 					custom_effect_tooltip = ITA_modify_regia_marina_dynamic_modifier_ns_intro
 					add_to_variable = { 
@@ -14088,14 +14149,21 @@ focus_tree = {
 					has_completed_focus = ITA_deus_vult
 					is_faction_leader = no
 				}
-				create_faction = ITA_papal_faction 
+				create_faction_from_template = {
+					template = faction_template_ITA_italian_league
+					name = ITA_papal_faction
+					icon = GFX_faction_logo_generic_7
+				}
 			}
 			IF = {
 				limit = {
 					has_completed_focus = ITA_mare_nostrum_bba
 					is_faction_leader = no
 				}
-				create_faction = ITA_roman_faction
+				create_faction_from_template = {
+					template = faction_template_italy_empire_faction
+					name = ITA_roman_faction
+				}
 			}
 		}
 	}
@@ -15505,12 +15573,14 @@ focus_tree = {
 				uses = 1
 				category = ss_tech
 			}
-			add_doctrine_cost_reduction = {
+
+			add_mastery_bonus = {
 				name = ITA_sea_wolves_bba
-				cost_reduction = 0.5
-				uses = 2
-				category = submarine_doctrine
+				bonus = 0.2
+				days = 240
+				track = submarines
 			}
+
 		}
 	}
 
@@ -15695,13 +15765,28 @@ focus_tree = {
 
 		completion_reward = {
 			add_political_power = 75
-			if = {
+
+			IF = {
 				limit = {
 					NOT = { has_rule = can_create_factions }
 				}
 				set_rule = { can_create_factions = yes }
 			}
-			create_faction = ITA_italian_league
+
+			IF = {
+				limit = {
+					has_government = fascism
+				}
+				create_faction_from_template = faction_template_ITA_italian_league
+				custom_effect_tooltip = generic_skip_one_line_tt
+			}
+			ELSE = {
+				create_faction_from_template = {
+					template = faction_template_ITA_italian_league
+					icon = GFX_faction_logo_generic_10
+				}
+				custom_effect_tooltip = generic_skip_one_line_tt
+			}
 
 			if = {
 				limit = {
@@ -15797,6 +15882,30 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_WAR_SUPPORT}
 
 		completion_reward = {
+
+			
+			IF = {
+				limit = {
+					has_dlc = "No Compromise, No Surrender"
+					is_in_faction = no  
+				}
+				custom_effect_tooltip = add_faction_goal_secure_north_africa_tt
+				custom_effect_tooltip = generic_skip_one_line_tt
+			}
+			ELSE_IF = {
+				limit = {
+					has_dlc = "No Compromise, No Surrender"
+					is_in_faction = yes 
+				}
+				add_faction_goal_slot = {
+					category  = medium_term # options: short_term, medium_term, long_term 
+					value = 1 
+				}
+				add_faction_goal = faction_goal_secure_north_africa 
+				custom_effect_tooltip = generic_skip_one_line_tt
+			}
+
+
 			add_political_power = 50
 			add_war_support = 0.03
 			add_popularity = {
@@ -15925,7 +16034,7 @@ focus_tree = {
 			create_wargoal = {
 				type = take_state_focus
 				target = FRA
-				generator = { 735 956 1 268 }
+				generator = { 735 851 1 268 }
 			}
 		}
 	}
@@ -19814,7 +19923,12 @@ focus_tree = {
 		search_filters = {}
 
 		completion_reward = {
-			create_faction = ITA_united_socialist_front
+
+			create_faction_from_template = {
+				template = faction_template_POR_popular_front_bloc
+				name = ITA_united_socialist_front
+				icon = GFX_faction_icon_generic_communist
+			}
 
 			custom_effect_tooltip = ITA_defend_the_land_invite_tt
 			if = {
@@ -20415,6 +20529,16 @@ focus_tree = {
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
+			hidden_effect = {	#Fix character being on the civil war side that lost
+                every_possible_country = {
+                    limit = { has_character = ITA_enrico_fermi }
+                    random_character = {
+                        limit = { is_character = ITA_enrico_fermi }
+                        set_nationality = ROOT
+                    }
+                }
+            }
+
 			custom_effect_tooltip = {
 				localization_key = available_scientist_one_line_tt
 				CHARACTER = ITA_enrico_fermi
@@ -20593,7 +20717,13 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_POLITICAL}
 
 		completion_reward = {
-			create_faction = ITA_free_states_of_europe
+
+			create_faction_from_template = {
+				template = faction_template_european_unity
+				name = ITA_free_states_of_europe
+				icon = GFX_faction_logo_generic_12
+			}
+
 			add_political_power = 50
 			custom_effect_tooltip = ITA_italia_libera_invite_tt
 			if = {
@@ -21537,12 +21667,27 @@ focus_tree = {
 		relative_position_id = ITA_new_colonial_policies
 		cost = 10
 		available = {
+			OR = {
+				is_faction_leader = yes
+				is_in_faction = no
+			}
 		}
 
 		search_filters = {FOCUS_FILTER_INDUSTRY}
 
 		completion_reward = {
-			create_faction = ITA_italian_confederation
+			
+			IF = {
+				limit = {
+					is_in_faction = no
+				}
+				create_faction_from_template = {
+					template = faction_template_european_unity
+					name = ITA_italian_confederation
+					icon = GFX_faction_logo_generic_12
+				}
+			}
+			
 			add_ideas = ITA_italian_confederation_leader
 
 			if = {

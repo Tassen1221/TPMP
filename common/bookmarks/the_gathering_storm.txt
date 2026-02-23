@@ -146,17 +146,20 @@ bookmarks = {
 		# }
 		JAP = {
 			history = "JAP_GATHERING_STORM_DESC"
-			ideology = fascism
+			available = {  NOT = { has_dlc = "No Compromise, No Surrender" } }
+			ideology = neutrality
+			new_content = yes
+			override_leader_portrait = JAP_emperor_hirohito
 			ideas = {
-				state_shintoism
-				JAP_zaibatsus
+				JAP_1936_fake_state_shintoism_idea
+				JAP_1936_fake_industrial_idea
 				JAP_militarism
-			}	
+			}
 			focuses = {
-				JAP_the_zero
-				JAP_the_manchurian_project
-				TPMP_JAP_total_defense_state
-			}			
+				JAP_sea_purge_the_kodoha_faction
+				JAP_the_unthinkable_option
+				JAP_support_the_kodoha_faction
+			}
 		}
 		# "SOV"={
 		# 	history = "SOV_GATHERING_STORM_DESC"

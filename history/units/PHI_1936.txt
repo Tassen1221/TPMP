@@ -23,27 +23,48 @@ units = {
 	######## LAND OOB ########
 	##### Philippine High Command #####
 	division = { # "1st Philippines Division"
-		division_name = {
-				is_name_ordered = yes
-				name_order = 1
-		}
+		name = "Philippine Scouts Division" 
 		location = 10265
 		division_template = "Infantry Division"		
-		start_experience_factor = 0.2
+		start_experience_factor = 0.1
 	}
 
 	######## No Naval OOB ########
 }
 
-
 instant_effect = {
-	add_equipment_production = {
-		equipment = {
-			type = line_infantry_equipment_1
-			creator = "PHI"
+	if = {
+		limit = { has_dlc = "No Compromise, No Surrender" }
+			add_equipment_production = {
+				equipment = {
+					type = line_infantry_equipment_1
+					creator = "PHI"
+				}
+				requested_factories = 1
+				progress = 0.40
+				efficiency = 100
+			}
+
+			add_equipment_production = {
+				equipment = {
+					type = convoy_1
+					creator = "PHI" 
+					version_name = "Casco Convoy"
+				}
+				requested_factories = 1
+				progress = 0.55
+				amount = 50
+			}
+		else = {
+			add_equipment_production = {
+				equipment = {
+					type = line_infantry_equipment_1
+					creator = "PHI"
+				}
+				requested_factories = 1
+				progress = 0.40
+				efficiency = 100
+			}
 		}
-		requested_factories = 1
-		progress = 0.40
-		efficiency = 100
 	}
 }

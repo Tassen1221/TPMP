@@ -1,4 +1,22 @@
-﻿capital = 328
+﻿capital = 328 # Hsingking
+
+set_variable = { MAN_state_shintoism_surrender_limit = 0 }
+set_variable = { MAN_state_shintoism_war_support_factor = 0 }
+set_variable = { MAN_state_shintoism_pocket_penalty = 0 }
+set_variable = { MAN_state_shintoism_stability_factor = -0.05 }
+set_variable = { MAN_state_shintoism_army_core_defence_factor = 0 }
+set_variable = { MAN_state_shintoism_research_speed_factor = 0 }
+set_variable = { MAN_state_shintoism_recruitable_population_factor = 0 }
+set_variable = { MAN_state_shintoism_political_power_gain = -0.1 }
+set_variable = { MAN_levy_cap_max = 48 }
+set_variable = { MAN_levy_cap_min = 0 }
+set_variable = { MAN_levy_cap = 12 }
+set_variable = { MAN_levy_deployed = 0 }
+clamp_variable = {
+	var = MAN_levy_cap
+	min = MAN_levy_cap_min
+	max = MAN_levy_cap_max
+}
 
 oob = "MAN_1936"
 
@@ -11,16 +29,14 @@ set_technology = {
 	tech_trucks = 1
 }
 
-if = {
-	limit = { has_dlc = "Waking the Tiger" }
-	set_country_flag = MAN_northern_bandits
-	set_country_flag = MAN_eastern_bandits
-	set_country_flag = MAN_western_bandits
-	add_ideas = MAN_banditry
-	add_ideas = MAN_kwantung_veto
-	add_ideas = MAN_low_legitimacy_5
-	recruit_character = MAN_songgotu_zhanshan
-}
+set_country_flag = MAN_northern_bandits
+set_country_flag = MAN_eastern_bandits
+set_country_flag = MAN_western_bandits
+
+add_ideas = MAN_banditry
+add_ideas = MAN_kwantung_veto
+add_ideas = MAN_low_legitimacy_5
+add_ideas = MAN_the_kangde_emperor
 
 add_ideas = {
 	national_arms_enterprises
@@ -34,23 +50,48 @@ recruit_character = MAN_zhang_jinghui
 recruit_character = MAN_aisin_gioro_xiqia
 recruit_character = MAN_yoshiko_kawashima
 recruit_character = MAN_zhao_shangzhi
-recruit_character = MAN_changlin_linge
-recruit_character = MAN_kyoiji_tomonaga
-recruit_character = MAN_yonimitsu_kasahara
 recruit_character = MAN_deng_linge
-recruit_character = MAN_hung_zhehuang
 recruit_character = MAN_nakajima_kesago
 recruit_character = MAN_yin_zuoqian
-recruit_character = MAN_hesehn_tiemei
 recruit_character = MAN_xian_yuan
-recruit_character = MAN_guan_xingde
-recruit_character = MAN_megata_toshiro
-if = {
+recruit_character = MAN_urzhin_garmaev
+recruit_character = MAN_yu_zishan
+recruit_character = MAN_ma_zhanshan
+recruit_character = MAN_jonjurjab
+recruit_character = MAN_pujie
+recruit_character = MAN_songgotu_zhanshan
+recruit_character = MAN_zhang_yanqing
+recruit_character = MAN_zhang_shiyi
+recruit_character = MAN_sun_qichang
+recruit_character = MAN_li_shaogeng
+recruit_character = MAN_chu_kudo
+recruit_character = MAN_yuan_jinkai
+recruit_character = MAN_xie_jieshi
+recruit_character = MAN_ding_chao
+recruit_character = MAN_li_zhaolin
+recruit_character = MAN_kanjurjab
+recruit_character = MAN_ding_jianxiu
+
+# Old fake characters 
+#recruit_character = MAN_kyoiji_tomonaga
+#recruit_character = MAN_yonimitsu_kasahara
+#recruit_character = MAN_hesehn_tiemei
+#recruit_character = MAN_guan_xingde
+#recruit_character = MAN_megata_toshiro
+#recruit_character = MAN_hung_zhehuang
+
+IF = {
 	limit = { has_dlc = "No Step Back" }
 	recruit_character = SOV_grigory_semyonov
 	SOV_grigory_semyonov = { 
 		set_character_flag = SOV_exiled_army_leader
 	}
+}
+IF = {
+	limit = {
+		has_dlc = "No Compromise, No Surrender"
+	}
+	add_ideas = { MAN_aisin_gioro_puyi }
 }
 
 set_convoys = 5
@@ -78,6 +119,10 @@ set_convoys = 5
 		enemy = CHI
 		hostility_reason = puppet
 	}
+
+	remove_ideas = {
+		MAN_aisin_gioro_puyi
+	}	
 	
 	add_political_power = 1198
 	add_command_power = 100
@@ -119,14 +164,37 @@ set_convoys = 5
 		complete_national_focus = MAN_develop_aluminum_sources
 		complete_national_focus = MAN_social_research_unit
 	}
+
+	if = {
+		limit = { has_dlc = "No Compromise, No Surrender" }
+
+		
+		#No bandits
+		unlock_national_focus = MAN_tsr_pacify_the_countryside
+		remove_ideas = MAN_banditry
+
+		complete_national_focus = MAN_tsr_army_modernization
+		complete_national_focus = MAN_tsr_mukden_military_academy
+		complete_national_focus = MAN_tsr_law_university
+		complete_national_focus = MAN_tsr_obedience
+
+		#Five year plan
+		unlock_national_focus = MAN_tsr_first_five_year_plan
+		add_timed_idea = { days = 1275 idea = MAN_five_year_plan_industry }
+
+		complete_national_focus = MAN_tsr_trade_delegation
+		complete_national_focus = MAN_tsr_expand_the_textile_industry
+		complete_national_focus = MAN_tsr_hoankyoku
+		complete_national_focus = MAN_tsr_invite_japanese_investors
+		complete_national_focus = MAN_tsr_expand_the_railways
+		complete_national_focus = MAN_tsr_expand_showa_steel_works
+		complete_national_focus = MAN_tsr_develop_aluminum_sources
+		complete_national_focus = MAN_tsr_strengthen_ties_with_nissan
+		complete_national_focus = MAN_tsr_social_research_unit
+	}
 	
 	oob = "MAN_1939"
 	set_technology = {
-		#doctrines
-
-		
-		fleet_in_being = 1
-		battlefleet_concentration = 1
 
 		#electronics
 		electronic_mechanical_engineering = 1
@@ -143,6 +211,10 @@ set_convoys = 5
 		dispersed_industry = 1
 		dispersed_industry2 = 1
 	}
+
+set_grand_doctrine = grand_battleplan
+set_grand_doctrine = new_fleet_in_being
+
 	complete_special_project = {
 		project = sp:sp_air_radar
 	}

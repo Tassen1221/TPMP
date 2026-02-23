@@ -303,7 +303,10 @@ country_event = {
 		days = 30
 	}
 	
-	immediate = { set_country_flag = chamberlain_died }
+	immediate = { 
+		set_country_flag = chamberlain_died 
+		hidden_effect = { set_country_flag = winston_achievement }
+	}
 
 	option = {
 		name = britain.10.a
@@ -324,6 +327,7 @@ country_event = {
 			}
 		}
 	}
+
 	option = {
 		name = britain.10.b
 		kill_country_leader = yes

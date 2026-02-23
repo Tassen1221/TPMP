@@ -55,9 +55,8 @@ focus_tree = {
 				271 = { is_controlled_by = ROOT }
 			}
 			ELSE = {
-				any_state = {
-					is_capital = yes 
-					is_owned_by = ROOT 
+				any_owned_state = {
+					is_capital = yes  
 					is_controlled_by = ROOT
 				}
 			}
@@ -2116,8 +2115,6 @@ focus_tree = {
 				limit = {
 					has_dlc = "Arms Against Tyranny"
 				}	
-				custom_effect_tooltip = invites_mio_tt
-				show_mio_tooltip = ETH_hmmbi_organization
 			}
 			ELSE = {
 				custom_effect_tooltip = available_designer
@@ -2229,8 +2226,6 @@ focus_tree = {
 				limit = {
 					has_dlc = "Arms Against Tyranny"
 				}	
-				custom_effect_tooltip = invites_mio_tt
-				show_mio_tooltip = ETH_ncgf_organization
 			}
 			ELSE = {
 				custom_effect_tooltip = available_designer
@@ -3151,7 +3146,7 @@ focus_tree = {
 			ETH_BOP_decentralization_small_effect = yes 
 			custom_effect_tooltip = ETH_boarding_the_train_tt
 			ETH = { add_country_leader_trait = imperator_absentis }
-			set_country_flag = ETH_selassie_left_ethiopia_flag
+			set_country_flag = ETH_selassie_left_flag
 			add_ideas = ETH_prince_regent_idea
 		}
 	}
@@ -3535,7 +3530,7 @@ focus_tree = {
 				}
 				create_intelligence_agency = { 
 					name = arbegnoch 
-					icon = GFX_agency_logo_eth_fetno_derash 
+					icon = GFX_intelligence_agency_logo_eth_fetno_derash 
 				}
 			}
 			# Adds resistance in northern and central Ethiopia
@@ -4220,8 +4215,15 @@ focus_tree = {
 					target = ROOT
 					value > 99
 				}
-				owns_state = 454
+				OR = {
+					owns_state = 454
+					any_country = {
+						is_subject_of = PREV
+						owns_state = 454
+					}
+				}
 			}
+
 		}
 		available_if_capitulated = yes 
 
@@ -4336,7 +4338,7 @@ focus_tree = {
 	focus = {
 		id = ETH_support_anti-colonialist_resistance
 		icon = GFX_goal_tfv_saf_anti_colonialist_crusade
-		prerequisite = { focus = ETH_reclaiming_ethiopia focus = ETH_fait_accompli focus = ETH_fait_accompli focus = ETH_international_mediation }
+		prerequisite = { focus = ETH_reclaiming_ethiopia focus = ETH_fait_accompli focus = ETH_international_mediation }
 
 		x = -3 
 		y = 1
@@ -4748,7 +4750,18 @@ focus_tree = {
 		completion_reward = {
 			IF = {
 				limit = { NOT = { is_faction_leader = yes } }
-				create_faction = ETH_african_union_faction
+				IF = {
+					limit = {
+						has_dlc = "No Compromise, No Surrender"
+					}
+					set_rule = { can_create_factions = yes }
+					create_faction_from_template = faction_template_ETH_african_union_faction
+					add_faction_initiative = 1
+				}
+				ELSE = {
+					set_rule = { can_create_factions = yes }
+					create_faction_from_template = faction_template_ETH_african_union_faction
+				}
 				every_country = {
 					limit = { is_subject_of = ROOT }
 					ROOT = {
@@ -5918,14 +5931,29 @@ focus_tree = {
 		y = 1
 			
 		cost = 5
-		available = { has_government = communism }
-			
+		available = { 
+			has_government = communism 
+		}
+		
+		bypass = {
+		}
 
 		search_filters = {FOCUS_FILTER_POLITICAL}
 
 		completion_reward = {			
-			custom_effect_tooltip = ETH_support_from_the_japanese_communists_tt
-			set_country_flag = IA_anarchists_recruited_flag
+			IF = {
+				limit = {
+					JAP = {
+						NOT = {
+							has_completed_focus = JAP_cooperate_with_anarchists
+						}
+					}
+				}
+				custom_effect_tooltip = ETH_support_from_the_japanese_communists_tt
+				set_country_flag = IA_anarchists_recruited_flag
+				custom_effect_tooltip = generic_skip_one_line_tt
+			}
+			
 			JAP = {
 				IF = {
 					limit = {
@@ -5980,6 +6008,7 @@ focus_tree = {
 
 	focus = {
 		id = ETH_peoples_army
+		text = ETH_peoples_army_focus		#otherwise conflicts with Mass Assault doctrine peoples_army
 		prerequisite = { focus = ETH_humanitarian_aid focus = ETH_support_from_the_japanese_communists }
 		mutually_exclusive = { focus = ETH_international_brigades_communist}
 		relative_position_id =  ETH_support_from_the_japanese_communists
@@ -5997,11 +6026,19 @@ focus_tree = {
 				}
 				remove_ideas = ETH_conservative_high_command_idea
 			}
+
+			add_mastery_bonus = {
+				name = ETH_peoples_army_focus
+				bonus = 0.1
+				days = 240
+				grand_doctrine = mass_assault
+				track = infantry
+			}
 			add_doctrine_cost_reduction = {
-				name = land_doc_bonus
-				cost_reduction = 0.5
+				name = ETH_peoples_army_focus
+				cost_reduction = 0.25
 				uses = 2
-				category = cat_army_doctrine
+				category = land_doctrine
 			}
 			add_ideas = ETH_peoples_army_idea
 		}
@@ -6898,8 +6935,6 @@ focus_tree = {
 			}
 			IF = {
 				limit = { has_dlc = "Arms Against Tyranny" }
-				custom_effect_tooltip = available_industrial_concern 
-				custom_effect_tooltip = SOV_mytishchy_machine_building_plant_organization
 			}
 			ELSE = {
 				custom_effect_tooltip = available_designer
@@ -6976,7 +7011,6 @@ focus_tree = {
 				limit = {
 					has_dlc = "Arms Against Tyranny"
 				}	
-
 			}
 			ELSE = {
 				custom_effect_tooltip = available_designer
@@ -7132,24 +7166,24 @@ focus_tree = {
 		search_filters = {}
 		completion_reward = {	
 			navy_experience = 35
-					add_tech_bonus = {
-						bonus = 0.5
-						uses = 1
-						category = bb_tech
-					}		
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 1
+				category = bb_tech
+			}		
 			if = {
 				limit = { 
 					has_dlc = "Man the Guns"
 					country_exists = SOV
 				}
-				hidden_effect = {  
-					create_ship = {
-						type = ship_hull_heavy_1
-						equipment_variant = "Marat Class"
-						creator = SOV
-						name = "Marat Class I"
-					}
+
+				create_ship = {
+					type = ship_hull_heavy_1
+					equipment_variant = "Marat Class"
+					creator = SOV
+					name = "Marat Class I"
 				}
+
 			}
 			if = {
 				limit = { not = { has_dlc = "Man the Guns" } }

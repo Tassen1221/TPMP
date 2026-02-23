@@ -125,6 +125,7 @@ recruit_character = SOV_sergey_gorshkov
 recruit_character = SOV_stepan_krasovsky
 recruit_character = SOV_vasily_blyukher
 recruit_character = SOV_vasily_chuykov
+recruit_character = SOV_aleksandr_cherepanov
 recruit_character = SOV_vasily_kuznetsov
 recruit_character = SOV_vladimir_kasatonov
 recruit_character = SOV_vladimir_tributs
@@ -510,11 +511,11 @@ set_variable = { SOV_national_academy_of_sciences_construction_time = 90 } #The 
 set_variable = { SOV_academies_required_for_atomic_bomb_project = 7 } #Number of academies of sciences required to pick focus Soviet Atomic Bomb Project
 
 #THIRD FIVE YEAR PLAN FACTORY REQUIREMENTS
-set_variable = { SOV_fyp_factory_requirement_tier_1 = 80 }
-set_variable = { SOV_fyp_factory_requirement_tier_2 = 100 }
-set_variable = { SOV_fyp_factory_requirement_tier_3 = 110 }
-set_variable = { SOV_fyp_factory_requirement_tier_4 = 130 }
-set_variable = { SOV_fyp_factory_requirement_tier_5 = 180 }
+set_variable = { SOV_fyp_factory_requirement_tier_1 = 100 }
+set_variable = { SOV_fyp_factory_requirement_tier_2 = 120 }
+set_variable = { SOV_fyp_factory_requirement_tier_3 = 130 }
+set_variable = { SOV_fyp_factory_requirement_tier_4 = 150 }
+set_variable = { SOV_fyp_factory_requirement_tier_5 = 200 }
 
 #THIRD FIVE YEAR PLAN NATIONAL SPIRIT VARS
 set_variable = { SOV_fyp_production_factory_efficiency_gain_factor = -0.15 }
@@ -802,11 +803,13 @@ set_technology = { #WARNING: Do not just remove techs from here -> It can impact
 	artillery0_tech = 1
 	antiair0_tech = 1
 	
-	fleet_in_being = 1
 	fuel_silos = 1
 	fuel_refining = 1
 	basic_train = 1
 }
+
+set_grand_doctrine = mass_assault
+set_grand_doctrine = new_fleet_in_being
 
 if = {
 	limit = {
@@ -1217,15 +1220,10 @@ set_autonomy = {
 		paratroopers = 1
 
 		#doctrines
-		
-		
-		battlefleet_concentration = 1
-		submarine_operations = 1
-
 		#Air
-				
-		
-		
+		#formation_flying = 1		
+		#dive_bombing = 1
+		#direct_ground_support = 1
 
 		#electronics
 		electronic_mechanical_engineering = 1
@@ -1249,6 +1247,33 @@ set_autonomy = {
 		concentrated_industry2 = 1
 		concentrated_industry3 = 1
 	}
+
+set_grand_doctrine = mass_assault
+set_grand_doctrine = new_fleet_in_being
+set_grand_doctrine = new_battlefield_support
+
+set_sub_doctrine = large_unit_tactics
+add_mastery = {
+    amount = 200
+    sub_doctrine = large_unit_tactics
+}
+set_sub_doctrine = fire_concentration
+add_mastery = {
+    amount = 100
+    sub_doctrine = fire_concentration
+}
+set_sub_doctrine = deep_battle
+add_mastery = {
+    amount = 100
+    sub_doctrine = deep_battle
+}
+set_sub_doctrine = air_subdoctrine_dogfighting_mastery
+add_mastery = {
+    amount = 75
+    sub_doctrine = air_subdoctrine_dogfighting_mastery
+}
+
+
 	
 	complete_special_project = {
 		project = sp:sp_air_radar
@@ -1311,7 +1336,7 @@ set_popularities = {
 	communism = 88
 }
 
-create_faction = Comintern
+create_faction_from_template = faction_template_comintern
 add_to_faction = SOV
 add_to_faction = MON
 add_to_faction = UKR

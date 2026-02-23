@@ -1143,7 +1143,10 @@ BEL_cores_in_gallic_france_cat = {
 					state = 17
 					state = 27
 				}
-				is_fully_controlled_by = ROOT
+				OR = {
+					ROOT = { has_country_flag = BEL_currently_coring_gallic_state_flag }	#cancel by cancel_trigger instead
+					is_fully_controlled_by = ROOT
+				}
 				NOT = {
 					is_core_of = ROOT
 				}
@@ -1490,7 +1493,11 @@ BEL_intervention_in_spain_cat = {
 
 			custom_effect_tooltip = if_they_accept
 			effect_tooltip = {
-				create_faction = BEL_SPR_alliance
+				create_faction_from_template = {
+					template = faction_template_anti_fascist
+					name = BEL_SPR_alliance
+					icon = GFX_faction_logo_generic_11
+				}
 				add_to_faction = ROOT
 				add_to_faction = FROM
 			}		

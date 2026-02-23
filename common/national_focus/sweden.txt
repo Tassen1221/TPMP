@@ -456,7 +456,7 @@ focus_tree = {
 		cancel_if_invalid = no
 		continue_if_invalid = yes
 		available_if_capitulated = no
-		search_filters = {  }
+		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
 			swap_ideas = {
@@ -1566,7 +1566,7 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
-		search_filters = {  }
+		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
 			add_tech_bonus = {
@@ -2723,7 +2723,7 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
-		search_filters = {  }
+		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
 			add_tech_bonus = {
@@ -2910,7 +2910,7 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
-		search_filters = { FOCUS_FILTER_FOLKHEMMET }
+		search_filters = { FOCUS_FILTER_FOLKHEMMET FOCUS_FILTER_INDUSTRY }
 
 		completion_reward = {
 			random_core_state = {
@@ -3622,7 +3622,7 @@ focus_tree = {
 	cancel_if_invalid = no
 	continue_if_invalid = no
 	available_if_capitulated = no
-	search_filters = { FOCUS_FILTER_POLITICAL }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_WAR_SUPPORT }
 	completion_reward = {
 		country_event = {
 			id = AAT_Sweden_communism.1
@@ -5937,7 +5937,20 @@ focus_tree = {
 		search_filters = {  }
 
 		completion_reward = {
-			create_faction = SWE_the_nordic_defense_council
+			
+			IF = {
+				limit = {
+					has_dlc = "No Compromise, No Surrender"
+				}
+				set_rule = { can_create_factions = yes }
+				create_faction_from_template = faction_template_SWE_the_nordic_defense_council
+				add_faction_initiative = 1
+			}
+			ELSE = {
+				set_rule = { can_create_factions = yes }
+				create_faction = SWE_the_nordic_defense_council
+			}
+
 			complete_national_focus = NORDIC_form_joint_alliance
 			every_other_country = {
 				limit = {
@@ -6842,7 +6855,7 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
-		search_filters = {  }
+		search_filters = { FOCUS_FILTER_AIR_XP FOCUS_FILTER_ARMY_XP FOCUS_FILTER_NAVY_XP }
 
 		completion_reward = {
 
@@ -8208,7 +8221,7 @@ focus_tree = {
 			has_government = fascism
 		}
 	                
-		search_filters = { FOCUS_FILTER_ARMY_XP }
+		search_filters = { FOCUS_FILTER_AIR_XP FOCUS_FILTER_ARMY_XP FOCUS_FILTER_NAVY_XP }
 
 		completion_reward = {
 			if = {
@@ -8476,7 +8489,7 @@ focus_tree = {
 			has_government = fascism
 		}
 	                
-		search_filters = {}
+		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
 			add_breakthrough_progress = {
@@ -9558,10 +9571,21 @@ focus_tree = {
 		}
 
 		bypass = {
-			has_war_with = FIN
+			148 = {
+				OR = {
+					owner = {
+						OR = {
+							has_war = yes
+							is_subject_of = ROOT
+						}
+					}
+					is_owned_by = ROOT
+					is_demilitarized_zone = yes
+				}
+			}
 		}
 	                
-		search_filters = { FOCUS_FILTER_ANNEXATION }
+		search_filters = { FOCUS_FILTER_ANNEXATION FOCUS_FILTER_WAR_SUPPORT }
 
 		completion_reward = {
 
@@ -9642,7 +9666,10 @@ focus_tree = {
 
 		completion_reward = {
 			set_rule = { can_create_factions = yes }
-			create_faction = "Swedish-Finnish Defense Agreement"
+			create_faction_from_template = {
+				template = faction_template_NORDIC_alliance_democratic
+				name = SWE_swedish_finnish_defense_agreement_faction
+			}
 			FIN = {
 				country_event = { id = generic.5 hours = 4 }
 			}
@@ -9903,7 +9930,11 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
-			create_faction = scandinavian_defense_union
+			create_faction_from_template = {
+				template = faction_template_NORDIC_alliance_democratic
+				name = scandinavian_defense_union
+				icon = GFX_faction_logo_generic_9
+			}
 			NOR = {	SWE_scandinavian_defense_union_invite = yes	}
 			DEN = {	SWE_scandinavian_defense_union_invite = yes	}
 			FIN = {	SWE_scandinavian_defense_union_invite = yes	}
@@ -10509,7 +10540,7 @@ focus_tree = {
 		cancel_if_invalid = no
 		continue_if_invalid = yes
 		available_if_capitulated = no
-		search_filters = {  }
+		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
 			add_research_slot = 1

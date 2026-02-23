@@ -51,6 +51,23 @@ autonomy_state = {
 			NOT = { OVERLORD = { original_tag = JAP } }
 			NOT = { OVERLORD = { original_tag = MAN } }
 		}
+
+		if = {
+			limit = {
+				has_dlc = "No Compromise, No Surrender"
+			}
+
+			NOT = {
+				AND = {
+					OVERLORD = { has_government = fascism } 
+					OVERLORD = { tag = CHI } 
+				}
+				AND = {
+					OVERLORD = { has_government = neutrality } 
+					OVERLORD = { tag = CHI } 
+				}
+			}
+		}
 	}
 
 	can_take_level = {

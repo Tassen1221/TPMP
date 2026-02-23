@@ -435,10 +435,17 @@ focus_tree = {
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
+			add_mastery_bonus = {
+				name = COG_south_atlantic_navy
+				bonus = 0.1
+				days = 240
+			}
+
 			add_doctrine_cost_reduction = {
+				name = COG_south_atlantic_navy
 				cost_reduction = 0.5
 				uses = 2
-				category = trade_interdiction_tree
+				category = naval_doctrine
 			}	
 
 			custom_effect_tooltip = generic_skip_one_line_tt
@@ -514,7 +521,7 @@ focus_tree = {
 				name = COG_coastal_defence_fleet
 				bonus = 1.0
 				uses = 2
-				category = cl_tech
+				category = ca_tech
 				category = dd_tech
 			}
 		}
@@ -547,10 +554,18 @@ focus_tree = {
 	
 		completion_reward = {
 
+			add_mastery_bonus = {
+				name = COG_supply_line_disruption_tactics
+				bonus = 0.1
+				days = 180
+				track = submarines
+			}
+
 			add_doctrine_cost_reduction = {
+				name = COG_supply_line_disruption_tactics
 				cost_reduction = 0.25
-				uses = 2
-				category = trade_interdiction_tree
+				uses = 1
+				category = naval_doctrine
 			}	
 
 			custom_effect_tooltip = generic_skip_one_line_tt
@@ -770,16 +785,6 @@ focus_tree = {
 			IF = {
 				limit = {
 					has_dlc = "Arms Against Tyranny"
-				}
-				add_equipment_subsidy = {
-					cic = 1000
-					equipment_type = small_plane_airframe
-					seller_tags = { USA JAP ENG FRA ITA GER BEL SOV } 
-				}
-				add_equipment_subsidy = {
-					cic = 1000
-					equipment_type = medium_plane_airframe
-					seller_tags = { USA JAP ENG FRA ITA GER BEL SOV } 
 				}
 			}
 
@@ -1343,13 +1348,6 @@ focus_tree = {
 			IF = {
 				limit = {
 					has_dlc = "Arms Against Tyranny"
-				}
-				add_potential_special_forces_tree = yes
-				add_doctrine_cost_reduction = {
-					name = COG_31e_brigade_parachutiste
-					cost_reduction = 0.5
-					uses = 2
-					category = cat_paratroopers_doctrine
 				}
 			}
 
@@ -3984,26 +3982,6 @@ focus_tree = {
 				IF = {
 					limit = {
 						has_dlc = "Arms Against Tyranny"
-					}
-					add_equipment_subsidy = {
-						cic = 1000
-						equipment_type = small_plane_airframe
-						seller_trigger = is_allied_seller_trigger
-					}
-					add_equipment_subsidy = {
-						cic = 1000
-						equipment_type = infantry_equipment
-						seller_trigger = is_allied_seller_trigger
-					}
-					add_equipment_subsidy = {
-						cic = 1000
-						equipment_type = artillery_equipment
-						seller_trigger = is_allied_seller_trigger
-					}
-					add_equipment_subsidy = {
-						cic = 1000
-						equipment_type = motorized_equipment
-						seller_trigger = is_allied_seller_trigger
 					}
 				}
 				ELSE = {

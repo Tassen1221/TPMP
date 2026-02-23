@@ -460,7 +460,7 @@ focus_tree = {
 		mutually_exclusive = {
 		} 
 		
-		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_POLITICAL_CHARACTER FOCUS_FILTER_HISTORICAL }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_POLITICAL_CHARACTER FOCUS_FILTER_HISTORICAL FOCUS_FILTER_COMPLETED_BY_EVENT }
 
 		available = {
 
@@ -4830,10 +4830,9 @@ focus_tree = {
 		}
 
 		bypass = {
-			any_state = {
+			any_owned_state = {
 				is_core_of = FRA
 				is_on_continent = europe
-				is_owned_by = ROOT
 			}
 		}
 
@@ -5166,8 +5165,8 @@ focus_tree = {
 		}
 
 		available = {	
-			any_state = {
-				is_owned_and_controlled_by = ROOT
+			any_owned_state = {
+				is_controlled_by = ROOT
 				is_coastal = yes
 			}
 		}
@@ -5361,7 +5360,18 @@ focus_tree = {
 			add_political_power = 50
 			add_war_support = 0.05
 
-			create_faction = CHL_indigenous_union	
+			IF = {
+				limit = {
+					has_dlc = "No Compromise, No Surrender"
+				}
+				set_rule = { can_create_factions = yes }
+				create_faction_from_template = faction_template_CHL_indigenous_union
+				add_faction_initiative = 1
+			}
+			ELSE = {
+				set_rule = { can_create_factions = yes }
+				create_faction = CHL_indigenous_union
+			}
 
 			custom_effect_tooltip = CHL_skip_one_line_tt
 
@@ -9411,7 +9421,10 @@ focus_tree = {
 				limit = {
 					is_faction_leader = no
 				}
-				create_faction = CHL_hispanic_supremacy_pact_faction
+				create_faction_from_template = {
+					template = faction_template_hipanic_alliance_faction
+					name = CHL_hispanic_supremacy_pact_faction
+				}
 			}
 
 			swap_ideas = {
@@ -9495,7 +9508,10 @@ focus_tree = {
 				limit = {
 					is_faction_leader = no
 				}
-				create_faction = CHL_hipanic_alliance_faction
+				create_faction_from_template = {
+					template = faction_template_hipanic_alliance_faction
+					name = CHL_hipanic_alliance_faction
+				}
 			}
 
 			every_country = {
@@ -12822,13 +12838,28 @@ focus_tree = {
 		}
 
 		available = {
-			threat > 0.5
+			threat > 0.7
 
 			948 = {
 				is_owned_and_controlled_by = ROOT
 			}
 
 			is_subject = no
+
+			any_country = {
+				OR = {
+					has_war_with = JAP
+					has_war_with = AST
+					has_war_with = NZL
+				}
+				capital_scope = {
+					OR = {
+						is_on_continent = north_america
+						is_on_continent = south_america
+					}
+				}
+				has_government = democratic
+			}	
 		}
 
 		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_ARMY_XP FOCUS_FILTER_NAVY_XP FOCUS_FILTER_HISTORICAL }
@@ -12873,6 +12904,16 @@ focus_tree = {
 							has_government = neutrality
 						}
 						is_subject = no
+						any_country = {
+							has_war_with = PREV
+							capital_scope = {
+								OR = {
+									is_on_continent = north_america
+									is_on_continent = south_america
+								}
+							}
+							has_government = democratic
+						}	
 					}
 				}
 				create_wargoal = {
@@ -12889,6 +12930,16 @@ focus_tree = {
 							has_government = neutrality
 						}
 						is_subject = no
+						any_country = {
+							has_war_with = PREV
+							capital_scope = {
+								OR = {
+									is_on_continent = north_america
+									is_on_continent = south_america
+								}
+							}
+							has_government = democratic
+						}	
 					}
 				}
 				create_wargoal = {
@@ -12905,6 +12956,16 @@ focus_tree = {
 							has_government = neutrality
 						}
 						is_subject = no
+						any_country = {
+							has_war_with = PREV
+							capital_scope = {
+								OR = {
+									is_on_continent = north_america
+									is_on_continent = south_america
+								}
+							}
+							has_government = democratic
+						}	
 					}
 				}
 				create_wargoal = {
@@ -14688,19 +14749,6 @@ focus_tree = {
 			IF = {
 				limit = { 
 					has_dlc = "Arms Against Tyranny" 
-				}
-				
-				random_state = {
-					limit = {
-						is_capital = yes 
-						is_owned_and_controlled_by = ROOT
-					}
-					add_extra_state_shared_building_slots = 2
-					add_building_construction = {
-						type = dockyard
-						level = 2
-						instant_build = yes
-					}	
 				}
 			}
 			ELSE = {

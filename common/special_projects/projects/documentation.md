@@ -57,7 +57,7 @@ my_project_token = {
 			base = 1
 			modifier = {
 				add = -1
-				has_tech = improved_medium_tank_chassis
+				has_tech = mediumtank2_tech
 			}
 		}
 	}

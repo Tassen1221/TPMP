@@ -1059,6 +1059,675 @@ CHI_political_power_struggle = {
 		}
 	}
 
+
+	#1037 "chongqing"
+	WTT_build_support_in_chongqing = {
+
+		custom_cost_trigger = {
+			political_power_growth > @PP_GAIN_PER_DAY_COST_TRIGGER
+		}
+		custom_cost_text = pp_per_day_neg_075
+		icon = generic_political_discourse
+		visible = {
+			1037 = {
+				WTT_should_show_state_decision = yes
+			}
+			WTT_show_build_support_decisions = yes
+		}
+		
+		available = {
+			has_political_power > 0
+			1037 = {
+				WTT_can_ROOT_select_state_support_decision_state = yes
+			}
+		}
+
+		cancel_trigger = {
+			custom_trigger_tooltip = {
+				tooltip = WTT_build_support_positive_pp
+				OR = {
+					has_political_power < 0
+					NOT = {
+						1037 = {
+							WTT_can_ROOT_select_state_support_decision_state = yes
+						}
+					}
+				}
+			}
+		}
+		
+		modifier = {
+			political_power_gain = @PP_COST_PER_DAY_GAIN_SUPPORT
+		}
+	
+		days_remove = global.days_add_support?1337 #DAYS_UNTIL_SUPPORRT_IN_STATE_IS_ADDED
+		days_re_enable = 0
+	
+		cost = 0
+
+		highlight_states = {
+ highlight_state_targets = {
+			state = 1037
+		} 
+}
+		
+		fixed_random_seed = no
+
+#BUILD_SUPPORT_AI_WIL_DO_START
+		ai_will_do = {
+			base = 0
+
+			#Another country has majority in this state
+			modifier = {
+				add = 50
+				any_other_country = {
+					1037 = {
+						has_state_flag = majority_political_platform_@PREV
+					}
+				}
+			}
+
+			#Another country has some support in this state
+			modifier = {
+				add = 10
+				any_other_country = {
+					1037 = {
+						check_variable = { political_platform_@PREV > 0 }
+					}
+				}
+			}
+
+			#I am super far ahead
+			modifier = {
+				add = -50
+				set_temp_variable = { temp_support_points = ROOT.total_political_support_points }
+				add_to_temp_variable = { temp_support_points = -40 }
+				NOT = {
+					any_other_country = {
+						check_variable = { total_political_support_points > temp_support_points }
+					}
+				}
+			}
+
+			#Opponent is far ahead in state. Focus elsewhere first
+			modifier = {
+				add = -45				
+				any_other_country = {
+					1037 = {
+						has_state_flag = majority_political_platform_@PREV
+						set_temp_variable = { majority_holder_lead = 1037.political_platform_@PREV }
+					}
+				}
+				subtract_from_temp_variable = { majority_holder_lead = 1037.political_platform_@PREV }
+				check_variable = { majority_holder_lead > 4 }
+			}
+
+			#Big states are more important
+			modifier = {
+				add = 25
+				1037 = {
+					check_variable = {
+						var = state_political_support_value
+						compare = greater_than_or_equals
+						value = global.big_state_support_value
+					}
+				}
+			}
+
+			#I have a change to grab this with just one push for support
+			modifier = {
+				add = 25
+				any_other_country = {
+					1037 = {
+						has_state_flag = majority_political_platform_@PREV
+						set_temp_variable = { majority_holder_lead = 1037.political_platform_@PREV }
+					}
+				}
+				subtract_from_temp_variable = { majority_holder_lead = 1037.political_platform_@PREV }
+				check_variable = { majority_holder_lead < 2 }
+			}
+
+			#I can for sure grab this with just one push for support
+			modifier = {
+				add = 25
+				any_other_country = {
+					1037 = {
+						has_state_flag = majority_political_platform_@PREV
+						set_temp_variable = { majority_holder_points = 1037.political_platform_@PREV }
+					}
+				}
+				subtract_from_temp_variable = { points_difference = majority_holder_points }
+				check_variable = { points_difference < 1 }
+			}
+			
+			#I am far enough ahead in this state
+			modifier = {
+				add = -50
+				1037 = {
+					has_state_flag = majority_political_platform_@PREV
+					set_temp_variable = { my_points_lead = 1037.political_platform_@PREV }
+				}
+
+				all_other_country = {
+					if = {
+						limit = {
+							check_variable = { 595.political_platform_@THIS > closest_points }
+						}
+						set_temp_variable = { closest_points = 1037.political_platform_@THIS }
+					}
+				}
+				subtract_from_temp_variable = { my_points_lead = closest_points }
+
+				check_variable = { my_points_lead > 2 }
+			}
+
+			#I want to push just a little bit ahead of my opponent so he cannot grab state
+			modifier = {
+				add = 25
+				1037 = {
+					has_state_flag = majority_political_platform_@PREV
+					set_temp_variable = { my_points_lead = 1037.political_platform_@PREV }
+				}
+
+				all_other_country = {
+					if = {
+						limit = {
+							check_variable = { 1037.political_platform_@THIS > closest_points }
+						}
+						set_temp_variable = { closest_points = 1037.political_platform_@THIS }
+					}
+				}
+
+				subtract_from_temp_variable = { my_points_lead = closest_points }
+				check_variable = { my_points_lead < 2 }
+			}
+			# Don't if we risk running out of pp
+			modifier = {
+				factor = 0
+				has_political_power < 180 # We ca do if safe, I guess
+				political_power_growth < @PP_GAIN_PER_DAY_COST_TRIGGER
+			}
+		}
+#BUILD_SUPPORT_AI_WIL_DO_END
+
+		complete_effect = {
+
+		}
+
+		remove_effect = {
+			1037 = {
+				#Add random state support for ROOT
+				WTT_random_support_chance_increase_for_ROOT_in_state = yes
+
+				hidden_effect = {
+					#Save relevant event targets. Need to be done before updating state support
+					save_event_target_as = state
+					random_country = {
+						limit = {
+							PREV = { has_state_flag = majority_political_platform_@PREV }
+						}
+						save_event_target_as = majority_country
+					}
+
+					#Update state support
+					WTT_recalculate_state_support_for_ROOT = yes
+					
+					#Status events
+					WTT_fire_add_support_status_events = yes
+					
+					#Recalc all support
+					WTT_political_struggle_recalculate_support = yes
+				}
+			}
+		}
+	}
+
+
+	#1036 "wuhan"
+	WTT_build_support_in_wuhan = {
+
+		custom_cost_trigger = {
+			political_power_growth > @PP_GAIN_PER_DAY_COST_TRIGGER
+		}
+		custom_cost_text = pp_per_day_neg_075
+		icon = generic_political_discourse
+		visible = {
+			1036 = {
+				WTT_should_show_state_decision = yes
+			}
+			WTT_show_build_support_decisions = yes
+		}
+		
+		available = {
+			has_political_power > 0
+			1036 = {
+				WTT_can_ROOT_select_state_support_decision_state = yes
+			}
+		}
+
+		cancel_trigger = {
+			custom_trigger_tooltip = {
+				tooltip = WTT_build_support_positive_pp
+				OR = {
+					has_political_power < 0
+					NOT = {
+						1036 = {
+							WTT_can_ROOT_select_state_support_decision_state = yes
+						}
+					}
+				}
+			}
+		}
+		
+		modifier = {
+			political_power_gain = @PP_COST_PER_DAY_GAIN_SUPPORT
+		}
+	
+		days_remove = global.days_add_support?1337 #DAYS_UNTIL_SUPPORRT_IN_STATE_IS_ADDED
+		days_re_enable = 0
+	
+		cost = 0
+
+		highlight_states = {
+ highlight_state_targets = {
+			state = 1036
+		} 
+}
+		
+		fixed_random_seed = no
+
+#BUILD_SUPPORT_AI_WIL_DO_START
+		ai_will_do = {
+			base = 0
+
+			#Another country has majority in this state
+			modifier = {
+				add = 50
+				any_other_country = {
+					1036 = {
+						has_state_flag = majority_political_platform_@PREV
+					}
+				}
+			}
+
+			#Another country has some support in this state
+			modifier = {
+				add = 10
+				any_other_country = {
+					1036 = {
+						check_variable = { political_platform_@PREV > 0 }
+					}
+				}
+			}
+
+			#I am super far ahead
+			modifier = {
+				add = -50
+				set_temp_variable = { temp_support_points = ROOT.total_political_support_points }
+				add_to_temp_variable = { temp_support_points = -40 }
+				NOT = {
+					any_other_country = {
+						check_variable = { total_political_support_points > temp_support_points }
+					}
+				}
+			}
+
+			#Opponent is far ahead in state. Focus elsewhere first
+			modifier = {
+				add = -45				
+				any_other_country = {
+					1036 = {
+						has_state_flag = majority_political_platform_@PREV
+						set_temp_variable = { majority_holder_lead = 1036.political_platform_@PREV }
+					}
+				}
+				subtract_from_temp_variable = { majority_holder_lead = 1036.political_platform_@PREV }
+				check_variable = { majority_holder_lead > 4 }
+			}
+
+			#Big states are more important
+			modifier = {
+				add = 25
+				1036 = {
+					check_variable = {
+						var = state_political_support_value
+						compare = greater_than_or_equals
+						value = global.big_state_support_value
+					}
+				}
+			}
+
+			#I have a change to grab this with just one push for support
+			modifier = {
+				add = 25
+				any_other_country = {
+					1036 = {
+						has_state_flag = majority_political_platform_@PREV
+						set_temp_variable = { majority_holder_lead = 1036.political_platform_@PREV }
+					}
+				}
+				subtract_from_temp_variable = { majority_holder_lead = 1036.political_platform_@PREV }
+				check_variable = { majority_holder_lead < 2 }
+			}
+
+			#I can for sure grab this with just one push for support
+			modifier = {
+				add = 25
+				any_other_country = {
+					1036 = {
+						has_state_flag = majority_political_platform_@PREV
+						set_temp_variable = { majority_holder_points = 1036.political_platform_@PREV }
+					}
+				}
+				subtract_from_temp_variable = { points_difference = majority_holder_points }
+				check_variable = { points_difference < 1 }
+			}
+			
+			#I am far enough ahead in this state
+			modifier = {
+				add = -50
+				1036 = {
+					has_state_flag = majority_political_platform_@PREV
+					set_temp_variable = { my_points_lead = 1036.political_platform_@PREV }
+				}
+
+				all_other_country = {
+					if = {
+						limit = {
+							check_variable = { 595.political_platform_@THIS > closest_points }
+						}
+						set_temp_variable = { closest_points = 1036.political_platform_@THIS }
+					}
+				}
+				subtract_from_temp_variable = { my_points_lead = closest_points }
+
+				check_variable = { my_points_lead > 2 }
+			}
+
+			#I want to push just a little bit ahead of my opponent so he cannot grab state
+			modifier = {
+				add = 25
+				1036 = {
+					has_state_flag = majority_political_platform_@PREV
+					set_temp_variable = { my_points_lead = 1036.political_platform_@PREV }
+				}
+
+				all_other_country = {
+					if = {
+						limit = {
+							check_variable = { 1036.political_platform_@THIS > closest_points }
+						}
+						set_temp_variable = { closest_points = 1036.political_platform_@THIS }
+					}
+				}
+
+				subtract_from_temp_variable = { my_points_lead = closest_points }
+				check_variable = { my_points_lead < 2 }
+			}
+			# Don't if we risk running out of pp
+			modifier = {
+				factor = 0
+				has_political_power < 180 # We ca do if safe, I guess
+				political_power_growth < @PP_GAIN_PER_DAY_COST_TRIGGER
+			}
+		}
+#BUILD_SUPPORT_AI_WIL_DO_END
+
+		complete_effect = {
+
+		}
+
+		remove_effect = {
+			1036 = {
+				#Add random state support for ROOT
+				WTT_random_support_chance_increase_for_ROOT_in_state = yes
+
+				hidden_effect = {
+					#Save relevant event targets. Need to be done before updating state support
+					save_event_target_as = state
+					random_country = {
+						limit = {
+							PREV = { has_state_flag = majority_political_platform_@PREV }
+						}
+						save_event_target_as = majority_country
+					}
+
+					#Update state support
+					WTT_recalculate_state_support_for_ROOT = yes
+					
+					#Status events
+					WTT_fire_add_support_status_events = yes
+					
+					#Recalc all support
+					WTT_political_struggle_recalculate_support = yes
+				}
+			}
+		}
+	}
+
+
+	#1035 "nanjing"
+	WTT_build_support_in_nanjing = {
+
+		custom_cost_trigger = {
+			political_power_growth > @PP_GAIN_PER_DAY_COST_TRIGGER
+		}
+		custom_cost_text = pp_per_day_neg_075
+		icon = generic_political_discourse
+		visible = {
+			1035 = {
+				WTT_should_show_state_decision = yes
+			}
+			WTT_show_build_support_decisions = yes
+		}
+		
+		available = {
+			has_political_power > 0
+			1035 = {
+				WTT_can_ROOT_select_state_support_decision_state = yes
+			}
+		}
+
+		cancel_trigger = {
+			custom_trigger_tooltip = {
+				tooltip = WTT_build_support_positive_pp
+				OR = {
+					has_political_power < 0
+					NOT = {
+						1035 = {
+							WTT_can_ROOT_select_state_support_decision_state = yes
+						}
+					}
+				}
+			}
+		}
+		
+		modifier = {
+			political_power_gain = @PP_COST_PER_DAY_GAIN_SUPPORT
+		}
+	
+		days_remove = global.days_add_support?1337 #DAYS_UNTIL_SUPPORRT_IN_STATE_IS_ADDED
+		days_re_enable = 0
+	
+		cost = 0
+
+		highlight_states = {
+ highlight_state_targets = {
+			state = 1035
+		} 
+}
+		
+		fixed_random_seed = no
+
+#BUILD_SUPPORT_AI_WIL_DO_START
+		ai_will_do = {
+			base = 0
+
+			#Another country has majority in this state
+			modifier = {
+				add = 50
+				any_other_country = {
+					1035 = {
+						has_state_flag = majority_political_platform_@PREV
+					}
+				}
+			}
+
+			#Another country has some support in this state
+			modifier = {
+				add = 10
+				any_other_country = {
+					1035 = {
+						check_variable = { political_platform_@PREV > 0 }
+					}
+				}
+			}
+
+			#I am super far ahead
+			modifier = {
+				add = -50
+				set_temp_variable = { temp_support_points = ROOT.total_political_support_points }
+				add_to_temp_variable = { temp_support_points = -40 }
+				NOT = {
+					any_other_country = {
+						check_variable = { total_political_support_points > temp_support_points }
+					}
+				}
+			}
+
+			#Opponent is far ahead in state. Focus elsewhere first
+			modifier = {
+				add = -45				
+				any_other_country = {
+					1035 = {
+						has_state_flag = majority_political_platform_@PREV
+						set_temp_variable = { majority_holder_lead = 1035.political_platform_@PREV }
+					}
+				}
+				subtract_from_temp_variable = { majority_holder_lead = 1035.political_platform_@PREV }
+				check_variable = { majority_holder_lead > 4 }
+			}
+
+			#Big states are more important
+			modifier = {
+				add = 25
+				1035 = {
+					check_variable = {
+						var = state_political_support_value
+						compare = greater_than_or_equals
+						value = global.big_state_support_value
+					}
+				}
+			}
+
+			#I have a change to grab this with just one push for support
+			modifier = {
+				add = 25
+				any_other_country = {
+					1035 = {
+						has_state_flag = majority_political_platform_@PREV
+						set_temp_variable = { majority_holder_lead = 1035.political_platform_@PREV }
+					}
+				}
+				subtract_from_temp_variable = { majority_holder_lead = 1035.political_platform_@PREV }
+				check_variable = { majority_holder_lead < 2 }
+			}
+
+			#I can for sure grab this with just one push for support
+			modifier = {
+				add = 25
+				any_other_country = {
+					1035 = {
+						has_state_flag = majority_political_platform_@PREV
+						set_temp_variable = { majority_holder_points = 1035.political_platform_@PREV }
+					}
+				}
+				subtract_from_temp_variable = { points_difference = majority_holder_points }
+				check_variable = { points_difference < 1 }
+			}
+			
+			#I am far enough ahead in this state
+			modifier = {
+				add = -50
+				1035 = {
+					has_state_flag = majority_political_platform_@PREV
+					set_temp_variable = { my_points_lead = 1035.political_platform_@PREV }
+				}
+
+				all_other_country = {
+					if = {
+						limit = {
+							check_variable = { 595.political_platform_@THIS > closest_points }
+						}
+						set_temp_variable = { closest_points = 1035.political_platform_@THIS }
+					}
+				}
+				subtract_from_temp_variable = { my_points_lead = closest_points }
+
+				check_variable = { my_points_lead > 2 }
+			}
+
+			#I want to push just a little bit ahead of my opponent so he cannot grab state
+			modifier = {
+				add = 25
+				1035 = {
+					has_state_flag = majority_political_platform_@PREV
+					set_temp_variable = { my_points_lead = 1035.political_platform_@PREV }
+				}
+
+				all_other_country = {
+					if = {
+						limit = {
+							check_variable = { 1035.political_platform_@THIS > closest_points }
+						}
+						set_temp_variable = { closest_points = 1035.political_platform_@THIS }
+					}
+				}
+
+				subtract_from_temp_variable = { my_points_lead = closest_points }
+				check_variable = { my_points_lead < 2 }
+			}
+			# Don't if we risk running out of pp
+			modifier = {
+				factor = 0
+				has_political_power < 180 # We ca do if safe, I guess
+				political_power_growth < @PP_GAIN_PER_DAY_COST_TRIGGER
+			}
+		}
+#BUILD_SUPPORT_AI_WIL_DO_END
+
+		complete_effect = {
+
+		}
+
+		remove_effect = {
+			1035 = {
+				#Add random state support for ROOT
+				WTT_random_support_chance_increase_for_ROOT_in_state = yes
+
+				hidden_effect = {
+					#Save relevant event targets. Need to be done before updating state support
+					save_event_target_as = state
+					random_country = {
+						limit = {
+							PREV = { has_state_flag = majority_political_platform_@PREV }
+						}
+						save_event_target_as = majority_country
+					}
+
+					#Update state support
+					WTT_recalculate_state_support_for_ROOT = yes
+					
+					#Status events
+					WTT_fire_add_support_status_events = yes
+					
+					#Recalc all support
+					WTT_political_struggle_recalculate_support = yes
+				}
+			}
+		}
+	}
+
 	#600 "Jiangxi"
 	WTT_build_support_in_jiangxi = {
 
@@ -7113,7 +7782,7 @@ CHI_political_power_struggle = {
 			has_country_flag = wtt_political_struggle
 		}
 
-		targets = { GXC YUN SHX XSM SIK }
+		targets = { GXC YUN SHX XSM SIK GDC XIC SND KHM NXM GSM SIC HBC }
 		targets_dynamic = yes
 
 		target_trigger = {

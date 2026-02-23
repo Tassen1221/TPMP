@@ -2230,7 +2230,11 @@ focus_tree = {
 		search_filters = {}
 
 		completion_reward = {
-			create_faction = FIN_northern_defense_front_faction
+			create_faction_from_template = {
+				template = faction_template_NORDIC_alliance_democratic
+				name = FIN_northern_defense_front_faction
+				icon = GFX_faction_logo_generic_8
+			}
 			complete_national_focus = NORDIC_form_joint_alliance
 			#Just for tooltip purposes (more compact tooltip)
 			every_other_country = {
@@ -5502,10 +5506,13 @@ focus_tree = {
 		search_filters = {}
 
 		completion_reward = {
-			create_faction = FIN_northern_defense_front_faction
+			create_faction_from_template = {
+				template = faction_template_NORDIC_alliance_democratic
+				name = FIN_northern_defense_front_faction
+				icon = GFX_faction_logo_generic_8
+			}
 			IF = {
 				limit = { has_dlc = "Arms Against Tyranny" } 
-				complete_national_focus = NORDIC_form_joint_alliance
 			}
 			custom_effect_tooltip = FIN_northern_defense_front_countries_tt
 			every_other_country = {
@@ -6742,9 +6749,8 @@ focus_tree = {
 				NOT = { country_exists = EST }
 				is_in_faction_with = EST
 				has_subject = EST
-				any_state = {
+				any_controlled_state = {
 					is_core_of = EST
-					is_controlled_by = ROOT
 				}
 			}
 			OR = {
@@ -14875,7 +14881,7 @@ focus_tree = {
 					bonus = 0.5
 					uses = 2
 					category = dd_tech
-					category = cl_tech
+					category = ca_tech
 				}
 			}
 

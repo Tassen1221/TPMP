@@ -656,7 +656,7 @@ country_event = {
 				save_event_target_as = new_leader
 				if = {
 					limit = {
-						not = { has_completed_focus = PRC_social_democracy } # PRC branch to political struggle
+						not = { has_completed_focus = PRC_social_democracy_focus } # PRC branch to political struggle
 					}
 					CHI_negative_spirit_transfer = yes
 				}
@@ -685,6 +685,24 @@ country_event = {
 			FROM = { add_to_war = { targeted_alliance = ROOT enemy = PREV hostility_reason = asked_to_join } }
 		}
 
+		every_subject_country = {
+			ROOT = {
+				end_puppet = PREV
+			}
+			if = {
+				limit = {
+					FROM = {
+						is_faction_leader = yes
+						is_in_faction_with = ROOT
+					}
+				}
+				FROM = {
+					add_to_faction = PREV
+				}
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+		}
+
 		FROM = {
 			country_event = { id = wtt_take_national_leadership.2 }
 			annex_country = { target = ROOT transfer_troops = yes }
@@ -702,6 +720,16 @@ country_event = {
 		name = wtt_take_national_leadership.1.b
 		ai_chance = {
 			base = 0
+			modifier = {
+				AND = {
+					original_tag = CHI
+					has_country_leader = {
+						ruling_only = yes # default = yes
+						character = CHI_wang_jingwei
+					}
+				}
+				add = 500 ## Wang Jingwei really didn't wanna go down without a fight
+			}
 		}
 
 		hidden_effect = {
@@ -719,8 +747,7 @@ country_event = {
 				limit = {
 					is_in_faction_with = FROM
 				}
-				random_country = {
-					limit = { is_in_faction_with = ROOT }
+				faction_leader = {
 					remove_from_faction = ROOT
 				}
 			}

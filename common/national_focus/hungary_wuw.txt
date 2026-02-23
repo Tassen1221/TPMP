@@ -4739,39 +4739,6 @@ focus_tree = {
 				limit = {
 					has_dlc = "Arms Against Tyranny"
 				}
-				ELSE = {
-					random_owned_controlled_state = {
-						limit = {
-							is_core_of = ROOT
-							is_fully_controlled_by = ROOT
-						}
-						prioritize = { 9 }
-						add_extra_state_shared_building_slots = 2
-						add_building_construction = {
-							type = industrial_complex
-							level = 1
-							instant_build = yes
-						}
-						add_building_construction = {
-							type = arms_factory
-							level = 1
-							instant_build = yes
-						}
-					}
-					random_owned_controlled_state = {
-						limit = {
-							is_core_of = ROOT
-							is_fully_controlled_by = ROOT
-						}
-						prioritize = { 4 }
-						add_extra_state_shared_building_slots = 1
-						add_building_construction = {
-							type = arms_factory
-							level = 1
-							instant_build = yes
-						}
-					}
-				}
 			}
 
 		}
@@ -5247,12 +5214,15 @@ focus_tree = {
 
 		completion_reward = {
 
-			add_doctrine_cost_reduction = {
+
+
+			add_mastery_bonus = {
 				name = wuw_HUN_the_legacy_of_the_isonzo_front
-				cost_reduction = 0.5
-				uses = 2
-				category = cat_infantry_doctrine
+				bonus = 0.2
+				days = 180
+				track = combat_support
 			}
+
 
 			add_tech_bonus = {
 				name = wuw_HUN_the_legacy_of_the_isonzo_front
@@ -6178,10 +6148,17 @@ focus_tree = {
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
+			add_mastery_bonus = {
+				name = wuw_HUN_a_mobile_army
+				bonus = 0.1
+				days = 180
+				grand_doctrine = new_mobile_warfare
+			}
+
 			add_doctrine_cost_reduction = {
-				cost_reduction = 0.5
+				cost_reduction = 0.25
 				uses = 1
-				category = cat_tank_doctrine
+				category = land_doctrine
 				name = wuw_HUN_a_mobile_army
 			}
 
@@ -6221,10 +6198,17 @@ focus_tree = {
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
+			add_mastery_bonus = {
+				name = wuw_HUN_an_airforce_to_be_reckoned_with
+				bonus = 0.15
+				days = 180
+				grand_doctrine = superior_firepower
+			}
+
 			add_doctrine_cost_reduction = {
-				cost_reduction = 0.5
+				cost_reduction = 0.25
 				uses = 1
-				category = cat_artillery_doctrine
+				category = land_doctrine
 				name = wuw_HUN_an_airforce_to_be_reckoned_with
 			}
 
@@ -7330,8 +7314,20 @@ focus_tree = {
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
-			set_rule = { can_create_factions = yes }
-			create_faction = HUN_BALKAN_FACTION
+			IF = {
+				limit = {
+					has_dlc = "No Compromise, No Surrender"
+				}
+				set_rule = { can_create_factions = yes }
+				create_faction_from_template = faction_template_balkan_pact
+				add_faction_initiative = 1
+				custom_effect_tooltip = generic_skip_one_line_tt
+			}
+			ELSE = {
+				set_rule = { can_create_factions = yes }
+				create_faction_from_template = faction_template_balkan_pact
+				custom_effect_tooltip = generic_skip_one_line_tt
+			}
 
 			IF = {
 				limit = {
@@ -10593,7 +10589,6 @@ focus_tree = {
 				limit = {
 					has_dlc = "Arms Against Tyranny"
 				}
-
 			}
 			ELSE = {
 				custom_effect_tooltip = available_designer
@@ -10677,11 +10672,6 @@ focus_tree = {
 			IF = {
 				limit = {
 					has_dlc = "Arms Against Tyranny"
-				}
-				add_equipment_subsidy = {
-					cic = 2000
-					equipment_type = light_tank_chassis
-					seller_tags = { ITA }
 				}
 			}
 		}
@@ -11127,12 +11117,16 @@ focus_tree = {
 				}
 				ROOT = {
 					set_rule = { can_create_factions = yes }
-					create_faction = HUN_PACT_OF_ROME_FACTION
+					create_faction_from_template = {
+						template = faction_template_regional
+						name = HUN_PACT_OF_ROME_FACTION
+						icon = GFX_faction_logo_generic_11
+					}
 					ITA = {
 						country_event = generic.5
 						add_ai_strategy = {
 							type = alliance
-							id = "HUN"
+							id = HUN
 							value = 200
 						}
 					}
@@ -16055,24 +16049,6 @@ focus_tree = {
 				limit = {
 					has_dlc = "Arms Against Tyranny"
 				}
-				IF = {
-					limit = {
-						has_idea = HUN_treaty_of_triannon_aat_wuw
-					}
-					swap_ideas = {
-						remove_idea = HUN_treaty_of_triannon_aat_wuw
-						add_idea = HUN_treaty_of_triannon_aat_wuw_no_air_debuff
-					}
-				}
-				ELSE_IF = {
-					limit = {
-						has_idea = HUN_treaty_of_triannon_aat_wuw_no_army_exp_debuff
-					}
-					swap_ideas = {
-						remove_idea = HUN_treaty_of_triannon_aat_wuw_no_army_exp_debuff
-						add_idea = HUN_treaty_of_triannon_aat_wuw_no_air_or_army_debuff
-					}
-				}
 			}
 
 			air_experience = 15
@@ -16161,24 +16137,6 @@ focus_tree = {
 			IF = {
 				limit = {
 					has_dlc = "Arms Against Tyranny"
-				}
-				IF = {
-					limit = {
-						has_idea = HUN_treaty_of_triannon_aat_wuw
-					}
-					swap_ideas = {
-						remove_idea = HUN_treaty_of_triannon_aat_wuw
-						add_idea = HUN_treaty_of_triannon_aat_wuw_no_army_exp_debuff
-					}
-				}
-				ELSE_IF = {
-					limit = {
-						has_idea = HUN_treaty_of_triannon_aat_wuw_no_air_debuff
-					}
-					swap_ideas = {
-						remove_idea = HUN_treaty_of_triannon_aat_wuw_no_air_debuff
-						add_idea = HUN_treaty_of_triannon_aat_wuw_no_air_or_army_debuff
-					}
 				}
 			}
 
@@ -16831,10 +16789,10 @@ focus_tree = {
 						type = industrial_complex
 						level = 2
 						instant_build = yes
-					}
+					}				
 					add_resource = {
-						type = steel
-						amount = 80
+						type = coal
+						amount = 8 
 					}
 				}
 			}
@@ -17244,7 +17202,6 @@ focus_tree = {
 				limit = {
 					has_dlc = "Arms Against Tyranny"
 				}
-
 			}
 			ELSE = {
 				custom_effect_tooltip = available_designer
@@ -17446,7 +17403,6 @@ focus_tree = {
 				limit = {
 					has_dlc = "Arms Against Tyranny"
 				}
-
 			}
 			ELSE = {
 				custom_effect_tooltip = available_designer
@@ -17687,11 +17643,6 @@ focus_tree = {
 			IF = {
 				limit = {
 					has_dlc = "Arms Against Tyranny"
-				}
-				add_equipment_subsidy = {
-					cic = 1000
-					equipment_type = small_plane_airframe
-					seller_trigger = is_allied_seller_trigger
 				}
 			}
 
@@ -19233,13 +19184,6 @@ focus_tree = {
 				limit = {
 					has_dlc = "Arms Against Tyranny"
 				}
-				custom_effect_tooltip = generic_skip_one_line_tt
-				add_doctrine_cost_reduction = {
-					name = wuw_HUN_invest_in_the_special_forces
-					cost_reduction = 0.5
-					uses = 2
-					category = cat_special_forces_doctrine
-				}
 			}
 
 		}
@@ -20039,9 +19983,8 @@ focus_tree = {
 		}
 
 		available = {
-			any_state = {
+			any_controlled_state = {
 				is_coastal = yes
-				is_controlled_by = ROOT
 			}
 		}
 
@@ -20150,11 +20093,18 @@ focus_tree = {
 
 			navy_experience = 15
 
+			add_mastery_bonus = {
+				name = wuw_HUN_embrace_navy_traditions
+				bonus = 0.15
+				days = 240
+				grand_doctrine = new_fleet_in_being
+			}
+
 			add_doctrine_cost_reduction = {
 				name = wuw_HUN_embrace_navy_traditions
-				cost_reduction = 0.5
-				uses = 2
-				category = cat_fleet_in_being
+				cost_reduction = 0.25
+				uses = 1
+				category = naval_doctrine
 			}
 
 		}
@@ -20191,12 +20141,25 @@ focus_tree = {
 
 		completion_reward = {
 			navy_experience = 15
+			
+			add_mastery_bonus = {
+				name = wuw_HUN_a_reformed_navy
+				bonus = 0.15
+				days = 240
+				grand_doctrine = new_convoy_raiding
+			}
+			add_mastery_bonus = {
+				name = wuw_HUN_a_reformed_navy
+				bonus = 0.15
+				days = 240
+				grand_doctrine = new_base_strike
+			}
+
 			add_doctrine_cost_reduction = {
 				name = wuw_HUN_a_reformed_navy
-				cost_reduction = 0.5
+				cost_reduction = 0.25
 				uses = 2
-				category = cat_trade_interdiction
-				category = cat_base_strike
+				category = naval_doctrine
 			}
 		}
 	}
@@ -20281,7 +20244,6 @@ focus_tree = {
 				name = wuw_HUN_cruiser_investments
 				bonus = 1.0
 				uses = 2
-				category = cl_tech
 				category = ca_tech
 			}
 
@@ -20439,9 +20401,8 @@ focus_tree = {
 
 		available = {
 			has_tech = basic_ship_hull_heavy
-			any_state = {
+			any_controlled_state = {
 				is_coastal = yes
-				is_controlled_by = ROOT
 			}
 		}
 
