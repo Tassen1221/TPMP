@@ -1,0 +1,208 @@
+artillery_doctrine_1 = {
+    track = artillery
+    name = SUBDOCTRINE_ARTILLERY_1
+    description = SUBDOCTRINE_ARTILLERY_1_DESC
+    icon = GFX_doctrine_fire_concentration_medium
+
+    xp_cost = 100
+    xp_type = army
+
+    available = {
+        always = yes
+    }
+
+    artillery_brigade = {
+        combat_width = -0.4
+        max_organisation = -10
+    }
+    rocket_artillery_brigade = {
+        combat_width = -0.4
+        max_organisation = -10
+    }
+
+    rewards = {
+        artillery_doctrine_1a = {
+            category_light_artillery = {
+                maximum_speed = 0.05
+            }
+            artillery_brigade = {
+                need = {
+                    artillery_equipment = -3
+                }
+            }
+            rocket_artillery_brigade = {
+                need = {
+                    rocket_artillery_equipment = -3
+                }
+            }
+        }
+        artillery_doctrine_1b = {
+            artillery_brigade = {
+                combat_width = -0.4
+                max_organisation = -10
+            }
+            rocket_artillery_brigade = {
+                combat_width = -0.4
+                max_organisation = -10
+            }
+        }
+        artillery_doctrine_1c = {
+            category_light_artillery = {
+                supply_consumption = -0.02
+                maximum_speed = 0.05
+            }
+        }
+        artillery_doctrine_1d = {
+            artillery_brigade = {
+                combat_width = -0.2
+            }
+            rocket_artillery_brigade = {
+                combat_width = -0.2
+            }
+        }
+        artillery_doctrine_1e = {
+            category_light_artillery = {
+                supply_consumption = -0.02
+            }
+            artillery_brigade = {
+                need = {
+                    artillery_equipment = -3
+                }
+            }
+            rocket_artillery_brigade = {
+                need = {
+                    rocket_artillery_equipment = -3
+                }
+            }
+        }
+    }
+}
+artillery_doctrine_2 = {
+    track = artillery
+    name = SUBDOCTRINE_ARTILLERY_2
+    description = SUBDOCTRINE_ARTILLERY_2_DESC
+    icon = GFX_doctrine_fire_concentration_medium
+
+    xp_cost = 100
+    xp_type = army
+
+    available = {
+        always = yes
+    }
+
+    heavy_artillery = {
+        need = {
+            heavy_artillery_equipment = 15
+        }
+        soft_attack = 0.3
+        hard_attack = 0.3
+        defense = 0.3
+        breakthrough = 0.3
+        ap_attack = 0.3
+    }
+
+    rewards = {
+        artillery_doctrine_2a = {
+            heavy_artillery = {
+                need = {
+                    heavy_artillery_equipment = 15
+                }
+                battalion_mult = {
+                    category = category_light_artillery
+                    soft_attack = 0.1
+                    hard_attack = 0.1
+                }
+            }
+        }
+        artillery_doctrine_2b = {
+            category_artillery = {
+                default_morale = 0.1
+            }
+            heavy_artillery = {
+                battalion_mult = {
+                    category = category_light_artillery
+                    defense = 0.1
+                    breakthrough = 0.1
+                }
+            }
+        }
+        artillery_doctrine_2c = {
+            heavy_artillery = {
+                need = {
+                    heavy_artillery_equipment = 15
+                }
+                battalion_mult = {
+                    category = category_light_artillery
+                    soft_attack = 0.1
+                    hard_attack = 0.1
+                }
+            }
+        }
+        artillery_doctrine_2d = {
+            category_artillery = {
+                max_organisation = 10
+            }
+            heavy_artillery = {
+                battalion_mult = {
+                    category = category_light_artillery
+                    defense = 0.1
+                    breakthrough = 0.1
+                }
+            }
+        }
+        artillery_doctrine_2e = {
+            category_light_artillery = {
+                soft_attack = 0.05
+            }
+        }
+    }
+}
+artillery_doctrine_3 = {
+    track = artillery
+    name = SUBDOCTRINE_ARTILLERY_3
+    description = SUBDOCTRINE_ARTILLERY_3_DESC
+    icon = GFX_doctrine_fire_concentration_medium
+
+    xp_cost = 100
+    xp_type = army
+
+    available = {
+        always = yes
+    }
+
+    category_heavy_artillery = {
+        soft_attack = 0.05
+        max_organisation = 5
+    }
+
+    rewards = {
+        artillery_doctrine_3a = {
+            category_heavy_artillery = {
+                soft_attack = 0.05
+                breakthrough = 0.05
+            }
+        }
+        artillery_doctrine_3b = {
+            category_heavy_artillery = {
+                max_strength = 1
+                defense = 0.05
+            }
+        }
+        artillery_doctrine_3c = {
+            category_heavy_artillery = {
+                default_morale = 0.1
+                max_organisation = 5
+            }
+        }
+        artillery_doctrine_3d = {
+            category_heavy_artillery = {
+                breakthrough = 0.2
+            }
+        }
+        artillery_doctrine_3e = {
+            category_heavy_artillery = {
+                soft_attack = 0.05
+            }
+        }
+    }
+}

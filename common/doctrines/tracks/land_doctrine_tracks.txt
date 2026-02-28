@@ -1,62 +1,105 @@
 infantry = {
     name = DOCTRINE_TRACK_INFANTRY
-    background = "GFX_grand_battleplan_bg"
+    background = "GFX_infantry_subdoctrine_bg"
     icon = "GFX_doctrine_milestone_infantry_land"
     icon_frame = "GFX_doctrine_decor_land"
     mastery = {
         multiplier = 1.0
         categories = {
-            category_infantry
+            category_leg_infantry
         }
     }
 }
 
-combat_support = {
-    name = DOCTRINE_TRACK_COMBAT_SUPPORT
-    background = "GFX_sup_firepower_bg"
+artillery = {
+    name = DOCTRINE_TRACK_ARTILLERY
+    background = "GFX_artillery_subdoctrine_bg"
     icon = "GFX_doctrine_milestone_artillery_land"
      icon_frame = "GFX_doctrine_decor_land"
     mastery = {
         multiplier = 8.0
         categories = {
-	        category_frontline_artillery
 	        category_artillery
-            category_support
         }
     }
 }
 
 armor = {
     name = DOCTRINE_TRACK_ARMOR
-    background = "GFX_mob_warfare_bg"
+    background = "GFX_armor_subdoctrine_bg"
     icon = "GFX_doctrine_milestone_armored_land"
     icon_frame = "GFX_doctrine_decor_land"
     mastery = {
         multiplier = 10.0
         categories = {
-	        category_tanks
-	        category_frontline_tanks
-            
-        }
-        sub_units = {
-            armored_car
+	        category_tanks            
         }
     }
 }
 
 operations = {
     name = DOCTRINE_TRACK_OPERATIONS
-    background = "GFX_tac_operation_bg"
+    background = "GFX_operations_subdoctrine_bg"
     icon = "GFX_doctrine_milestone_operations_land"
     icon_frame = "GFX_doctrine_decor_land"
     mastery = {
         multiplier = 0.7
         categories = {
-            category_infantry
-	        category_frontline_artillery
-	        category_artillery
-	        category_tanks
-	        category_frontline_tanks
+            category_army
+        }
+    }
+}
+
+mobile = {
+    name = DOCTRINE_TRACK_MOBILE
+    background = "GFX_mobile_subdoctrine_bg"
+    icon = "GFX_doctrine_milestone_infantry_land"
+    icon_frame = "GFX_doctrine_decor_land"
+    mastery = {
+        multiplier = 5.0
+        categories = {
+            category_mobile_infantry
+        }
+    }
+}
+
+combat_support = {
+    name = DOCTRINE_TRACK_COMBAT_SUPPORT
+    background = "GFX_anti_tank_air_subdoctrine_bg"
+    icon = "GFX_doctrine_milestone_artillery_land"
+     icon_frame = "GFX_doctrine_decor_land"
+    mastery = {
+        multiplier = 8.0
+        categories = {
+            category_anti_tank
+	        category_anti_air
+        }
+    }
+}
+
+armor_variant = {
+    name = DOCTRINE_TRACK_ARMOR_VARIANTS
+    background = "GFX_armor_variants_subdoctrine_bg"
+    icon = "GFX_doctrine_milestone_armored_land"
+    icon_frame = "GFX_doctrine_decor_land"
+    mastery = {
+        multiplier = 10.0
+        categories = {
+	        category_tank_variants
+            
+        }
+    }
+}
+
+special_forces = {
+    name = DOCTRINE_TRACK_SPECIAL_FORCES
+    background = "GFX_special_forces_subdoctrine_bg"
+    icon = "GFX_doctrine_milestone_operations_land"
+    icon_frame = "GFX_doctrine_decor_land"
+    mastery = {
+        multiplier = 5.0
+        categories = {
+            category_special_forces
         }
     }
 }

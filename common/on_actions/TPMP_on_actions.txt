@@ -1,4 +1,53 @@
 on_actions = {
+	on_monthly = {
+		effect = {
+			IF = {
+				limit = {
+					has_idea = martial_society
+				}
+				add_mastery = {
+					amount = 3.0
+					folder = land
+				}
+			}
+			ELSE_IF = {
+				limit = {
+					has_idea = professional_army
+				}
+				add_mastery = {
+					amount = 3.0
+					folder = land
+				}
+			}
+			ELSE_IF = {
+				limit = {
+					has_idea = semi_professional_army
+				}
+				add_mastery = {
+					amount = 2.5
+					folder = land
+				}
+			}
+			ELSE_IF = {
+				limit = {
+					has_idea = reservist_system
+				}
+				add_mastery = {
+					amount = 1.5
+					folder = land
+				}
+			}
+			ELSE_IF = {
+				limit = {
+					has_idea = militia_system
+				}
+				add_mastery = {
+					amount = 1.0
+					folder = land
+				}
+			}
+		}
+	}
 	on_startup = {
 		effect = {
 			every_country = {

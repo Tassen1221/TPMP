@@ -6,77 +6,218 @@ ideas = {
 		martial_society = {
 			picture = professionalism_5
 
-			cost = 150
+			cost = 50
 			removal_cost = -1
 			level = 1
 
 			available = {
+				IF = {
+					limit = {
+						has_idea = militia_system
+					}
+					has_army_experience > 399
+				}
+				ELSE_IF = {
+					limit = {
+						has_idea = reservist_system
+					}
+					has_army_experience > 299
+				}
+				ELSE_IF = {
+					limit = {
+						has_idea = semi_professional_army
+					}
+					has_army_experience > 199
+				}
+				ELSE_IF = {
+					limit = {
+						has_idea = professional_army
+					}
+					has_army_experience > 99
+				}
 				NOT = {
 					has_government = democratic
 				}
 			}
 
 			modifier = {
-				consumer_goods_factor = 0.2
+				consumer_goods_factor = 0.1
 				conscription_factor = 0.05
-				minimum_training_level = 0.3
+				minimum_training_level = 0.1
 				mobilization_speed = -0.2
-				experience_gain_army = 0.18
 				army_org_factor = 0.1
+				custom_modifier_tooltip = martial_society_tt
+			}
+
+			on_add = {
+				IF = {
+					limit = {
+						has_idea = militia_system
+					}
+					army_experience = -400
+				}
+				ELSE_IF = {
+					limit = {
+						has_idea = reservist_system
+					}
+					army_experience = -300
+				}
+				ELSE_IF = {
+					limit = {
+						has_idea = semi_professional_army
+					}
+					army_experience = -200
+				}
+				ELSE_IF = {
+					limit = {
+						has_idea = professional_army
+					}
+					army_experience = -100
+				}
 			}
 		}
 		professional_army = {
 			picture = professionalism_4
 
-			cost = 150
+			cost = 50
 			removal_cost = -1
 			level = 2
+
+			available = {
+				IF = {
+					limit = {
+						has_idea = militia_system
+					}
+					has_army_experience > 299
+				}
+				ELSE_IF = {
+					limit = {
+						has_idea = reservist_system
+					}
+					has_army_experience > 199
+				}
+				ELSE_IF = {
+					limit = {
+						has_idea = semi_professional_army
+					}
+					has_army_experience > 99
+				}
+			}
 
 			modifier = {
 				consumer_goods_factor = 0.15
 				conscription_factor = -0.1
-				minimum_training_level = 0.2
+				minimum_training_level = 0.1
 				mobilization_speed = -0.2
-				experience_gain_army = 0.24
 				army_org_factor = 0.075
+				custom_modifier_tooltip = professional_army_tt
+			}
+
+			on_add = {
+				IF = {
+					limit = {
+						has_idea = militia_system
+					}
+					army_experience = -300
+				}
+				ELSE_IF = {
+					limit = {
+						has_idea = reservist_system
+					}
+					army_experience = -200
+				}
+				ELSE_IF = {
+					limit = {
+						has_idea = semi_professional_army
+					}
+					army_experience = -100
+				}
 			}
 		}
 		semi_professional_army = {
 			picture = professionalism_3
 
-			cost = 150
+			cost = 50
 			removal_cost = -1
 			level = 3
+
+			available = {
+				IF = {
+					limit = {
+						has_idea = militia_system
+					}
+					has_army_experience > 199
+				}
+				ELSE_IF = {
+					limit = {
+						has_idea = reservist_system
+					}
+					has_army_experience > 99
+				}
+			}
 
 			modifier = {
 				consumer_goods_factor = 0.1
 				conscription_factor = -0.05
-				minimum_training_level = 0.1
+				minimum_training_level = 0.05
 				mobilization_speed = -0.1
-				experience_gain_army = 0.21
 				army_org_factor = 0.025
+				custom_modifier_tooltip = semi_professional_army_tt
+			}
+
+			on_add = {
+				IF = {
+					limit = {
+						has_idea = militia_system
+					}
+					army_experience = -200
+				}
+				ELSE_IF = {
+					limit = {
+						has_idea = reservist_system
+					}
+					army_experience = -100
+				}
 			}
 		}
 		reservist_system = {
 			picture = professionalism_2
 
-			cost = 150
+			cost = 50
 			removal_cost = -1
 			level = 4
+
+			available = {
+				IF = {
+					limit = {
+						has_idea = militia_system
+					}
+					has_army_experience > 99
+				}
+			}
 
 			modifier = {
 				consumer_goods_factor = 0.05
 				conscription_factor = 0.1
 				minimum_training_level = -0.05
 				mobilization_speed = 1.0
-				experience_gain_army = 0.15
 				army_org_factor = -0.05
+				custom_modifier_tooltip = reservist_system_tt
+			}
+
+			on_add = {
+				IF = {
+					limit = {
+						has_idea = militia_system
+					}
+					army_experience = -100
+				}
 			}
 		}
 		militia_system = {
 			picture = professionalism_1
 
-			cost = 150
+			cost = 50
 			removal_cost = -1
 			level = 5
 
@@ -84,9 +225,9 @@ ideas = {
 				consumer_goods_factor = -0.05
 				conscription_factor = 0.2
 				minimum_training_level = -0.1
-				mobilization_speed = 0.6
-				experience_gain_army = 0.12
+				mobilization_speed = 0.5
 				army_org_factor = -0.15
+				custom_modifier_tooltip = militia_system_tt
 			}
 		}
 	}
