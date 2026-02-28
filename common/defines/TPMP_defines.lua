@@ -360,6 +360,8 @@ NDefines.NNavy.NAVAL_COMBAT_AIR_PLANE_COUNT_TO_SUB_DETECTION = 1.0				-- Factor 
 NDefines.NNavy.NAVAL_COMBAT_AIR_SUB_DETECTION_DECAY_RATE = 1.0					-- Factor to decay the value of sub detection contributed by planes on the last hour. Note: the maximum value between the decayed value and the newly computed one is taken into account. A decay rate of 1 means that nothing is carried over, the previous value is zerod out. A decay rate of 0 means that the previous value is carried over as is.
 NDefines.NNavy.NAVAL_COMBAT_AIR_SUB_DETECTION_FACTOR = 0.0					-- A global factor that applies after all others, right before the sub detection contributed by plane is added to the global sub detection of a combatant
 
+NDefines.NNavy.NAVAL_INVASION_PREPARE_DAYS = 10							-- base days needed to prepare a naval invasion
+
 -- defines that are used for supply reach for built nodes
 NDefines.NSupply.NODE_INITIAL_SUPPLY_FLOW = 3.0
 NDefines.NSupply.NODE_STARTING_PENALTY_PER_PROVINCE = 0.5
