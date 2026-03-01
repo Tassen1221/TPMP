@@ -380,7 +380,7 @@ NDefines.NSupply.FLOATING_HARBOR_INITIAL_SUPPLY_FLOW = 3.0
 NDefines.NSupply.FLOATING_HARBOR_STARTING_PENALTY_PER_PROVINCE = 0.5
 NDefines.NSupply.FLOATING_HARBOR_ADDED_PENALTY_PER_PROVINCE = 0.5
 
-NDefines.NSupply.FLOATING_HARBOR_BASE_SUPPLY = 15.0		-- supply given by a floating harbor
+NDefines.NSupply.FLOATING_HARBOR_BASE_SUPPLY = 20.0		-- supply given by a floating harbor
 NDefines.NSupply.FLOATING_HARBOR_BASE_DURATION = 30		-- duration of a full hp floating harbor
 NDefines.NSupply.FLOATING_HARBOR_DURATION_RATIO_AT_MIN_HP = 0.0					-- duration mult for a harbor that was reduced to 0 hp
 
@@ -396,14 +396,14 @@ NDefines.NSupply.SUPPLY_HUB_MOTORIZATION_MARGINAL_EFFECT_DECAY = 2.0
 
 
 -- used for calculating "flow" for railways.
-NDefines.NSupply.RAILWAY_BASE_FLOW = 5.0			-- how much base flow railway gives when a node connected to its capital/a naval node by a railway
-NDefines.NSupply.RAILWAY_FLOW_PER_LEVEL = 5.0			-- how much additional flow a railway level gives
-NDefines.NSupply.RAILWAY_FLOW_PENALTY_PER_DAMAGED = 5.0		-- penalty to flow per damaged railway
-NDefines.NSupply.RAILWAY_MIN_FLOW = 5.0			-- minimum railway flow can be reduced to
+NDefines.NSupply.RAILWAY_BASE_FLOW = 10.0			-- how much base flow railway gives when a node connected to its capital/a naval node by a railway
+NDefines.NSupply.RAILWAY_FLOW_PER_LEVEL = 6.0			-- how much additional flow a railway level gives
+NDefines.NSupply.RAILWAY_FLOW_PENALTY_PER_DAMAGED = 6.0		-- penalty to flow per damaged railway
+NDefines.NSupply.RAILWAY_MIN_FLOW = 10.0			-- minimum railway flow can be reduced to
 
 -- used for calculating "flow" from a naval node to another naval node when it is connected via a convoy route
 NDefines.NSupply.NAVAL_BASE_FLOW = 10.0				-- max output/input of a naval node is limited by this base value + additional ratio for each level
-NDefines.NSupply.NAVAL_FLOW_PER_LEVEL = 2.0			-- max output/input of a naval node is limited by previous base value + this define per its level
+NDefines.NSupply.NAVAL_FLOW_PER_LEVEL = 3.0			-- max output/input of a naval node is limited by previous base value + this define per its level
 
 NDefines.NOperatives.AGENCY_UPGRADE_PER_OPERATIVE_SLOT = 5					-- Number of upgrade needed to unlock an additional operative slot
 NDefines.NOperatives.MAX_OPERATIVE_SLOT_FROM_AGENCY_UPGRADES = 2				-- max operative slots gained from upgrades
