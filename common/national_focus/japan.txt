@@ -10921,7 +10921,7 @@ focus_tree = {
 		id = JAP_revisit_the_thirteen_demands
 		icon = GFX_focus_generic_treaty
 		#mutually_exclusive = { focus = JAP_the_harakiri_debate }
-		x = -13
+		x = -8
 		y = 1
 		relative_position_id = JAP_sea_purge_the_kodoha_faction
 
@@ -12623,7 +12623,7 @@ focus_tree = {
 		id = JAP_nanshin_ron
 		icon = GFX_focus_JAP_nanshin_ron
 		#mutually_exclusive = { focus = JAP_the_harakiri_debate }
-		x = -21
+		x = -16
 		y = 1
 		relative_position_id = JAP_sea_purge_the_kodoha_faction
 
@@ -13814,8 +13814,13 @@ focus_tree = {
 		}
 
 		bypass = {
-			SIA = {
-				is_ally_with = ROOT
+			OR = {
+				SIA = {
+					is_ally_with = ROOT
+				}
+				SIA = {
+					exists = no
+				}
 			}
 		}
 
@@ -14388,7 +14393,7 @@ focus_tree = {
 		id = JAP_hokushin_ron
 		icon = GFX_focus_JAP_hokushin_ron
 		#mutually_exclusive = { focus = JAP_the_harakiri_debate }
-		x = -28
+		x = -23
 		y = 1
 		relative_position_id = JAP_sea_purge_the_kodoha_faction
 
@@ -27437,11 +27442,12 @@ focus_tree = {
 		}
 		
 		available = {
-			OR = {
-				has_subject = KOR
-				any_controlled_state = {
-					is_core_of = KOR
-					is_fully_controlled_by = ROOT
+			AND = {
+				1030 = {
+					state_is_fully_controlled_by_ROOT_or_subject = yes
+				}
+				1029 = {
+					state_is_fully_controlled_by_ROOT_or_subject = yes
 				}
 			}
 		}
@@ -27457,69 +27463,23 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_HISTORICAL FOCUS_FILTER_INDUSTRY FOCUS_FILTER_POLITICAL FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_STABILITY }
 
 		completion_reward = {
-			IF = {
-				limit = {
-					has_subject = KOR
-				}
-				KOR = {				
-					add_stability = 0.1
-					add_war_support = 0.1
-					add_political_power = 100
-					add_timed_idea = {
-						idea = JAP_japanese_investments
-						days = 720
-					}
-				}
-				custom_effect_tooltip = generic_skip_one_line_tt
-			}
-			
-			IF = {
-				limit = {
-					has_subject = KOR
-				}
-				KOR  = {
-					every_core_state = {
-						limit = {
-							is_fully_controlled_by = PREV
-							free_building_slots = {
-								building = industrial_complex
-								size > 1
-								include_locked = yes
-							}
-						}
-						random_select_amount = 2
-						add_extra_state_shared_building_slots = 1
-						add_building_construction = {
-							type = industrial_complex
-							level = 1
-							instant_build = yes
-						}
-					}
-				}
-			}
-			ELSE = {
-				every_controlled_state = {
-					limit = {
-						is_core_of = KOR
-						is_fully_controlled_by = ROOT
-						free_building_slots = {
-							building = industrial_complex
-							size > 1
-							include_locked = yes
-						}
-					}
-					random_select_amount = 2
+			1030 = {
 					add_extra_state_shared_building_slots = 1
 					add_building_construction = {
 						type = industrial_complex
 						level = 1
 						instant_build = yes
 					}
-				}
 			}
-
+			1029 = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+			}
 		}
-		
 	}
 
 	focus = {
@@ -27543,11 +27503,12 @@ focus_tree = {
 		}
 
 		available = {
-			OR = {
-				has_subject = KOR
-				any_controlled_state = {
-					is_core_of = KOR
-					is_fully_controlled_by = ROOT
+			AND = {
+				1030 = {
+					state_is_fully_controlled_by_ROOT_or_subject = yes
+				}
+				1029 = {
+					state_is_fully_controlled_by_ROOT_or_subject = yes
 				}
 			}
 		}
@@ -27564,29 +27525,11 @@ focus_tree = {
 
 		completion_reward = {
 
-			IF = {
-				limit = {
-					has_subject = KOR
-				}
-				KOR = {
-					every_core_state = {
-						limit = {
-							is_fully_controlled_by = KOR
-						}
-						random_select_amount = 2
-						add_extra_state_shared_building_slots = 1
-					}
-				}
+			1030 = {
+				add_extra_state_shared_building_slots = 1
 			}
-			ELSE = {
-				every_controlled_state = {
-					limit = {
-						is_core_of = KOR
-						is_fully_controlled_by = ROOT
-					}
-					random_select_amount = 2
-					add_extra_state_shared_building_slots = 1
-				}
+			1029 = {
+				add_extra_state_shared_building_slots = 1
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
@@ -27800,15 +27743,11 @@ focus_tree = {
 				}
 				IF = {
 					limit = {
-						1028 = {
-							free_building_slots = {
-								building = arms_factory
-								size > 0
-								include_locked = yes
-							}	
+						1029 = {
+							state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes
 						}
 					}
-					1028 = {
+					1029 = {
 						add_extra_state_shared_building_slots = 1
 						add_building_construction = {
 							type = arms_factory
@@ -27882,15 +27821,9 @@ focus_tree = {
 
 			IF = {
 				limit = {
-					525 = {
-						free_building_slots = {
-							building = arms_factory
-							size > 1
-							include_locked = yes
-						}	
-					}
+					always = yes
 				}
-				525 = {
+				1029 = {
 					add_extra_state_shared_building_slots = 2
 					add_building_construction = {
 						type = arms_factory
