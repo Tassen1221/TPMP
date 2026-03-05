@@ -1,55 +1,11 @@
 on_actions = {
-	on_monthly = {
-		effect = {
-			IF = {
-				limit = {
-					has_idea = martial_society
-				}
-				add_mastery = {
-					amount = 3.0
-					folder = land
-				}
-			}
-			ELSE_IF = {
-				limit = {
-					has_idea = professional_army
-				}
-				add_mastery = {
-					amount = 3.0
-					folder = land
-				}
-			}
-			ELSE_IF = {
-				limit = {
-					has_idea = semi_professional_army
-				}
-				add_mastery = {
-					amount = 2.5
-					folder = land
-				}
-			}
-			ELSE_IF = {
-				limit = {
-					has_idea = reservist_system
-				}
-				add_mastery = {
-					amount = 1.5
-					folder = land
-				}
-			}
-			ELSE_IF = {
-				limit = {
-					has_idea = militia_system
-				}
-				add_mastery = {
-					amount = 1.0
-					folder = land
-				}
-			}
-		}
-	}
 	on_startup = {
 		effect = {
+			set_variable = { TPMP_martial_society_mastery_var = 3.5 }
+			set_variable = { TPMP_professional_army_mastery_var = 5.0 }
+			set_variable = { TPMP_semi_professional_army_mastery_var = 4.0 }
+			set_variable = { TPMP_reservist_system_mastery_var = 2.5 }
+			set_variable = { TPMP_militia_system_mastery_var = 1.5 }
 			every_country = {
 				set_rule = { can_send_volunteers = yes }
 			}
@@ -62,6 +18,55 @@ on_actions = {
 			GER = {
 				set_variable = { TPMP_spanish_civil_war_consumer_var = 0.1 }
 				set_variable = { TPMP_spanish_civil_war_volunteer_var = 5 }
+			}
+		}
+	}
+	on_monthly = {
+		effect = {
+			IF = {
+				limit = {
+					has_idea = martial_society
+				}
+				add_mastery = {
+					amount = TPMP_martial_society_mastery_var
+					folder = land
+				}
+			}
+			ELSE_IF = {
+				limit = {
+					has_idea = professional_army
+				}
+				add_mastery = {
+					amount = TPMP_professional_army_mastery_var
+					folder = land
+				}
+			}
+			ELSE_IF = {
+				limit = {
+					has_idea = semi_professional_army
+				}
+				add_mastery = {
+					amount = TPMP_semi_professional_army_mastery_var
+					folder = land
+				}
+			}
+			ELSE_IF = {
+				limit = {
+					has_idea = reservist_system
+				}
+				add_mastery = {
+					amount = TPMP_reservist_system_mastery_var
+					folder = land
+				}
+			}
+			ELSE_IF = {
+				limit = {
+					has_idea = militia_system
+				}
+				add_mastery = {
+					amount = TPMP_militia_system_mastery_var
+					folder = land
+				}
 			}
 		}
 	}

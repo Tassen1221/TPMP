@@ -414,8 +414,8 @@ NDefines.NProject.RECRUIT_SCIENTIST_COST = {			-- Amount of pp to hire a scienti
 		20,			-- pp cost if no available scientist
 	}
 
-NDefines.NProject.BASIC_RESEARCH_TECHNOLOGY_BONUS_FACTOR = 0.05    					-- Bonus research factor applied to technologies per scientist skill level when performing basic research in a matching facility.
-NDefines.NProject.BASIC_RESEARCH_TECHNOLOGY_BONUS_DIMINISHING_RETURN_FACTOR = 0		-- Diminishing return on BASIC_RESEARCH_TECHNOLOGY_BONUS_FACTOR for each extra scientist performing basic research for multiple facilities.	
+NDefines.NProject.BASIC_RESEARCH_TECHNOLOGY_BONUS_FACTOR = 0.05    				-- Bonus research factor applied to technologies per scientist skill level when performing basic research in a matching facility.
+NDefines.NProject.BASIC_RESEARCH_TECHNOLOGY_BONUS_DIMINISHING_RETURN_FACTOR = 0.1		-- Diminishing return on BASIC_RESEARCH_TECHNOLOGY_BONUS_FACTOR for each extra scientist performing basic research for multiple facilities.	
 NDefines.NProject.BREAKTHROUGH_DAILY_TECHNOLOGY_GAIN = 5	-- Amount in 1/100th percentage. E.g. 25 = 0.25%
 NDefines.NProject.BREAKTHROUGH_DAILY_SCIENTIST_SKILL_GAIN = 20	-- Amount in 1/100th percentage gained per skill when doing basic research. E.g. 5 = 0.05% per skill level.
 

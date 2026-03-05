@@ -14656,7 +14656,7 @@ focus_tree = {
 			}
 		}
 
-		x = 17
+		x = 14
 		y = 1
 	
 	
@@ -14690,6 +14690,10 @@ focus_tree = {
 		icon = GFX_focus_generic_balkans_focus
 		prerequisite = { focus = ITA_foreign_affairs }
 		mutually_exclusive = { focus = ITA_potential_allies_in_the_balkans }
+
+		allow_branch = {
+			always = no
+		}
 
 		x = -1
 		y = 1
@@ -14744,6 +14748,10 @@ focus_tree = {
 		icon = GFX_focus_generic_balkan_diplomacy
 		prerequisite = { focus = ITA_foreign_affairs }
 		mutually_exclusive = { focus = ITA_balkan_ambition }
+
+		allow_branch = {
+			always = no
+		}
 
 		x = 1
 		y = 1
@@ -14829,11 +14837,11 @@ focus_tree = {
 	focus = {
 		id = ITA_albanian_occupation
 		icon = GFX_goal_generic_more_territorial_claims
-		prerequisite = { focus = ITA_potential_allies_in_the_balkans focus = ITA_balkan_ambition }
+		prerequisite = { focus = ITA_foreign_affairs }
 
-		x = -7
+		x = -5
 		y = 1
-		relative_position_id = ITA_potential_allies_in_the_balkans
+		relative_position_id = ITA_foreign_affairs
 		cost = 5
 		available = {
 		}
@@ -14897,7 +14905,7 @@ focus_tree = {
 		icon = GFX_goal_generic_oil_refinery
 		prerequisite = { focus = ITA_albanian_occupation }
 
-		x = -2
+		x = 0
 		y = 1
 		relative_position_id = ITA_albanian_occupation
 		cost = 5
@@ -14934,6 +14942,10 @@ focus_tree = {
 		id = ITA_support_albanian_irredentism
 		icon = GFX_focus_ITA_albanian_irredentism
 		prerequisite = { focus = ITA_albanian_occupation }
+
+		allow_branch = {
+			always = no
+		}
 
 		x = 0
 		y = 1
@@ -15487,11 +15499,11 @@ focus_tree = {
 	focus = {
 		id = ITA_pact_of_steel
 		icon = GFX_goal_support_fascism
-		prerequisite = { focus = ITA_potential_allies_in_the_balkans focus = ITA_balkan_ambition }
+		prerequisite = { focus = ITA_foreign_affairs }
 		mutually_exclusive = { focus = ITA_guarantee_austrian_independence focus = ITA_italy_first }
-		x = -1
+		x = 0
 		y = 1
-		relative_position_id = ITA_potential_allies_in_the_balkans
+		relative_position_id = ITA_foreign_affairs
 		cost = 5
 
 		bypass = {
@@ -16357,7 +16369,7 @@ focus_tree = {
 		icon = GFX_goal_generic_military_deal
 		prerequisite = { focus = ITA_foreign_affairs }
 
-		x = 3
+		x = 5
 		y = 1
 		relative_position_id = ITA_foreign_affairs
 		cost = 5
