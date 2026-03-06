@@ -113,7 +113,7 @@ shared_focus = {
 		OR = {
 			has_government = neutrality
 			GER = { has_government = ROOT }
-			GER_will_support = yes
+			# GER_will_support = yes
 		}
 		NOT = {
 			has_war_with = GER
@@ -121,7 +121,7 @@ shared_focus = {
 		GER = {
 			has_capitulated = no
 		}
-		NOT = { has_global_flag = falkenhausen_recalled }
+		# NOT = { has_global_flag = falkenhausen_recalled }
 	}
 
 	bypass = {
@@ -177,8 +177,8 @@ shared_focus = {
 	}
 
 	available = {
-		NOT = { has_global_flag = falkenhausen_recalled }
-		GER_will_support = yes
+		# NOT = { has_global_flag = falkenhausen_recalled }
+		# GER_will_support = yes
 	}
 
 	bypass = {
@@ -230,7 +230,7 @@ shared_focus = {
 
 	available = {
 		NOT = { has_idea = CHI_incompetent_officers }
-		NOT = { has_global_flag = falkenhausen_recalled }
+		# NOT = { has_global_flag = falkenhausen_recalled }
 		if = {
 			limit = {
 				NOT = {
@@ -242,7 +242,7 @@ shared_focus = {
 					}
 				}
 			}
-			GER_will_support = yes
+			# GER_will_support = yes
 		}
 	}
 
@@ -277,8 +277,8 @@ shared_focus = {
 	}
 
 	available = {
-		NOT = { has_global_flag = falkenhausen_recalled }
-		GER_will_support = yes
+		# NOT = { has_global_flag = falkenhausen_recalled }
+		# GER_will_support = yes
 	}
 
 	bypass = {
@@ -325,8 +325,8 @@ shared_focus = {
 
 	available = {
 		NOT = { has_war_with = GER }
-		NOT = { has_global_flag = falkenhausen_recalled }
-		GER_will_support = yes
+		# NOT = { has_global_flag = falkenhausen_recalled }
+		# GER_will_support = yes
 	}
 
 	bypass = {
@@ -366,7 +366,8 @@ shared_focus = {
 
 	available = {
 		OR = {
-			GER_will_support = yes
+			# GER_will_support = yes
+			GER = {has_same_ideology = yes}
 			SOV_will_support = yes
 		}
 	}
@@ -489,7 +490,7 @@ shared_focus = {
 	}
 
 	available = {
-		GER_will_support = yes
+		# GER_will_support = yes
 	}
 
 	bypass = {
@@ -542,7 +543,7 @@ shared_focus = {
 	}
 
 	available = {
-		GER_will_support = yes
+		# GER_will_support = yes
 	}
 
 	bypass = {
@@ -1743,7 +1744,7 @@ shared_focus = {
 	}
 
 	available = {
-		is_subject = no
+		# is_subject = no
 	}
 
 	bypass = {
@@ -1817,6 +1818,10 @@ shared_focus = {
 
 	available = {
 		is_subject = no
+	}
+
+	allow_branch = {
+		always = no
 	}
 
 	bypass = {
@@ -1949,11 +1954,11 @@ shared_focus = {
 
 	icon = GFX_focus_PRC_dare_to_struggle
 
-	prerequisite = { focus = CHI_sea_one_china_policy }
+	prerequisite = { focus = CHI_sea_renegotiate_the_unequal_treaties }
 
-	x = -2
-	y = 2
-	relative_position_id = CHI_sea_one_china_policy
+	x = 0
+	y = 1
+	relative_position_id = CHI_sea_renegotiate_the_unequal_treaties
 
 	cost = 10
 
@@ -1965,69 +1970,69 @@ shared_focus = {
 
 	available = {
 
-		is_subject = no
+		# is_subject = no
 
-		OR = {
-			1033 = {
-				state_is_fully_controlled_by_ROOT_or_subject = yes
-			}
-			592 = {
-				state_is_fully_controlled_by_ROOT_or_subject = yes
-			}
-			593 = {
-				state_is_fully_controlled_by_ROOT_or_subject = yes
-			}
-		}
+		# OR = {
+		# 	1033 = {
+		# 		state_is_fully_controlled_by_ROOT_or_subject = yes
+		# 	}
+		# 	592 = {
+		# 		state_is_fully_controlled_by_ROOT_or_subject = yes
+		# 	}
+		# 	593 = {
+		# 		state_is_fully_controlled_by_ROOT_or_subject = yes
+		# 	}
+		# }
 
-		OR = {
-			NOT = {
-				is_in_faction_with = ENG
-			}
-			326 = {
-				state_is_fully_controlled_by_ROOT_or_subject = no
-				controller = {
-					OR = {	
-						is_literally_china_tooltip = no
-						NOT = {
-							has_war_with = ROOT
-						}
-					}
-				}
-			}
-			729 = {
-				state_is_fully_controlled_by_ROOT_or_subject = no
-				controller = {
-					OR = {	
-						is_literally_china_tooltip = no
-						NOT = {
-							has_war_with = ROOT
-						}
-					}
-				}
-			}
-			728 = {
-				state_is_fully_controlled_by_ROOT_or_subject = no
-				controller = {
-					OR = {	
-						is_literally_china_tooltip = no
-						NOT = {
-							has_war_with = ROOT
-						}
-					}
-				}
-			}
-			743 = {
-				state_is_fully_controlled_by_ROOT_or_subject = no
-				controller = {
-					OR = {	
-						is_literally_china_tooltip = no
-						NOT = {
-							has_war_with = ROOT
-						}
-					}
-				}
-			}
-		}
+		# OR = {
+		# 	NOT = {
+		# 		is_in_faction_with = ENG
+		# 	}
+		# 	326 = {
+		# 		state_is_fully_controlled_by_ROOT_or_subject = no
+		# 		controller = {
+		# 			OR = {	
+		# 				is_literally_china_tooltip = no
+		# 				NOT = {
+		# 					has_war_with = ROOT
+		# 				}
+		# 			}
+		# 		}
+		# 	}
+		# 	729 = {
+		# 		state_is_fully_controlled_by_ROOT_or_subject = no
+		# 		controller = {
+		# 			OR = {	
+		# 				is_literally_china_tooltip = no
+		# 				NOT = {
+		# 					has_war_with = ROOT
+		# 				}
+		# 			}
+		# 		}
+		# 	}
+		# 	728 = {
+		# 		state_is_fully_controlled_by_ROOT_or_subject = no
+		# 		controller = {
+		# 			OR = {	
+		# 				is_literally_china_tooltip = no
+		# 				NOT = {
+		# 					has_war_with = ROOT
+		# 				}
+		# 			}
+		# 		}
+		# 	}
+		# 	743 = {
+		# 		state_is_fully_controlled_by_ROOT_or_subject = no
+		# 		controller = {
+		# 			OR = {	
+		# 				is_literally_china_tooltip = no
+		# 				NOT = {
+		# 					has_war_with = ROOT
+		# 				}
+		# 			}
+		# 		}
+		# 	}
+		# }
 
 	}
 	
@@ -2383,6 +2388,10 @@ shared_focus = {
 
 	}
 
+	allow_branch = {
+		always = no
+	}
+
 	cancel_if_invalid = yes
 	continue_if_invalid = no
 	available_if_capitulated = no
@@ -2687,6 +2696,10 @@ shared_focus = {
 
 	bypass = {
 
+	}
+
+	allow_branch = {
+		always= no
 	}
 
 	cancel_if_invalid = yes
@@ -3065,6 +3078,10 @@ shared_focus = {
 
 	bypass = {
 
+	}
+
+	allow_branch ={
+		always = no
 	}
 
 	cancel_if_invalid = yes
@@ -3763,6 +3780,10 @@ shared_focus = {
 			factor = 4
 			tag = CHI
 		}
+	}
+	
+	allow_branch = {
+		always = no
 	}
 
 	available = {

@@ -68,7 +68,7 @@ country_event = {
 			}
 		}
 		add_stability = -0.05
-		remove_ideas = MAN_the_kangde_emperor
+		# remove_ideas = MAN_the_kangde_emperor
 		add_country_leader_role = {
 			character = MAN_pujie
 			promote_leader = yes
@@ -863,7 +863,7 @@ country_event = {
 			base = 90
 		}
 		add_political_power = 50
-		add_stability = -0.025
+		add_stability = 0.025
 	}
 
 	#Justify
@@ -874,7 +874,7 @@ country_event = {
 		}
 		add_timed_idea = {
 			idea = MAN_xingan_army_resigned
-			days = 365
+			days = 120
 		}
 		retire_character = MAN_urzhin_garmaev
 		retire_character = MAN_jonjurjab
@@ -887,11 +887,8 @@ country_event = {
 		ai_chance = {
 			base = 15
 		}
-		add_timed_idea = {
-			idea = MAN_xingan_army_appeased
-			days = 725
-		}
-		add_stability = -0.1
+		add_ideas = MAN_xingan_army_appeased
+		add_stability = -0.05
 		add_political_power = -25
 		hidden_effect = { set_country_flag = MAN_xingan_army_government }
 		custom_effect_tooltip = MAN_will_support_japan_tt

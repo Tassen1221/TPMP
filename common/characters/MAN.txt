@@ -1122,5 +1122,40 @@ characters = {
 	# Generic Fortification Engineer generated in generic_advisors file
 	# Generic War Industrialist generated in generic_advisors file
 
+	MAN_naoki_hoshino = {
+		name = JAP_naoki_hoshino
 
+		portraits = {
+			civilian = {
+				small = GFX_portrait_JAP_naoki_hoshino_small
+			}
+		}
+
+		advisor = {
+			slot = political_advisor
+			idea_token = JAP_naoki_hoshino
+
+			allowed = {
+				OR = {
+					original_tag = JAP
+					original_tag = MAN
+				}
+			}
+
+			visible = {
+				
+			}
+
+			available = {
+				has_completed_focus = MAN_tsr_invite_japanese_investors
+			}
+
+			traits = {
+				FRA_national_syndicalist
+			}
+			ai_will_do = {
+				base = 2
+			}
+		}
+	}
 }
