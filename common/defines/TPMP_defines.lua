@@ -183,6 +183,8 @@ NDefines.NCharacter.SPECIALIST_ADVISOR_MIN_RANK = 3
 NDefines.NCharacter.EXPERT_ADVISOR_MIN_RANK = 5
 NDefines.NCharacter.GENIUS_ADVISOR_MIN_RANK = 7
 
+NDefines.NProduction.RESOURCE_TO_ENERGY_COEFFICIENT = 1.0	-- How much energy per coal produces
+
 NDefines.NProduction.BASE_FACTORY_MAX_EFFICIENCY_FACTOR = 50	-- Base max efficiency for factories expressed in %.
 
 NDefines.NProduction.BASE_FACTORY_SPEED_MIL = 4			-- Base factory speed multiplier (how much hoi3 style IC each factory gives).
