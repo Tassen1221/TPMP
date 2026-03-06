@@ -94,7 +94,7 @@
 		id = MAN_tsr_army_modernization
 		icon = GFX_focus_JAP_strenghten_manchukuo_imperial_army #GFX_goal_generic_small_arms
 		prerequisite = { focus = MAN_tsr_pacify_the_countryside }
-		x = 2
+		x = 5
 		y = 1
 		relative_position_id = MAN_tsr_pacify_the_countryside
 
@@ -160,7 +160,7 @@
 		id = MAN_tsr_invite_japanese_settlers
 		icon = GFX_focus_JAP_promote_japanese_settlement
 		prerequisite = { focus = MAN_tsr_pacify_the_countryside }
-		x = 0
+		x = 3
 		y = 1
 		relative_position_id = MAN_tsr_pacify_the_countryside
 
@@ -388,7 +388,7 @@
 		id = MAN_tsr_trade_delegation
 		icon = GFX_goal_generic_trade
 		prerequisite = { focus = MAN_tsr_pacify_the_countryside }
-		x = -2
+		x = 0
 		y = 1
 		relative_position_id = MAN_tsr_pacify_the_countryside
 
@@ -434,7 +434,7 @@
 		id = MAN_tsr_expand_the_textile_industry
 		icon = GFX_goal_generic_consumer_goods
 		prerequisite = { focus = MAN_tsr_trade_delegation }
-		x = 0
+		x = 1
 		y = 1
 		relative_position_id = MAN_tsr_trade_delegation
 
@@ -497,7 +497,7 @@
 		icon = GFX_focus_JAP_align_the_concordia_association
 		prerequisite = { focus = MAN_tsr_trade_delegation }
 		mutually_exclusive = { focus = MAN_tsr_assertiveness }
-		x = -3
+		x = -1
 		y = 4
 		relative_position_id = MAN_tsr_trade_delegation
 
@@ -641,8 +641,8 @@
 					has_dlc = "Man the Guns"
 				}
 				create_ship = {
-					type = ship_hull_light_1
-					equipment_variant = "Momo Class"
+					type = ship_hull_cruiser_2
+					equipment_variant = "Furutaka/Aoba Class"
 					creator = JAP
 					name = "Hai Wei"
 				}
@@ -653,7 +653,12 @@
 					creator = "JAP"
 					name = "Hai Wei"
 				}
-			}	
+			}
+			716 = {
+				construct_building_in_random_province = {
+					naval_facility = 1
+				}
+			}
 		}
 	}
 
@@ -777,7 +782,7 @@
 				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = industrial_complex
-					level = 2
+					level = 1
 					instant_build = yes
 				}
 			}
@@ -958,7 +963,7 @@
 				add_extra_state_shared_building_slots = 3
 				add_building_construction = {
 					type = industrial_complex
-					level = 3
+					level = 2
 					instant_build = yes
 				}
 			}
@@ -1001,17 +1006,11 @@
 
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
-			if = {
-				limit = { has_tech = excavation1 }
-				add_tech_bonus = {
-					name = MAN_develop_aluminum_sources
-					bonus = 1.0
-					uses = 1
-					category = excavation_tech
-				}
-			}
-			else = {
-				set_technology = { excavation1 = 1 }
+			add_tech_bonus = {
+				name = MAN_develop_aluminum_sources
+				bonus = 1.0
+				uses = 3
+				category = excavation_tech
 			}
 			unlock_decision_tooltip = MAN_develop_kirin_aluminium_deposits
 		}
@@ -1058,7 +1057,7 @@
 			add_extra_state_shared_building_slots = 2
 			add_building_construction = {
 					type = industrial_complex
-					level = 2
+					level = 1
 					instant_build = yes
 				}
 		}
@@ -1076,6 +1075,11 @@
 				bonus = 1
 				uses = 1
 				category = cat_mechanized_tech
+			}
+			328 = {
+				construct_building_in_random_province = {
+					land_facility = 1
+				}
 			}
 		}
 	}
@@ -1345,7 +1349,7 @@
 				add_extra_state_shared_building_slots = 3
 				add_building_construction = {
 					type = arms_factory
-					level = 3
+					level = 2
 					instant_build = yes
 				}
 			}
@@ -1410,6 +1414,11 @@
 				show_ideas_tooltip = MAN_mamc_medium
 				show_ideas_tooltip = MAN_mamc_heavy
 			# }
+			716 = {
+				construct_building_in_random_province = {
+					air_facility = 1
+				}
+			}
 		}
 	}
 
@@ -1879,7 +1888,7 @@
 				}
 			}
 
-
+			add_political_power = 1
 			# annex_country = { target = MEN transfer_troops = yes }
 		}
 	}
@@ -1938,7 +1947,7 @@
 
 		available = {
 			is_subject_of = JAP
-			compare_autonomy_state > autonomy_wtt_imperial_protectorate			
+			# compare_autonomy_state > autonomy_wtt_imperial_protectorate			
 			MAN = { 
 				ic_ratio = {
 					tag = JAP
@@ -2165,7 +2174,7 @@
 
 		relative_position_id = MAN_tsr_promote_manchu_identity
 
-		cost = 10
+		cost = 4
 
 		ai_will_do = {
 			base = 1

@@ -996,8 +996,13 @@ shared_focus = {
 	available_if_capitulated = no
 
 	completion_reward = {
-		SOV = { add_to_tech_sharing_group = CHI_joint_tank_development }
-		add_to_tech_sharing_group = CHI_joint_tank_development
+		add_tech_bonus = {
+			name = CHI_hire_soviet_designer
+			bonus = 1.0
+			uses = 1
+			ahead_reduction = 2
+			category = armor
+		}
 	}
 }
 
@@ -1209,6 +1214,10 @@ shared_focus = {
 		any_other_country = {
 			has_completed_focus = CHI_sea_the_soviet_volunteer_group
 		}
+	}
+
+	allow_branch = {
+		always = no
 	}
 
 	cancel_if_invalid = no
