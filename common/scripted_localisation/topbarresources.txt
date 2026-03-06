@@ -7,13 +7,13 @@ defined_text = { # global
 			check_variable = {resource_imported@steel>0}
 			check_variable = {resource@steel>resource_imported@steel}
 		}
-		localization_key = steel_surplus_loc_key
+		localization_key = steel_yellow_tt
 	}
 	text = {
 		trigger = {
 			always=yes
 		}
-		localization_key = steel_loc_key
+		localization_key = steel_green_tt
 	}
 
 
@@ -25,13 +25,13 @@ defined_text = { # global
 			check_variable = {resource_imported@rubber>0}
 			check_variable = {resource@rubber>resource_imported@rubber}
 		}
-		localization_key = rubber_surplus_loc_key
+		localization_key = rubber_yellow_tt
 	}
 	text = {
 		trigger = {
 			always=yes
 		}
-		localization_key = rubber_loc_key
+		localization_key = rubber_green_tt
 	}
 
 
@@ -43,13 +43,13 @@ defined_text = { # global
 			check_variable = {resource_imported@aluminium>0}
 			check_variable = {resource@aluminium>resource_imported@aluminium}
 		}
-		localization_key = aluminium_surplus_loc_key
+		localization_key = aluminium_yellow_tt
 	}
 	text = {
 		trigger = {
 			always=yes
 		}
-		localization_key = aluminium_loc_key
+		localization_key = aluminium_green_tt
 	}
 
 
@@ -61,13 +61,13 @@ defined_text = { # global
 			check_variable = {resource_imported@tungsten>0}
 			check_variable = {resource@tungsten>resource_imported@tungsten}
 		}
-		localization_key = tungsten_surplus_loc_key
+		localization_key = tungsten_yellow_tt
 	}
 	text = {
 		trigger = {
 			always=yes
 		}
-		localization_key = tungsten_loc_key
+		localization_key = tungsten_green_tt
 	}
 
 
@@ -79,13 +79,31 @@ defined_text = { # global
 			check_variable = {resource_imported@chromium>0}
 			check_variable = {resource@chromium>resource_imported@chromium}
 		}
-		localization_key = chromium_surplus_loc_key
+		localization_key = chromium_yellow_tt
 	}
 	text = {
 		trigger = {
 			always=yes
 		}
-		localization_key = chromium_loc_key
+		localization_key = chromium_green_tt
+	}
+
+
+}
+defined_text = { # global
+	name = coal_text
+	text = {
+		trigger = {
+			check_variable = {resource_imported@coal>0}
+			check_variable = {resource@coal>resource_imported@coal}
+		}
+		localization_key = coal_yellow_tt
+	}
+	text = {
+		trigger = {
+			always=yes
+		}
+		localization_key = coal_green_tt
 	}
 
 
