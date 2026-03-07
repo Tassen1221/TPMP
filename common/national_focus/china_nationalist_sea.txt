@@ -10281,31 +10281,11 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			IF = {
-				limit = {
-					has_doctrine = defensive_postures
-				}
-				add_daily_mastery = {
-					amount = 1
-					days = 75
-					name =  CHI_protracted_warfare
-					track = infantry
-				}
-
-			}
-			ELSE_IF = {
-				limit ={
-					has_subdoctrine_in_track = infantry
-				}
-				add_daily_mastery = {
-					amount = 1
-					days = 50
-					name =  CHI_protracted_warfare
-					track = infantry
-				}
-			}
-			ELSE = {
-				set_sub_doctrine = defensive_postures
+			add_daily_mastery = {
+				amount = 1
+				days = 50
+				name =  CHI_protracted_warfare
+				track = infantry
 			}
 			add_dynamic_modifier = { modifier = CHI_protracted_warfare_idea }
 			add_to_variable = { 
@@ -10340,31 +10320,11 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			IF = {
-				limit = {
-					has_doctrine = deep_battle
-				}
-				add_daily_mastery = {
-					amount = 1
-					days = 75
-					name =  CHI_decisive_battles
-					track = operations
-				}
-
-			}
-			ELSE_IF = {
-				limit ={
-					has_subdoctrine_in_track = operations
-				}
-				add_daily_mastery = {
-					amount = 1
-					days = 50
-					name =  CHI_decisive_battles
-					track = operations
-				}
-			}
-			ELSE = {
-				set_sub_doctrine = deep_battle
+			add_daily_mastery = {
+				amount = 1
+				days = 50
+				name =  CHI_decisive_battles
+				track = operations
 			}
 			custom_effect_tooltip = CHI_modify_corruption_in_the_armed_forces_tt
 			add_to_variable = { 
@@ -10728,31 +10688,11 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			IF = {
-				limit = {
-					has_doctrine = mobile_infantry
-				}
-				add_daily_mastery = {
-					amount = 1
-					days = 75
-					name =  CHI_motorise_our_infantry
-					track = infantry
-				}
-
-			}
-			ELSE_IF = {
-				limit ={
-					has_subdoctrine_in_track = infantry
-				}
-				add_daily_mastery = {
-					amount = 1
-					days = 50
-					name =  CHI_motorise_our_infantry
-					track = infantry
-				}
-			}
-			ELSE = {
-				set_sub_doctrine = mobile_infantry
+			add_daily_mastery = {
+				amount = 1
+				days = 50
+				name =  CHI_motorise_our_infantry
+				track = infantry
 			}
 			IF = {
 				limit = {
@@ -12990,16 +12930,11 @@ focus_tree = {
 				value = 0.5
 			}
 
-			IF = {
-				limit = {
-					has_doctrine = air_cavalry
-				}
-				add_daily_mastery = {
-					amount = 1
-					days = 90	
-					name =  CHI_VTOL_experiments
-					track = combat_support					
-				}
+			add_daily_mastery = {
+				amount = 1
+				days = 90	
+				name =  CHI_VTOL_experiments
+				track = combat_support					
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt

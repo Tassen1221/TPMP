@@ -1032,42 +1032,6 @@ focus_tree = {
 			add_ideas = PRC_guerilla_warfare
 
 			custom_effect_tooltip = generic_skip_one_line_tt
-
-			if = {
-				limit = {
-					has_doctrine = peoples_war
-				}
-
-				add_mastery_bonus = {
-					bonus = 0.25
-					days = 365
-					name = PRC_on_guerilla_warfare
-
-					sub_doctrine = peoples_war
-				}
-			}
-			else_if = {
-				limit = {
-					has_doctrine = guerilla_war
-				}
-				add_mastery_bonus = {
-					bonus = 0.25
-					days = 365
-					name = PRC_on_guerilla_warfare
-					sub_doctrine = guerilla_war
-				}
-			}
-			else = {
-				add_mastery_bonus = {
-					bonus = 0.1
-					days = 365
-					name = PRC_on_guerilla_warfare
-
-					track = operations
-				}
-
-
-			}
 		}
 	}
 
@@ -1420,29 +1384,6 @@ focus_tree = {
 			IF = {
 				limit = {
 					has_dlc = "Arms Against Tyranny"
-				}
-			}
-
-			if = {
-				limit = {
-					has_doctrine = irregulars
-				}
-
-				add_mastery_bonus = {
-					bonus = 0.25
-					days = 365
-					name = PRC_empower_the_guerillas
-
-					sub_doctrine = irregulars
-				}				
-			}
-			else = {
-				add_mastery_bonus = {
-					bonus = 0.1
-					days = 365
-					name = PRC_empower_the_guerillas
-
-					track = infantry
 				}
 			}
 
@@ -2412,28 +2353,6 @@ focus_tree = {
 
 			if = {
 				limit = {
-					has_doctrine = armored_cavalry
-				}
-				add_mastery_bonus = {
-					bonus = 0.25
-					days = 365
-					name = PRC_tech_agreement_with_ussr
-
-					sub_doctrine = armored_cavalry
-				}
-			}
-			else = {
-				add_mastery_bonus = {
-					bonus = 0.1
-					days = 365
-					name = PRC_tech_agreement_with_ussr
-
-					track = armor
-				}
-			}
-
-			if = {
-				limit = {
 					PRC_neighboring_SOV = yes
 				}
 				add_ideas = PRC_SOV_lend_lease_idea_1
@@ -3155,39 +3074,6 @@ focus_tree = {
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
-
-			if = {
-				limit = {
-					has_doctrine = peoples_war
-				}
-				add_mastery_bonus = {
-					bonus = 0.25
-					days = 365
-					name = PRC_supreme_infiltration
-
-					sub_doctrine = peoples_war
-				}
-			}
-			else_if = {
-				limit = {
-					has_doctrine = guerilla_war
-				}
-				add_mastery_bonus = {
-					bonus = 0.25
-					days = 365
-					name = PRC_supreme_infiltration
-					sub_doctrine = guerilla_war
-				}
-			}
-			else = {
-				add_mastery_bonus = {
-					bonus = 0.1
-					days = 365
-					name = PRC_supreme_infiltration
-
-					track = operations
-				}
-			}
 		}
 	}
 
@@ -3668,27 +3554,6 @@ focus_tree = {
 		available_if_capitulated = no
 
 		completion_reward = {
-			if = {
-				limit = {
-					has_doctrine = fire_concentration
-				}
-				add_mastery_bonus = {
-					bonus = 0.25
-					days = 365
-					name = PRC_aggressive_pursuit_of_diplomacy
-
-					sub_doctrine = fire_concentration
-				}
-			}
-			else = {
-				add_mastery_bonus = {
-					bonus = 0.1
-					days = 365
-					name = PRC_aggressive_pursuit_of_diplomacy
-
-					track = combat_support
-				}
-			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 			PRC_check_if_red_army_or_pla = yes
@@ -3800,26 +3665,6 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_MILITARY_CHARACTER}
 
 		completion_reward = {
-			if = {
-				limit = {
-					has_doctrine = large_unit_tactics
-				}
-
-				add_mastery_bonus = {
-					bonus = 0.25
-					days = 365
-					name = PRC_invite_soviet_general
-					sub_doctrine = large_unit_tactics
-				}
-			}
-			else = {
-				add_mastery_bonus = {
-					bonus = 0.1
-					days = 365
-					name = PRC_invite_soviet_general
-					track = infantry
-				}
-			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
@@ -4996,37 +4841,6 @@ focus_tree = {
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
-			if = {
-				limit = {
-					has_doctrine = peoples_war
-				}
-				add_mastery_bonus = {
-					bonus = 0.25
-					days = 365
-					name = PRC_promote_guerilla_warfare
-					sub_doctrine = peoples_war
-				}
-			}
-			else_if = {
-				limit = {
-					has_doctrine = guerilla_war
-				}
-				add_mastery_bonus = {
-					bonus = 0.25
-					days = 365
-					name = PRC_promote_guerilla_warfare
-					sub_doctrine = guerilla_war
-				}
-			}
-			else = {
-				add_mastery_bonus = {
-					bonus = 0.1
-					days = 365
-					name = PRC_promote_guerilla_warfare
-					track = operations
-				}
-			}
-
 			custom_effect_tooltip = generic_skip_one_line_tt
 
 			custom_effect_tooltip = available_theorist
@@ -5088,26 +4902,6 @@ focus_tree = {
 
 		completion_reward = {
 
-			if = {
-				limit = {
-					has_doctrine = large_unit_tactics
-				}
-				add_mastery_bonus = {
-					bonus = 0.25
-					days = 365
-					name = PRC_promote_regular_army
-					sub_doctrine = large_unit_tactics
-				}
-			}
-			else = {
-				add_mastery_bonus = {
-					bonus = 0.1
-					days = 365
-					name = PRC_promote_regular_army
-					track = infantry
-				}
-			}
-
 			custom_effect_tooltip = generic_skip_one_line_tt
 
 			PRC_check_if_red_army_or_pla = yes ## For localisation reasons, if hasn't completed it display "Modify Red Army" when hover over, if has then display "Modify PLA"
@@ -5164,27 +4958,6 @@ focus_tree = {
 		available_if_capitulated = no
 
 		completion_reward = {
-			if = {
-				limit = {
-					has_doctrine = fire_concentration
-				}
-				add_mastery_bonus = {
-					bonus = 0.25
-					days = 365
-					name = PRC_promote_regular_army
-					sub_doctrine = fire_concentration
-				}
-
-
-			}
-			else = {
-				add_mastery_bonus = {
-					bonus = 0.1
-					days = 365
-					name = PRC_promote_regular_army
-					track = combat_support
-				}
-			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
@@ -5362,29 +5135,6 @@ focus_tree = {
 			IF = {
 				limit = {
 					has_dlc = "Arms Against Tyranny"
-				}
-			}
-
-			if = {
-				limit = {
-					has_doctrine = irregulars
-				}
-				add_mastery_bonus = {
-					bonus = 0.25
-					days = 365
-					name = PRC_the_battle_behind_the_front_lines
-
-					sub_doctrine = irregulars
-
-				}
-			}
-			else = {
-				add_mastery_bonus = {
-					bonus = 0.1
-					days = 365
-					name = PRC_the_battle_behind_the_front_lines
-
-					track = infantry
 				}
 			}
 
@@ -6689,29 +6439,6 @@ focus = {
 			}	
 
 			custom_effect_tooltip = generic_skip_one_line_tt
-
-			if = {
-				limit = {
-					has_doctrine = armored_cavalry
-				}
-				add_mastery_bonus = {
-					bonus = 0.25
-					days = 365
-					name = PRC_closer_ties_to_sov
-
-					sub_doctrine = armored_cavalry
-				}
-			}
-			else = {
-				add_mastery_bonus = {
-					bonus = 0.1
-					days = 365
-					name = PRC_closer_ties_to_sov
-
-					track = armor
-				}
-			}
-
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
@@ -11219,7 +10946,6 @@ focus = {
 		}
 
 		available = {
-			has_doctrine = peoples_war
 		}
 		
 		bypass = {
@@ -11239,37 +10965,6 @@ focus = {
 			}
 		
 			custom_effect_tooltip = generic_skip_one_line_tt
-
-			if = {
-				limit = {
-					has_doctrine = peoples_war
-				}
-				add_mastery_bonus = {
-					bonus = 0.25
-					days = 365
-					name = PRC_asymmetric_warfare
-					sub_doctrine = peoples_war
-				}
-			}
-			else_if = {
-				limit = {
-					has_doctrine = guerilla_war
-				}
-				add_mastery_bonus = {
-					bonus = 0.25
-					days = 365
-					name = PRC_asymmetric_warfare
-					sub_doctrine = guerilla_war
-				}
-			}
-			else = {
-				add_mastery_bonus = {
-					bonus = 0.1
-					days = 365
-					name = PRC_asymmetric_warfare
-					track = operations
-				}
-			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
