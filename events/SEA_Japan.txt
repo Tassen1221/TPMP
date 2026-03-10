@@ -90,80 +90,80 @@ country_event = {
 	}
 
 	# It's shougunating time heck yea
-	# option = { 
-	# 	name = SEA_japan.1.b
-	# 	ai_chance = {
-	# 		base = 0
-	# 		modifier = {
-	# 			add = 100
-	# 			OR = {
-	# 				has_country_flag = JAP_AI_RANDOM_NEUTRALITY
-	# 				has_game_rule = {
-	# 					rule = JAP_ai_behavior
-	# 					option = NEUTRALITY
-	# 				}
-	# 			}
-	# 		}
-	# 	}
+	option = { 
+		name = SEA_japan.1.b
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = 100
+				OR = {
+					has_country_flag = JAP_AI_RANDOM_NEUTRALITY
+					has_game_rule = {
+						rule = JAP_ai_behavior
+						option = NEUTRALITY
+					}
+				}
+			}
+		}
 
-	# 	custom_effect_tooltip = JAP_kodoha_coup_will_succeed_tt
-		
-	# 	retire_character = JAP_takahashi_korekiyo
-	# 	set_country_flag = JAP_takahashi_korekiyo_was_killed
+		custom_effect_tooltip = JAP_kodoha_coup_will_succeed_tt
 	
-	# 	retire_character = JAP_jotaro_watanabe
-	# 	set_country_flag = JAP_jotaro_watanabe_was_killed
+		retire_character = JAP_takahashi_korekiyo
+	 	set_country_flag = JAP_takahashi_korekiyo_was_killed
+	
+	 	retire_character = JAP_jotaro_watanabe
+	 	set_country_flag = JAP_jotaro_watanabe_was_killed
 		
-	# 	IF = {
-	# 		limit = {
-	# 			has_dlc = "No Compromise, No Surrender"
-	# 		}
-	# 		# Due to one of the other assassinations failing, they will go harder for Saionji Kinmochi instead, killing hnm. 
-	# 		retire_character = JAP_saionji_kinmochi
-	# 	}
+	 	IF = {
+	 		limit = {
+	 			has_dlc = "No Compromise, No Surrender"
+	 		}
+	 		# Due to one of the other assassinations failing, they will go harder for Saionji Kinmochi instead, killing hnm. 
+	 		retire_character = JAP_saionji_kinmochi
+	 	}
 
-	# 	custom_effect_tooltip = generic_skip_one_line_tt
+	 	custom_effect_tooltip = generic_skip_one_line_tt
 		
-	# 	IF = {
-	# 		limit = {
-	# 			has_dlc = "No Compromise, No Surrender"
-	# 		}
-	# 		IF = {
-	# 			limit = {
-	# 				has_country_leader = {
-	# 					ruling_only = yes
-	# 					character = JAP_keisuke_okada
-	# 				}	
-	# 			}
-	# 			kill_country_leader = yes
-	# 		}
-	# 		add_country_leader_role = {
-	# 			character =  JAP_jinzaburo_masaki
-	# 			promote_leader = yes
-	# 			country_leader = {
-	# 				ideology = japan_militarism_ideology
-	# 				expire = "1952.1.1.1"
-	# 				traits = { JAP_military_prime_minister } 
-	# 			}
-	# 		}
+	 	IF = {
+	 		limit = {
+	 			has_dlc = "No Compromise, No Surrender"
+	 		}
+	 		IF = {
+	 			limit = {
+	 				has_country_leader = {
+						ruling_only = yes
+	 					character = JAP_keisuke_okada
+	 				}	
+	 			}
+	 			kill_country_leader = yes
+	 		}
+			add_country_leader_role = {
+	 			character =  JAP_jinzaburo_masaki
+	 			promote_leader = yes
+	 			country_leader = {
+	 				ideology = japan_militarism_ideology
+					expire = "1952.1.1.1"
+	 				traits = { JAP_military_prime_minister } 
+	 			}
+	 		}
 
-	# 		custom_effect_tooltip = generic_skip_one_line_tt
+	 		custom_effect_tooltip = generic_skip_one_line_tt
 			
-	# 		complete_national_focus = JAP_revere_the_emperor_destroy_the_traitors
-	# 		#custom_effect_tooltip = focus_effects_are_as_follows_tt
-	# 		#effect_tooltip = {
-	# 		#	
-	# 		#}
-	# 	}
-	# 	ELSE = {
-	# 		complete_national_focus = JAP_support_the_kodoha_faction
-	# 	}
+	 		complete_national_focus = JAP_revere_the_emperor_destroy_the_traitors
+	 		#custom_effect_tooltip = focus_effects_are_as_follows_tt
+	 		#effect_tooltip = {
+	 		#	
+	 		#}
+	 	}
+	 	ELSE = {
+	 		complete_national_focus = JAP_support_the_kodoha_faction
+	 	}
 
-	# 	hidden_effect = {
-	# 		set_country_flag = JAP_aizawas_trial_over_flag
-	# 	}
+	 	hidden_effect = {
+	 		set_country_flag = JAP_aizawas_trial_over_flag
+	 	}
 
-	# }
+	}
 
 	# We have come to the conclusion that fascism = bad
 	# option = { 

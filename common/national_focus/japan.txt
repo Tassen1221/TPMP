@@ -104,7 +104,7 @@ focus_tree = {
 	inlay_window = {
 		id = jap_imperial_influence_inlay_window
 		
-		position = { X = 3200 y = 700 }
+		position = { X = 3100 y = 1000 }
 
 	# 	override_position = {
 	# 		x = 6800
@@ -3806,13 +3806,13 @@ focus_tree = {
 			focus = JAP_sea_purge_the_kodoha_faction 
 			focus = JAP_okadas_military_purge_speech 
 		}
-		x = 27
+		x = -32
 		y = 0
 		
-		relative_position_id = JAP_okadas_military_purge_speech
+		relative_position_id = JAP_sea_purge_the_kodoha_faction
 
 		offset = {
-			x = -34
+			x = -32
 			y = 0
 			trigger = {
 				AND = {
@@ -3832,7 +3832,19 @@ focus_tree = {
 		}
 
 		allow_branch = {
-			always = no
+			has_dlc = "No Compromise, No Surrender"
+			IF = {
+				limit = {
+					has_game_rule = {
+						rule = obsolete_focus_branches_visibility
+						option = HIDE
+					}
+				}
+				NOT = {						
+					has_completed_focus = JAP_sea_purge_the_kodoha_faction
+					has_completed_focus = JAP_okadas_military_purge_speech
+				}
+			}
 		}
 
 		available = {
@@ -6098,6 +6110,10 @@ focus_tree = {
 			factor = 1
 		}
 
+		allow_branch = {
+			always = no
+		}
+
 		available = {
 			POL = {
 				exists = yes
@@ -6143,7 +6159,7 @@ focus_tree = {
 		id = JAP_return_to_sakoku_ron
 		icon = GFX_focus_JAP_return_to_sakoku_ron
 		mutually_exclusive = { focus = JAP_the_enemy_of_our_enemy focus = JAP_utilize_our_polish_friendship }
-		x = 2
+		x = 0
 		y = 1
 		relative_position_id = JAP_the_imperial_colors
 
@@ -6239,6 +6255,10 @@ focus_tree = {
 
 		ai_will_do = {
 			factor = 1
+		}
+
+		allow_branch = {
+			always = no
 		}
 
 		available = {
@@ -7380,12 +7400,16 @@ focus_tree = {
 
 		cost = 2
 
-		ai_will_do = {
+		ai_will_do = {	
 			factor = 1
 		}
 
 		available = {
 			has_country_flag = JAP_harakiri_debate_has_taken_place_flag
+		}
+
+		allow_branch = {
+			always = no
 		}
 
 		bypass = {
@@ -7432,7 +7456,7 @@ focus_tree = {
 		id = JAP_the_harakiri_debate
 		icon = GFX_focus_JAP_the_harakiri_debate
 		mutually_exclusive = { focus = JAP_reprimand_hamada_kunimatsu }
-		x = 2
+		x = 0
 		y = 1
 		relative_position_id = JAP_promulgate_the_military_ministers_system
 
@@ -7555,7 +7579,7 @@ focus_tree = {
 		id = JAP_new_order_in_east_asia
 		icon = GFX_focus_JAP_new_order_in_east_asia
 		#mutually_exclusive = { focus = JAP_reprimand_hamada_kunimatsu }
-		x = 1
+		x = 2
 		y = 1
 		relative_position_id = JAP_konoes_first_cabinet
 
@@ -9007,16 +9031,9 @@ focus_tree = {
 		}
 
 		available = {
-			has_war_with_major = yes
 			OR = {
 				has_war_support > 0.79
 				surrender_progress > 0
-			}
-			any_enemy_country = {
-				ic_ratio = {
-					tag = ROOT
-					ratio > 0.3
-				}
 			}
 		}
 
@@ -10926,7 +10943,7 @@ focus_tree = {
 		relative_position_id = JAP_sea_purge_the_kodoha_faction
 
 		offset = {
-			x = -34
+			x = -33
 			y = 0
 			trigger = {
 				AND = {
@@ -12628,7 +12645,7 @@ focus_tree = {
 		relative_position_id = JAP_sea_purge_the_kodoha_faction
 
 		offset = {
-			x = -34 
+			x = -32 
 			y = 0
 			trigger = {
 				AND = {
@@ -14439,6 +14456,10 @@ focus_tree = {
 					}
 				}
 			}
+		}
+
+		allow_branch = {
+			always = no
 		}
 
 		bypass = {
@@ -26317,7 +26338,7 @@ focus_tree = {
 			has_resources_in_collection = {
 				collection = collection:country_and_all_subjects
 				resource = steel
-				amount > 199
+				amount > 1999
 				extracted = yes
 			}
 		
@@ -26325,7 +26346,7 @@ focus_tree = {
 			has_resources_in_collection = {
 				collection = collection:country_and_all_subjects
 				resource = aluminium
-				amount > 199 
+				amount > 1999
 				extracted = yes
 			}
 		
@@ -26333,7 +26354,7 @@ focus_tree = {
 			has_resources_in_collection = {
 				collection = collection:country_and_all_subjects
 				resource = oil
-				amount > 249
+				amount > 2499
 				extracted = yes
 			}
 		
@@ -26341,7 +26362,7 @@ focus_tree = {
 			has_resources_in_collection = {
 				collection = collection:country_and_all_subjects
 				resource = tungsten
-				amount > 199
+				amount > 1999
 				extracted = yes
 			}
 		
@@ -26349,7 +26370,7 @@ focus_tree = {
 			has_resources_in_collection = {
 				collection = collection:country_and_all_subjects
 				resource = chromium
-				amount > 149 
+				amount > 1499
 				extracted = yes
 			}
 		
@@ -26357,7 +26378,7 @@ focus_tree = {
 			has_resources_in_collection = {
 				collection = collection:country_and_all_subjects
 				resource = rubber
-				amount > 299
+				amount > 2999
 				extracted = yes
 			}
 		
@@ -26365,7 +26386,7 @@ focus_tree = {
 			has_resources_in_collection = {
 				collection = collection:country_and_all_subjects
 				resource = coal
-				amount > 199
+				amount > 1999
 				extracted = yes
 			}
 			
