@@ -1924,7 +1924,20 @@
 		search_filters = { FOCUS_FILTER_ANNEXATION FOCUS_FILTER_POLITICAL }
 		completion_reward = {
 			every_state = {
-				limit = { is_core_of = CHI }
+				limit = {
+					AND = {
+						is_core_of = CHI
+						NOT = { 
+							state = 524
+							state = 591
+							state = 743
+							state = 531
+							state = 728
+							state = 729
+							state = 326
+						}
+					}	 
+				}
 				add_core_of = ROOT
 			}
 		}
@@ -1948,16 +1961,16 @@
 		available = {
 			is_subject_of = JAP
 			# compare_autonomy_state > autonomy_wtt_imperial_protectorate			
-			MAN = { 
-				ic_ratio = {
-					tag = JAP
-					ratio > 0.2
-				}
-			}
-			strength_ratio = {
-				tag = JAP
-				ratio > 0.25
-			}
+			# MAN = { 
+			# 	ic_ratio = {
+			# 		tag = JAP
+			# 		ratio > 0.2
+			# 	}
+			# }
+			# strength_ratio = {
+			# 	tag = JAP
+			# 	ratio > 0.25
+			# }
 			controls_state = 608
 		}
 
