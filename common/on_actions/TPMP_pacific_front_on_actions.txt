@@ -5,7 +5,14 @@ on_actions = {
 			if = {
 				limit = {
 					tag = JAP
-					FROM = { tag = USA }
+					FROM = {
+						OR = {
+							tag = USA
+							is_in_faction_with = USA
+							tag = ENG
+							is_in_faction_with = ENG
+						}
+					}
 				}
 				JAP = {
 					add_ideas = TPMP_JAP_pacific_front_debuff_idea_10
