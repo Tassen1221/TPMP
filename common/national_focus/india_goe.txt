@@ -7102,6 +7102,10 @@ focus_tree = {
 
         }
 
+        allow_branch ={
+            always = no
+        }
+
         cancel_if_invalid = yes
         continue_if_invalid = no
         available_if_capitulated = no
@@ -16098,11 +16102,11 @@ focus_tree = {
         }
 
         available = {
-            BRM = {
-                exists = yes
-                is_in_faction_with = ROOT
+            # BRM = {
+            #     exists = yes
+            #     is_in_faction_with = ROOT
                 controls_province = 1330
-            }
+            # }
             controls_province = 4245
         }
         
@@ -21265,7 +21269,7 @@ focus = {
         cost = 10
 
         available = {
-            NOT = { has_war_with = GER }
+            # NOT = { has_war_with = GER }
         }
 
         bypass = {
@@ -24036,12 +24040,12 @@ focus = {
         }
 
         available = {
-            BRM = {
-                is_in_faction_with = ROOT
+            # BRM = {
+                # is_in_faction_with = ROOT
                 controls_state = 995
                 controls_state = 640
                 controls_state = 998
-            }
+            # }
 
             CHI = {
                 any_enemy_country = {
