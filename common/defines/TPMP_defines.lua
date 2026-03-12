@@ -393,7 +393,7 @@ NDefines.NNavy.NAVAL_COMBAT_AIR_SUB_DETECTION_FACTOR = 0.0					-- A global facto
 
 NDefines.NNavy.NAVAL_INVASION_PREPARE_DAYS = 30							-- base days needed to prepare a naval invasion
 NDefines.NNavy.NAVAL_INVASION_PLAN_CAP = 1							-- base cap of naval invasions can be planned at the same time
-NDefines.NNavy.BASE_NAVAL_INVASION_DIVISION_CAP = 4						-- base cap of divisions that can be assigned in a naval invasion
+NDefines.NNavy.BASE_NAVAL_INVASION_DIVISION_CAP = 3						-- base cap of divisions that can be assigned in a naval invasion
 
 
 -- defines that are used for supply reach for built nodes
