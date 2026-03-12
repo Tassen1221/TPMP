@@ -226,15 +226,24 @@ TPMP_game_decisions_category = {
             SIA = {
 				is_ai = no
 			}
+			NOT = {
+				has_autonomy_state = autonomy_wtt_manchurian_protectorate
+			}
         }
 		available = {
 			SIA = {
 				is_ai = no
 			}
 			has_government = fascism
+			JAP = {
+				has_government = fascism
+			}
+			NOT = {
+				has_autonomy_state = autonomy_wtt_manchurian_protectorate
+			}
         }
 		icon = GFX_decision_generic_decision
-		fire_only_once = yes
+		fire_only_once = no
 		complete_effect = {
 			JAP = { 
 				set_autonomy = {
@@ -252,15 +261,21 @@ TPMP_game_decisions_category = {
 			SIA = {
 				is_ai = no
 			}
+			NOT = {
+				has_government = fascism
+			}
 		}
 		available = {
 			SIA = {
 				is_ai = no
 			}
 			date > 1938.12.16
+			NOT = {
+				has_government = fascism
+			}
 		}
 		icon = GFX_decision_generic_decision
-		fire_only_once = yes
+		fire_only_once = no
 		complete_effect = {
 			set_politics = {
 				ruling_party = fascism
