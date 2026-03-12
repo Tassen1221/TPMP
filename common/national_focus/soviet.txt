@@ -223,9 +223,12 @@ focus_tree = {
 		focus = {
 		id = TPMP_SOV_build_kuznetsk
 		icon = GFX_focus_fra_loyalty_stalin
-		prerequisite = { focus =  TPMP_SOV_build_magnitogorsk_1
-		
+		prerequisite = { focus =  TPMP_SOV_build_magnitogorsk_1 focus =  TPMP_SOV_kuzbas_power_devlopment
 		}
+
+
+
+		
 		x = 2
 		y = 1
 		relative_position_id = TPMP_SOV_build_magnitogorsk_1
@@ -445,8 +448,71 @@ focus_tree = {
 	}
 
 
+#123123
+		focus = {
+		id = TPMP_SOV_expand_chelyabinsk_gres
+		icon = GFX_focus_fra_loyalty_stalin
+		prerequisite = { focus =  TPMP_SOV_electricity
+		
+		}
+		prerequisite = { 
+		focus =  TPMP_SOV_establish_gulag_1
+		
+		}
+		x = 4
+		y = 2
+		relative_position_id = TPMP_SOV_electricity
+		
+		cost = 5
 
+		mutually_exclusive = { 
+			
 
+		}
+
+		allow_branch = {
+		}
+
+		available = {
+
+		}
+		
+		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOCUS_FILTER_STABILITY}
+
+		completion_reward = {
+		}
+	}
+
+#123123
+		focus = {
+		id = TPMP_SOV_kuzbas_power_devlopment
+		icon = GFX_focus_fra_loyalty_stalin
+		prerequisite = { focus =  TPMP_SOV_electricity
+		
+		}
+		x = -4
+		y = 1
+		relative_position_id = TPMP_SOV_electricity
+		
+		cost = 5
+
+		mutually_exclusive = { 
+			
+
+		}
+
+		allow_branch = {
+		}
+
+		available = {
+
+		}
+		
+		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOCUS_FILTER_STABILITY}
+
+		completion_reward = {
+		}
+	}
 
 
 #123123
@@ -6955,7 +7021,7 @@ mio:SOV_sevastopol_marine_plant_organization = {
 
 	#123123
 		focus = {
-		id = TPMP_SOV_establish_gushosdor_0_road_building
+		id = TPMP_SOV_establish_gulag_1
 		icon = GFX_focus_fra_loyalty_stalin
 		prerequisite = { focus = SOV_the_centre }
 		prerequisite = { focus = TPMP_SOV_expand_the_role_of_nkvd }
@@ -6989,11 +7055,11 @@ mio:SOV_sevastopol_marine_plant_organization = {
 		focus = {
 		id = TPMP_SOV_gulag_2
 		icon = GFX_focus_fra_loyalty_stalin
-		prerequisite = { focus = TPMP_SOV_establish_gushosdor_0_road_building }
+		prerequisite = { focus = TPMP_SOV_establish_gulag_1 }
 		x = 0
 		y = 2
 		
-		relative_position_id = TPMP_SOV_establish_gushosdor_0_road_building
+		relative_position_id = TPMP_SOV_establish_gulag_1
 		cost = 5
 
 		mutually_exclusive = { focus = SOV_the_right_opposition focus = SOV_the_left_opposition }
