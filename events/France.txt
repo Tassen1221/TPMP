@@ -1173,12 +1173,12 @@ country_event = {
 					capital_scope = {
 						NOT = {
 							state = 16
-							state = 635
+							state = 272
 						}
 					}
-					controls_state = 635
+					controls_state = 272
 				}
-				set_capital = { state = 635 }
+				set_capital = { state = 272 }
 			}
 			country_event = france.20
 			every_owned_state = {
@@ -1187,6 +1187,23 @@ country_event = {
 					is_core_of = FRA
 				}
 				set_state_flag = vichy_italian_conquest
+			}
+			hidden_effect = {
+				add_equipment_to_stockpile = {
+					type = convoy
+					amount = 200
+					producer = FRA
+				}
+				add_equipment_to_stockpile = {
+					type = motorized_equipment
+					amount = 1000
+					producer = FRA
+				}
+				add_equipment_to_stockpile = {
+					type = train_equipment
+					amount = 50
+					producer = FRA
+				}
 			}
 		}
 		custom_effect_tooltip = establishing_vichy_tt
