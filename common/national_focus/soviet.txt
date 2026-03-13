@@ -60,7 +60,7 @@ focus_tree = {
 
 #123123
 		focus = {
-		id = TPMP_SOV_finish_the_2nd_fyp
+		id = TPMP_SOV_continue_the_second_fyp
 		icon = GFX_focus_fra_loyalty_stalin
 		prerequisite = { focus =  
 		
@@ -95,12 +95,12 @@ focus_tree = {
 		focus = {
 		id = TPMP_SOV_steel
 		icon = GFX_focus_fra_loyalty_stalin
-		prerequisite = { focus =  TPMP_SOV_finish_the_2nd_fyp
+		prerequisite = { focus =  TPMP_SOV_continue_the_second_fyp
 		
 		}
 		x = -8
 		y = 1
-		relative_position_id = TPMP_SOV_finish_the_2nd_fyp
+		relative_position_id = TPMP_SOV_continue_the_second_fyp
 		
 		cost = 5
 
@@ -230,7 +230,7 @@ focus_tree = {
 
 		
 		x = 2
-		y = 1
+		y = 3
 		relative_position_id = TPMP_SOV_build_magnitogorsk_1
 		
 		cost = 5
@@ -266,12 +266,12 @@ focus_tree = {
 		focus = {
 		id = advanced_manufacturing
 		icon = GFX_focus_fra_loyalty_stalin
-		prerequisite = { focus =  TPMP_SOV_finish_the_2nd_fyp
+		prerequisite = { focus =  TPMP_SOV_continue_the_second_fyp
 		
 		}
 		x = -16
 		y = 1
-		relative_position_id = TPMP_SOV_finish_the_2nd_fyp
+		relative_position_id = TPMP_SOV_continue_the_second_fyp
 		
 		cost = 5
 
@@ -297,7 +297,7 @@ focus_tree = {
 
 #123123
 		focus = {
-		id = ordzhonikidze_machine_tool_plant
+		id = TPMP_SOV_ordzhonikidze_machine_tool_plant
 		icon = GFX_focus_fra_loyalty_stalin
 		prerequisite = { focus =  advanced_manufacturing
 		
@@ -329,14 +329,84 @@ focus_tree = {
 
 #123123
 		focus = {
-		id = chleyabinsk_heavy_machinery
+		id = TPMP_SOV_chleyabinsk_heavy_machinery
 		icon = GFX_focus_fra_loyalty_stalin
-		prerequisite = { focus =  ordzhonikidze_machine_tool_plant
+		prerequisite = { focus =  TPMP_SOV_ordzhonikidze_machine_tool_plant
 		
 		}
 		x = 0
+		y = 3
+		relative_position_id = TPMP_SOV_ordzhonikidze_machine_tool_plant
+		
+		cost = 5
+
+		mutually_exclusive = { 
+			
+
+		}
+
+		allow_branch = {
+		}
+
+		available = {
+
+		}
+		
+		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOCUS_FILTER_STABILITY}
+
+		completion_reward = {
+		}
+	}
+
+
+
+
+
+#123123
+		focus = {
+		id = TPMP_SOV_second_fyp_mils
+		icon = GFX_focus_fra_loyalty_stalin
+		prerequisite = { focus =  TPMP_SOV_ordzhonikidze_machine_tool_plant
+		
+		}
+		prerequisite = { focus =  TPMP_SOV_build_magnitogorsk_1
+		
+		}
+		x = 3
 		y = 1
-		relative_position_id = ordzhonikidze_machine_tool_plant
+		relative_position_id = TPMP_SOV_ordzhonikidze_machine_tool_plant
+		
+		cost = 5
+
+		mutually_exclusive = { 
+			
+
+		}
+
+		allow_branch = {
+		}
+
+		available = {
+
+		}
+		
+		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOCUS_FILTER_STABILITY}
+
+		completion_reward = {
+		}
+	}
+
+
+#123123
+		focus = {
+		id = TPMP_SOV_second_fyp_mils_2
+		icon = GFX_focus_fra_loyalty_stalin
+		prerequisite = { focus =  TPMP_SOV_second_fyp_mils
+		
+		}
+		x = 0
+		y = 2
+		relative_position_id = TPMP_SOV_second_fyp_mils
 		
 		cost = 5
 
@@ -363,6 +433,10 @@ focus_tree = {
 
 
 
+
+
+
+
 #123123
 		focus = {
 		id = TPMP_SOV_build_magnitogorsk_3
@@ -371,7 +445,7 @@ focus_tree = {
 		
 		}
 		x = 0
-		y = 1
+		y = 2
 		relative_position_id = TPMP_SOV_build_magnitogorsk_2
 		
 		cost = 5
@@ -420,12 +494,12 @@ focus_tree = {
 		focus = {
 		id = TPMP_SOV_electricity
 		icon = GFX_focus_fra_loyalty_stalin
-		prerequisite = { focus =  TPMP_SOV_finish_the_2nd_fyp
+		prerequisite = { focus =  TPMP_SOV_continue_the_second_fyp
 		
 		}
 		x = 0
 		y = 1
-		relative_position_id = TPMP_SOV_finish_the_2nd_fyp
+		relative_position_id = TPMP_SOV_continue_the_second_fyp
 		
 		cost = 5
 
@@ -448,6 +522,76 @@ focus_tree = {
 	}
 
 
+
+
+#123123
+		focus = {
+		id = TPMP_SOV_electricity_major_city
+		icon = GFX_focus_fra_loyalty_stalin
+		prerequisite = { focus =  TPMP_SOV_electricity
+		
+		}
+		x = 0
+		y = 1
+		relative_position_id = TPMP_SOV_electricity
+		
+		cost = 5
+
+		mutually_exclusive = { 
+			
+
+		}
+
+		allow_branch = {
+		}
+
+		available = {
+
+		}
+		
+		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOCUS_FILTER_STABILITY}
+
+		completion_reward = {
+		}
+	}
+
+#123123
+		focus = {
+		id = TPMP_SOV_electricity_kazan_kyubyshev_axis
+		icon = GFX_focus_fra_loyalty_stalin
+		prerequisite = { focus =  TPMP_SOV_electricity_major_city
+		
+		}
+		x = 0
+		y = 3
+		relative_position_id = TPMP_SOV_electricity_major_city
+		
+		cost = 5
+
+		mutually_exclusive = { 
+			
+
+		}
+
+		allow_branch = {
+		}
+
+		available = {
+
+		}
+		
+		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOCUS_FILTER_STABILITY}
+
+		completion_reward = {
+		}
+	}
+
+
+
+
+
+
+
 #123123
 		focus = {
 		id = TPMP_SOV_expand_chelyabinsk_gres
@@ -456,7 +600,7 @@ focus_tree = {
 		
 		}
 		prerequisite = { 
-		focus =  TPMP_SOV_establish_gulag_1
+		focus =  TPMP_SOV_gulag_1
 		
 		}
 		x = 4
@@ -482,6 +626,53 @@ focus_tree = {
 		completion_reward = {
 		}
 	}
+
+
+#123123
+		focus = {
+		id = TPMP_SOV_complete_ural_electrification
+		icon = GFX_focus_fra_loyalty_stalin
+		prerequisite = { focus =  TPMP_SOV_expand_chelyabinsk_gres
+		
+		}
+		prerequisite = { 
+		focus =  TPMP_SOV_gulag_2
+		
+		}
+		x = 0
+		y = 2
+		relative_position_id = TPMP_SOV_expand_chelyabinsk_gres
+		
+		cost = 5
+
+		mutually_exclusive = { 
+			
+
+		}
+
+		allow_branch = {
+		}
+
+		available = {
+
+		}
+		
+		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOCUS_FILTER_STABILITY}
+
+		completion_reward = {
+		}
+	}
+
+
+
+
+
+
+
+
+
+
+
 
 #123123
 		focus = {
@@ -519,12 +710,12 @@ focus_tree = {
 		focus = {
 		id = TPMP_SOV_expand_the_role_of_nkvd
 		icon = GFX_focus_fra_loyalty_stalin
-		prerequisite = { focus =  TPMP_SOV_finish_the_2nd_fyp
+		prerequisite = { focus =  TPMP_SOV_continue_the_second_fyp
 		
 		}
 		x = 4
 		y = 1
-		relative_position_id = TPMP_SOV_finish_the_2nd_fyp
+		relative_position_id = TPMP_SOV_continue_the_second_fyp
 		
 		cost = 5
 
@@ -555,12 +746,18 @@ focus_tree = {
 		focus = {
 		id = TPMP_SOV_finish_the_second_fyp
 		icon = GFX_focus_fra_loyalty_stalin
-		prerequisite = { focus =  
-		
+		prerequisite = { 
+			focus =  TPMP_SOV_complete_ural_electrification
+			focus  = TPMP_SOV_build_magnitogorsk_3
+			focus  = TPMP_SOV_second_fyp_mils_2
+			focus  = TPMP_SOV_chleyabinsk_heavy_machinery
+			focus  = TPMP_SOV_build_kuznetsk
+			focus  = TPMP_SOV_electricity_kazan_kyubyshev_axis
+			
 		}
 		x = 0
 		y = 6
-		relative_position_id = TPMP_SOV_finish_the_2nd_fyp
+		relative_position_id = TPMP_SOV_continue_the_second_fyp
 		
 		cost = 5
 
@@ -618,6 +815,210 @@ focus_tree = {
 		completion_reward = {
 		}
 	}
+
+
+#123123
+		focus = {
+		id = TPMP_SOV_air_plant_1
+		icon = GFX_focus_fra_loyalty_stalin
+		prerequisite = { focus =  TPMP_SOV_begin_the_third_fyp
+		
+		}
+		x = 0
+		y = 1
+		relative_position_id = TPMP_SOV_begin_the_third_fyp
+		
+		cost = 5
+
+		mutually_exclusive = { 
+			
+
+		}
+
+		allow_branch = {
+		}
+
+		available = {
+
+		}
+		
+		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOCUS_FILTER_STABILITY}
+
+		completion_reward = {
+		}
+	}
+
+
+#123123
+		focus = {
+		id = TPMP_SOV_air_plant_2
+		icon = GFX_focus_fra_loyalty_stalin
+		prerequisite = { focus =  TPMP_SOV_air_plant_1
+		
+		}
+		x = 0
+		y = 1
+		relative_position_id = TPMP_SOV_air_plant_1
+		
+		cost = 5
+
+		mutually_exclusive = { 
+			
+
+		}
+
+		allow_branch = {
+		}
+
+		available = {
+
+		}
+		
+		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOCUS_FILTER_STABILITY}
+
+		completion_reward = {
+		}
+	}
+
+#123123
+		focus = {
+		id = TPMP_SOV_air_plant_3
+		icon = GFX_focus_fra_loyalty_stalin
+		prerequisite = { focus =  TPMP_SOV_air_plant_2
+		
+		}
+		x = 0
+		y = 1
+		relative_position_id = TPMP_SOV_air_plant_2
+		
+		cost = 5
+
+		mutually_exclusive = { 
+			
+
+		}
+
+		allow_branch = {
+		}
+
+		available = {
+
+		}
+		
+		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOCUS_FILTER_STABILITY}
+
+		completion_reward = {
+		}
+	}
+
+
+#123123
+		focus = {
+		id = TPMP_SOV_tank_plant_1
+		icon = GFX_focus_fra_loyalty_stalin
+		prerequisite = { focus =  TPMP_SOV_begin_the_third_fyp
+		
+		}
+		x = 2
+		y = 1
+		relative_position_id = TPMP_SOV_begin_the_third_fyp
+		
+		cost = 5
+
+		mutually_exclusive = { 
+			
+
+		}
+
+		allow_branch = {
+		}
+
+		available = {
+
+		}
+		
+		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOCUS_FILTER_STABILITY}
+
+		completion_reward = {
+		}
+	}
+
+
+
+#123123
+		focus = {
+		id = TPMP_SOV_tank_plant_2
+		icon = GFX_focus_fra_loyalty_stalin
+		prerequisite = { focus =  TPMP_SOV_tank_plant_1
+		
+		}
+		x = 0
+		y = 1
+		relative_position_id = TPMP_SOV_tank_plant_1
+		
+		cost = 5
+
+		mutually_exclusive = { 
+			
+
+		}
+
+		allow_branch = {
+		}
+
+		available = {
+
+		}
+		
+		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOCUS_FILTER_STABILITY}
+
+		completion_reward = {
+		}
+	}
+
+
+
+
+
+
+
+#123123
+		focus = {
+		id = TPMP_SOV_small_arms_1
+		icon = GFX_focus_fra_loyalty_stalin
+		prerequisite = { focus =  TPMP_SOV_begin_the_third_fyp
+		
+		}
+		x = -2
+		y = 1
+		relative_position_id = TPMP_SOV_begin_the_third_fyp
+		
+		cost = 5
+
+		mutually_exclusive = { 
+			
+
+		}
+
+		allow_branch = {
+		}
+
+		available = {
+
+		}
+		
+		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOCUS_FILTER_STABILITY}
+
+		completion_reward = {
+		}
+	}
+
+
+
+
+
+
+
 
 
 
@@ -7021,7 +7422,7 @@ mio:SOV_sevastopol_marine_plant_organization = {
 
 	#123123
 		focus = {
-		id = TPMP_SOV_establish_gulag_1
+		id = TPMP_SOV_gulag_1
 		icon = GFX_focus_fra_loyalty_stalin
 		prerequisite = { focus = SOV_the_centre }
 		prerequisite = { focus = TPMP_SOV_expand_the_role_of_nkvd }
@@ -7055,11 +7456,11 @@ mio:SOV_sevastopol_marine_plant_organization = {
 		focus = {
 		id = TPMP_SOV_gulag_2
 		icon = GFX_focus_fra_loyalty_stalin
-		prerequisite = { focus = TPMP_SOV_establish_gulag_1 }
+		prerequisite = { focus = TPMP_SOV_gulag_1 }
 		x = 0
 		y = 2
 		
-		relative_position_id = TPMP_SOV_establish_gulag_1
+		relative_position_id = TPMP_SOV_gulag_1
 		cost = 5
 
 		mutually_exclusive = { focus = SOV_the_right_opposition focus = SOV_the_left_opposition }
