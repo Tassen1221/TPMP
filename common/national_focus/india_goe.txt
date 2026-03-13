@@ -8986,7 +8986,7 @@ focus_tree = {
         id = RAJ_india_united
         icon = GFX_focus_RAJ_seek_allies_with_the_muslim_league
         prerequisite = { focus = RAJ_a_congress_resurgent }
-        x = 3
+        x = 4
         y = 1
         relative_position_id = RAJ_a_congress_resurgent
         mutually_exclusive = { focus = RAJ_two_nation_theory_dlc }
@@ -9012,6 +9012,21 @@ focus_tree = {
 
         completion_reward = {
             custom_effect_tooltip = RAJ_india_united_tt
+            if = {
+                limit = {
+                    has_idea = RAJ_marginalized_muslim_community_angry
+                }
+                swap_ideas = {
+                    add_idea = RAJ_marginalized_muslim_community_happy
+                    remove_idea = RAJ_marginalized_muslim_community_angry
+                }
+            }
+            else = {
+                swap_ideas = {
+                    add_idea = RAJ_marginalized_muslim_community_happy
+                    remove_idea = RAJ_marginalized_muslim_community
+                }
+            }
         }
     }
 
@@ -9019,7 +9034,7 @@ focus_tree = {
         id = RAJ_two_nation_theory_dlc
         icon = GFX_focus_RAJ_two_nation_theory
         prerequisite = { focus = RAJ_a_congress_resurgent }
-        x = -6
+        x = -1
         y = 0
         relative_position_id = RAJ_india_united
         mutually_exclusive = { focus = RAJ_india_united }
@@ -9035,6 +9050,9 @@ focus_tree = {
         
         bypass = {
 
+        }
+        allow_branch ={
+            always = no
         }
 
         cancel_if_invalid = yes
@@ -14718,10 +14736,11 @@ focus_tree = {
     focus = {
         id = RAJ_the_pakistan_movement
         icon = GFX_focus_RAJ_the_pakistan_movement
-        prerequisite = { focus = RAJ_two_nation_theory_dlc }
-        x = 0
-        y = 1
-        relative_position_id = RAJ_two_nation_theory_dlc
+        prerequisite = { focus = RAJ_india_united }
+        x = -2
+        y = 0
+        relative_position_id = RAJ_power_sharing_agreement
+        mutually_exclusive = { focus = RAJ_power_sharing_agreement }
         
         cost = 5
 
@@ -14876,9 +14895,10 @@ focus_tree = {
         id = RAJ_power_sharing_agreement
         icon = GFX_focus_generic_treaty
         prerequisite = { focus =  RAJ_india_united }
-        x = 0
+        x = 1
         y = 1
         relative_position_id = RAJ_india_united
+        mutually_exclusive = { focus = RAJ_the_pakistan_movement }
         
         cost = 5
 
@@ -14928,7 +14948,7 @@ focus_tree = {
     focus = {
         id = RAJ_a_permanent_muslim_governmental_seat
         icon = GFX_focus_TUR_turanist_ambition
-        prerequisite = { focus = RAJ_power_sharing_agreement }
+        prerequisite = { focus = RAJ_power_sharing_agreement focus = RAJ_the_pakistan_movement }
         x = 2
         y = 1
         relative_position_id = RAJ_power_sharing_agreement
@@ -14979,10 +14999,11 @@ focus_tree = {
     focus = {
         id = RAJ_cabinet_mission_plan
         icon = GFX_focus_ARG_cut_ties_with_britain
-        prerequisite = { focus = RAJ_power_sharing_agreement }
+        prerequisite = { focus = RAJ_power_sharing_agreement focus = RAJ_the_pakistan_movement}
         x = 0
         y = 1
         relative_position_id = RAJ_power_sharing_agreement
+        mutually_exclusive = {focus = RAJ_lahore_resolution}
         
         cost = 5
 
@@ -15051,10 +15072,13 @@ focus_tree = {
     focus = {
         id = RAJ_lahore_resolution
         icon = GFX_focus_TUR_loosen_the_laws_on_secularism
-        prerequisite = { focus = RAJ_the_pakistan_movement }
+        prerequisite = { focus = RAJ_the_pakistan_movement focus = RAJ_power_sharing_agreement }
+
         x = 0
         y = 1
         relative_position_id = RAJ_the_pakistan_movement
+
+        mutually_exclusive = {focus = RAJ_cabinet_mission_plan}
         
         cost = 10
 
@@ -15092,7 +15116,7 @@ focus_tree = {
         id = RAJ_united_bengal
         icon = GFX_focus_RAJ_united_bengal
         prerequisite = { focus = RAJ_lahore_resolution }
-        x = -1
+        x = -2
         y = 2
         relative_position_id = RAJ_lahore_resolution 
         mutually_exclusive = { focus = RAJ_eastern_pakistan }
@@ -15126,9 +15150,9 @@ focus_tree = {
         }
 
         completion_reward = {
-            custom_effect_tooltip = RAJ_united_bengal_tt
+            # custom_effect_tooltip = RAJ_united_bengal_tt
             add_autonomy_ratio = { 
-                value = 0.23
+                value = 0.2
                 localization = RAJ_united_bengal
             }
             add_political_power = 250
@@ -15174,7 +15198,7 @@ focus_tree = {
         }
 
         completion_reward = {
-            custom_effect_tooltip = RAJ_eastern_pakistan_tt
+            # custom_effect_tooltip = RAJ_eastern_pakistan_tt
             add_autonomy_ratio = { 
                 value = 0.5 
                 localization = RAJ_eastern_pakistan
@@ -15373,7 +15397,7 @@ focus_tree = {
         search_filters = {FOCUS_FILTER_POLITICAL}
 
         completion_reward = {
-            add_stability = -0.15
+            add_stability = -0.05
             add_political_power = 150
             set_country_flag = RAJ_allow_release_states
         }
@@ -15459,7 +15483,7 @@ focus_tree = {
         relative_position_id = RAJ_hedgemony_of_the_subcontinent
         
 
-        cost = 10
+        cost = 5
 
         ai_will_do = {
             factor = 1
@@ -15608,6 +15632,9 @@ focus_tree = {
 
         }
 
+        allow_branch ={
+            always = no
+        }
         cancel_if_invalid = yes
         continue_if_invalid = no
         available_if_capitulated = no
@@ -15774,6 +15801,9 @@ focus_tree = {
         
         bypass = {
             # this is not a bug, it should not have a bypass requirement, do not add one
+        }
+        allow_branch ={
+            always = no
         }
 
         search_filters = {FOCUS_FILTER_POLITICAL}
@@ -15947,10 +15977,11 @@ focus_tree = {
     focus = {
         id = RAJ_preamble_to_the_constitution_of_india
         icon = GFX_focus_generic_the_giant_wakes
-        prerequisite = { focus = RAJ_sideline_the_conflict focus = RAJ_pledge_for_the_allies focus = RAJ_i_am_death }
-        x = 2
+        # prerequisite = { focus = RAJ_sideline_the_conflict focus = RAJ_pledge_for_the_allies focus = RAJ_i_am_death }
+        prerequisite = {focus = RAJ_tryst_with_destiny}
+        x = 0
         y = 1 
-        relative_position_id = RAJ_sideline_the_conflict
+        relative_position_id = RAJ_tryst_with_destiny
         
         cost = 5
 
@@ -16060,7 +16091,7 @@ focus_tree = {
         y = 1
         relative_position_id = RAJ_preamble_to_the_constitution_of_india
         
-        cost = 10
+        cost = 0
 
         ai_will_do = {
             factor = 1
@@ -16130,9 +16161,9 @@ focus_tree = {
                 start_province = 4245
                 target_province = 1330 
             }
-            BRM = {
+            # BRM = {
                 add_manpower = 21000
-            }
+            # }
         }
     }
 
@@ -16579,27 +16610,27 @@ focus_tree = {
                 if = {
                     limit = { ROOT = { has_tech = excavation1 } } 
 
-                    add_resource = { type = steel amount = 3 }
+                    add_resource = { type = steel amount = 30 }
                 }
 
                 if = {
                     limit = { ROOT = { has_tech = excavation2 } } 
-                    add_resource = { type = steel amount = 3 }
+                    add_resource = { type = steel amount = 30 }
 
                 }
                 if = {
                     limit = { ROOT = { has_tech = excavation3 } } 
 
-                    add_resource = { type = steel amount = 3 }
+                    add_resource = { type = steel amount = 30 }
                 }
                 if = {
                     limit = { ROOT = { has_tech = excavation4 } } 
 
-                      add_resource = { type = steel amount = 3 }
+                      add_resource = { type = steel amount = 30 }
                 }
                 if = {
                     limit = { ROOT = { has_tech = excavation5 } } 
-                      add_resource = { type = steel amount = 3 }
+                      add_resource = { type = steel amount = 30 }
                 }
             }
 
@@ -16621,27 +16652,27 @@ focus_tree = {
                 if = {
                     limit = { ROOT = { has_tech = excavation1 } } 
 
-                    add_resource = { type = oil amount = 3 }
+                    add_resource = { type = oil amount = 30 }
                 }
 
                 if = {
                     limit = { ROOT = { has_tech = excavation2 } } 
-                    add_resource = { type = oil amount = 3 }
+                    add_resource = { type = oil amount = 30 }
 
                 }
                 if = {
                     limit = { ROOT = { has_tech = excavation3 } } 
 
-                    add_resource = { type = oil amount = 3 }
+                    add_resource = { type = oil amount = 30 }
                 }
                 if = {
                     limit = { ROOT = { has_tech = excavation4 } } 
 
-                      add_resource = { type = oil amount = 3 }
+                      add_resource = { type = oil amount = 30 }
                 }
                 if = {
                     limit = { ROOT = { has_tech = excavation5 } } 
-                      add_resource = { type = oil amount = 3 }
+                      add_resource = { type = oil amount = 30 }
                 }
             }
 
@@ -16663,27 +16694,27 @@ focus_tree = {
                 if = {
                     limit = { ROOT = { has_tech = excavation1 } } 
 
-                    add_resource = { type = chromium amount = 3 }
+                    add_resource = { type = chromium amount = 30 }
                 }
 
                 if = {
                     limit = { ROOT = { has_tech = excavation2 } } 
-                    add_resource = { type = chromium amount = 3 }
+                    add_resource = { type = chromium amount = 30 }
 
                 }
                 if = {
                     limit = { ROOT = { has_tech = excavation3 } } 
 
-                    add_resource = { type = chromium amount = 3 }
+                    add_resource = { type = chromium amount = 30 }
                 }
                 if = {
                     limit = { ROOT = { has_tech = excavation4 } } 
 
-                      add_resource = { type = chromium amount = 3 }
+                      add_resource = { type = chromium amount = 30 }
                 }
                 if = {
                     limit = { ROOT = { has_tech = excavation5 } } 
-                      add_resource = { type = chromium amount = 3 }
+                      add_resource = { type = chromium amount = 30 }
                 }
             }
 
@@ -16705,27 +16736,27 @@ focus_tree = {
                 if = {
                     limit = { ROOT = { has_tech = excavation1 } } 
 
-                    add_resource = { type = rubber amount = 3 }
+                    add_resource = { type = rubber amount = 30 }
                 }
 
                 if = {
                     limit = { ROOT = { has_tech = excavation2 } } 
-                    add_resource = { type = rubber amount = 3 }
+                    add_resource = { type = rubber amount = 30 }
 
                 }
                 if = {
                     limit = { ROOT = { has_tech = excavation3 } } 
 
-                    add_resource = { type = rubber amount = 3 }
+                    add_resource = { type = rubber amount = 30 }
                 }
                 if = {
                     limit = { ROOT = { has_tech = excavation4 } } 
 
-                      add_resource = { type = rubber amount = 3 }
+                      add_resource = { type = rubber amount = 30 }
                 }
                 if = {
                     limit = { ROOT = { has_tech = excavation5 } } 
-                      add_resource = { type = rubber amount = 3 }
+                      add_resource = { type = rubber amount = 30 }
                 }
             }
 
@@ -16747,27 +16778,27 @@ focus_tree = {
                 if = {
                     limit = { ROOT = { has_tech = excavation1 } } 
 
-                    add_resource = { type = tungsten amount = 3 }
+                    add_resource = { type = tungsten amount = 30 }
                 }
 
                 if = {
                     limit = { ROOT = { has_tech = excavation2 } } 
-                    add_resource = { type = tungsten amount = 3 }
+                    add_resource = { type = tungsten amount = 30 }
 
                 }
                 if = {
                     limit = { ROOT = { has_tech = excavation3 } } 
 
-                    add_resource = { type = tungsten amount = 3 }
+                    add_resource = { type = tungsten amount = 30 }
                 }
                 if = {
                     limit = { ROOT = { has_tech = excavation4 } } 
 
-                      add_resource = { type = tungsten amount = 3 }
+                      add_resource = { type = tungsten amount = 30 }
                 }
                 if = {
                     limit = { ROOT = { has_tech = excavation5 } } 
-                      add_resource = { type = tungsten amount = 3 }
+                      add_resource = { type = tungsten amount = 30 }
                 }
             }
 
@@ -16790,27 +16821,27 @@ focus_tree = {
                 if = {
                     limit = { ROOT = { has_tech = excavation1 } } 
 
-                    add_resource = { type = aluminium amount = 3 }
+                    add_resource = { type = aluminium amount = 30 }
                 }
 
                 if = {
                     limit = { ROOT = { has_tech = excavation2 } } 
-                    add_resource = { type = aluminium amount = 3 }
+                    add_resource = { type = aluminium amount = 30 }
 
                 }
                 if = {
                     limit = { ROOT = { has_tech = excavation3 } } 
 
-                    add_resource = { type = aluminium amount = 3 }
+                    add_resource = { type = aluminium amount = 30 }
                 }
                 if = {
                     limit = { ROOT = { has_tech = excavation4 } } 
 
-                      add_resource = { type = aluminium amount = 3 }
+                      add_resource = { type = aluminium amount = 30 }
                 }
                 if = {
                     limit = { ROOT = { has_tech = excavation5 } } 
-                      add_resource = { type = aluminium amount = 3 }
+                      add_resource = { type = aluminium amount = 30 }
                 }
             }
         }
@@ -22677,6 +22708,10 @@ focus = {
 
         }
 
+        allow_branch = {
+            always = no
+        }
+
         cancel_if_invalid = yes
         continue_if_invalid = no
         available_if_capitulated = no
@@ -22784,6 +22819,10 @@ focus = {
         
         bypass = {
 
+        }
+
+        allow_branch = {
+            always = no
         }
 
         cancel_if_invalid = yes
@@ -23279,7 +23318,7 @@ focus = {
     focus = {
         id = RAJ_re_establish_the_khyber_rifles
         icon = GFX_focus_ETH_freedom_at_gunpoint
-        prerequisite = { focus = RAJ_indian_territorial_force focus = RAJ_mountain_guns }
+        prerequisite = { focus = RAJ_indian_territorial_force focus = RAJ_royal_indian_artillery_dlc }
         x = -5
         y = 1
         relative_position_id = RAJ_indian_territorial_force
