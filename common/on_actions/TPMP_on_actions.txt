@@ -159,4 +159,50 @@ on_actions = {
 			}
 		}
 	}
+	on_capitulation = {
+		effect = {
+			if = {
+				limit = {
+					tag = HOL
+				}
+				AST = {
+					country_event = TPMP_AST.1
+				}
+			}
+		}
+	}
+	on_capitulation_immediate = { #scripted Iran
+		effect = {
+			if = {
+				limit = {
+					tag = PER
+				}
+				ENG = {
+					annex_country = {
+						target = PER 
+						transfer_troops = no
+					}
+				}
+				SOV = {
+					country_event = TPMP_AST.2
+				}
+			}
+		}
+	}
+	on_capitulation_immediate = { #scripted China
+		effect = {
+			if = {
+				limit = {
+					tag = CHI
+				}
+				JAP = {
+					annex_country = {
+						target = CHI 
+						transfer_troops = yes #Whack but if i dont do this china equipment is all gone
+					}
+				}
+				
+			}
+		}
+	}
 }

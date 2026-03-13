@@ -9184,37 +9184,37 @@ focus_tree = {
 		search_filters = {}
 
 		completion_reward = {
-			IF = {
-				limit = {
-					has_dlc = "Graveyard of Empires"
-				}
-				PER = {
-					set_country_flag = SOV_ultimatum_sent_flag
-					country_event = { id = 	PER_foreign_policy_events.1 hours = 16 	random_hours = 8 }
-				}
+			# IF = {
+			# 	limit = {
+			# 		has_dlc = "Graveyard of Empires"
+			# 	}
+			# 	PER = {
+			# 		set_country_flag = SOV_ultimatum_sent_flag
+			# 		country_event = { id = 	PER_foreign_policy_events.1 hours = 16 	random_hours = 8 }
+			# 	}
 	
-				effect_tooltip = {
-					custom_effect_tooltip = if_they_accept_tt
-					ROOT = {
-						puppet = PER
-					}
+			# 	effect_tooltip = {
+			# 		custom_effect_tooltip = if_they_accept_tt
+			# 		ROOT = {
+			# 			puppet = PER
+			# 		}
 	
-					custom_effect_tooltip = if_they_refuse_tt
-					effect_tooltip = {
-						activate_mission = 	SOV_preparations_for_operation_countenance
-						custom_effect_tooltip = 	SOV_preparations_for_operation_countenance_tt
-					}
-					custom_effect_tooltip = PER_preemptive_invasion_of_iran_tt
-				}
-			}
-			ELSE = {
+			# 		custom_effect_tooltip = if_they_refuse_tt
+			# 		effect_tooltip = {
+			# 			activate_mission = 	SOV_preparations_for_operation_countenance
+			# 			custom_effect_tooltip = 	SOV_preparations_for_operation_countenance_tt
+			# 		}
+			# 		custom_effect_tooltip = PER_preemptive_invasion_of_iran_tt
+			# 	}
+			# }
+			# ELSE = {
 				create_wargoal = {
 					type = take_state_focus
 					target = PER
 					generator = { 266 }
 					expire = 0
 				}
-			}
+			# }
 		}
 	}
 	focus = {
