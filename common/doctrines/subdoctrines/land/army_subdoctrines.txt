@@ -1,0 +1,141 @@
+army_doctrine_1 = {
+    track = army
+    name = SUBDOCTRINE_ARMY_1
+    description = SUBDOCTRINE_ARMY_1_DESC
+    icon = GFX_doctrine_mission_type_tactics_medium
+
+    xp_cost = 100
+    xp_type = army
+
+    available = {
+        always = yes
+    }
+
+    max_planning = 0.05
+    supply_consumption_factor = -0.1
+
+    rewards = {
+        army_doctrine_1a = {
+            pocket_penalty = -0.1
+            army_core_defence_factor = 0.075
+        }
+        army_doctrine_1b = {
+            max_dig_in = 3
+            cas_damage_reduction = 0.15
+        }
+        army_doctrine_1c = {
+            max_planning = 0.05
+            land_reinforce_rate = 0.02
+            category_army = {
+                default_morale = 0.1
+            }
+        }
+        army_doctrine_1d = {
+            category_support = {
+                defense = 0.1
+                max_organisation = 5
+            }
+        }
+        army_doctrine_1e = {
+            conscription = 0.02
+            army_strength_factor = 0.1
+        }
+    }
+}
+army_doctrine_2 = {
+    track = army
+    name = SUBDOCTRINE_ARMY_2
+    description = SUBDOCTRINE_ARMY_2_DESC
+    icon = GFX_doctrine_mission_type_tactics_medium
+
+    xp_cost = 100
+    xp_type = army
+
+    available = {
+        always = yes
+    }
+
+    max_planning = 0.15
+    planning_speed = -0.15
+
+    rewards = {
+        army_doctrine_2a = {
+            land_night_attack = 0.1
+        }
+        army_doctrine_2b = {
+            max_planning = 0.05
+            max_command_power = 20
+        }
+        army_doctrine_2c = {
+            category_support = {
+                max_organisation = 5
+                soft_attack = 0.05
+            }
+        }
+        army_doctrine_2d = {
+            max_planning = 0.05
+        }
+        army_doctrine_2e = {
+            no_supply_grace = 25
+            category_army = {
+                default_morale = 0.05
+            }
+        }
+    }
+}
+army_doctrine_3 = {
+    track = army
+    name = SUBDOCTRINE_ARMY_3
+    description = SUBDOCTRINE_ARMY_3_DESC
+    icon = GFX_doctrine_mission_type_tactics_medium
+
+    xp_cost = 100
+    xp_type = army
+
+    available = {
+        always = yes
+    }
+
+    max_planning = 0.05
+    planning_speed = 0.15
+
+    rewards = {
+        army_doctrine_3a = {
+            max_command_power = 20
+            category_army = {
+                soft_attack = 0.02
+                breakthrough = 0.02
+            }
+        }
+        army_doctrine_3b = {
+            coordination_bonus = 0.1
+            category_support = {
+                soft_attack = 0.05
+                hard_attack = 0.05
+                defense = 0.05
+                breakthrough = 0.05
+            }
+        }
+        army_doctrine_3c = {
+            land_reinforce_rate = 0.01
+            category_army = {
+                default_morale = 0.05
+            }
+        }
+        army_doctrine_3d = {
+            max_command_power = 30
+            category_support = {
+                soft_attack = 0.05
+                hard_attack = 0.05
+                defense = 0.05
+                breakthrough = 0.05
+            }
+        }
+        army_doctrine_3e = {
+            category_support = {
+                max_organisation = 10
+                default_morale = 0.1
+            }
+        }
+    }
+}
