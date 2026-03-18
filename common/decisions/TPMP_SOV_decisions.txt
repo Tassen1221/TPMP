@@ -1,0 +1,64 @@
+
+TPMP_SOV_gulag_decision_category = {
+
+
+	TPMP_SOV_gulag_spend_stability = {
+		icon = eng_trade_unions_support
+		days_remove = 7
+        
+		custom_cost_trigger = {
+		}
+
+		custom_cost_text = decision_cost_gulag
+
+		visible = {
+			has_completed_focus = TPMP_SOV_expand_the_role_of_nkvd
+		}
+
+
+
+		complete_effect = {
+			hidden_effect = {
+				add_to_variable = { TPMP_SOV_gulag_var = 1000 }
+			}
+		}
+
+
+
+	}
+
+
+
+
+
+
+	TPMP_SOV_test = {
+		icon = eng_trade_unions_support
+		days_remove = 30
+        
+		custom_cost_trigger = {
+			check_variable = {
+				TPMP_SOV_gulag_var > 999
+			}
+		}
+
+		custom_cost_text = decision_cost_gulag
+
+		visible = {
+			has_completed_focus = TPMP_SOV_expand_the_role_of_nkvd
+		}
+
+
+
+		complete_effect = {
+			hidden_effect = {
+				subtract_from_variable = { TPMP_SOV_gulag_var = 999 }
+			}
+		}
+
+
+
+	}
+
+
+}
