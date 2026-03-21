@@ -1466,7 +1466,7 @@ focus_tree = {
 		icon = GFX_focus_fra_loyalty_stalin
 		prerequisite = { focus =  TPMP_SOV_rehabilitation_of_the_red_army
 		}
-		x = -4
+		x = -5
 		y = 1
 		relative_position_id = TPMP_SOV_rehabilitation_of_the_red_army
 		
@@ -1561,7 +1561,38 @@ focus_tree = {
 		}
 	}
 
+#123123
+	focus = {
+		id = TPMP_SOV_THE_DISASTER_OF_1941
+		icon = GFX_focus_fra_loyalty_stalin
+		prerequisite = { focus =  TPMP_SOV_rehabilitation_of_the_red_army
+		}
 
+		x = 0
+		y = 3
+		relative_position_id = TPMP_SOV_rehabilitation_of_the_red_army
+		
+		cost = 5
+
+		mutually_exclusive = { 
+			focus = TPMP_SOV_methodical_war
+
+		}
+
+		allow_branch = {
+		}
+
+		available = {
+
+		}
+		
+		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOCUS_FILTER_STABILITY}
+
+		completion_reward = {
+
+
+		}
+	}
 
 
 
@@ -1571,9 +1602,14 @@ focus_tree = {
 		icon = GFX_focus_fra_loyalty_stalin
 		prerequisite = { focus =  TPMP_SOV_lessons_from_the_scw
 		 focus =  TPMP_SOV_the_hero_of_khalkin_gol
+		 focus =  TPMP_SOV_disaster_in_finland
+		 focus =  TPMP_SOV_swift_victory_in_the_far_north
 		}
+		prerequisite = { focus =  TPMP_SOV_THE_DISASTER_OF_1941
+		}
+
 		x = -2
-		y = 3
+		y = 4
 		relative_position_id = TPMP_SOV_rehabilitation_of_the_red_army
 		
 		cost = 5
@@ -1787,9 +1823,16 @@ focus_tree = {
 		icon = GFX_focus_fra_loyalty_stalin
 		prerequisite = { focus =  TPMP_SOV_lessons_from_the_scw
 		 focus =  TPMP_SOV_the_hero_of_khalkin_gol
+		 focus =  TPMP_SOV_disaster_in_finland
+		 focus =  TPMP_SOV_swift_victory_in_the_far_north
+
+
+
+		}
+		prerequisite = { focus =  TPMP_SOV_THE_DISASTER_OF_1941
 		}
 		x = 2
-		y = 3
+		y = 4
 		relative_position_id = TPMP_SOV_rehabilitation_of_the_red_army
 		
 		cost = 5
@@ -1923,7 +1966,7 @@ focus_tree = {
 		icon = GFX_focus_fra_loyalty_stalin
 		prerequisite = { focus =  TPMP_SOV_rehabilitation_of_the_red_army
 		}
-		x = 0
+		x = -2
 		y = 1
 		relative_position_id = TPMP_SOV_rehabilitation_of_the_red_army
 		
@@ -1957,7 +2000,7 @@ focus_tree = {
 		prerequisite = { focus =  TPMP_SOV_rehabilitation_of_the_red_army
 		}
 		mutually_exclusive = { focus = TPMP_SOV_swift_victory_in_the_far_north }
-		x = 4
+		x = 2
 		y = 1
 		relative_position_id = TPMP_SOV_rehabilitation_of_the_red_army
 		
@@ -1991,7 +2034,7 @@ focus_tree = {
 		prerequisite = { focus =  TPMP_SOV_rehabilitation_of_the_red_army
 		}
 		mutually_exclusive = { focus = TPMP_SOV_disaster_in_finland }
-		x = 6
+		x = 5
 		y = 1
 		relative_position_id = TPMP_SOV_rehabilitation_of_the_red_army
 		
