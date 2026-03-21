@@ -256,12 +256,6 @@ technologies = {
 		path = {
 			leads_to_tech = advanced_small_airframe
 			research_cost_coeff = 1
-		}
-		on_research_complete = {
-			custom_effect_tooltip = {
-				localization_key = SP_UNLOCK_PROJECT
-				PROJECT = sp_air_jet_engine	
-			}
 		}				
 
 		research_cost = 2
@@ -341,12 +335,7 @@ technologies = {
 			leads_to_tech = modern_small_airframe
 			research_cost_coeff = 1
 		}
-		on_research_complete = {
-			custom_effect_tooltip = {
-				localization_key = SP_UNLOCK_PROJECT
-				PROJECT = sp_air_axial_jet_engine	
-			}
-		}		
+		
 		research_cost = 2
 		start_year = 1942
 
@@ -591,12 +580,7 @@ technologies = {
 			leads_to_tech = advanced_medium_airframe
 			research_cost_coeff = 1
 		}
-		on_research_complete = {
-			custom_effect_tooltip = {
-				localization_key = SP_UNLOCK_PROJECT
-				PROJECT = sp_air_jet_engine	
-			}
-		}		
+
 		research_cost = 2
 		start_year = 1939
 		folder = {
@@ -654,12 +638,7 @@ technologies = {
 			leads_to_tech = modern_medium_airframe
 			research_cost_coeff = 1
 		}
-		on_research_complete = {
-			custom_effect_tooltip = {
-				localization_key = SP_UNLOCK_PROJECT
-				PROJECT = sp_air_axial_jet_engine	
-			}
-		}
+
 		research_cost = 2
 		start_year = 1942
 		folder = {
@@ -1397,11 +1376,11 @@ technologies = {
 		}
 		
 		research_cost = 1
-		start_year = 1939
+		start_year = 1936
 
 		folder = {
 			name = bba_air_techs_folder
-			position = { x = 0 y = 5 }
+			position = { x = 0 y = 4 }
 		}
 
 		categories = {
@@ -1500,8 +1479,8 @@ technologies = {
 			cannon_defense_turret_2x
 		}
 		
-		research_cost = 1.5
-		start_year = 1943
+		research_cost = 1
+		start_year = 1942
 
 		folder = {
 			name = bba_air_techs_folder
@@ -1549,12 +1528,12 @@ technologies = {
 			cannon_defense_turret_2x
 		}
 		
-		research_cost = 2
-		start_year = 1945
+		research_cost = 1
+		start_year = 1944
 
 		folder = {
 			name = bba_air_techs_folder
-			position = { x = 2 y = 10 }
+			position = { x = 2 y = 8 }
 		}
 
 		categories = {
@@ -1595,7 +1574,7 @@ technologies = {
 			tank_buster_1
 		}
 		
-		research_cost = 1.5
+		research_cost = 1
 		start_year = 1936
 
 		folder = {
@@ -1625,7 +1604,7 @@ technologies = {
 			tank_buster_2
 		}
 		
-		research_cost = 1.5
+		research_cost = 1
 		start_year = 1939
 
 		folder = {
@@ -1660,12 +1639,12 @@ technologies = {
 			tank_buster_3
 		}
 		
-		research_cost = 1.5
-		start_year = 1945
+		research_cost = 1
+		start_year = 1944
 
 		folder = {
 			name = bba_air_techs_folder
-			position = { x = 0 y = 10 }
+			position = { x = 0 y = 8 }
 		}
 		
 		categories = {
@@ -1684,7 +1663,7 @@ technologies = {
 			rocket_rails
 		}
 		
-		research_cost = 1.5
+		research_cost = 1
 		start_year = 1942
 
 		folder = {
@@ -1793,12 +1772,7 @@ technologies = {
 			engine_2_4x
 			engine_2_6x	
 		}
-		on_research_complete = {
-			custom_effect_tooltip = {
-				localization_key = SP_UNLOCK_PROJECT
-				PROJECT = sp_air_jet_engine	
-			}
-		}		
+	
 		research_cost = 1
 		start_year = 1936
 
@@ -1807,6 +1781,10 @@ technologies = {
 			position = { x = 0 y = 4 }
 		}
 
+		path = {
+			leads_to_tech = jet_engines
+			research_cost_coeff = 1
+		}
 		path = {
 			leads_to_tech = engines_3
 			research_cost_coeff = 1
@@ -1859,12 +1837,7 @@ technologies = {
 			engine_3_4x
 			engine_3_6x	
 		}
-		on_research_complete = {
-			custom_effect_tooltip = {
-				localization_key = SP_UNLOCK_PROJECT
-				PROJECT = sp_air_axial_jet_engine	
-			}
-		}		
+	
 		research_cost = 1.5
 		start_year = 1940
 
@@ -1934,11 +1907,6 @@ technologies = {
 			position = { x = 0 y = 8 }
 		}
 
-		path = {
-			leads_to_tech = sp_centrifugal_jet_tech
-			research_cost_coeff = 1
-		}
-
 		categories = {
 			air_equipment
 			plane_modules_tech
@@ -1974,6 +1942,43 @@ technologies = {
 				date > "1945.1.1"
 				factor = 3
 			}
+		}
+	}
+
+	jet_engines = {
+	
+		folder = {
+			name = bba_air_techs_folder
+			position = { x = -2 y = 6 }
+		}
+
+		start_year = 1940
+		research_cost = 1
+		
+		desc = "JET_ENGINES_SPECIAL"
+
+		on_research_complete = {
+			custom_effect_tooltip = {
+				localization_key = SP_UNLOCK_PROJECT
+				PROJECT = sp_air_jet_engine	
+			}
+		}	
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		categories = {
+			jet_technology
+			air_equipment
+			plane_modules_tech
+			cat_air_engine
+			mio_cat_all_light_fighter_and_modules
+			mio_cat_all_cas_and_modules
+			mio_cat_all_naval_bomber_and_modules
+			mio_cat_all_medium_aircraft_and_modules
+			mio_cat_all_heavy_aircraft_and_modules
+			mio_cat_all_light_aircraft_and_modules
 		}
 	}
 
@@ -2119,16 +2124,6 @@ technologies = {
 
 		research_cost = 2
 		start_year = 1945
-		
-		folder = {
-			name = bba_air_techs_folder
-			position = { x = 0 y = 10 }
-		}
-
-		folder = {
-			name = air_techs_folder
-			position = { x = 4 y = 10 }
-		}
 		
 		categories = {
 			jet_technology

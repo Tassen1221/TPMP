@@ -90,20 +90,21 @@ focus_tree = {
 		available = {
 		}
 		allow_branch = {
-			if = {
-				limit = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-				}
-				NOT = {
-					OR = {
-						has_completed_focus = CHI_dang_guo
-						has_completed_focus = CHI_strengthening_our_resolve
-					}
-				}
-			}
+			# if = {
+			# 	limit = {
+			# 		has_game_rule = {
+			# 			rule = obsolete_focus_branches_visibility
+			# 			option = HIDE
+			# 		}
+			# 	}
+			# 	NOT = {
+			# 		OR = {
+			# 			has_completed_focus = CHI_dang_guo
+			# 			has_completed_focus = CHI_strengthening_our_resolve
+			# 		}
+			# 	}
+			# }
+			always = no
 		}
 	
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_WAR_SUPPORT }
@@ -2189,19 +2190,20 @@ focus_tree = {
 		available = {
 		}
 		allow_branch = {
-			if = {
-				limit = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-				}
-				NOT = {
-					has_completed_focus = CHI_denounce_feudalism
-					has_completed_focus = CHI_strengthening_our_resolve
-					has_completed_focus = CHI_end_military_primacy
-				}
-			}
+			# if = {
+			# 	limit = {
+			# 		has_game_rule = {
+			# 			rule = obsolete_focus_branches_visibility
+			# 			option = HIDE
+			# 		}
+			# 	}
+			# 	NOT = {
+			# 		has_completed_focus = CHI_denounce_feudalism
+			# 		has_completed_focus = CHI_strengthening_our_resolve
+			# 		has_completed_focus = CHI_end_military_primacy
+			# 	}
+			# }
+			always = no
 		}
 	
 		search_filters = {}
@@ -3715,19 +3717,20 @@ focus_tree = {
 
 		}
 		allow_branch = {
-			if = {
-				limit = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-				}
-				NOT = {
-					has_completed_focus = CHI_denounce_feudalism
-					has_completed_focus = CHI_strengthening_our_resolve
-					has_completed_focus = CHI_end_military_primacy
-				}
-			}
+			# if = {
+			# 	limit = {
+			# 		has_game_rule = {
+			# 			rule = obsolete_focus_branches_visibility
+			# 			option = HIDE
+			# 		}
+			# 	}
+			# 	NOT = {
+			# 		has_completed_focus = CHI_denounce_feudalism
+			# 		has_completed_focus = CHI_strengthening_our_resolve
+			# 		has_completed_focus = CHI_end_military_primacy
+			# 	}
+			# }
+			always = no
 		}
 	
 		search_filters = {FOCUS_FILTER_ANNEXATION}
@@ -4036,140 +4039,140 @@ focus_tree = {
 		relative_position_id = CHI_denounce_feudalism
 		cost = 10
 		available = {
-			any_other_country = {
-				is_chinese_warlord_tooltip = yes
-				exists = yes
-				is_subject = no
-				NOT = {
-					has_war_with = ROOT
-					is_in_faction_with = ROOT
-				}
-			}
+			# any_other_country = {
+			# 	is_chinese_warlord_tooltip = yes
+			# 	exists = yes
+			# 	is_subject = no
+			# 	NOT = {
+			# 		has_war_with = ROOT
+			# 		is_in_faction_with = ROOT
+			# 	}
+			# }
 		}
 
 		bypass = {
-			OR = {
-				custom_trigger_tooltip = {
-					tooltip = CHI_one_nation_undivided_bypass_tt
-					GXC = {
-						OR = {
-							exists = no
-							has_war_with = ROOT
-							is_ally_with = ROOT
-							ROOT = { has_wargoal_against = PREV }
-						}
-					}
-					YUN = {
-						OR = {
-							exists = no
-							has_war_with = ROOT
-							is_ally_with = ROOT
-							ROOT = { has_wargoal_against = PREV }
-						}
-					}
-					SHX = {
-						OR = {
-							exists = no
-							has_war_with = ROOT
-							is_ally_with = ROOT
-							ROOT = { has_wargoal_against = PREV }
-						}
-					}
-					XSM = {
-						OR = {
-							exists = no
-							has_war_with = ROOT
-							is_ally_with = ROOT
-							ROOT = { has_wargoal_against = PREV }
-						}
-					}
-					SIK = {
-						OR = {
-							exists = no
-							has_war_with = ROOT
-							is_ally_with = ROOT
-							ROOT = { has_wargoal_against = PREV }
-						}
-					}
-					GDC = {
-						OR = {
-							exists = no
-							has_war_with = ROOT
-							is_ally_with = ROOT
-							ROOT = { has_wargoal_against = PREV }
-						}
-					}
-					HBC = {
-						OR = {
-							exists = no
-							has_war_with = ROOT
-							is_ally_with = ROOT
-							ROOT = { has_wargoal_against = PREV }
-						}
-					}
-					SND = {
-						OR = {
-							exists = no
-							has_war_with = ROOT
-							is_ally_with = ROOT
-							ROOT = { has_wargoal_against = PREV }
-						}
-					}
-					SIC = {
-						OR = {
-							exists = no
-							has_war_with = ROOT
-							is_ally_with = ROOT
-							ROOT = { has_wargoal_against = PREV }
-						}
-					}
-					NXM = {
-						OR = {
-							exists = no
-							has_war_with = ROOT
-							is_ally_with = ROOT
-							ROOT = { has_wargoal_against = PREV }
-						}
-					}
-					GSM = {
-						OR = {
-							exists = no
-							has_war_with = ROOT
-							is_ally_with = ROOT
-							ROOT = { has_wargoal_against = PREV }
-						}
-					}
-					XIC = {
-						OR = {
-							exists = no
-							has_war_with = ROOT
-							is_ally_with = ROOT
-							ROOT = { has_wargoal_against = PREV }
-						}
-					}
-					KHM = {
-						OR = {
-							exists = no
-							has_war_with = ROOT
-							is_ally_with = ROOT
-							ROOT = { has_wargoal_against = PREV }
-						}
-					}
-					KUM = {
-						OR = {
-							exists = no
-							has_war_with = ROOT
-							is_ally_with = ROOT
-							ROOT = { has_wargoal_against = PREV }
-						}
-					}
-				}
-			}
+			# OR = {
+			# 	custom_trigger_tooltip = {
+			# 		tooltip = CHI_one_nation_undivided_bypass_tt
+			# 		GXC = {
+			# 			OR = {
+			# 				exists = no
+			# 				has_war_with = ROOT
+			# 				is_ally_with = ROOT
+			# 				ROOT = { has_wargoal_against = PREV }
+			# 			}
+			# 		}
+			# 		YUN = {
+			# 			OR = {
+			# 				exists = no
+			# 				has_war_with = ROOT
+			# 				is_ally_with = ROOT
+			# 				ROOT = { has_wargoal_against = PREV }
+			# 			}
+			# 		}
+			# 		SHX = {
+			# 			OR = {
+			# 				exists = no
+			# 				has_war_with = ROOT
+			# 				is_ally_with = ROOT
+			# 				ROOT = { has_wargoal_against = PREV }
+			# 			}
+			# 		}
+			# 		XSM = {
+			# 			OR = {
+			# 				exists = no
+			# 				has_war_with = ROOT
+			# 				is_ally_with = ROOT
+			# 				ROOT = { has_wargoal_against = PREV }
+			# 			}
+			# 		}
+			# 		SIK = {
+			# 			OR = {
+			# 				exists = no
+			# 				has_war_with = ROOT
+			# 				is_ally_with = ROOT
+			# 				ROOT = { has_wargoal_against = PREV }
+			# 			}
+			# 		}
+			# 		GDC = {
+			# 			OR = {
+			# 				exists = no
+			# 				has_war_with = ROOT
+			# 				is_ally_with = ROOT
+			# 				ROOT = { has_wargoal_against = PREV }
+			# 			}
+			# 		}
+			# 		HBC = {
+			# 			OR = {
+			# 				exists = no
+			# 				has_war_with = ROOT
+			# 				is_ally_with = ROOT
+			# 				ROOT = { has_wargoal_against = PREV }
+			# 			}
+			# 		}
+			# 		SND = {
+			# 			OR = {
+			# 				exists = no
+			# 				has_war_with = ROOT
+			# 				is_ally_with = ROOT
+			# 				ROOT = { has_wargoal_against = PREV }
+			# 			}
+			# 		}
+			# 		SIC = {
+			# 			OR = {
+			# 				exists = no
+			# 				has_war_with = ROOT
+			# 				is_ally_with = ROOT
+			# 				ROOT = { has_wargoal_against = PREV }
+			# 			}
+			# 		}
+			# 		NXM = {
+			# 			OR = {
+			# 				exists = no
+			# 				has_war_with = ROOT
+			# 				is_ally_with = ROOT
+			# 				ROOT = { has_wargoal_against = PREV }
+			# 			}
+			# 		}
+			# 		GSM = {
+			# 			OR = {
+			# 				exists = no
+			# 				has_war_with = ROOT
+			# 				is_ally_with = ROOT
+			# 				ROOT = { has_wargoal_against = PREV }
+			# 			}
+			# 		}
+			# 		XIC = {
+			# 			OR = {
+			# 				exists = no
+			# 				has_war_with = ROOT
+			# 				is_ally_with = ROOT
+			# 				ROOT = { has_wargoal_against = PREV }
+			# 			}
+			# 		}
+			# 		KHM = {
+			# 			OR = {
+			# 				exists = no
+			# 				has_war_with = ROOT
+			# 				is_ally_with = ROOT
+			# 				ROOT = { has_wargoal_against = PREV }
+			# 			}
+			# 		}
+			# 		KUM = {
+			# 			OR = {
+			# 				exists = no
+			# 				has_war_with = ROOT
+			# 				is_ally_with = ROOT
+			# 				ROOT = { has_wargoal_against = PREV }
+			# 			}
+			# 		}
+			# 	}
+			# }
 		}
 	
 		search_filters = { FOCUS_FILTER_WAR_SUPPORT }
 		ai_will_do = {
-			factor = 10 
+			factor = 100 
 		}
 	
 		completion_reward = {
@@ -7094,20 +7097,21 @@ focus_tree = {
 		available = {
 		}
 		allow_branch = {
-			if = {
-				limit = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-				}
-				NOT = {
-					OR = {
-						has_completed_focus = CHI_dang_guo
-						has_completed_focus = CHI_end_military_primacy
-					}
-				}
-			}
+			# if = {
+			# 	limit = {
+			# 		has_game_rule = {
+			# 			rule = obsolete_focus_branches_visibility
+			# 			option = HIDE
+			# 		}
+			# 	}
+			# 	NOT = {
+			# 		OR = {
+			# 			has_completed_focus = CHI_dang_guo
+			# 			has_completed_focus = CHI_end_military_primacy
+			# 		}
+			# 	}
+			# }
+			always = no
 		}
 		offset = {
 			x = -61
@@ -10324,7 +10328,7 @@ focus_tree = {
 				amount = 1
 				days = 50
 				name =  CHI_decisive_battles
-				track = operations
+				track = army
 			}
 			custom_effect_tooltip = CHI_modify_corruption_in_the_armed_forces_tt
 			add_to_variable = { 
@@ -12934,7 +12938,7 @@ focus_tree = {
 				amount = 1
 				days = 90	
 				name =  CHI_VTOL_experiments
-				track = combat_support					
+				track = anti_tank_air					
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt

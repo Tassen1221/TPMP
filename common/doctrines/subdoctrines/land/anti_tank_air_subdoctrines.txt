@@ -1,0 +1,431 @@
+anti_tank_air_doctrine_1 = {
+    track = anti_tank_air
+    name = SUBDOCTRINE_ANTI_TANK_AIR_1
+    description = SUBDOCTRINE_ANTI_TANK_AIR_1_DESC
+    icon = GFX_doctrine_antitank_frontline_medium
+
+    xp_cost = 100
+    xp_type = army
+
+    available = {
+        always = yes
+    }
+
+	visible = {
+		NOT = {
+			has_subdoctrine_in_track = anti_tank_air
+		}
+	}
+
+	category_anti_tank = {
+		max_organisation = 5
+		defense = 0.05
+		supply_consumption = -0.02
+	}
+	category_anti_air = {
+		max_organisation = 5
+		defense = 0.05
+		supply_consumption = -0.02
+	}
+
+    rewards = {
+        a = {
+			category_anti_tank = {
+				max_organisation = 2
+				default_morale = 0.05
+				hard_attack = 0.1
+			}
+			category_anti_air = {
+				max_organisation = 2
+				default_morale = 0.05
+			}
+        }
+        b = {
+			category_support_anti_tank = {
+				soft_attack = 0.3
+				hard_attack = 0.3
+				ap_attack = 0.3
+				air_attack = 0.3
+			}
+			category_support_anti_air = {
+				soft_attack = 0.3
+				hard_attack = 0.3
+				ap_attack = 0.3
+				air_attack = 0.3
+			}
+			anti_tank = {
+				need = {
+					anti_tank_equipment = 30
+				}
+			}
+			heavy_anti_tank = {
+				need = {
+					anti_tank_equipment = 30
+				}
+			}
+			anti_air = {
+				need = {
+					anti_air_equipment = 30
+				}
+			}
+			heavy_anti_air = {
+				need = {
+					anti_air_equipment = 30
+				}
+			}
+			effect = {
+				custom_effect_tooltip = anti_tank_air_doctrine_1_b_tt
+			}
+        }
+        c = {
+			category_anti_tank = {
+				defense = 0.1
+			}
+			category_anti_air = {
+				defense = 0.1
+				air_attack = 0.1
+				maximum_speed = 0.1
+			}			
+        }
+        d = {
+			category_anti_tank = {
+				max_strength = 0.5
+				ap_attack = 0.1
+				maximum_speed = 0.1				
+			}
+			category_anti_air = {
+				max_strength = 0.5
+			}
+        }
+        e = {
+			category_anti_tank = {
+				hard_attack = 0.1			
+			}
+			category_anti_air = {
+				air_attack = 0.1
+			}
+        }
+    }
+}
+anti_tank_air_doctrine_2 = {
+    track = anti_tank_air
+    name = SUBDOCTRINE_ANTI_TANK_AIR_2
+    description = SUBDOCTRINE_ANTI_TANK_AIR_2_DESC
+    icon = GFX_doctrine_antitank_frontline_medium
+
+    xp_cost = 100
+    xp_type = army
+
+    available = {
+        always = yes
+    }
+
+	visible = {
+		NOT = {
+			has_subdoctrine_in_track = anti_tank_air
+		}
+	}
+
+	category_anti_tank = {
+		ap_attack = 0.05
+	}
+	category_anti_air = {
+		ap_attack = 0.05
+	}
+	category_heavy_anti_tank = {
+		ap_attack = 0.1
+	}
+
+    rewards = {
+        a = {
+			category_anti_tank = {
+				max_organisation = 2
+				ap_attack = 0.1
+			}
+        }
+        b = {
+			anti_tank_brigade = {
+				hills = { defence = 0.1 }
+				mountain = { defence = 0.1 }
+				forest = { defence = 0.1 }
+				jungle = { defence = 0.1 }
+				marsh = { defence = 0.1 }
+				urban = { defence = 0.1 }
+			}
+			mot_anti_tank_brigade = {
+				hills = { defence = 0.1 }
+				mountain = { defence = 0.1 }
+				forest = { defence = 0.1 }
+				jungle = { defence = 0.1 }
+				marsh = { defence = 0.1 }
+				urban = { defence = 0.1 }
+			}
+			heavy_anti_tank_brigade = {
+				hills = { defence = 0.1 }
+				mountain = { defence = 0.1 }
+				forest = { defence = 0.1 }
+				jungle = { defence = 0.1 }
+				marsh = { defence = 0.1 }
+				urban = { defence = 0.1 }
+			}
+			mot_heavy_anti_tank_brigade = {
+				hills = { defence = 0.1 }
+				mountain = { defence = 0.1 }
+				forest = { defence = 0.1 }
+				jungle = { defence = 0.1 }
+				marsh = { defence = 0.1 }
+				urban = { defence = 0.1 }
+			}
+        }
+        c = {
+			effect = {
+				custom_effect_tooltip = anti_tank_air_doctrine_2_c_tt
+			}
+        }
+        d = {
+			category_anti_tank = {
+				max_organisation = 3
+				max_strength = 1
+				default_morale = 0.05
+			}
+			category_anti_air = {
+				max_organisation = 3
+				max_strength = 1
+				default_morale = 0.05
+			}
+        }
+        e = {
+			category_anti_tank = {
+				defense = 0.1
+				ap_attack = 0.1
+			}
+			category_anti_air = {
+				defense = 0.1
+			}
+        }
+    }
+}
+anti_tank_air_doctrine_3 = {
+    track = anti_tank_air
+    name = SUBDOCTRINE_ANTI_TANK_AIR_3
+    description = SUBDOCTRINE_ANTI_TANK_AIR_3_DESC
+    icon = GFX_doctrine_antitank_frontline_medium
+
+    xp_cost = 100
+    xp_type = army
+
+    available = {
+        always = yes
+    }
+
+	visible = {
+		NOT = {
+			has_subdoctrine_in_track = anti_tank_air
+		}
+	}
+
+	anti_tank_brigade = {
+		need = {
+			anti_tank_equipment = -6
+		}
+	}
+	mot_anti_tank_brigade = {
+		need = {
+			anti_tank_equipment = -6
+		}
+	}
+	heavy_anti_tank_brigade = {
+		need = {
+			heavy_anti_tank_equipment = -6
+		}
+	}
+	mot_heavy_anti_tank_brigade = {
+		need = {
+			heavy_anti_tank_equipment = -6
+		}
+	}
+	effect = {
+		custom_effect_tooltip = anti_tank_air_doctrine_3_tt
+	}
+
+    rewards = {
+        a = {
+			category_anti_tank = {
+				defense = 0.1
+				supply_consumption = -0.02
+			}
+			category_anti_air = {
+				defense = 0.1
+				supply_consumption = -0.02
+			}
+			anti_tank_brigade = {
+				need = {
+					anti_tank_equipment = -3
+				}
+			}
+			mot_anti_tank_brigade = {
+				need = {
+					anti_tank_equipment = -3
+				}
+			}
+			heavy_anti_tank_brigade = {
+				need = {
+					heavy_anti_tank_equipment = -3
+				}
+			}
+			mot_heavy_anti_tank_brigade = {
+				need = {
+					heavy_anti_tank_equipment = -3
+				}
+			}
+			effect = {
+				custom_effect_tooltip = anti_tank_air_doctrine_3_a_tt
+			}
+        }
+        b = {
+			category_anti_tank = {
+				max_organisation = 2
+				default_morale = 0.05
+				hard_attack = 0.05
+			}
+			category_anti_air = {
+				max_organisation = 2
+				default_morale = 0.05
+			}
+        }
+        c = {	
+			category_anti_tank = {
+				max_organisation = 2
+				max_strength = 0.5
+				defense = 0.15
+				entrenchment = 0.3
+			}	
+        }
+        d = {
+			category_army = {
+				air_attack = 0.05
+			}
+			anti_air_brigade = {
+				need = {
+					anti_air_equipment = -6
+				}
+			}
+			mot_anti_air_brigade = {
+				need = {
+					anti_air_equipment = -6
+				}
+			}
+			heavy_anti_air_brigade = {
+				need = {
+					heavy_anti_air_equipment = -6
+				}
+			}
+			mot_heavy_anti_air_brigade = {
+				need = {
+					heavy_anti_air_equipment = -6
+				}
+			}
+			effect = {
+				custom_effect_tooltip = anti_tank_air_doctrine_3_d_tt
+			}
+        }
+        e = {
+			category_anti_tank = {
+				max_organisation = 3
+				hard_attack = 0.05
+			}
+        }
+    }
+}
+anti_tank_air_doctrine_4 = {
+    track = anti_tank_air
+    name = SUBDOCTRINE_ANTI_TANK_AIR_4
+    description = SUBDOCTRINE_ANTI_TANK_AIR_4_DESC
+    icon = GFX_doctrine_antitank_frontline_medium
+
+    xp_cost = 100
+    xp_type = army
+
+    available = {
+        always = yes
+    }
+
+	visible = {
+		NOT = {
+			has_subdoctrine_in_track = anti_tank_air
+		}
+	}
+
+	category_anti_tank = {
+		max_organisation = 2
+		soft_attack = 0.25
+		hard_attack = 0.05
+	}
+	category_anti_air = {
+		max_organisation = 2
+		soft_attack = 0.05
+		hard_attack = 0.05
+	}
+
+    rewards = {
+        a = {
+			category_anti_air = {
+				soft_attack = 0.1
+			}
+			category_heavy_anti_air = {
+				soft_attack = 0.1
+				hard_attack = 0.05
+				ap_attack = 0.1
+				air_attack = -0.1
+				maximum_speed = 0.3
+			}
+        }
+        b = {
+			category_anti_tank = {
+				max_organisation = 3
+				default_morale = 0.05
+			}
+			category_anti_air = {
+				max_organisation = 3
+				default_morale = 0.05
+				air_attack = 0.05
+			}			
+        }
+        c = {
+			category_heavy_anti_air = {
+				max_organisation = 2
+				max_strength = 1
+				default_morale = 0.05
+			}	
+			effect = {
+				custom_effect_tooltip = anti_tank_air_doctrine_4_c_tt
+			}
+        }
+        d = {
+			category_anti_air = {
+				air_attack = 0.10
+			}
+			category_heavy_anti_air = {
+				defense = 0.1
+				hard_attack = 0.05
+			}
+        }
+        e = {
+			category_heavy_anti_air = {
+				max_organisation = 3
+				defense = 0.1
+				hard_attack = 0.1
+			}
+			heavy_anti_air = {
+				battalion_mult = {
+					category = category_frontline_tanks
+					breakthrough = 0.05
+				}
+				battalion_mult = {
+					category = category_frontline_infantry
+					defense = 0.05
+				}
+			}
+        }
+    }
+}

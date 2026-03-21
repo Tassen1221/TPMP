@@ -1,0 +1,43 @@
+ability = {
+	lead_the_way = {
+		name = ABILITY_LEAD_THE_WAY
+		desc = ABILITY_LEAD_THE_WAY_DESC
+		
+		sound_effect = command_power_ability_offensive
+		
+		type = army_leader
+		
+		allowed = {
+			is_leading_army_group = no
+			is_border_war = no
+			OWNER = {
+				has_mastery_level = {
+					amount = 4
+					sub_doctrine = special_forces_doctrine_3
+				}
+			}
+		}
+		
+		cost = 0.22
+		duration = 168
+
+		unit_modifiers = {
+			special_forces_attack_factor = 0.1
+			special_forces_defence_factor = 0.1
+		}
+		
+		one_time_effect = {
+			add_temporary_buff_to_units = {
+				combat_offense = 0.2
+				combat_breakthrough = 0.25
+				org_damage_multiplier = -0.2
+				str_damage_multiplier = 0.4
+				war_support_reduction_on_damage = 0.2
+				cannot_retreat_while_attacking = 1.0
+				
+				days = 7
+				tooltip = ABILITY_LEAD_THE_WAY_TOOLTIP
+			}
+		}
+	}
+}

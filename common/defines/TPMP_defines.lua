@@ -87,6 +87,7 @@ NDefines.NMilitary.RELIABILTY_RECOVERY = 0.50			-- factor affecting how much equ
 
 NDefines.NMilitary.LAND_SPEED_MODIFIER = 0.04			-- basic speed control
 
+NDefines.NMilitary.COHESION_IMMOBILE_PLANNING_SPEED_MULTIPLIER = 1	-- If using the 'immobile' cohesion setting, factor ALL planning speed growth by this
 NDefines.NMilitary.PLANNING_DECAY = 0.01
 NDefines.NMilitary.PLAYER_ORDER_PLANNING_DECAY = 0.03		-- Amount of planning lost due to player manual order
 NDefines.NMilitary.PLANNING_GAIN = 0.02
@@ -168,7 +169,7 @@ NDefines.NMilitary.AIR_SUPPORT_BASE = 0.15			-- CAS bonus factor for air support
 NDefines.NMilitary.ENEMY_AIR_SUPERIORITY_IMPACT = -0.8		-- effect on defense due to enemy air superiorty
 NDefines.NMilitary.ENEMY_AIR_SUPERIORITY_SPEED_IMPACT = -0.4	-- effect on speed due to enemy air superiority
 NDefines.NMilitary.ENEMY_AIR_SUPERIORITY_DEFENSE = 1.6		-- more AA attack will approach this amount of help (diminishing returns)
-NDefines.NMilitary.ENEMY_AIR_SUPERIORITY_DEFENSE_STEEPNESS = 50 -- how quickly defense approaches the max impact diminishing returns curve
+NDefines.NMilitary.ENEMY_AIR_SUPERIORITY_DEFENSE_STEEPNESS = 353-- how quickly defense approaches the max impact diminishing returns curve
 
 NDefines.NMilitary.ANTI_AIR_TARGETTING_TO_CHANCE = 0.1		-- Balancing value to determine the chance of ground AA hitting an attacking airplane, affecting both the effective average damage done by AA to airplanes, and the reduction of damage done by airplanes due to AA support
 NDefines.NMilitary.ANTI_AIR_ATTACK_TO_AMOUNT = 0.001		-- Balancing value to convert equipment stat anti_air_attack to the random % value of airplanes being hit.
@@ -176,7 +177,7 @@ NDefines.NAir.ANTI_AIR_ATTACK_TO_DAMAGE_REDUCTION_FACTOR = 0.06	-- Balancing val
 NDefines.NAir.ANTI_AIR_MAXIMUM_DAMAGE_REDUCTION_FACTOR = 0.90	-- Maximum damage reduction factor applied to incoming air attacks against units with AA.
 
 NDefines.NAir.COMBAT_DAMAGE_SCALE = 0.25			-- Higher value = more shot down planes
-NDefines.NAir.COMBAT_DAMAGE_SCALE_CARRIER = 20			-- same as above but used inside naval combat for carrier battles
+NDefines.NAir.COMBAT_DAMAGE_SCALE_CARRIER = 5			-- same as above but used inside naval combat for carrier battles
 
 NDefines.NAir.DISRUPTION_FACTOR = 5.0						-- multiplier on disruption damage to scale its effects on planes
 NDefines.NAir.DISRUPTION_FACTOR_CARRIER = 7.5				-- multiplier on disruption damage to scale its effects on carrier vs carrier planes
@@ -392,7 +393,7 @@ NDefines.NNavy.NAVAL_COMBAT_AIR_SUB_DETECTION_FACTOR = 0.0					-- A global facto
 
 NDefines.NNavy.NAVAL_INVASION_PREPARE_DAYS = 30							-- base days needed to prepare a naval invasion
 NDefines.NNavy.NAVAL_INVASION_PLAN_CAP = 1							-- base cap of naval invasions can be planned at the same time
-NDefines.NNavy.BASE_NAVAL_INVASION_DIVISION_CAP = 4						-- base cap of divisions that can be assigned in a naval invasion
+NDefines.NNavy.BASE_NAVAL_INVASION_DIVISION_CAP = 3						-- base cap of divisions that can be assigned in a naval invasion
 
 
 -- defines that are used for supply reach for built nodes

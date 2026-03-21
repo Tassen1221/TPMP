@@ -1,0 +1,382 @@
+on_actions = {
+	on_weekly = {
+		effect = {
+			#Adding the doctrine idea for tooltips when you have any of the unique doctrine requirements
+			IF = {
+				limit = {
+					OR = {
+						has_mastery_level = {
+							amount = 3
+							sub_doctrine = anti_tank_air_doctrine_2
+						}
+						has_mastery_level = {
+							amount = 3
+							sub_doctrine = anti_tank_air_doctrine_4
+						}
+					}
+				}
+				add_ideas = TPMP_doctrine_idea
+			}
+			ELSE = {
+				remove_ideas = TPMP_doctrine_idea
+			}
+			#Heavy Tank Hunters unique doctrine effects
+			IF = {
+				limit = {
+					has_mastery_level = {
+						amount = 3
+						sub_doctrine = anti_tank_air_doctrine_2
+					}
+				}
+				#Calculating total number of battalions and total number of heavy AT battalions
+				set_temp_variable = { total_battalion_var = num_battalions }
+				set_temp_variable = { heavy_AT_battalion_var = num_battalions_with_type@heavy_anti_tank_brigade }
+				add_to_temp_variable = { heavy_AT_battalion_var = num_battalions_with_type@mot_heavy_anti_tank_brigade }
+				#Calculating ratio of heavy AT battalions to total battalions
+				set_variable = { heavy_AT_ratio_var = heavy_AT_battalion_var}
+				divide_variable = { heavy_AT_ratio_var = total_battalion_var }
+				#Making sure heavy AT battalions are equipped
+				set_temp_variable = { heavy_AT_requirement_var = 0 }
+				set_temp_variable = { heavy_AT_equipped_var = num_equipment_in_armies@heavy_anti_tank_equipment }
+				#Adding support heavy AT battalion requirements
+				set_temp_variable = { support_heavy_AT_requirement_var = num_battalions_with_type@heavy_anti_tank }
+				multiply_temp_variable = { support_heavy_AT_requirement_var = 15 }
+				add_to_temp_variable = { heavy_AT_requirement_var = support_heavy_AT_requirement_var }
+				#Adding line heavy AT battalion requirements
+				set_temp_variable = { line_heavy_AT_requirement_var = num_battalions_with_type@heavy_anti_tank_brigade }
+				add_to_temp_variable = { line_heavy_AT_requirement_var = num_battalions_with_type@mot_heavy_anti_tank_brigade }
+				multiply_temp_variable = { line_heavy_AT_requirement_var = 30 }
+				add_to_temp_variable = { heavy_AT_requirement_var = line_heavy_AT_requirement_var }
+				#Calculating ratio of heavy AT equipment to required heavy AT equipment
+				set_variable = { heavy_AT_equipped_ratio_var = heavy_AT_equipped_var }
+				divide_variable = { heavy_AT_equipped_ratio_var = heavy_AT_requirement_var }
+				#Dealing with divide by 0 errors
+				IF = {
+					limit = {
+						check_variable = { total_battalion_var = 0 }
+					}
+					set_variable = { heavy_AT_ratio_var = 0 }
+				}
+				IF = {
+					limit = {
+						check_variable = { heavy_AT_requirement_var = 0 }
+					}
+					set_variable = { heavy_AT_equipped_ratio_var = 0 }
+				}
+				IF = {
+					limit = {
+						#If ratio of heavy AT battalions is more than 10% and equipment level is above 90% grant bonus
+						check_variable = { heavy_AT_ratio_var = 0.1 compare = greater_than_or_equals }
+						check_variable = { heavy_AT_equipped_ratio_var = 0.9 compare = greater_than_or_equals }
+					}
+					set_technology = {
+						TPMP_anti_tank_air_doctrine_2_c_tech = 1
+						popup = no
+					}
+				}
+				ELSE = {
+					#If ratio of heavy AT battlalions is less than 10% or equipment level is below 90%, remove bonus
+					set_technology = {
+						TPMP_anti_tank_air_doctrine_2_c_tech = 0
+						popup = no
+					}
+				}
+			}
+			ELSE_IF = {
+				limit = {
+					#If country is missing doctrine but has bonus, remove bonus
+					NOT = {
+						has_mastery_level = {
+							amount = 3
+							sub_doctrine = anti_tank_air_doctrine_2
+						}
+					}
+					has_tech = TPMP_anti_tank_air_doctrine_2_c_tech
+				}
+				set_technology = {
+					TPMP_anti_tank_air_doctrine_2_c_tech = 0
+					popup = no
+				}
+			}
+			#Dual-Purpose Artillery unique doctrine effects
+			IF = {
+				limit = {
+					has_mastery_level = {
+						amount = 3
+						sub_doctrine = anti_tank_air_doctrine_4
+					}
+				}
+				#Calculating total number of battalions and total number of heavy AT battalions
+				set_temp_variable = { total_battalion_var = num_battalions }
+				set_temp_variable = { heavy_AA_battalion_var = num_battalions_with_type@heavy_anti_air_brigade }
+				add_to_temp_variable = { heavy_AA_battalion_var = num_battalions_with_type@mot_heavy_anti_air_brigade }
+				#Calculating ratio of heavy AA battalions to total battalions
+				set_variable = { heavy_AA_ratio_var = heavy_AA_battalion_var}
+				divide_variable = { heavy_AA_ratio_var = total_battalion_var }
+				#Making sure heavy AA battalions are equipped
+				set_temp_variable = { heavy_AA_requirement_var = 0 }
+				set_temp_variable = { heavy_AA_equipped_var = num_equipment_in_armies@heavy_anti_air_equipment }
+				#Adding support heavy AA battalion requirements
+				set_temp_variable = { support_heavy_AA_requirement_var = num_battalions_with_type@heavy_anti_air }
+				multiply_temp_variable = { support_heavy_AA_requirement_var = 15 }
+				add_to_temp_variable = { heavy_AA_requirement_var = support_heavy_AA_requirement_var }
+				#Adding line heavy AA battalion requirements
+				set_temp_variable = { line_heavy_AA_requirement_var = num_battalions_with_type@heavy_anti_air_brigade }
+				add_to_temp_variable = { line_heavy_AA_requirement_var = num_battalions_with_type@mot_heavy_anti_air_brigade }
+				multiply_temp_variable = { line_heavy_AA_requirement_var = 30 }
+				add_to_temp_variable = { heavy_AA_requirement_var = line_heavy_AA_requirement_var }
+				#Calculating ratio of heavy AA equipment to required heavy AA equipment
+				set_variable = { heavy_AA_equipped_ratio_var = heavy_AA_equipped_var }
+				divide_variable = { heavy_AA_equipped_ratio_var = heavy_AA_requirement_var }
+				#Dealing with divide by 0 errors
+				IF = {
+					limit = {
+						check_variable = { total_battalion_var = 0 }
+					}
+					set_variable = { heavy_AA_ratio_var = 0 }
+				}
+				IF = {
+					limit = {
+						check_variable = { heavy_AA_requirement_var = 0 }
+					}
+					set_variable = { heavy_AA_equipped_ratio_var = 0 }
+				}
+				IF = {
+					limit = {
+						#If ratio of heavy AA battalions is more than 5% and equipment level is above 90% grant bonus
+						check_variable = { heavy_AA_ratio_var = 0.05 compare = greater_than_or_equals }
+						check_variable = { heavy_AA_equipped_ratio_var = 0.9 compare = greater_than_or_equals }
+					}
+					set_technology = {
+						TPMP_anti_tank_air_doctrine_4_c_tech = 1
+						popup = no
+					}
+				}
+				ELSE = {
+					#If ratio of heavy AA battlalions is less than 5% or equipment level is below 90%, remove bonus
+					set_technology = {
+						TPMP_anti_tank_air_doctrine_4_c_tech = 0
+						popup = no
+					}
+				}
+			}
+			ELSE_IF = {
+				limit = {
+					#If country is missing doctrine but has bonus, remove bonus
+					NOT = {
+						has_mastery_level = {
+							amount = 3
+							sub_doctrine = anti_tank_air_doctrine_4
+						}
+					}
+					has_tech = TPMP_anti_tank_air_doctrine_4_c_tech
+				}
+				set_technology = {
+					TPMP_anti_tank_air_doctrine_4_c_tech = 0
+					popup = no
+				}
+			}
+			#Infantry Assault Guns unique doctrine effects
+			IF = {
+				limit = {
+					has_mastery_level = {
+						amount = 5
+						sub_doctrine = armor_variants_doctrine_3
+					}
+				}
+				#Calculating total number of battalions and total number of SPG battalions
+				set_temp_variable = { total_battalion_var = num_battalions }
+				set_temp_variable = { SPG_battalion_var = num_battalions_with_type@light_sp_artillery_brigade }
+				add_to_temp_variable = { SPG_battalion_var = num_battalions_with_type@medium_sp_artillery_brigade }
+				add_to_temp_variable = { SPG_battalion_var = num_battalions_with_type@heavy_sp_artillery_brigade }
+				add_to_temp_variable = { SPG_battalion_var = num_battalions_with_type@super_heavy_sp_artillery_brigade }
+				#Calculating ratio of SPG battalions to total battalions
+				set_variable = { SPG_ratio_var = SPG_battalion_var}
+				divide_variable = { SPG_ratio_var = total_battalion_var }
+				#Making sure SPG battalions are equipped
+				set_temp_variable = { SPG_requirement_var = 0 }
+				set_temp_variable = { SPG_equipped_var = num_equipment_in_armies@light_tank_artillery_chassis }
+				add_to_temp_variable = { SPG_equipped_var = num_equipment_in_armies@medium_tank_artillery_chassis }
+				add_to_temp_variable = { SPG_equipped_var = num_equipment_in_armies@heavy_tank_artillery_chassis }
+				add_to_temp_variable = { SPG_equipped_var = num_equipment_in_armies@super_heavy_tank_artillery_chassis }
+				#Adding support SPG battalion requirements
+				set_temp_variable = { support_SPG_requirement_var = num_battalions_with_type@light_sp_artillery }
+				add_to_temp_variable = { support_SPG_requirement_var = num_battalions_with_type@medium_sp_artillery }
+				add_to_temp_variable = { support_SPG_requirement_var = num_battalions_with_type@heavy_sp_artillery }
+				multiply_temp_variable = { support_SPG_requirement_var = 20 }
+				add_to_temp_variable = { SPG_requirement_var = support_SPG_requirement_var }
+				#Adding line SPG battalion requirements
+				set_temp_variable = { line_SPG_requirement_var = num_battalions_with_type@light_sp_artillery_brigade }
+				add_to_temp_variable = { line_SPG_requirement_var = num_battalions_with_type@medium_sp_artillery_brigade }
+				add_to_temp_variable = { line_SPG_requirement_var = num_battalions_with_type@heavy_sp_artillery_brigade }
+				add_to_temp_variable = { line_SPG_requirement_var = num_battalions_with_type@super_heavy_sp_artillery_brigade }
+				multiply_temp_variable = { line_SPG_requirement_var = 40 }
+				add_to_temp_variable = { SPG_requirement_var = line_SPG_requirement_var }
+				#Calculating ratio of SPG equipment to required SPG equipment
+				set_variable = { SPG_equipped_ratio_var = SPG_equipped_var }
+				divide_variable = { SPG_equipped_ratio_var = SPG_requirement_var }
+				#Dealing with divide by 0 errors
+				IF = {
+					limit = {
+						check_variable = { total_battalion_var = 0 }
+					}
+					set_variable = { SPG_ratio_var = 0 }
+				}
+				IF = {
+					limit = {
+						check_variable = { SPG_requirement_var = 0 }
+					}
+					set_variable = { SPG_equipped_ratio_var = 0 }
+				}
+				IF = {
+					limit = {
+						#If ratio of SPG battalions is more than 10% and equipment level is above 90% grant bonus
+						check_variable = { SPG_ratio_var = 0.1 compare = greater_than_or_equals }
+						check_variable = { SPG_equipped_ratio_var = 0.9 compare = greater_than_or_equals }
+					}
+					set_technology = {
+						TPMP_armor_variants_doctrine_3_e_tech = 1
+						popup = no
+					}
+				}
+				ELSE = {
+					#If ratio of SPG battalions is less than 10% or equipment level is below 90%, remove bonus
+					set_technology = {
+						TPMP_armor_variants_doctrine_3_e_tech = 0
+						popup = no
+					}
+				}
+			}
+			ELSE_IF = {
+				limit = {
+					#If country is missing doctrine but has bonus, remove bonus
+					NOT = {
+						has_mastery_level = {
+							amount = 5
+							sub_doctrine = armor_variants_doctrine_3
+						}
+					}
+					has_tech = TPMP_armor_variants_doctrine_3_e_tech
+				}
+				set_technology = {
+					TPMP_armor_variants_doctrine_3_e_tech = 0
+					popup = no
+				}
+			}
+		}
+	}
+	# root is the state that was dropped into
+	# from is the dropping country
+	# this differs from on_paradrop in that it is run once per paradrop, not once per unit dropped
+	on_units_paradropped_in_state = {
+		effect = {
+			if = {
+				limit = { 
+					FROM = {
+						has_mastery_level = {
+							amount = 2
+							sub_doctrine = special_forces_doctrine_2
+						}
+					} 
+					NOT = { 
+						has_state_flag = {
+						    flag = para_sabotage_effect
+						    value = 0
+						}
+					}
+					CONTROLLER = { NOT = { tag = FROM } }
+				}
+				damage_building = {
+					type = industrial_complex
+					damage = 3
+				}
+				damage_building = {
+					type = arms_factory
+					damage = 3
+				}
+				set_state_flag = {
+					flag = para_sabotage_effect
+					days = 180
+				}
+			}
+			if = {
+				limit = { 
+					FROM = {
+						has_mastery_level = {
+							amount = 5
+							sub_doctrine = special_forces_doctrine_2
+						}
+					} 
+					NOT = { 
+						has_state_flag = {
+						    flag = para_combat_effect
+						    value = 0
+						}
+					}
+				}
+				every_state_division = {
+					limit = { 
+						OWNER = { has_war_with = FROM }
+					}
+					set_unit_organization = 0.75
+				}
+				set_state_flag = {
+					flag = para_combat_effect
+					days = 60
+				}
+			}
+		}
+	}
+	# root country that invades
+	# scope state that is invaded
+	# from scope state that the invasion started
+	on_naval_invasion = {
+	 	effect = {
+		 	if = {
+				limit = {
+					ROOT = {
+						has_mastery_level = {
+							amount = 2
+							sub_doctrine = special_forces_doctrine_2
+						}
+					}
+					NOT = { 
+						has_state_flag = {
+						    flag = para_sabotage_effect
+						    value = 0
+						}
+					}
+					OWNER = { NOT = { tag = ROOT } }
+				}
+				damage_building = {
+					type = industrial_complex
+					damage = 5
+				}
+				damage_building = {
+					type = industrial_complex
+					damage = 5
+				}
+				damage_building = {
+					type = industrial_complex
+					damage = 5
+				}
+				damage_building = {
+					type = arms_factory
+					damage = 8
+				}
+				damage_building = {
+					type = arms_factory
+					damage = 8
+				}
+				damage_building = {
+					type = arms_factory
+					damage = 8
+				}
+				set_state_flag = {
+					flag = para_sabotage_effect
+					days = 180
+				}
+			}
+	 	}
+	}
+}

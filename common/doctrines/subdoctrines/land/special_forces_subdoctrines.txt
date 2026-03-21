@@ -1,0 +1,274 @@
+special_forces_doctrine_1 = {
+    track = special_forces
+    name = SUBDOCTRINE_SPECIAL_FORCES_1
+    description = SUBDOCTRINE_SPECIAL_FORCES_1_DESC
+    icon = GFX_doctrine_commandos_medium
+
+    xp_cost = 100
+    xp_type = army
+
+    available = {
+        always = yes
+    }
+
+	visible = {
+		NOT = {
+			has_subdoctrine_in_track = special_forces
+		}
+	}
+
+	category_special_forces = {
+		max_organisation = 5
+		default_morale = 0.05
+	}
+
+    rewards = {
+        a = {
+			category_special_forces = {
+				default_morale = 0.05
+				maximum_speed = 0.15
+				acclimatization_cold_climate_gain_factor = 0.5
+				acclimatization_hot_climate_gain_factor = 0.5
+			}
+        }
+        b = {
+			category_special_forces = {
+				soft_attack = 0.1
+				hard_attack = 0.1
+				breakthrough = 0.1
+				defense = 0.1
+			}
+        }
+        c = {
+			marine = {
+				need = {
+					special_equipment = -10
+					special_infantry_equipment_1 = -20
+				}
+			}
+			mountaineers = {
+				need = {
+					special_equipment = -10
+					special_infantry_equipment_1 = -20
+				}
+			}
+			rangers = {
+				need = {
+					special_equipment = -10
+					special_infantry_equipment_1 = -20
+				}
+			}
+			paratrooper = {
+				need = {
+					special_equipment = -20
+					special_infantry_equipment_1 = -20
+				}
+			}
+			effect = {
+				custom_effect_tooltip = special_forces_doctrine_1_d_tt
+			}
+
+			special_forces_cap = 0.1
+			special_forces_cap_flat = 20
+			special_forces_training_time_factor = -0.25
+        }
+        d = {
+			category_special_forces = {
+				max_organisation = 5
+			}
+
+			unit_medal_effectiveness = 1
+
+			special_forces_attack_factor = 0.05
+			special_forces_defence_factor = 0.05
+        }
+		e = {
+			category_special_forces = {
+				max_organisation = 5
+			}
+
+			special_forces_no_supply_grace = 48
+			naval_invasion_division_cap = 1
+			naval_invasion_plan_cap = 3
+		}
+    }
+}
+special_forces_doctrine_2 = {
+    track = special_forces
+    name = SUBDOCTRINE_SPECIAL_FORCES_2
+    description = SUBDOCTRINE_SPECIAL_FORCES_2_DESC
+    icon = GFX_doctrine_commandos_medium
+
+    xp_cost = 100
+    xp_type = army
+
+    available = {
+        always = yes
+    }
+
+	visible = {
+		NOT = {
+			has_subdoctrine_in_track = special_forces
+		}
+	}
+
+	category_special_forces = {
+		max_organisation = 3
+		default_morale = 0.05
+		supply_consumption = -0.05
+	}
+
+    rewards = {
+        a = {
+			category_special_forces = {
+				max_strength = 3
+			}
+			marine = {
+				night = { attack = 0.05 }
+			}
+			mountaineers = {
+				night = { attack = 0.05 }
+			}
+			rangers = {
+				night = { attack = 0.05 }
+			}
+			paratrooper = {
+				night = { attack = 0.05 }
+			}
+        }
+        b = {
+			effect = {
+				custom_effect_tooltip = special_forces_doctrine_2_b_tt
+			}
+        }
+        c = {
+			category_special_forces = {
+				acclimatization_cold_climate_gain_factor = 1.0
+				acclimatization_hot_climate_gain_factor = 1.0
+			}
+			marine = {
+				marsh = { attack = 0.05 }
+				river = { attack = 0.05 }
+			}
+			mountaineers = {
+				hills = { attack = 0.05 }
+				mountain = { attack = 0.05 }
+			}
+			rangers = {
+				forest = { attack = 0.05 }
+				jungle = { attack = 0.05 }
+			}
+			paratrooper = {
+				urban = { attack = 0.05 }
+				fort = { attack = 0.05 }
+			}
+        }
+        d = {
+			effect = {
+				custom_effect_tooltip = special_forces_doctrine_2_d_tt
+			}
+        }
+        e = {
+			category_special_forces = {
+				max_organisation = 2
+				max_strength = 2
+			}
+			effect = {
+				hidden_effect = {
+					delete_unit_template_and_units = {
+						division_template = "Proxy Forces"
+						disband = yes
+					}
+					division_template = {
+						name = "Proxy Forces"
+						is_locked = yes
+						regiments = {
+							militia = { x = 0 y = 0 }
+							militia = { x = 0 y = 1 }
+							militia = { x = 0 y = 2 }
+							militia = { x = 0 y = 3 }
+							militia = { x = 0 y = 4 }
+
+							militia = { x = 1 y = 0 }
+							militia = { x = 1 y = 1 }
+							militia = { x = 1 y = 2 }
+							militia = { x = 1 y = 3 }
+							militia = { x = 1 y = 4 }
+						}
+					}
+				}
+				custom_effect_tooltip = special_forces_doctrine_2_e_tt
+			}
+        }
+    }
+}
+special_forces_doctrine_3 = {
+    track = special_forces
+    name = SUBDOCTRINE_SPECIAL_FORCES_3
+    description = SUBDOCTRINE_SPECIAL_FORCES_3_DESC
+    icon = GFX_doctrine_commandos_medium
+
+    xp_cost = 100
+    xp_type = army
+
+    available = {
+        always = yes
+    }
+
+	visible = {
+		NOT = {
+			has_subdoctrine_in_track = special_forces
+		}
+	}
+
+	category_special_forces = {
+		max_organisation = 10
+		default_morale = 0.05
+	}
+	special_forces_cap = -0.2
+
+    rewards = {
+        a = {
+			category_special_forces = {
+				max_organisation = 5
+				breakthrough = 0.1
+				defense = 0.1
+			}
+        }
+        b = {
+			category_special_forces = {
+				max_organisation = 5
+				default_morale = 0.05
+				breakthrough = 0.15
+			}
+			commandos = {
+				battalion_mult = {
+					category = category_army
+					breakthrough = 0.05
+				}
+			}
+        }
+        c = {
+			category_special_forces = {
+				soft_attack = 0.4
+				hard_attack = 0.2
+			}
+        }
+        d = {
+			effect = {
+				custom_effect_tooltip = special_forces_doctrine_3_d_tt
+			}
+        }
+        e = {
+			commandos = {
+				battalion_mult = {
+					category = category_special_forces
+					soft_attack = 0.10
+				}
+			}
+
+			special_forces_attack_factor = 0.1
+			special_forces_defence_factor = 0.1
+        }
+    }
+}
