@@ -1,0 +1,221 @@
+#                                                                                                                       
+#                                                                                                                       
+#            GGGGGGGGGGGGGUUUUUUUU     UUUUUUUULLLLLLLLLLL                            AAA                  GGGGGGGGGGGGG
+#         GGG::::::::::::GU::::::U     U::::::UL:::::::::L                           A:::A              GGG::::::::::::G
+#       GG:::::::::::::::GU::::::U     U::::::UL:::::::::L                          A:::::A           GG:::::::::::::::G
+#      G:::::GGGGGGGG::::GUU:::::U     U:::::UULL:::::::LL                         A:::::::A         G:::::GGGGGGGG::::G
+#     G:::::G       GGGGGG U:::::U     U:::::U   L:::::L                          A:::::::::A       G:::::G       GGGGGG
+#    G:::::G               U:::::D     D:::::U   L:::::L                         A:::::A:::::A     G:::::G              
+#    G:::::G               U:::::D     D:::::U   L:::::L                        A:::::A A:::::A    G:::::G              
+#    G:::::G    GGGGGGGGGG U:::::D     D:::::U   L:::::L                       A:::::A   A:::::A   G:::::G    GGGGGGGGGG
+#    G:::::G    G::::::::G U:::::D     D:::::U   L:::::L                      A:::::A     A:::::A  G:::::G    G::::::::G
+#    G:::::G    GGGGG::::G U:::::D     D:::::U   L:::::L                     A:::::AAAAAAAAA:::::A G:::::G    GGGGG::::G
+#    G:::::G        G::::G U:::::D     D:::::U   L:::::L                    A:::::::::::::::::::::AG:::::G        G::::G
+#     G:::::G       G::::G U::::::U   U::::::U   L:::::L         LLLLLL    A:::::AAAAAAAAAAAAA:::::AG:::::G       G::::G
+#      G:::::GGGGGGGG::::G U:::::::UUU:::::::U LL:::::::LLLLLLLLL:::::L   A:::::A             A:::::AG:::::GGGGGGGG::::G
+#       GG:::::::::::::::G  UU:::::::::::::UU  L::::::::::::::::::::::L  A:::::A               A:::::AGG:::::::::::::::G
+#         GGG::::::GGG:::G    UU:::::::::UU    L::::::::::::::::::::::L A:::::A                 A:::::A GGG::::::GGG:::G
+#            GGGGGG   GGGG      UUUUUUUUU      LLLLLLLLLLLLLLLLLLLLLLLLAAAAAAA                   AAAAAAA   GGGGGG   GGGG
+#                                                                                                                       
+#                                                                                                                       
+#                                                                                                                       
+#                                                                                                                       
+#                                                                                                                       
+#                                                                                                                       
+#                                                                                                                       
+
+
+TPMP_SOV_workers_decision_category = {
+
+	##
+	##
+	## SPEND DECISIONS
+	##
+	##
+
+	TPMP_SOV_workers_spend_st_decision = {
+		icon = eng_trade_unions_support
+		days_remove = 7
+        
+		custom_cost_trigger = {
+		}
+
+		custom_cost_text = decision_cost_gulag
+
+		visible = {
+			#has_completed_focus = TPMP_SOV_expand_the_role_of_nkvd
+		}
+
+
+
+		complete_effect = {
+			hidden_effect = {
+				add_to_variable = { TPMP_SOV_workers_var = 420 }
+			}
+			add_stability = -420
+		}
+
+
+
+	}
+
+	TPMP_SOV_workers_spend_ws_decision = {
+		icon = eng_trade_unions_support
+		days_remove = 7
+        
+		custom_cost_trigger = {
+		}
+
+		custom_cost_text = decision_cost_gulag
+
+		visible = {
+			#has_completed_focus = TPMP_SOV_expand_the_role_of_nkvd
+		}
+
+
+
+		complete_effect = {
+			hidden_effect = {
+				add_to_variable = { TPMP_SOV_workers_var = 420 }
+			}
+			add_war_support = -420
+		}
+
+
+
+	}
+
+	TPMP_SOV_workers_spend_pp_decision = {
+		icon = eng_trade_unions_support
+		days_remove = 7
+        
+		custom_cost_trigger = {
+		}
+
+		custom_cost_text = decision_cost_gulag
+
+		visible = {
+			#has_completed_focus = TPMP_SOV_expand_the_role_of_nkvd
+		}
+
+
+
+		complete_effect = {
+			hidden_effect = {
+				add_to_variable = { TPMP_SOV_workers_var = 420 }
+			}
+
+			add_political_power = -420
+		}
+
+
+
+	}	
+
+	##
+	##
+	##  Gain Decisions
+	##
+	##
+
+
+	TPMP_SOV_workers_railways_decision = {
+		icon = eng_trade_unions_support
+		days_remove = 7
+        
+		custom_cost_trigger = {
+		}
+
+		custom_cost_text = decision_cost_gulag
+
+		visible = {
+			#has_completed_focus = TPMP_SOV_expand_the_role_of_nkvd
+		}
+
+		available = {
+			check_variable = { TPMP_SOV_workers_var > 420 }
+		}
+
+
+		complete_effect = {
+			hidden_effect = {
+				subtract_from_variable = { TPMP_SOV_workers_var = 420 }
+			}
+			add_timed_idea = {
+				idea = TPMP_SOV_railways_timed_idea
+				days = 420
+			}
+		}
+
+	}
+	
+	TPMP_SOV_workers_construction_targeted_decision = {
+
+		state_target = yes
+		targets = { 219 }
+		target_trigger = {
+			#has_completed_focus = TPMP_SOV_expand_the_role_of_nkvd
+		}
+
+		available = {
+			check_variable = { TPMP_SOV_workers_var > 420 }
+		}
+
+		on_map_mode = map_and_decisions_view
+		icon = GFX_modifiers_SOV_civilian_labor_in_defense
+		cost = 5
+		complete_effect = {
+
+			every_core_state = {
+				limit = {
+					state = 219
+				}
+				add_dynamic_modifier = { 
+					modifier = TPMP_SOV_workers_construction_dynamic_modifier
+					days = 420
+					scope = SOV
+				}
+			}
+
+			hidden_effect = {
+				subtract_from_variable = { TPMP_SOV_workers_var = 420 }
+			}
+
+	    }
+	}
+
+	TPMP_SOV_workers_coal_targeted_decision = {
+
+		state_target = yes
+		targets = { 219 }
+		target_trigger = {
+			#has_completed_focus = TPMP_SOV_expand_the_role_of_nkvd
+		}
+
+		available = {
+			check_variable = { TPMP_SOV_workers_var > 420 }
+		}
+
+		on_map_mode = map_and_decisions_view
+		icon = coal
+		cost = 5
+		complete_effect = {
+
+			every_core_state = {
+				limit = {
+					state = 219
+				}
+				add_resource = {
+					type = coal
+					amount = 420
+				}
+			}
+
+			hidden_effect = {
+				subtract_from_variable = { TPMP_SOV_workers_var = 420 }
+			}
+
+	    }
+	}
+
+}
