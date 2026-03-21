@@ -41,7 +41,7 @@ TPMP_SOV_workers_decision_category = {
             TPMP_SOV_workers_var > 420
 		}
 
-		custom_cost_text = decision_cost_gulag
+		
 
 		visible = {
 			#has_completed_focus = TPMP_SOV_expand_the_role_of_nkvd
@@ -50,9 +50,7 @@ TPMP_SOV_workers_decision_category = {
 
 
 		complete_effect = {
-			hidden_effect = {
-				add_to_variable = { TPMP_SOV_workers_var = 420 }
-			}
+			add_to_variable = { TPMP_SOV_workers_var = 420 tooltip = TPMP_SOV_gulag_add_worker_decision_tt }
 			add_stability = -420
 		}
 
@@ -68,7 +66,7 @@ TPMP_SOV_workers_decision_category = {
             TPMP_SOV_workers_var > 420
 		}
 
-		custom_cost_text = decision_cost_gulag
+		custom_cost_text = decision_cost_gulag_tt
 
 		visible = {
 			#has_completed_focus = TPMP_SOV_expand_the_role_of_nkvd
@@ -77,9 +75,7 @@ TPMP_SOV_workers_decision_category = {
 
 
 		complete_effect = {
-			hidden_effect = {
-				add_to_variable = { TPMP_SOV_workers_var = 420 }
-			}
+			add_to_variable = { TPMP_SOV_workers_var = 420 tooltip = TPMP_SOV_gulag_add_worker_decision_tt }
 			add_war_support = -420
 		}
 
@@ -95,7 +91,7 @@ TPMP_SOV_workers_decision_category = {
             TPMP_SOV_workers_var > 420
 		}
 
-		custom_cost_text = decision_cost_gulag
+		custom_cost_text = decision_cost_gulag_tt
 
 		visible = {
 			#has_completed_focus = TPMP_SOV_expand_the_role_of_nkvd
@@ -104,10 +100,7 @@ TPMP_SOV_workers_decision_category = {
 
 
 		complete_effect = {
-			hidden_effect = {
-				add_to_variable = { TPMP_SOV_workers_var = 420 }
-			}
-
+			add_to_variable = { TPMP_SOV_workers_var = 420 tooltip = TPMP_SOV_gulag_add_worker_decision_tt }
 			add_political_power = -420
 		}
 
@@ -129,7 +122,7 @@ TPMP_SOV_workers_decision_category = {
 		custom_cost_trigger = {
 		}
 
-		custom_cost_text = decision_cost_gulag_railway
+		custom_cost_text = decision_cost_gulag_tt_railway
 
 		visible = {
 			#has_completed_focus = TPMP_SOV_expand_the_role_of_nkvd
@@ -141,9 +134,8 @@ TPMP_SOV_workers_decision_category = {
 
 
 		complete_effect = {
-			hidden_effect = {
-				subtract_from_variable = { TPMP_SOV_workers_var = 420 }
-			}
+				subtract_from_variable = { TPMP_SOV_workers_var = 420 tooltip = TPMP_SOV_gulag_buy_railroad_decision_tt} 
+		
 			add_timed_idea = {
 				idea = TPMP_SOV_railways_timed_idea
 				days = 420
@@ -180,9 +172,8 @@ TPMP_SOV_workers_decision_category = {
 				}
 			}
 
-			hidden_effect = {
-				subtract_from_variable = { TPMP_SOV_workers_var = 420 }
-			}
+				subtract_from_variable = { TPMP_SOV_workers_var = 420 tooltip = TPMP_SOV_gulag_buy_state_construction_decision_tt }
+			
 
 	    }
 	}
