@@ -36,3 +36,21 @@ TPMP_SOV_2nd_fyp_category = {
 	scripted_gui = SOV_four_year_plan_scripted_gui  # ← add this line
 }
 
+TPMP_SOV_steel_development_category = {
+	
+	icon = GFX_decision_category_generic_naval
+	picture = GFX_decision_cat_pacific_front
+
+	priority = 100
+	allowed = {
+		tag = SOV
+	}
+
+	visible = {
+		has_completed_focus = TPMP_SOV_steel
+
+
+	}
+	visible_when_empty = yes
+
+}
