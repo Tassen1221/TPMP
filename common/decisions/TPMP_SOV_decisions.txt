@@ -34,7 +34,35 @@ TPMP_SOV_gulag_decision_category = {
 
 	TPMP_SOV_test = {
 		icon = eng_trade_unions_support
-		days_remove = 30
+		days_remove = 2
+        
+		custom_cost_trigger = {
+		}
+
+		custom_cost_text = decision_cost_gulag
+
+		visible = {
+			has_completed_focus = TPMP_SOV_expand_the_role_of_nkvd
+		}
+
+
+
+		complete_effect = {
+            add_to_variable = { TPMP_SOV_fyp_failure = 10 }
+		}
+
+
+
+	}
+
+
+
+
+
+
+	TPMP_SOV_test_2 = {
+		icon = eng_trade_unions_support
+		days_remove = 2
         
 		custom_cost_trigger = {
 			check_variable = {
@@ -59,6 +87,109 @@ TPMP_SOV_gulag_decision_category = {
 
 
 	}
+
+
+
+
+
+}
+
+
+
+
+
+TPMP_SOV_2nd_fyp_category = {
+
+    TPMP_SOV_2nd_fyp = {
+        is_good = no
+        icon = eng_trade_unions_demand
+
+        fire_only_once = yes
+        days_mission_timeout = 724
+        
+        priority = 100
+
+
+        activation = {
+        }
+        
+        available = {
+			    217 = { industrial_complex > 13 }  # Stalingrad
+   				 877 = { industrial_complex > 9  }  # Kiev
+   				 845 = { industrial_complex > 9  }  # Moscow
+				  195 = { industrial_complex > 7  }  # Leningrad
+  				  572 = { industrial_complex > 5  }  # Chelyabinsk - VERIFY STATE ID
+					249 = { industrial_complex > 3  }  # Kazan       - VERIFY STATE ID
+					251 = { industrial_complex > 3  }  # Kuybyshev   - VERIFY STATE ID
+					
+		has_resources_in_collection = {
+            collection = collection:country_and_all_subjects
+            resource = steel
+            amount > 9499
+            extracted = yes
+        }
+        has_resources_in_collection = {
+            collection = collection:country_and_all_subjects
+            resource = coal
+            amount > 2999
+            extracted = yes
+        }
+        has_resources_in_collection = {
+            collection = collection:country_and_all_subjects
+            resource = oil
+            amount > 4499
+            extracted = yes
+        }
+        has_resources_in_collection = {
+            collection = collection:country_and_all_subjects
+            resource = chromium
+            amount > 5999
+            extracted = yes
+        }
+        has_resources_in_collection = {
+            collection = collection:country_and_all_subjects
+            resource = tungsten
+            amount > 1999
+            extracted = yes
+        }
+        has_resources_in_collection = {
+            collection = collection:country_and_all_subjects
+            resource = rubber
+            amount > 1199
+            extracted = yes
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			
+        }
+		
+        
+
+        complete_effect = {
+			
+        }
+        
+        timeout_effect = {
+
+
+        }   
+    }
+
+
+
 
 
 }

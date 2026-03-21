@@ -1,0 +1,64 @@
+scripted_gui = {	
+    SOV_four_year_plan_scripted_gui = {  
+		context_type = decision_category
+		#context_type = player_context
+		  
+		window_name = "SOV_four_year_plan_container"
+		
+		triggers = {
+			green_pointer_visible = {
+				check_variable = { TPMP_SOV_fyp_failure > 0 }
+				check_variable = { TPMP_SOV_fyp_failure < 3 }
+			}
+			yellow_pointer_visible = {
+				check_variable = { TPMP_SOV_fyp_failure > 2 }
+				check_variable = { TPMP_SOV_fyp_failure < 6 }
+			}
+			orange_pointer_visible = {
+				check_variable = { TPMP_SOV_fyp_failure > 5 }
+				check_variable = { TPMP_SOV_fyp_failure < 10 }
+			}
+			red_pointer_visible = {
+				check_variable = { TPMP_SOV_fyp_failure > 9 }
+			}
+		}
+		
+		effects = {
+			red_click = {
+				custom_effect_tooltip = SOV_2nd_year_plan_result_red_range
+				event_option_tooltip = soviet.3.g
+			}
+			orange_click = {
+				custom_effect_tooltip = SOV_2nd_year_plan_result_orange_range
+				custom_effect_tooltip = SOV_2nd_year_plan_result_tt
+				custom_effect_tooltip = SOV_2nd_year_plan_result_a
+				event_option_tooltip = soviet.3.e 
+				custom_effect_tooltip = SOV_2nd_year_plan_result_b
+				event_option_tooltip = soviet.3.f
+			}
+			yellow_click = {
+				custom_effect_tooltip = SOV_2nd_year_plan_result_yellow_range
+				custom_effect_tooltip = SOV_2nd_year_plan_result_tt
+				custom_effect_tooltip = SOV_2nd_year_plan_result_a
+				event_option_tooltip = soviet.3.c 
+				custom_effect_tooltip = SOV_2nd_year_plan_result_b
+				event_option_tooltip = soviet.3.d
+			}
+			green_click = {
+				custom_effect_tooltip = SOV_2nd_year_plan_result_green_range
+				custom_effect_tooltip = SOV_2nd_year_plan_result_tt
+				custom_effect_tooltip = SOV_2nd_year_plan_result_a
+				event_option_tooltip = soviet.3.a 
+				custom_effect_tooltip = SOV_2nd_year_plan_result_b
+				event_option_tooltip = soviet.3.b
+			}
+			super_green_click = {
+				custom_effect_tooltip = SOV_2nd_year_plan_result_super_green_range
+				custom_effect_tooltip = SOV_2nd_year_plan_success_tt
+				effect_tooltip = {
+					SOV_2nd_5_year_plan_reward = yes
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,141 @@
+TPMP_SOV_check_four_year_plan = {
+    if = {
+        set_variable = { TPMP_SOV_fyp_failure = 0 }  # ← reset to 0 properly
+
+        limit = { has_idea = TPMP_SOV_2nd_fyp_idea }
+        
+        
+        # Stalingrad civs
+        if = {
+            limit = { 217 = { NOT = { industrial_complex > 13 } } }
+            add_to_variable = { TPMP_SOV_fyp_failure = 1 }
+        }
+        # Kiev civs
+        if = {
+            limit = { 877 = { NOT = { industrial_complex > 9 } } }
+            add_to_variable = { TPMP_SOV_fyp_failure = 1 }
+        }
+        # Moscow civs
+        if = {
+            limit = { 845 = { NOT = { industrial_complex > 9 } } }
+            add_to_variable = { TPMP_SOV_fyp_failure = 1 }
+        }
+        # Leningrad civs
+        if = {
+            limit = { 195 = { NOT = { industrial_complex > 7 } } }
+            add_to_variable = { TPMP_SOV_fyp_failure = 1 }
+        }
+        # Chelyabinsk civs
+        if = {
+            limit = { 572 = { NOT = { industrial_complex > 5 } } } 
+            add_to_variable = { TPMP_SOV_fyp_failure = 1 }
+        }
+        # Kazan civs
+        if = {
+            limit = { 249 = { NOT = { industrial_complex > 3 } } } 
+            add_to_variable = { TPMP_SOV_fyp_failure = 1 }
+        }
+        # Kuybyshev civs
+        if = {
+            limit = { 251 = { NOT = { industrial_complex > 3 } } } 
+            add_to_variable = { TPMP_SOV_fyp_failure = 1 }
+        }
+
+
+
+
+
+        # Steel
+        if = {
+            limit = {
+                NOT = {
+                    has_resources_in_collection = {
+                        collection = collection:country_and_all_subjects
+                        resource = steel
+                        amount > 9499
+                        extracted = yes
+                    }
+                }
+            }
+            add_to_variable = { TPMP_SOV_fyp_failure = 1 }
+        }
+        # Coal
+        if = {
+            limit = {
+                NOT = {
+                    has_resources_in_collection = {
+                        collection = collection:country_and_all_subjects
+                        resource = coal
+                        amount > 2999
+                        extracted = yes
+                    }
+                }
+            }
+            add_to_variable = { TPMP_SOV_fyp_failure = 1 }
+        }
+        # Oil
+        if = {
+            limit = {
+                NOT = {
+                    has_resources_in_collection = {
+                        collection = collection:country_and_all_subjects
+                        resource = oil
+                        amount > 4499
+                        extracted = yes
+                    }
+                }
+            }
+            add_to_variable = { TPMP_SOV_fyp_failure = 1 }
+        }
+        # Chromium
+        if = {
+            limit = {
+                NOT = {
+                    has_resources_in_collection = {
+                        collection = collection:country_and_all_subjects
+                        resource = chromium
+                        amount > 5999
+                        extracted = yes
+                    }
+                }
+            }
+            add_to_variable = { TPMP_SOV_fyp_failure = 1 }
+        }
+        # Tungsten
+        if = {
+            limit = {
+                NOT = {
+                    has_resources_in_collection = {
+                        collection = collection:country_and_all_subjects
+                        resource = tungsten
+                        amount > 1999
+                        extracted = yes
+                    }
+                }
+            }
+            add_to_variable = { TPMP_SOV_fyp_failure = 1 }
+        }
+        # Rubber
+        if = {
+            limit = {
+                NOT = {
+                    has_resources_in_collection = {
+                        collection = collection:country_and_all_subjects
+                        resource = rubber
+                        amount > 1199
+                        extracted = yes
+                    }
+                }
+            }
+            add_to_variable = { TPMP_SOV_fyp_failure = 1 }
+        }
+
+
+
+
+
+
+
+        # add more conditions here later
+    }
+}
