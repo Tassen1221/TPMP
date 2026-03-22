@@ -1575,15 +1575,13 @@ focus_tree = {
 		cost = 5
 
 		mutually_exclusive = { 
-			focus = TPMP_SOV_methodical_war
-
 		}
 
 		allow_branch = {
 		}
 
 		available = {
-			date > 1942.01.01
+			has_completed_focus = TPMP_SOV_winter_counteroffensive
 
 		}
 		
@@ -2062,6 +2060,500 @@ focus_tree = {
 
 		}
 	}
+
+
+
+
+
+
+#                                                                                                                                                                                    
+#                                                                                                                                                                                    
+#    WWWWWWWW                           WWWWWWWW   AAA               RRRRRRRRRRRRRRRRR        TTTTTTTTTTTTTTTTTTTTTTTRRRRRRRRRRRRRRRRR   EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
+#    W::::::W                           W::::::W  A:::A              R::::::::::::::::R       T:::::::::::::::::::::TR::::::::::::::::R  E::::::::::::::::::::EE::::::::::::::::::::E
+#    W::::::W                           W::::::W A:::::A             R::::::RRRRRR:::::R      T:::::::::::::::::::::TR::::::RRRRRR:::::R E::::::::::::::::::::EE::::::::::::::::::::E
+#    W::::::W                           W::::::WA:::::::A            RR:::::R     R:::::R     T:::::TT:::::::TT:::::TRR:::::R     R:::::REE::::::EEEEEEEEE::::EEE::::::EEEEEEEEE::::E
+#     W:::::W           WWWWW           W:::::WA:::::::::A             R::::R     R:::::R     TTTTTT  T:::::T  TTTTTT  R::::R     R:::::R  E:::::E       EEEEEE  E:::::E       EEEEEE
+#      W:::::W         W:::::W         W:::::WA:::::A:::::A            R::::R     R:::::R             T:::::T          R::::R     R:::::R  E:::::E               E:::::E             
+#       W:::::W       W:::::::W       W:::::WA:::::A A:::::A           R::::RRRRRR:::::R              T:::::T          R::::RRRRRR:::::R   E::::::EEEEEEEEEE     E::::::EEEEEEEEEE   
+#        W:::::W     W:::::::::W     W:::::WA:::::A   A:::::A          R:::::::::::::RR               T:::::T          R:::::::::::::RR    E:::::::::::::::E     E:::::::::::::::E   
+#         W:::::W   W:::::W:::::W   W:::::WA:::::A     A:::::A         R::::RRRRRR:::::R              T:::::T          R::::RRRRRR:::::R   E:::::::::::::::E     E:::::::::::::::E   
+#          W:::::W W:::::W W:::::W W:::::WA:::::AAAAAAAAA:::::A        R::::R     R:::::R             T:::::T          R::::R     R:::::R  E::::::EEEEEEEEEE     E::::::EEEEEEEEEE   
+#           W:::::W:::::W   W:::::W:::::WA:::::::::::::::::::::A       R::::R     R:::::R             T:::::T          R::::R     R:::::R  E:::::E               E:::::E             
+#            W:::::::::W     W:::::::::WA:::::AAAAAAAAAAAAA:::::A      R::::R     R:::::R             T:::::T          R::::R     R:::::R  E:::::E       EEEEEE  E:::::E       EEEEEE
+#             W:::::::W       W:::::::WA:::::A             A:::::A   RR:::::R     R:::::R           TT:::::::TT      RR:::::R     R:::::REE::::::EEEEEEEE:::::EEE::::::EEEEEEEE:::::E
+#              W:::::W         W:::::WA:::::A               A:::::A  R::::::R     R:::::R           T:::::::::T      R::::::R     R:::::RE::::::::::::::::::::EE::::::::::::::::::::E
+#               W:::W           W:::WA:::::A                 A:::::A R::::::R     R:::::R           T:::::::::T      R::::::R     R:::::RE::::::::::::::::::::EE::::::::::::::::::::E
+#                WWW             WWWAAAAAAA                   AAAAAAARRRRRRRR     RRRRRRR           TTTTTTTTTTT      RRRRRRRR     RRRRRRREEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
+#                                                                                                                                                                                    
+#                                                                                                                                                                                    
+#                                                                                                                                                                                    
+#                                                                                                                                                                                    
+#                                                                                                                                                                                    
+#                                                                                                                                                                                    
+#                                                                                                                                                                                    
+
+
+
+
+
+
+
+
+
+#123123
+		focus = {
+		id = TPMP_SOV_unignorable_wehrmacht_activity
+		icon = GFX_focus_fra_loyalty_stalin
+		prerequisite = {
+		}
+		x = 55
+		y = 10
+		
+		cost = 1
+
+		mutually_exclusive = { 
+			
+
+		}
+
+		allow_branch = {
+		}
+
+
+		bypass = {
+			OR = {
+				NOT = { country_exists = GER }
+				has_war_with = GER
+			}
+		}
+
+
+		available = {
+			date > 1941.10.01
+
+
+		}
+
+
+		
+		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOCUS_FILTER_STABILITY}
+
+		completion_reward = {
+
+
+		}
+	}
+
+
+#123123
+		focus = {
+		id = TPMP_SOV_for_whom_the_bell_tolls
+		icon = GFX_focus_fra_loyalty_stalin
+		prerequisite = { focus =  TPMP_SOV_unignorable_wehrmacht_activity
+		}
+		x = 0
+		y = 1
+		relative_position_id = TPMP_SOV_unignorable_wehrmacht_activity
+		
+		cost = 2
+
+		mutually_exclusive = { 
+			
+
+		}
+
+		allow_branch = {
+		}
+
+		available = {
+
+		}
+		
+		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOCUS_FILTER_STABILITY}
+
+		completion_reward = {
+
+
+		}
+	}
+
+#123123
+		focus = {
+		id = TPMP_SOV_evacuate_leningrad_industry
+		icon = GFX_focus_fra_loyalty_stalin
+		prerequisite = { focus =  TPMP_SOV_for_whom_the_bell_tolls
+		}
+		x = 6
+		y = 1
+		relative_position_id = TPMP_SOV_for_whom_the_bell_tolls
+		
+		cost = 5
+
+		mutually_exclusive = { 
+			
+
+		}
+
+		allow_branch = {
+		}
+
+		available = {
+
+		}
+		
+		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOCUS_FILTER_STABILITY}
+
+		completion_reward = {
+
+
+		}
+	}
+
+#123123
+		focus = {
+		id = TPMP_SOV_evacuate_baltic_industry
+		icon = GFX_focus_fra_loyalty_stalin
+		prerequisite = { focus =  TPMP_SOV_for_whom_the_bell_tolls
+		}
+		x = 8
+		y = 1
+		relative_position_id = TPMP_SOV_for_whom_the_bell_tolls
+		
+		cost = 5
+
+		mutually_exclusive = { 
+			
+
+		}
+
+		allow_branch = {
+		}
+
+		available = {
+
+		}
+		
+		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOCUS_FILTER_STABILITY}
+
+		completion_reward = {
+
+
+		}
+	}
+
+
+#123123
+		focus = {
+		id = TPMP_SOV_evacuate_volga_area_industry
+		icon = GFX_focus_fra_loyalty_stalin
+		prerequisite = { focus =  TPMP_SOV_evacuate_baltic_industry
+			focus =  TPMP_SOV_evacuate_leningrad_industry
+
+		}
+		x = 1
+		y = 1
+		relative_position_id = TPMP_SOV_evacuate_baltic_industry
+		
+		cost = 5
+
+		mutually_exclusive = { 
+			
+
+		}
+
+		allow_branch = {
+		}
+
+		available = {
+
+		}
+		
+		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOCUS_FILTER_STABILITY}
+
+		completion_reward = {
+
+
+		}
+	}
+
+
+
+
+#123123
+		focus = {
+		id = TPMP_SOV_evacuate_southern_don_industrial_area
+		icon = GFX_focus_fra_loyalty_stalin
+		prerequisite = { focus =  TPMP_SOV_evacuate_baltic_industry
+			focus =  TPMP_SOV_evacuate_leningrad_industry
+
+		}
+		x = -1
+		y = 1
+		relative_position_id = TPMP_SOV_evacuate_baltic_industry
+		
+		cost = 5
+
+		mutually_exclusive = { 
+			
+
+		}
+
+		allow_branch = {
+		}
+
+		available = {
+
+		}
+		
+		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOCUS_FILTER_STABILITY}
+
+		completion_reward = {
+
+
+		}
+	}
+
+
+#123123
+
+		focus = {
+		id = TPMP_SOV_evacuate_moscow_industral_area
+		icon = GFX_focus_fra_loyalty_stalin
+		prerequisite = { focus =  TPMP_SOV_evacuate_baltic_industry
+			focus =  TPMP_SOV_evacuate_leningrad_industry
+
+		}
+		x = -3
+		y = 1
+		relative_position_id = TPMP_SOV_evacuate_baltic_industry
+		
+		cost = 5
+
+		mutually_exclusive = { 
+			
+
+		}
+
+		allow_branch = {
+		}
+
+		available = {
+
+		}
+		
+		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOCUS_FILTER_STABILITY}
+
+		completion_reward = {
+
+
+		}
+	}
+
+
+#123123
+		focus = {
+		id = TPMP_SOV_stavka_directive_no_3
+		icon = GFX_focus_fra_loyalty_stalin
+		prerequisite = { focus =  TPMP_SOV_for_whom_the_bell_tolls
+		}
+		x = 0
+		y = 1
+		relative_position_id = TPMP_SOV_for_whom_the_bell_tolls
+		
+		cost = 2
+
+		mutually_exclusive = { 
+			
+
+		}
+
+		allow_branch = {
+		}
+
+		available = {
+
+		}
+		
+		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOCUS_FILTER_STABILITY}
+
+		completion_reward = {
+
+
+		}
+	}
+
+
+
+#123123
+		focus = {
+		id = TPMP_SOV_stavka_directive_defend_minsk
+		icon = GFX_focus_fra_loyalty_stalin
+		prerequisite = { focus =  TPMP_SOV_stavka_directive_no_3
+		}
+		x = -1
+		y = 1
+		relative_position_id = TPMP_SOV_stavka_directive_no_3
+		
+		cost = 1
+
+		mutually_exclusive = { 
+			
+
+		}
+
+		allow_branch = {
+		}
+
+		available = {
+
+		}
+		
+		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOCUS_FILTER_STABILITY}
+
+		completion_reward = {
+
+
+		}
+	}
+
+#123123
+		focus = {
+		id = TPMP_SOV_stavka_directive_defend_kiev
+		icon = GFX_focus_fra_loyalty_stalin
+		prerequisite = { focus =  TPMP_SOV_stavka_directive_no_3
+		}
+		x = 1
+		y = 1
+		relative_position_id = TPMP_SOV_stavka_directive_no_3
+		
+		cost = 1
+
+		mutually_exclusive = { 
+			
+
+		}
+
+		allow_branch = {
+		}
+
+		available = {
+
+		}
+		
+		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOCUS_FILTER_STABILITY}
+
+		completion_reward = {
+
+
+		}
+	}
+
+
+
+
+
+#123123
+		focus = {
+		id = TPMP_SOV_winter_counteroffensive
+		icon = GFX_focus_fra_loyalty_stalin
+		prerequisite = { focus =  TPMP_SOV_stavka_directive_defend_minsk
+			focus =  TPMP_SOV_stavka_directive_defend_kiev
+		}
+		x = 1
+		y = 1
+		relative_position_id = TPMP_SOV_stavka_directive_defend_minsk
+		
+		cost = 5
+
+		mutually_exclusive = { 
+			
+
+		}
+
+		allow_branch = {
+		}
+
+		available = {
+
+		}
+		
+		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOCUS_FILTER_STABILITY}
+
+		completion_reward = {
+
+
+		}
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#123123
+		focus = {
+		id = TPMP_SOV_order_no_227
+		icon = GFX_focus_fra_loyalty_stalin
+		prerequisite = { focus =  TPMP_SOV_winter_counteroffensive
+		}
+		x = 0
+		y = 1
+		relative_position_id = TPMP_SOV_winter_counteroffensive
+		
+		cost = 5
+
+		mutually_exclusive = { 
+			
+
+		}
+
+		allow_branch = {
+		}
+
+		available = {
+
+		}
+		
+		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOCUS_FILTER_STABILITY}
+
+		completion_reward = {
+
+
+		}
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
