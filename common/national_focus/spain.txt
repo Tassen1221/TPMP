@@ -2928,6 +2928,7 @@ focus_tree = {
 			}
 			NOT = { has_completed_focus = SPA_the_latin_bloc }
 			NOT = { has_global_flag = POR_iberian_summit_in_progress_flag }
+			NOT = {has_idea = TPMP_SPR_allies_reconciliation}
 		}
 		bypass = {
 			OR = {
@@ -3669,7 +3670,7 @@ focus_tree = {
 		id = SPA_unify_the_nationalist_front
 		available = {
 			has_global_flag = spanish_civil_war
-			hidden_trigger = { always = no }
+			# hidden_trigger = { always = no }
 		}
 		bypass = {
 		}
@@ -4308,23 +4309,23 @@ focus_tree = {
 		available = {
 			has_global_flag = scw_over
 			is_in_faction = no
-			OR = {
-				AND = {
-					ENG = {
-						has_government = democratic
-						is_faction_leader = yes
-					}
-				}
-				AND = {
-					USA = {
-						has_government = democratic
-						is_faction_leader = yes
-					}
-				}
-			}
+			# OR = {
+			# 	AND = {
+			# 		ENG = {
+			# 			has_government = democratic
+			# 			is_faction_leader = yes
+			# 		}
+			# 	}
+			# 	AND = {
+			# 		USA = {
+			# 			has_government = democratic
+			# 			is_faction_leader = yes
+			# 		}
+			# 	}
+			# }
 			NOT = { has_completed_focus = SPA_the_latin_bloc }
-			NOT = { has_government = fascism }
-			fascism < 0.4		
+			# NOT = { has_government = fascism }
+			# fascism < 0.4		
 			NOT = { has_global_flag = POR_iberian_summit_in_progress_flag }
 		}
 		bypass = {
@@ -4338,9 +4339,9 @@ focus_tree = {
 			}
 		}
 		prerequisite = { focus = SPA_fuse_the_parties }
-		allow_branch = {
-			always=no
-		}
+		# allow_branch = {
+		# 	always=no
+		# }
 		ai_will_do = {
 			factor = 1
 			modifier = {
@@ -4358,40 +4359,38 @@ focus_tree = {
 		available_if_capitulated = yes
 
 		completion_reward = {
-			if = {
-				limit = {
-					ENG = {
-						has_government = democratic
-						is_faction_leader = yes
-					}
-				}
-				ENG = { country_event = { id = generic.2 hours = 6 } }
-			}
-			if = {
-				limit = {
-					USA = {
-						has_government = democratic
-						is_faction_leader = yes
-					}
-				}
-				USA = { country_event = { id = generic.2 hours = 6 } }
-			}
-			hidden_effect = { news_event = { id = lar_news.11 days = 1 } }
-		}
+			# if = {
+			# 	limit = {
+			# 		ENG = {
+			# 			has_government = democratic
+			# 			is_faction_leader = yes
+			# 		}
+			# 	}
+			# 	ENG = { country_event = { id = generic.2 hours = 6 } }
+			# }
+			# if = {
+			# 	limit = {
+			# 		USA = {
+			# 			has_government = democratic
+			# 			is_faction_leader = yes
+			# 		}
+			# 	}
+			# 	USA = { country_event = { id = generic.2 hours = 6 } }
+			# }
+			# hidden_effect = { news_event = { id = lar_news.11 days = 1 } }
+			add_ideas = TPMP_SPR_allies_reconciliation
+		}	
 	}
 
 	focus = {
 		id = SPA_the_stabilization_plan
 		available = {
 			NOT = { has_completed_focus = SPA_expand_the_axis_gold_trade }
-			OR = {
-				is_in_faction_with = ENG
-				is_in_faction_with = USA
-			}
+			has_idea = TPMP_SPR_allies_reconciliation
 		}
 		bypass = {
 		}
-		prerequisite = { focus = SPA_fuse_the_parties }
+		prerequisite = { focus = SPA_join_the_allies }
 		prerequisite = { focus = SPA_national_recovery }
 		
 		icon = GFX_goal_generic_neutrality_focus
@@ -4441,10 +4440,7 @@ focus_tree = {
 	focus = {
 		id = SPA_expand_spanish_bases
 		available = {
-			OR = {
-				is_in_faction_with = ENG
-				is_in_faction_with = USA
-			}
+			has_idea = TPMP_SPR_allies_reconciliation
 		}
 		bypass = {
 		}
@@ -4605,10 +4601,7 @@ focus_tree = {
 	focus = {
 		id = SPA_capitalist_economic_aid
 		available = {
-			OR = {
-				is_in_faction_with = ENG
-				is_in_faction_with = USA
-			}
+			has_idea = TPMP_SPR_allies_reconciliation
 		}
 		bypass = {
 		}
@@ -4669,10 +4662,7 @@ focus_tree = {
 	focus = {
 		id = SPA_improve_living_standards
 		available = {
-			OR = {
-				is_in_faction_with = ENG
-				is_in_faction_with = USA
-			}
+			has_idea = TPMP_SPR_allies_reconciliation
 		}
 		bypass = {
 		}
@@ -4727,10 +4717,7 @@ focus_tree = {
 	focus = {
 		id = SPA_domestic_industrial_developments
 		available = {
-			OR = {
-				is_in_faction_with = ENG
-				is_in_faction_with = USA
-			}
+			has_idea = TPMP_SPR_allies_reconciliation
 		}
 		bypass = {
 		}
@@ -4783,10 +4770,7 @@ focus_tree = {
 	focus = {
 		id = SPA_the_spanish_miracle
 		available = {
-			OR = {
-				is_in_faction_with = ENG
-				is_in_faction_with = USA
-			}
+			has_idea = TPMP_SPR_allies_reconciliation
 		}
 		bypass = {
 		}
@@ -5289,24 +5273,24 @@ focus_tree = {
 		available_if_capitulated = yes
 		search_filters = {FOCUS_FILTER_INDUSTRY}
 		completion_reward = {
-			if = {
-				limit = {
-					ENG = { has_government = democratic }
-				}
-				effect_tooltip = {
-					290 = {
-						add_extra_state_shared_building_slots = 3
-						add_building_construction = {
-							type = industrial_complex
-							level = 2
-							instant_build = yes
-						}
-					}
-				}
-				custom_effect_tooltip = SPA_the_tangiers_enclave_tt
-				ENG = { country_event = { id = lar_spain.36 hours = 6 random_hours = 18 } }
-			}
-			else = {
+			# if = {
+			# 	limit = {
+			# 		ENG = { has_government = democratic }
+			# 	}
+			# 	effect_tooltip = {
+			# 		290 = {
+			# 			add_extra_state_shared_building_slots = 3
+			# 			add_building_construction = {
+			# 				type = industrial_complex
+			# 				level = 2
+			# 				instant_build = yes
+			# 			}
+			# 		}
+			# 	}
+			# 	custom_effect_tooltip = SPA_the_tangiers_enclave_tt
+			# 	ENG = { country_event = { id = lar_spain.36 hours = 6 random_hours = 18 } }
+			# }
+			# else = {
 				290 = {
 					add_extra_state_shared_building_slots = 3
 					add_building_construction = {
@@ -5315,7 +5299,7 @@ focus_tree = {
 						instant_build = yes
 					}
 				}
-			}
+			# }
 		}
 	}
 
