@@ -270,6 +270,210 @@ TPMP_SOV_workers_decision_category = {
 	    }
 	}
 
+	TPMP_SOV_workers_coal_targeted_825_decision = {
+
+		state_target = yes
+		targets = { 825 }
+		target_trigger = {
+			#has_completed_focus = TPMP_SOV_expand_the_role_of_nkvd
+		}
+
+		custom_cost_trigger = {
+			check_variable = { TPMP_SOV_workers_var > 420 }
+		}
+
+		custom_cost_text = TPMP_SOV_gulag_spend_workers_coal_decision
+
+		available = {
+			check_variable = { TPMP_SOV_workers_var > 420 }
+		}
+
+		on_map_mode = map_and_decisions_view
+		icon = coal
+		cost = 5
+		complete_effect = {
+
+			every_core_state = {
+				limit = {
+					state = 825
+				}
+				add_resource = {
+					type = coal
+					amount = 420
+				}
+			}
+
+			hidden_effect = {
+				subtract_from_variable = { TPMP_SOV_workers_var = 420 }
+			}
+
+	    }
+	}
+
+	TPMP_SOV_workers_coal_targeted_569_decision = {
+
+		state_target = yes
+		targets = { 569 }
+		target_trigger = {
+			#has_completed_focus = TPMP_SOV_expand_the_role_of_nkvd
+		}
+
+		custom_cost_trigger = {
+			check_variable = { TPMP_SOV_workers_var > 420 }
+		}
+
+		custom_cost_text = TPMP_SOV_gulag_spend_workers_coal_decision
+
+		available = {
+			check_variable = { TPMP_SOV_workers_var > 420 }
+		}
+
+		on_map_mode = map_and_decisions_view
+		icon = coal
+		cost = 5
+		complete_effect = {
+
+			every_core_state = {
+				limit = {
+					state = 569
+				}
+				add_resource = {
+					type = coal
+					amount = 420
+				}
+			}
+
+			hidden_effect = {
+				subtract_from_variable = { TPMP_SOV_workers_var = 420 }
+			}
+
+	    }
+	}
+
+
+	TPMP_SOV_workers_coal_targeted_881_decision = {
+
+		state_target = yes
+		targets = { 881 }
+		target_trigger = {
+			#has_completed_focus = TPMP_SOV_expand_the_role_of_nkvd
+		}
+
+		custom_cost_trigger = {
+			check_variable = { TPMP_SOV_workers_var > 420 }
+		}
+
+		custom_cost_text = TPMP_SOV_gulag_spend_workers_coal_decision
+
+		available = {
+			check_variable = { TPMP_SOV_workers_var > 420 }
+		}
+
+		on_map_mode = map_and_decisions_view
+		icon = coal
+		cost = 5
+		complete_effect = {
+
+			every_core_state = {
+				limit = {
+					state = 881
+				}
+				add_resource = {
+					type = coal
+					amount = 420
+				}
+			}
+
+			hidden_effect = {
+				subtract_from_variable = { TPMP_SOV_workers_var = 420 }
+			}
+
+	    }
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	TPMP_SOV_workers_gold_targeted_644_decision = {
+
+		state_target = yes
+		targets = { 644 }
+		target_trigger = {
+			#has_completed_focus = TPMP_SOV_expand_the_role_of_nkvd
+		}
+
+		custom_cost_trigger = {
+			check_variable = { TPMP_SOV_workers_var > 420 }
+		}
+
+		custom_cost_text = TPMP_SOV_gulag_spend_workers_coal_decision
+
+		available = {
+			check_variable = { TPMP_SOV_workers_var > 420 }
+		}
+
+		on_map_mode = map_and_decisions_view
+		icon = coal
+		cost = 5
+		complete_effect = {
+			add_ideas = TPMP_SOV_kolyma_gold_idea
+			every_core_state = {
+				limit = {
+					state = 644
+				}
+				add_resource = {
+					type = coal
+					amount = 420
+				}
+			}
+
+			hidden_effect = {
+				subtract_from_variable = { TPMP_SOV_workers_var = 420 }
+			}
+
+	    }
+	}
+
+
+
+	TPMP_SOV_workers_lumber_decision = {
+
+		custom_cost_trigger = {
+			check_variable = { TPMP_SOV_workers_var > 420 }
+		}
+
+		custom_cost_text = TPMP_SOV_gulag_spend_workers_coal_decision
+
+		available = {
+			check_variable = { TPMP_SOV_workers_var > 420 }
+		}
+
+		cost = 5
+		complete_effect = {
+
+			swap_ideas = {
+					remove_idea = TPMP_SOV_does_not_have_karelia_lumber_idea
+					add_idea = TPMP_SOV_has_karelia_lumber_idea
+				}
+			hidden_effect = {
+				subtract_from_variable = { TPMP_SOV_workers_var = 420 }
+			}
+
+	    }
+	}
 
 
 
@@ -297,9 +501,803 @@ TPMP_SOV_workers_decision_category = {
 
 
 
+	TPMP_SOV_workers_develop_trace_coal_siberia_west_decision = {
+		icon = eng_trade_unions_support
+		days_remove = 7
+        
+		custom_cost_trigger = {
+			check_variable = { TPMP_SOV_workers_var > 420 }
+		}
 
+		custom_cost_text = TPMP_SOV_gulag_spend_workers_decision
 
+		visible = {
+			#has_completed_focus = TPMP_SOV_expand_the_role_of_nkvd
+		}
 
-
+		available = {
+			check_variable = { TPMP_SOV_workers_var > 420 }
+		}
 		fire_only_once = yes
+		highlight_states = {
+       		highlight_state_targets = {
+            state = 572
+            state = 582
+            state = 580
+            state = 653
+            state = 590
+            state = 583
+            state = 569
+            state = 578
+            state = 588
+            state = 654
+            state = 824
+            state = 577
+            state = 403
+            state = 570
+            state = 571
+            state = 40
+            state = 882
+			}
+		}
+
+		complete_effect = {
+			subtract_from_variable = { TPMP_SOV_workers_var = 420 } 
+
+
+  	      	every_state = {
+           		 limit = {
+           		     is_siberia_west_industrial_region = yes
+          		  }
+   		  		   add_resource = {
+    	  		      type = coal
+    	    	    amount = 10
+    			    }
+
+
+			
+
+          		  add_extra_state_shared_building_slots = 1
+      		}
+		}
+
+	}
+
+
+	TPMP_SOV_workers_develop_trace_coal_siberia_far_east_decision = {
+		icon = eng_trade_unions_support
+		days_remove = 7
+        
+		custom_cost_trigger = {
+			check_variable = { TPMP_SOV_workers_var > 420 }
+		}
+
+		custom_cost_text = TPMP_SOV_gulag_spend_workers_decision
+
+		visible = {
+			#has_completed_focus = TPMP_SOV_expand_the_role_of_nkvd
+		}
+
+		available = {
+			check_variable = { TPMP_SOV_workers_var > 420 }
+		}
+		fire_only_once = yes
+		highlight_states = {
+       		highlight_state_targets = {
+            state = 878
+            state = 876
+            state = 877
+            state = 329
+            state = 408
+            state = 409
+            state = 655
+            state = 874
+            state = 875
+            state = 822
+            state = 562
+            state = 644
+            state = 874
+            state = 822
+            state = 637
+            state = 576
+            state = 568
+            state = 516
+            state = 563
+            state = 657
+            state = 560
+            state = 561
+            state = 566
+            state = 564
+            state = 565
+            state = 567
+            state = 575
+            state = 574
+			}
+		}
+
+		complete_effect = {
+			subtract_from_variable = { TPMP_SOV_workers_var = 420 } 
+
+
+  	      	every_state = {
+           		 limit = {
+           		     is_siberia_far_east_industrial_region = yes
+          		  }
+   		  		   add_resource = {
+    	  		      type = coal
+    	    	    amount = 6
+    			    }
+
+
+			
+
+          		  add_extra_state_shared_building_slots = 1
+      		}
+		}
+
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+#                                                                                                                 
+#                                                                                                                 
+#    IIIIIIIIIINNNNNNNN        NNNNNNNNFFFFFFFFFFFFFFFFFFFFFFRRRRRRRRRRRRRRRRR                  AAA               
+#    I::::::::IN:::::::N       N::::::NF::::::::::::::::::::FR::::::::::::::::R                A:::A              
+#    I::::::::IN::::::::N      N::::::NF::::::::::::::::::::FR::::::RRRRRR:::::R              A:::::A             
+#    II::::::IIN:::::::::N     N::::::NFF::::::FFFFFFFFF::::FRR:::::R     R:::::R            A:::::::A            
+#      I::::I  N::::::::::N    N::::::N  F:::::F       FFFFFF  R::::R     R:::::R           A:::::::::A           
+#      I::::I  N:::::::::::N   N::::::N  F:::::F               R::::R     R:::::R          A:::::A:::::A          
+#      I::::I  N:::::::N::::N  N::::::N  F::::::FFFFFFFFFF     R::::RRRRRR:::::R          A:::::A A:::::A         
+#      I::::I  N::::::N N::::N N::::::N  F:::::::::::::::F     R:::::::::::::RR          A:::::A   A:::::A        
+#      I::::I  N::::::N  N::::N:::::::N  F:::::::::::::::F     R::::RRRRRR:::::R        A:::::A     A:::::A       
+#      I::::I  N::::::N   N:::::::::::N  F::::::FFFFFFFFFF     R::::R     R:::::R      A:::::AAAAAAAAA:::::A      
+#      I::::I  N::::::N    N::::::::::N  F:::::F               R::::R     R:::::R     A:::::::::::::::::::::A     
+#      I::::I  N::::::N     N:::::::::N  F:::::F               R::::R     R:::::R    A:::::AAAAAAAAAAAAA:::::A    
+#    II::::::IIN::::::N      N::::::::NFF:::::::FF           RR:::::R     R:::::R   A:::::A             A:::::A   
+#    I::::::::IN::::::N       N:::::::NF::::::::FF           R::::::R     R:::::R  A:::::A               A:::::A  
+#    I::::::::IN::::::N        N::::::NF::::::::FF           R::::::R     R:::::R A:::::A                 A:::::A 
+#    IIIIIIIIIINNNNNNNN         NNNNNNNFFFFFFFFFFF           RRRRRRRR     RRRRRRRAAAAAAA                   AAAAAAA
+#                                                                                                                 
+#                                                                                                                 
+#                                                                                                                 
+#                                                                                                                 
+#                                                                                                                 
+#                                                                                                                 
+#                                                                                                                 
+
+
+
+
+
+
+
+
+
+
+
+TPMP_SOV_toggle_regional_infrastructure_decisions = {
+    icon = generic_industry
+    
+    days_re_enable = 0
+    
+    available = {
+        always = yes
+    }
+    
+    visible = {
+        always = yes
+    }
+    
+    complete_effect = {
+        if = {
+            limit = {
+                has_country_flag = show_regional_infrastructure
+            }
+            clr_country_flag = show_regional_infrastructure
+        }
+        else = {
+            set_country_flag = show_regional_infrastructure
+        }
+    }
+}
+
+TPMP_SOV_workers_develop_infrastructure_moscow_decision = {
+    icon = eng_trade_unions_support
+    days_remove = 7
+    
+    custom_cost_trigger = {
+        check_variable = { TPMP_SOV_workers_var > 420 }
+    }
+    custom_cost_text = TPMP_SOV_gulag_spend_workers_decision
+
+    visible = {
+        has_country_flag = show_regional_infrastructure
+    }
+    available = {
+        check_variable = { TPMP_SOV_workers_var > 420 }
+    }
+    fire_only_once = yes
+    highlight_states = {
+        highlight_state_targets = {
+            state = 219
+            state = 223
+            state = 247
+            state = 246
+            state = 253
+            state = 248
+            state = 254
+            state = 252
+            state = 222
+            state = 205
+            state = 220
+        }
+    }
+    complete_effect = {
+        subtract_from_variable = { TPMP_SOV_workers_var = 420 }
+        every_state = {
+            limit = { is_moscow_industrial_region = yes }
+            add_extra_state_shared_building_slots = 3
+            add_building_construction = {
+                type = infrastructure
+                level = 2
+                instant_build = yes
+            }
+        }
+    }
+}
+
+TPMP_SOV_workers_develop_infrastructure_leningrad_decision = {
+    icon = eng_trade_unions_support
+    days_remove = 7
+    
+    custom_cost_trigger = {
+        check_variable = { TPMP_SOV_workers_var > 420 }
+    }
+    custom_cost_text = TPMP_SOV_gulag_spend_workers_decision
+
+    visible = {
+        has_country_flag = show_regional_infrastructure
+    }
+    available = {
+        check_variable = { TPMP_SOV_workers_var > 420 }
+    }
+    fire_only_once = yes
+    highlight_states = {
+        highlight_state_targets = {
+            state = 195
+            state = 208
+            state = 244
+            state = 263
+            state = 264
+            state = 209
+            state = 216
+        }
+    }
+    complete_effect = {
+        subtract_from_variable = { TPMP_SOV_workers_var = 420 }
+        every_state = {
+            limit = { is_leningrad_industrial_region = yes }
+            add_extra_state_shared_building_slots = 3
+            add_building_construction = {
+                type = infrastructure
+                level = 2
+                instant_build = yes
+            }
+        }
+    }
+}
+
+TPMP_SOV_workers_develop_infrastructure_western_russia_decision = {
+    icon = eng_trade_unions_support
+    days_remove = 7
+    
+    custom_cost_trigger = {
+        check_variable = { TPMP_SOV_workers_var > 420 }
+    }
+    custom_cost_text = TPMP_SOV_gulag_spend_workers_decision
+
+    visible = {
+        has_country_flag = show_regional_infrastructure
+    }
+    available = {
+        check_variable = { TPMP_SOV_workers_var > 420 }
+    }
+    fire_only_once = yes
+    highlight_states = {
+        highlight_state_targets = {
+            state = 206
+            state = 204
+            state = 207
+            state = 194
+            state = 242
+            state = 224
+            state = 241
+            state = 243
+            state = 210
+        }
+    }
+    complete_effect = {
+        subtract_from_variable = { TPMP_SOV_workers_var = 420 }
+        every_state = {
+            limit = { is_western_russia_industrial_region = yes }
+            add_extra_state_shared_building_slots = 3
+            add_building_construction = {
+                type = infrastructure
+                level = 2
+                instant_build = yes
+            }
+        }
+    }
+}
+
+TPMP_SOV_workers_develop_infrastructure_northern_russia_decision = {
+    icon = eng_trade_unions_support
+    days_remove = 7
+    
+    custom_cost_trigger = {
+        check_variable = { TPMP_SOV_workers_var > 420 }
+    }
+    custom_cost_text = TPMP_SOV_gulag_spend_workers_decision
+
+    visible = {
+        has_country_flag = show_regional_infrastructure
+    }
+    available = {
+        check_variable = { TPMP_SOV_workers_var > 420 }
+    }
+    fire_only_once = yes
+    highlight_states = {
+        highlight_state_targets = {
+            state = 213
+            state = 214
+            state = 215
+            state = 351
+            state = 397
+            state = 825
+            state = 879
+            state = 880
+            state = 681
+            state = 262
+            state = 581
+            state = 579
+        }
+    }
+    complete_effect = {
+        subtract_from_variable = { TPMP_SOV_workers_var = 420 }
+        every_state = {
+            limit = { is_northern_russia_industrial_region = yes }
+            add_extra_state_shared_building_slots = 3
+            add_building_construction = {
+                type = infrastructure
+                level = 2
+                instant_build = yes
+            }
+        }
+    }
+}
+
+TPMP_SOV_workers_develop_infrastructure_ukraine_decision = {
+    icon = eng_trade_unions_support
+    days_remove = 7
+    
+    custom_cost_trigger = {
+        check_variable = { TPMP_SOV_workers_var > 420 }
+    }
+    custom_cost_text = TPMP_SOV_gulag_spend_workers_decision
+
+    visible = {
+        has_country_flag = show_regional_infrastructure
+    }
+    available = {
+        check_variable = { TPMP_SOV_workers_var > 420 }
+    }
+    fire_only_once = yes
+    highlight_states = {
+        highlight_state_targets = {
+            state = 193
+            state = 202
+            state = 192
+            state = 196
+            state = 197
+            state = 198
+            state = 199
+            state = 200
+            state = 201
+            state = 203
+            state = 221
+            state = 226
+            state = 225
+            state = 137
+            state = 834
+            state = 259
+        }
+    }
+    complete_effect = {
+        subtract_from_variable = { TPMP_SOV_workers_var = 420 }
+        every_state = {
+            limit = { is_ukraine_industrial_region = yes }
+            add_extra_state_shared_building_slots = 3
+            add_building_construction = {
+                type = infrastructure
+                level = 2
+                instant_build = yes
+            }
+        }
+    }
+}
+
+TPMP_SOV_workers_develop_infrastructure_volga_decision = {
+    icon = eng_trade_unions_support
+    days_remove = 7
+    
+    custom_cost_trigger = {
+        check_variable = { TPMP_SOV_workers_var > 420 }
+    }
+    custom_cost_text = TPMP_SOV_gulag_spend_workers_decision
+
+    visible = {
+        has_country_flag = show_regional_infrastructure
+    }
+    available = {
+        check_variable = { TPMP_SOV_workers_var > 420 }
+    }
+    fire_only_once = yes
+    highlight_states = {
+        highlight_state_targets = {
+            state = 239
+            state = 217
+            state = 249
+            state = 251
+            state = 250
+            state = 255
+            state = 256
+            state = 401
+            state = 829
+            state = 833
+            state = 236
+            state = 237
+        }
+    }
+    complete_effect = {
+        subtract_from_variable = { TPMP_SOV_workers_var = 420 }
+        every_state = {
+            limit = { is_volga_industrial_region = yes }
+            add_extra_state_shared_building_slots = 3
+            add_building_construction = {
+                type = infrastructure
+                level = 2
+                instant_build = yes
+            }
+        }
+    }
+}
+
+TPMP_SOV_workers_develop_infrastructure_south_russia_don_decision = {
+    icon = eng_trade_unions_support
+    days_remove = 7
+    
+    custom_cost_trigger = {
+        check_variable = { TPMP_SOV_workers_var > 420 }
+    }
+    custom_cost_text = TPMP_SOV_gulag_spend_workers_decision
+
+    visible = {
+        has_country_flag = show_regional_infrastructure
+    }
+    available = {
+        check_variable = { TPMP_SOV_workers_var > 420 }
+    }
+    fire_only_once = yes
+    highlight_states = {
+        highlight_state_targets = {
+            state = 218
+            state = 228
+            state = 234
+            state = 235
+            state = 238
+            state = 240
+            state = 257
+            state = 258
+            state = 260
+            state = 265
+            state = 245
+            state = 227
+        }
+    }
+    complete_effect = {
+        subtract_from_variable = { TPMP_SOV_workers_var = 420 }
+        every_state = {
+            limit = { is_south_russia_don_industrial_region = yes }
+            add_extra_state_shared_building_slots = 3
+            add_building_construction = {
+                type = infrastructure
+                level = 2
+                instant_build = yes
+            }
+        }
+    }
+}
+
+TPMP_SOV_workers_develop_infrastructure_caucasus_decision = {
+    icon = eng_trade_unions_support
+    days_remove = 7
+    
+    custom_cost_trigger = {
+        check_variable = { TPMP_SOV_workers_var > 420 }
+    }
+    custom_cost_text = TPMP_SOV_gulag_spend_workers_decision
+
+    visible = {
+        has_country_flag = show_regional_infrastructure
+    }
+    available = {
+        check_variable = { TPMP_SOV_workers_var > 420 }
+    }
+    fire_only_once = yes
+    highlight_states = {
+        highlight_state_targets = {
+            state = 229
+            state = 230
+            state = 231
+            state = 232
+            state = 233
+            state = 821
+            state = 826
+            state = 827
+            state = 828
+        }
+    }
+    complete_effect = {
+        subtract_from_variable = { TPMP_SOV_workers_var = 420 }
+        every_state = {
+            limit = { is_caucasus_industrial_region = yes }
+            add_extra_state_shared_building_slots = 3
+            add_building_construction = {
+                type = infrastructure
+                level = 2
+                instant_build = yes
+            }
+        }
+    }
+}
+
+TPMP_SOV_workers_develop_infrastructure_urals_west_decision = {
+    icon = eng_trade_unions_support
+    days_remove = 7
+    
+    custom_cost_trigger = {
+        check_variable = { TPMP_SOV_workers_var > 420 }
+    }
+    custom_cost_text = TPMP_SOV_gulag_spend_workers_decision
+
+    visible = {
+        has_country_flag = show_regional_infrastructure
+    }
+    available = {
+        check_variable = { TPMP_SOV_workers_var > 420 }
+    }
+    fire_only_once = yes
+    highlight_states = {
+        highlight_state_targets = {
+            state = 398
+            state = 399
+            state = 400
+            state = 652
+            state = 651
+            state = 573
+        }
+    }
+    complete_effect = {
+        subtract_from_variable = { TPMP_SOV_workers_var = 420 }
+        every_state = {
+            limit = { is_urals_west_industrial_region = yes }
+            add_extra_state_shared_building_slots = 3
+            add_building_construction = {
+                type = infrastructure
+                level = 2
+                instant_build = yes
+            }
+        }
+    }
+}
+
+TPMP_SOV_workers_develop_infrastructure_central_asia_decision = {
+    icon = eng_trade_unions_support
+    days_remove = 7
+    
+    custom_cost_trigger = {
+        check_variable = { TPMP_SOV_workers_var > 420 }
+    }
+    custom_cost_text = TPMP_SOV_gulag_spend_workers_decision
+
+    visible = {
+        has_country_flag = show_regional_infrastructure
+    }
+    available = {
+        check_variable = { TPMP_SOV_workers_var > 420 }
+    }
+    fire_only_once = yes
+    highlight_states = {
+        highlight_state_targets = {
+            state = 742
+            state = 823
+            state = 830
+            state = 831
+            state = 832
+            state = 405
+            state = 881
+            state = 402
+            state = 404
+            state = 407
+            state = 406
+            state = 587
+            state = 584
+            state = 589
+            state = 586
+            state = 585
+            state = 732
+        }
+    }
+    complete_effect = {
+        subtract_from_variable = { TPMP_SOV_workers_var = 420 }
+        every_state = {
+            limit = { is_central_asia_industrial_region = yes }
+            add_extra_state_shared_building_slots = 3
+            add_building_construction = {
+                type = infrastructure
+                level = 2
+                instant_build = yes
+            }
+        }
+    }
+}
+
+TPMP_SOV_workers_develop_infrastructure_siberia_west_decision = {
+    icon = eng_trade_unions_support
+    days_remove = 7
+    
+    custom_cost_trigger = {
+        check_variable = { TPMP_SOV_workers_var > 420 }
+    }
+    custom_cost_text = TPMP_SOV_gulag_spend_workers_decision
+
+    visible = {
+        has_country_flag = show_regional_infrastructure
+    }
+    available = {
+        check_variable = { TPMP_SOV_workers_var > 420 }
+    }
+    fire_only_once = yes
+    highlight_states = {
+        highlight_state_targets = {
+            state = 572
+            state = 582
+            state = 580
+            state = 653
+            state = 590
+            state = 583
+            state = 569
+            state = 578
+            state = 588
+            state = 654
+            state = 824
+            state = 577
+            state = 403
+            state = 570
+            state = 571
+            state = 40
+            state = 882
+        }
+    }
+    complete_effect = {
+        subtract_from_variable = { TPMP_SOV_workers_var = 420 }
+        every_state = {
+            limit = { is_siberia_west_industrial_region = yes }
+            add_extra_state_shared_building_slots = 3
+            add_building_construction = {
+                type = infrastructure
+                level = 2
+                instant_build = yes
+            }
+        }
+    }
+}
+
+	TPMP_SOV_workers_develop_infrastructure_siberia_far_east_decision = {
+		icon = eng_trade_unions_support
+		days_remove = 7
+        
+		custom_cost_trigger = {
+			check_variable = { TPMP_SOV_workers_var > 420 }
+		}
+
+		custom_cost_text = TPMP_SOV_gulag_spend_workers_decision
+
+		visible = {
+			#has_completed_focus = TPMP_SOV_expand_the_role_of_nkvd
+			has_country_flag = show_regional_infrastructure
+		}
+
+		available = {
+			check_variable = { TPMP_SOV_workers_var > 420 }
+		}
+		fire_only_once = yes
+		highlight_states = {
+       		highlight_state_targets = {
+            state = 878
+            state = 876
+            state = 877
+            state = 329
+            state = 408
+            state = 409
+            state = 655
+            state = 874
+            state = 875
+            state = 822
+            state = 562
+            state = 644
+            state = 874
+            state = 822
+            state = 637
+            state = 576
+            state = 568
+            state = 516
+            state = 563
+            state = 657
+            state = 560
+            state = 561
+            state = 566
+            state = 564
+            state = 565
+            state = 567
+            state = 575
+            state = 574
+			}
+		}
+
+		complete_effect = {
+			subtract_from_variable = { TPMP_SOV_workers_var = 420 } 
+
+
+  	      	every_state = {
+           		 limit = {
+           		     is_siberia_far_east_industrial_region = yes
+          		  }
+          		  add_extra_state_shared_building_slots = 3
+				  add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+      		}
+		}
+
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
