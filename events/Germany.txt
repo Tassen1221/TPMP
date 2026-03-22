@@ -3929,12 +3929,6 @@ country_event = {
 
 		hidden_effect = {
 			country_event = { hours = 6 id = news.60 }
-			every_state = {
-				limit = {
-					is_controlled_by = SLO
-				}
-				add_core_of = SLO
-			}
 			SLO = {
 				add_manpower = 9876
 				if = {
@@ -3946,6 +3940,10 @@ country_event = {
 				else = {
 					load_oob = "SLO_1939"
 				}
+				add_state_core = 70
+				add_state_core = 71
+				add_state_core = 73
+				add_state_core = 664
 			}
 		}
 	}
@@ -4175,6 +4173,17 @@ country_event = {
 		hidden_effect = {
 			GER = {
 				annex_country = { target = CZE }
+				CZE = {
+					every_core_state = {
+						limit = {
+							NOT = { is_core_of = SLO }
+							is_controlled_by = GER
+						}
+						add_claim_by = GER
+						set_compliance = 50
+					}	
+				}
+				
 				add_to_faction = HUN
 			}
 			HUN = {
@@ -4182,6 +4191,16 @@ country_event = {
 					type = alliance
 					id = "GER"
 					value = 200
+				}
+				CZE = {
+					every_core_state = {
+						limit = {
+							# NOT = { is_core_of = SLO }
+							is_controlled_by = HUN
+						}
+						add_claim_by = HUN
+						set_compliance = 50
+					}	
 				}
 			}
 		}
