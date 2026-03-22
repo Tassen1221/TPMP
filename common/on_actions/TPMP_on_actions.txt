@@ -159,46 +159,4 @@ on_actions = {
 			}
 		}
 	}
-	on_capitulation_immediate = { #scripted Iran
-		effect = {
-			if = {
-				limit = {
-					tag = PER
-				}
-				ENG = {
-					annex_country = {
-						target = PER 
-						transfer_troops = no
-					}
-				}
-				SOV = {
-					country_event = TPMP_GEN.1
-				}
-			}
-		}
-	}
-	on_capitulation_immediate = { #scripted China
-		effect = {
-			if = {
-				limit = {
-					tag = CHI
-				}
-				JAP = {
-					annex_country = {
-						target = CHI 
-						transfer_troops = yes #Whack but if i dont do this china equipment is all gone
-					}
-					add_named_threat = {
-						threat = 3
-						name = TPMP_JAP_chinacap1
-					}
-					add_named_threat = {
-						threat = 38.5
-						name = TPMP_JAP_chinacap2
-					}
-				}
-				
-			}
-		}
-	}
 }
