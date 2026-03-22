@@ -21192,30 +21192,30 @@ country_event = {
 	is_triggered_only = yes
 
 	# This has gone too far. Launch operation Margarethe!
-	option = { 
-		name = GER_operation_panzerfaust_events.04.a
-		# AI won't do this one
-		ai_chance = {
-			base = 0
-		}
+	# option = { 
+	# 	name = GER_operation_panzerfaust_events.04.a
+	# 	# AI won't do this one
+	# 	ai_chance = {
+	# 		base = 0
+	# 	}
 
-		remove_from_faction = FROM
+	# 	remove_from_faction = FROM
 
-		declare_war_on = {
-		    target = FROM
-		    type = puppet_wargoal_focus
-		}
+	# 	declare_war_on = {
+	# 	    target = FROM
+	# 	    type = puppet_wargoal_focus
+	# 	}
 
-		FROM = {
-			# Germany launches Operation Margarethe
-			country_event = {
-				id = GER_operation_panzerfaust_events.05
-				hours = 1
-			}
-		}
+	# 	FROM = {
+	# 		# Germany launches Operation Margarethe
+	# 		country_event = {
+	# 			id = GER_operation_panzerfaust_events.05
+	# 			hours = 1
+	# 		}
+	# 	}
 		
 
-	}
+	# }
 
 	# We will not play along with his games
 	option = {
@@ -21407,35 +21407,35 @@ country_event = {
 
 	}
 	# We shall never surrender!
-	option = { 
-		name = GER_operation_panzerfaust_events.10.b
-		ai_chance = {
-			base = 20
-		}
+	# option = { 
+	# 	name = GER_operation_panzerfaust_events.10.b
+	# 	ai_chance = {
+	# 		base = 20
+	# 	}
 
-		add_war_support = 0.05
+	# 	add_war_support = 0.05
 
-		add_country_leader_role = {
-			character = HUN_geza_lakatos
-			promote_leader = yes
-			country_leader = {
-				ideology = oligarchism
-				expire = "1965.1.1"
-				traits = { generallissimo desperate_gambit } 
-			}
-		}	
+	# 	add_country_leader_role = {
+	# 		character = HUN_geza_lakatos
+	# 		promote_leader = yes
+	# 		country_leader = {
+	# 			ideology = oligarchism
+	# 			expire = "1965.1.1"
+	# 			traits = { generallissimo desperate_gambit } 
+	# 		}
+	# 	}	
 
-		FROM = {
-			remove_from_faction = ROOT
+	# 	FROM = {
+	# 		remove_from_faction = ROOT
 
-			declare_war_on = {
-			    target = ROOT
-			    type = puppet_wargoal_focus
-			}
-		}
+	# 		declare_war_on = {
+	# 		    target = ROOT
+	# 		    type = puppet_wargoal_focus
+	# 		}
+	# 	}
 		
 
-	}
+	# }
 }
 
 
