@@ -2472,163 +2472,163 @@ country_event = {
 		}
 	}
 
-	option = { #Pro-Democratic Regency Council
-		name = bftb_bulgaria_tsar_boris.3.b
+	# option = { #Pro-Democratic Regency Council
+	# 	name = bftb_bulgaria_tsar_boris.3.b
 
-		ai_chance = {
-			base = 1
-			modifier = {
-				factor = 0
-				is_historical_focus_on = yes
-			}
-			modifier = {
-				factor = 0
-				is_in_faction_with = GER
-				GER = { has_government = fascism }
-			}
-		}
+	# 	ai_chance = {
+	# 		base = 1
+	# 		modifier = {
+	# 			factor = 0
+	# 			is_historical_focus_on = yes
+	# 		}
+	# 		modifier = {
+	# 			factor = 0
+	# 			is_in_faction_with = GER
+	# 			GER = { has_government = fascism }
+	# 		}
+	# 	}
 
-		trigger = { 
-			OR = {
-				has_government = democratic
-				AND = {
-					has_government = neutrality
-					OR = {
-						is_in_faction = no
-						AND = {
-							any_allied_country = {
-								is_major = yes
-								has_government = democratic
-							}
-						}
-						AND = {
-							is_faction_leader = yes
-							NOT = {
-								any_allied_country = {
-									is_major = yes
-									has_government = fascism
-								}
-							}
-						}
-					}
-				}	
-			}
-		}
+	# 	trigger = { 
+	# 		OR = {
+	# 			has_government = democratic
+	# 			AND = {
+	# 				has_government = neutrality
+	# 				OR = {
+	# 					is_in_faction = no
+	# 					AND = {
+	# 						any_allied_country = {
+	# 							is_major = yes
+	# 							has_government = democratic
+	# 						}
+	# 					}
+	# 					AND = {
+	# 						is_faction_leader = yes
+	# 						NOT = {
+	# 							any_allied_country = {
+	# 								is_major = yes
+	# 								has_government = fascism
+	# 							}
+	# 						}
+	# 					}
+	# 				}
+	# 			}	
+	# 		}
+	# 	}
 
-		add_popularity = {
-			ideology = democratic
-			popularity = 0.1
-		}
+	# 	add_popularity = {
+	# 		ideology = democratic
+	# 		popularity = 0.1
+	# 	}
 
-		if = {
-			limit = {
-				has_government = democratic
-			}
-			if = {
-				limit = {
-					has_country_leader = {
-						character = BUL_nikola_mushanov
-						ruling_only = yes
-					}
-				}
-				add_country_leader_role = {
-					character = BUL_regency_council
-					country_leader = {
-						expire = "1965.1.1"
-						ideology = conservatism
-						traits = {
-							elected_regency_council_pro_allies appeaser_regency_council
-						}
-					}
-					promote_leader = yes
-				}
-			}
-			else = {
-				add_country_leader_role = {
-					character = BUL_regency_council
-					country_leader = {
-						expire = "1965.1.1"
-						ideology = conservatism
-						traits = {
-							elected_regency_council_pro_allies
-						}
-					}
-					promote_leader = yes
-				}
-			}	
-		}
-		else = {
-			if = {
-				limit = {
-					has_country_leader = {
-						character = BUL_bogdan_filov
-						ruling_only = yes
-					}
-				}
-				add_country_leader_role = {
-					character = BUL_regency_council
-					country_leader = {
-						expire = "1965.1.1"
-						ideology = conservatism
-						traits = {
-							elected_regency_council_pro_allies political_manipulator_regency_council
-						}
-					}
-					promote_leader = yes
-				}
-				promote_character = { 
-					character = BUL_georgi_ivanov_kyoseivanov
-					ideology = moderatism
-				}	
-			}
-			else_if = {
-				limit = {
-					has_country_leader = {
-						character = BUL_georgi_ivanov_kyoseivanov
-						ruling_only = yes
-					}
-				}
-				add_country_leader_role = {
-					character = BUL_regency_council
-					country_leader = {
-						expire = "1965.1.1"
-						ideology = conservatism
-						traits = {
-							elected_regency_council_pro_allies
-						}
-					}
-					promote_leader = yes
-				}
-				promote_character = { 
-					character = BUL_bogdan_filov
-					ideology = centrism
-				}	
-			}
-			else = {
-				add_country_leader_role = {
-					character = BUL_regency_council
-					country_leader = {
-						expire = "1965.1.1"
-						ideology = conservatism
-						traits = {
-							elected_regency_council_pro_allies
-						}
-					}
-					promote_leader = yes
-				}
-			}
-		}
-		if = {
-			limit = {
-				NOT = { has_government = democratic }
-			}
-			set_politics = {
-				ruling_party = democratic
-				election_frequency = 48
-				elections_allowed = no
-			}
-		}
-	}
+	# 	if = {
+	# 		limit = {
+	# 			has_government = democratic
+	# 		}
+	# 		if = {
+	# 			limit = {
+	# 				has_country_leader = {
+	# 					character = BUL_nikola_mushanov
+	# 					ruling_only = yes
+	# 				}
+	# 			}
+	# 			add_country_leader_role = {
+	# 				character = BUL_regency_council
+	# 				country_leader = {
+	# 					expire = "1965.1.1"
+	# 					ideology = conservatism
+	# 					traits = {
+	# 						elected_regency_council_pro_allies appeaser_regency_council
+	# 					}
+	# 				}
+	# 				promote_leader = yes
+	# 			}
+	# 		}
+	# 		else = {
+	# 			add_country_leader_role = {
+	# 				character = BUL_regency_council
+	# 				country_leader = {
+	# 					expire = "1965.1.1"
+	# 					ideology = conservatism
+	# 					traits = {
+	# 						elected_regency_council_pro_allies
+	# 					}
+	# 				}
+	# 				promote_leader = yes
+	# 			}
+	# 		}	
+	# 	}
+	# 	else = {
+	# 		if = {
+	# 			limit = {
+	# 				has_country_leader = {
+	# 					character = BUL_bogdan_filov
+	# 					ruling_only = yes
+	# 				}
+	# 			}
+	# 			add_country_leader_role = {
+	# 				character = BUL_regency_council
+	# 				country_leader = {
+	# 					expire = "1965.1.1"
+	# 					ideology = conservatism
+	# 					traits = {
+	# 						elected_regency_council_pro_allies political_manipulator_regency_council
+	# 					}
+	# 				}
+	# 				promote_leader = yes
+	# 			}
+	# 			promote_character = { 
+	# 				character = BUL_georgi_ivanov_kyoseivanov
+	# 				ideology = moderatism
+	# 			}	
+	# 		}
+	# 		else_if = {
+	# 			limit = {
+	# 				has_country_leader = {
+	# 					character = BUL_georgi_ivanov_kyoseivanov
+	# 					ruling_only = yes
+	# 				}
+	# 			}
+	# 			add_country_leader_role = {
+	# 				character = BUL_regency_council
+	# 				country_leader = {
+	# 					expire = "1965.1.1"
+	# 					ideology = conservatism
+	# 					traits = {
+	# 						elected_regency_council_pro_allies
+	# 					}
+	# 				}
+	# 				promote_leader = yes
+	# 			}
+	# 			promote_character = { 
+	# 				character = BUL_bogdan_filov
+	# 				ideology = centrism
+	# 			}	
+	# 		}
+	# 		else = {
+	# 			add_country_leader_role = {
+	# 				character = BUL_regency_council
+	# 				country_leader = {
+	# 					expire = "1965.1.1"
+	# 					ideology = conservatism
+	# 					traits = {
+	# 						elected_regency_council_pro_allies
+	# 					}
+	# 				}
+	# 				promote_leader = yes
+	# 			}
+	# 		}
+	# 	}
+	# 	if = {
+	# 		limit = {
+	# 			NOT = { has_government = democratic }
+	# 		}
+	# 		set_politics = {
+	# 			ruling_party = democratic
+	# 			election_frequency = 48
+	# 			elections_allowed = no
+	# 		}
+	# 	}
+	# }
 
 	option = { #Independent Regency Council
 		name = bftb_bulgaria_tsar_boris.3.c
