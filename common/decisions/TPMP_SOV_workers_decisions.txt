@@ -61,7 +61,7 @@ TPMP_SOV_workers_decision_category = {
 
 	TPMP_SOV_workers_spend_st_decision = {
 		icon = eng_trade_unions_support
-		days_remove = 7
+		days_remove = 0
         
 		custom_cost_trigger = {
             has_stability > 0.01
@@ -77,11 +77,9 @@ TPMP_SOV_workers_decision_category = {
 
 		complete_effect = {
 			add_to_variable = { TPMP_SOV_workers_var = 420 tooltip = TPMP_SOV_gulag_add_worker_decision_tt }
-
-			hidden_effect = {
-				add_stability = -420
+			add_stability = -5
+			
 			}
-		}
 
 
 
@@ -89,7 +87,7 @@ TPMP_SOV_workers_decision_category = {
 
 	TPMP_SOV_workers_spend_ws_decision = {
 		icon = eng_trade_unions_support
-		days_remove = 7
+		days_remove = 0
         
 		custom_cost_trigger = {
             has_war_support > 0.01
@@ -106,9 +104,8 @@ TPMP_SOV_workers_decision_category = {
 		complete_effect = {
 			add_to_variable = { TPMP_SOV_workers_var = 420 tooltip = TPMP_SOV_gulag_add_worker_decision_tt }
 
-			hidden_effect = {
-				add_war_support = -420
-			}
+			add_war_support = -5
+			
 		}
 
 
@@ -117,9 +114,9 @@ TPMP_SOV_workers_decision_category = {
 
 	TPMP_SOV_workers_spend_pp_decision = {
 		icon = eng_trade_unions_support
-		days_remove = 7
+		days_remove = 0
         
-		cost = 420
+		cost = 50
 
 		visible = {
 			#has_completed_focus = TPMP_SOV_expand_the_role_of_nkvd
