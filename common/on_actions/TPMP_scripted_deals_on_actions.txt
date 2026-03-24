@@ -64,7 +64,7 @@ on_actions = {
 			}
 		}
 	}
-	on_capitulation = { #yugo partition fixes
+	on_capitulation = { #yugo auto deal
 		effect = {
 			if = {
 				limit = {
@@ -127,6 +127,30 @@ on_actions = {
 						}
 						853 = { set_state_controller_to = GER }
 					}
+				}
+			}
+		}
+	}
+	on_capitulation = { # greece auto deal
+		effect = {
+			if = {
+				limit = {
+					tag = GRE
+				}
+				if = {
+					limit = {
+						ITA = { has_war_with = GRE }
+					}
+					185 = { set_state_controller_to = ITA }
+					47 = { set_state_controller_to = ITA }
+					186 = { set_state_controller_to = ITA }
+				}
+				if = {
+					limit = {
+						BUL = { has_war_with = GRE }
+					}
+					731 = { set_state_controller_to = BUL }
+					184 = { set_state_controller_to = BUL }
 				}
 			}
 		}
