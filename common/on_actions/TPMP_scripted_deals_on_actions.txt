@@ -64,3 +64,71 @@ on_actions = {
 			}
 		}
 	}
+	on_capitulation = { #yugo partition fixes
+		effect = {
+			if = {
+				limit = {
+					tag = YUG
+				}
+				if = {
+					limit = {
+						ITA = { has_war_with = YUG }
+					}
+					YUG = {
+						every_owned_state = {
+							set_state_controller_to = ITA
+						}
+					}
+					if = { #backup in case some asshole does albanian puppet
+					limit = {
+						ALB = {
+							exists = yes
+							is_subject_of = ITA
+						}
+					}
+					add_to_war = {
+						targeted_alliance = ITA
+						enemy = YUG
+						hostility_reason = asked_to_join
+					}
+					802 = { set_state_controller_to = ALB }
+					970 = { set_state_controller_to = ALB }
+				}
+				}
+				if = {
+					limit = {
+						HUN = { has_war_with = YUG }
+					}	
+					45 = { set_state_controller_to = HUN }
+					764 = {	set_state_controller_to = HUN }
+					if = { # hungary can only core croatia if Fascist
+						limit = {
+							HUN = { has_government = fascism }
+						}
+						109 = { set_state_controller_to = HUN }
+						103 = { set_state_controller_to = HUN }
+					}
+				}
+				if = {
+					limit = {
+						BUL = { has_war_with = YUG }
+					}
+					803 = { set_state_controller_to = BUL }
+					106 = { set_state_controller_to = BUL }
+				}
+				if = {
+					limit = {
+						GER = { has_war_with = YUG }
+					}
+					102 = { set_state_controller_to = GER }
+					if = { # preventing border gore 
+						limit = {
+							HUN = { has_government = fascism }
+						}
+						853 = { set_state_controller_to = GER }
+					}
+				}
+			}
+		}
+	}
+}
