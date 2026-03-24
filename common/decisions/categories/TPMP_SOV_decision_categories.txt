@@ -55,6 +55,32 @@ TPMP_SOV_steel_development_category = {
 
 }
 
+TPMP_SOV_tractor_category = {
+	
+	icon = GFX_decision_category_generic_naval
+	picture = GFX_decision_cat_tractor
+
+	priority = 100
+	allowed = {
+		tag = SOV
+	}
+
+	visible = {
+		has_completed_focus = TPMP_SOV_advanced_manufacturing
+
+
+	}
+	visible_when_empty = yes
+
+}
+
+
+
+
+
+
+
+
 
 
 TPMP_SOV_debug_category = {
@@ -62,7 +88,7 @@ TPMP_SOV_debug_category = {
 	icon = GFX_decision_category_generic_naval
 	picture = GFX_decision_cat_pacific_front
 
-	priority = 100
+	priority = 0
 	allowed = {
 		tag = SOV
 	}

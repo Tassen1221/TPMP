@@ -550,6 +550,348 @@ TPMP_SOV_steel_development_category = {
 
 
 
+
+
+
+#                                                                                                                                                              
+#                                                                                                                                                              
+#    TTTTTTTTTTTTTTTTTTTTTTTRRRRRRRRRRRRRRRRR                  AAA                  CCCCCCCCCCCCCTTTTTTTTTTTTTTTTTTTTTTT     OOOOOOOOO     RRRRRRRRRRRRRRRRR   
+#    T:::::::::::::::::::::TR::::::::::::::::R                A:::A              CCC::::::::::::CT:::::::::::::::::::::T   OO:::::::::OO   R::::::::::::::::R  
+#    T:::::::::::::::::::::TR::::::RRRRRR:::::R              A:::::A           CC:::::::::::::::CT:::::::::::::::::::::T OO:::::::::::::OO R::::::RRRRRR:::::R 
+#    T:::::TT:::::::TT:::::TRR:::::R     R:::::R            A:::::::A         C:::::CCCCCCCC::::CT:::::TT:::::::TT:::::TO:::::::OOO:::::::ORR:::::R     R:::::R
+#    TTTTTT  T:::::T  TTTTTT  R::::R     R:::::R           A:::::::::A       C:::::C       CCCCCCTTTTTT  T:::::T  TTTTTTO::::::O   O::::::O  R::::R     R:::::R
+#            T:::::T          R::::R     R:::::R          A:::::A:::::A     C:::::C                      T:::::T        O:::::O     O:::::O  R::::R     R:::::R
+#            T:::::T          R::::RRRRRR:::::R          A:::::A A:::::A    C:::::C                      T:::::T        O:::::O     O:::::O  R::::RRRRRR:::::R 
+#            T:::::T          R:::::::::::::RR          A:::::A   A:::::A   C:::::C                      T:::::T        O:::::O     O:::::O  R:::::::::::::RR  
+#            T:::::T          R::::RRRRRR:::::R        A:::::A     A:::::A  C:::::C                      T:::::T        O:::::O     O:::::O  R::::RRRRRR:::::R 
+#            T:::::T          R::::R     R:::::R      A:::::AAAAAAAAA:::::A C:::::C                      T:::::T        O:::::O     O:::::O  R::::R     R:::::R
+#            T:::::T          R::::R     R:::::R     A:::::::::::::::::::::AC:::::C                      T:::::T        O:::::O     O:::::O  R::::R     R:::::R
+#            T:::::T          R::::R     R:::::R    A:::::AAAAAAAAAAAAA:::::AC:::::C       CCCCCC        T:::::T        O::::::O   O::::::O  R::::R     R:::::R
+#          TT:::::::TT      RR:::::R     R:::::R   A:::::A             A:::::AC:::::CCCCCCCC::::C      TT:::::::TT      O:::::::OOO:::::::ORR:::::R     R:::::R
+#          T:::::::::T      R::::::R     R:::::R  A:::::A               A:::::ACC:::::::::::::::C      T:::::::::T       OO:::::::::::::OO R::::::R     R:::::R
+#          T:::::::::T      R::::::R     R:::::R A:::::A                 A:::::A CCC::::::::::::C      T:::::::::T         OO:::::::::OO   R::::::R     R:::::R
+#          TTTTTTTTTTT      RRRRRRRR     RRRRRRRAAAAAAA                   AAAAAAA   CCCCCCCCCCCCC      TTTTTTTTTTT           OOOOOOOOO     RRRRRRRR     RRRRRRR
+#                                                                                                                                                              
+#                                                                                                                                                              
+#                                                                                                                                                              
+#                                                                                                                                                              
+#                                                                                                                                                              
+#                                                                                                                                                              
+#                                                                                                                                                              
+
+
+
+
+
+
+
+TPMP_SOV_tractor_category = {
+
+	TPMP_SOV_show_tractor_investment_decisions = {
+    icon = generic_industry
+    
+    days_re_enable = 0
+    
+    available = {
+        always = yes
+    }
+    
+    visible = {
+        NOT = { has_country_flag = show_tractor_decisions }
+    }
+    
+    complete_effect = {
+            set_country_flag = show_tractor_decisions
+    	}
+	}
+
+
+
+
+	TPMP_SOV_small_tractor_investment_decision = {
+		icon = eng_trade_unions_support
+		cost = 0
+		days_remove = 180
+
+
+		modifier = {
+		}
+        
+		custom_cost_trigger = {
+			check_variable = { TPMP_SOV_tractors_var > -1 }
+		}
+
+		custom_cost_text = TPMP_SOV_small_tractor_investment_decision_cost
+
+
+		visible = {
+       		has_country_flag = show_tractor_decisions
+		}
+		
+
+		available = {
+			num_of_military_factories > 4
+		}
+
+
+
+
+
+		complete_effect = {
+			add_to_variable = { TPMP_SOV_tractors_var = 18000 } 
+			add_timed_idea = {
+				idea = TPMP_SOV_small_tractor_investment_idea
+				days = 180
+			}
+            clr_country_flag = show_tractor_decisions
+
+
+
+
+	    }
+	}
+
+	TPMP_SOV_medium_tractor_investment_decision = {
+		icon = eng_trade_unions_support
+		cost = 0
+		days_remove = 180
+
+
+		modifier = {
+		}
+        
+		custom_cost_trigger = {
+			check_variable = { TPMP_SOV_tractors_var > -1 }
+		}
+
+		custom_cost_text = TPMP_SOV_medium_tractor_investment_decision_cost
+
+
+		visible = {
+       		has_country_flag = show_tractor_decisions
+		}
+
+		available = {
+			num_of_military_factories > 14
+		}
+
+
+
+
+		complete_effect = {
+
+			add_to_variable = { TPMP_SOV_tractors_var = 54000 } 
+			add_timed_idea = {
+				idea = TPMP_SOV_medium_tractor_investment_idea
+				days = 180
+			}
+            clr_country_flag = show_tractor_decisions
+
+
+	    }
+	}
+
+
+	TPMP_SOV_large_tractor_investment_decision = {
+		icon = eng_trade_unions_support
+		cost = 0
+		days_remove = 180
+
+
+		modifier = {
+		}
+        
+		custom_cost_trigger = {
+			check_variable = { TPMP_SOV_tractors_var > -1 }
+		}
+
+		custom_cost_text = TPMP_SOV_large_tractor_investment_decision_cost
+
+
+
+		visible = {
+       		has_country_flag = show_tractor_decisions
+		}
+
+		available = {
+			num_of_military_factories > 29
+		}
+
+
+		complete_effect = {
+			add_to_variable = { TPMP_SOV_tractors_var = 108000 } 
+			add_timed_idea = {
+				idea = TPMP_SOV_large_tractor_investment_idea
+				days = 180
+			}
+            clr_country_flag = show_tractor_decisions
+
+
+	    }
+	}
+
+	TPMP_SOV_convert_tractor_hulls_decision = {
+		icon = eng_trade_unions_support
+		cost = 0
+		days_remove = 30
+
+
+		modifier = {
+		}
+        
+		custom_cost_trigger = {
+			check_variable = { TPMP_SOV_tractors_var = 140000 }
+		}
+
+		custom_cost_text = TPMP_SOV_convert_tractor_hulls_decision
+
+
+		visible = {
+		}
+
+		available = {
+			check_variable = { TPMP_SOV_tractors_var > 140000 }
+		}
+
+
+
+		complete_effect = {
+			subtract_from_variable = { TPMP_SOV_tractors_var = 140000 } 
+			add_timed_idea = {
+				idea = TPMP_SOV_convert_tractor_hulls_idea
+				days = 30
+			}
+
+
+	    }
+
+
+	}
+
+
+
+	TPMP_SOV_early_to_middle_mechanization_of_agriculture_decision = {
+		icon = eng_trade_unions_support
+		cost = 0
+		days_remove = 30
+
+
+		modifier = {
+		}
+        
+		custom_cost_trigger = {
+			check_variable = { TPMP_SOV_tractors_var = 53999 }
+		}
+
+
+
+		visible = {
+		}
+
+		available = {
+			check_variable = { TPMP_SOV_tractors_var > 53999 }
+		}
+
+
+
+		complete_effect = {
+			subtract_from_variable = { TPMP_SOV_tractors_var = 54000 } 
+
+			swap_ideas = {
+					remove_idea = TPMP_SOV_early_mechanization_of_agriculture_idea
+					add_idea = TPMP_SOV_middle_mechanization_of_agriculture_idea
+				}
+
+
+		}
+	
+	}
+
+	TPMP_SOV_middle_to_late_mechanization_of_agriculture_decision = {
+		icon = eng_trade_unions_support
+		cost = 0
+		days_remove = 30
+
+
+		modifier = {
+		}
+        
+		custom_cost_trigger = {
+			check_variable = { TPMP_SOV_tractors_var = 107999 }
+		}
+
+
+
+		visible = {
+		}
+
+		available = {
+			check_variable = { TPMP_SOV_tractors_var > 107999 }
+		}
+
+
+
+		complete_effect = {
+			subtract_from_variable = { TPMP_SOV_tractors_var = 108000 } 
+
+			swap_ideas = {
+					remove_idea = TPMP_SOV_middle_mechanization_of_agriculture_idea
+					add_idea = TPMP_SOV_late_mechanization_of_agriculture_idea
+				}
+
+
+		}
+
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #                                                                                                          
 #                                                                                                          
 #    DDDDDDDDDDDDD      BBBBBBBBBBBBBBBBB   EEEEEEEEEEEEEEEEEEEEEEUUUUUUUU     UUUUUUUU       GGGGGGGGGGGGG
@@ -1073,17 +1415,17 @@ TPMP_SOV_debug_highlight_siberia_far_east = {
 
     complete_effect = {
     }        
+	}
+
+
+
+
+
 }
 
 
 
 
-
-
-
-
-
-}
 
 
 
