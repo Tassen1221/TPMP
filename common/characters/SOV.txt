@@ -676,6 +676,26 @@ characters = {
 			legacy_id = 0
 			visible = { NOT = { has_character_flag = SOV_exiled_flag } }
 		}
+
+    advisor = {
+        slot = political_advisor          # change to whatever slot you want
+        idea_token = SOV_grigory_kulik
+        allowed = { tag = SOV }
+        available = {
+            NOT = { has_character_flag = SOV_exiled_flag }
+        }
+        can_be_fired = yes
+        allows_military_advisor = yes     # this is the key line
+        traits = { 
+			
+
+
+
+		}                      # add advisor traits here
+        cost = 25
+    }
+
+
 	}
 
 	SOV_kirill_meretskov = {
@@ -2127,6 +2147,73 @@ characters = {
 	###  #  # #    #   #   #  #    #### #       #### #  #  # #   #   #  #  # ###   #  
 	#    #  # #    #   #   #  #  # #  # #       #  # #  #  # #   #    # #  # #  #   # 
 	#     ##  ### ###  #  ###  ##  #  # ###     #  # ###    #   ### ##   ##  #  # ##  
+
+######## TPMP 123123 GUYSS LKETS GOSPROYEKTSTROY
+
+	SOV_grigory_kulik = {
+		name = SOV_grigory_kulik
+		portraits = {
+			army = {
+				large = GFX_portrait_SOV_grigory_kulik
+				small=GFX_portrait_SOV_grigory_kulik_small
+			}
+		}
+		allowed_civil_war = {
+			OR = {
+				SOV_advisor_is_aligned_left = yes 
+				SOV_advisor_is_aligned_right = yes 
+				SOV_advisor_is_aligned_centre = yes 
+			}
+			has_government = communism
+		}
+
+		advisor = {
+			slot = political_advisor
+			idea_token = grigory_kulik
+			allowed = {
+				original_tag = SOV
+			}
+			
+			visible = {
+				NOT = {
+					has_character_flag = SOV_character_purged_flag 
+				}
+			}
+			available = {
+				if = {
+					limit = {
+						has_character_flag = SOV_exiled_flag
+					}
+					NOT = { has_character_flag = SOV_exiled_flag }
+				}
+			}
+			traits = {
+				popular_figurehead 
+			}
+			ai_will_do = {
+				base = 0.5
+			}
+		}
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 	SOV_mikhail_kalinin = {

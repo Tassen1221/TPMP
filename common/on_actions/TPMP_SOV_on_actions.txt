@@ -4,4 +4,20 @@ on_actions = {
             TPMP_SOV_check_four_year_plan = yes
         }
     }
+
+    on_weekly_SOV = {
+        effect = {
+            if = {
+                limit = {
+                    has_completed_focus = TPMP_SOV_expand_the_role_of_nkvd
+                }
+                add_to_variable = { TPMP_SOV_workers_var = 1375 }
+            }
+        }
+
+
+
+
+
+    }
 }

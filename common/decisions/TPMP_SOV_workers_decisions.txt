@@ -70,13 +70,13 @@ TPMP_SOV_workers_decision_category = {
 		custom_cost_text = TPMP_SOV_gulag_stab_cost_decision
 
 		visible = {
-			#has_completed_focus = TPMP_SOV_expand_the_role_of_nkvd
+			has_completed_focus = TPMP_SOV_expand_the_role_of_nkvd
 		}
 
 
 
 		complete_effect = {
-			add_to_variable = { TPMP_SOV_workers_var = 420 tooltip = TPMP_SOV_gulag_add_worker_decision_tt }
+			add_to_variable = { TPMP_SOV_workers_var = 100000 tooltip = TPMP_SOV_gulag_add_worker_decision_tt }
 			add_stability = -5
 			
 			}
@@ -96,15 +96,15 @@ TPMP_SOV_workers_decision_category = {
 		custom_cost_text = TPMP_SOV_gulag_ws_cost_decision
 
 		visible = {
-			#has_completed_focus = TPMP_SOV_expand_the_role_of_nkvd
+			has_completed_focus = TPMP_SOV_expand_the_role_of_nkvd
 		}
 
 
 
 		complete_effect = {
-			add_to_variable = { TPMP_SOV_workers_var = 420 tooltip = TPMP_SOV_gulag_add_worker_decision_tt }
+			add_to_variable = { TPMP_SOV_workers_var = 100000 tooltip = TPMP_SOV_gulag_add_worker_decision_tt }
 
-			add_war_support = -5
+			add_war_support = -17.5
 			
 		}
 
@@ -116,16 +116,16 @@ TPMP_SOV_workers_decision_category = {
 		icon = eng_trade_unions_support
 		days_remove = 0
         
-		cost = 50
+		cost = 75
 
 		visible = {
-			#has_completed_focus = TPMP_SOV_expand_the_role_of_nkvd
+			has_completed_focus = TPMP_SOV_expand_the_role_of_nkvd
 		}
 
 
 
 		complete_effect = {
-			add_to_variable = { TPMP_SOV_workers_var = 420 tooltip = TPMP_SOV_gulag_add_worker_decision_tt }
+			add_to_variable = { TPMP_SOV_workers_var = 100000 tooltip = TPMP_SOV_gulag_add_worker_decision_tt }
 		}
 
 
@@ -162,22 +162,22 @@ TPMP_SOV_workers_decision_category = {
 		days_remove = 7
         
 		custom_cost_trigger = {
-			check_variable = { TPMP_SOV_workers_var > 420 }
+			check_variable = { TPMP_SOV_workers_var > 67499 }
 		}
 
 		custom_cost_text = TPMP_SOV_gulag_spend_workers_decision
 
 		visible = {
-			#has_completed_focus = TPMP_SOV_expand_the_role_of_nkvd
+				has_completed_focus =  TPMP_SOV_gulag_3
 		}
 
 		available = {
-			check_variable = { TPMP_SOV_workers_var > 420 }
+			check_variable = { TPMP_SOV_workers_var > 67499 }
 		}
 
 
 		complete_effect = {
-			subtract_from_variable = { TPMP_SOV_workers_var = 420 } 
+			subtract_from_variable = { TPMP_SOV_workers_var = 67500 } 
 		
 			add_timed_idea = {
 				idea = TPMP_SOV_railways_timed_idea
@@ -227,62 +227,68 @@ TPMP_SOV_workers_decision_category = {
 	    }
 	}
 
-	TPMP_SOV_workers_coal_targeted_decision = {
 
-		state_target = yes
-		targets = { 219 }
-		target_trigger = {
-			#has_completed_focus = TPMP_SOV_expand_the_role_of_nkvd
-		}
+	TPMP_SOV_workers_develop_con_speed_western_russia_decision = {
+    icon = eng_trade_unions_support
+    days_remove = 7
+    
+    custom_cost_trigger = {
+        check_variable = { TPMP_SOV_workers_var > 124999 }
+    }
+    custom_cost_text = TPMP_SOV_gulag_spend_workers_decision
 
-		custom_cost_trigger = {
-			check_variable = { TPMP_SOV_workers_var > 420 }
-		}
-
-		custom_cost_text = TPMP_SOV_gulag_spend_workers_coal_decision
-
-		available = {
-			check_variable = { TPMP_SOV_workers_var > 420 }
-		}
-
-		on_map_mode = map_and_decisions_view
-		icon = coal
-		cost = 5
-		complete_effect = {
-
-			every_core_state = {
-				limit = {
-					state = 219
+    visible = {
+    }
+    available = {
+        check_variable = { TPMP_SOV_workers_var > 124999 }
+    }
+    fire_only_once = yes
+    highlight_states = {
+        highlight_state_targets = {
+				state = 206
+				state = 204
+				state = 207
+				state = 194
+				state = 242
+				state = 224
+				state = 241
+				state = 243
+				state = 210
+        }
+    }
+    complete_effect = {
+        subtract_from_variable = { TPMP_SOV_workers_var = 125000 }
+        every_state = {
+            limit = { is_western_russia_industrial_region = yes }
+				add_dynamic_modifier = { 
+					modifier = TPMP_SOV_workers_construction_western_russia_dynamic_modifier
+					days = 180
+					scope = SOV
 				}
-				add_resource = {
-					type = coal
-					amount = 420
-				}
-			}
 
-			hidden_effect = {
-				subtract_from_variable = { TPMP_SOV_workers_var = 420 }
-			}
+        }
+    }
+}
 
-	    }
-	}
 
 	TPMP_SOV_workers_coal_targeted_825_decision = {
 
 		state_target = yes
 		targets = { 825 }
 		target_trigger = {
-			#has_completed_focus = TPMP_SOV_expand_the_role_of_nkvd
 		}
 
 		custom_cost_trigger = {
-			check_variable = { TPMP_SOV_workers_var > 420 }
+			check_variable = { TPMP_SOV_workers_var > 159999 }
 		}
 
 		custom_cost_text = TPMP_SOV_gulag_spend_workers_coal_decision
+    visible = {
+			has_completed_focus =  TPMP_SOV_gulag_1
+    }
 
 		available = {
-			check_variable = { TPMP_SOV_workers_var > 420 }
+			check_variable = { TPMP_SOV_workers_var > 159999 }
 		}
 
 		on_map_mode = map_and_decisions_view
@@ -299,10 +305,7 @@ TPMP_SOV_workers_decision_category = {
 					amount = 420
 				}
 			}
-
-			hidden_effect = {
-				subtract_from_variable = { TPMP_SOV_workers_var = 420 }
-			}
+				subtract_from_variable = { TPMP_SOV_workers_var = 160000 }
 
 	    }
 	}
@@ -312,17 +315,20 @@ TPMP_SOV_workers_decision_category = {
 		state_target = yes
 		targets = { 569 }
 		target_trigger = {
-			#has_completed_focus = TPMP_SOV_expand_the_role_of_nkvd
+			has_completed_focus =  TPMP_SOV_gulag_1
 		}
 
 		custom_cost_trigger = {
-			check_variable = { TPMP_SOV_workers_var > 420 }
+			check_variable = { TPMP_SOV_workers_var > 119999 }
 		}
 
 		custom_cost_text = TPMP_SOV_gulag_spend_workers_coal_decision
 
+    visible = {
+			has_completed_focus =  TPMP_SOV_gulag_1
+    }
 		available = {
-			check_variable = { TPMP_SOV_workers_var > 420 }
+			check_variable = { TPMP_SOV_workers_var > 119999 }
 		}
 
 		on_map_mode = map_and_decisions_view
@@ -340,9 +346,8 @@ TPMP_SOV_workers_decision_category = {
 				}
 			}
 
-			hidden_effect = {
-				subtract_from_variable = { TPMP_SOV_workers_var = 420 }
-			}
+				subtract_from_variable = { TPMP_SOV_workers_var = 120000 }
+			
 
 	    }
 	}
@@ -353,17 +358,20 @@ TPMP_SOV_workers_decision_category = {
 		state_target = yes
 		targets = { 881 }
 		target_trigger = {
-			#has_completed_focus = TPMP_SOV_expand_the_role_of_nkvd
+			has_completed_focus =  TPMP_SOV_gulag_1
 		}
 
 		custom_cost_trigger = {
-			check_variable = { TPMP_SOV_workers_var > 420 }
+			check_variable = { TPMP_SOV_workers_var > 139999 }
 		}
 
 		custom_cost_text = TPMP_SOV_gulag_spend_workers_coal_decision
 
+    visible = {
+			has_completed_focus =  TPMP_SOV_gulag_1
+    }
 		available = {
-			check_variable = { TPMP_SOV_workers_var > 420 }
+			check_variable = { TPMP_SOV_workers_var > 139999 }
 		}
 
 		on_map_mode = map_and_decisions_view
@@ -381,9 +389,8 @@ TPMP_SOV_workers_decision_category = {
 				}
 			}
 
-			hidden_effect = {
-				subtract_from_variable = { TPMP_SOV_workers_var = 420 }
-			}
+				subtract_from_variable = { TPMP_SOV_workers_var = 140000 }
+			
 
 	    }
 	}
@@ -399,6 +406,35 @@ TPMP_SOV_workers_decision_category = {
 
 
 
+	TPMP_SOV_workers_lumber_decision = {
+
+		custom_cost_trigger = {
+			check_variable = { TPMP_SOV_workers_var > 219999 }
+		}
+
+		custom_cost_text = TPMP_SOV_gulag_spend_workers_coal_decision
+		visible = {
+				has_completed_focus =  TPMP_SOV_gulag_1
+		}
+		available = {
+			check_variable = { TPMP_SOV_workers_var > 219999 }
+		}
+
+		cost = 5
+		complete_effect = {
+
+			swap_ideas = {
+					remove_idea = TPMP_SOV_does_not_have_karelia_lumber_idea
+					add_idea = TPMP_SOV_has_karelia_lumber_idea
+				}
+			hidden_effect = {
+				subtract_from_variable = { TPMP_SOV_workers_var = 220000 }
+			}
+
+	    }
+	}
+
+
 
 
 
@@ -409,17 +445,20 @@ TPMP_SOV_workers_decision_category = {
 		state_target = yes
 		targets = { 644 }
 		target_trigger = {
-			#has_completed_focus = TPMP_SOV_expand_the_role_of_nkvd
+			#has_completed_focus =  TPMP_SOV_gulag_2
 		}
 
 		custom_cost_trigger = {
-			check_variable = { TPMP_SOV_workers_var > 420 }
+			check_variable = { TPMP_SOV_workers_var > 309999 }
 		}
 
 		custom_cost_text = TPMP_SOV_gulag_spend_workers_coal_decision
 
+		visible = {
+				has_completed_focus =  TPMP_SOV_gulag_2
+		}
 		available = {
-			check_variable = { TPMP_SOV_workers_var > 420 }
+			check_variable = { TPMP_SOV_workers_var > 309999 }
 		}
 		fire_only_once = yes
 
@@ -438,40 +477,12 @@ TPMP_SOV_workers_decision_category = {
 				}
 			}
 
-			hidden_effect = {
-				subtract_from_variable = { TPMP_SOV_workers_var = 420 }
-			}
+				subtract_from_variable = { TPMP_SOV_workers_var = 310000 }
+			
 
 	    }
 	}
 
-
-
-	TPMP_SOV_workers_lumber_decision = {
-
-		custom_cost_trigger = {
-			check_variable = { TPMP_SOV_workers_var > 420 }
-		}
-
-		custom_cost_text = TPMP_SOV_gulag_spend_workers_coal_decision
-
-		available = {
-			check_variable = { TPMP_SOV_workers_var > 420 }
-		}
-
-		cost = 5
-		complete_effect = {
-
-			swap_ideas = {
-					remove_idea = TPMP_SOV_does_not_have_karelia_lumber_idea
-					add_idea = TPMP_SOV_has_karelia_lumber_idea
-				}
-			hidden_effect = {
-				subtract_from_variable = { TPMP_SOV_workers_var = 420 }
-			}
-
-	    }
-	}
 
 
 
@@ -504,17 +515,17 @@ TPMP_SOV_workers_decision_category = {
 		days_remove = 7
         
 		custom_cost_trigger = {
-			check_variable = { TPMP_SOV_workers_var > 420 }
+			check_variable = { TPMP_SOV_workers_var > 189999 }
 		}
 
 		custom_cost_text = TPMP_SOV_gulag_spend_workers_decision
 
 		visible = {
-			#has_completed_focus = TPMP_SOV_expand_the_role_of_nkvd
+				has_completed_focus =  TPMP_SOV_gulag_2
 		}
 
 		available = {
-			check_variable = { TPMP_SOV_workers_var > 420 }
+			check_variable = { TPMP_SOV_workers_var > 189999 }
 		}
 		fire_only_once = yes
 		highlight_states = {
@@ -540,7 +551,7 @@ TPMP_SOV_workers_decision_category = {
 		}
 
 		complete_effect = {
-			subtract_from_variable = { TPMP_SOV_workers_var = 420 } 
+			subtract_from_variable = { TPMP_SOV_workers_var = 190000 } 
 
 
   	      	every_state = {
@@ -567,17 +578,17 @@ TPMP_SOV_workers_decision_category = {
 		days_remove = 7
         
 		custom_cost_trigger = {
-			check_variable = { TPMP_SOV_workers_var > 420 }
+			check_variable = { TPMP_SOV_workers_var > 329999 }
 		}
 
 		custom_cost_text = TPMP_SOV_gulag_spend_workers_decision
 
 		visible = {
-			#has_completed_focus = TPMP_SOV_expand_the_role_of_nkvd
+				has_completed_focus =  TPMP_SOV_gulag_2
 		}
 
 		available = {
-			check_variable = { TPMP_SOV_workers_var > 420 }
+			check_variable = { TPMP_SOV_workers_var > 329999 }
 		}
 		fire_only_once = yes
 		highlight_states = {
@@ -614,7 +625,7 @@ TPMP_SOV_workers_decision_category = {
 		}
 
 		complete_effect = {
-			subtract_from_variable = { TPMP_SOV_workers_var = 420 } 
+			subtract_from_variable = { TPMP_SOV_workers_var = 330000 } 
 
 
   	      	every_state = {
@@ -692,7 +703,7 @@ TPMP_SOV_toggle_regional_infrastructure_decisions = {
     }
     
     visible = {
-        always = yes
+				has_completed_focus =  TPMP_SOV_gulag_3
     }
     
     complete_effect = {
@@ -713,15 +724,17 @@ TPMP_SOV_workers_develop_infrastructure_moscow_decision = {
     days_remove = 7
     
     custom_cost_trigger = {
-        check_variable = { TPMP_SOV_workers_var > 420 }
+        check_variable = { TPMP_SOV_workers_var > 59999 }
     }
     custom_cost_text = TPMP_SOV_gulag_spend_workers_decision
 
+
     visible = {
         has_country_flag = show_regional_infrastructure
+				has_completed_focus =  TPMP_SOV_gulag_3
     }
     available = {
-        check_variable = { TPMP_SOV_workers_var > 420 }
+        check_variable = { TPMP_SOV_workers_var > 59999 }
     }
     fire_only_once = yes
     highlight_states = {
@@ -740,7 +753,7 @@ TPMP_SOV_workers_develop_infrastructure_moscow_decision = {
         }
     }
     complete_effect = {
-        subtract_from_variable = { TPMP_SOV_workers_var = 420 }
+        subtract_from_variable = { TPMP_SOV_workers_var = 60000 }
         every_state = {
             limit = { is_moscow_industrial_region = yes }
             add_extra_state_shared_building_slots = 3
@@ -758,15 +771,16 @@ TPMP_SOV_workers_develop_infrastructure_leningrad_decision = {
     days_remove = 7
     
     custom_cost_trigger = {
-        check_variable = { TPMP_SOV_workers_var > 420 }
+        check_variable = { TPMP_SOV_workers_var > 69999 }
     }
     custom_cost_text = TPMP_SOV_gulag_spend_workers_decision
 
     visible = {
         has_country_flag = show_regional_infrastructure
+				has_completed_focus =  TPMP_SOV_gulag_3
     }
     available = {
-        check_variable = { TPMP_SOV_workers_var > 420 }
+        check_variable = { TPMP_SOV_workers_var > 69999 }
     }
     fire_only_once = yes
     highlight_states = {
@@ -781,7 +795,7 @@ TPMP_SOV_workers_develop_infrastructure_leningrad_decision = {
         }
     }
     complete_effect = {
-        subtract_from_variable = { TPMP_SOV_workers_var = 420 }
+        subtract_from_variable = { TPMP_SOV_workers_var = 70000 }
         every_state = {
             limit = { is_leningrad_industrial_region = yes }
             add_extra_state_shared_building_slots = 3
@@ -799,15 +813,16 @@ TPMP_SOV_workers_develop_infrastructure_western_russia_decision = {
     days_remove = 7
     
     custom_cost_trigger = {
-        check_variable = { TPMP_SOV_workers_var > 420 }
+        check_variable = { TPMP_SOV_workers_var > 79999 }
     }
     custom_cost_text = TPMP_SOV_gulag_spend_workers_decision
 
     visible = {
         has_country_flag = show_regional_infrastructure
+				has_completed_focus =  TPMP_SOV_gulag_3
     }
     available = {
-        check_variable = { TPMP_SOV_workers_var > 420 }
+        check_variable = { TPMP_SOV_workers_var > 79999 }
     }
     fire_only_once = yes
     highlight_states = {
@@ -824,7 +839,7 @@ TPMP_SOV_workers_develop_infrastructure_western_russia_decision = {
         }
     }
     complete_effect = {
-        subtract_from_variable = { TPMP_SOV_workers_var = 420 }
+        subtract_from_variable = { TPMP_SOV_workers_var = 80000 }
         every_state = {
             limit = { is_western_russia_industrial_region = yes }
             add_extra_state_shared_building_slots = 3
@@ -842,15 +857,16 @@ TPMP_SOV_workers_develop_infrastructure_northern_russia_decision = {
     days_remove = 7
     
     custom_cost_trigger = {
-        check_variable = { TPMP_SOV_workers_var > 420 }
+        check_variable = { TPMP_SOV_workers_var > 149999 }
     }
     custom_cost_text = TPMP_SOV_gulag_spend_workers_decision
 
     visible = {
         has_country_flag = show_regional_infrastructure
+				has_completed_focus =  TPMP_SOV_gulag_3
     }
     available = {
-        check_variable = { TPMP_SOV_workers_var > 420 }
+        check_variable = { TPMP_SOV_workers_var > 149999 }
     }
     fire_only_once = yes
     highlight_states = {
@@ -870,7 +886,7 @@ TPMP_SOV_workers_develop_infrastructure_northern_russia_decision = {
         }
     }
     complete_effect = {
-        subtract_from_variable = { TPMP_SOV_workers_var = 420 }
+        subtract_from_variable = { TPMP_SOV_workers_var = 150000 }
         every_state = {
             limit = { is_northern_russia_industrial_region = yes }
             add_extra_state_shared_building_slots = 3
@@ -888,15 +904,16 @@ TPMP_SOV_workers_develop_infrastructure_ukraine_decision = {
     days_remove = 7
     
     custom_cost_trigger = {
-        check_variable = { TPMP_SOV_workers_var > 420 }
+        check_variable = { TPMP_SOV_workers_var > 49999 }
     }
     custom_cost_text = TPMP_SOV_gulag_spend_workers_decision
 
     visible = {
         has_country_flag = show_regional_infrastructure
+				has_completed_focus =  TPMP_SOV_gulag_3
     }
     available = {
-        check_variable = { TPMP_SOV_workers_var > 420 }
+        check_variable = { TPMP_SOV_workers_var > 49999 }
     }
     fire_only_once = yes
     highlight_states = {
@@ -920,7 +937,7 @@ TPMP_SOV_workers_develop_infrastructure_ukraine_decision = {
         }
     }
     complete_effect = {
-        subtract_from_variable = { TPMP_SOV_workers_var = 420 }
+        subtract_from_variable = { TPMP_SOV_workers_var = 50000 }
         every_state = {
             limit = { is_ukraine_industrial_region = yes }
             add_extra_state_shared_building_slots = 3
@@ -938,15 +955,16 @@ TPMP_SOV_workers_develop_infrastructure_volga_decision = {
     days_remove = 7
     
     custom_cost_trigger = {
-        check_variable = { TPMP_SOV_workers_var > 420 }
+        check_variable = { TPMP_SOV_workers_var > 79999 }
     }
     custom_cost_text = TPMP_SOV_gulag_spend_workers_decision
 
     visible = {
         has_country_flag = show_regional_infrastructure
+				has_completed_focus =  TPMP_SOV_gulag_3
     }
     available = {
-        check_variable = { TPMP_SOV_workers_var > 420 }
+        check_variable = { TPMP_SOV_workers_var > 79999 }
     }
     fire_only_once = yes
     highlight_states = {
@@ -966,7 +984,7 @@ TPMP_SOV_workers_develop_infrastructure_volga_decision = {
         }
     }
     complete_effect = {
-        subtract_from_variable = { TPMP_SOV_workers_var = 420 }
+        subtract_from_variable = { TPMP_SOV_workers_var = 80000 }
         every_state = {
             limit = { is_volga_industrial_region = yes }
             add_extra_state_shared_building_slots = 3
@@ -984,15 +1002,16 @@ TPMP_SOV_workers_develop_infrastructure_south_russia_don_decision = {
     days_remove = 7
     
     custom_cost_trigger = {
-        check_variable = { TPMP_SOV_workers_var > 420 }
+        check_variable = { TPMP_SOV_workers_var > 89999 }
     }
     custom_cost_text = TPMP_SOV_gulag_spend_workers_decision
 
     visible = {
         has_country_flag = show_regional_infrastructure
+				has_completed_focus =  TPMP_SOV_gulag_3
     }
     available = {
-        check_variable = { TPMP_SOV_workers_var > 420 }
+        check_variable = { TPMP_SOV_workers_var > 89999 }
     }
     fire_only_once = yes
     highlight_states = {
@@ -1012,7 +1031,7 @@ TPMP_SOV_workers_develop_infrastructure_south_russia_don_decision = {
         }
     }
     complete_effect = {
-        subtract_from_variable = { TPMP_SOV_workers_var = 420 }
+        subtract_from_variable = { TPMP_SOV_workers_var = 90000 }
         every_state = {
             limit = { is_south_russia_don_industrial_region = yes }
             add_extra_state_shared_building_slots = 3
@@ -1030,15 +1049,16 @@ TPMP_SOV_workers_develop_infrastructure_caucasus_decision = {
     days_remove = 7
     
     custom_cost_trigger = {
-        check_variable = { TPMP_SOV_workers_var > 420 }
+        check_variable = { TPMP_SOV_workers_var > 119999 }
     }
     custom_cost_text = TPMP_SOV_gulag_spend_workers_decision
 
     visible = {
         has_country_flag = show_regional_infrastructure
+				has_completed_focus =  TPMP_SOV_gulag_3
     }
     available = {
-        check_variable = { TPMP_SOV_workers_var > 420 }
+        check_variable = { TPMP_SOV_workers_var > 119999 }
     }
     fire_only_once = yes
     highlight_states = {
@@ -1055,7 +1075,7 @@ TPMP_SOV_workers_develop_infrastructure_caucasus_decision = {
         }
     }
     complete_effect = {
-        subtract_from_variable = { TPMP_SOV_workers_var = 420 }
+        subtract_from_variable = { TPMP_SOV_workers_var = 120000 }
         every_state = {
             limit = { is_caucasus_industrial_region = yes }
             add_extra_state_shared_building_slots = 3
@@ -1073,15 +1093,16 @@ TPMP_SOV_workers_develop_infrastructure_urals_west_decision = {
     days_remove = 7
     
     custom_cost_trigger = {
-        check_variable = { TPMP_SOV_workers_var > 420 }
+        check_variable = { TPMP_SOV_workers_var > 129999 }
     }
     custom_cost_text = TPMP_SOV_gulag_spend_workers_decision
 
     visible = {
         has_country_flag = show_regional_infrastructure
+				has_completed_focus =  TPMP_SOV_gulag_3
     }
     available = {
-        check_variable = { TPMP_SOV_workers_var > 420 }
+        check_variable = { TPMP_SOV_workers_var > 129999 }
     }
     fire_only_once = yes
     highlight_states = {
@@ -1095,7 +1116,7 @@ TPMP_SOV_workers_develop_infrastructure_urals_west_decision = {
         }
     }
     complete_effect = {
-        subtract_from_variable = { TPMP_SOV_workers_var = 420 }
+        subtract_from_variable = { TPMP_SOV_workers_var = 130000 }
         every_state = {
             limit = { is_urals_west_industrial_region = yes }
             add_extra_state_shared_building_slots = 3
@@ -1113,15 +1134,16 @@ TPMP_SOV_workers_develop_infrastructure_central_asia_decision = {
     days_remove = 7
     
     custom_cost_trigger = {
-        check_variable = { TPMP_SOV_workers_var > 420 }
+        check_variable = { TPMP_SOV_workers_var > 179999 }
     }
     custom_cost_text = TPMP_SOV_gulag_spend_workers_decision
 
     visible = {
         has_country_flag = show_regional_infrastructure
+				has_completed_focus =  TPMP_SOV_gulag_3
     }
     available = {
-        check_variable = { TPMP_SOV_workers_var > 420 }
+        check_variable = { TPMP_SOV_workers_var > 179999 }
     }
     fire_only_once = yes
     highlight_states = {
@@ -1146,7 +1168,7 @@ TPMP_SOV_workers_develop_infrastructure_central_asia_decision = {
         }
     }
     complete_effect = {
-        subtract_from_variable = { TPMP_SOV_workers_var = 420 }
+        subtract_from_variable = { TPMP_SOV_workers_var = 180000 }
         every_state = {
             limit = { is_central_asia_industrial_region = yes }
             add_extra_state_shared_building_slots = 3
@@ -1164,15 +1186,16 @@ TPMP_SOV_workers_develop_infrastructure_siberia_west_decision = {
     days_remove = 7
     
     custom_cost_trigger = {
-        check_variable = { TPMP_SOV_workers_var > 420 }
+        check_variable = { TPMP_SOV_workers_var > 219999 }
     }
     custom_cost_text = TPMP_SOV_gulag_spend_workers_decision
 
     visible = {
         has_country_flag = show_regional_infrastructure
+				has_completed_focus =  TPMP_SOV_gulag_3
     }
     available = {
-        check_variable = { TPMP_SOV_workers_var > 420 }
+        check_variable = { TPMP_SOV_workers_var > 219999 }
     }
     fire_only_once = yes
     highlight_states = {
@@ -1197,7 +1220,7 @@ TPMP_SOV_workers_develop_infrastructure_siberia_west_decision = {
         }
     }
     complete_effect = {
-        subtract_from_variable = { TPMP_SOV_workers_var = 420 }
+        subtract_from_variable = { TPMP_SOV_workers_var = 220000 }
         every_state = {
             limit = { is_siberia_west_industrial_region = yes }
             add_extra_state_shared_building_slots = 3
@@ -1215,18 +1238,18 @@ TPMP_SOV_workers_develop_infrastructure_siberia_west_decision = {
 		days_remove = 7
         
 		custom_cost_trigger = {
-			check_variable = { TPMP_SOV_workers_var > 420 }
+			check_variable = { TPMP_SOV_workers_var > 299999 }
 		}
 
 		custom_cost_text = TPMP_SOV_gulag_spend_workers_decision
 
 		visible = {
-			#has_completed_focus = TPMP_SOV_expand_the_role_of_nkvd
 			has_country_flag = show_regional_infrastructure
+				has_completed_focus =  TPMP_SOV_gulag_3
 		}
 
 		available = {
-			check_variable = { TPMP_SOV_workers_var > 420 }
+			check_variable = { TPMP_SOV_workers_var > 299999 }
 		}
 		fire_only_once = yes
 		highlight_states = {
@@ -1263,7 +1286,7 @@ TPMP_SOV_workers_develop_infrastructure_siberia_west_decision = {
 		}
 
 		complete_effect = {
-			subtract_from_variable = { TPMP_SOV_workers_var = 420 } 
+			subtract_from_variable = { TPMP_SOV_workers_var = 300000 } 
 
 
   	      	every_state = {

@@ -1255,7 +1255,7 @@ focus_tree = {
 
 		completion_reward = {
 			unlock_decision_category_tooltip = TPMP_SOV_workers_decision_category
-			set_variable = { TPMP_SOV_workers_var = 420 }
+
 		}
 	}
 
@@ -1377,7 +1377,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = TPMP_SOV_begin_the_third_fyp
 		
-		cost = 5
+		cost = 10
 
 		mutually_exclusive = { 
 			
@@ -1411,7 +1411,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = TPMP_SOV_found_the_pcmmb
 		
-		cost = 5
+		cost = 10
 
 		mutually_exclusive = { 
 			
@@ -1459,7 +1459,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = TPMP_SOV_found_the_pcmmb
 		
-		cost = 5
+		cost = 10
 
 		mutually_exclusive = { 
 			
@@ -1494,7 +1494,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = TPMP_SOV_found_the_pcmmb
 		
-		cost = 5
+		cost = 10
 
 		mutually_exclusive = { 
 			
@@ -1526,11 +1526,11 @@ focus_tree = {
 		focus = TPMP_SOV_support_kirov
 		focus = TPMP_SOV_support_plant_no_37
 		}
-		x = 0
+		x = 4
 		y = 1
 		relative_position_id = TPMP_SOV_support_khpz
 		
-		cost = 5
+		cost = 10
 
 		mutually_exclusive = { 
 			
@@ -1551,6 +1551,196 @@ focus_tree = {
 
 		}
 	}
+
+
+#123123
+		focus = {
+		id = TPMP_SOV_merge_tank_plants
+		icon = GFX_focus_fra_loyalty_stalin
+		prerequisite = { focus =  TPMP_SOV_support_khpz
+		focus = TPMP_SOV_support_kirov
+		focus = TPMP_SOV_support_plant_no_37
+		}
+		x = 6
+		y = 1
+		relative_position_id = TPMP_SOV_support_khpz
+		
+		cost = 10
+
+		mutually_exclusive = { 
+			
+
+		}
+
+		allow_branch = {
+		}
+
+		available = {
+			has_completed_focus = TPMP_SOV_evacuate_leningrad_industry
+
+
+		}
+		
+		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOCUS_FILTER_STABILITY}
+
+		completion_reward = {
+
+
+		}
+	}
+
+
+
+
+
+#123123
+		focus = {
+		id = TPMP_SOV_the_paton_automatic_welding_process
+		icon = GFX_focus_fra_loyalty_stalin
+		prerequisite = { focus =  TPMP_SOV_support_khpz
+		focus = TPMP_SOV_support_kirov
+		focus = TPMP_SOV_support_plant_no_37
+		}
+		x = 0
+		y = 2
+		relative_position_id = TPMP_SOV_support_khpz
+		
+		cost = 10
+
+		mutually_exclusive = { 
+			
+
+		}
+
+		allow_branch = {
+		}
+
+		available = {
+
+
+		}
+		
+		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOCUS_FILTER_STABILITY}
+
+		completion_reward = {
+
+
+		}
+	}
+
+
+
+#123123
+		focus = {
+		id = TPMP_SOV_dedicated_diesel_engine_facility
+		icon = GFX_focus_fra_loyalty_stalin
+		prerequisite = { focus =  TPMP_SOV_support_khpz
+		focus = TPMP_SOV_support_kirov
+		focus = TPMP_SOV_support_plant_no_37
+		}
+		x = 2
+		y = 2
+		relative_position_id = TPMP_SOV_support_khpz
+		
+		cost = 10
+
+		mutually_exclusive = { 
+			
+
+		}
+
+		allow_branch = {
+		}
+
+		available = {
+
+
+		}
+		
+		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOCUS_FILTER_STABILITY}
+
+		completion_reward = {
+
+
+		}
+	}
+
+#123123
+		focus = {
+		id = TPMP_SOV_retrieve_vannikov_from_the_nkvd
+		icon = GFX_focus_fra_loyalty_stalin
+		prerequisite = { focus =  TPMP_SOV_support_khpz
+		focus = TPMP_SOV_support_kirov
+		focus = TPMP_SOV_support_plant_no_37
+		}
+		x = -2
+		y = 2
+		relative_position_id = TPMP_SOV_support_khpz
+		
+		cost = 10
+
+		mutually_exclusive = { 
+			
+
+		}
+
+		allow_branch = {
+		}
+
+		available = {
+
+
+		}
+		
+		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOCUS_FILTER_STABILITY}
+
+		completion_reward = {
+
+
+		}
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1581,6 +1771,9 @@ focus_tree = {
 		}
 
 		available = {
+			SOV_mikhail_kalinin = {
+				is_hired_as_advisor = yes
+			}
 
 		}
 		
@@ -2477,7 +2670,7 @@ focus_tree = {
 
 #123123
 		focus = {
-		id = TPMP_SOV_evacuate_leningrad_industry
+		id = TPMP_SOV_form_the_gko
 		icon = GFX_focus_fra_loyalty_stalin
 		prerequisite = { focus =  TPMP_SOV_for_whom_the_bell_tolls
 		}
@@ -2496,25 +2689,35 @@ focus_tree = {
 		}
 
 		available = {
+			SOV_lazar_kaganovich = {
+				is_hired_as_advisor = yes
+			}
 
 		}
 		
 		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOCUS_FILTER_STABILITY}
 
 		completion_reward = {
+			reduce_focus_completion_cost = {
+				focus = { TPMP_SOV_evacuate_leningrad_industry TPMP_SOV_evacuate_western_russia_industry 
+				TPMP_SOV_evacuate_volga_area_industry TPMP_SOV_evacuate_southern_don_industrial_area 
+				TPMP_SOV_evacuate_moscow_industral_area }
+				cost = 14
+			}
 
 
 		}
 	}
 
+
 #123123
 		focus = {
-		id = TPMP_SOV_evacuate_baltic_industry
+		id = TPMP_SOV_evacuate_leningrad_industry
 		icon = GFX_focus_fra_loyalty_stalin
 		prerequisite = { focus =  TPMP_SOV_for_whom_the_bell_tolls
 		}
-		x = 8
-		y = 1
+		x = 12
+		y = 2
 		relative_position_id = TPMP_SOV_for_whom_the_bell_tolls
 		
 		cost = 5
@@ -2528,6 +2731,9 @@ focus_tree = {
 		}
 
 		available = {
+			SOV_lazar_kaganovich = {
+				is_hired_as_advisor = yes
+			}
 
 		}
 		
@@ -2539,18 +2745,15 @@ focus_tree = {
 		}
 	}
 
-
 #123123
 		focus = {
-		id = TPMP_SOV_evacuate_volga_area_industry
+		id = TPMP_SOV_evacuate_western_russia_industry
 		icon = GFX_focus_fra_loyalty_stalin
-		prerequisite = { focus =  TPMP_SOV_evacuate_baltic_industry
-			focus =  TPMP_SOV_evacuate_leningrad_industry
-
+		prerequisite = { focus =  TPMP_SOV_for_whom_the_bell_tolls
 		}
-		x = 1
-		y = 1
-		relative_position_id = TPMP_SOV_evacuate_baltic_industry
+		x = 14
+		y = 2
+		relative_position_id = TPMP_SOV_for_whom_the_bell_tolls
 		
 		cost = 5
 
@@ -2563,6 +2766,9 @@ focus_tree = {
 		}
 
 		available = {
+			SOV_lazar_kaganovich = {
+				is_hired_as_advisor = yes
+			}
 
 		}
 		
@@ -2574,6 +2780,42 @@ focus_tree = {
 		}
 	}
 
+#123123
+		focus = {
+		id = TPMP_SOV_evacuate_volga_area_industry
+		icon = GFX_focus_fra_loyalty_stalin
+		prerequisite = { focus =  TPMP_SOV_evacuate_western_russia_industry
+			focus =  TPMP_SOV_evacuate_leningrad_industry
+
+		}
+		x = 1
+		y = 1
+		relative_position_id = TPMP_SOV_evacuate_western_russia_industry
+		
+		cost = 5
+
+		mutually_exclusive = { 
+			
+
+		}
+
+		allow_branch = {
+		}
+
+		available = {
+			SOV_lazar_kaganovich = {
+				is_hired_as_advisor = yes
+			}
+
+		}
+		
+		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOCUS_FILTER_STABILITY}
+
+		completion_reward = {
+
+
+		}
+	}
 
 
 
@@ -2581,13 +2823,13 @@ focus_tree = {
 		focus = {
 		id = TPMP_SOV_evacuate_southern_don_industrial_area
 		icon = GFX_focus_fra_loyalty_stalin
-		prerequisite = { focus =  TPMP_SOV_evacuate_baltic_industry
+		prerequisite = { focus =  TPMP_SOV_evacuate_western_russia_industry
 			focus =  TPMP_SOV_evacuate_leningrad_industry
 
 		}
 		x = -1
 		y = 1
-		relative_position_id = TPMP_SOV_evacuate_baltic_industry
+		relative_position_id = TPMP_SOV_evacuate_western_russia_industry
 		
 		cost = 5
 
@@ -2600,6 +2842,9 @@ focus_tree = {
 		}
 
 		available = {
+			SOV_lazar_kaganovich = {
+				is_hired_as_advisor = yes
+			}
 
 		}
 		
@@ -2617,13 +2862,13 @@ focus_tree = {
 		focus = {
 		id = TPMP_SOV_evacuate_moscow_industral_area
 		icon = GFX_focus_fra_loyalty_stalin
-		prerequisite = { focus =  TPMP_SOV_evacuate_baltic_industry
+		prerequisite = { focus =  TPMP_SOV_evacuate_western_russia_industry
 			focus =  TPMP_SOV_evacuate_leningrad_industry
 
 		}
 		x = -3
 		y = 1
-		relative_position_id = TPMP_SOV_evacuate_baltic_industry
+		relative_position_id = TPMP_SOV_evacuate_western_russia_industry
 		
 		cost = 5
 
@@ -2636,6 +2881,9 @@ focus_tree = {
 		}
 
 		available = {
+			SOV_lazar_kaganovich = {
+				is_hired_as_advisor = yes
+			}
 
 		}
 		
