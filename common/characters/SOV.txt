@@ -659,6 +659,13 @@ characters = {
 	}
 
 	SOV_grigory_kulik = {
+
+
+
+
+
+
+
 		name = SOV_grigory_kulik
 		portraits = {
 			army = {
@@ -687,12 +694,32 @@ characters = {
         can_be_fired = yes
         allows_military_advisor = yes     # this is the key line
         traits = { 
+			TPMP_SOV_kulik_cuck
 			
 
 
 
 		}                      # add advisor traits here
-        cost = 25
+        
+		
+		research_bonus = {
+			cat_rocketry_tech = -0.3
+			cat_cqc_tech = -0.3
+			cat_infantry_support_tech = -0.5
+			cat_heavy_anti_air_tech = -0.15
+			cat_light_anti_tank_tech = -0.15
+			cat_heavy_anti_tank_tech = -0.15
+
+
+
+
+		}
+		
+		
+		
+		
+		
+		cost = 25
     }
 
 
@@ -2150,52 +2177,6 @@ characters = {
 
 ######## TPMP 123123 GUYSS LKETS GOSPROYEKTSTROY
 
-	SOV_grigory_kulik = {
-		name = SOV_grigory_kulik
-		portraits = {
-			army = {
-				large = GFX_portrait_SOV_grigory_kulik
-				small=GFX_portrait_SOV_grigory_kulik_small
-			}
-		}
-		allowed_civil_war = {
-			OR = {
-				SOV_advisor_is_aligned_left = yes 
-				SOV_advisor_is_aligned_right = yes 
-				SOV_advisor_is_aligned_centre = yes 
-			}
-			has_government = communism
-		}
-
-		advisor = {
-			slot = political_advisor
-			idea_token = grigory_kulik
-			allowed = {
-				original_tag = SOV
-			}
-			
-			visible = {
-				NOT = {
-					has_character_flag = SOV_character_purged_flag 
-				}
-			}
-			available = {
-				if = {
-					limit = {
-						has_character_flag = SOV_exiled_flag
-					}
-					NOT = { has_character_flag = SOV_exiled_flag }
-				}
-			}
-			traits = {
-				popular_figurehead 
-			}
-			ai_will_do = {
-				base = 0.5
-			}
-		}
-	}
-
 
 
 
@@ -2370,7 +2351,6 @@ characters = {
 				}
 			}
 			available = {
-				has_completed_focus = SOV_finish_the_five_year_plan 
 			}
 			
 			traits = {

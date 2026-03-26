@@ -2,14 +2,50 @@ leader_traits = {
 
 	TPMP_SOV_kulik_cuck = {
 		random = no
-		sprite = 10
 		consumer_goods_factor = -0.1
-		research_speed_factor = -0.15    # adjust value as needed
-		allowed_civil_war = yes
-		
-		research_bonus = {
-			artillery = -0.15            # adjust value as needed
+		political_power_factor = 0.1
+
+
+		allowed_civil_war = sov_yes_pact
+
+		equipment_bonus = {
+			TPMP_cat_eq_all_tank = {
+				soft_attack = -0.05
+				hard_attack = -0.05
+				breakthrough = -0.15
+				build_cost_ic = 0.10
+
+
+				instant = yes	
+			}	
+			TPMP_cat_eq_all_inf = {
+				breakthrough = -0.225
+				build_cost_ic = -0.05
+
+
+				instant = yes	
+			}	
+			TPMP_cat_eq_all_AT = {
+				build_cost_ic = 0.15
+
+
+				instant = yes	
+			}	
+			TPMP_cat_eq_all_rocket_arty = {
+				build_cost_ic = 0.15
+
+
+				instant = yes	
+			}	
+
+
+
 		}
+		
+
+
+
+
 	}
 
 }

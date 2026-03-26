@@ -77,7 +77,7 @@ TPMP_SOV_workers_decision_category = {
 
 		complete_effect = {
 			add_to_variable = { TPMP_SOV_workers_var = 100000 tooltip = TPMP_SOV_gulag_add_worker_decision_tt }
-			add_stability = -5
+			add_stability = -0.05
 			
 			}
 
@@ -104,7 +104,7 @@ TPMP_SOV_workers_decision_category = {
 		complete_effect = {
 			add_to_variable = { TPMP_SOV_workers_var = 100000 tooltip = TPMP_SOV_gulag_add_worker_decision_tt }
 
-			add_war_support = -17.5
+			add_war_support = -0.175
 			
 		}
 
@@ -165,10 +165,10 @@ TPMP_SOV_workers_decision_category = {
 			check_variable = { TPMP_SOV_workers_var > 67499 }
 		}
 
-		custom_cost_text = TPMP_SOV_gulag_spend_workers_decision
+		custom_cost_text = TPMP_SOV_gulag_spend_workers_railway_decision
 
 		visible = {
-				has_completed_focus =  TPMP_SOV_gulag_3
+			has_completed_focus =  TPMP_SOV_gulag_3
 		}
 
 		available = {
@@ -235,7 +235,7 @@ TPMP_SOV_workers_decision_category = {
     custom_cost_trigger = {
         check_variable = { TPMP_SOV_workers_var > 124999 }
     }
-    custom_cost_text = TPMP_SOV_gulag_spend_workers_decision
+    custom_cost_text = TPMP_SOV_gulag_spend_workers_western_russia_decision
 
     visible = {
     }
@@ -282,7 +282,7 @@ TPMP_SOV_workers_decision_category = {
 			check_variable = { TPMP_SOV_workers_var > 159999 }
 		}
 
-		custom_cost_text = TPMP_SOV_gulag_spend_workers_coal_decision
+		custom_cost_text = TPMP_SOV_gulag_spend_workers_coal_targeted_825_decision
     visible = {
 			has_completed_focus =  TPMP_SOV_gulag_1
     }
@@ -322,7 +322,7 @@ TPMP_SOV_workers_decision_category = {
 			check_variable = { TPMP_SOV_workers_var > 119999 }
 		}
 
-		custom_cost_text = TPMP_SOV_gulag_spend_workers_coal_decision
+		custom_cost_text = TPMP_SOV_gulag_spend_workers_coal_targeted_569_decision
 
     visible = {
 			has_completed_focus =  TPMP_SOV_gulag_1
@@ -365,7 +365,7 @@ TPMP_SOV_workers_decision_category = {
 			check_variable = { TPMP_SOV_workers_var > 139999 }
 		}
 
-		custom_cost_text = TPMP_SOV_gulag_spend_workers_coal_decision
+		custom_cost_text = TPMP_SOV_gulag_spend_workers_coal_targeted_881_decision
 
     visible = {
 			has_completed_focus =  TPMP_SOV_gulag_1
@@ -412,7 +412,7 @@ TPMP_SOV_workers_decision_category = {
 			check_variable = { TPMP_SOV_workers_var > 219999 }
 		}
 
-		custom_cost_text = TPMP_SOV_gulag_spend_workers_coal_decision
+		custom_cost_text = TPMP_SOV_gulag_spend_workers_lumber_decision
 		visible = {
 				has_completed_focus =  TPMP_SOV_gulag_1
 		}
@@ -445,14 +445,14 @@ TPMP_SOV_workers_decision_category = {
 		state_target = yes
 		targets = { 644 }
 		target_trigger = {
-			#has_completed_focus =  TPMP_SOV_gulag_2
+			
 		}
 
 		custom_cost_trigger = {
 			check_variable = { TPMP_SOV_workers_var > 309999 }
 		}
 
-		custom_cost_text = TPMP_SOV_gulag_spend_workers_coal_decision
+		custom_cost_text = TPMP_SOV_gulag_spend_workers_gold_targeted_644_decision
 
 		visible = {
 				has_completed_focus =  TPMP_SOV_gulag_2
@@ -518,7 +518,7 @@ TPMP_SOV_workers_decision_category = {
 			check_variable = { TPMP_SOV_workers_var > 189999 }
 		}
 
-		custom_cost_text = TPMP_SOV_gulag_spend_workers_decision
+		custom_cost_text = TPMP_SOV_gulag_spend_workers_trace_coal_siberia_west_decision
 
 		visible = {
 				has_completed_focus =  TPMP_SOV_gulag_2
@@ -581,7 +581,7 @@ TPMP_SOV_workers_decision_category = {
 			check_variable = { TPMP_SOV_workers_var > 329999 }
 		}
 
-		custom_cost_text = TPMP_SOV_gulag_spend_workers_decision
+		custom_cost_text = TPMP_SOV_gulag_spend_workers_trace_coal_siberia_far_east_decision
 
 		visible = {
 				has_completed_focus =  TPMP_SOV_gulag_2
@@ -726,7 +726,7 @@ TPMP_SOV_workers_develop_infrastructure_moscow_decision = {
     custom_cost_trigger = {
         check_variable = { TPMP_SOV_workers_var > 59999 }
     }
-    custom_cost_text = TPMP_SOV_gulag_spend_workers_decision
+    custom_cost_text = TPMP_SOV_gulag_spend_workers_moscow_infrastructure_decision
 
 
     visible = {
@@ -773,7 +773,7 @@ TPMP_SOV_workers_develop_infrastructure_leningrad_decision = {
     custom_cost_trigger = {
         check_variable = { TPMP_SOV_workers_var > 69999 }
     }
-    custom_cost_text = TPMP_SOV_gulag_spend_workers_decision
+    custom_cost_text = TPMP_SOV_gulag_spend_workers_leningrad_infrastructure_decision
 
     visible = {
         has_country_flag = show_regional_infrastructure
@@ -815,7 +815,7 @@ TPMP_SOV_workers_develop_infrastructure_western_russia_decision = {
     custom_cost_trigger = {
         check_variable = { TPMP_SOV_workers_var > 79999 }
     }
-    custom_cost_text = TPMP_SOV_gulag_spend_workers_decision
+    custom_cost_text = TPMP_SOV_gulag_spend_workers_western_russia_infrastructure_decision
 
     visible = {
         has_country_flag = show_regional_infrastructure
@@ -859,7 +859,7 @@ TPMP_SOV_workers_develop_infrastructure_northern_russia_decision = {
     custom_cost_trigger = {
         check_variable = { TPMP_SOV_workers_var > 149999 }
     }
-    custom_cost_text = TPMP_SOV_gulag_spend_workers_decision
+    custom_cost_text = TPMP_SOV_gulag_spend_workers_northern_russia_infrastructure_decision
 
     visible = {
         has_country_flag = show_regional_infrastructure
@@ -906,7 +906,7 @@ TPMP_SOV_workers_develop_infrastructure_ukraine_decision = {
     custom_cost_trigger = {
         check_variable = { TPMP_SOV_workers_var > 49999 }
     }
-    custom_cost_text = TPMP_SOV_gulag_spend_workers_decision
+    custom_cost_text = TPMP_SOV_gulag_spend_workers_ukraine_infrastructure_decision
 
     visible = {
         has_country_flag = show_regional_infrastructure
@@ -957,7 +957,7 @@ TPMP_SOV_workers_develop_infrastructure_volga_decision = {
     custom_cost_trigger = {
         check_variable = { TPMP_SOV_workers_var > 79999 }
     }
-    custom_cost_text = TPMP_SOV_gulag_spend_workers_decision
+    custom_cost_text = TPMP_SOV_gulag_spend_workers_volga_infrastructure_decision
 
     visible = {
         has_country_flag = show_regional_infrastructure
@@ -1004,7 +1004,7 @@ TPMP_SOV_workers_develop_infrastructure_south_russia_don_decision = {
     custom_cost_trigger = {
         check_variable = { TPMP_SOV_workers_var > 89999 }
     }
-    custom_cost_text = TPMP_SOV_gulag_spend_workers_decision
+    custom_cost_text = TPMP_SOV_gulag_spend_workers_south_russia_don_infrastructure_decision
 
     visible = {
         has_country_flag = show_regional_infrastructure
@@ -1051,7 +1051,7 @@ TPMP_SOV_workers_develop_infrastructure_caucasus_decision = {
     custom_cost_trigger = {
         check_variable = { TPMP_SOV_workers_var > 119999 }
     }
-    custom_cost_text = TPMP_SOV_gulag_spend_workers_decision
+    custom_cost_text = TPMP_SOV_gulag_spend_workers_caucasus_infrastructure_decision
 
     visible = {
         has_country_flag = show_regional_infrastructure
@@ -1095,7 +1095,7 @@ TPMP_SOV_workers_develop_infrastructure_urals_west_decision = {
     custom_cost_trigger = {
         check_variable = { TPMP_SOV_workers_var > 129999 }
     }
-    custom_cost_text = TPMP_SOV_gulag_spend_workers_decision
+    custom_cost_text = TPMP_SOV_gulag_spend_workers_urals_infrastructure_decision
 
     visible = {
         has_country_flag = show_regional_infrastructure
@@ -1136,7 +1136,7 @@ TPMP_SOV_workers_develop_infrastructure_central_asia_decision = {
     custom_cost_trigger = {
         check_variable = { TPMP_SOV_workers_var > 179999 }
     }
-    custom_cost_text = TPMP_SOV_gulag_spend_workers_decision
+    custom_cost_text = TPMP_SOV_gulag_spend_workers_central_asia_infrastructure_decision
 
     visible = {
         has_country_flag = show_regional_infrastructure
@@ -1188,7 +1188,7 @@ TPMP_SOV_workers_develop_infrastructure_siberia_west_decision = {
     custom_cost_trigger = {
         check_variable = { TPMP_SOV_workers_var > 219999 }
     }
-    custom_cost_text = TPMP_SOV_gulag_spend_workers_decision
+    custom_cost_text = TPMP_SOV_gulag_spend_workers_siberia_west_infrastructure_decision
 
     visible = {
         has_country_flag = show_regional_infrastructure
@@ -1241,7 +1241,7 @@ TPMP_SOV_workers_develop_infrastructure_siberia_west_decision = {
 			check_variable = { TPMP_SOV_workers_var > 299999 }
 		}
 
-		custom_cost_text = TPMP_SOV_gulag_spend_workers_decision
+		custom_cost_text = TPMP_SOV_gulag_spend_workers_siberia_far_east_infrastructure_decision
 
 		visible = {
 			has_country_flag = show_regional_infrastructure
