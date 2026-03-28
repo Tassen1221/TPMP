@@ -59,6 +59,15 @@ country_event = {
 		custom_effect_tooltip = available_political_advisor
 		show_ideas_tooltip = MAN_zhang_jinghui
 		custom_effect_tooltip = TPMP_national_focus_lock_puyi
+		if ={
+			limit = {
+				NOT = {
+					country_exists = CHI
+				}
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = TPMP_MAN_no_core_warning
+		}
 	}
 
 	#Pujie

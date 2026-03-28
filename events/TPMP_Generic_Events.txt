@@ -130,3 +130,175 @@ country_event = { #german mediation for Transylvania
 		}
 	}
 }
+
+country_event = {
+	id = TPMP_GEN.4
+	title = TPMP_GEN.4.t
+	desc = TPMP_GEN.4.d
+	picture = GFX_report_event_manchukuo_army_2
+
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #normal
+		name = TPMP_GEN.4.a
+		trigger = {
+			NOT = {
+				OR = {
+					MAN = {
+						has_country_leader = {
+							character = MAN_aisin_gioro_puyi
+							ruling_only = yes
+						}
+					}
+					MAN = {
+						has_completed_focus = MAN_tsr_chinese_leadership
+					}
+				}
+			}
+		}
+		621 = {
+			transfer_state_to = MAN
+		}
+		746 = {
+			transfer_state_to = MAN
+		}
+		1039 = {
+			transfer_state_to = MAN
+		}
+		if = {
+			limit = {
+				JAP = {
+					has_completed_focus = JAP_reorganize_the_united_autonomous_government
+				}
+			}
+			1040 = {
+				transfer_state_to = MAN
+			}
+			616 = {
+				transfer_state_to = MAN
+			}
+		}
+	}
+	option = { # a little more
+		name = TPMP_GEN.4.b
+		621 = {
+			transfer_state_to = MAN
+		}
+		746 = {
+			transfer_state_to = MAN
+		}
+		1039 = {
+			transfer_state_to = MAN
+		}
+		1040 = {
+			transfer_state_to = MAN
+		}
+		616 = {
+			transfer_state_to = MAN
+		}
+		609 = {
+			transfer_state_to = MAN
+		}
+		608 = {
+			transfer_state_to = MAN
+		}
+		615 = {
+			transfer_state_to = MAN
+		}
+		1046 = {
+			transfer_state_to = MAN
+		}
+	}
+	option = { # just non coastal 
+		name = TPMP_GEN.4.c
+		trigger = {
+			OR = {
+				MAN = {
+					has_country_leader = {
+						character = MAN_aisin_gioro_puyi
+						ruling_only = yes
+					}
+				}
+				MAN = {
+					has_completed_focus = MAN_tsr_chinese_leadership
+				}
+			}
+		}
+		JAP = {
+			every_controlled_state = {
+				limit = {
+					OR = {
+						AND = {
+							is_core_of = CHI
+							NOT = { is_coastal = yes }
+							NOT = {
+								state = 1035
+								state = 599
+								state = 594
+							}
+						}
+						state = 609
+						state = 608
+						state = 614
+					}
+				}
+
+				transfer_state_to = MAN
+			}
+		}
+	}
+	option = { 	#everything 
+		name = TPMP_GEN.4.e
+		trigger = {
+			OR = {
+				MAN = {
+					has_country_leader = {
+						character = MAN_aisin_gioro_puyi
+						ruling_only = yes
+					}
+				}
+				MAN = {
+					has_completed_focus = MAN_tsr_chinese_leadership
+				}
+			}
+		}
+		JAP = {
+			every_controlled_state = {
+				limit = {
+					is_core_of = CHI
+					NOT = { 
+						state = 524
+						state = 591
+						state = 743
+						state = 531
+						state = 728
+						state = 729
+						state = 326
+						state = 613
+					}
+				}  
+				transfer_state_to = MAN
+			}
+		}
+	}
+	option = { 	#fuckall 
+		name = TPMP_GEN.4.f
+		if = {
+			limit = {
+				OR = {
+					MAN = {
+						has_country_leader = {
+							character = MAN_aisin_gioro_puyi
+							ruling_only = yes
+						}
+					}
+					MAN = {
+						has_completed_focus = MAN_tsr_chinese_leadership
+					}
+				}
+			}
+			custom_effect_tooltip = TPMP_trolling_manchu
+		}
+	}
+}
