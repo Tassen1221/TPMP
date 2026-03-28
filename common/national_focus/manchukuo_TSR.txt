@@ -307,7 +307,7 @@
 		y = 1
 		relative_position_id = MAN_tsr_collective_farms
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 10
@@ -438,7 +438,7 @@
 		y = 1
 		relative_position_id = MAN_tsr_trade_delegation
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 4
@@ -1874,6 +1874,10 @@
 			# }
 		}
 
+		allow_branch = {
+			always = no
+		}
+
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
@@ -1897,11 +1901,11 @@
 		id = MAN_tsr_national_cooperation_government
 		icon = GFX_goal_generic_improve_relations
 		prerequisite = { focus = MAN_tsr_chinese_leadership }
-		x = 1
+		x = 0
 		y = 1
 		relative_position_id = MAN_tsr_chinese_leadership
 
-		cost = 10
+		cost = 20
 
 		ai_will_do = {
 			factor = 1
@@ -1946,7 +1950,7 @@
 	focus = {
 		id = MAN_tsr_the_two_emperors
 		icon = GFX_goal_anschluss
-		prerequisite = { focus = MAN_tsr_vassalize_mengukuo }
+		# prerequisite = { focus = MAN_tsr_vassalize_mengukuo }
 		prerequisite = { focus = MAN_tsr_national_cooperation_government }
 		x = 0
 		y = 2
