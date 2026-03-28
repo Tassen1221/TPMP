@@ -5595,6 +5595,58 @@ focus_tree = {
 			add_ideas = FIN_the_lone_wolf
 		}
 	}
+
+	focus = {
+		id = TPMP_FIN_raise_conscription
+		icon = GFX_focus_generic_little_entente
+		prerequisite = { focus = FIN_moderate_politics }
+		prerequisite = { focus = FIN_the_lone_wolf }
+
+		x = -2
+		y = 1
+		relative_position_id = FIN_the_lone_wolf
+		cost = 5
+		available = {
+			has_government = neutrality
+			has_war_support > 0.2
+		}
+
+		search_filters = { FOCUS_FILTER_HISTORICAL FOCUS_FILTER_POLITICAL FOCUS_FILTER_BALANCE_OF_POWER }
+
+		completion_reward = {
+			if = {
+				limit = {
+					has_idea = volunteer_only
+				}
+				remove_ideas = volunteer_only
+				add_ideas = limited_conscription
+			}
+			if = {
+				limit = {
+					has_idea = limited_conscription
+				}
+				remove_ideas = limited_conscription
+				add_ideas = extensive_conscription
+			}
+			if = {
+				limit = {
+					has_idea = extensive_conscription
+				}
+				remove_ideas = extensive_conscription
+				add_ideas = service_by_requirement
+			}
+			if = {
+				limit = {
+					has_idea = service_by_requirement
+					has_idea = all_adults_serve
+					has_idea = scraping_the_barrel
+				}
+				add_political_power = 150
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			FIN_bop_very_low_increase_effect = yes
+		}
+	}
 	
 	focus = {
 		id = FIN_military_aid
