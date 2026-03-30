@@ -1,12 +1,13 @@
 sub_units = {
 	commandos = {
-		abbreviation = "ASEC"
+		abbreviation = "COM"
 		sprite = assault_engineer
 		map_icon_category = armored
 		priority = 0
 		ai_priority = 0
 		
 		active = no
+		special_forces = yes
 		can_be_parachuted = yes
 		affects_speed = no
 
@@ -46,6 +47,7 @@ sub_units = {
 		#Misc Abilities
 		weight = 0.5
 		supply_consumption = 0.1
+		same_support_type = commandos
 
 		essential = {
 			special_equipment
@@ -69,6 +71,58 @@ sub_units = {
 		battalion_mult = {
 			category = category_army
 			soft_attack = 0.05
+		}
+	}
+	assault_squad = {
+		abbreviation = "ASQ"
+		sprite = infantry
+		map_icon_category = infantry
+		priority = 0
+		ai_priority = 0
+		
+		active = no
+		can_be_parachuted = yes
+		affects_speed = no
+
+		type = {
+			infantry
+			support
+		}
+		
+		group = support
+		
+		categories = {
+			category_army
+			category_support
+			category_infantry
+			category_support_infantry
+			category_leg_infantry
+		}
+
+		#Size Definitions
+		combat_width = 0
+		max_strength = 5
+		max_organisation = 60
+		default_morale = 0.1
+		manpower = 300
+		training_time = 150
+
+		#Combat
+		soft_attack = -0.3
+		hard_attack = -0.3
+		breakthrough = -0.3
+		defense = -0.3
+		ap_attack = -0.3
+		armor_value = -0.3
+		air_attack = -0.3
+
+		#Misc Abilities
+		weight = 0.5
+		supply_consumption = 0.1
+		same_support_type = commandos
+		
+		need = {
+			special_infantry_equipment_1 = 100
 		}
 	}
 
@@ -165,8 +219,8 @@ sub_units = {
 	}
 	assault_engineer = {
 		abbreviation = "ASEC"
-		sprite = assault_engineer
-		map_icon_category = armored
+		sprite = infantry
+		map_icon_category = infantry
 		priority = 0
 		ai_priority = 0
 		
@@ -551,8 +605,8 @@ sub_units = {
 	}
 	armored_headquarters = {
 		abbreviation = "HQ"
-		sprite = infantry
-		map_icon_category = infantry
+		sprite = armored_signal
+		map_icon_category = armored
 		priority = 0
 		ai_priority = 0
 

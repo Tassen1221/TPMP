@@ -11,68 +11,125 @@ artillery_doctrine_1 = {
         always = yes
     }
 
-    artillery_brigade = {
-        combat_width = -0.4
-        max_organisation = -10
+    visible = {
+		NOT = {
+			has_subdoctrine_in_track = artillery
+		}
+	}
+
+    category_artillery = {
+        max_organisation = 10
     }
-    rocket_artillery_brigade = {
-        combat_width = -0.4
-        max_organisation = -10
+    category_heavy_artillery = {
+        max_organisation = 3
+        soft_attack = 0.05
+        maximum_speed = -0.1
+    }
+    heavy_artillery = {
+        battalion_mult = {
+            category = category_army
+            soft_attack = 0.03
+        }
     }
 
     rewards = {
-        artillery_doctrine_1a = {
-            category_light_artillery = {
-                maximum_speed = 0.05
-            }
-            artillery_brigade = {
-                need = {
-                    artillery_equipment = -3
+        a = {
+            super_heavy_artillery = {
+                soft_attack = 0.05
+                battalion_mult = {
+                    category = category_army
+                    soft_attack = 0.05
                 }
             }
-            rocket_artillery_brigade = {
-                need = {
-                    rocket_artillery_equipment = -3
+            equipment_bonus = {
+                railway_gun_equipment = {
+                    build_cost_ic = -0.2
+                    instant = yes
+                }
+                super_heavy_railway_gun_equipment = {   
+                    build_cost_ic = -0.2
+                    instant = yes
                 }
             }
         }
-        artillery_doctrine_1b = {
+        b = {
+            category_artillery = {
+                defense = 0.1
+                entrenchment = 0.1
+            }
+            category_heavy_artillery = {
+                max_strength = 1
+                entrenchment = 0.1
+            }
+        }
+        c = {
+            effect = {
+                custom_effect_tooltip = artillery_doctrine_1_c_tt
+				add_tech_bonus = {
+					bonus = 0.25
+					uses = 2
+					category = cat_artillery_tech
+				}
+			}
+        }
+        d = {
+            category_artillery = {
+                defense = 0.1
+            }
             artillery_brigade = {
-                combat_width = -0.4
-                max_organisation = -10
+                urban = { attack = 0.05 }
+                fort = { attack = 0.03 }
+            }
+            mot_artillery_brigade = {
+                urban = { attack = 0.05 }
+                fort = { attack = 0.03 }
+            }
+            heavy_artillery_brigade = {
+                urban = { attack = 0.05 }
+                fort = { attack = 0.03 }
+            }
+            mot_heavy_artillery_brigade = {
+                urban = { attack = 0.05 }
+                fort = { attack = 0.03 }
             }
             rocket_artillery_brigade = {
-                combat_width = -0.4
-                max_organisation = -10
+                urban = { attack = 0.05 }
+                fort = { attack = 0.03 }
             }
-        }
-        artillery_doctrine_1c = {
-            category_light_artillery = {
-                supply_consumption = -0.02
-                maximum_speed = 0.05
+            motorized_rocket_brigade = {
+                urban = { attack = 0.05 }
+                fort = { attack = 0.03 }
             }
-        }
-        artillery_doctrine_1d = {
-            artillery_brigade = {
-                combat_width = -0.2
-            }
-            rocket_artillery_brigade = {
-                combat_width = -0.2
-            }
-        }
-        artillery_doctrine_1e = {
-            category_light_artillery = {
-                supply_consumption = -0.02
-            }
-            artillery_brigade = {
-                need = {
-                    artillery_equipment = -3
+            equipment_bonus = {
+                railway_gun_equipment = {
+                    railway_gun_attack = 0.05
+                    instant = yes
+                }
+                super_heavy_railway_gun_equipment = {   
+                    railway_gun_attack = 0.05
+                    instant = yes
                 }
             }
-            rocket_artillery_brigade = {
-                need = {
-                    rocket_artillery_equipment = -3
-                }
+        }
+        e = {
+            category_heavy_artillery = {
+                soft_attack = 0.05
+            }
+            heavy_artillery_brigade = {
+                hills = { attack = 0.05 }
+				mountain = { attack = 0.05 }
+				forest = { attack = 0.05 }
+				jungle = { attack = 0.05 }
+				marsh = { attack = 0.05 }
+				urban = { attack = 0.05 }
+            }
+            mot_heavy_artillery_brigade = {
+                hills = { attack = 0.05 }
+				mountain = { attack = 0.05 }
+				forest = { attack = 0.05 }
+				jungle = { attack = 0.05 }
+				marsh = { attack = 0.05 }
+				urban = { attack = 0.05 }
             }
         }
     }
@@ -90,69 +147,70 @@ artillery_doctrine_2 = {
         always = yes
     }
 
-    heavy_artillery = {
-        need = {
-            heavy_artillery_equipment = 15
-        }
-        soft_attack = 0.3
-        hard_attack = 0.3
-        defense = 0.3
-        breakthrough = 0.3
-        ap_attack = 0.3
+    visible = {
+		NOT = {
+			has_subdoctrine_in_track = artillery
+		}
+	}
+
+    artillery_brigade = {
+        combat_width = -0.5
+        max_strength = -1
+        max_organisation = -20
     }
 
     rewards = {
-        artillery_doctrine_2a = {
-            heavy_artillery = {
-                need = {
-                    heavy_artillery_equipment = 15
-                }
-                battalion_mult = {
-                    category = category_light_artillery
-                    soft_attack = 0.1
-                    hard_attack = 0.1
-                }
+        a = {
+            artillery_brigade = {
+                combat_width = -0.5
+                max_organisation = -10
             }
         }
-        artillery_doctrine_2b = {
-            category_artillery = {
-                default_morale = 0.1
-            }
-            heavy_artillery = {
-                battalion_mult = {
-                    category = category_light_artillery
-                    defense = 0.1
-                    breakthrough = 0.1
-                }
-            }
+        b = {
+            army_artillery_attack_factor = 0.05
+            army_artillery_defence_factor = 0.1
         }
-        artillery_doctrine_2c = {
-            heavy_artillery = {
-                need = {
-                    heavy_artillery_equipment = 15
-                }
-                battalion_mult = {
-                    category = category_light_artillery
-                    soft_attack = 0.1
-                    hard_attack = 0.1
-                }
-            }
-        }
-        artillery_doctrine_2d = {
-            category_artillery = {
-                max_organisation = 10
-            }
-            heavy_artillery = {
-                battalion_mult = {
-                    category = category_light_artillery
-                    defense = 0.1
-                    breakthrough = 0.1
-                }
-            }
-        }
-        artillery_doctrine_2e = {
+        c = {
             category_light_artillery = {
-                soft_attack = 0.05
+                supply_consumption = -0.03
+            }
+            category_heavy_artillery = {
+                supply_consumption = -0.04
+            }
+            category_rocket_artillery = {
+                supply_consumption = -0.05
+            }
+        }
+        d = {
+            heavy_artillery_brigade = {
+                need = {
+                    heavy_artillery_equipment = -6
+                }
+            }
+            mot_heavy_artillery_brigade = {
+                need = {
+                    heavy_artillery_equipment = -6
+                }
+            }
+            rocket_artillery_brigade = {
+                need = {
+                    rocket_artillery_equipment = -6
+                }
+            }
+            motorized_rocket_brigade = {
+                need = {
+                    motorized_rocket_equipment = -6
+                }
+            }
+            army_artillery_attack_factor = 0.05
+            effect = {
+                custom_effect_tooltip = artillery_doctrine_2_d_tt
+            }
+        }
+        e = {
+            category_artillery = {
+                default_morale = 0.03
+                max_organisation = 3
             }
         }
     }
@@ -170,38 +228,229 @@ artillery_doctrine_3 = {
         always = yes
     }
 
-    category_heavy_artillery = {
-        soft_attack = 0.05
-        max_organisation = 5
+    visible = {
+		NOT = {
+			has_subdoctrine_in_track = artillery
+		}
+	}
+
+    category_artillery = {
+        max_organisation = 3
+    }
+    heavy_artillery = {
+        breakthrough = 0.3
+        defense = 0.3
+        soft_attack = 0.3
+        hard_attack = 0.3
+        need = {
+            heavy_artillery_equipment = 30
+        }
+    }
+    super_heavy_artillery = {
+        breakthrough = 0.3
+        defense = 0.3
+        soft_attack = 0.3
+        hard_attack = 0.3
+        need = {
+            super_heavy_artillery_equipment = 30
+        }
+    }
+    self_propelled_super_heavy_artillery = {
+        breakthrough = 0.3
+        defense = 0.3
+        soft_attack = 0.3
+        hard_attack = 0.3
+        need = {
+            self_propelled_super_heavy_artillery_equipment = 30
+        }
+    }
+    effect = {
+        custom_effect_tooltip = artillery_doctrine_3_tt
     }
 
     rewards = {
-        artillery_doctrine_3a = {
-            category_heavy_artillery = {
-                soft_attack = 0.05
-                breakthrough = 0.05
+        a = {
+            category_artillery = {
+                max_organisation = 5
+                default_morale = 0.05
+            }
+            category_light_artillery = {
+                default_morale = 0.05
+                supply_consumption = -0.02
             }
         }
-        artillery_doctrine_3b = {
+        b = {
             category_heavy_artillery = {
                 max_strength = 1
-                defense = 0.05
+                defense = 0.1
+            }
+            super_heavy_artillery = {
+                battalion_mult = {
+                    category = category_light_artillery
+                    soft_attack = 0.05
+                }
+                battalion_mult = {
+                    category = category_rocket_artillery
+                    soft_attack = 0.05
+                }
+            }
+            self_propelled_super_heavy_artillery = {
+                battalion_mult = {
+                    category = category_light_artillery
+                    soft_attack = 0.05
+                }
+                battalion_mult = {
+                    category = category_rocket_artillery
+                    soft_attack = 0.05
+                }
             }
         }
-        artillery_doctrine_3c = {
-            category_heavy_artillery = {
-                default_morale = 0.1
-                max_organisation = 5
-            }
-        }
-        artillery_doctrine_3d = {
-            category_heavy_artillery = {
-                breakthrough = 0.2
-            }
-        }
-        artillery_doctrine_3e = {
-            category_heavy_artillery = {
+        c = {
+            category_artillery = {
                 soft_attack = 0.05
+            }
+            category_rocket_artillery = {
+                breakthrough = 0.1
+            }
+        }
+        d = {
+            super_heavy_artillery = {
+                battalion_mult = {
+                    category = category_light_artillery
+                    soft_attack = 0.05
+                }
+                battalion_mult = {
+                    category = category_rocket_artillery
+                    soft_attack = 0.05
+                }
+            }
+            self_propelled_super_heavy_artillery = {
+                battalion_mult = {
+                    category = category_light_artillery
+                    soft_attack = 0.05
+                }
+                battalion_mult = {
+                    category = category_rocket_artillery
+                    soft_attack = 0.05
+                }
+            }
+        }
+        e = {
+            effect = {
+                custom_effect_tooltip = artillery_doctrine_3_e_tt
+            }
+        }
+    }
+}
+artillery_doctrine_4 = {
+    track = artillery
+    name = SUBDOCTRINE_ARTILLERY_4
+    description = SUBDOCTRINE_ARTILLERY_4_DESC
+    icon = GFX_doctrine_fire_concentration_medium
+
+    xp_cost = 100
+    xp_type = army
+
+    available = {
+        always = yes
+    }
+
+    visible = {
+		NOT = {
+			has_subdoctrine_in_track = artillery
+		}
+	}
+
+    category_artillery = {
+        max_organisation = 5
+        default_morale = 0.05
+        soft_attack = 0.03
+    }
+
+    rewards = {
+        a = {
+            category_artillery = {
+                soft_attack = 0.05
+            }
+        }
+        b = {
+            category_artillery = {
+                hard_attack = 0.5
+            ap_attack = 0.5
+            }
+        }
+        c = {
+            category_artillery = {
+                breakthrough = 0.1
+                defense = 0.1
+            }
+            artillery = {
+                battalion_mult = {
+                    category = category_army
+                    breakthrough = 0.03
+                    defense = 0.03
+                }
+            }
+        }
+        d = {
+            recon = {
+                battalion_mult = {
+                    category = category_artillery
+                    soft_attack = 0.03
+                }
+            }
+            mot_recon = {
+                battalion_mult = {
+                    category = category_artillery
+                    soft_attack = 0.03
+                }
+            }
+            mech_recon = {
+                battalion_mult = {
+                    category = category_artillery
+                    soft_attack = 0.03
+                }
+            }
+            armored_car_recon = {
+                battalion_mult = {
+                    category = category_artillery
+                    soft_attack = 0.03
+                }
+            }
+            light_tank_recon = {
+                battalion_mult = {
+                    category = category_artillery
+                    soft_attack = 0.03
+                }
+            }
+            medium_tank_recon = {
+                battalion_mult = {
+                    category = category_artillery
+                    soft_attack = 0.03
+                }
+            }
+            helicopter_recon = {
+                battalion_mult = {
+                    category = category_artillery
+                    soft_attack = 0.03
+                }
+            }
+            headquarters = {
+                battalion_mult = {
+                    category = category_artillery
+                    soft_attack = 0.03
+                }
+            }
+            armored_headquarters = {
+                battalion_mult = {
+                    category = category_artillery
+                    soft_attack = 0.03
+                }
+            }
+        }
+        e = {
+            effect = {
+                custom_effect_tooltip = artillery_doctrine_4_e_tt
             }
         }
     }

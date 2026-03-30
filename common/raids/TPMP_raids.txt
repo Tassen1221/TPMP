@@ -332,7 +332,7 @@ types = {
 					var:target_state = {
 						add_dynamic_modifier = {
 							modifier = TPMP_logistical_sabotage_raid_modifier
-							days = 20
+							days = 30
 						}
 					}
 			    }
@@ -360,7 +360,7 @@ types = {
 					var:target_state = {
 						add_dynamic_modifier = {
 							modifier = TPMP_logistical_sabotage_raid_modifier
-							days = 40
+							days = 60
 						}
 					}
 			    }
@@ -389,7 +389,7 @@ types = {
 					var:target_state = {
 						add_dynamic_modifier = {
 							modifier = TPMP_logistical_sabotage_raid_modifier
-							days = 60
+							days = 90
 						}
 					}
 			    }
@@ -592,6 +592,12 @@ types = {
 							count = 1
 							allow_spawning_on_enemy_provs = yes
 						}
+						create_unit = {
+							division = "name = \"Proxy Forces\" division_template = \"Proxy Forces\" start_experience_factor = 0"
+							owner = GER
+							count = 1
+							allow_spawning_on_enemy_provs = yes
+						}
 					}
 			    }
 				actor_effects = {
@@ -616,6 +622,12 @@ types = {
 			success = {
 			    victim_effects = {
 					var:target_state = {
+						create_unit = {
+							division = "name = \"Proxy Forces\" division_template = \"Proxy Forces\" start_experience_factor = 0"
+							owner = GER
+							count = 2
+							allow_spawning_on_enemy_provs = yes
+						}
 						create_unit = {
 							division = "name = \"Proxy Forces\" division_template = \"Proxy Forces\" start_experience_factor = 0"
 							owner = GER
@@ -659,6 +671,12 @@ types = {
 			critical_success = {
 			    victim_effects = {
 					var:target_state = {
+						create_unit = {
+							division = "name = \"Proxy Forces\" division_template = \"Proxy Forces\" start_experience_factor = 0"
+							owner = GER
+							count = 3
+							allow_spawning_on_enemy_provs = yes
+						}
 						create_unit = {
 							division = "name = \"Proxy Forces\" division_template = \"Proxy Forces\" start_experience_factor = 0"
 							owner = GER

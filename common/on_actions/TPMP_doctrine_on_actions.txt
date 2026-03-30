@@ -7,11 +7,39 @@ on_actions = {
 					OR = {
 						has_mastery_level = {
 							amount = 3
+							sub_doctrine = armor_doctrine_3
+						}
+						has_mastery_level = {
+							amount = 3
+							sub_doctrine = infantry_doctrine_2
+						}
+						has_mastery_level = {
+							amount = 3
+							sub_doctrine = artillery_doctrine_1
+						}
+						has_mastery_level = {
+							amount = 5
+							sub_doctrine = artillery_doctrine_3
+						}
+						has_mastery_level = {
+							amount = 5
+							sub_doctrine = mobile_doctrine_1
+						}
+						has_mastery_level = {
+							amount = 2
+							sub_doctrine = mobile_doctrine_2
+						}
+						has_mastery_level = {
+							amount = 3
 							sub_doctrine = anti_tank_air_doctrine_2
 						}
 						has_mastery_level = {
 							amount = 3
 							sub_doctrine = anti_tank_air_doctrine_4
+						}
+						has_mastery_level = {
+							amount = 5
+							sub_doctrine = armor_variants_doctrine_3
 						}
 					}
 				}
@@ -19,6 +47,513 @@ on_actions = {
 			}
 			ELSE = {
 				remove_ideas = TPMP_doctrine_idea
+			}
+			#Armoured Spearhead unique doctrine effects
+			IF = {
+				limit = {
+					has_mastery_level = {
+						amount = 3
+						sub_doctrine = armor_doctrine_3
+					}
+				}
+				#Calculating total number of battalions and total number of heavy armor battalions
+				set_temp_variable = { total_battalion_var = num_battalions_with_type@light_armor }
+				add_to_temp_variable = { total_battalion_var = num_battalions_with_type@medium_armor }
+				add_to_temp_variable = { total_battalion_var = num_battalions_with_type@heavy_armor }
+				add_to_temp_variable = { total_battalion_var = num_battalions_with_type@super_heavy_armor }
+				add_to_temp_variable = { total_battalion_var = num_battalions_with_type@amphibious_light_armor }
+				add_to_temp_variable = { total_battalion_var = num_battalions_with_type@amphibious_medium_armor }
+				add_to_temp_variable = { total_battalion_var = num_battalions_with_type@amphibious_heavy_armor }
+				set_temp_variable = { heavy_armor_battalion_var = num_battalions_with_type@heavy_armor }
+				add_to_temp_variable = { heavy_armor_battalion_var = num_battalions_with_type@super_heavy_armor }
+				add_to_temp_variable = { heavy_armor_battalion_var = num_battalions_with_type@amphibious_heavy_armor }
+				#Calculating ratio of heavy armor battalions to total battalions
+				set_variable = { heavy_armor_ratio_var = heavy_armor_battalion_var}
+				divide_variable = { heavy_armor_ratio_var = total_battalion_var }
+				#Making sure heavy armor battalions are equipped
+				set_temp_variable = { heavy_armor_requirement_var = 0 }
+				set_temp_variable = { heavy_armor_equipped_var = num_equipment_in_armies@heavy_tank_chassis }
+				add_to_temp_variable = { heavy_armor_equipped_var = num_battalions_with_type@super_heavy_tank_chassis }
+				add_to_temp_variable = { heavy_armor_equipped_var = num_battalions_with_type@heavy_tank_amphibious_chassis }
+				#Adding heavy armor battalion requirements
+				set_temp_variable = { normal_heavy_armor_requirement_var = num_battalions_with_type@heavy_armor }
+				multiply_temp_variable = { normal_heavy_armor_requirement_var = 40 }
+				add_to_temp_variable = { heavy_armor_requirement_var = normal_heavy_armor_requirement_var }
+				#Adding super heavy armor battalion requirements
+				set_temp_variable = { super_heavy_armor_requirement_var = num_battalions_with_type@super_heavy_armor }
+				multiply_temp_variable = { super_heavy_armor_requirement_var = 40 }
+				add_to_temp_variable = { heavy_armor_requirement_var = super_heavy_armor_requirement_var }
+				#Adding amphibious heavy armor battalion requirements
+				set_temp_variable = { amph_heavy_armor_requirement_var = num_battalions_with_type@heavy_tank_amphibious_chassis }
+				multiply_temp_variable = { amph_heavy_armor_requirement_var = 40 }
+				add_to_temp_variable = { heavy_armor_requirement_var = amph_heavy_armor_requirement_var }
+				#Calculating ratio of heavy armor equipment to required heavy armor equipment
+				set_variable = { heavy_armor_equipped_ratio_var = heavy_armor_equipped_var }
+				divide_variable = { heavy_armor_equipped_ratio_var = heavy_armor_requirement_var }
+				#Dealing with divide by 0 errors
+				IF = {
+					limit = {
+						check_variable = { total_battalion_var = 0 }
+					}
+					set_variable = { heavy_armor_ratio_var = 0 }
+				}
+				IF = {
+					limit = {
+						check_variable = { heavy_armor_requirement_var = 0 }
+					}
+					set_variable = { heavy_armor_equipped_ratio_var = 0 }
+				}
+				IF = {
+					limit = {
+						#If ratio of heavy armor battalions is more than 20% and equipment level is above 90% grant bonus
+						check_variable = { heavy_armor_ratio_var = 0.1 compare = greater_than_or_equals }
+						check_variable = { heavy_armor_equipped_ratio_var = 0.9 compare = greater_than_or_equals }
+					}
+					set_technology = {
+						TPMP_armor_doctrine_3_c_tech = 1
+						popup = no
+					}
+				}
+				ELSE = {
+					#If ratio of heavy armor battlalions is less than 20% or equipment level is below 90%, remove bonus
+					set_technology = {
+						TPMP_armor_doctrine_3_c_tech = 0
+						popup = no
+					}
+				}
+			}
+			ELSE_IF = {
+				limit = {
+					#If country is missing doctrine but has bonus, remove bonus
+					NOT = {
+						has_mastery_level = {
+							amount = 3
+							sub_doctrine = armor_doctrine_3
+						}
+					}
+					has_tech = TPMP_armor_doctrine_3_c_tech
+				}
+				set_technology = {
+					TPMP_armor_doctrine_3_c_tech = 0
+					popup = no
+				}
+			}
+			#Massed Formations unique doctrine effects
+			IF = {
+				limit = {
+					has_mastery_level = {
+						amount = 3
+						sub_doctrine = infantry_doctrine_2
+					}
+				}
+				#Calculating total number of battalions and total number of infantry battalions
+				set_temp_variable = { total_battalion_var = num_battalions }
+				set_temp_variable = { infantry_battalion_var = num_battalions_with_type@infantry }
+				#Calculating ratio of infantry battalions to total battalions
+				set_variable = { infantry_ratio_var = infantry_battalion_var}
+				divide_variable = { infantry_ratio_var = total_battalion_var }
+				#Making sure infantry battalions are equipped
+				set_temp_variable = { infantry_requirement_var = 0 }
+				set_temp_variable = { infantry_equipped_var = num_equipment_in_armies@infantry_equipment }
+				#Adding line infantry battalion requirements
+				set_temp_variable = { line_infantry_requirement_var = num_battalions_with_type@infantry }
+				multiply_temp_variable = { line_infantry_requirement_var = 80 }
+				add_to_temp_variable = { infantry_requirement_var = line_infantry_requirement_var }
+				#Calculating ratio of infantry equipment to required infantry equipment
+				set_variable = { infantry_equipped_ratio_var = infantry_equipped_var }
+				divide_variable = { infantry_equipped_ratio_var = infantry_requirement_var }
+				#Dealing with divide by 0 errors
+				IF = {
+					limit = {
+						check_variable = { total_battalion_var = 0 }
+					}
+					set_variable = { infantry_ratio_var = 0 }
+				}
+				IF = {
+					limit = {
+						check_variable = { infantry_requirement_var = 0 }
+					}
+					set_variable = { infantry_equipped_ratio_var = 0 }
+				}
+				IF = {
+					limit = {
+						#If ratio of infantry battalions is more than 75% and equipment level is above 90% grant bonus
+						check_variable = { infantry_ratio_var = 0.75 compare = greater_than_or_equals }
+						check_variable = { infantry_equipped_ratio_var = 0.9 compare = greater_than_or_equals }
+					}
+					set_technology = {
+						TPMP_infantry_doctrine_2_c_tech = 1
+						popup = no
+					}
+				}
+				ELSE = {
+					#If ratio of infantry battalions is less than 75% or equipment level is below 90%, remove bonus
+					set_technology = {
+						TPMP_infantry_doctrine_2_c_tech = 0
+						popup = no
+					}
+				}
+			}
+			ELSE_IF = {
+				limit = {
+					#If country is missing doctrine but has bonus, remove bonus
+					NOT = {
+						has_mastery_level = {
+							amount = 3
+							sub_doctrine = infantry_doctrine_2
+						}
+					}
+					has_tech = TPMP_infantry_doctrine_2_c_tech
+				}
+				set_technology = {
+					TPMP_infantry_doctrine_2_c_tech = 0
+					popup = no
+				}
+			}
+			#Siege Artillery unique doctrine effects
+			IF = {
+				limit = {
+					has_mastery_level = {
+						amount = 3
+						sub_doctrine = artillery_doctrine_1
+					}
+				}
+				#Calculating total number of battalions and total number of heavy arty battalions
+				set_temp_variable = { total_battalion_var = num_battalions }
+				set_temp_variable = { heavy_arty_battalion_var = num_battalions_with_type@heavy_artillery_brigade }
+				add_to_temp_variable = { heavy_arty_battalion_var = num_battalions_with_type@mot_heavy_artillery_brigade }
+				#Calculating ratio of heavy arty battalions to total battalions
+				set_variable = { heavy_arty_ratio_var = heavy_arty_battalion_var}
+				divide_variable = { heavy_arty_ratio_var = total_battalion_var }
+				#Making sure heavy arty battalions are equipped
+				set_temp_variable = { heavy_arty_requirement_var = 0 }
+				set_temp_variable = { heavy_arty_equipped_var = num_equipment_in_armies@heavy_artillery_equipment }
+				#Adding support heavy arty battalion requirements
+				set_temp_variable = { support_heavy_arty_requirement_var = num_battalions_with_type@heavy_artillery }
+				multiply_temp_variable = { support_heavy_arty_requirement_var = 15 }
+				add_to_temp_variable = { heavy_arty_requirement_var = support_heavy_arty_requirement_var }
+				#Adding line heavy arty battalion requirements
+				set_temp_variable = { line_heavy_arty_requirement_var = num_battalions_with_type@heavy_artillery_brigade }
+				add_to_temp_variable = { line_heavy_arty_requirement_var = num_battalions_with_type@mot_heavy_artillery_brigade }
+				multiply_temp_variable = { line_heavy_arty_requirement_var = 30 }
+				add_to_temp_variable = { heavy_arty_requirement_var = line_heavy_arty_requirement_var }
+				#Calculating ratio of heavy arty equipment to required heavy arty equipment
+				set_variable = { heavy_arty_equipped_ratio_var = heavy_arty_equipped_var }
+				divide_variable = { heavy_arty_equipped_ratio_var = heavy_arty_requirement_var }
+				#Dealing with divide by 0 errors
+				IF = {
+					limit = {
+						check_variable = { total_battalion_var = 0 }
+					}
+					set_variable = { heavy_arty_ratio_var = 0 }
+				}
+				IF = {
+					limit = {
+						check_variable = { heavy_arty_requirement_var = 0 }
+					}
+					set_variable = { heavy_arty_equipped_ratio_var = 0 }
+				}
+				IF = {
+					limit = {
+						#If ratio of heavy arty battalions is more than 10% and equipment level is above 90% grant bonus
+						check_variable = { heavy_arty_ratio_var = 0.1 compare = greater_than_or_equals }
+						check_variable = { heavy_arty_equipped_ratio_var = 0.9 compare = greater_than_or_equals }
+					}
+					set_technology = {
+						TPMP_artillery_doctrine_1_c_tech = 1
+						popup = no
+					}
+				}
+				ELSE = {
+					#If ratio of heavy arty battlalions is less than 10% or equipment level is below 90%, remove bonus
+					set_technology = {
+						TPMP_artillery_doctrine_1_c_tech = 0
+						popup = no
+					}
+				}
+			}
+			ELSE_IF = {
+				limit = {
+					#If country is missing doctrine but has bonus, remove bonus
+					NOT = {
+						has_mastery_level = {
+							amount = 3
+							sub_doctrine = artillery_doctrine_1
+						}
+					}
+					has_tech = TPMP_artillery_doctrine_1_c_tech
+				}
+				set_technology = {
+					TPMP_artillery_doctrine_1_c_tech = 0
+					popup = no
+				}
+			}
+			#Combined Batteries unique doctrine effects
+			IF = {
+				limit = {
+					has_mastery_level = {
+						amount = 5
+						sub_doctrine = artillery_doctrine_3
+					}
+				}
+				#Calculating total number of battalions and total number of heavy arty battalions
+				set_temp_variable = { total_battalion_var = num_battalions }
+				set_temp_variable = { heavy_arty_battalion_var = num_battalions_with_type@heavy_artillery_brigade }
+				add_to_temp_variable = { heavy_arty_battalion_var = num_battalions_with_type@mot_heavy_artillery_brigade }
+				#Calculating ratio of heavy arty battalions to total battalions
+				set_variable = { heavy_arty_ratio_var = heavy_arty_battalion_var}
+				divide_variable = { heavy_arty_ratio_var = total_battalion_var }
+				#Making sure heavy arty battalions are equipped
+				set_temp_variable = { heavy_arty_requirement_var = 0 }
+				set_temp_variable = { heavy_arty_equipped_var = num_equipment_in_armies@heavy_artillery_equipment }
+				#Adding support heavy arty battalion requirements
+				set_temp_variable = { support_heavy_arty_requirement_var = num_battalions_with_type@heavy_artillery }
+				multiply_temp_variable = { support_heavy_arty_requirement_var = 45 }
+				add_to_temp_variable = { heavy_arty_requirement_var = support_heavy_arty_requirement_var }
+				#Adding line heavy arty battalion requirements
+				set_temp_variable = { line_heavy_arty_requirement_var = num_battalions_with_type@heavy_artillery_brigade }
+				add_to_temp_variable = { line_heavy_arty_requirement_var = num_battalions_with_type@mot_heavy_artillery_brigade }
+				multiply_temp_variable = { line_heavy_arty_requirement_var = 30 }
+				add_to_temp_variable = { heavy_arty_requirement_var = line_heavy_arty_requirement_var }
+				#Calculating ratio of heavy arty equipment to required heavy arty equipment
+				set_variable = { heavy_arty_equipped_ratio_var = heavy_arty_equipped_var }
+				divide_variable = { heavy_arty_equipped_ratio_var = heavy_arty_requirement_var }
+				#Dealing with divide by 0 errors
+				IF = {
+					limit = {
+						check_variable = { total_battalion_var = 0 }
+					}
+					set_variable = { heavy_arty_ratio_var = 0 }
+				}
+				IF = {
+					limit = {
+						check_variable = { heavy_arty_requirement_var = 0 }
+					}
+					set_variable = { heavy_arty_equipped_ratio_var = 0 }
+				}
+				IF = {
+					limit = {
+						#If ratio of heavy arty battalions is more than 10% and equipment level is above 90% grant bonus
+						check_variable = { heavy_arty_ratio_var = 0.1 compare = greater_than_or_equals }
+						check_variable = { heavy_arty_equipped_ratio_var = 0.9 compare = greater_than_or_equals }
+					}
+					set_technology = {
+						TPMP_artillery_doctrine_3_e_tech = 1
+						popup = no
+					}
+				}
+				ELSE = {
+					#If ratio of heavy arty battlalions is less than 10% or equipment level is below 90%, remove bonus
+					set_technology = {
+						TPMP_artillery_doctrine_3_e_tech = 0
+						popup = no
+					}
+				}
+			}
+			ELSE_IF = {
+				limit = {
+					#If country is missing doctrine but has bonus, remove bonus
+					NOT = {
+						has_mastery_level = {
+							amount = 3
+							sub_doctrine = artillery_doctrine_3
+						}
+					}
+					has_tech = TPMP_artillery_doctrine_3_e_tech
+				}
+				set_technology = {
+					TPMP_artillery_doctrine_3_e_tech = 0
+					popup = no
+				}
+			}
+			#Mobile Infantry unique doctrine effects
+			IF = {
+				limit = {
+					has_mastery_level = {
+						amount = 5
+						sub_doctrine = mobile_doctrine_1
+					}
+				}
+				#Calculating total number of battalions and total number of motorized battalions
+				set_temp_variable = { total_battalion_var = num_battalions }
+				set_temp_variable = { mot_battalion_var = num_battalions_with_type@motorized }
+				#Calculating ratio of motorized battalions to total battalions
+				set_variable = { mot_ratio_var = mot_battalion_var}
+				divide_variable = { mot_ratio_var = total_battalion_var }
+				#Making sure motorized battalions are equipped
+				set_temp_variable = { mot_requirement_var = 0 }
+				set_temp_variable = { mot_equipped_var = num_equipment_in_armies@motorized_equipment }
+				#Adding motorized battalion requirements
+				set_temp_variable = { line_mot_requirement_var = num_battalions_with_type@motorized }
+				multiply_temp_variable = { line_mot_requirement_var = 10 }
+				add_to_temp_variable = { mot_requirement_var = line_mot_requirement_var }
+				#Adding motorized arty battalion requirements
+				set_temp_variable = { mot_arty_requirement_var = num_battalions_with_type@mot_artillery_brigade }
+				multiply_temp_variable = { mot_arty_requirement_var = 15 }
+				add_to_temp_variable = { mot_requirement_var = mot_arty_requirement_var }
+				set_temp_variable = { mot_heavy_arty_requirement_var = num_battalions_with_type@mot_heavy_artillery_brigade }
+				multiply_temp_variable = { mot_heavy_arty_requirement_var = 30 }
+				add_to_temp_variable = { mot_requirement_var = mot_heavy_arty_requirement_var }
+				#Adding motorized AT battalion requirements
+				set_temp_variable = { mot_AT_requirement_var = num_battalions_with_type@mot_anti_tank_brigade }
+				multiply_temp_variable = { mot_AT_requirement_var = 15 }
+				add_to_temp_variable = { mot_requirement_var = mot_AT_requirement_var }
+				set_temp_variable = { mot_heavy_AT_requirement_var = num_battalions_with_type@mot_heavy_anti_tank_brigade }
+				multiply_temp_variable = { mot_heavy_AT_requirement_var = 30 }
+				add_to_temp_variable = { mot_requirement_var = mot_heavy_anti_tank_requirement_var }
+				#Adding motorized AA battalion requirements
+				set_temp_variable = { mot_AA_requirement_var = num_battalions_with_type@mot_anti_air_brigade }
+				multiply_temp_variable = { mot_AA_requirement_var = 15 }
+				add_to_temp_variable = { mot_requirement_var = mot_AA_requirement_var }
+				set_temp_variable = { mot_heavy_AA_requirement_var = num_battalions_with_type@mot_heavy_anti_air_brigade }
+				multiply_temp_variable = { mot_heavy_AA_requirement_var = 30 }
+				add_to_temp_variable = { mot_requirement_var = mot_heavy_anti_air_requirement_var }
+				#Calculating ratio of motorized equipment to required infantry equipment
+				set_variable = { mot_equipped_ratio_var = mot_equipped_var }
+				divide_variable = { mot_equipped_ratio_var = mot_requirement_var }
+				#Dealing with divide by 0 errors
+				IF = {
+					limit = {
+						check_variable = { total_battalion_var = 0 }
+					}
+					set_variable = { mot_ratio_var = 0 }
+				}
+				IF = {
+					limit = {
+						check_variable = { mot_requirement_var = 0 }
+					}
+					set_variable = { mot_equipped_ratio_var = 0 }
+				}
+				IF = {
+					limit = {
+						#If ratio of motorized battalions is more than 50% and equipment level is above 90% grant bonus
+						check_variable = { infantry_ratio_var = 0.5 compare = greater_than_or_equals }
+						check_variable = { infantry_equipped_ratio_var = 0.9 compare = greater_than_or_equals }
+					}
+					set_technology = {
+						TPMP_mobile_doctrine_1_e_tech = 1
+						popup = no
+					}
+				}
+				ELSE = {
+					#If ratio of infantry battalions is less than 50% or equipment level is below 90%, remove bonus
+					set_technology = {
+						TPMP_mobile_doctrine_1_e_tech = 0
+						popup = no
+					}
+				}
+			}
+			ELSE_IF = {
+				limit = {
+					#If country is missing doctrine but has bonus, remove bonus
+					NOT = {
+						has_mastery_level = {
+							amount = 5
+							sub_doctrine = mobile_doctrine_1
+						}
+					}
+					has_tech = TPMP_mobile_doctrine_1_e_tech
+				}
+				set_technology = {
+					TPMP_mobile_doctrine_1_e_tech = 0
+					popup = no
+				}
+			}
+			#Armoured Infantry unique doctrine effects
+			IF = {
+				limit = {
+					has_mastery_level = {
+						amount = 2
+						sub_doctrine = mobile_doctrine_2
+					}
+				}
+				#Calculating total number of battalions and total number of mechanized battalions
+				set_temp_variable = { total_battalion_var = num_battalions }
+				set_temp_variable = { mech_battalion_var = num_battalions_with_type@mechanized }
+				add_to_temp_variable = { mech_battalion_var = num_battalions_with_type@artillery_mechanized }
+				add_to_temp_variable = { mech_battalion_var = num_battalions_with_type@anti_tank_mechanized }
+				add_to_temp_variable = { mech_battalion_var = num_battalions_with_type@anti_air_mechanized }
+				add_to_temp_variable = { mech_battalion_var = num_battalions_with_type@amphibious_mechanized }
+				#Calculating ratio of mechanized battalions to total battalions
+				set_variable = { mech_ratio_var = mech_battalion_var}
+				divide_variable = { mech_ratio_var = total_battalion_var }
+				#Making sure mech battalions are equipped
+				set_temp_variable = { mech_requirement_var = 0 }
+				set_temp_variable = { mech_equipped_var = num_equipment_in_armies@mechanized_equipment }
+				add_to_temp_variable = { mech_equipped_var = num_battalions_with_type@artillery_mechanized_equipment }
+				add_to_temp_variable = { mech_equipped_var = num_battalions_with_type@anti_tank_mechanized_equipment }
+				add_to_temp_variable = { mech_equipped_var = num_battalions_with_type@anti_air_mechanized_equipment }
+				add_to_temp_variable = { mech_equipped_var = num_battalions_with_type@amphibious_mechanized_equipment }
+				#Adding line mechanized battalion requirements
+				set_temp_variable = { line_mech_requirement_var = num_battalions_with_type@mechanized }
+				multiply_temp_variable = { line_mech_requirement_var = 50 }
+				add_to_temp_variable = { mech_requirement_var = line_mech_requirement_var }
+				#Adding artillery mechanized battalion requirements
+				set_temp_variable = { arty_mech_requirement_var = num_battalions_with_type@artillery_mechanized }
+				multiply_temp_variable = { arty_mech_requirement_var = 50 }
+				add_to_temp_variable = { mech_requirement_var = arty_mech_requirement_var }
+				#Adding anti tank mechanized battalion requirements
+				set_temp_variable = { AT_mech_requirement_var = num_battalions_with_type@anti_tank_mechanized }
+				multiply_temp_variable = { AT_mech_requirement_var = 50 }
+				add_to_temp_variable = { mech_requirement_var = AT_mech_requirement_var }
+				#Adding anti air mechanized battalion requirements
+				set_temp_variable = { AA_mech_requirement_var = num_battalions_with_type@anti_air_mechanized }
+				multiply_temp_variable = { AA_mech_requirement_var = 50 }
+				add_to_temp_variable = { mech_requirement_var = AA_mech_requirement_var }
+				#Adding amphibious mechanized battalion requirements
+				set_temp_variable = { amph_mech_requirement_var = num_battalions_with_type@amphibious_mechanized }
+				multiply_temp_variable = { amph_mech_requirement_var = 50 }
+				add_to_temp_variable = { mech_requirement_var = amph_mech_requirement_var }
+				#Calculating ratio of mechanized equipment to required mechanized equipment
+				set_variable = { mech_equipped_ratio_var = mech_equipped_var }
+				divide_variable = { mech_equipped_ratio_var = mech_requirement_var }
+				#Dealing with divide by 0 errors
+				IF = {
+					limit = {
+						check_variable = { total_battalion_var = 0 }
+					}
+					set_variable = { mech_ratio_var = 0 }
+				}
+				IF = {
+					limit = {
+						check_variable = { mech_requirement_var = 0 }
+					}
+					set_variable = { mech_equipped_ratio_var = 0 }
+				}
+				IF = {
+					limit = {
+						#If ratio of mechanized battalions is more than 30% and equipment level is above 90% grant bonus
+						check_variable = { mech_ratio_var = 0.3 compare = greater_than_or_equals }
+						check_variable = { mech_equipped_ratio_var = 0.9 compare = greater_than_or_equals }
+					}
+					set_technology = {
+						TPMP_mobile_doctrine_2_b_tech = 1
+						popup = no
+					}
+				}
+				ELSE = {
+					#If ratio of mechanized battlalions is less than 30% or equipment level is below 90%, remove bonus
+					set_technology = {
+						TPMP_mobile_doctrine_2_b_tech = 0
+						popup = no
+					}
+				}
+			}
+			ELSE_IF = {
+				limit = {
+					#If country is missing doctrine but has bonus, remove bonus
+					NOT = {
+						has_mastery_level = {
+							amount = 2
+							sub_doctrine = mobile_doctrine_2
+						}
+					}
+					has_tech = TPMP_mobile_doctrine_2_b_tech
+				}
+				set_technology = {
+					TPMP_mobile_doctrine_2_b_tech = 0
+					popup = no
+				}
 			}
 			#Heavy Tank Hunters unique doctrine effects
 			IF = {
@@ -378,5 +913,37 @@ on_actions = {
 				}
 			}
 	 	}
+	}
+	# root is the unit leader
+	# from is the country
+	on_unit_leader_created = {
+		effect = {
+			if = {
+				limit = { 
+					FROM = {
+						has_mastery_level = {
+							amount = 1
+							sub_doctrine = army_doctrine_3
+						}
+					} 
+				}
+				ROOT = {
+					add_unit_leader_trait = TPMP_independent_commander_trait
+				}
+			}
+			if = {
+				limit = { 
+					FROM = {
+						has_mastery_level = {
+							amount = 2
+							sub_doctrine = army_doctrine_4
+						}
+					} 
+				}
+				ROOT = {
+					add_unit_leader_trait = TPMP_disciplined_commander_trait
+				}
+			}
+		}
 	}
 }

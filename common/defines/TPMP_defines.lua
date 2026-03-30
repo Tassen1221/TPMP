@@ -61,7 +61,7 @@ NDefines.NMilitary.BASE_LEADER_TRAIT_GAIN_XP = 0.5		-- Base xp gain for traits p
 NDefines.NMilitary.MAX_NUM_TRAITS = -1				-- cant have more, -1 to disable
 
 NDefines.NMilitary.BASE_FORT_PENALTY = -0.15			-- fort penalty
-NDefines.NMilitary.DIG_IN_FACTOR = 0.015			-- bonus factor for each dug-in level
+NDefines.NMilitary.DIG_IN_FACTOR = 0.02				-- bonus factor for each dug-in level
 
 NDefines.NMilitary.MAX_DIVISION_BRIGADE_WIDTH = 5		-- Max width of regiments in division designer.
 NDefines.NMilitary.MAX_DIVISION_BRIGADE_HEIGHT = 5		-- Max height of regiments in division designer.
@@ -85,7 +85,7 @@ NDefines.NMilitary.LAND_AIR_COMBAT_MAX_PLANES_PER_ENEMY_WIDTH = 1	-- how many CA
 NDefines.NMilitary.RELIABILITY_ORG_REGAIN = -0.5		-- how much reliability affects org regain
 NDefines.NMilitary.RELIABILTY_RECOVERY = 0.50			-- factor affecting how much equipment is returned "from the dead"
 
-NDefines.NMilitary.LAND_SPEED_MODIFIER = 0.04			-- basic speed control
+NDefines.NMilitary.LAND_SPEED_MODIFIER = 0.05			-- basic speed control
 
 NDefines.NMilitary.COHESION_IMMOBILE_PLANNING_SPEED_MULTIPLIER = 1	-- If using the 'immobile' cohesion setting, factor ALL planning speed growth by this
 NDefines.NMilitary.PLANNING_DECAY = 0.01
@@ -100,11 +100,16 @@ NDefines.NMilitary.COMBAT_SUPPLY_LACK_ATTACKER_DEFEND = -0.6	-- defend combat pe
 NDefines.NMilitary.COMBAT_SUPPLY_LACK_DEFENDER_ATTACK = -0.2	-- attack combat penalty for defender if out of supply
 NDefines.NMilitary.COMBAT_SUPPLY_LACK_DEFENDER_DEFEND = -0.3	-- defend combat penalty for defender if out of supply
 
+NDefines.NMilitary.NON_CORE_SUPPLY_SPEED = 0			-- we are not running on our own VP supply so need to steal stuff along the way
+NDefines.NMilitary.NON_CORE_SUPPLY_AIR_SPEED = 0		-- we are not running on our own VP supply so need to steal stuff along the way, a bit less due to air supply
+
 NDefines.NMilitary.STRATEGIC_SPEED_INFRA_BASE = 5.0		-- Base speed of strategic redeployment when not on railways
 NDefines.NMilitary.STRATEGIC_SPEED_INFRA_MAX = 10.0		-- Additional speed of strategic redeployment on max-level infrastructure
 NDefines.NMilitary.STRATEGIC_SPEED_RAIL_BASE = 15.0		-- Base speed of strategic redeployment when on railways
 NDefines.NMilitary.STRATEGIC_SPEED_RAIL_MAX = 25.0		-- Additional speed of strategic redeployment on max-level railways
 
+NDefines.NMilitary.RETREAT_SPEED_FACTOR = -0.25	                -- speed bonus when retreating
+NDefines.NMilitary.WITHDRAWING_SPEED_FACTOR = 0.15		-- speed bonus when withdrawing
 
 NDefines.NMilitary.RIVER_CROSSING_PENALTY = -0.3		-- small river crossing
 NDefines.NMilitary.RIVER_CROSSING_PENALTY_LARGE = -0.5		-- large river crossing
@@ -201,6 +206,7 @@ NDefines.NMilitary.UNIT_LEADER_INITIAL_TRAIT_SLOT = { 		-- trait slot for 0 leve
 	0.0, -- operative
 }
 
+NDefines.NRailwayGun.RAILWAY_GUN_POSSIBLE_RANGES = { 30, 15, 45 }	-- Possible values for railway gun range in pixel.
 NDefines.NRailwayGun.ATTACK_TO_FORTS_MODIFIER_FACTOR = 1		-- Forts modifier is calculated by multiplying railway gun attack value with this and dividing by 100
 NDefines.NRailwayGun.ATTACK_TO_ENTRENCHMENT_MODIFIER_FACTOR = 1		-- Entrenchment modifier is calculated by multiplying railway gun attack value with this and dividing by 100
 NDefines.NRailwayGun.ATTACK_TO_BOMBARDMENT_MODIFIER_FACTOR = 0.2	-- Bombardment modifier is calculated by multiplying railway gun attack value with this and dividing by 100
