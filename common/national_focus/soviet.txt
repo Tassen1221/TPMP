@@ -125,6 +125,7 @@ focus_tree = {
 
 
 		completion_reward = {
+			add_ideas = TPMP_SOV_2nd_fyp_eco_law
 		}
 	}
 
@@ -544,6 +545,9 @@ focus_tree = {
 		}
 
 		available = {
+			SOV_grigory_kulik = {
+				is_hired_as_advisor = yes
+			}
 			NOT = {
 				has_completed_focus = TPMP_SOV_finish_the_second_fyp 
 			}
@@ -607,6 +611,9 @@ focus_tree = {
 		}
 
 		available = {
+			SOV_grigory_kulik = {
+				is_hired_as_advisor = yes
+			}
 			NOT = {
 				has_completed_focus = TPMP_SOV_finish_the_second_fyp 
 			}
@@ -961,7 +968,7 @@ focus_tree = {
           		  }
 			
 
-          		add_extra_state_shared_building_slots = 1
+          		add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = infrastructure
 					level = 1
@@ -972,6 +979,7 @@ focus_tree = {
 					level = 1
 					instant_build = yes
 				}
+				increase_state_category = yes
 
 
 
@@ -1354,12 +1362,16 @@ focus_tree = {
 		}
 
 		available = {
+			SOV_grigory_kulik = {
+				is_hired_as_advisor = yes
+			}
 
 		}
 		
 		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOCUS_FILTER_STABILITY}
 
 		completion_reward = {
+			add_ideas = TPMP_SOV_3rd_fyp_eco_law
 		}
 	}
 
@@ -1429,7 +1441,14 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOCUS_FILTER_STABILITY}
 
 		completion_reward = {
-			tooltip = TPMP_SOV_support_khpz_tt
+			219 = {
+				add_extra_state_shared_building_slots = 5
+				add_building_construction = {
+					type = arms_factory
+					level = 5
+					instant_build = yes
+				}
+			}
 
 
 		}
@@ -1478,6 +1497,14 @@ focus_tree = {
 
 		completion_reward = {
 			tooltip = TPMP_SOV_support_khpz_tt
+			221 = {
+				add_extra_state_shared_building_slots = 7
+				add_building_construction = {
+					type = arms_factory
+					level = 7
+					instant_build = yes
+				}
+			}
 
 
 		}
@@ -1512,6 +1539,14 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOCUS_FILTER_STABILITY}
 
 		completion_reward = {
+			195 = {
+				add_extra_state_shared_building_slots = 5
+				add_building_construction = {
+					type = arms_factory
+					level = 5
+					instant_build = yes
+				}
+			}
 
 
 		}
@@ -1548,6 +1583,17 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOCUS_FILTER_STABILITY}
 
 		completion_reward = {
+			217 = {
+				add_extra_state_shared_building_slots = 5
+				add_building_construction = {
+					type = arms_factory
+					level = 5
+					instant_build = yes
+				}
+			}
+
+
+
 
 
 		}
@@ -1585,6 +1631,19 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOCUS_FILTER_STABILITY}
 
 		completion_reward = {
+
+			add_ideas = TPMP_SOV_merge_tank_plants_idea
+			572 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+
+
+
 
 
 		}
@@ -1661,6 +1720,28 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOCUS_FILTER_STABILITY}
 
 		completion_reward = {
+			
+
+			
+			create_equipment_variant = {
+				name = "Unlock Diesel Engine 4"
+				type = medium_tank_chassis_1936
+				parent_version = 0
+				modules = {
+					main_armament_slot = tank_medium_cannon_1
+					turret_type_slot = tank_medium_turret_1
+					suspension_type_slot = tank_bogie_suspension
+					armor_type_slot = tank_welded_armor
+					engine_type_slot = tank_diesel_engine_4
+					special_type_slot_1 = secondary_turret_hmg
+					special_type_slot_2 = additional_machine_guns
+				}
+				upgrades = {
+					tank_nsb_engine_upgrade = 0
+					tank_nsb_armor_upgrade = 0
+				}
+				#icon = "GFX_ITA_basic_medium_tank_medium"
+			}
 
 
 		}
@@ -1700,6 +1781,111 @@ focus_tree = {
 
 		}
 	}
+
+
+
+#123123
+	focus = {
+		id = TPMP_SOV_expand_tula_arms_plant
+		icon = GFX_focus_fra_loyalty_stalin
+		prerequisite = {
+		}
+		x = 70
+		y = 15
+		
+		cost = 5
+
+		mutually_exclusive = { 
+			
+
+		}
+
+		allow_branch = {
+		}
+
+
+		bypass = {
+			
+   			 223 = {
+    		    arms_factory > 11
+			}
+
+		}
+
+
+		available = {
+
+
+		}
+
+
+		
+		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOCUS_FILTER_STABILITY}
+
+		completion_reward = {	
+			223 = {
+				add_extra_state_shared_building_slots = 5
+				add_dynamic_modifier = { 
+					modifier = TPMP_SOV_15_mil_con_speed_dynamic_modifier
+					days = 720
+					scope = SOV
+				}
+			}
+
+		}
+	}
+
+
+
+#123123
+	focus = {
+		id = TPMP_SOV_replicate_the_tula_model
+		icon = GFX_focus_fra_loyalty_stalin
+		prerequisite = { focus =  TPMP_SOV_expand_tula_arms_plant
+		}
+		x = 0
+		y = 1
+		relative_position_id = TPMP_SOV_expand_tula_arms_plant
+		
+		cost = 10
+
+		mutually_exclusive = { 
+			
+
+		}
+
+		allow_branch = {
+		}
+
+		available = {
+   			 223 = {
+    		    arms_factory > 11
+			}
+
+		}
+		
+		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOCUS_FILTER_STABILITY}
+
+		completion_reward = {
+			add_ideas = TPMP_SOV_replicate_the_tula_model_idea
+
+
+		}
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1757,7 +1943,7 @@ focus_tree = {
 		prerequisite = { focus =  TPMP_SOV_begin_the_third_fyp
 		
 		}
-		x = -10
+		x = -15
 		y = 1
 		relative_position_id = TPMP_SOV_begin_the_third_fyp
 		
@@ -1772,9 +1958,6 @@ focus_tree = {
 		}
 
 		available = {
-			SOV_mikhail_kalinin = {
-				is_hired_as_advisor = yes
-			}
 
 		}
 		
@@ -2599,7 +2782,7 @@ focus_tree = {
 		prerequisite = {
 		}
 		x = 55
-		y = 15
+		y = 20
 		
 		cost = 1
 
@@ -12901,4 +13084,5 @@ mio:SOV_sevastopol_marine_plant_organization = {
 		}
 	}
 
+}
 }
