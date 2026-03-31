@@ -2803,6 +2803,11 @@ focus_tree = {
 				uses = 2
 				category = cat_synth_oil
 			}
+			add_tech_bonus = {
+				bonus = 1
+				uses = 1
+				category = industry
+			}
 
 			if = {
 				limit = {
@@ -3215,10 +3220,9 @@ focus_tree = {
 		id = ITA_new_industrialization_program
 		icon = GFX_focus_generic_industry_3
 		prerequisite = { focus = ITA_strengthen_northern_industry focus = ITA_modernize_the_mezzogiorno }
-		prerequisite = { focus = ITA_expand_national_universities }
 
 		x = 1
-		y = 2
+		y = 1
 		relative_position_id = ITA_strengthen_northern_industry
 		cost = 10
 		available = {
@@ -3357,6 +3361,12 @@ focus_tree = {
 		completion_reward = {
 			add_to_variable = { ITA_iri_consumer_goods_factor = -0.10 }
 			custom_effect_tooltip = ITA_investments_in_edison_ricostruzione_industriale_tt
+
+			add_tech_bonus = {
+				bonus = 1
+				uses = 1
+				category = industry
+			}
 
 			if = {
 				limit = {
@@ -3594,7 +3604,7 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = ITA_brescia_small_arms_industry
-		cost = 10
+		cost = 5
 		available = {
 			has_full_control_of_state = 159
 		}
@@ -3654,7 +3664,6 @@ focus_tree = {
 	focus = {
 		id = ITA_increase_production
 		icon = GFX_focus_generic_combined_arms
-		prerequisite = { focus = ITA_expand_national_universities }
 		prerequisite = { focus = ITA_redirect_alfa_romeo_production }
 		mutually_exclusive = { focus = ITA_keep_specialization }
 		x = -1
@@ -3670,7 +3679,6 @@ focus_tree = {
 			add_to_variable = { ITA_military_industry_dm_industrial_capacity_factory = 0.1 }
 			add_to_variable = { ITA_military_industry_dm_factory_max_efficiency_factor = 0.1 }
 			add_to_variable = { ITA_military_industry_dm_line_change_production_efficiency_factor = 0.2 }
-			add_to_variable = { ITA_military_industry_dm_production_factory_start_efficiency_factor = -0.04 }
 			custom_effect_tooltip = ITA_increase_production_military_industry_tt
 
 			add_to_variable = { ITA_iri_consumer_goods_factor = 0.02 }
@@ -3681,7 +3689,6 @@ focus_tree = {
 	focus = {
 		id = ITA_keep_specialization
 		icon = GFX_goal_generic_production
-		prerequisite = { focus = ITA_expand_national_universities }
 		prerequisite = { focus = ITA_redirect_alfa_romeo_production }
 		mutually_exclusive = { focus = ITA_increase_production }
 		x = 1
@@ -3698,7 +3705,6 @@ focus_tree = {
 			add_to_variable = { ITA_military_industry_dm_factory_max_efficiency_factor = 0.05 }
 			add_to_variable = { ITA_military_industry_dm_production_factory_start_efficiency_factor = 0.1 }
 			add_to_variable = { ITA_military_industry_dm_production_factory_efficiency_gain_factor = 0.1 }
-			add_to_variable = { ITA_military_industry_dm_line_change_production_efficiency_factor = -0.2 }
 			custom_effect_tooltip = ITA_keep_specialization_military_industry_tt
 
 			add_to_variable = { ITA_iri_consumer_goods_factor = 0.02 }
@@ -3776,14 +3782,14 @@ focus_tree = {
 					arms_factory > 0
 					free_building_slots = {
 						building = arms_factory
-						size > 1
+						size > 2
 						include_locked = yes
 					}
 				}
-				add_extra_state_shared_building_slots = 2
+				add_extra_state_shared_building_slots = 3
 				add_building_construction = {
 					type = arms_factory
-					level = 2
+					level = 3
 					instant_build = yes
 				}
 			}
@@ -3793,14 +3799,14 @@ focus_tree = {
 					arms_factory > 0
 					free_building_slots = {
 						building = arms_factory
-						size > 1
+						size > 2
 						include_locked = yes
 					}
 				}
-				add_extra_state_shared_building_slots = 2
+				add_extra_state_shared_building_slots = 3
 				add_building_construction = {
 					type = arms_factory
-					level = 2
+					level = 3
 					instant_build = yes
 				}
 			}
@@ -3932,14 +3938,14 @@ focus_tree = {
 					is_fully_controlled_by = ROOT
 					free_building_slots = {
 						building = arms_factory
-						size > 0
+						size > 1
 						include_locked = yes
 					}
 				}
-				add_extra_state_shared_building_slots = 1
+				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = arms_factory
-					level = 1
+					level = 2
 					instant_build = yes
 				}
 			}
@@ -4623,7 +4629,6 @@ focus_tree = {
 		id = ITA_end_fiat_ansaldo_duopoly
 		icon = GFX_focus_ITA_fiat_ansaldo_duopoly
 		prerequisite = { focus = ITA_self_propelled_guns }
-		mutually_exclusive = { focus = ITA_modernize_ansaldo_facilities }
 		x = -1
 		y = 1
 		relative_position_id = ITA_self_propelled_guns
@@ -4683,7 +4688,6 @@ focus_tree = {
 		id = ITA_modernize_ansaldo_facilities
 		icon = GFX_focus_ITA_modernize_ansaldo_facilities
 		prerequisite = { focus = ITA_self_propelled_guns }
-		mutually_exclusive = { focus = ITA_end_fiat_ansaldo_duopoly }
 		x = 1
 		y = 1
 		relative_position_id = ITA_self_propelled_guns
@@ -4928,16 +4932,16 @@ focus_tree = {
 					2 = {
 						free_building_slots = {
 							building = arms_factory
-							size > 0
+							size > 2
 							include_locked = yes
 						}
 					}
 				}
 				2 = { #LATIUM (Rome)
-					add_extra_state_shared_building_slots = 1
+					add_extra_state_shared_building_slots = 3
 					add_building_construction = {
 						type = arms_factory
-						level = 1
+						level = 3
 						instant_build = yes
 					}
 				}
@@ -4949,15 +4953,15 @@ focus_tree = {
 						is_controlled_by = ROOT
 						free_building_slots = {
 							building = arms_factory
-							size > 0
+							size > 2
 							include_locked = yes
 						}
 					}
 					prioritize = { 157 849 117 } #ABRUZZO as main fallback
-					add_extra_state_shared_building_slots = 1
+					add_extra_state_shared_building_slots = 3
 					add_building_construction = {
 						type = arms_factory
-						level = 1
+						level = 3
 						instant_build = yes
 					}
 				}
@@ -5049,16 +5053,16 @@ focus_tree = {
 					161 = {
 						free_building_slots = {
 							building = arms_factory
-							size > 0
+							size > 4
 							include_locked = yes
 						}
 					}
 				}
 				161 = { #EMILIA ROMAGNA (Reggio Emilio)
-					add_extra_state_shared_building_slots = 1
+					add_extra_state_shared_building_slots = 5
 					add_building_construction = {
 						type = arms_factory
-						level = 1
+						level = 5
 						instant_build = yes
 					}
 				}
@@ -5069,15 +5073,15 @@ focus_tree = {
 						is_controlled_by = ROOT
 						free_building_slots = {
 							building = arms_factory
-							size > 0
+							size > 4
 							include_locked = yes
 						}
 					}
 					prioritize = { 162 157 } #TOSCANA as main fallback
-					add_extra_state_shared_building_slots = 1
+					add_extra_state_shared_building_slots = 5
 					add_building_construction = {
 						type = arms_factory
-						level = 1
+						level = 5
 						instant_build = yes
 					}
 				}
@@ -8846,7 +8850,7 @@ focus_tree = {
 		x = 0
 		y = 2
 		relative_position_id = ITA_triumph_in_africa_bba
-		cost = 10
+		cost = 5
 		available = {
 			has_country_leader = {
 				character = ITA_benito_mussolini
@@ -9022,7 +9026,7 @@ focus_tree = {
 		x = -1
 		y = 1
 		relative_position_id = ITA_culto_del_duce
-		cost = 10
+		cost = 5
 		available = {
 		}
 
@@ -9041,7 +9045,7 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = ITA_culto_del_duce
-		cost = 10
+		cost = 5
 		available = {
 		}
 
@@ -9124,7 +9128,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = ITA_la_battaglia_per_le_nascite
-		cost = 10
+		cost = 5
 		available = {
 			has_country_leader = {
 				character = ITA_benito_mussolini
