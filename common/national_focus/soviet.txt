@@ -11296,7 +11296,7 @@ mio:SOV_sevastopol_marine_plant_organization = {
 		id = SOV_the_comintern
 		icon = GFX_goal_support_communism
 		prerequisite = { focus = SOV_the_path_of_marxism_leninism }
-		x = 9
+		x = 7
 		y = 0
 		relative_position_id = SOV_addressing_internal_affairs
 		cost = 5
@@ -11346,7 +11346,7 @@ mio:SOV_sevastopol_marine_plant_organization = {
 		id = SOV_development_aid_for_eastern_allies
 		icon = GFX_SOV_development_aid_for_eastern_allies_ccp_2d_sov_compatibility
 		prerequisite = { focus = SOV_the_comintern }
-		x = -5
+		x = -3
 		y = 1
 		relative_position_id = SOV_the_comintern
 		cost = 5
@@ -11520,7 +11520,7 @@ mio:SOV_sevastopol_marine_plant_organization = {
 		id = SOV_send_military_advisors_to_spain
 		icon = GFX_focus_intervention_spain_republic
 		prerequisite = { focus = SOV_the_comintern }
-		x = -3
+		x = -1
 		y = 1
 		relative_position_id = SOV_the_comintern
 		cost = 5
@@ -12451,6 +12451,9 @@ mio:SOV_sevastopol_marine_plant_organization = {
 				has_civil_war = yes
 			}	
 		}
+		allow_branch = {
+			always = no
+		}
 		
 		available = {
 			NOT = { has_government = democratic }
@@ -12799,8 +12802,8 @@ mio:SOV_sevastopol_marine_plant_organization = {
 		icon = GFX_focus_SOV_baltic_security
 		prerequisite = { focus = SOV_the_comintern }
 		x = 3
-		y = -1
-		relative_position_id = SOV_anti_capitalist_policies
+		y = 1
+		relative_position_id = SOV_the_comintern
 		cost = 1
 
 		ai_will_do = {
@@ -13779,6 +13782,9 @@ ai_will_do = {
 				has_civil_war = yes
 			}	
 		}
+		allow_branch = {
+			always = no
+		}
 				
 		bypass = {
 			NOT = {
@@ -14126,6 +14132,9 @@ ai_will_do = {
 				factor = 0
 				has_civil_war = yes
 			}	
+		}
+		allow_branch = {
+			always = no
 		}
 		
 		mutually_exclusive = { focus = SOV_reconcile_japan }
@@ -14809,6 +14818,9 @@ ai_will_do = {
 				factor = 0
 				has_civil_war = yes
 			}	
+		}
+		allow_branch = {
+			always = no
 		}
 		
 		mutually_exclusive = { focus = SOV_the_threat_from_the_land_of_the_rising_sun }
