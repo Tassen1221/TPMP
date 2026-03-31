@@ -41,23 +41,14 @@ focus_tree = {
 		y = 0
 		#relative_position_id =
 
-		cost = 5
+		cost = 10
 
 		ai_will_do = {
 			factor = 10
 		}
 
 		allow_branch = {
-			IF = {
-				limit = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-				}
-				NOT = { has_completed_focus = wuw_HUN_continue_the_regency }
-				NOT = { has_completed_focus = wuw_HUN_end_the_white_terror }
-			}
+			always = no
 		}
 
 		offset = {
@@ -634,17 +625,7 @@ focus_tree = {
 		}
 
 		allow_branch = {
-			IF = {
-				limit = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-				}
-				NOT = { has_completed_focus = wuw_HUN_reinstate_the_pragmatic_sanction }
-				NOT = { has_completed_focus = wuw_HUN_continue_the_regency }
-				NOT = { has_completed_focus = wuw_HUN_end_the_white_terror }
-			}
+			always = no
 		}
 
 		# 	offset = {
@@ -5674,19 +5655,7 @@ focus_tree = {
 		}
 
 		allow_branch = {
-			IF = {
-				limit = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-				}
-				NOT = { has_completed_focus = wuw_HUN_continue_the_regency }
-				NOT = { has_completed_focus = wuw_HUN_end_the_white_terror }
-				NOT = { has_completed_focus = wuw_HUN_establishing_a_new_dynasty }
-				NOT = { has_completed_focus = wuw_HUN_elect_a_democratic_king }
-				NOT = { has_completed_focus = wuw_HUN_reinstate_the_pragmatic_sanction }
-			}
+			always = no
 		}
 
 		# offset = {
@@ -7914,7 +7883,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = wuw_HUN_strengthen_horthys_reign
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 15
@@ -8432,7 +8401,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = wuw_HUN_undermine_the_admiral
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 15
@@ -8487,7 +8456,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = wuw_HUN_undermine_the_admiral
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 10
@@ -15091,7 +15060,7 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_MANPOWER FOCUS_FILTER_HISTORICAL }
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 10
@@ -15496,7 +15465,7 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_MANPOWER FOCUS_FILTER_INDUSTRY }
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 5
@@ -15643,7 +15612,7 @@ focus_tree = {
 		y = 2
 		relative_position_id = wuw_HUN_reintigrate_the_imperial_railroads
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 10
@@ -16882,7 +16851,7 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY }
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 10
