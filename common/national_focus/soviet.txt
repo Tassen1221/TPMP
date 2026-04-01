@@ -126,6 +126,28 @@ focus_tree = {
 
 		completion_reward = {
 			add_ideas = TPMP_SOV_2nd_fyp_eco_law
+
+
+			# wherever SOV initialises (on_startup or first focus etc.)
+
+			SOV = {
+				set_variable = { TPMP_SOV_economic_shock_construction_factor = 0 }
+				add_ideas = TPMP_SOV_economic_crisis_idea
+				add_dynamic_modifier = { modifier = TPMP_SOV_economic_crisis_dynamic_modifier }
+			}
+
+
+
+
+
+
+
+
+
+
+
+
+
 		}
 	}
 
@@ -686,13 +708,30 @@ focus_tree = {
 			add_research_slot = 1
 
 			570 = {
-				add_extra_state_shared_building_slots = 3
+				add_extra_state_shared_building_slots = 8
 				add_building_construction = {
 					type = arms_factory
-					level = 3
+					level = 8
 					instant_build = yes
 				}
 			}
+
+
+
+
+
+
+
+
+
+					# In TPMP_SOV_second_fyp_mils_2 completion_reward:
+				set_country_flag = TPMP_SOV_mils_2_shock_window_active
+				country_event = {  
+					id = TPMP_shock.mils2
+					days = 1
+					random_days = 364
+				}
+
 
 
 		}

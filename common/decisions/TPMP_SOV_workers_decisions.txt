@@ -48,7 +48,7 @@
 #                                                                                            
 #                                                                                            
 #                                                                                            
-#                                                                                            
+#                                                                                         
 
 
 TPMP_SOV_workers_decision_category = {
@@ -131,6 +131,57 @@ TPMP_SOV_workers_decision_category = {
 
 
 	}	
+
+	TPMP_SOV_workers_spend_plant_managers_decision = {
+		icon = eng_trade_unions_support
+		days_remove = 90
+        
+		cost = 0
+
+		visible = {
+			has_completed_focus = TPMP_SOV_expand_the_role_of_nkvd
+		}
+
+   
+
+		complete_effect = {
+			add_timed_idea = {
+				idea = TPMP_SOV_arrest_plant_managers_timed_idea
+				days = 1
+			}	
+			add_to_variable = { TPMP_SOV_workers_var = 100000 tooltip = TPMP_SOV_gulag_add_worker_decision_tt }
+		}
+
+	}	
+
+	TPMP_SOV_workers_spend_conscripts_decision = {
+		icon = eng_trade_unions_support
+		days_remove = 90
+        
+		cost = 0
+
+		visible = {
+			has_completed_focus = TPMP_SOV_expand_the_role_of_nkvd
+		}
+
+   
+
+		complete_effect = {
+            add_manpower = -100000
+			add_to_variable = { TPMP_SOV_workers_var = 100000 tooltip = TPMP_SOV_gulag_add_worker_decision_tt }
+		}
+
+	}	
+
+
+
+
+
+
+
+
+
+
 
 #                                                                                                              
 #                                                                                                              

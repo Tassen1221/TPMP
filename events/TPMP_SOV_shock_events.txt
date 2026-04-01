@@ -1,0 +1,53 @@
+add_namespace = TPMP_shock
+
+
+country_event = {
+    id = TPMP_shock.mils2
+    title = TPMP_shock.mils2.t
+    desc = TPMP_shock.mils2.desc
+    picture = GFX_report_event_generic_factory
+    
+    is_triggered_only = yes
+    
+    trigger = {
+        NOT = { has_country_flag = TPMP_SOV_mils_2_shock_fired }
+    }
+    
+    immediate = {
+        set_country_flag = TPMP_SOV_mils_2_shock_fired
+        clr_country_flag = TPMP_SOV_mils_2_shock_window_active
+    }
+    
+    option = {
+        name = TPMP_shock.mils2.a
+        
+        add_to_variable = {
+            TPMP_SOV_economic_shock_construction_factor = -0.5
+            tooltip = production_speed_buildings_factor_tt
+        }
+        
+        country_event = { 
+            id = TPMP_shock.mils2recover  
+            days = 30
+        }
+    }
+}
+
+country_event = {
+    id = TPMP_shock.mils2recover
+    title = TPMP_shock.mils2.recover.t
+    desc = TPMP_shock.mils2.recover.desc
+    picture = GFX_report_event_generic_factory
+    
+    is_triggered_only = yes
+    
+    immediate = {
+        add_to_variable = {
+            TPMP_SOV_economic_shock_construction_factor = 0.5
+        }
+    }
+
+    option = {
+        name = TPMP_shock.mils2.recover.a
+    }
+}

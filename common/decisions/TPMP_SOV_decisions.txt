@@ -598,6 +598,11 @@ TPMP_SOV_tractor_category = {
     
     visible = {
         NOT = { has_country_flag = show_tractor_decisions }
+		NOT = { has_idea = TPMP_SOV_small_tractor_investment_NO_CHEATING_idea }
+
+
+
+		
     }
     
     complete_effect = {
@@ -642,12 +647,11 @@ TPMP_SOV_tractor_category = {
 			add_timed_idea = {
 				idea = TPMP_SOV_small_tractor_investment_idea
 				days = 180
-			}			
-
-
-
-
-
+			}		
+			add_timed_idea = {
+				idea = TPMP_SOV_small_tractor_investment_NO_CHEATING_idea
+				days = 1
+			}		
             clr_country_flag = show_tractor_decisions
 
 
@@ -681,7 +685,7 @@ TPMP_SOV_tractor_category = {
 
 		visible = {
        		has_country_flag = show_tractor_decisions
-     	   NOT = { has_idea = TPMP_SOV_medium_tractor_investment_idea }
+     	    NOT = { has_idea = TPMP_SOV_medium_tractor_investment_idea }
 		}
 
 		available = {
@@ -695,7 +699,11 @@ TPMP_SOV_tractor_category = {
 			add_timed_idea = {
 				idea = TPMP_SOV_medium_tractor_investment_idea
 				days = 180
-			}
+			}	
+			add_timed_idea = {
+				idea = TPMP_SOV_small_tractor_investment_NO_CHEATING_idea
+				days = 1
+			}	
             clr_country_flag = show_tractor_decisions	
 
 
@@ -744,7 +752,11 @@ TPMP_SOV_tractor_category = {
 			add_timed_idea = {
 				idea = TPMP_SOV_large_tractor_investment_idea
 				days = 180
-			}
+			}	
+			add_timed_idea = {
+				idea = TPMP_SOV_small_tractor_investment_NO_CHEATING_idea
+				days = 1
+			}	
             clr_country_flag = show_tractor_decisions	
 
 
@@ -1545,7 +1557,75 @@ TPMP_SOV_debug_highlight_siberia_far_east = {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
+
+
+
+
+
+
+TPMP_SOV_mitigate_shocks_category = {
+
+
+TPMP_SOV_mitigate_mils_2_shock_decision = {
+    icon = generic_industry
+    cost = 150
+    
+    visible = {
+        has_country_flag = TPMP_SOV_mils_2_shock_window_active
+        NOT = { has_country_flag = TPMP_SOV_mils_2_shock_fired }
+    }
+    
+    available = {
+        has_country_flag = TPMP_SOV_mils_2_shock_window_active
+        NOT = { has_country_flag = TPMP_SOV_mils_2_shock_fired }
+    }
+    
+    complete_effect = {
+        set_country_flag = TPMP_SOV_mils_2_shock_fired
+        clr_country_flag = TPMP_SOV_mils_2_shock_window_active
+    }
+}
+
+
+}
+
+
 
 
 
