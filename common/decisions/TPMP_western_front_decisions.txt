@@ -1,0 +1,46 @@
+
+TPMP_western_front_decision_category = {
+	TPMP_operation_sealion_decision = {
+		icon = GFX_decision_generic_operation
+        allowed = {
+            tag = GER
+        }
+        visible = {
+            has_war_with = ENG
+			has_complete_focus = GER_operation_sea_lion
+        }
+        available = {
+			ENG = {
+				has_dynamic_modifier = {
+					modifier = TPMP_ENG_sealion_modifier
+				}
+			}
+			has_naval_control = 18
+        }
+        days_remove = 30
+        remove_effect = {
+			IF = {
+				limit = {
+					ENG = {
+						check_variable = { TPMP_ENG_sealion_attack_var = 0.2 }
+					}
+				}
+				ENG = {
+					remove_dynamic_modifier = {
+						modifier = TPMP_ENG_sealion_modifier
+					}
+				}
+			}
+			ENG = {
+				custom_effect_tooltip = TPMP_ENG_sealion_tt
+				subtract_from_variable = { TPMP_ENG_sealion_attack_var = 0.2 tooltip = army_core_attack_factor_tt }
+				subtract_from_variable = { TPMP_ENG_sealion_defence_var = 0.2 tooltip = army_core_defence_factor_tt }
+			}
+			hidden_effect = {
+				ENG = {
+					country_event = TPMP_ENG.1
+				}
+			}
+        }
+    }
+}

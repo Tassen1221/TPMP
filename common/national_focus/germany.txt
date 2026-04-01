@@ -12492,11 +12492,6 @@ mio:GER_blohm_und_voss_organization = {
 
 		available = {
 			has_war_with = ENG
-			has_army_manpower = { size > 999999 }
-			custom_trigger_tooltip = {
-			 	tooltip = GER_sea_lion_eq_trigger_tt
-			 	check_variable = { num_equipment_in_armies_k@infantry_equipment > 90 }
-			}
 		}
 
 		bypass = {
@@ -12512,13 +12507,7 @@ mio:GER_blohm_und_voss_organization = {
 		search_filters = {}
 
 		completion_reward = {
-			add_timed_idea = {
-				idea = GER_operation_sea_lion_ns
-				days = 180
-			}
-
-			custom_effect_tooltip = generic_skip_one_line_tt
-			
+			unlock_decision_tooltip = TPMP_operation_sealion_decision
 			if = {
 				limit = {
 					has_dlc = "La Resistance"

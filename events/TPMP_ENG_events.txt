@@ -1,0 +1,19 @@
+﻿add_namespace = TPMP_ENG
+
+country_event = {
+	id = TPMP_ENG.1
+	title = TPMP_ENG.1.t
+	desc = TPMP_ENG.1.d
+	picture = GFX_report_event_military_planning
+
+	is_triggered_only = yes
+	
+	option = {
+		name = TPMP_ENG.1.a
+		effect_tooltip = {
+			custom_effect_tooltip = TPMP_ENG_sealion_tt
+			subtract_from_variable = { TPMP_ENG_sealion_attack_var = 0.2 tooltip = army_core_attack_factor_tt }
+			subtract_from_variable = { TPMP_ENG_sealion_defence_var = 0.2 tooltip = army_core_defence_factor_tt }
+		}
+	}
+}
