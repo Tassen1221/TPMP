@@ -164,8 +164,8 @@ NDefines.NMilitary.TRAINING_ATTRITION = 0		  	-- amount of extra attrition from 
 NDefines.NMilitary.TRAINING_EXPERIENCE_SCALE = 0
 
 NDefines.NMilitary.TACTIC_SWAP_FREQUENCEY = 24                  -- hours between tactic swaps
-NDefines.NMilitary.RECON_SKILL_IMPACT = 10				-- how many skillpoints is a recon advantage worth when picking a tactic.
-NDefines.NMilitary.INITIATIVE_PICK_COUNTER_ADVANTAGE_FACTOR  = 1	-- advantage per leader level for picking a counter
+NDefines.NMilitary.RECON_SKILL_IMPACT = 5				-- how many skillpoints is a recon advantage worth when picking a tactic.
+NDefines.NMilitary.INITIATIVE_PICK_COUNTER_ADVANTAGE_FACTOR  = 0.5	-- advantage per leader level for picking a counter
 
 NDefines.NMilitary.SLOWEST_SPEED = 1
 
