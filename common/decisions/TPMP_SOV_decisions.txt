@@ -1604,7 +1604,7 @@ TPMP_SOV_mitigate_shocks_category = {
 
 TPMP_SOV_mitigate_mils_2_shock_decision = {
     icon = generic_industry
-    cost = 150
+    cost = 50
     
     visible = {
         has_country_flag = TPMP_SOV_mils_2_shock_window_active
@@ -1619,8 +1619,119 @@ TPMP_SOV_mitigate_mils_2_shock_decision = {
     complete_effect = {
         set_country_flag = TPMP_SOV_mils_2_shock_fired
         clr_country_flag = TPMP_SOV_mils_2_shock_window_active
+        SOV_paranoia_medium_increase_effect = yes
     }
 }
+
+
+
+
+TPMP_SOV_mitigate_ordzhonikidze_shock_decision = {
+    icon = generic_industry
+    cost = 50
+    visible = {
+        has_country_flag = TPMP_SOV_ordzhonikidze_shock_window_active
+        NOT = { has_country_flag = TPMP_SOV_ordzhonikidze_shock_fired }
+    }
+    available = {
+        has_country_flag = TPMP_SOV_ordzhonikidze_shock_window_active
+        NOT = { has_country_flag = TPMP_SOV_ordzhonikidze_shock_fired }
+    }
+    complete_effect = {
+        set_country_flag = TPMP_SOV_ordzhonikidze_shock_fired
+        clr_country_flag = TPMP_SOV_ordzhonikidze_shock_window_active
+        SOV_paranoia_medium_increase_effect = yes
+    }
+}
+
+TPMP_SOV_mitigate_magnitogorsk3_shock_decision = {
+    icon = generic_industry
+    cost = 50
+    visible = {
+        has_country_flag = TPMP_SOV_magnitogorsk3_shock_window_active
+        NOT = { has_country_flag = TPMP_SOV_magnitogorsk3_shock_fired }
+    }
+    available = {
+        has_country_flag = TPMP_SOV_magnitogorsk3_shock_window_active
+        NOT = { has_country_flag = TPMP_SOV_magnitogorsk3_shock_fired }
+    }
+    complete_effect = {
+        set_country_flag = TPMP_SOV_magnitogorsk3_shock_fired
+        clr_country_flag = TPMP_SOV_magnitogorsk3_shock_window_active
+        SOV_paranoia_medium_increase_effect = yes
+    }
+}
+
+
+
+TPMP_SOV_mitigate_plant37_shock_decision = {
+    icon = generic_industry
+    cost = 50
+    visible = {
+        has_country_flag = TPMP_SOV_plant37_shock_window_active
+        NOT = { has_country_flag = TPMP_SOV_plant37_shock_fired }
+    }
+    available = {
+        has_country_flag = TPMP_SOV_plant37_shock_window_active
+        NOT = { has_country_flag = TPMP_SOV_plant37_shock_fired }
+    }
+    complete_effect = {
+        set_country_flag = TPMP_SOV_plant37_shock_fired
+        clr_country_flag = TPMP_SOV_plant37_shock_window_active
+        SOV_paranoia_medium_increase_effect = yes
+    }
+}
+
+TPMP_SOV_mitigate_khpz_shock_decision = {
+    icon = generic_industry
+    cost = 50
+    visible = {
+        has_country_flag = TPMP_SOV_khpz_shock_window_active
+        NOT = { has_country_flag = TPMP_SOV_khpz_shock_fired }
+    }
+    available = {
+        has_country_flag = TPMP_SOV_khpz_shock_window_active
+        NOT = { has_country_flag = TPMP_SOV_khpz_shock_fired }
+    }
+    complete_effect = {
+        set_country_flag = TPMP_SOV_khpz_shock_fired
+        clr_country_flag = TPMP_SOV_khpz_shock_window_active
+        SOV_paranoia_medium_increase_effect = yes
+    }
+}
+
+TPMP_SOV_mitigate_kirov_shock_decision = {
+    icon = generic_industry
+    cost = 50
+    visible = {
+        has_country_flag = TPMP_SOV_kirov_shock_window_active
+        NOT = { has_country_flag = TPMP_SOV_kirov_shock_fired }
+    }
+    available = {
+        has_country_flag = TPMP_SOV_kirov_shock_window_active
+        NOT = { has_country_flag = TPMP_SOV_kirov_shock_fired }
+    }
+    complete_effect = {
+        set_country_flag = TPMP_SOV_kirov_shock_fired
+        clr_country_flag = TPMP_SOV_kirov_shock_window_active
+        SOV_paranoia_medium_increase_effect = yes
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 }

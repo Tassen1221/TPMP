@@ -51,3 +51,205 @@ country_event = {
         name = TPMP_shock.mils2.recover.a
     }
 }
+
+
+
+country_event = {
+    id = TPMP_shock.ordzhonikidze
+    title = TPMP_shock.ordzhonikidze.t
+    desc = TPMP_shock.ordzhonikidze.desc
+    picture = GFX_report_event_generic_factory
+    
+    is_triggered_only = yes
+    
+    trigger = {
+        NOT = { has_country_flag = TPMP_SOV_ordzhonikidze_shock_fired }
+    }
+    
+    immediate = {
+        set_country_flag = TPMP_SOV_ordzhonikidze_shock_fired
+        clr_country_flag = TPMP_SOV_ordzhonikidze_shock_window_active
+    }
+    
+    option = {
+    name = TPMP_shock.ordzhonikidze.a
+    add_timed_idea = {
+        idea = TPMP_SOV_civ_cost_shock_idea
+        days = 30
+    }
+    country_event = { 
+        id = TPMP_shock.ordzhonikidzeRecover
+        days = 30
+    }
+}
+}
+
+
+
+
+country_event = {
+    id = TPMP_shock.magnitogorsk3
+    title = TPMP_shock.magnitogorsk3.t
+    desc = TPMP_shock.magnitogorsk3.desc
+    picture = GFX_report_event_generic_factory
+    is_triggered_only = yes
+    trigger = {
+        NOT = { has_country_flag = TPMP_SOV_magnitogorsk3_shock_fired }
+    }
+    immediate = {
+        set_country_flag = TPMP_SOV_magnitogorsk3_shock_fired
+        clr_country_flag = TPMP_SOV_magnitogorsk3_shock_window_active
+    }
+    option = {
+        name = TPMP_shock.magnitogorsk3.a
+        add_timed_idea = {
+            idea = TPMP_SOV_magnitogorsk3_shock_idea
+            days = 30
+        }
+        country_event = { 
+            id = TPMP_shock.magnitogorsk3Recover
+            days = 30
+        }
+    }
+}
+
+country_event = {
+    id = TPMP_shock.magnitogorsk3Recover
+    title = TPMP_shock.magnitogorsk3Recover.t
+    desc = TPMP_shock.magnitogorsk3Recover.desc
+    picture = GFX_report_event_generic_factory
+    is_triggered_only = yes
+    immediate = {
+    }
+    option = {
+        name = TPMP_shock.magnitogorsk3Recover.a
+    }
+}
+
+
+country_event = {
+    id = TPMP_shock.plant37
+    title = TPMP_shock.plant37.t
+    desc = TPMP_shock.plant37.desc
+    picture = GFX_report_event_generic_factory
+    
+    is_triggered_only = yes
+    
+    trigger = {
+        NOT = { has_country_flag = TPMP_SOV_plant37_shock_fired }
+    }
+    
+    immediate = {
+        set_country_flag = TPMP_SOV_plant37_shock_fired
+        clr_country_flag = TPMP_SOV_plant37_shock_window_active
+    }
+    
+    option = {
+        name = TPMP_shock.plant37.a
+        add_timed_idea = {
+            idea = TPMP_SOV_armour_shock_idea
+            days = 30
+        }
+        country_event = { 
+            id = TPMP_shock.plant37Recover
+            days = 30
+        }
+    }
+}
+
+country_event = {
+    id = TPMP_shock.plant37Recover
+    title = TPMP_shock.plant37Recover.t
+    desc = TPMP_shock.plant37Recover.desc
+    picture = GFX_report_event_generic_factory
+    is_triggered_only = yes
+    option = {
+        name = TPMP_shock.plant37Recover.a
+    }
+}
+
+
+
+# ==========================================
+# KHPZ
+# ==========================================
+
+country_event = {
+    id = TPMP_shock.khpz
+    title = TPMP_shock.khpz.t
+    desc = TPMP_shock.khpz.desc
+    picture = GFX_report_event_generic_factory
+    is_triggered_only = yes
+    trigger = {
+        NOT = { has_country_flag = TPMP_SOV_khpz_shock_fired }
+    }
+    immediate = {
+        set_country_flag = TPMP_SOV_khpz_shock_fired
+        clr_country_flag = TPMP_SOV_khpz_shock_window_active
+    }
+    option = {
+        name = TPMP_shock.khpz.a
+        add_timed_idea = {
+            idea = TPMP_SOV_armour_shock_idea
+            days = 30
+        }
+        country_event = { 
+            id = TPMP_shock.khpzRecover
+            days = 30
+        }
+    }
+}
+
+country_event = {
+    id = TPMP_shock.khpzRecover
+    title = TPMP_shock.khpzRecover.t
+    desc = TPMP_shock.khpzRecover.desc
+    picture = GFX_report_event_generic_factory
+    is_triggered_only = yes
+    option = {
+        name = TPMP_shock.khpzRecover.a
+    }
+}
+
+# ==========================================
+# KIROV
+# ==========================================
+
+country_event = {
+    id = TPMP_shock.kirov
+    title = TPMP_shock.kirov.t
+    desc = TPMP_shock.kirov.desc
+    picture = GFX_report_event_generic_factory
+    is_triggered_only = yes
+    trigger = {
+        NOT = { has_country_flag = TPMP_SOV_kirov_shock_fired }
+    }
+    immediate = {
+        set_country_flag = TPMP_SOV_kirov_shock_fired
+        clr_country_flag = TPMP_SOV_kirov_shock_window_active
+    }
+    option = {
+        name = TPMP_shock.kirov.a
+        add_timed_idea = {
+            idea = TPMP_SOV_armour_shock_idea
+            days = 30
+        }
+        country_event = { 
+            id = TPMP_shock.kirovRecover
+            days = 30
+        }
+    }
+}
+
+country_event = {
+    id = TPMP_shock.kirovRecover
+    title = TPMP_shock.kirovRecover.t
+    desc = TPMP_shock.kirovRecover.desc
+    picture = GFX_report_event_generic_factory
+    is_triggered_only = yes
+    option = {
+        name = TPMP_shock.kirovRecover.a
+    }
+}
+
+
