@@ -1788,7 +1788,7 @@ FRA_intervention_in_overseas_territories = {
 			}
 		} 
 
-		visible = { has_completed_focus = FRA_intervention_in_north_africa }
+		visible = { has_completed_focus = FRA_appeal_to_overseas_territories }
 
 		complete_effect = { 
 			set_country_flag = FRA_north_africa_promised_independence
@@ -1833,7 +1833,7 @@ FRA_intervention_in_overseas_territories = {
 		} 
 
 		visible = { 
-			has_completed_focus = FRA_intervention_in_north_africa 
+			has_completed_focus = FRA_appeal_to_overseas_territories
 		}
 
 		complete_effect = { 
@@ -2079,229 +2079,6 @@ FRA_intervention_in_overseas_territories = {
 		}
 		
 	}
-	FRA_promise_independence_to_indochina = {
-		available = {  
-			NOT = {
-				FRA_controls_indochina = yes
-			}
-		} 
-
-		visible = { has_completed_focus = FRA_intervention_in_indochina }
-
-		
-
-		complete_effect = { 
-			set_country_flag = FRA_indochina_promised_independence
-			custom_effect_tooltip = FRA_promise_independence_tt
-			random_list = {
-				20 = {
-					VIC = { country_event = LaR_france_vichy_notification_events.2 }
-					FRA_transfer_indochina_effect = yes
-					every_owned_state = {
-						limit = {
-							is_controlled_by = ROOT
-							OR = {
-								state = 671
-								state = 670
-								state = 286
-								state = 741
-								state = 1017
-							}
-						}
-						add_compliance = 5
-					}
-				}
-				80 = {}
-			}
-		}
-		fire_only_once = yes
-		cost = 25
-		ai_will_do = {
-			factor = 3
-		}
-	}
-	FRA_prepare_coup_in_indochina = {
-		available = { 
-			NOT = {
-				FRA_controls_indochina = yes
-			}
-			has_intelligence_agency = yes
-		} 
-
-		visible = { 
-			has_completed_focus = FRA_intervention_in_indochina 
-		}
-
-		complete_effect = { 
-			custom_effect_tooltip = FRA_prepare_coup_tt
-			set_country_flag = FRA_coup_in_indochina_flag
-		}
-		fire_only_once = yes
-		cost = 25
-		ai_will_do = {
-			factor = 0
-		}
-	}
-	FRA_invasion_in_indochina = {
-		available = { 
-			NOT = {
-				FRA_controls_indochina = yes
-			}
-			any_state = {
-				OR = {
-					state = 671
-					state = 670
-					state = 286
-					state = 741
-					state = 1017
-				}
-				CONTROLLER = {
-					NOT = {
-						has_war_with = ROOT
-					}
-				}
-				any_neighbor_state = {
-					CONTROLLER = {
-						OR = {
-							tag = ROOT
-							is_in_faction_with = ROOT
-						}
-					}
-				}
-			} 
-		} 
-
-		visible = { has_completed_focus = FRA_intervention_in_indochina }
-
-		complete_effect = { 
-			random_state = { #find a neighbouring state of Syria that is controlled by an ally or ourselves
-				limit = {
-					OR = {
-						state = 671
-						state = 670
-						state = 286
-						state = 741
-						state = 1017
-					}
-					not = { is_controlled_by = ROOT }
-					CONTROLLER = {
-						NOT = { has_war_with = ROOT }
-					}
-					any_neighbor_state = {
-						CONTROLLER = {
-							OR = {
-								tag = ROOT
-								is_in_faction_with = ROOT
-							}
-						}
-					}
-				}
-				save_event_target_as = FRA_defender_state
-				random_neighbor_state = {
-					limit = {
-						CONTROLLER = {
-							OR = {
-								tag = ROOT
-								is_in_faction_with = ROOT
-							}
-						}
-					}
-					save_event_target_as = FRA_attacker_state
-				}
-				event_target:FRA_attacker_state = {
-				CONTROLLER = {
-					division_template = {
-						name = "Indochina Intervention Force" 	
-						division_names_group = FRA_INF_01
-						
-						regiments = {
-							infantry = { x = 0 y = 0 }		
-							infantry = { x = 0 y = 1 }		
-							infantry = { x = 0 y = 2 }
-
-							infantry = { x = 1 y = 0 }		
-							infantry = { x = 1 y = 1 }
-							infantry = { x = 1 y = 2 }		
-						}
-						support = {
-							engineer = { x = 0 y = 0 }
-							artillery = {x = 0 y = 1 }
-						}
-					}
-					event_target:FRA_attacker_state = { #set up attacker unit(s)
-						create_unit = {
-							division = "name = \"Indochina Force 1\" division_template = \"Indochina Intervention Force\" start_experience_factor = 0.5"  
-							owner = PREV
-						}
-						create_unit = {
-							division = "name = \"Indochina Force 2\" division_template = \"Indochina Intervention Force\" start_experience_factor = 0.5"  
-							owner = PREV
-						}
-						create_unit = {
-							division = "name = \"Indochina Force 3\" division_template = \"Indochina Intervention Force\" start_experience_factor = 0.5"  
-							owner = PREV
-						}
-					}
-				}
-			}
-			event_target:FRA_defender_state = { #set up defender unit(s)
-				CONTROLLER = {
-					division_template = {
-						name = "Indochina Defense Force" 	
-						division_names_group = FRA_INF_01
-						
-						regiments = {
-							infantry = { x = 0 y = 0 }		
-							infantry = { x = 0 y = 1 }		
-							infantry = { x = 0 y = 2 }
-
-							infantry = { x = 1 y = 0 }		
-							infantry = { x = 1 y = 1 }
-							infantry = { x = 1 y = 2 }		
-						}
-						support = {
-							engineer = { x = 0 y = 0 }
-							artillery = {x = 0 y = 1 }
-						}
-					}
-					event_target:FRA_defender_state = { #set up defenders
-						create_unit = {
-							division = "name = \"Indochina Defense Force 1\" division_template = \"Indochina Defense Force\" start_experience_factor = 0.5"  
-							owner = PREV
-						}
-					}
-				}
-			}
-			}
-			event_target:FRA_attacker_state = {
-				CONTROLLER = {
-					start_border_war = {
-						change_state_after_war = no
-						attacker = {
-							state = event_target:FRA_attacker_state
-							num_provinces = 4
-							on_win = FRA_indochina_intervention.1
-							on_lose = FRA_indochina_intervention.2
-							on_cancel = FRA_indochina_intervention.3
-						}
-						defender = {
-							state = event_target:FRA_defender_state
-							num_provinces = 4
-							on_win = FRA_indochina_intervention.2
-							on_lose = FRA_indochina_intervention.1
-							on_cancel = FRA_indochina_intervention.3
-						}
-					}
-				}
-			}
-
-		}
-		fire_only_once = yes
-		ai_will_do = {
-			factor = 0
-		}
-		cost = 25
-	}
 	FRA_promise_independence_to_central_africa = {
 		available = {  
 			NOT = {
@@ -2309,7 +2086,7 @@ FRA_intervention_in_overseas_territories = {
 			}
 		} 
 
-		visible = { has_completed_focus = FRA_intervention_in_central_africa }
+		visible = { has_completed_focus = FRA_intervention_in_west_africa }
 
 		
 
@@ -2353,7 +2130,7 @@ FRA_intervention_in_overseas_territories = {
 		} 
 
 		visible = { 
-			has_completed_focus = FRA_intervention_in_central_africa 
+			has_completed_focus = FRA_intervention_in_west_africa
 		}
 
 		complete_effect = {
@@ -2394,7 +2171,7 @@ FRA_intervention_in_overseas_territories = {
 			} 
 		} 
 
-		visible = { has_completed_focus = FRA_intervention_in_central_africa }
+		visible = { has_completed_focus = FRA_intervention_in_west_africa }
 
 		complete_effect = { 
 			random_state = { #find a neighbouring state of Syria that is controlled by an ally or ourselves
@@ -2540,7 +2317,7 @@ FRA_intervention_in_overseas_territories = {
 			}
 		} 
 
-		visible = { has_completed_focus = FRA_intervention_in_west_africa }
+		visible = { has_completed_focus = FRA_intervention_in_the_rest }
 
 		
 
@@ -2586,7 +2363,7 @@ FRA_intervention_in_overseas_territories = {
 		} 
 
 		visible = { 
-			has_completed_focus = FRA_intervention_in_west_africa 
+			has_completed_focus = FRA_intervention_in_the_rest 
 		}
 
 		complete_effect = { 
@@ -2630,7 +2407,7 @@ FRA_intervention_in_overseas_territories = {
 			} 
 		} 
 
-		visible = { has_completed_focus = FRA_intervention_in_west_africa }
+		visible = { has_completed_focus = FRA_intervention_in_the_rest }
 
 		complete_effect = { 
 			random_state = { #find a neighbouring state of Syria that is controlled by an ally or ourselves
@@ -2786,7 +2563,7 @@ FRA_intervention_in_overseas_territories = {
 			}
 		} 
 
-		visible = { has_completed_focus = FRA_intervention_in_madagascar }
+		visible = { has_completed_focus = FRA_intervention_in_the_rest }
 
 		complete_effect = { 
 			set_country_flag = FRA_madagascar_promised_independence
@@ -2824,7 +2601,7 @@ FRA_intervention_in_overseas_territories = {
 		} 
 
 		visible = { 
-			has_completed_focus = FRA_intervention_in_madagascar
+			has_completed_focus = FRA_intervention_in_the_rest
 		}
 
 		complete_effect = { 
