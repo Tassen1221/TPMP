@@ -26,21 +26,23 @@ on_actions = {
 			#Displaying active fleet size for topbar element
 			set_variable = { active_fleet_var = total_ship_var }
 
-			#Calculating the penalty for exceeding the fleet limit dynamic modifier
-			divide_variable = { total_ship_var = fleet_limit_var }
-			subtract_from_variable = { total_ship_var = 1 }
-			multiply_variable = { total_ship_var = -2 }
+			#Setting the constants for calculating the fleet limit penalty
+			set_temp_variable = { fleet_penalty_factor_a_var = 0.25 }
+			multiply_temp_variable = { fleet_penalty_factor_a_var = fleet_limit_var }
+			set_temp_variable = { fleet_penalty_factor_b_var = 0.5 }
+			multiply_temp_variable = { fleet_penalty_factor_b_var = fleet_limit_var }
+			#Calculating the fleet limit penalty
+			subtract_from_variable = { total_ship_var = fleet_penalty_factor_b_var }
+			divide_temp_variable = { fleet_penalty_factor_a_var = total_ship_var }
+			set_variable = { total_ship_var = fleet_penalty_factor_a_var }
+			subtract_from_variable = { total_ship_var = 0.5 }
+
+			#Setting the penalty for exceeding the fleet limit dynamic modifier
 			set_variable = { fleet_limit_penalty_var = total_ship_var }
-			
-			if = {
-				limit = {
-					check_variable = {
-						var = fleet_limit_penalty_var
-						value = 0
-						compare = greater_than_or_equals
-					}
-				}
-				set_variable = { fleet_limit_penalty_var = 0 }
+			clamp_variable = {
+				var = fleet_limit_penalty_var
+				min = -0.5
+				max = 0
 			}
 		}
 	}

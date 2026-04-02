@@ -28,30 +28,39 @@ calculate_fleet_size = {
 	subtract_from_variable = { destroyer_var = reserve_destroyer_var }
 	subtract_from_variable = { submarine_var = reserve_submarine_var }
 
-	#Calculating Naval Contributions of Carriers
 	multiply_variable = { carrier_var = 0 }
-	#Calculating Naval Contributions of Superheavy Battleships
-	set_temp_variable = { shbb_n_var = sh_battleship_var }
-	add_to_variable = { sh_battleship_var = 3 }
-	multiply_variable = { sh_battleship_var = 5 }
-	multiply_variable = { sh_battleship_var = shbb_n_var }
-	divide_variable = { sh_battleship_var = 2 }
-	#Calculating Naval Contributions of Battleships
-	set_temp_variable = { bb_n_var = battleship_var }
-	add_to_variable = { battleship_var = 7 }
-	multiply_variable = { battleship_var = bb_n_var }
-	#Calculating Naval Contributions of Battlecruisers
-	set_temp_variable = { bc_n_var = battle_cruiser_var }
-	add_to_variable = { battle_cruiser_var = 7 }
-	multiply_variable = { battle_cruiser_var = bc_n_var }
-	#Calculating Naval Contributions of Heavy Cruisers
-	multiply_variable = { heavy_cruiser_var = 6 }
-	#Calculating Naval Contributions of Light Cruisers
-	multiply_variable = { light_cruiser_var = 4 }
-	#Calculating Naval Contributions of Destroyers
+	multiply_variable = { sh_battleship_var = 15 }
+	multiply_variable = { battleship_var = 8 }
+	multiply_variable = { battle_cruiser_var = 7 }
+	multiply_variable = { heavy_cruiser_var = 4 }
+	multiply_variable = { light_cruiser_var = 3 }
 	multiply_variable = { destroyer_var = 0 }
-	#Calculating Naval Contributions of Submarines
 	multiply_variable = { submarine_var = 0 }
+
+	# #Calculating Naval Contributions of Carriers
+	# multiply_variable = { carrier_var = 0 }
+	# #Calculating Naval Contributions of Superheavy Battleships
+	# set_temp_variable = { shbb_n_var = sh_battleship_var }
+	# add_to_variable = { sh_battleship_var = 3 }
+	# multiply_variable = { sh_battleship_var = 5 }
+	# multiply_variable = { sh_battleship_var = shbb_n_var }
+	# divide_variable = { sh_battleship_var = 2 }
+	# #Calculating Naval Contributions of Battleships
+	# set_temp_variable = { bb_n_var = battleship_var }
+	# add_to_variable = { battleship_var = 7 }
+	# multiply_variable = { battleship_var = bb_n_var }
+	# #Calculating Naval Contributions of Battlecruisers
+	# set_temp_variable = { bc_n_var = battle_cruiser_var }
+	# add_to_variable = { battle_cruiser_var = 7 }
+	# multiply_variable = { battle_cruiser_var = bc_n_var }
+	# #Calculating Naval Contributions of Heavy Cruisers
+	# multiply_variable = { heavy_cruiser_var = 6 }
+	# #Calculating Naval Contributions of Light Cruisers
+	# multiply_variable = { light_cruiser_var = 4 }
+	# #Calculating Naval Contributions of Destroyers
+	# multiply_variable = { destroyer_var = 0 }
+	# #Calculating Naval Contributions of Submarines
+	# multiply_variable = { submarine_var = 0 }
 
 	set_variable = { total_ship_var = 0 }
 	add_to_variable = { total_ship_var = carrier_var }
