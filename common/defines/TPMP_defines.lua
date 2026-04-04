@@ -108,7 +108,7 @@ NDefines.NMilitary.STRATEGIC_SPEED_INFRA_MAX = 10.0		-- Additional speed of stra
 NDefines.NMilitary.STRATEGIC_SPEED_RAIL_BASE = 15.0		-- Base speed of strategic redeployment when on railways
 NDefines.NMilitary.STRATEGIC_SPEED_RAIL_MAX = 25.0		-- Additional speed of strategic redeployment on max-level railways
 
-NDefines.NMilitary.RETREAT_SPEED_FACTOR = -0.25	                -- speed bonus when retreating
+NDefines.NMilitary.RETREAT_SPEED_FACTOR = 0	                -- speed bonus when retreating
 NDefines.NMilitary.WITHDRAWING_SPEED_FACTOR = 0.15		-- speed bonus when withdrawing
 
 NDefines.NMilitary.RIVER_CROSSING_PENALTY = -0.3		-- small river crossing
