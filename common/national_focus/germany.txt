@@ -2366,28 +2366,6 @@ focus_tree = {
 
 		completion_reward = {
 			GER_autarky_achieved_effects = yes
-
-			custom_effect_tooltip = generic_skip_one_line_tt
-			if = {
-				limit = { #Notify that you will get an improved version of the Trade Law
-					NOT = { has_idea = autarkic_economy }
-				}
-				custom_effect_tooltip = GER_improve_autarkic_economy_tt
-			}
-			else = { #Get the improved version of the Trade Law
-				swap_ideas = {
-					remove_idea = autarkic_economy
-					add_idea = autarkic_economy_improved
-				}
-			}			
-
-			#custom_effect_tooltip = generic_skip_one_line_tt
-
-			#custom_effect_tooltip = GER_modify_wehrwirtschaft_modifier_tt
-			#add_to_variable = { 
-			#	GER_wehrwirtschaft_production_speed_buildings_factor = 0.05
-			#	tooltip = production_speed_buildings_factor_tt
-			#}
 		}
 	}
 

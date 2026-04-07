@@ -132,7 +132,7 @@ NDefines.NMilitary.BATALION_NOT_CHANGED_EXPERIENCE_DROP = 0.0	-- Division experi
 NDefines.NMilitary.BATALION_CHANGED_EXPERIENCE_DROP = 1		-- Division experience drop if unit has different batalion
 
 NDefines.NMilitary.EXPERIENCE_LOSS_FACTOR = 0.7			-- percentage of experienced solders who die when manpower is removed
-NDefines.NMilitary.EQUIPMENT_COMBAT_LOSS_FACTOR = 0.80	 	-- % of equipment lost to strength ratio in combat, so some % is returned if below 1
+NDefines.NMilitary.EQUIPMENT_COMBAT_LOSS_FACTOR = 0.70	 	-- % of equipment lost to strength ratio in combat, so some % is returned if below 1
 
 NDefines.NMilitary.TRAINING_MAX_LEVEL = 2
 NDefines.NMilitary.DEPLOY_TRAINING_MAX_LEVEL = 1
@@ -289,9 +289,6 @@ NDefines.NNavy.COMBAT_DAMAGE_TO_ORG_FACTOR = 0.3		-- casting damage value to shi
 NDefines.NNavy.SUPPLY_NEED_FACTOR = 0.1					-- multiplies supply usage
 NDefines.NNavy.BASE_CARRIER_SORTIE_EFFICIENCY = 0.1		-- factor of planes that can sortie by default from a carrier
 
-NDefines.NNavy.CARRIER_STACK_PENALTY = 4				-- The most efficient is 4 carriers in combat. 5+ brings the penalty to the amount of wings in battle.
-NDefines.NNavy.CARRIER_STACK_PENALTY_EFFECT = 0.20		-- Each carrier above the optimal amount decreases the amount of airplanes being able to takeoff by such %.
-
 NDefines.NNavy.CARRIER_ONLY_COMBAT_ACTIVATE_TIME = 0		-- hours from start of combat when carriers get to fight
 NDefines.NNavy.CAPITAL_ONLY_COMBAT_ACTIVATE_TIME = 0		-- hours from start of combat when only carriers, capitals and subs get to attack
 NDefines.NNavy.ALL_SHIPS_ACTIVATE_TIME = 0
@@ -303,18 +300,6 @@ NDefines.NNavy.NAVAL_COMBAT_AIR_CONVOY_TARGET_SCORE = 1.0
 NDefines.NNavy.NAVAL_COMBAT_AIR_STRENGTH_TARGET_SCORE = 5	-- how much score factor from low health (scales between 0->this number)
 NDefines.NNavy.NAVAL_COMBAT_AIR_LOW_AA_TARGET_SCORE = 5		-- how much score factor from low AA guns (scales between 0->this number)
 
-NDefines.NNavy.MISSION_SUPREMACY_RATIOS = {
-		0.0, -- HOLD
-		1.0, -- PATROL
-		0.1, -- STRIKE FORCE
-		0.3, -- CONVOY RAIDING
-		0.6, -- CONVOY ESCORT
-		0.0, -- MINES PLANTING
-		0.0, -- MINES SWEEPING
-		0.0, -- TRAIN
-		0.0, -- RESERVE_FLEET
-		0.1, -- NAVAL_INVASION_SUPPORT
-	}
 
 NDefines.NNavy.BASE_JOIN_COMBAT_HOURS = 24			-- the taskforces that wants to join existing combats will wait for at least this amount
 NDefines.NNavy.LOW_ORG_FACTOR_ON_JOIN_COMBAT_DURATION = 2.0	-- low org of the ships will be factored in when a taskforce wants to join combat

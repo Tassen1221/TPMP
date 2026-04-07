@@ -71,22 +71,13 @@ on_actions = {
 				set_variable = { heavy_armor_ratio_var = heavy_armor_battalion_var}
 				divide_variable = { heavy_armor_ratio_var = total_battalion_var }
 				#Making sure heavy armor battalions are equipped
-				set_temp_variable = { heavy_armor_requirement_var = 0 }
 				set_temp_variable = { heavy_armor_equipped_var = num_equipment_in_armies@heavy_tank_chassis }
-				add_to_temp_variable = { heavy_armor_equipped_var = num_battalions_with_type@super_heavy_tank_chassis }
-				add_to_temp_variable = { heavy_armor_equipped_var = num_battalions_with_type@heavy_tank_amphibious_chassis }
+				add_to_temp_variable = { heavy_armor_equipped_var = num_equipment_in_armies@super_heavy_tank_chassis }
+				add_to_temp_variable = { heavy_armor_equipped_var = num_equipment_in_armies@heavy_tank_amphibious_chassis }
 				#Adding heavy armor battalion requirements
-				set_temp_variable = { normal_heavy_armor_requirement_var = num_battalions_with_type@heavy_armor }
-				multiply_temp_variable = { normal_heavy_armor_requirement_var = 40 }
-				add_to_temp_variable = { heavy_armor_requirement_var = normal_heavy_armor_requirement_var }
-				#Adding super heavy armor battalion requirements
-				set_temp_variable = { super_heavy_armor_requirement_var = num_battalions_with_type@super_heavy_armor }
-				multiply_temp_variable = { super_heavy_armor_requirement_var = 40 }
-				add_to_temp_variable = { heavy_armor_requirement_var = super_heavy_armor_requirement_var }
-				#Adding amphibious heavy armor battalion requirements
-				set_temp_variable = { amph_heavy_armor_requirement_var = num_battalions_with_type@heavy_tank_amphibious_chassis }
-				multiply_temp_variable = { amph_heavy_armor_requirement_var = 40 }
-				add_to_temp_variable = { heavy_armor_requirement_var = amph_heavy_armor_requirement_var }
+				set_temp_variable = { heavy_armor_requirement_var = num_target_equipment_in_armies@heavy_tank_chassis }
+				add_to_temp_variable = { heavy_armor_requirement_var = num_target_equipment_in_armies@super_heavy_tank_chassis }
+				add_to_temp_variable = { heavy_armor_requirement_var = num_target_equipment_in_armies@heavy_tank_amphibious_chassis }
 				#Calculating ratio of heavy armor equipment to required heavy armor equipment
 				set_variable = { heavy_armor_equipped_ratio_var = heavy_armor_equipped_var }
 				divide_variable = { heavy_armor_equipped_ratio_var = heavy_armor_requirement_var }
@@ -153,12 +144,9 @@ on_actions = {
 				set_variable = { infantry_ratio_var = infantry_battalion_var}
 				divide_variable = { infantry_ratio_var = total_battalion_var }
 				#Making sure infantry battalions are equipped
-				set_temp_variable = { infantry_requirement_var = 0 }
 				set_temp_variable = { infantry_equipped_var = num_equipment_in_armies@infantry_equipment }
-				#Adding line infantry battalion requirements
-				set_temp_variable = { line_infantry_requirement_var = num_battalions_with_type@infantry }
-				multiply_temp_variable = { line_infantry_requirement_var = 80 }
-				add_to_temp_variable = { infantry_requirement_var = line_infantry_requirement_var }
+				#Adding infantry battalion requirements
+				set_temp_variable = { infantry_requirement_var = num_target_equipment_in_armies@infantry_equipment }
 				#Calculating ratio of infantry equipment to required infantry equipment
 				set_variable = { infantry_equipped_ratio_var = infantry_equipped_var }
 				divide_variable = { infantry_equipped_ratio_var = infantry_requirement_var }
@@ -226,17 +214,9 @@ on_actions = {
 				set_variable = { heavy_arty_ratio_var = heavy_arty_battalion_var}
 				divide_variable = { heavy_arty_ratio_var = total_battalion_var }
 				#Making sure heavy arty battalions are equipped
-				set_temp_variable = { heavy_arty_requirement_var = 0 }
 				set_temp_variable = { heavy_arty_equipped_var = num_equipment_in_armies@heavy_artillery_equipment }
-				#Adding support heavy arty battalion requirements
-				set_temp_variable = { support_heavy_arty_requirement_var = num_battalions_with_type@heavy_artillery }
-				multiply_temp_variable = { support_heavy_arty_requirement_var = 15 }
-				add_to_temp_variable = { heavy_arty_requirement_var = support_heavy_arty_requirement_var }
-				#Adding line heavy arty battalion requirements
-				set_temp_variable = { line_heavy_arty_requirement_var = num_battalions_with_type@heavy_artillery_brigade }
-				add_to_temp_variable = { line_heavy_arty_requirement_var = num_battalions_with_type@mot_heavy_artillery_brigade }
-				multiply_temp_variable = { line_heavy_arty_requirement_var = 30 }
-				add_to_temp_variable = { heavy_arty_requirement_var = line_heavy_arty_requirement_var }
+				#Adding heavy arty battalion requirements
+				set_temp_variable = { heavy_arty_requirement_var = num_target_equipment_in_armies@heavy_artillery_equipment }
 				#Calculating ratio of heavy arty equipment to required heavy arty equipment
 				set_variable = { heavy_arty_equipped_ratio_var = heavy_arty_equipped_var }
 				divide_variable = { heavy_arty_equipped_ratio_var = heavy_arty_requirement_var }
@@ -304,17 +284,9 @@ on_actions = {
 				set_variable = { heavy_arty_ratio_var = heavy_arty_battalion_var}
 				divide_variable = { heavy_arty_ratio_var = total_battalion_var }
 				#Making sure heavy arty battalions are equipped
-				set_temp_variable = { heavy_arty_requirement_var = 0 }
 				set_temp_variable = { heavy_arty_equipped_var = num_equipment_in_armies@heavy_artillery_equipment }
-				#Adding support heavy arty battalion requirements
-				set_temp_variable = { support_heavy_arty_requirement_var = num_battalions_with_type@heavy_artillery }
-				multiply_temp_variable = { support_heavy_arty_requirement_var = 45 }
-				add_to_temp_variable = { heavy_arty_requirement_var = support_heavy_arty_requirement_var }
-				#Adding line heavy arty battalion requirements
-				set_temp_variable = { line_heavy_arty_requirement_var = num_battalions_with_type@heavy_artillery_brigade }
-				add_to_temp_variable = { line_heavy_arty_requirement_var = num_battalions_with_type@mot_heavy_artillery_brigade }
-				multiply_temp_variable = { line_heavy_arty_requirement_var = 30 }
-				add_to_temp_variable = { heavy_arty_requirement_var = line_heavy_arty_requirement_var }
+				#Adding heavy arty battalion requirements
+				set_temp_variable = { heavy_arty_requirement_var = num_target_equipment_in_armies@heavy_artillery_equipment }
 				#Calculating ratio of heavy arty equipment to required heavy arty equipment
 				set_variable = { heavy_arty_equipped_ratio_var = heavy_arty_equipped_var }
 				divide_variable = { heavy_arty_equipped_ratio_var = heavy_arty_requirement_var }
@@ -381,33 +353,9 @@ on_actions = {
 				set_variable = { mot_ratio_var = mot_battalion_var}
 				divide_variable = { mot_ratio_var = total_battalion_var }
 				#Making sure motorized battalions are equipped
-				set_temp_variable = { mot_requirement_var = 0 }
 				set_temp_variable = { mot_equipped_var = num_equipment_in_armies@motorized_equipment }
 				#Adding motorized battalion requirements
-				set_temp_variable = { line_mot_requirement_var = num_battalions_with_type@motorized }
-				multiply_temp_variable = { line_mot_requirement_var = 10 }
-				add_to_temp_variable = { mot_requirement_var = line_mot_requirement_var }
-				#Adding motorized arty battalion requirements
-				set_temp_variable = { mot_arty_requirement_var = num_battalions_with_type@mot_artillery_brigade }
-				multiply_temp_variable = { mot_arty_requirement_var = 15 }
-				add_to_temp_variable = { mot_requirement_var = mot_arty_requirement_var }
-				set_temp_variable = { mot_heavy_arty_requirement_var = num_battalions_with_type@mot_heavy_artillery_brigade }
-				multiply_temp_variable = { mot_heavy_arty_requirement_var = 30 }
-				add_to_temp_variable = { mot_requirement_var = mot_heavy_arty_requirement_var }
-				#Adding motorized AT battalion requirements
-				set_temp_variable = { mot_AT_requirement_var = num_battalions_with_type@mot_anti_tank_brigade }
-				multiply_temp_variable = { mot_AT_requirement_var = 15 }
-				add_to_temp_variable = { mot_requirement_var = mot_AT_requirement_var }
-				set_temp_variable = { mot_heavy_AT_requirement_var = num_battalions_with_type@mot_heavy_anti_tank_brigade }
-				multiply_temp_variable = { mot_heavy_AT_requirement_var = 30 }
-				add_to_temp_variable = { mot_requirement_var = mot_heavy_anti_tank_requirement_var }
-				#Adding motorized AA battalion requirements
-				set_temp_variable = { mot_AA_requirement_var = num_battalions_with_type@mot_anti_air_brigade }
-				multiply_temp_variable = { mot_AA_requirement_var = 15 }
-				add_to_temp_variable = { mot_requirement_var = mot_AA_requirement_var }
-				set_temp_variable = { mot_heavy_AA_requirement_var = num_battalions_with_type@mot_heavy_anti_air_brigade }
-				multiply_temp_variable = { mot_heavy_AA_requirement_var = 30 }
-				add_to_temp_variable = { mot_requirement_var = mot_heavy_anti_air_requirement_var }
+				set_temp_variable = { mot_requirement_var = num_target_equipment_in_armies@motorized_equipment }
 				#Calculating ratio of motorized equipment to required infantry equipment
 				set_variable = { mot_equipped_ratio_var = mot_equipped_var }
 				divide_variable = { mot_equipped_ratio_var = mot_requirement_var }
@@ -480,30 +428,16 @@ on_actions = {
 				#Making sure mech battalions are equipped
 				set_temp_variable = { mech_requirement_var = 0 }
 				set_temp_variable = { mech_equipped_var = num_equipment_in_armies@mechanized_equipment }
-				add_to_temp_variable = { mech_equipped_var = num_battalions_with_type@artillery_mechanized_equipment }
-				add_to_temp_variable = { mech_equipped_var = num_battalions_with_type@anti_tank_mechanized_equipment }
-				add_to_temp_variable = { mech_equipped_var = num_battalions_with_type@anti_air_mechanized_equipment }
-				add_to_temp_variable = { mech_equipped_var = num_battalions_with_type@amphibious_mechanized_equipment }
-				#Adding line mechanized battalion requirements
-				set_temp_variable = { line_mech_requirement_var = num_battalions_with_type@mechanized }
-				multiply_temp_variable = { line_mech_requirement_var = 50 }
-				add_to_temp_variable = { mech_requirement_var = line_mech_requirement_var }
-				#Adding artillery mechanized battalion requirements
-				set_temp_variable = { arty_mech_requirement_var = num_battalions_with_type@artillery_mechanized }
-				multiply_temp_variable = { arty_mech_requirement_var = 50 }
-				add_to_temp_variable = { mech_requirement_var = arty_mech_requirement_var }
-				#Adding anti tank mechanized battalion requirements
-				set_temp_variable = { AT_mech_requirement_var = num_battalions_with_type@anti_tank_mechanized }
-				multiply_temp_variable = { AT_mech_requirement_var = 50 }
-				add_to_temp_variable = { mech_requirement_var = AT_mech_requirement_var }
-				#Adding anti air mechanized battalion requirements
-				set_temp_variable = { AA_mech_requirement_var = num_battalions_with_type@anti_air_mechanized }
-				multiply_temp_variable = { AA_mech_requirement_var = 50 }
-				add_to_temp_variable = { mech_requirement_var = AA_mech_requirement_var }
-				#Adding amphibious mechanized battalion requirements
-				set_temp_variable = { amph_mech_requirement_var = num_battalions_with_type@amphibious_mechanized }
-				multiply_temp_variable = { amph_mech_requirement_var = 50 }
-				add_to_temp_variable = { mech_requirement_var = amph_mech_requirement_var }
+				add_to_temp_variable = { mech_equipped_var = num_equipment_in_armies@artillery_mechanized_equipment }
+				add_to_temp_variable = { mech_equipped_var = num_equipment_in_armies@anti_tank_mechanized_equipment }
+				add_to_temp_variable = { mech_equipped_var = num_equipment_in_armies@anti_air_mechanized_equipment }
+				add_to_temp_variable = { mech_equipped_var = num_equipment_in_armies@amphibious_mechanized_equipment }
+				#Adding mechanized battalion requirements
+				set_temp_variable = { mech_requirement_var = num_target_equipment_in_armies@mechanized_equipment }
+				add_to_temp_variable = { mech_requirement_var = num_target_equipment_in_armies@artillery_mechanized_equipment }
+				add_to_temp_variable = { mech_requirement_var = num_target_equipment_in_armies@anti_tank_mechanized_equipment }
+				add_to_temp_variable = { mech_requirement_var = num_target_equipment_in_armies@anti_air_mechanized_equipment }
+				add_to_temp_variable = { mech_requirement_var = num_target_equipment_in_armies@amphibious_mechanized_equipment }
 				#Calculating ratio of mechanized equipment to required mechanized equipment
 				set_variable = { mech_equipped_ratio_var = mech_equipped_var }
 				divide_variable = { mech_equipped_ratio_var = mech_requirement_var }
@@ -571,17 +505,9 @@ on_actions = {
 				set_variable = { heavy_AT_ratio_var = heavy_AT_battalion_var}
 				divide_variable = { heavy_AT_ratio_var = total_battalion_var }
 				#Making sure heavy AT battalions are equipped
-				set_temp_variable = { heavy_AT_requirement_var = 0 }
 				set_temp_variable = { heavy_AT_equipped_var = num_equipment_in_armies@heavy_anti_tank_equipment }
-				#Adding support heavy AT battalion requirements
-				set_temp_variable = { support_heavy_AT_requirement_var = num_battalions_with_type@heavy_anti_tank }
-				multiply_temp_variable = { support_heavy_AT_requirement_var = 15 }
-				add_to_temp_variable = { heavy_AT_requirement_var = support_heavy_AT_requirement_var }
-				#Adding line heavy AT battalion requirements
-				set_temp_variable = { line_heavy_AT_requirement_var = num_battalions_with_type@heavy_anti_tank_brigade }
-				add_to_temp_variable = { line_heavy_AT_requirement_var = num_battalions_with_type@mot_heavy_anti_tank_brigade }
-				multiply_temp_variable = { line_heavy_AT_requirement_var = 30 }
-				add_to_temp_variable = { heavy_AT_requirement_var = line_heavy_AT_requirement_var }
+				#Adding heavy AT battalion requirements
+				set_temp_variable = { heavy_AT_requirement_var = num_target_equipment_in_armies@heavy_anti_tank_equipment }
 				#Calculating ratio of heavy AT equipment to required heavy AT equipment
 				set_variable = { heavy_AT_equipped_ratio_var = heavy_AT_equipped_var }
 				divide_variable = { heavy_AT_equipped_ratio_var = heavy_AT_requirement_var }
@@ -649,17 +575,9 @@ on_actions = {
 				set_variable = { heavy_AA_ratio_var = heavy_AA_battalion_var}
 				divide_variable = { heavy_AA_ratio_var = total_battalion_var }
 				#Making sure heavy AA battalions are equipped
-				set_temp_variable = { heavy_AA_requirement_var = 0 }
 				set_temp_variable = { heavy_AA_equipped_var = num_equipment_in_armies@heavy_anti_air_equipment }
-				#Adding support heavy AA battalion requirements
-				set_temp_variable = { support_heavy_AA_requirement_var = num_battalions_with_type@heavy_anti_air }
-				multiply_temp_variable = { support_heavy_AA_requirement_var = 15 }
-				add_to_temp_variable = { heavy_AA_requirement_var = support_heavy_AA_requirement_var }
-				#Adding line heavy AA battalion requirements
-				set_temp_variable = { line_heavy_AA_requirement_var = num_battalions_with_type@heavy_anti_air_brigade }
-				add_to_temp_variable = { line_heavy_AA_requirement_var = num_battalions_with_type@mot_heavy_anti_air_brigade }
-				multiply_temp_variable = { line_heavy_AA_requirement_var = 30 }
-				add_to_temp_variable = { heavy_AA_requirement_var = line_heavy_AA_requirement_var }
+				#Adding heavy AA battalion requirements
+				set_temp_variable = { heavy_AA_requirement_var = num_target_equipment_in_armies@heavy_anti_air_equipment }
 				#Calculating ratio of heavy AA equipment to required heavy AA equipment
 				set_variable = { heavy_AA_equipped_ratio_var = heavy_AA_equipped_var }
 				divide_variable = { heavy_AA_equipped_ratio_var = heavy_AA_requirement_var }
@@ -734,19 +652,11 @@ on_actions = {
 				add_to_temp_variable = { SPG_equipped_var = num_equipment_in_armies@medium_tank_artillery_chassis }
 				add_to_temp_variable = { SPG_equipped_var = num_equipment_in_armies@heavy_tank_artillery_chassis }
 				add_to_temp_variable = { SPG_equipped_var = num_equipment_in_armies@super_heavy_tank_artillery_chassis }
-				#Adding support SPG battalion requirements
-				set_temp_variable = { support_SPG_requirement_var = num_battalions_with_type@light_sp_artillery }
-				add_to_temp_variable = { support_SPG_requirement_var = num_battalions_with_type@medium_sp_artillery }
-				add_to_temp_variable = { support_SPG_requirement_var = num_battalions_with_type@heavy_sp_artillery }
-				multiply_temp_variable = { support_SPG_requirement_var = 20 }
-				add_to_temp_variable = { SPG_requirement_var = support_SPG_requirement_var }
-				#Adding line SPG battalion requirements
-				set_temp_variable = { line_SPG_requirement_var = num_battalions_with_type@light_sp_artillery_brigade }
-				add_to_temp_variable = { line_SPG_requirement_var = num_battalions_with_type@medium_sp_artillery_brigade }
-				add_to_temp_variable = { line_SPG_requirement_var = num_battalions_with_type@heavy_sp_artillery_brigade }
-				add_to_temp_variable = { line_SPG_requirement_var = num_battalions_with_type@super_heavy_sp_artillery_brigade }
-				multiply_temp_variable = { line_SPG_requirement_var = 40 }
-				add_to_temp_variable = { SPG_requirement_var = line_SPG_requirement_var }
+				#Adding SPG battalion requirements
+				set_temp_variable = { SPG_requirement_var = num_target_equipment_in_armies@light_tank_artillery_chassis }
+				add_to_temp_variable = { SPG_requirement_var = num_target_equipment_in_armies@medium_tank_artillery_chassis }
+				add_to_temp_variable = { SPG_requirement_var = num_target_equipment_in_armies@heavy_tank_artillery_chassis }
+				add_to_temp_variable = { SPG_requirement_var = num_target_equipment_in_armies@super_heavy_tank_artillery_chassis }
 				#Calculating ratio of SPG equipment to required SPG equipment
 				set_variable = { SPG_equipped_ratio_var = SPG_equipped_var }
 				divide_variable = { SPG_equipped_ratio_var = SPG_requirement_var }
@@ -796,6 +706,11 @@ on_actions = {
 				set_technology = {
 					TPMP_armor_variants_doctrine_3_e_tech = 0
 					popup = no
+				}
+			}
+			#Making sure to update all unit effects
+			add_unit_bonus = {
+				category_army = {
 				}
 			}
 		}
