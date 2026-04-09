@@ -1,0 +1,54 @@
+recalculate_congressional_ui = {
+	for_loop_effect = {
+		start = 0
+		end = USA.left_wing_democrat_support_var
+		set_variable = {
+			USA.congress_frame_array^v = 1
+		}
+	}
+	set_temp_variable = { next_end = USA.left_wing_democrat_support_var }
+	add_to_temp_variable = { next_end = USA.new_deal_democrat_support_var }
+	for_loop_effect = {
+		start = USA.left_wing_democrat_support_var
+		end = next_end
+		set_variable = {
+			USA.congress_frame_array^v = 2
+		}
+	}
+	set_temp_variable = { next_start = next_end }
+	add_to_temp_variable = { next_end = USA.conservative_democrat_support_var }
+	for_loop_effect = {
+		start = next_start
+		end = next_end
+		set_variable = {
+			USA.congress_frame_array^v = 3
+		}
+	}
+	set_temp_variable = { next_start = next_end }
+	add_to_temp_variable = { next_end = USA.progressive_republican_support_var }
+	for_loop_effect = {
+		start = next_start
+		end = next_end
+		set_variable = {
+			USA.congress_frame_array^v = 4
+		}
+	}
+	set_temp_variable = { next_start = next_end }
+	add_to_temp_variable = { next_end = USA.business_republican_support_var }
+	for_loop_effect = {
+		start = next_start
+		end = next_end
+		set_variable = {
+			USA.congress_frame_array^v = 5
+		}
+	}
+	set_temp_variable = { next_start = next_end }
+	add_to_temp_variable = { next_end = USA.isolationist_republican_support_var }
+	for_loop_effect = {
+		start = next_start
+		end = next_end
+		set_variable = {
+			USA.congress_frame_array^v = 6
+		}
+	}
+}
