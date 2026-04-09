@@ -1574,9 +1574,31 @@ focus_tree = {
 		y = 0
 		cost = 10
 		completion_reward = {
-		add_ideas = TPMP_UKR_truly_independent_idea_0
-		add_political_power = 100
-		mark_focus_tree_layout_dirty  = yes
+			add_ideas = TPMP_UKR_truly_independent_idea_0
+			add_political_power = 100
+			mark_focus_tree_layout_dirty  = yes
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+
+			UKR = {
+				add_state_core = 137
+				set_state_owner = 137
+			}
+
+			137 = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 5
+					instant_build = yes
+				}	
+			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+
+			SOV = {
+				add_stability = -0.05
+				add_political_power = -50
+			}
 		}		
 		mutually_exclusive = {
 			focus = ukr_under_the_guidance_of_stalin
