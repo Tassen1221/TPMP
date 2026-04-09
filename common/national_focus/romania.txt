@@ -127,8 +127,8 @@ focus_tree = {
 
 		completion_reward = {
 			add_popularity = { ideology = communism popularity = 0.1 }
-			add_opinion_modifier = { target = SOV modifier = ROM_a_deal_with_the_devil }
-			SOV = { add_opinion_modifier = { target = ROOT modifier = ROM_a_deal_with_the_devil } }
+			# add_opinion_modifier = { target = SOV modifier = ROM_a_deal_with_the_devil }
+			# SOV = { add_opinion_modifier = { target = ROOT modifier = ROM_a_deal_with_the_devil } }
 		}
 	}
 
@@ -136,7 +136,7 @@ focus_tree = {
 		id = ROM_form_peasant_militias
 		icon = GFX_goal_generic_political_pressure
 		prerequisite = { focus = ROM_a_deal_with_the_devil }
-		x = -1
+		x = 0
 		y = 1
 		relative_position_id = ROM_a_deal_with_the_devil
 
@@ -171,6 +171,10 @@ focus_tree = {
 		x = 0
 		y = 2
 		relative_position_id = ROM_a_deal_with_the_devil
+
+		allow_branch = {
+			always = no
+		}
 
 		cost = 10
 
@@ -896,7 +900,7 @@ focus_tree = {
 				name = ROM_joint_allied_staff_college
 			    cost_reduction = 0.35
 			    uses = 2
-			    category = cat_land_doctrine
+			    category = land_doctrine
 			}
 		}
 	}

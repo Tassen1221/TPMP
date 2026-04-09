@@ -904,6 +904,10 @@ focus_tree = {
 		}
 		continue_if_invalid = yes
 
+		allow_branch = {
+			always = no
+		}
+
 		icon = GFX_focus_generic_paratrooper
 		x = 0
 		y = 1
@@ -2084,7 +2088,7 @@ focus_tree = {
 		}
 
 		icon = GFX_goal_generic_national_unity
-		x = 27
+		x = 21
 		y = 0
 		offset = {
 			x = 0
@@ -2184,7 +2188,7 @@ focus_tree = {
 			}
 		} 
 		icon = GFX_goal_generic_construct_military
-		x = 5
+		x = 6
 		y = 1
 		relative_position_id = uk_service_focus
 		cost = 10
@@ -3376,10 +3380,13 @@ focus_tree = {
 		continue_if_invalid = yes
 
 		icon = GFX_focus_RAJ_two_nation_theory
-		x = 1
+		x = -4
 		y = 1
 		relative_position_id = ENG_foundations_for_an_indian_state
 		cost = 10
+		allow_branch = {
+			always = no
+		}
 		ai_will_do = {
 			factor = 1
 		}	
@@ -5672,7 +5679,7 @@ focus_tree = {
 		id = uk_colonial_focus 
 		prerequisite = { focus = uk_service_focus }
 		icon = GFX_focus_research2
-		x = -5
+		x = 0
 		y = 1
 		relative_position_id = uk_service_focus
 		cost = 10
@@ -5688,6 +5695,10 @@ focus_tree = {
 		id = uk_asia_focus 
 		prerequisite = { focus = uk_colonial_focus }
 		
+		allow_branch = {
+			always = no
+		}
+
 		available = {
 			336 = {
 				CONTROLLER = {
@@ -6606,7 +6617,7 @@ focus_tree = {
 
 		icon = GFX_goal_tfv_strengthen_commonwealth_ties
 
-		x = 4
+		x = 0
 		y = 1
 		relative_position_id = uk_colonial_focus
 
@@ -7419,7 +7430,7 @@ focus_tree = {
 				end_civil_wars = no
 			}
 			RAJ = { add_timed_idea = { idea = ENG_indian_autonomy_RAJ_idea days = 730 } }
-			custom_effect_tooltip = ENG_indian_autonomy_tt
+			# custom_effect_tooltip = ENG_indian_autonomy_tt
 		}
 	}
 
@@ -8181,7 +8192,7 @@ focus_tree = {
 			}
 		}
 
-		x = 3
+		x = -2
 		y = 0
 		relative_position_id = ENG_revisit_colonial_policy
 
@@ -8854,7 +8865,7 @@ focus_tree = {
 				name = land_doc_bonus
 				cost_reduction = 0.5
 				uses = 2
-				category = cat_land_doctrine
+				category = land_doctrine
 			}
 			GER = {
 				if = {
@@ -9349,7 +9360,7 @@ focus_tree = {
 		}	
 		completion_reward = {
 			remove_ideas = ENG_the_war_to_end_all_wars
-			set_rule = { can_send_volunteers = yes }
+			# set_rule = { can_send_volunteers = yes }
 		}
 	}
 
@@ -9362,6 +9373,10 @@ focus_tree = {
 		}
 		bypass = {
 			has_war_with = GER
+		}
+
+		allow_branch = {
+			always = no
 		}
 
 		available_if_capitulated = yes

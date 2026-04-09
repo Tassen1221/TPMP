@@ -3992,6 +3992,8 @@ focus_tree = {
 		ai_will_do = {
 			factor = 1
 		}
+		
+		allow_branch  = { always = no }
 
 		available = {
 			has_war = no
@@ -4850,20 +4852,20 @@ focus_tree = {
 
 		completion_reward = {
 				
-			every_country = {
-				limit = {
-					has_government = communism
-					NOT = {
-						is_ally_with = ROOT
-					}
-				}
-				add_opinion_modifier = {
-					target = ROOT
-					modifier = JAP_the_great_spiritual_evil_opm
-				}	
-			}
+			# every_country = {
+			# 	limit = {
+			# 		has_government = communism
+			# 		NOT = {
+			# 			is_ally_with = ROOT
+			# 		}
+			# 	}
+			# 	add_opinion_modifier = {
+			# 		target = ROOT
+			# 		modifier = JAP_the_great_spiritual_evil_opm
+			# 	}	
+			# }
 
-			custom_effect_tooltip = generic_skip_one_line_tt
+			# custom_effect_tooltip = generic_skip_one_line_tt
 
 			add_political_power = 100
 
@@ -4915,6 +4917,10 @@ focus_tree = {
 
 		ai_will_do = {
 			factor = 1
+		}
+
+		allow_branch = {
+			always = no
 		}
 
 		available = {
@@ -5027,7 +5033,7 @@ focus_tree = {
 		id = JAP_prepare_for_the_final_war
 		icon = GFX_focus_jap_cast_the_die
 		
-		x = 1
+		x = 0
 		y = 1
 		relative_position_id = JAP_the_great_spiritual_evil
 
@@ -5290,7 +5296,7 @@ focus_tree = {
 				name = JAP_supremacy_of_the_kempeitai
 				bonus = 0.75
 				uses = 2
-				category = military_police_tech
+				category = cat_military_police_tech
 			}	
 			
 			IF = {
@@ -5566,6 +5572,10 @@ focus_tree = {
 		ai_will_do = {
 			factor = 1
 		}
+		
+		allow_branch = {
+			always = no
+		}
 
 		available = {
 			MAN = {
@@ -5741,7 +5751,7 @@ focus_tree = {
 
 			add_ideas = JAP_kokutai_idea
 
-			custom_effect_tooltip = peace_conference_spiritual_mob_modifier_japan
+			# custom_effect_tooltip = peace_conference_spiritual_mob_modifier_japan
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
@@ -6516,7 +6526,7 @@ focus_tree = {
 		icon = GFX_focus_JAP_national_spiritual_mobilization_movement
 		#mutually_exclusive = { focus = JAP_utilize_our_polish_friendship }
 		x = 0
-		y = 2
+		y = 1
 		relative_position_id = JAP_propagandize_the_nihon_shoki
 
 		prerequisite = { focus = JAP_propagandize_the_nihon_shoki }
@@ -6782,7 +6792,7 @@ focus_tree = {
 		icon = GFX_focus_JAP_hakko_ichiu
 		#mutually_exclusive = { focus = JAP_utilize_our_polish_friendship }
 		x = 0
-		y = 2
+		y = 1
 		relative_position_id = JAP_the_jeweled_spear_has_struck
 
 		prerequisite = { focus = JAP_the_jeweled_spear_has_struck }
@@ -7305,6 +7315,10 @@ focus_tree = {
 
 		cost = 10
 
+		allow_branch = {
+			always = no
+		}
+
 		ai_will_do = {
 			factor = 1
 		}
@@ -7339,7 +7353,7 @@ focus_tree = {
 		id = JAP_imperial_headquarters_liasion_conference
 		icon = GFX_goal_generic_intelligence_exchange
 		#mutually_exclusive = { focus = JAP_the_unthinkable_option }
-		x = -3
+		x = -2
 		y = 1
 		relative_position_id = JAP_sea_purge_the_kodoha_faction
 
@@ -8793,7 +8807,7 @@ focus_tree = {
 				name = JAP_sea_mil_tech_coop_with_germany
 				bonus = 0.5
 				uses = 1
-				category = armor	
+				category = cat_armour_tech	
 			}
 			add_tech_bonus = {
 				name = JAP_sea_mil_tech_coop_with_germany
@@ -9287,7 +9301,7 @@ focus_tree = {
 			add_to_variable = { JAP_showa_statism_weekly_convoys_war_support = 0.0002 tooltip = weekly_convoys_war_support_tt }
 			add_to_variable = { JAP_showa_statism_weekly_bombing_war_support = 0.0002 tooltip = weekly_bombing_war_support_tt }
 			
-			custom_effect_tooltip = peace_conference_spiritual_mob_modifier_japan
+			# custom_effect_tooltip = peace_conference_spiritual_mob_modifier_japan
 			
 		}
 	}
@@ -10959,7 +10973,7 @@ focus_tree = {
 		id = JAP_revisit_the_thirteen_demands
 		icon = GFX_focus_generic_treaty
 		#mutually_exclusive = { focus = JAP_the_harakiri_debate }
-		x = -8
+		x = -9
 		y = 1
 		relative_position_id = JAP_sea_purge_the_kodoha_faction
 
@@ -11007,19 +11021,19 @@ focus_tree = {
 			add_war_support = 0.05
 			add_political_power = 25
 
-			IF = {
-				limit = {
-					CHI = {
-						exists = yes
-					}
-				}
-				CHI = {
-					add_opinion_modifier = {
-						target = ROOT
-						modifier = JAP_revisited_21_demands_neg_op_mod
-					}	
-				}
-			}
+			# IF = {
+			# 	limit = {
+			# 		CHI = {
+			# 			exists = yes
+			# 		}
+			# 	}
+			# 	CHI = {
+			# 		add_opinion_modifier = {
+			# 			target = ROOT
+			# 			modifier = JAP_revisited_21_demands_neg_op_mod
+			# 		}	
+			# 	}
+			# }
 			
 		}
 	}
@@ -11347,17 +11361,17 @@ focus_tree = {
 				add_war_support = 0.1
 			}
 
-			MON = {
-				every_core_state = {
-					limit = {
-						NOT = {
-							is_core_of = MAN
-							is_claimed_by = MAN
-						}
-					}
-					add_claim_by = MAN
-				}
-			}
+			# MON = {
+			# 	every_core_state = {
+			# 		limit = {
+			# 			NOT = {
+			# 				is_core_of = MAN
+			# 				is_claimed_by = MAN
+			# 			}
+			# 		}
+			# 		add_claim_by = MAN
+			# 	}
+			# }
 		}
 	}
 
@@ -12187,8 +12201,8 @@ focus_tree = {
 				}
 			}
 
-			custom_effect_tooltip = generic_skip_one_line_tt
-			custom_effect_tooltip = CHI_reach_out_for_help_tt
+			# custom_effect_tooltip = generic_skip_one_line_tt
+			# custom_effect_tooltip = CHI_reach_out_for_help_tt
 
 			hidden_effect = {
 				set_global_flag = { 
@@ -12771,6 +12785,10 @@ focus_tree = {
 
 		cost = 5
 
+		allow_branch = {
+			always = no
+		}
+
 		ai_will_do = {
 			factor = 1
 		}
@@ -13137,51 +13155,51 @@ focus_tree = {
 						}
 					}
 				}
-				custom_effect_tooltip = generic_skip_one_line_tt
-				create_wargoal = {
-					type = puppet_wargoal_focus
-					target = AST
-					expire = 0
-				}	
+			# 	custom_effect_tooltip = generic_skip_one_line_tt
+			# 	create_wargoal = {
+			# 		type = puppet_wargoal_focus
+			# 		target = AST
+			# 		expire = 0
+			# 	}	
 			}
-			IF = {
-				limit = {
-					NZL = {
-						exists = yes
-						NOT = {	
-							is_ally_with = ROOT
-						}
-						NOT = {
-							has_war_with = ROOT
-						}
-					}
-				}
-				custom_effect_tooltip = generic_skip_one_line_tt
-				create_wargoal = {
-					type = puppet_wargoal_focus
-					target = NZL
-					expire = 0
-				}	
-			}
-			IF = {
-				limit = {
-					PNG = {
-						exists = yes
-						NOT = {	
-							is_ally_with = ROOT
-						}
-						NOT = {
-							has_war_with = ROOT
-						}
-					}
-				}
-				custom_effect_tooltip = generic_skip_one_line_tt
-				create_wargoal = {
-					type = annex_everything
-					target = PNG
-					expire = 0
-				}	
-			}
+			# IF = {
+			# 	limit = {
+			# 		NZL = {
+			# 			exists = yes
+			# 			NOT = {	
+			# 				is_ally_with = ROOT
+			# 			}
+			# 			NOT = {
+			# 				has_war_with = ROOT
+			# 			}
+			# 		}
+			# 	}
+			# 	custom_effect_tooltip = generic_skip_one_line_tt
+			# 	create_wargoal = {
+			# 		type = puppet_wargoal_focus
+			# 		target = NZL
+			# 		expire = 0
+			# 	}	
+			# }
+			# IF = {
+			# 	limit = {
+			# 		PNG = {
+			# 			exists = yes
+			# 			NOT = {	
+			# 				is_ally_with = ROOT
+			# 			}
+			# 			NOT = {
+			# 				has_war_with = ROOT
+			# 			}
+			# 		}
+			# 	}
+			# 	custom_effect_tooltip = generic_skip_one_line_tt
+			# 	create_wargoal = {
+			# 		type = annex_everything
+			# 		target = PNG
+			# 		expire = 0
+			# 	}	
+			# }
 			
 		}
 	}
@@ -13239,32 +13257,32 @@ focus_tree = {
 						is_in_faction_with = AST
 					}
 				}
-				create_wargoal = {
-					type = puppet_wargoal_focus
-					target = AST
-					expire = 0
-				}		
+				# create_wargoal = {
+				# 	type = puppet_wargoal_focus
+				# 	target = AST
+				# 	expire = 0
+				# }		
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
-			IF = {
-				limit = {
-					NOT = {
-						has_war_with = NZL
-						has_wargoal_against = {
-							target = NZL
-						}
-						has_subject = NZL
-						is_in_faction_with = NZL
-					}
-				}
-				create_wargoal = {
-					type = puppet_wargoal_focus
-					target = NZL
-					expire = 0
-				}		
-			}
+			# IF = {
+			# 	limit = {
+			# 		NOT = {
+			# 			has_war_with = NZL
+			# 			has_wargoal_against = {
+			# 				target = NZL
+			# 			}
+			# 			has_subject = NZL
+			# 			is_in_faction_with = NZL
+			# 		}
+			# 	}
+			# 	create_wargoal = {
+			# 		type = puppet_wargoal_focus
+			# 		target = NZL
+			# 		expire = 0
+			# 	}		
+			# }
 
 			add_ai_strategy = {
 				type = antagonize
@@ -28122,7 +28140,7 @@ focus_tree = {
 				name = JAP_rethink_armor_doctrine
 				bonus = 0.25
 				uses = 1
-				category = cat_mechanized_equipment
+				category = cat_mechanized_tech
 			}
 			add_doctrine_cost_reduction = {
 				name = JAP_rethink_armor_doctrine
@@ -28134,7 +28152,7 @@ focus_tree = {
 				name = JAP_rethink_armor_doctrine
 				bonus = 0.5
 				uses = 2
-				category = armor	
+				category = cat_armour_tech	
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
@@ -28246,7 +28264,7 @@ focus_tree = {
 				name = JAP_foreign_tank_modernization_cooperation
 				bonus = 0.75
 				uses = 2
-				category = armor
+				category = cat_armour_tech
 			}
 			add_breakthrough_progress = {
 				specialization = specialization_land
@@ -28314,7 +28332,7 @@ focus_tree = {
 				name = JAP_domestic_tank_modernization_program
 				bonus = 0.5
 				uses = 1
-				category = armor
+				category = cat_armour_tech
 			}
 			add_breakthrough_progress = {
 				specialization = specialization_land
@@ -28386,7 +28404,7 @@ focus_tree = {
 				name = JAP_the_ultimate_tank
 				bonus = 0.75
 				uses = 2
-				category = cat_heavy_armor	
+				category = cat_heavy_chassis_tech
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
@@ -28541,7 +28559,7 @@ focus_tree = {
 				name = JAP_adopt_new_assault_doctrine
 				bonus = 0.25
 				uses = 1
-				category = infantry_weapons
+				category = cat_infantry_gun_tech
 			}
 			add_doctrine_cost_reduction = {
 				name = JAP_adopt_new_assault_doctrine
@@ -28623,7 +28641,7 @@ focus_tree = {
 				name = JAP_develop_lethal_infantry_equipment
 				bonus = 0.75
 				uses = 1
-				category = infantry_weapons
+				category = cat_infantry_gun_tech
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
@@ -28820,6 +28838,10 @@ focus_tree = {
 		y = 1
 
 		cost = 5
+		
+		allow_branch = {
+			always = no
+		}
 
 		ai_will_do = {
 			factor = 3
@@ -28895,7 +28917,7 @@ focus_tree = {
 		prerequisite = { focus = JAP_reform_the_army focus = JAP_rely_on_supremacy_of_the_will }
 
 		relative_position_id = JAP_rely_on_supremacy_of_the_will
-		x = 0
+		x = -1
 		y = 1
 
 		cost = 5
@@ -29027,7 +29049,7 @@ focus_tree = {
 				name = JAP_sea_mountaineers
 				bonus = 1
 				uses = 1
-				category = mountaineers_tech
+				category = cat_mountaineers_tech
 			}
 			IF = {
 				limit = {
@@ -29091,7 +29113,7 @@ focus_tree = {
 				name = JAP_jungle_adaptation
 				bonus = 1
 				uses = 1
-				category = rangers_tech_cat
+				category = cat_rangers_tech
 			}
 			IF = {
 				limit = {
@@ -29340,7 +29362,7 @@ focus_tree = {
 			JAP_add_or_modify_imperial_army = yes
 			add_to_variable = { JAP_army_dig_in_speed_factor = 0.1 tooltip = dig_in_speed_factor_tt }
 			add_to_variable = { JAP_army_max_dig_in = 2 tooltip = max_dig_in_tt }
-			add_to_variable = { JAP_army_supply_consumption_factor = -0.1 tooltip = supply_consumption_factor_tt }
+			# add_to_variable = { JAP_army_supply_consumption_factor = -0.1 tooltip = supply_consumption_factor_tt }
 			add_to_variable = { JAP_army_army_defence_factor = 0.1 tooltip = army_defence_factor_tt }
 
 		}
@@ -29383,7 +29405,7 @@ focus_tree = {
 
 		completion_reward = {
 			JAP_add_or_modify_imperial_army = yes
-			add_to_variable = { JAP_army_supply_consumption_factor = -0.25 tooltip = supply_consumption_factor_tt }
+			add_to_variable = { JAP_army_supply_consumption_factor = -0.15 tooltip = supply_consumption_factor_tt }
 		}
 
 	}
@@ -29604,46 +29626,46 @@ focus_tree = {
 				value = 0.5
 			}
 
-			custom_effect_tooltip = generic_skip_one_line_tt
+			# custom_effect_tooltip = generic_skip_one_line_tt
 
-			IF = {
-				limit = {
-					NOT = {
-						has_dlc = "By Blood Alone"
-					}
-				}
-				set_technology = { cv_fighter2 = 1 } 
-			}
-			ELSE = {
-				create_equipment_variant = {
-					name = "A6M Zero-Sen"
-					type = cv_small_plane_airframe_2
-					design_team = mio:JAP_mitsubishi_organization
-					allow_without_tech = no
-					modules = {
-						fixed_main_weapon_slot = light_mg_2x
-						fixed_auxiliary_weapon_slot_1 = aircraft_cannon_1_2x
-						engine_type_slot = engine_3_1x
-						special_type_slot_1 = drop_tanks
-						special_type_slot_2 = fuel_tanks_small
-					}
-					icon = "GFX_JAP_cv_fighter2_medium"
-				}
-				create_equipment_variant = {
-					name = "Ki-43 Hayabusa"
-					type = small_plane_airframe_2
-					design_team = mio:JAP_kawanishi_aircraft_company_organization
-					allow_without_tech = no
-					modules = {
-						fixed_main_weapon_slot = light_mg_2x
-						fixed_auxiliary_weapon_slot_1 = bomb_locks
-						engine_type_slot = engine_3_1x
-						special_type_slot_1 = drop_tanks
-						special_type_slot_2 = fuel_tanks_small
-					}
-					icon = "GFX_JAP_fighter2_medium"
-				}
-			}
+			# IF = {
+			# 	limit = {
+			# 		NOT = {
+			# 			has_dlc = "By Blood Alone"
+			# 		}
+			# 	}
+			# 	set_technology = { cv_fighter2 = 1 } 
+			# }
+			# ELSE = {
+			# 	create_equipment_variant = {
+			# 		name = "A6M Zero-Sen"
+			# 		type = cv_small_plane_airframe_2
+			# 		design_team = mio:JAP_mitsubishi_organization
+			# 		allow_without_tech = no
+			# 		modules = {
+			# 			fixed_main_weapon_slot = light_mg_2x
+			# 			fixed_auxiliary_weapon_slot_1 = aircraft_cannon_1_2x
+			# 			engine_type_slot = engine_3_1x
+			# 			special_type_slot_1 = drop_tanks
+			# 			special_type_slot_2 = fuel_tanks_small
+			# 		}
+			# 		icon = "GFX_JAP_cv_fighter2_medium"
+			# 	}
+			# 	create_equipment_variant = {
+			# 		name = "Ki-43 Hayabusa"
+			# 		type = small_plane_airframe_2
+			# 		design_team = mio:JAP_kawanishi_aircraft_company_organization
+			# 		allow_without_tech = no
+			# 		modules = {
+			# 			fixed_main_weapon_slot = light_mg_2x
+			# 			fixed_auxiliary_weapon_slot_1 = bomb_locks
+			# 			engine_type_slot = engine_3_1x
+			# 			special_type_slot_1 = drop_tanks
+			# 			special_type_slot_2 = fuel_tanks_small
+			# 		}
+			# 		icon = "GFX_JAP_fighter2_medium"
+			# 	}
+			# }
 
 		}
 
@@ -31031,6 +31053,10 @@ focus_tree = {
 		y = 1
 
 		cost = 5
+		
+		allow_branch = {
+			always = no
+		}
 
 		ai_will_do = {
 			factor = 3

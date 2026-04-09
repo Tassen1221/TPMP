@@ -92,7 +92,7 @@
 				name = AST_additional_militia_training
 				cost_reduction = 0.5
 				uses = 1
-				category = cat_land_doctrine
+				category = land_doctrine
 			}
 		}
 	}
@@ -167,7 +167,7 @@
 				name = AST_promote_reservists
 				cost_reduction = 0.5
 				uses = 1
-				category = cat_land_doctrine
+				category = land_doctrine
 			}
 			custom_effect_tooltip = AST_new_general_tt
 			hidden_effect = {
@@ -253,7 +253,7 @@
 				name = AST_hmas_assault
 				cost_reduction = 0.5
 				uses = 1
-				category = cat_land_doctrine
+				category = land_doctrine
 			}
 			add_tech_bonus = {
 				name = AST_hmas_assault
@@ -3116,12 +3116,12 @@
  				id = commonwealth_research
  				bonus = 0.03
 			}
-			ENG = {
-				add_opinion_modifier = {
-					target = ROOT
-					modifier = AST_support_the_policy_of_appeasement
-				}
-			}
+			# ENG = {
+			# 	add_opinion_modifier = {
+			# 		target = ROOT
+			# 		modifier = AST_support_the_policy_of_appeasement
+			# 	}
+			# }
 		}
 	}
 
@@ -3521,6 +3521,10 @@
 		relative_position_id = AST_support_the_policy_of_appeasement
 
 		cost = 10
+
+		allow_branch = {
+			always = no
+		}
 
 		ai_will_do = {
 			factor = 1

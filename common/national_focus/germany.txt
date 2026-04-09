@@ -2895,7 +2895,7 @@ focus_tree = {
 			#	name = GER_develop_modern_maneuver_warfare
 			#	cost_reduction = 0.25
 			#	uses = 1
-			#	category = cat_land_doctrine
+			#	category = land_doctrine
 			#}
 			custom_effect_tooltip = available_chief_of_army
 			show_ideas_tooltip = walther_von_brauchitsch
@@ -3117,7 +3117,7 @@ focus_tree = {
 				name = GER_lessons_of_the_great_war
 				cost_reduction = 0.25
 				uses = 2
-				category = cat_land_doctrine
+				category = land_doctrine
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
@@ -3186,48 +3186,48 @@ focus_tree = {
 				value = 0.5
 			}
 
-			if = {
-				limit = {
-					has_dlc = "No Step Back"
-				}
-				custom_effect_tooltip = generic_skip_one_line_tt
+			# if = {
+			# 	limit = {
+			# 		has_dlc = "No Step Back"
+			# 	}
+			# 	custom_effect_tooltip = generic_skip_one_line_tt
 
-				create_equipment_variant = {
-					name = "Sturmpanzer"
-					parent_version = 0
-					type = medium_tank_artillery_chassis_1936
-					modules = {
-						main_armament_slot = tank_light_cannon_1
-						turret_type_slot = tank_medium_superstructure_1
-						suspension_type_slot = tank_bogie_suspension
-						armor_type_slot = tank_welded_armor
-						engine_type_slot = tank_gasoline_engine_1
-					}
-					upgrades = {
-						tank_nsb_engine_upgrade = 0
-						tank_nsb_armor_upgrade = 0
-					}
-					icon = "GFX_GER_basic_medium_art_medium"
-				}
+			# 	create_equipment_variant = {
+			# 		name = "Sturmpanzer"
+			# 		parent_version = 0
+			# 		type = medium_tank_artillery_chassis_1936
+			# 		modules = {
+			# 			main_armament_slot = tank_light_cannon_1
+			# 			turret_type_slot = tank_medium_superstructure_1
+			# 			suspension_type_slot = tank_bogie_suspension
+			# 			armor_type_slot = tank_welded_armor
+			# 			engine_type_slot = tank_gasoline_engine_1
+			# 		}
+			# 		upgrades = {
+			# 			tank_nsb_engine_upgrade = 0
+			# 			tank_nsb_armor_upgrade = 0
+			# 		}
+			# 		icon = "GFX_GER_basic_medium_art_medium"
+			# 	}
 
-				create_equipment_variant = {
-					name = "Nashorn"
-					parent_version = 0
-					type = medium_tank_destroyer_chassis_1936
-					modules = {
-						main_armament_slot = tank_light_cannon_1
-						turret_type_slot = tank_medium_superstructure_1
-						suspension_type_slot = tank_bogie_suspension
-						armor_type_slot = tank_welded_armor
-						engine_type_slot = tank_gasoline_engine_1
-					}
-					upgrades = {
-						tank_nsb_engine_upgrade = 0
-						tank_nsb_armor_upgrade = 0
-					}
-					icon = "GFX_GER_basic_light_td"
-				}
-			}
+			# 	create_equipment_variant = {
+			# 		name = "Nashorn"
+			# 		parent_version = 0
+			# 		type = medium_tank_destroyer_chassis_1936
+			# 		modules = {
+			# 			main_armament_slot = tank_light_cannon_1
+			# 			turret_type_slot = tank_medium_superstructure_1
+			# 			suspension_type_slot = tank_bogie_suspension
+			# 			armor_type_slot = tank_welded_armor
+			# 			engine_type_slot = tank_gasoline_engine_1
+			# 		}
+			# 		upgrades = {
+			# 			tank_nsb_engine_upgrade = 0
+			# 			tank_nsb_armor_upgrade = 0
+			# 		}
+			# 		icon = "GFX_GER_basic_light_td"
+			# 	}
+			# }
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
@@ -3287,7 +3287,7 @@ focus_tree = {
 				name = GER_stormtroopers
 				cost_reduction = 0.25
 				uses = 1
-				category = cat_land_doctrine
+				category = land_doctrine
 			}
 			add_tech_bonus = {
 				name = GER_stormtroopers
@@ -3451,13 +3451,13 @@ focus_tree = {
 				tooltip = equipment_capture_tt
 			}
 
-			custom_effect_tooltip = generic_skip_one_line_tt
+			# custom_effect_tooltip = generic_skip_one_line_tt
 
-			GER_modify_industrial_modifier = yes
-			add_to_variable = { 
-				GER_industrial_equipment_conversion_speed = 0.1
-				tooltip = equipment_conversion_speed_tt
-			}
+			# GER_modify_industrial_modifier = yes
+			# add_to_variable = { 
+			# 	GER_industrial_equipment_conversion_speed = 0.1
+			# 	tooltip = equipment_conversion_speed_tt
+			# }
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
@@ -3491,7 +3491,7 @@ focus_tree = {
 				name = GER_instill_auftragstaktik
 				cost_reduction = 0.25
 				uses = 1
-				category = cat_land_doctrine
+				category = land_doctrine
 			}
 			
 			custom_effect_tooltip = generic_skip_one_line_tt
@@ -3644,18 +3644,18 @@ focus_tree = {
 				tooltip = acclimatization_cold_climate_gain_factor_tt
 			}
 
-			if = {
-				limit = {
-					has_dlc = "Arms Against Tyranny"
-				}
-				custom_effect_tooltip = generic_skip_one_line_tt
-				add_doctrine_cost_reduction = {
-					name = GER_establish_the_skijager
-					cost_reduction = 0.25
-					uses = 2
-					category = cat_mountaineers_doctrine
-				}
-			}
+			# if = {
+			# 	limit = {
+			# 		has_dlc = "Arms Against Tyranny"
+			# 	}
+			# 	custom_effect_tooltip = generic_skip_one_line_tt
+			# 	add_doctrine_cost_reduction = {
+			# 		name = GER_establish_the_skijager
+			# 		cost_reduction = 0.25
+			# 		uses = 2
+			# 		category = cat_mountaineers_doctrine
+			# 	}
+			# }
 			add_tech_bonus = {
 				name = GER_establish_the_skijager
 				bonus = 0.5
@@ -4315,7 +4315,7 @@ focus_tree = {
 				name = GER_adopt_new_panzer_doctrine
 				cost_reduction = 0.25
 				uses = 2
-				category = cat_land_doctrine
+				category = land_doctrine
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
@@ -4358,69 +4358,69 @@ focus_tree = {
 			}
 
 
-			if = {
-				limit = { 
-					has_dlc = "No Step Back"
-				}
-				custom_effect_tooltip = generic_skip_one_line_tt
-				create_equipment_variant = {
-					name = "Panzer III Ausf. A"
-					type = medium_tank_chassis_1936
-					parent_version = 0
-					modules = {
-						main_armament_slot = tank_light_cannon_1
-						turret_type_slot = tank_medium_turret_1
-						suspension_type_slot = tank_bogie_suspension
-						armor_type_slot = tank_welded_armor
-						engine_type_slot = tank_gasoline_engine_1
-						special_type_slot_1 = tank_radio_1
-						special_type_slot_2 = smoke_launchers
-					}
-					upgrades = {
-						tank_nsb_engine_upgrade = 0
-						tank_nsb_armor_upgrade = 0
-					}
-					icon = "GFX_GER_basic_medium_tank_medium"
-				}
-				create_equipment_variant = {
-					name = "Panzer IV"
-					type = medium_tank_chassis_1936
+			# if = {
+			# 	limit = { 
+			# 		has_dlc = "No Step Back"
+			# 	}
+			# 	custom_effect_tooltip = generic_skip_one_line_tt
+			# 	create_equipment_variant = {
+			# 		name = "Panzer III Ausf. A"
+			# 		type = medium_tank_chassis_1936
+			# 		parent_version = 0
+			# 		modules = {
+			# 			main_armament_slot = tank_light_cannon_1
+			# 			turret_type_slot = tank_medium_turret_1
+			# 			suspension_type_slot = tank_bogie_suspension
+			# 			armor_type_slot = tank_welded_armor
+			# 			engine_type_slot = tank_gasoline_engine_1
+			# 			special_type_slot_1 = tank_radio_1
+			# 			special_type_slot_2 = smoke_launchers
+			# 		}
+			# 		upgrades = {
+			# 			tank_nsb_engine_upgrade = 0
+			# 			tank_nsb_armor_upgrade = 0
+			# 		}
+			# 		icon = "GFX_GER_basic_medium_tank_medium"
+			# 	}
+			# 	create_equipment_variant = {
+			# 		name = "Panzer IV"
+			# 		type = medium_tank_chassis_1936
 
-					parent_version = 0
-					modules = {
-						main_armament_slot = tank_light_cannon_1
-						turret_type_slot = tank_medium_turret_1
-						suspension_type_slot = tank_bogie_suspension
-						armor_type_slot = tank_welded_armor
-						engine_type_slot = tank_gasoline_engine_1
-						special_type_slot_1 = tank_radio_1
-						special_type_slot_2 = smoke_launchers
-					}
-					upgrades = {
-						tank_nsb_engine_upgrade = 0
-						tank_nsb_armor_upgrade = 0
-					}
-					icon = "GFX_GER_basic_medium_tank_medium"
-				}
-				create_equipment_variant = {
-					name = "Sturmgeschütz III"
-					parent_version = 0
-					type = medium_tank_artillery_chassis_1936
-					modules = {
-						main_armament_slot = tank_light_cannon_1
-						turret_type_slot = tank_medium_superstructure_1
-						suspension_type_slot = tank_bogie_suspension
-						armor_type_slot = tank_welded_armor
-						engine_type_slot = tank_gasoline_engine_1
-						special_type_slot_1 = tank_radio_1
-					}
-					upgrades = {
-						tank_nsb_engine_upgrade = 0
-						tank_nsb_armor_upgrade = 0
-					}
-					icon = "GFX_GER_basic_medium_td_medium"
-				}
-			}
+			# 		parent_version = 0
+			# 		modules = {
+			# 			main_armament_slot = tank_light_cannon_1
+			# 			turret_type_slot = tank_medium_turret_1
+			# 			suspension_type_slot = tank_bogie_suspension
+			# 			armor_type_slot = tank_welded_armor
+			# 			engine_type_slot = tank_gasoline_engine_1
+			# 			special_type_slot_1 = tank_radio_1
+			# 			special_type_slot_2 = smoke_launchers
+			# 		}
+			# 		upgrades = {
+			# 			tank_nsb_engine_upgrade = 0
+			# 			tank_nsb_armor_upgrade = 0
+			# 		}
+			# 		icon = "GFX_GER_basic_medium_tank_medium"
+			# 	}
+			# 	create_equipment_variant = {
+			# 		name = "Sturmgeschütz III"
+			# 		parent_version = 0
+			# 		type = medium_tank_artillery_chassis_1936
+			# 		modules = {
+			# 			main_armament_slot = tank_light_cannon_1
+			# 			turret_type_slot = tank_medium_superstructure_1
+			# 			suspension_type_slot = tank_bogie_suspension
+			# 			armor_type_slot = tank_welded_armor
+			# 			engine_type_slot = tank_gasoline_engine_1
+			# 			special_type_slot_1 = tank_radio_1
+			# 		}
+			# 		upgrades = {
+			# 			tank_nsb_engine_upgrade = 0
+			# 			tank_nsb_armor_upgrade = 0
+			# 		}
+			# 		icon = "GFX_GER_basic_medium_td_medium"
+			# 	}
+			# }
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
@@ -4509,50 +4509,50 @@ focus_tree = {
 			}
 
 			
-			if = {
-				limit = { 
-					has_dlc = "No Step Back"
-				}
-				custom_effect_tooltip = generic_skip_one_line_tt
-				create_equipment_variant = {
-					name = "Panther Ausf. A"
-					type = medium_tank_chassis_1940
-					modules = {
-						main_armament_slot = tank_light_cannon_1
-						turret_type_slot = tank_medium_turret_1
-						suspension_type_slot = tank_interleaved_suspension
-						armor_type_slot = tank_welded_armor
-						engine_type_slot = tank_gasoline_engine_1
-						special_type_slot_1 = tank_radio_1
-						special_type_slot_2 = sloped_armor
-						special_type_slot_3 = smoke_launchers
-					}
-					upgrades = {
-						tank_nsb_engine_upgrade = 0
-						tank_nsb_armor_upgrade = 0
-					}
-					icon = "GFX_GER_advanced_medium_tank_medium"
-				}
-				create_equipment_variant = {
-					name = "Tiger I Ausf. A"
-					type = heavy_tank_chassis_1938
-					modules = {
-						main_armament_slot = tank_light_cannon_1
-						turret_type_slot = tank_heavy_turret_1
-						suspension_type_slot = tank_interleaved_suspension
-						armor_type_slot = tank_welded_armor
-						engine_type_slot = tank_gasoline_engine_1
-						special_type_slot_1 = tank_radio_1
-						special_type_slot_2 = smoke_launchers
-						special_type_slot_3 = additional_machine_guns
-					}
-					upgrades = {
-						tank_nsb_engine_upgrade = 0
-						tank_nsb_armor_upgrade = 0
-					}
-					icon = "GFX_GER_advanced_heavy_tank_medium"
-				}
-			}
+			# if = {
+			# 	limit = { 
+			# 		has_dlc = "No Step Back"
+			# 	}
+			# 	custom_effect_tooltip = generic_skip_one_line_tt
+			# 	create_equipment_variant = {
+			# 		name = "Panther Ausf. A"
+			# 		type = medium_tank_chassis_1940
+			# 		modules = {
+			# 			main_armament_slot = tank_light_cannon_1
+			# 			turret_type_slot = tank_medium_turret_1
+			# 			suspension_type_slot = tank_interleaved_suspension
+			# 			armor_type_slot = tank_welded_armor
+			# 			engine_type_slot = tank_gasoline_engine_1
+			# 			special_type_slot_1 = tank_radio_1
+			# 			special_type_slot_2 = sloped_armor
+			# 			special_type_slot_3 = smoke_launchers
+			# 		}
+			# 		upgrades = {
+			# 			tank_nsb_engine_upgrade = 0
+			# 			tank_nsb_armor_upgrade = 0
+			# 		}
+			# 		icon = "GFX_GER_advanced_medium_tank_medium"
+			# 	}
+			# 	create_equipment_variant = {
+			# 		name = "Tiger I Ausf. A"
+			# 		type = heavy_tank_chassis_1938
+			# 		modules = {
+			# 			main_armament_slot = tank_light_cannon_1
+			# 			turret_type_slot = tank_heavy_turret_1
+			# 			suspension_type_slot = tank_interleaved_suspension
+			# 			armor_type_slot = tank_welded_armor
+			# 			engine_type_slot = tank_gasoline_engine_1
+			# 			special_type_slot_1 = tank_radio_1
+			# 			special_type_slot_2 = smoke_launchers
+			# 			special_type_slot_3 = additional_machine_guns
+			# 		}
+			# 		upgrades = {
+			# 			tank_nsb_engine_upgrade = 0
+			# 			tank_nsb_armor_upgrade = 0
+			# 		}
+			# 		icon = "GFX_GER_advanced_heavy_tank_medium"
+			# 	}
+			# }
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
@@ -4880,27 +4880,27 @@ focus_tree = {
 				category = light_air
 			}
 
-			if = {
-				limit = {
-					has_dlc = "By Blood Alone"
-				}
-				custom_effect_tooltip = generic_skip_one_line_tt
-				create_equipment_variant = { 
-					name = "Ju 87 G" 
-					type = small_plane_cas_airframe_2
-					allow_without_tech = no
-					design_team = mio:GER_junkers_organization
-					modules = {
-						fixed_main_weapon_slot = bomb_locks
-						fixed_auxiliary_weapon_slot_1 = tank_buster_1
-						engine_type_slot = engine_3_1x
-						special_type_slot_1 = lmg_defense_turret
-						special_type_slot_2 = empty
-					}
-					icon = "GFX_GER_CAS2_medium"
-					model = "GER_CAS_equipment_2_entity"
-				}
-			}
+			# if = {
+			# 	limit = {
+			# 		has_dlc = "By Blood Alone"
+			# 	}
+			# 	custom_effect_tooltip = generic_skip_one_line_tt
+			# 	create_equipment_variant = { 
+			# 		name = "Ju 87 G" 
+			# 		type = small_plane_cas_airframe_2
+			# 		allow_without_tech = no
+			# 		design_team = mio:GER_junkers_organization
+			# 		modules = {
+			# 			fixed_main_weapon_slot = bomb_locks
+			# 			fixed_auxiliary_weapon_slot_1 = tank_buster_1
+			# 			engine_type_slot = engine_3_1x
+			# 			special_type_slot_1 = lmg_defense_turret
+			# 			special_type_slot_2 = empty
+			# 		}
+			# 		icon = "GFX_GER_CAS2_medium"
+			# 		model = "GER_CAS_equipment_2_entity"
+			# 	}
+			# }
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
@@ -5018,28 +5018,28 @@ focus_tree = {
 				category = medium_air
 			}
 
-			if = {
-				limit = {
-					has_dlc = "By Blood Alone"
-				}
-				custom_effect_tooltip = generic_skip_one_line_tt
-				create_equipment_variant = { 
-					name = "Ju 88" 
-					type = medium_plane_airframe_2
-					allow_without_tech = no
-					design_team = mio:GER_dornier_organization
-					modules = {
-						fixed_main_weapon_slot = medium_bomb_bay
-						fixed_auxiliary_weapon_slot_1 = medium_bomb_bay
-						fixed_auxiliary_weapon_slot_2 = torpedo_mounting
-						engine_type_slot = engine_3_2x
-						special_type_slot_1 = lmg_defense_turret_2x
-						special_type_slot_2 = empty	
-					}
-					icon = "GFX_GER_tactical_bomber2_medium"
-					model = "GER_medium_plane_entity"
-				}
-			}
+			# if = {
+			# 	limit = {
+			# 		has_dlc = "By Blood Alone"
+			# 	}
+			# 	custom_effect_tooltip = generic_skip_one_line_tt
+			# 	create_equipment_variant = { 
+			# 		name = "Ju 88" 
+			# 		type = medium_plane_airframe_2
+			# 		allow_without_tech = no
+			# 		design_team = mio:GER_dornier_organization
+			# 		modules = {
+			# 			fixed_main_weapon_slot = medium_bomb_bay
+			# 			fixed_auxiliary_weapon_slot_1 = medium_bomb_bay
+			# 			fixed_auxiliary_weapon_slot_2 = torpedo_mounting
+			# 			engine_type_slot = engine_3_2x
+			# 			special_type_slot_1 = lmg_defense_turret_2x
+			# 			special_type_slot_2 = empty	
+			# 		}
+			# 		icon = "GFX_GER_tactical_bomber2_medium"
+			# 		model = "GER_medium_plane_entity"
+			# 	}
+			# }
 			
 			custom_effect_tooltip = generic_skip_one_line_tt
 
@@ -5154,28 +5154,28 @@ focus_tree = {
 				category = heavy_air
 			}
 
-			if = {
-				limit = {
-					has_dlc = "By Blood Alone"
-				}
-				custom_effect_tooltip = generic_skip_one_line_tt
-				create_equipment_variant = { 
-					name = "Ju 89" 
-					type = large_plane_airframe_1
-					allow_without_tech = no
-					design_team = mio:GER_heinkel_organization
-					modules = {
-						fixed_main_weapon_slot = large_bomb_bay
-						fixed_auxiliary_weapon_slot_1 = empty
-						fixed_auxiliary_weapon_slot_2 = empty
-						engine_type_slot = engine_2_4x
-						special_type_slot_1 = lmg_defense_turret_2x
-						special_type_slot_2 = lmg_defense_turret
-					}
-					icon = "GFX_GER_strategic_bomber1_medium"
-					model = "GER_strat_bomber_equipment_1_entity"
-				}
-			}
+			# if = {
+			# 	limit = {
+			# 		has_dlc = "By Blood Alone"
+			# 	}
+			# 	custom_effect_tooltip = generic_skip_one_line_tt
+			# 	create_equipment_variant = { 
+			# 		name = "Ju 89" 
+			# 		type = large_plane_airframe_1
+			# 		allow_without_tech = no
+			# 		design_team = mio:GER_heinkel_organization
+			# 		modules = {
+			# 			fixed_main_weapon_slot = large_bomb_bay
+			# 			fixed_auxiliary_weapon_slot_1 = empty
+			# 			fixed_auxiliary_weapon_slot_2 = empty
+			# 			engine_type_slot = engine_2_4x
+			# 			special_type_slot_1 = lmg_defense_turret_2x
+			# 			special_type_slot_2 = lmg_defense_turret
+			# 		}
+			# 		icon = "GFX_GER_strategic_bomber1_medium"
+			# 		model = "GER_strat_bomber_equipment_1_entity"
+			# 	}
+			# }
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
@@ -5309,23 +5309,23 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_HISTORICAL FOCUS_FILTER_MILITARY_CHARACTER }
 
 		completion_reward = {
-			if = {
-				limit = {
-					has_dlc = "Arms Against Tyranny"
-				}
-				if = {
-					limit = {
-						NOT = { has_completed_focus = GER_marinestosstrupp }
-					}
-					add_potential_special_forces_tree = yes
-				}
-				add_doctrine_cost_reduction = {
-					name = GER_fallschirmjager
-					cost_reduction = 0.25
-					uses = 2
-					category = cat_special_forces_doctrine
-				}
-			}
+			# if = {
+			# 	limit = {
+			# 		has_dlc = "Arms Against Tyranny"
+			# 	}
+			# 	if = {
+			# 		limit = {
+			# 			NOT = { has_completed_focus = GER_marinestosstrupp }
+			# 		}
+			# 		add_potential_special_forces_tree = yes
+			# 	}
+			# 	add_doctrine_cost_reduction = {
+			# 		name = GER_fallschirmjager
+			# 		cost_reduction = 0.25
+			# 		uses = 2
+			# 		category = cat_special_forces_doctrine
+			# 	}
+			# }
 			add_tech_bonus = {
 				name = GER_fallschirmjager
 				bonus = 1
@@ -5384,27 +5384,27 @@ focus_tree = {
 			}
 
 
-			if = {
-				limit = {
-					has_dlc = "By Blood Alone"
-				}
-				custom_effect_tooltip = generic_skip_one_line_tt
-				create_equipment_variant = { 
-					name = "FW 190" 
-					type = small_plane_airframe_2
-					allow_without_tech = no
-					design_team = mio:GER_messerschmitt_organization
-					modules = {
-						fixed_main_weapon_slot = light_mg_4x
-						fixed_auxiliary_weapon_slot_1 = aircraft_cannon_1_2x
-						engine_type_slot = engine_3_1x
-						special_type_slot_1 = armor_plate_small
-						special_type_slot_2 = drop_tanks	
-					}
-					icon = "GFX_GER_fighter2_medium"
-					model = "GER_fighter_equipment_2_entity"
-				}
-			}
+			# if = {
+			# 	limit = {
+			# 		has_dlc = "By Blood Alone"
+			# 	}
+			# 	custom_effect_tooltip = generic_skip_one_line_tt
+			# 	create_equipment_variant = { 
+			# 		name = "FW 190" 
+			# 		type = small_plane_airframe_2
+			# 		allow_without_tech = no
+			# 		design_team = mio:GER_messerschmitt_organization
+			# 		modules = {
+			# 			fixed_main_weapon_slot = light_mg_4x
+			# 			fixed_auxiliary_weapon_slot_1 = aircraft_cannon_1_2x
+			# 			engine_type_slot = engine_3_1x
+			# 			special_type_slot_1 = armor_plate_small
+			# 			special_type_slot_2 = drop_tanks	
+			# 		}
+			# 		icon = "GFX_GER_fighter2_medium"
+			# 		model = "GER_fighter_equipment_2_entity"
+			# 	}
+			# }
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
@@ -5864,27 +5864,27 @@ focus_tree = {
 			}
 
 
-			if = {
-				limit = {
-					has_dlc = "By Blood Alone"
-				}
-				custom_effect_tooltip = generic_skip_one_line_tt
-				create_equipment_variant = { 
-					name = "He 115" 
-					type = small_plane_naval_bomber_airframe_2
-					allow_without_tech = no
-					design_team = mio:GER_fieseler_organization
-					modules = {
-						fixed_main_weapon_slot = torpedo_mounting
-						fixed_auxiliary_weapon_slot_1 = bomb_locks
-						engine_type_slot = engine_2_2x
-						special_type_slot_1 = lmg_defense_turret	
-						special_type_slot_2 = empty
-					}
-					icon = "GFX_GER_naval_bomber2_medium"
-					model = "GER_nav_bomber_equipment_2_entity"
-				}
-			}
+			# if = {
+			# 	limit = {
+			# 		has_dlc = "By Blood Alone"
+			# 	}
+			# 	custom_effect_tooltip = generic_skip_one_line_tt
+			# 	create_equipment_variant = { 
+			# 		name = "He 115" 
+			# 		type = small_plane_naval_bomber_airframe_2
+			# 		allow_without_tech = no
+			# 		design_team = mio:GER_fieseler_organization
+			# 		modules = {
+			# 			fixed_main_weapon_slot = torpedo_mounting
+			# 			fixed_auxiliary_weapon_slot_1 = bomb_locks
+			# 			engine_type_slot = engine_2_2x
+			# 			special_type_slot_1 = lmg_defense_turret	
+			# 			special_type_slot_2 = empty
+			# 		}
+			# 		icon = "GFX_GER_naval_bomber2_medium"
+			# 		model = "GER_nav_bomber_equipment_2_entity"
+			# 	}
+			# }
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
@@ -6009,45 +6009,45 @@ focus_tree = {
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
-			if = {
-				limit = {
-					has_dlc = "By Blood Alone"
-				}
-				create_equipment_variant = { 
-					name = "Me 262" 
-					allow_without_tech = no
-					type = small_plane_airframe_4
-					design_team = mio:GER_messerschmitt_organization
-					modules = {
-						fixed_main_weapon_slot = aircraft_cannon_2_2x
-						fixed_auxiliary_weapon_slot_1 = aircraft_cannon_2_2x
-						engine_type_slot = jet_engine_2x
-						special_type_slot_1 = armor_plate_small
-						special_type_slot_2 = drop_tanks	
-						special_type_slot_3 = self_sealing_fuel_tanks_small	
-					}
-					icon = "GFX_GER_jet_plane_1_medium"
-					model = "GER_jet_plane_entity"
-				}
-				create_equipment_variant = { 
-					name = "Ar 234" 
-					allow_without_tech = no
-					type = medium_plane_airframe_4
-					design_team = mio:GER_dornier_organization
-					modules = {
-						fixed_main_weapon_slot = medium_bomb_bay
-						fixed_auxiliary_weapon_slot_1 = medium_bomb_bay
-						fixed_auxiliary_weapon_slot_2 = bomb_locks
-						engine_type_slot = jet_engine_2x
-						special_type_slot_1 = fuel_tanks_medium
-						special_type_slot_2 = empty	
-					}
-					icon = "GFX_medium_plane_4_medium"
-					model = "GER_medium_jet_plane_1_entity"
-				}
+			# if = {
+			# 	limit = {
+			# 		has_dlc = "By Blood Alone"
+			# 	}
+			# 	create_equipment_variant = { 
+			# 		name = "Me 262" 
+			# 		allow_without_tech = no
+			# 		type = small_plane_airframe_4
+			# 		design_team = mio:GER_messerschmitt_organization
+			# 		modules = {
+			# 			fixed_main_weapon_slot = aircraft_cannon_2_2x
+			# 			fixed_auxiliary_weapon_slot_1 = aircraft_cannon_2_2x
+			# 			engine_type_slot = jet_engine_2x
+			# 			special_type_slot_1 = armor_plate_small
+			# 			special_type_slot_2 = drop_tanks	
+			# 			special_type_slot_3 = self_sealing_fuel_tanks_small	
+			# 		}
+			# 		icon = "GFX_GER_jet_plane_1_medium"
+			# 		model = "GER_jet_plane_entity"
+			# 	}
+			# 	create_equipment_variant = { 
+			# 		name = "Ar 234" 
+			# 		allow_without_tech = no
+			# 		type = medium_plane_airframe_4
+			# 		design_team = mio:GER_dornier_organization
+			# 		modules = {
+			# 			fixed_main_weapon_slot = medium_bomb_bay
+			# 			fixed_auxiliary_weapon_slot_1 = medium_bomb_bay
+			# 			fixed_auxiliary_weapon_slot_2 = bomb_locks
+			# 			engine_type_slot = jet_engine_2x
+			# 			special_type_slot_1 = fuel_tanks_medium
+			# 			special_type_slot_2 = empty	
+			# 		}
+			# 		icon = "GFX_medium_plane_4_medium"
+			# 		model = "GER_medium_jet_plane_1_entity"
+			# 	}
 				
-				custom_effect_tooltip = generic_skip_one_line_tt
-			}
+			# 	custom_effect_tooltip = generic_skip_one_line_tt
+			# }
 
 
 			GER_modify_airforce_modifier = yes
@@ -7053,28 +7053,28 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			if = {
-				limit = {
-					has_dlc = "Arms Against Tyranny"
-				}
-				if = {
-					limit = {
-						NOT = { has_completed_focus = GER_fallschirmjager }
-					}
-					add_potential_special_forces_tree = yes
-				}
-				add_doctrine_cost_reduction = {
-					name = GER_marinestosstrupp
-					cost_reduction = 0.25
-					uses = 2
-					category = cat_special_forces_doctrine
-				}
-			}
+			# if = {
+			# 	limit = {
+			# 		has_dlc = "Arms Against Tyranny"
+			# 	}
+			# 	if = {
+			# 		limit = {
+			# 			NOT = { has_completed_focus = GER_fallschirmjager }
+			# 		}
+			# 		add_potential_special_forces_tree = yes
+			# 	}
+			# 	add_doctrine_cost_reduction = {
+			# 		name = GER_marinestosstrupp
+			# 		cost_reduction = 0.25
+			# 		uses = 2
+			# 		category = cat_special_forces_doctrine
+			# 	}
+			# }
 			add_tech_bonus = {
 				name = GER_marinestosstrupp
 				bonus = 1
 				uses = 1
-				category = cat_armour_tech
+				category = cat_marine_tech
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
@@ -7901,7 +7901,7 @@ mio:GER_blohm_und_voss_organization = {
 			}
 		}
 
-		x = 33
+		x = 30
 		y = 0
 		relative_position_id = GER_prioritize_economic_growth
 
@@ -7968,7 +7968,7 @@ mio:GER_blohm_und_voss_organization = {
 		id = GER_legion_condor
 		icon = GFX_focus_intervention_spain_nationalists
 		prerequisite = { focus = GER_remilitarize_the_rhineland focus = GER_oppose_hitler_ww focus = GER_oppose_hitler }
-		x = 11
+		x = 9
 		y = 1
 		relative_position_id = GER_remilitarize_the_rhineland
 
@@ -8879,7 +8879,7 @@ mio:GER_blohm_und_voss_organization = {
 		icon = GFX_goal_generic_dangerous_deal
 		prerequisite = { focus = GER_remilitarize_the_rhineland }
 
-		x = -11
+		x = -9
 		y = 1
 		relative_position_id = GER_remilitarize_the_rhineland
 		cost = 5
@@ -9139,7 +9139,7 @@ mio:GER_blohm_und_voss_organization = {
 			add_doctrine_cost_reduction = {
 				cost_reduction = 0.5
 				uses = 2
-				category = cat_land_doctrine
+				category = land_doctrine
 				name = GER_autonomy_in_the_kriegsschulen
 			}
 
@@ -9276,7 +9276,7 @@ mio:GER_blohm_und_voss_organization = {
 		alternate_icon = GFX_focus_ger_reichskommisariats_historical
 		prerequisite = { focus = GER_reorganize_the_wehrmacht }
 
-		x = 17
+		x = 15
 		y = 1
 		relative_position_id = GER_heed_von_neuraths_concerns
 		cost = 5
@@ -10230,6 +10230,10 @@ mio:GER_blohm_und_voss_organization = {
 		y = 1
 		relative_position_id = GER_anschluss
 		cost = 5
+		
+		allow_branch = {
+			always = no
+		}
 
 		available = {
 			is_subject = no
@@ -10565,7 +10569,7 @@ mio:GER_blohm_und_voss_organization = {
 
 		prerequisite = { focus = GER_fate_of_czechoslovakia focus = GER_integrate_czechoslovakia }
 		mutually_exclusive = { focus = GER_invade_italy }
-		x = 2
+		x = 4
 		y = 2
 		relative_position_id = GER_integrate_czechoslovakia
 		cost = 5
@@ -11147,6 +11151,10 @@ mio:GER_blohm_und_voss_organization = {
 		relative_position_id = GER_fate_of_czechoslovakia
 
 		cost = 5
+
+		allow_branch = {
+			always = no
+		}
 
 		ai_will_do = {
 			factor = 10
@@ -13031,7 +13039,7 @@ mio:GER_blohm_und_voss_organization = {
 		icon = GFX_goal_generic_political_pressure
 		prerequisite = { focus = GER_anschluss }
 
-		x = 8
+		x = 6
 		y = 1
 		relative_position_id = GER_anschluss
 		cost = 10
@@ -14094,7 +14102,7 @@ mio:GER_blohm_und_voss_organization = {
 
 		prerequisite = { focus = GER_remilitarize_the_rhineland }
 
-		x = 9
+		x = 7
 		y = 0
 		relative_position_id = GER_reorganize_the_wehrmacht
 		cost = 5
@@ -15124,6 +15132,10 @@ mio:GER_blohm_und_voss_organization = {
 		cost = 5
 		
 		available_if_capitulated = yes
+
+		allow_branch = {
+			always = no
+		}
 
 		available = {
 			is_subject = no
@@ -17589,7 +17601,7 @@ mio:GER_blohm_und_voss_organization = {
 		icon = GFX_focus_GER_support_the_fuhrer
 
 		prerequisite = { focus = GER_remilitarize_the_rhineland }
-		x = -17
+		x = -14
 		y = 7
 		relative_position_id = GER_remilitarize_the_rhineland
 		cost = 5
@@ -26292,7 +26304,7 @@ mio:GER_blohm_und_voss_organization = {
 				name = GER_prussian_artillery
 				cost_reduction = 0.25
 				uses = 2
-				category = cat_land_doctrine
+				category = land_doctrine
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
