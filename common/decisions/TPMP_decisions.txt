@@ -289,3 +289,52 @@ TPMP_game_decisions_category = {
 		}
 	}
 }
+economy_decisions = {
+	TPMP_enable_civ_reprio_decision = {		
+		icon = GFX_decision_generic_construction
+		visible = {
+			NOT = {
+				has_dynamic_modifier = {
+					modifier = TPMP_civilian_construction_reprioritization
+				}
+			}
+		}
+		complete_effect = {
+			hidden_effect = {
+				set_variable = {
+					TPMP_civ_cons_reprio_var = modifier@production_speed_industrial_complex_factor
+				}
+				clamp_variable = {
+					var = TPMP_civ_cons_reprio_var
+					min = 0
+				}
+				set_variable = {
+					TPMP_civ_cons_var = TPMP_civ_cons_reprio_var
+				}
+				multiply_variable = {
+					TPMP_civ_cons_reprio_var = 0.25
+				}
+				multiply_variable = {
+					TPMP_civ_cons_var = -1
+				}
+			}
+			custom_effect_tooltip = TPMP_enable_civ_reprio_decision_tt
+			add_dynamic_modifier = {
+				modifier = TPMP_civilian_construction_reprioritization
+			}
+		}
+	}
+	TPMP_disable_civ_reprio_decision = {		
+		icon = GFX_decision_generic_construction
+		visible = {
+			has_dynamic_modifier = {
+				modifier = TPMP_civilian_construction_reprioritization
+			}
+		}
+		complete_effect = {
+			remove_dynamic_modifier = {
+				modifier = TPMP_civilian_construction_reprioritization
+			}
+		}
+	}
+}
