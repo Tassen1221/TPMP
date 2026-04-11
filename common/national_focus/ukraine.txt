@@ -3092,7 +3092,7 @@ focus_tree = {
 		cost = 5
 		
 		completion_reward = {
-			subtract_from_variable = {
+			add_to_variable = {
 				var = var_ukr_tpmp_land_doctrine_cost_factor
 				value = 0.05
 			}
@@ -3573,7 +3573,7 @@ focus_tree = {
 		cost = 5
 		
 		completion_reward = {
-			subtract_from_variable = {
+			add_to_variable = {
 				var = var_ukr_tpmp_land_doctrine_cost_factor
 				value = 0.05
 				tooltip = ukr_doctrine_considerations_tt
@@ -3602,6 +3602,14 @@ focus_tree = {
 		
 		completion_reward = {
 			add_ideas = TPMP_wave_of_steel_idea_0
+	
+			custom_effect_tooltip = generic_skip_one_line_tt			
+
+			add_daily_mastery = {
+				track = armor
+				amount = 0.5
+				days = 400
+			}
 		}
 	}	
 
@@ -3828,6 +3836,14 @@ focus_tree = {
 		
 		completion_reward = {
 			add_ideas = TPMP_strength_in_firepower_idea_0
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+
+			add_daily_mastery = {
+				track = artillery
+				amount = 0.5
+				days = 400
+			}			
 		}
 	}	
 
@@ -3956,11 +3972,9 @@ focus_tree = {
 		cost = 5
 		
 		completion_reward = {
-			add_doctrine_cost_reduction = {
-				name = ukr_experimental_artillery_doctrine_bonus
-				cost_reduction  = 0.5
-				uses = 2
-				category = cat_artillery_doctrine
+			add_mastery = {
+				amount = 75
+				track = artillery
 			}			
 		}
 	}
@@ -4062,6 +4076,14 @@ focus_tree = {
 		
 		completion_reward = {
 			add_ideas = TPMP_strength_in_numbers_idea_0
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+
+			add_daily_mastery = {
+				track = infantry
+				amount = 0.5
+				days = 400
+			}
 		}
 	}
 
@@ -4226,12 +4248,10 @@ focus_tree = {
 				remove_idea = TPMP_strength_in_numbers_idea_R3
 				add_idea = TPMP_strength_in_numbers_idea_R4		
 			}
-			add_doctrine_cost_reduction = {
-				name = ukr_mass_wave_assault_tactics_bonus
-				cost_reduction = 0.5
-				uses = 2
-				category = cat_infantry_doctrine
-			}			
+			add_mastery = {
+				amount = 75
+				track = infantry
+			}				
 		}
 	}		
 
