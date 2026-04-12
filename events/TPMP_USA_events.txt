@@ -1,0 +1,69 @@
+﻿add_namespace = TPMP_USA
+
+country_event = {
+    id = TPMP_USA.1
+    
+    fire_only_once = yes
+    hidden = yes
+    
+    immediate = {
+        IF = {
+			limit = {
+				NOT = {
+					has_completed_focus = TPMP_USA_enforce_the_wagner_act
+				}
+			}
+			country_event = TPMP_USA.2
+		}
+    }
+}
+country_event = {
+	id = TPMP_USA.2
+	title = TPMP_USA.2.t
+	desc = TPMP_USA.2.d
+	picture = GFX_report_event_fall_blau
+
+	is_triggered_only = yes
+	
+	immediate = {
+        set_country_flag = TPMP_USA_flint_strike_flag
+    }
+	option = {
+		name = TPMP_USA.2.a
+		trigger = {
+			NOT = {
+				has_completed_focus = TPMP_USA_enforce_the_wagner_act
+			}
+		}
+		add_timed_idea = {
+			idea = TPMP_USA_strikes_idea_0
+			days = 365
+		}
+	}
+	option = {
+		name = TPMP_USA.2.b
+		trigger = {
+			has_completed_focus = TPMP_USA_enforce_the_wagner_act
+		}
+		add_timed_idea = {
+			idea = TPMP_USA_strikes_idea_0
+			days = 120
+		}
+	}
+}
+country_event = {
+	id = TPMP_USA.3
+	title = TPMP_USA.3.t
+	desc = TPMP_USA.3.d
+	picture = GFX_report_event_fall_blau
+
+	is_triggered_only = yes
+	
+	immediate = {
+        set_country_flag = TPMP_USA_mine_strike_flag
+    }
+	option = {
+		name = TPMP_USA.3.a
+		add_ideas = TPMP_USA_strikes_idea_0
+	}
+}

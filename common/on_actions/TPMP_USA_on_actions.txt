@@ -1,0 +1,255 @@
+on_actions = {
+	on_weekly_USA = {
+		effect = {
+			IF = {
+				limit = {
+					has_completed_focus = TPMP_USA_willow_run_plant
+				}
+				IF = {
+					limit = {
+						393 = {
+							is_controlled_by = USA
+							arms_factory > 49
+						}
+						NOT = {
+							has_idea = TPMP_USA_willow_run_plant_idea_4
+						}
+					}
+					USA_remove_willow_run_plant = yes
+					add_ideas = TPMP_USA_willow_run_plant_idea_4
+				}
+				ELSE_IF = {
+					limit = {
+						393 = {
+							is_controlled_by = USA
+							arms_factory > 39
+						}
+						NOT = {
+							has_idea = TPMP_USA_willow_run_plant_idea_3
+						}
+					}
+					USA_remove_willow_run_plant = yes
+					add_ideas = TPMP_USA_willow_run_plant_idea_3
+				}
+				ELSE_IF = {
+					limit = {
+						393 = {
+							is_controlled_by = USA
+							arms_factory > 29
+						}
+						NOT = {
+							has_idea = TPMP_USA_willow_run_plant_idea_2
+						}
+					}
+					USA_remove_willow_run_plant = yes
+					add_ideas = TPMP_USA_willow_run_plant_idea_2
+				}
+				ELSE_IF = {
+					limit = {
+						393 = {
+							is_controlled_by = USA
+							arms_factory > 19
+						}
+						NOT = {
+							has_idea = TPMP_USA_willow_run_plant_idea_1
+						}
+					}
+					USA_remove_willow_run_plant = yes
+					add_ideas = TPMP_USA_willow_run_plant_idea_1
+				}
+				ELSE_IF = {
+					limit = {
+						393 = {
+							is_controlled_by = USA
+							arms_factory > 9
+						}
+						NOT = {
+							has_idea = TPMP_USA_willow_run_plant_idea_0
+						}
+					}
+					USA_remove_willow_run_plant = yes
+					add_ideas = TPMP_USA_willow_run_plant_idea_0
+				}
+				ELSE_IF = {
+					limit = {
+						393 = {
+							OR = {
+								arms_factory < 10
+								NOT = {
+									is_controlled_by = USA
+								}
+							}
+						}
+					}
+					USA_remove_willow_run_plant = yes
+				}
+			}
+			IF = {
+				limit = {
+					has_completed_focus = TPMP_USA_detroit_arsenal
+				}
+				IF = {
+					limit = {
+						393 = {
+							is_controlled_by = USA
+							arms_factory > 49
+						}
+						NOT = {
+							has_idea = TPMP_USA_detroit_arsenal_idea_4
+						}
+					}
+					USA_remove_detroit_arsenal = yes
+					add_ideas = TPMP_USA_detroit_arsenal_idea_4
+				}
+				ELSE_IF = {
+					limit = {
+						393 = {
+							is_controlled_by = USA
+							arms_factory > 39
+						}
+						NOT = {
+							has_idea = TPMP_USA_detroit_arsenal_idea_3
+						}
+					}
+					USA_remove_detroit_arsenal = yes
+					add_ideas = TPMP_USA_detroit_arsenal_idea_3
+				}
+				ELSE_IF = {
+					limit = {
+						393 = {
+							is_controlled_by = USA
+							arms_factory > 29
+						}
+						NOT = {
+							has_idea = TPMP_USA_detroit_arsenal_idea_2
+						}
+					}
+					USA_remove_detroit_arsenal = yes
+					add_ideas = TPMP_USA_detroit_arsenal_idea_2
+				}
+				ELSE_IF = {
+					limit = {
+						393 = {
+							is_controlled_by = USA
+							arms_factory > 19
+						}
+						NOT = {
+							has_idea = TPMP_USA_detroit_arsenal_idea_1
+						}
+					}
+					USA_remove_detroit_arsenal = yes
+					add_ideas = TPMP_USA_detroit_arsenal_idea_1
+				}
+				ELSE_IF = {
+					limit = {
+						393 = {
+							is_controlled_by = USA
+							arms_factory > 9
+						}
+						NOT = {
+							has_idea = TPMP_USA_detroit_arsenal_idea_0
+						}
+					}
+					USA_remove_detroit_arsenal = yes
+					add_ideas = TPMP_USA_detroit_arsenal_idea_0
+				}
+				ELSE_IF = {
+					limit = {
+						393 = {
+							OR = {
+								arms_factory < 10
+								NOT = {
+									is_controlled_by = USA
+								}
+							}
+						}
+					}
+					USA_remove_detroit_arsenal = yes
+				}
+			}
+			IF = {
+				limit = {
+					has_completed_focus = TPMP_USA_kaiser_shipyards
+				}
+				IF = {
+					limit = {
+						385 = {
+							is_controlled_by = USA
+							dockyard > 24
+						}
+						NOT = {
+							has_idea = TPMP_USA_kaiser_shipyards_idea_4
+						}
+					}
+					USA_remove_kaiser_shipyards = yes
+					add_ideas = TPMP_USA_kaiser_shipyards_idea_4
+				}
+				ELSE_IF = {
+					limit = {
+						385 = {
+							is_controlled_by = USA
+							dockyard > 19
+						}
+						NOT = {
+							has_idea = TPMP_USA_kaiser_shipyards_idea_3
+						}
+					}
+					USA_remove_kaiser_shipyards = yes
+					add_ideas = TPMP_USA_kaiser_shipyards_idea_3
+				}
+				ELSE_IF = {
+					limit = {
+						385 = {
+							is_controlled_by = USA
+							dockyard > 14
+						}
+						NOT = {
+							has_idea = TPMP_USA_kaiser_shipyards_idea_2
+						}
+					}
+					USA_remove_kaiser_shipyards = yes
+					add_ideas = TPMP_USA_kaiser_shipyards_idea_2
+				}
+				ELSE_IF = {
+					limit = {
+						385 = {
+							is_controlled_by = USA
+							dockyard > 9
+						}
+						NOT = {
+							has_idea = TPMP_USA_kaiser_shipyards_idea_1
+						}
+					}
+					USA_remove_kaiser_shipyards = yes
+					add_ideas = TPMP_USA_kaiser_shipyards_idea_1
+				}
+				ELSE_IF = {
+					limit = {
+						385 = {
+							is_controlled_by = USA
+							dockyard > 4
+						}
+						NOT = {
+							has_idea = TPMP_USA_kaiser_shipyards_idea_0
+						}
+					}
+					USA_remove_kaiser_shipyards = yes
+					add_ideas = TPMP_USA_kaiser_shipyards_idea_0
+				}
+				ELSE_IF = {
+					limit = {
+						385 = {
+							OR = {
+								dockyard < 5
+								NOT = {
+									is_controlled_by = USA
+								}
+							}
+						}
+					}
+					USA_remove_kaiser_shipyards = yes
+				}
+			}
+		}
+	}
+}

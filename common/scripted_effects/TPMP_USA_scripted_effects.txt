@@ -52,3 +52,179 @@ recalculate_congressional_ui = {
 		}
 	}
 }
+USA_decrease_great_depression = {
+	IF = {
+		limit = {
+			has_dynamic_modifier = {
+				modifier = TPMP_USA_great_depression_modifier
+			}
+		}
+		custom_effect_tooltip = USA_decrease_great_depression_tt
+		add_to_variable = {
+			TPMP_USA_great_depression_cg_var = -0.05
+			tooltip = consumer_goods_factor_tt
+		}
+		add_to_variable = {
+			TPMP_USA_great_depression_stab_var = 0.025
+			tooltip = stability_factor_tt
+		}
+		add_to_variable = {
+			TPMP_USA_great_depression_cons_var = 0.01
+			tooltip = production_speed_buildings_factor_tt
+		}
+		add_to_variable = {
+			TPMP_USA_great_depression_eff_cap_var = 0.01
+			tooltip = production_factory_max_efficiency_factor_tt
+		}
+		add_to_variable = {
+			TPMP_USA_great_depression_eff_gain_var = 0.01
+			tooltip = production_factory_efficiency_gain_factor_tt
+		}
+		add_to_variable = {
+			TPMP_USA_great_depression_factory_var = 0.01
+			tooltip = industrial_capacity_factory_tt
+		}
+		add_to_variable = {
+			TPMP_USA_great_depression_dock_var = 0.02
+			tooltip = industrial_capacity_dockyard_tt
+		}
+	}
+	hidden_effect = {
+		IF = {
+			limit = {
+				check_variable = {
+					TPMP_USA_great_depression_cg_var = 0
+				}
+			}
+			remove_dynamic_modifier = {
+				modifier = TPMP_USA_great_depression_modifier
+			}
+		}
+	}
+}
+USA_increase_deficit = {
+	custom_effect_tooltip = USA_increase_deficit_tt
+	add_to_variable = {
+		TPMP_USA_deficit_cg_var = 0.03
+		tooltip = consumer_goods_factor_tt
+	}
+	add_to_variable = {
+		TPMP_USA_deficit_stab_var = -0.02
+		tooltip = stability_factor_tt
+	}
+	add_to_variable = {
+		TPMP_USA_deficit_pp_var = 0.03
+		tooltip = political_power_cost_tt
+	}
+}
+USA_decrease_deficit = {
+	custom_effect_tooltip = USA_increase_deficit_tt
+	add_to_variable = {
+		TPMP_USA_deficit_cg_var = -0.03
+		tooltip = consumer_goods_factor_tt
+	}
+	add_to_variable = {
+		TPMP_USA_deficit_stab_var = 0.02
+		tooltip = stability_factor_tt
+	}
+	add_to_variable = {
+		TPMP_USA_deficit_pp_var = -0.03
+		tooltip = political_power_cost_tt
+	}
+}
+USA_remove_willow_run_plant = {
+	IF = {
+		limit = {
+			has_idea = TPMP_USA_willow_run_plant_idea_0
+		}
+		remove_ideas = TPMP_USA_willow_run_plant_idea_0
+	}
+	ELSE_IF = {
+		limit = {
+			has_idea = TPMP_USA_willow_run_plant_idea_1
+		}
+		remove_ideas = TPMP_USA_willow_run_plant_idea_1
+	}
+	ELSE_IF = {
+		limit = {
+			has_idea = TPMP_USA_willow_run_plant_idea_2
+		}
+		remove_ideas = TPMP_USA_willow_run_plant_idea_2
+	}
+	ELSE_IF = {
+		limit = {
+			has_idea = TPMP_USA_willow_run_plant_idea_3
+		}
+		remove_ideas = TPMP_USA_willow_run_plant_idea_3
+	}
+	ELSE_IF = {
+		limit = {
+			has_idea = TPMP_USA_willow_run_plant_idea_4
+		}
+		remove_ideas = TPMP_USA_willow_run_plant_idea_4
+	}
+}
+USA_remove_detroit_arsenal = {
+	IF = {
+		limit = {
+			has_idea = TPMP_USA_detroit_arsenal_idea_0
+		}
+		remove_ideas = TPMP_USA_detroit_arsenal_idea_0
+	}
+	ELSE_IF = {
+		limit = {
+			has_idea = TPMP_USA_detroit_arsenal_idea_1
+		}
+		remove_ideas = TPMP_USA_detroit_arsenal_idea_1
+	}
+	ELSE_IF = {
+		limit = {
+			has_idea = TPMP_USA_detroit_arsenal_idea_2
+		}
+		remove_ideas = TPMP_USA_detroit_arsenal_idea_2
+	}
+	ELSE_IF = {
+		limit = {
+			has_idea = TPMP_USA_detroit_arsenal_idea_3
+		}
+		remove_ideas = TPMP_USA_detroit_arsenal_idea_3
+	}
+	ELSE_IF = {
+		limit = {
+			has_idea = TPMP_USA_detroit_arsenal_idea_4
+		}
+		remove_ideas = TPMP_USA_detroit_arsenal_idea_4
+	}
+}
+USA_remove_kaiser_shipyards = {
+	IF = {
+		limit = {
+			has_idea = TPMP_USA_kaiser_shipyards_idea_0
+		}
+		remove_ideas = TPMP_USA_kaiser_shipyards_idea_0
+	}
+	ELSE_IF = {
+		limit = {
+			has_idea = TPMP_USA_kaiser_shipyards_idea_1
+		}
+		remove_ideas = TPMP_USA_kaiser_shipyards_idea_1
+	}
+	ELSE_IF = {
+		limit = {
+			has_idea = TPMP_USA_kaiser_shipyards_idea_2
+		}
+		remove_ideas = TPMP_USA_kaiser_shipyards_idea_2
+	}
+	ELSE_IF = {
+		limit = {
+			has_idea = TPMP_USA_kaiser_shipyards_idea_3
+		}
+		remove_ideas = TPMP_USA_kaiser_shipyards_idea_3
+	}
+	ELSE_IF = {
+		limit = {
+			has_idea = TPMP_USA_kaiser_shipyards_idea_4
+		}
+		remove_ideas = TPMP_USA_kaiser_shipyards_idea_4
+	}
+}

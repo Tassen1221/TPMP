@@ -280,7 +280,7 @@ focus_tree = {
 		icon = GFX_goal_generic_amphibious_assault
 		prerequisite = { focus = TPMP_USA_rally_our_defeats focus = TPMP_USA_glorify_our_victories }
 		x = 0
-		y = 2`
+		y = 2
 		relative_position_id = TPMP_USA_the_1940_election
 		cost = 5
 		completion_reward = {
@@ -345,7 +345,7 @@ focus_tree = {
 		icon = GFX_goal_generic_amphibious_assault
 		prerequisite = { focus = TPMP_USA_the_new_deal_coalition }
 		x = -2
-		y = 1`
+		y = 1
 		relative_position_id = TPMP_USA_the_new_deal_coalition
 		cost = 5
 		completion_reward = {
@@ -452,18 +452,6 @@ focus_tree = {
 	}
 
 	focus = {
-		id = TPMP_USA_a_switch_in_time
-		icon = GFX_goal_generic_amphibious_assault
-		prerequisite = { focus = TPMP_USA_respect_the_supreme_court }
-		x = 0
-		y = 1
-		relative_position_id = TPMP_USA_respect_the_supreme_court
-		cost = 5
-		completion_reward = {
-		}
-	}
-
-	focus = {
 		id = TPMP_USA_respect_the_supreme_court
 		icon = GFX_goal_generic_amphibious_assault
 		prerequisite = { focus = TPMP_USA_a_strong_mandate }
@@ -471,6 +459,18 @@ focus_tree = {
 		x = 3
 		y = 1
 		relative_position_id = TPMP_USA_a_strong_mandate
+		cost = 5
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = TPMP_USA_a_switch_in_time
+		icon = GFX_goal_generic_amphibious_assault
+		prerequisite = { focus = TPMP_USA_respect_the_supreme_court }
+		x = 0
+		y = 1
+		relative_position_id = TPMP_USA_respect_the_supreme_court
 		cost = 5
 		completion_reward = {
 		}
@@ -485,6 +485,8 @@ focus_tree = {
 		y = 0
 		cost = 5
 		completion_reward = {
+			add_stability = 0.05
+			add_political_power = 150
 		}
 	}
 
@@ -635,6 +637,7 @@ focus_tree = {
 		relative_position_id = TPMP_USA_the_second_new_deal
 		cost = 5
 		completion_reward = {
+			unlock_decision_category_tooltip = TPMP_USA_deficit_category
 		}
 	}
 
@@ -642,6 +645,7 @@ focus_tree = {
 		id = TPMP_USA_expand_military_spending
 		icon = GFX_goal_generic_amphibious_assault
 		prerequisite = { focus = TPMP_USA_manage_the_budget }
+		mutually_exclusive = { focus = TPMP_USA_expand_civil_spending }
 		x = -4
 		y = 1
 		relative_position_id = TPMP_USA_manage_the_budget
@@ -666,6 +670,7 @@ focus_tree = {
 		id = TPMP_USA_expand_civil_spending
 		icon = GFX_goal_generic_amphibious_assault
 		prerequisite = { focus = TPMP_USA_manage_the_budget }
+		mutually_exclusive = { focus = TPMP_USA_expand_military_spending }
 		x = -2
 		y = 1
 		relative_position_id = TPMP_USA_manage_the_budget
@@ -702,7 +707,7 @@ focus_tree = {
 		id = TPMP_USA_revenue_act
 		icon = GFX_goal_generic_amphibious_assault
 		prerequisite = { focus = TPMP_USA_manage_the_budget }
-		x = 1`
+		x = 1
 		y = 1
 		relative_position_id = TPMP_USA_manage_the_budget
 		cost = 5
@@ -832,7 +837,16 @@ focus_tree = {
 		y = 1
 		relative_position_id = TPMP_USA_the_second_new_deal
 		cost = 5
+		available = {
+		}
 		completion_reward = {
+			activate_mission = TPMP_USA_fair_labour_standards_act_mission
+			custom_effect_tooltip = TPMP_USA_if_passed_tt
+			effect_tooltip = {
+				add_ideas = TPMP_USA_fair_labour_standards_act_idea_0
+				custom_effect_tooltip = generic_skip_one_line_tt
+				USA_decrease_great_depression = yes
+			}
 		}
 	}
 
@@ -845,6 +859,23 @@ focus_tree = {
 		relative_position_id = TPMP_USA_fair_labour_standards_act
 		cost = 5
 		completion_reward = {
+			activate_mission = TPMP_USA_federal_housing_act_mission
+			custom_effect_tooltip = TPMP_USA_if_passed_tt
+			effect_tooltip = {
+				every_core_state = {
+					random_select_amount = 5
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build = yes
+					}
+				}
+				custom_effect_tooltip = generic_skip_one_line_tt
+				USA_decrease_great_depression = yes
+				custom_effect_tooltip = generic_skip_one_line_tt
+				USA_increase_deficit = yes
+			}
 		}
 	}
 
@@ -856,7 +887,18 @@ focus_tree = {
 		y = 2
 		relative_position_id = TPMP_USA_fair_labour_standards_act
 		cost = 5
+		available = {
+			NOT = {
+				has_idea = TPMP_USA_strikes_idea_0
+			}
+		}
+		bypass = {
+			has_country_flag = TPMP_USA_flint_strike_flag
+		}
 		completion_reward = {
+			country_event = TPMP_USA.2
+			custom_effect_tooltip = generic_skip_one_line_tt
+			USA_decrease_great_depression = yes
 		}
 	}
 
@@ -869,7 +911,15 @@ focus_tree = {
 		y = 1
 		relative_position_id = TPMP_USA_enforce_the_wagner_act
 		cost = 5
+		available = {
+			has_idea = TPMP_USA_strikes_idea_0
+			has_country_flag = TPMP_USA_mine_strike_flag
+		}
 		completion_reward = {
+			swap_ideas = {
+				remove_idea = TPMP_USA_strikes_idea_0
+				add_idea = TPMP_USA_strikes_idea_1
+			}
 		}
 	}
 
@@ -882,7 +932,16 @@ focus_tree = {
 		y = 1
 		relative_position_id = TPMP_USA_enforce_the_wagner_act
 		cost = 5
+		available = {
+			has_idea = TPMP_USA_strikes_idea_0
+			has_country_flag = TPMP_USA_mine_strike_flag
+		}
 		completion_reward = {
+			activate_mission = TPMP_USA_smith_connally_act_mission
+			custom_effect_tooltip = TPMP_USA_if_passed_tt
+			effect_tooltip = {
+				remove_ideas = TPMP_USA_strikes_idea_0
+			}
 		}
 	}
 
@@ -890,11 +949,19 @@ focus_tree = {
 		id = TPMP_USA_increase_minimum_wage
 		icon = GFX_goal_generic_amphibious_assault
 		prerequisite = { focus = TPMP_USA_fair_labour_standards_act }
-		x = 0`
+		x = 0
 		y = 1
 		relative_position_id = TPMP_USA_fair_labour_standards_act
 		cost = 5
+		available = {
+			has_idea = TPMP_USA_fair_labour_standards_act_idea_0
+		}
 		completion_reward = {
+			swap_ideas = {
+				remove_idea = TPMP_USA_fair_labour_standards_act_idea_0
+				add_idea = TPMP_USA_fair_labour_standards_act_idea_1
+			}
+			USA_decrease_great_depression = yes
 		}
 	}
 
@@ -907,6 +974,15 @@ focus_tree = {
 		relative_position_id = TPMP_USA_fair_labour_standards_act
 		cost = 5
 		completion_reward = {
+			activate_mission = TPMP_USA_agricultural_adjustment_act_mission
+			custom_effect_tooltip = TPMP_USA_if_passed_tt
+			effect_tooltip = {
+				add_ideas = TPMP_USA_agricultural_adjustment_act_idea_0
+				custom_effect_tooltip = generic_skip_one_line_tt
+				USA_decrease_great_depression = yes
+				custom_effect_tooltip = generic_skip_one_line_tt
+				USA_increase_deficit = yes
+			}
 		}
 	}
 
@@ -919,7 +995,17 @@ focus_tree = {
 		y = 1
 		relative_position_id = TPMP_USA_agricultural_adjustment_act
 		cost = 5
+		available = {
+			has_idea = TPMP_USA_agricultural_adjustment_act_idea_0
+		}
 		completion_reward = {
+			swap_ideas = {
+				remove_idea = TPMP_USA_agricultural_adjustment_act_idea_0
+				add_idea = TPMP_USA_agricultural_adjustment_act_idea_1
+			}
+			USA_decrease_great_depression = yes
+			custom_effect_tooltip = generic_skip_one_line_tt
+			USA_increase_deficit = yes
 		}
 	}
 
@@ -932,7 +1018,13 @@ focus_tree = {
 		y = 1
 		relative_position_id = TPMP_USA_agricultural_adjustment_act
 		cost = 5
+		available = {
+			has_idea = TPMP_USA_agricultural_adjustment_act_idea_0
+		}
 		completion_reward = {
+			USA_decrease_great_depression = yes
+			custom_effect_tooltip = generic_skip_one_line_tt
+			USA_decrease_deficit = yes
 		}
 	}
 
@@ -1002,7 +1094,7 @@ focus_tree = {
 		id = TPMP_USA_works_progress_administration
 		icon = GFX_goal_generic_amphibious_assault
 		prerequisite = { focus = TPMP_USA_form_the_alphabet_agencies }
-		x = 0`
+		x = 0
 		y = 1
 		relative_position_id = TPMP_USA_form_the_alphabet_agencies
 		cost = 5
@@ -1069,6 +1161,7 @@ focus_tree = {
 		relative_position_id = TPMP_USA_the_second_new_deal
 		cost = 5
 		completion_reward = {
+			add_political_power = 150
 		}
 	}
 
@@ -1648,6 +1741,9 @@ focus_tree = {
 		relative_position_id = TPMP_USA_public_works_administration
 		cost = 5
 		completion_reward = {
+			add_dynamic_modifier = {
+				modifier = TPMP_USA_megaprojects_modifier
+			}
 		}
 	}
 
@@ -1660,6 +1756,32 @@ focus_tree = {
 		relative_position_id = TPMP_USA_megaprojects
 		cost = 5
 		completion_reward = {
+			custom_effect_tooltip = USA_increase_megaprojects_tt
+			add_to_variable = {
+				TPMP_USA_megaproject_cons_var = 0.025
+				tooltip = production_speed_buildings_factor_tt
+			}
+			add_to_variable = {
+				TPMP_USA_megaproject_infra_cons_var = 0.2
+				tooltip = production_speed_infrastructure_factor_tt
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			386 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dam
+					level = 1
+					instant_build = yes
+					province = {
+						id = 10198
+					}
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
 		}
 	}
 
@@ -1672,6 +1794,33 @@ focus_tree = {
 		relative_position_id = TPMP_USA_megaprojects
 		cost = 5
 		completion_reward = {
+			custom_effect_tooltip = USA_increase_megaprojects_tt
+			add_to_variable = {
+				TPMP_USA_megaproject_cons_var = 0.025
+				tooltip = production_speed_buildings_factor_tt
+			}
+			add_to_variable = {
+				TPMP_USA_megaproject_supply_cons_var = 0.15
+				tooltip = production_speed_supply_node_factor_tt
+			}
+			add_to_variable = {
+				TPMP_USA_megaproject_rail_cons_var = 0.15
+				tooltip = production_speed_rail_way_factor_tt
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			358 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
 		}
 	}
 
@@ -1684,6 +1833,33 @@ focus_tree = {
 		relative_position_id = TPMP_USA_megaprojects
 		cost = 5
 		completion_reward = {
+			custom_effect_tooltip = USA_increase_megaprojects_tt
+			add_to_variable = {
+				TPMP_USA_megaproject_cons_var = 0.025
+				tooltip = production_speed_buildings_factor_tt
+			}
+			add_to_variable = {
+				TPMP_USA_megaproject_supply_cons_var = 0.15
+				tooltip = production_speed_supply_node_factor_tt
+			}
+			add_to_variable = {
+				TPMP_USA_megaproject_rail_cons_var = 0.15
+				tooltip = production_speed_rail_way_factor_tt
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			359 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
 		}
 	}
 
@@ -1708,6 +1884,27 @@ focus_tree = {
 		relative_position_id = TPMP_USA_megaprojects
 		cost = 5
 		completion_reward = {
+			custom_effect_tooltip = USA_increase_megaprojects_tt
+			add_to_variable = {
+				TPMP_USA_megaproject_cons_var = 0.025
+				tooltip = production_speed_buildings_factor_tt
+			}
+			add_to_variable = {
+				TPMP_USA_megaproject_airbase_cons_var = 0.5
+				tooltip = production_speed_air_base_factor_tt
+			}
+			add_to_variable = {
+				TPMP_USA_megaproject_radar_var = 0.5
+				tooltip = production_speed_radar_station_factor_tt
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			358 = {
+				add_building_construction = {
+					type = air_base
+					level = 5
+					instant_build = yes
+				}
+			}
 		}
 	}
 
@@ -1721,6 +1918,21 @@ focus_tree = {
 		y = 0
 		cost = 5
 		completion_reward = {
+			every_core_state = {
+				limit = {
+					OR = {
+						state = 396
+						state = 395
+						state = 394
+						state = 393
+						state = 360
+						state = 261
+					}
+				}
+				add_dynamic_modifier = {
+					modifier = TPMP_USA_expand_industry_modifier
+				}
+			}
 		}
 	}
 
@@ -1732,7 +1944,28 @@ focus_tree = {
 		y = 1
 		relative_position_id = TPMP_USA_expand_the_great_lakes_industrial_zone
 		cost = 5
+
 		completion_reward = {
+			every_core_state = {
+				limit = {
+					OR = {
+						state = 396
+						state = 395
+						state = 394
+						state = 393
+						state = 392
+						state = 391
+						state = 373
+						state = 261
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
 		}
 	}
 
@@ -1745,6 +1978,14 @@ focus_tree = {
 		relative_position_id = TPMP_USA_midwestern_industry
 		cost = 5
 		completion_reward = {
+			add_ideas = TPMP_USA_subassembly_idea
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_tech_bonus = {
+				bonus = 0.5
+				ahead_reduction = 1.0
+				uses = 1
+				category = cat_production
+			}
 		}
 	}
 
@@ -1757,6 +1998,16 @@ focus_tree = {
 		relative_position_id = TPMP_USA_expand_the_great_lakes_industrial_zone
 		cost = 5
 		completion_reward = {
+			every_core_state = {
+				limit = {
+					has_dynamic_modifier = {
+						modifier = TPMP_USA_dust_bowl_modifier
+					}
+				}
+				remove_dynamic_modifier = {
+					modifier = TPMP_USA_dust_bowl_modifier
+				}
+			}
 		}
 	}
 
@@ -1769,6 +2020,32 @@ focus_tree = {
 		relative_position_id = TPMP_USA_combat_the_dust_bowl
 		cost = 5
 		completion_reward = {
+			every_core_state = {
+				limit = {
+					OR = {
+						has_state_category = pastoral
+						has_state_category = rural
+						has_state_category = town
+					}
+				}
+				random_select_amount = 5
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = energy_infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
 		}
 	}
 
@@ -1781,11 +2058,27 @@ focus_tree = {
 		relative_position_id = TPMP_USA_expand_the_great_lakes_industrial_zone
 		cost = 5
 		completion_reward = {
+			every_core_state = {
+				limit = {
+					OR = {
+						state = 386
+						state = 385
+						state = 378
+						state = 375
+						state = 371
+						state = 367
+						state = 365
+					}
+				}
+				add_dynamic_modifier = {
+					modifier = TPMP_USA_new_industry_modifier
+				}
+			}
 		}
 	}
 
 	focus = {
-		id = TPMP_USA_californian_industry
+		id = TPMP_USA_west_coast_industry
 		icon = GFX_goal_generic_amphibious_assault
 		prerequisite = { focus = TPMP_USA_develop_new_industrial_centers }
 		x = 0
@@ -1793,18 +2086,82 @@ focus_tree = {
 		relative_position_id = TPMP_USA_develop_new_industrial_centers
 		cost = 5
 		completion_reward = {
+			386 = {
+				set_state_category = city
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+			}
+			385 = {
+				set_state_category = large_town
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+			}
+			378 = {
+				set_state_category = megalopolis
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
 		}
 	}
 
 	focus = {
 		id = TPMP_USA_quality_control_techniques
 		icon = GFX_goal_generic_amphibious_assault
-		prerequisite = { focus = TPMP_USA_californian_industry }
+		prerequisite = { focus = TPMP_USA_west_coast_industry }
 		x = 0
 		y = 1
-		relative_position_id = TPMP_USA_californian_industry
+		relative_position_id = TPMP_USA_west_coast_industry
 		cost = 5
 		completion_reward = {
+			add_ideas = TPMP_USA_quality_control_idea
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_tech_bonus = {
+				bonus = 0.75
+				uses = 2
+				category = industry
+			}
 		}
 	}
 
@@ -1816,7 +2173,21 @@ focus_tree = {
 		y = 1
 		relative_position_id = TPMP_USA_subassembly_techniques
 		cost = 5
+		available = {
+			has_war_support > 0.3
+		}
 		completion_reward = {
+			add_ideas = low_economic_mobilisation
+			custom_effect_tooltip = generic_skip_one_line_tt
+			every_core_state = {
+				random_select_amount = 5
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}
+			}
 		}
 	}
 
@@ -1829,6 +2200,23 @@ focus_tree = {
 		relative_position_id = TPMP_USA_arsenal_of_democracy
 		cost = 5
 		completion_reward = {
+			every_core_state = {
+				limit = {
+					OR = {
+						state = 391
+						state = 380
+						state = 379
+						state = 377
+						state = 376
+						state = 368
+					}
+				}
+				add_dynamic_modifier = {
+					modifier = TPMP_USA_mines_modifier
+				}
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_ideas = TPMP_USA_mines_idea
 		}
 	}
 
@@ -1841,6 +2229,11 @@ focus_tree = {
 		relative_position_id = TPMP_USA_fund_the_bureau_of_mines
 		cost = 5
 		completion_reward = {
+			activate_mission = TPMP_USA_strategic_materials_act_mission
+			custom_effect_tooltip = TPMP_USA_if_passed_tt
+			effect_tooltip = {
+				add_ideas = TPMP_USA_strategic_materials_act_idea
+			}
 		}
 	}
 
@@ -1853,6 +2246,14 @@ focus_tree = {
 		relative_position_id = TPMP_USA_fund_the_bureau_of_mines
 		cost = 5
 		completion_reward = {
+			modify_building_resources = {
+				building = synthetic_refinery
+				resource = rubber
+				amount = 20
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = available_designer
+			show_ideas_tooltip = TPMP_USA_rubber_reserve_company_concern
 		}
 	}
 
@@ -1901,6 +2302,7 @@ focus_tree = {
 		relative_position_id = TPMP_USA_arsenal_of_democracy
 		cost = 5
 		completion_reward = {
+			add_ideas = TPMP_USA_megaplants_idea
 		}
 	}
 
@@ -1913,6 +2315,12 @@ focus_tree = {
 		relative_position_id = TPMP_USA_arsenal_of_democracy
 		cost = 5
 		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1.0
+				ahead_reduction = 0.5
+				uses = 2
+				category = industry
+			}
 		}
 	}
 
@@ -1925,7 +2333,11 @@ focus_tree = {
 		y = 1
 		relative_position_id = TPMP_USA_construct_megaplants
 		cost = 5
+		available = {
+			has_war_support > 0.5
+		}
 		completion_reward = {
+			add_ideas = partial_economic_mobilisation
 		}
 	}
 
@@ -1937,7 +2349,11 @@ focus_tree = {
 		y = 1
 		relative_position_id = TPMP_USA_the_giant_wakes
 		cost = 5
+		available ={
+			controls_state = 393
+		}
 		completion_reward = {
+			custom_effect_tooltip = TPMP_USA_willow_run_plant_tt
 		}
 	}
 
@@ -1949,7 +2365,11 @@ focus_tree = {
 		y = 1
 		relative_position_id = TPMP_USA_the_giant_wakes
 		cost = 5
+		available ={
+			controls_state = 393
+		}
 		completion_reward = {
+			custom_effect_tooltip = TPMP_USA_detroit_arsenal_tt
 		}
 	}
 
@@ -1961,21 +2381,55 @@ focus_tree = {
 		y = 1
 		relative_position_id = TPMP_USA_the_giant_wakes
 		cost = 5
+		available ={
+			controls_state = 385
+		}
 		completion_reward = {
+			custom_effect_tooltip = TPMP_USA_kaiser_shipyards_tt
 		}
 	}
 
 	focus = {
-		id = TPMP_USA_pinnacle_of_industry
+		id = TPMP_USA_limitless_potential
 		icon = GFX_goal_generic_amphibious_assault
-		prerequisite = { focus = TPMP_USA_willow_run_plant }
-		prerequisite = { focus = TPMP_USA_detroit_arsenal }
-		prerequisite = { focus = TPMP_USA_kaiser_shipyards }
+		prerequisite = { focus = TPMP_USA_willow_run_plant focus = TPMP_USA_detroit_arsenal focus = TPMP_USA_kaiser_shipyards }
 		x = 0
 		y = 1
 		relative_position_id = TPMP_USA_detroit_arsenal
 		cost = 5
+		available = {
+			OR = {
+				has_tech = concentrated_industry5
+				has_tech = dispersed_industry5
+			}
+		}
 		completion_reward = {
+			add_ideas = war_economy
+			custom_effect_tooltip = generic_skip_one_line_tt
+			IF = {
+				limit = {
+					has_tech = concentrated_industry
+				}
+				set_technology = {
+					dispersed_industry = 1
+				}
+			}
+			ELSE_IF = {
+				limit = {
+					has_tech = dispersed_industry
+				}
+				set_technology = {
+					concentrated_industry = 1
+				}
+			}
+			ELSE = {
+				set_technology = {
+					concentrated_industry = 1
+				}
+				set_technology = {
+					dispersed_industry = 1
+				}
+			}
 		}
 	}
 
@@ -1995,7 +2449,7 @@ focus_tree = {
 		id = TPMP_USA_war_plans_division
 		icon = GFX_goal_generic_amphibious_assault
 		prerequisite = { focus = TPMP_USA_department_of_war }
-		x = -10
+		x = -9
 		y = 1
 		relative_position_id = TPMP_USA_department_of_war
 		cost = 5
@@ -2003,62 +2457,15 @@ focus_tree = {
 		}
 	}
 
-	focus = {
-		id = TPMP_USA_war_plan_violet
-		icon = GFX_goal_generic_amphibious_assault
-		prerequisite = { focus = TPMP_USA_war_plans_division }
-		x = -4
-		y = 1
-		relative_position_id = TPMP_USA_war_plans_division
-		cost = 5
-		completion_reward = {
-		}
-	}
-
-	focus = {
-		id = TPMP_USA_war_plan_black
-		icon = GFX_goal_generic_amphibious_assault
-		prerequisite = { focus = TPMP_USA_war_plans_division }
-		x = -2
-		y = 1
-		relative_position_id = TPMP_USA_war_plans_division
-		cost = 5
-		completion_reward = {
-		}
-	}
-
-	focus = {
-		id = TPMP_USA_war_plan_orange
-		icon = GFX_goal_generic_amphibious_assault
-		prerequisite = { focus = TPMP_USA_war_plans_division }
-		x = 0
-		y = 1
-		relative_position_id = TPMP_USA_war_plans_division
-		cost = 5
-		completion_reward = {
-		}
-	}
-
-	focus = {
-		id = TPMP_USA_war_plan_red
-		icon = GFX_goal_generic_amphibious_assault
-		prerequisite = { focus = TPMP_USA_war_plans_division }
-		x = 2
-		y = 1
-		relative_position_id = TPMP_USA_war_plans_division
-		cost = 5
-		completion_reward = {
-		}
-	}
 
 	focus = {
 		id = TPMP_USA_europe_first
 		icon = GFX_goal_generic_amphibious_assault
-		prerequisite = { focus = TPMP_USA_war_plan_black focus = TPMP_USA_war_plan_orange focus = TPMP_USA_war_plan_red }
+		prerequisite = { focus = TPMP_USA_war_plans_division }
 		mutually_exclusive = { focus = TPMP_USA_asia_first }
 		x = -1
 		y = 1
-		relative_position_id = TPMP_USA_war_plan_orange
+		relative_position_id = TPMP_USA_war_plans_division
 		cost = 5
 		completion_reward = {
 		}
@@ -2067,11 +2474,11 @@ focus_tree = {
 	focus = {
 		id = TPMP_USA_asia_first
 		icon = GFX_goal_generic_amphibious_assault
-		prerequisite = { focus = TPMP_USA_war_plan_black focus = TPMP_USA_war_plan_orange focus = TPMP_USA_war_plan_red }
+		prerequisite = { focus = TPMP_USA_war_plans_division }
 		mutually_exclusive = { focus = TPMP_USA_europe_first }
 		x = 1
 		y = 1
-		relative_position_id = TPMP_USA_war_plan_orange
+		relative_position_id = TPMP_USA_war_plans_division
 		cost = 5
 		completion_reward = {
 		}
@@ -2117,8 +2524,8 @@ focus_tree = {
 		id = TPMP_USA_victory_program
 		icon = GFX_goal_generic_amphibious_assault
 		prerequisite = { focus = TPMP_USA_war_plans_division }
-		x = 3
-		y = 2
+		x = -3
+		y = 1
 		relative_position_id = TPMP_USA_war_plans_division
 		cost = 5
 		completion_reward = {
@@ -2325,7 +2732,7 @@ focus_tree = {
 		id = TPMP_USA_adopt_the_garand
 		icon = GFX_goal_generic_amphibious_assault
 		prerequisite = { focus = TPMP_USA_department_of_war }
-		x = 2`
+		x = 2
 		y = 1
 		relative_position_id = TPMP_USA_department_of_war
 		cost = 5
@@ -2460,7 +2867,7 @@ focus_tree = {
 		prerequisite = { focus = TPMP_USA_new_fast_battleships }
 		prerequisite = { focus = TPMP_USA_bethlehem_steel_yards }
 		mutually_exclusive = { focus = TPMP_USA_the_essex_class }
-		x = 0`
+		x = 0
 		y = 1
 		relative_position_id = TPMP_USA_new_fast_battleships
 		cost = 5
