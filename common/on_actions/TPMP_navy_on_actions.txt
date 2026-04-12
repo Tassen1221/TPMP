@@ -38,7 +38,15 @@ on_actions = {
 			subtract_from_variable = { total_ship_var = 0.5 }
 
 			#Setting the penalty for exceeding the fleet limit dynamic modifier
-			set_variable = { fleet_limit_penalty_var = total_ship_var }
+			IF = {
+				check_variable = {
+					active_fleet_var < fleet_limit_var
+				}
+				set_variable = { fleet_limit_penalty_var = 0 }
+			}
+			ELSE = {
+				set_variable = { fleet_limit_penalty_var = total_ship_var }
+			}
 			clamp_variable = {
 				var = fleet_limit_penalty_var
 				min = -0.5
