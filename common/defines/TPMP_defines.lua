@@ -222,8 +222,8 @@ NDefines.NProduction.RESOURCE_TO_ENERGY_COEFFICIENT = 1.0	-- How much energy per
 
 NDefines.NProduction.BASE_FACTORY_MAX_EFFICIENCY_FACTOR = 50	-- Base max efficiency for factories expressed in %.
 
-NDefines.NProduction.BASE_FACTORY_SPEED_MIL = 4			-- Base factory speed multiplier (how much hoi3 style IC each factory gives).
-NDefines.NProduction.BASE_FACTORY_SPEED_NAV = 4			-- vanilla is 2.5
+NDefines.NProduction.BASE_FACTORY_SPEED_MIL = 5			-- Base factory speed multiplier (how much hoi3 style IC each factory gives).
+NDefines.NProduction.BASE_FACTORY_SPEED_NAV = 5			-- vanilla is 2.5
 
 NDefines.NProduction.INFRA_MAX_CONSTRUCTION_COST_EFFECT = 1	-- Building in a state with higher infrastructure will reduce the cost of shared buildings.
 
