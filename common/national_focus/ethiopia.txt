@@ -3111,26 +3111,7 @@ focus_tree = {
 		relative_position_id = ETH_rally_around_the_emperor
 		cost = 5
 		available = {
-			surrender_progress > 0.1
-			has_civil_war = no 
-			has_country_leader = {
-				character = ETH_haile_selassie
-				ruling_only = yes 
-				 
-			}
-			custom_trigger_tooltip = {
-				tooltip = ETH_has_host_nation_tt
-				has_variable = ETH.host_nation
-			}
-			hidden_trigger = {
-				IF = {
-					limit = {
-						is_ai = yes 	
-					}
-					is_tutorial = no
-				}
-			}
-
+			always = no
 		}
 		ai_will_do = {
 			base = 0
