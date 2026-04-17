@@ -60,7 +60,7 @@ NDefines.NMilitary.UNIT_LEADER_USE_NONLINEAR_XP_GAIN = false	-- Whether unit lea
 NDefines.NMilitary.BASE_LEADER_TRAIT_GAIN_XP = 0.5		-- Base xp gain for traits per hour for armies
 NDefines.NMilitary.MAX_NUM_TRAITS = -1				-- cant have more, -1 to disable
 
-NDefines.NMilitary.BASE_FORT_PENALTY = -0.15			-- fort penalty
+NDefines.NMilitary.BASE_FORT_PENALTY = -0.2			-- fort penalty
 NDefines.NMilitary.DIG_IN_FACTOR = 0.02				-- bonus factor for each dug-in level
 
 NDefines.NMilitary.MAX_DIVISION_BRIGADE_WIDTH = 5		-- Max width of regiments in division designer.
@@ -451,3 +451,9 @@ NDefines.NIndustrialOrganisation.ASSIGN_DESIGN_TEAM_PP_COST_PER_DAY = 0			-- Cos
 NDefines.NIndustrialOrganisation.DESIGN_TEAM_RESEARCH_BONUS = 0.1				-- Research bonus for applying a Design Team that matches the technology
 NDefines.NIndustrialOrganisation.ENABLE_TASK_CAPACITY = true					-- Enable limited task capacity for MIOs
 NDefines.NIndustrialOrganisation.DEFAULT_INITIAL_TASK_CAPACITY = 2
+
+
+NDefines.NMarket.IC_TO_CIC_FACTOR = 1.0                    	-- The factor for mapping IC cost to CIC cost. Should be a positive number.
+NDefines.NMarket.LOW_PRICE_LEVEL_FACTOR = 0.5                   -- The factor of base equipment price for low price level. Should be in range (0,1]
+NDefines.NMarket.HIGH_PRICE_LEVEL_FACTOR = 2.00                 -- The factor of base equipment price for high price level. Should be more than 1.
+NDefines.NMarket.PURCHASE_CONTRACT_SUBSIDY_BONUS_SPEED_FACTOR = 10.0			-- The factor of speed bonus from subsidies

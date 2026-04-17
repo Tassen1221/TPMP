@@ -1,5 +1,27 @@
 
 TPMP_western_front_decision_category = {
+	TPMP_fall_gelb_mission = {
+		icon = GFX_decision_generic_operation
+		allowed = {
+			tag = GER
+		}
+		activation = {
+			has_war_with = FRA
+		}
+		available = {
+			FRA = {
+				has_capitulated = yes
+			}
+		}
+		is_good = yes
+		days_mission_timeout = 270
+		fire_only_once = yes
+		timeout_effect = {
+			GER = {
+				add_ideas = TPMP_GER_gelb_idea
+			}
+		}
+	}
 	TPMP_operation_sealion_decision = {
 		icon = GFX_decision_generic_operation
         allowed = {

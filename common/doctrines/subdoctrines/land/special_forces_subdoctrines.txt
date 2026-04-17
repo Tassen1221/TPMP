@@ -212,7 +212,39 @@ special_forces_doctrine_3 = {
     xp_type = army
 
     available = {
-        always = yes
+		custom_trigger_tooltip = {
+			tooltip = special_forces_doctrine_3_tt	
+			check_variable = {
+			num_battalions_with_type@commandos = 0
+			}
+			check_variable = {
+				num_battalions_with_type@marine = 0
+			}
+			check_variable = {
+				num_battalions_with_type@mountaineers = 0
+			}
+			check_variable = {
+				num_battalions_with_type@rangers = 0
+			}
+			check_variable = {
+				num_battalions_with_type@paratrooper = 0
+			}	
+		}
+        check_variable = {
+			num_battalions_with_type@commandos = 0
+		}
+		check_variable = {
+			num_battalions_with_type@marine = 0
+		}
+		check_variable = {
+			num_battalions_with_type@mountaineers = 0
+		}
+		check_variable = {
+			num_battalions_with_type@rangers = 0
+		}
+		check_variable = {
+			num_battalions_with_type@paratrooper = 0
+		}
     }
 
 	visible = {
