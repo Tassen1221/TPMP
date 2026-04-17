@@ -11611,16 +11611,6 @@ mio:GER_blohm_und_voss_organization = {
 		relative_position_id = GER_danzig_or_war
 		cost = 5
 		available = {
-			ROM = {
-				fascism > 0.35
-				has_full_control_of_state = 46
-				NOT = { has_war_with = ROOT }
-				OR = {
-					is_in_faction = no
-					is_in_faction_with = ROOT
-				}
-				threat > 0.3
-			}
 
 		}
 
@@ -11628,31 +11618,56 @@ mio:GER_blohm_und_voss_organization = {
 
 		completion_reward = {
 
+			add_political_power = -150
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+
 			ROM = {
+
+				set_technology = {
+					fuel_refining = 1
+					fuel_refining2 = 1
+					fuel_refining3 = 1
+				}
+
+
+
+				add_ideas = TPMP_ROM_romanian_closed_economy
+				add_research_slot = -1
+
+				
 				country_event = { 
 					id = wuw_GER_diplomacy.111 
 					days = 2 
 				}
+
+
+
+
+
+
+
+
 			}
 
-			custom_effect_tooltip = if_they_accept_tt
-			effect_tooltip = {
-				ROM = {
-					add_ideas = GER_development_of_economic_relations_ns
-					custom_effect_tooltip = generic_skip_one_line_tt
-					add_opinion_modifier = {
-						target = ROOT
-						modifier = GER_trading_partners
-					}
-					add_opinion_modifier = {
-						target = ROOT
-						modifier = GER_align_romania
-					}	
-					custom_effect_tooltip = generic_skip_one_line_tt
-					add_ideas = GER_align_romania
-				}
-				custom_effect_tooltip = war_will_cancel_deal_tt
-			}
+			# custom_effect_tooltip = if_they_accept_tt
+			# effect_tooltip = {
+			# 	ROM = {
+			# 		add_ideas = GER_development_of_economic_relations_ns
+			# 		custom_effect_tooltip = generic_skip_one_line_tt
+			# 		add_opinion_modifier = {
+			# 			target = ROOT
+			# 			modifier = GER_trading_partners
+			# 		}
+			# 		add_opinion_modifier = {
+			# 			target = ROOT
+			# 			modifier = GER_align_romania
+			# 		}	
+			# 		custom_effect_tooltip = generic_skip_one_line_tt
+			# 		add_ideas = GER_align_romania
+			# 	}
+			# 	custom_effect_tooltip = war_will_cancel_deal_tt
+			# }
 
 		}
 	}
