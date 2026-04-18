@@ -69,6 +69,37 @@ on_actions = {
 			}
 		}
 	}
+	on_war = { # no more forgetting to join the war
+		effect = {
+			if = {
+				limit = {
+					tag = POR
+				}
+				if = {
+					limit = {
+						ENG = { has_capitulated = no }
+					}
+					SPR = {
+						declare_war_on = {
+							target = ENG
+							type = topple_government
+						}
+					}
+				}
+				else = {
+					SPR = {
+						declare_war_on = {
+							target = USA
+							type = topple_government
+						}
+					}
+				}
+				GER = {
+					add_to_faction = SPR
+				}
+			}
+		}
+	}
 	on_capitulation = { #yugo auto deal
 		effect = {
 			if = {
