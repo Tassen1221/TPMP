@@ -1200,8 +1200,6 @@ country_event = {
 				set_country_flag = vichy_france
 				every_state = { #transfer French colonial empire
 					limit = {
-						is_controlled_by = FRA
-						is_owned_by = FRA
 						OR = {
 							state = 1
 							state = 458
@@ -1211,6 +1209,11 @@ country_event = {
 							state = 462
 							state = 513
 							state = 665
+							state = 799
+							state = 677
+							state = 680
+							state = 553
+							state = 554
 						}
 					}
 					event_target:vichy_france = { transfer_state = PREV }

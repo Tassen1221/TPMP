@@ -94,10 +94,13 @@ TPMP_western_front_decision_category = {
 	priority = 1000
 	
 	allowed = {
-		tag = GER
+		OR = {
+			tag = GER
+			tag = ENG
+		}
 	}
 	visible = {
-		has_war_with = ENG
+		has_war = yes
 	}
 }
 TPMP_GER_escalate_spain_decision_category = {
