@@ -106,11 +106,13 @@ set_technology = {
 	infantrymg1_tech = 1
 	infantrysupport1_tech = 1
 	special_tech = 1
+	marines = 1
 	tech_support = 1
 	tech_engineers = 1
 	tech_recon = 1
 	tech_trucks = 1
 	motorised_infantry = 1
+	mechanised_infantry = 1
 	artillery0_tech = 1
 	antiair0_tech = 1
 	basic_train = 1
@@ -217,7 +219,6 @@ add_ideas = {
 	stiff_upper_lip
 	ENG_the_war_to_end_all_wars
 	george_v
-	TPMP_ENG_trade_idea
 	subsidized_defence_contracts
 	professional_army
 }
@@ -1943,11 +1944,11 @@ if = {
 }
 
 create_equipment_variant = {
-	name = "Infantry Equipment"
+	name = "Basic Infantry Equipment"
 	type = line_infantry_equipment_1
 	parent_version = 0
 	modules = {
-		soldier_type_slot_0 = bolt_action_1
+		soldier_type_slot_0 = light_machine_gun_1
 		soldier_type_slot_1 = bolt_action_1
 		soldier_type_slot_2 = bolt_action_1
 		soldier_type_slot_3 = bolt_action_1
@@ -1958,5 +1959,47 @@ create_equipment_variant = {
 		soldier_type_slot_8 = bolt_action_1
 		soldier_type_slot_9 = bolt_action_1
 		uniform_type_slot = helmet
+		sidearm_type_slot = bayonet
+		support_type_slot_0 = improvised_at_grenades
+	}
+}
+create_equipment_variant = {
+	name = "Basic Special Infantry Equipment"
+	type = special_infantry_equipment_1
+	parent_version = 0
+	modules = {
+		soldier_type_slot_0 = light_machine_gun_1
+		soldier_type_slot_1 = bolt_action_1
+		soldier_type_slot_2 = bolt_action_1
+		soldier_type_slot_3 = bolt_action_1
+		soldier_type_slot_4 = bolt_action_1
+		soldier_type_slot_5 = bolt_action_1
+		soldier_type_slot_6 = bolt_action_1
+		soldier_type_slot_7 = bolt_action_1
+		soldier_type_slot_8 = bolt_action_1
+		soldier_type_slot_9 = bolt_action_1
+		uniform_type_slot = helmet
+		sidearm_type_slot = bayonet
+		support_type_slot_0 = improvised_at_grenades
+	}
+}
+create_equipment_variant = {
+	name = "Basic Mobile Infantry Equipment"
+	type = mobile_infantry_equipment_1
+	parent_version = 0
+	modules = {
+		soldier_type_slot_0 = light_machine_gun_1
+		soldier_type_slot_1 = bolt_action_1
+		soldier_type_slot_2 = bolt_action_1
+		soldier_type_slot_3 = bolt_action_1
+		soldier_type_slot_4 = bolt_action_1
+		soldier_type_slot_5 = bolt_action_1
+		soldier_type_slot_6 = bolt_action_1
+		soldier_type_slot_7 = bolt_action_1
+		soldier_type_slot_8 = bolt_action_1
+		soldier_type_slot_9 = bolt_action_1
+		uniform_type_slot = helmet
+		sidearm_type_slot = bayonet
+		support_type_slot_0 = improvised_at_grenades
 	}
 }
