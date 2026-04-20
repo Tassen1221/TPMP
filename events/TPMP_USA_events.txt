@@ -67,3 +67,143 @@ country_event = {
 		add_ideas = TPMP_USA_strikes_idea_0
 	}
 }
+country_event = {
+	id = TPMP_USA.4
+	title = TPMP_USA.4.t
+	desc = TPMP_USA.4.d
+	picture = GFX_report_event_fall_blau
+
+	is_triggered_only = yes
+	
+	immediate = {
+        set_country_flag = TPMP_USA_mine_strike_flag
+    }
+	option = {
+		name = TPMP_USA.4.a
+		effect_tooltip = {
+			IF = {
+				limit = {
+					check_variable = {
+						new_deal_democrat_support_var > 4
+						conservative_democrat_support_var > 4
+					}
+				}
+				add_to_variable = {
+					new_deal_democrat_support_var = -5
+					tooltip = new_deal_democrat_support_tt
+				}
+				add_to_variable = {
+					conservative_democrat_support_var = -5
+					tooltip = conservative_democrat_support_tt
+				}
+				add_to_variable = {
+					isolationist_republican_support_var = 10
+					tooltip = isolationist_republican_support_tt
+				}
+				recalculate_congressional_ui = yes
+				custom_effect_tooltip = generic_skip_one_line_tt
+			}
+			ELSE_IF = {
+				limit = {
+					check_variable = {
+						new_deal_democrat_support_var > 4
+					}
+				}
+				add_to_variable = {
+					new_deal_democrat_support_var = -5
+					tooltip = new_deal_democrat_support_tt
+				}
+				add_to_variable = {
+					isolationist_republican_support_var = 5
+					tooltip = isolationist_republican_support_tt
+				}
+				recalculate_congressional_ui = yes
+				custom_effect_tooltip = generic_skip_one_line_tt
+			}
+			ELSE_IF = {
+				limit = {
+					check_variable = {
+						conservative_democrat_support_var > 4
+					}
+				}
+				add_to_variable = {
+					conservative_democrat_support_var = -5
+					tooltip = conservative_democrat_support_tt
+				}
+				add_to_variable = {
+					isolationist_republican_support_var = 5
+					tooltip = isolationist_republican_support_tt
+				}
+				recalculate_congressional_ui = yes
+				custom_effect_tooltip = generic_skip_one_line_tt
+			}
+			add_timed_idea = {
+				idea = TPMP_USA_neutrality_act_idea_0
+				days = 180
+			}
+		}
+	}
+}
+country_event = {
+	id = TPMP_USA.5
+	title = TPMP_USA.5.t
+	desc = TPMP_USA.5.d
+	picture = GFX_report_event_fall_blau
+
+	is_triggered_only = yes
+	
+	option = {
+		name = TPMP_USA.5.a
+		add_equipment_subsidy = {
+			cic = 10000
+			equipment_type = small_plane_airframe
+			seller_tags = { USA }
+		}
+		add_equipment_subsidy = {
+			cic = 10000
+			equipment_type = medium_plane_airframe
+			seller_tags = { USA }
+		}
+		add_equipment_subsidy = {
+			cic = 5000
+			equipment_type = large_plane_airframe
+			seller_tags = { USA }
+		}
+	}
+	option = {
+		name = TPMP_USA.5.b
+		add_equipment_subsidy = {
+			cic = 10000
+			equipment_type = infantry_equipment
+			seller_tags = { USA }
+		}
+		add_equipment_subsidy = {
+			cic = 10000
+			equipment_type = artillery_equipment
+			seller_tags = { USA }
+		}
+		add_equipment_subsidy = {
+			cic = 5000
+			equipment_type = anti_tank_equipment
+			seller_tags = { USA }
+		}
+	}
+	option = {
+		name = TPMP_USA.5.c
+		add_equipment_subsidy = {
+			cic = 10000
+			equipment_type = light_tank_chassis
+			seller_tags = { USA }
+		}
+		add_equipment_subsidy = {
+			cic = 10000
+			equipment_type = medium_tank_chassis
+			seller_tags = { USA }
+		}
+		add_equipment_subsidy = {
+			cic = 5000
+			equipment_type = heavy_tank_chassis
+			seller_tags = { USA }
+		}
+	}
+}

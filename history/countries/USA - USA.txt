@@ -19,12 +19,22 @@ set_politics = {
 	elections_allowed = yes
 }
 set_popularities = {
-	democratic = 99
-	communism = 1
+	democratic = 75
+	neutrality = 13
+	fascism = 7
+	communism = 5
 }
 
 add_ideas = {
 }
+
+set_variable = { left_wing_democrat_support_var = 8 }
+set_variable = { new_deal_democrat_support_var = 38 }
+set_variable = { conservative_democrat_support_var = 22 }
+set_variable = { progressive_republican_support_var = 5 }
+set_variable = { business_republican_support_var = 16 }
+set_variable = { isolationist_republican_support_var = 11 }
+recalculate_congressional_ui = yes
 
 set_variable = { TPMP_USA_great_depression_cg_var = 1.0 }
 set_variable = { TPMP_USA_great_depression_stab_var = -0.5 }
@@ -38,11 +48,19 @@ set_variable = { TPMP_USA_deficit_cg_var = 0 }
 set_variable = { TPMP_USA_deficit_stab_var = 0 }
 set_variable = { TPMP_USA_deficit_pp_var = 0 }
 
+set_variable = { TPMP_USA_megaproject_cons_var = 0.05 }
+
 add_dynamic_modifier = {
 	modifier = TPMP_USA_great_depression_modifier
 }
 add_dynamic_modifier = {
 	modifier = TPMP_USA_deficit_modifier
+}
+
+add_ideas = TPMP_USA_congress_idea
+add_timed_idea = {
+	idea = TPMP_USA_neutrality_act_idea_0
+	days = 180
 }
 
 recruit_character = TPMP_USA_reserve_fleet

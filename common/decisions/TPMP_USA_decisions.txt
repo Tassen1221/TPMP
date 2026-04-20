@@ -67,20 +67,10 @@ TPMP_USA_congress_category = {
             }
         }
     }
-    TPMP_USA_fair_labour_standards_act_decision = {
-        icon = GFX_decision_eng_trade_unions_support
-        visible = {
-            has_completed_focus = TPMP_USA_fair_labour_standards_act
-            NOT = {
-                has_active_mission = TPMP_USA_fair_labour_standards_act_mission
-                has_country_flag = TPMP_USA_fair_labour_standards_act_flag
-            }
-        }
-        complete_effect = {
-            activate_mission = TPMP_USA_fair_labour_standards_act_mission
-        }
-    }
-    TPMP_USA_fair_labour_standards_act_mission = {
+}
+TPMP_USA_foreign_aid_category = {
+    TPMP_USA_SOV_lend_lease_mission = {
+        targets = { SOV }
         activation = {
             always = no
         }
@@ -89,43 +79,55 @@ TPMP_USA_congress_category = {
                 always = no
             }
         }
-        icon = GFX_decision_eng_trade_unions_support
+        icon = GFX_decision_ger_military_buildup
+        priority = 6
         is_good = yes
-        days_mission_timeout = 120
+        days_mission_timeout = 30
         timeout_effect = {
-            custom_effect_tooltip = has_support_lwd_ndd_cd_tt
             IF = {
                 limit = {
-                    has_support_lwd_ndd_cd = yes
+                    has_country_flag = TPMP_USA_SOV_lend_lease_flag
                 }
-                add_ideas = TPMP_USA_fair_labour_standards_act_idea_0
-                custom_effect_tooltip = generic_skip_one_line_tt
-                USA_decrease_great_depression = yes
-                set_country_flag = TPMP_USA_fair_labour_standards_act_flag
+                activate_mission = TPMP_USA_SOV_lend_lease_mission
             }
-            ELSE = {
-                effect_tooltip = {
-                    add_ideas = TPMP_USA_fair_labour_standards_act_idea_0
-                    custom_effect_tooltip = generic_skip_one_line_tt
-                    USA_decrease_great_depression = yes
-                }
+            send_equipment = {
+                equipment = infantry_equipment
+                amount = 1000
+                target = SOV
             }
         }
     }
-    TPMP_USA_federal_housing_act_decision = {
-        icon = GFX_decision_eng_trade_unions_support
+    TPMP_USA_enable_SOV_lend_lease_decision = {
+        targets = { SOV }
+        icon = GFX_decision_ger_military_buildup
+        priority = 5
         visible = {
-            has_completed_focus = TPMP_USA_federal_housing_act
+            has_country_flag = TPMP_USA_lend_lease_flag
             NOT = {
-                has_active_mission = TPMP_USA_federal_housing_act_mission
-                has_country_flag = TPMP_USA_federal_housing_act_flag
+                has_active_mission = TPMP_USA_SOV_lend_lease_mission
+                has_country_flag = TPMP_USA_SOV_lend_lease_flag
             }
         }
         complete_effect = {
-            activate_mission = TPMP_USA_federal_housing_act_mission
+            set_country_flag = TPMP_USA_SOV_lend_lease_flag
+            activate_mission = TPMP_USA_SOV_lend_lease_mission
         }
     }
-    TPMP_USA_federal_housing_act_mission = {
+    TPMP_USA_disable_SOV_lend_lease_decision = {
+        targets = { SOV }
+        icon = GFX_decision_ger_military_buildup
+        priority = 5
+        visible = {
+            has_country_flag = TPMP_USA_lend_lease_flag
+            has_active_mission = TPMP_USA_SOV_lend_lease_mission
+            has_country_flag = TPMP_USA_SOV_lend_lease_flag
+        }
+        complete_effect = {
+            clr_country_flag = TPMP_USA_SOV_lend_lease_flag
+        }
+    }
+    TPMP_USA_ENG_lend_lease_mission = {
+        targets = { ENG }
         activation = {
             always = no
         }
@@ -134,178 +136,220 @@ TPMP_USA_congress_category = {
                 always = no
             }
         }
-        icon = GFX_decision_eng_trade_unions_support
+        icon = GFX_decision_ger_military_buildup
+        priority = 4
         is_good = yes
-        days_mission_timeout = 120
+        days_mission_timeout = 30
         timeout_effect = {
-            custom_effect_tooltip = has_support_lwd_ndd_cd_tt
             IF = {
                 limit = {
-                    has_support_lwd_ndd_cd = yes
+                    has_country_flag = TPMP_USA_ENG_lend_lease_flag
                 }
-                every_core_state = {
-					random_select_amount = 5
-					add_building_construction = {
-						type = infrastructure
-						level = 1
-						instant_build = yes
-					}
-					add_extra_state_shared_building_slots = 1
-				}
-                custom_effect_tooltip = generic_skip_one_line_tt
-                USA_decrease_great_depression = yes
-                custom_effect_tooltip = generic_skip_one_line_tt
-                USA_increase_deficit = yes
-                set_country_flag = TPMP_USA_federal_housing_act_flag
+                activate_mission = TPMP_USA_ENG_lend_lease_mission
             }
-            ELSE = {
-                effect_tooltip = {
-                    every_core_state = {
-                        random_select_amount = 5
-                        add_building_construction = {
-                            type = infrastructure
-                            level = 1
-                            instant_build = yes
-                        }
-                        add_extra_state_shared_building_slots = 1
+            send_equipment = {
+                equipment = infantry_equipment
+                amount = 1000
+                target = ENG
+            }
+        }
+    }
+    TPMP_USA_enable_ENG_lend_lease_decision = {
+        targets = { ENG }
+        icon = GFX_decision_ger_military_buildup
+        priority = 3
+        visible = {
+            has_country_flag = TPMP_USA_lend_lease_flag
+            NOT = {
+                has_active_mission = TPMP_USA_ENG_lend_lease_mission
+                has_country_flag = TPMP_USA_ENG_lend_lease_flag
+            }
+        }
+        complete_effect = {
+            set_country_flag = TPMP_USA_ENG_lend_lease_flag
+            activate_mission = TPMP_USA_ENG_lend_lease_mission
+        }
+    }
+    TPMP_USA_disable_ENG_lend_lease_decision = {
+        targets = { ENG }
+        icon = GFX_decision_ger_military_buildup
+        priority = 3
+        visible = {
+            has_country_flag = TPMP_USA_lend_lease_flag
+            has_active_mission = TPMP_USA_ENG_lend_lease_mission
+            has_country_flag = TPMP_USA_ENG_lend_lease_flag
+        }
+        complete_effect = {
+            clr_country_flag = TPMP_USA_ENG_lend_lease_flag
+        }
+    }
+    TPMP_USA_FRA_lend_lease_mission = {
+        targets = { FRA }
+        activation = {
+            always = no
+        }
+        available = {
+            hidden_trigger = {
+                always = no
+            }
+        }
+        icon = GFX_decision_ger_military_buildup
+       priority = 2
+        is_good = yes
+        days_mission_timeout = 30
+        timeout_effect = {
+            IF = {
+                limit = {
+                    has_country_flag = TPMP_USA_FRA_lend_lease_flag
+                }
+                activate_mission = TPMP_USA_FRA_lend_lease_mission
+            }
+            send_equipment = {
+                equipment = infantry_equipment
+                amount = 1000
+                target = FRA
+            }
+        }
+    }
+    TPMP_USA_enable_FRA_lend_lease_decision = {
+        targets = { FRA }
+        icon = GFX_decision_ger_military_buildup
+        priority = 1
+        visible = {
+            has_country_flag = TPMP_USA_lend_lease_flag
+            NOT = {
+                has_active_mission = TPMP_USA_FRA_lend_lease_mission
+                has_country_flag = TPMP_USA_FRA_lend_lease_flag
+            }
+        }
+        complete_effect = {
+            set_country_flag = TPMP_USA_FRA_lend_lease_flag
+            activate_mission = TPMP_USA_FRA_lend_lease_mission
+        }
+    }
+    TPMP_USA_disable_FRA_lend_lease_decision = {
+        targets = { FRA }
+        icon = GFX_decision_ger_military_buildup
+        priority = 1
+        visible = {
+            has_country_flag = TPMP_USA_lend_lease_flag
+            has_active_mission = TPMP_USA_FRA_lend_lease_mission
+            has_country_flag = TPMP_USA_FRA_lend_lease_flag
+        }
+        complete_effect = {
+            clr_country_flag = TPMP_USA_FRA_lend_lease_flag
+        }
+    }
+}
+TPMP_USA_sanctions_category = {
+    TPMP_USA_GER_sanction_decision = {
+        icon = GFX_decision_generic_consumer_goods
+        cost = 50
+        fire_only_once = yes
+        visible = {
+            has_completed_focus = TPMP_USA_limited_intervention
+        }
+        complete_effect = {
+            GER = {
+                add_timed_idea = {
+                    idea = TPMP_USA_sanctions_idea
+                    days = 365
+                }
+            }
+        }
+    }
+    TPMP_USA_ITA_sanction_decision = {
+        icon = GFX_decision_generic_consumer_goods
+        cost = 50
+        fire_only_once = yes
+        visible = {
+            has_completed_focus = TPMP_USA_limited_intervention
+        }
+        complete_effect = {
+            ITA = {
+                add_timed_idea = {
+                    idea = TPMP_USA_sanctions_idea
+                    days = 365
+                }
+            }
+        }
+    }
+    TPMP_USA_JAP_sanction_decision = {
+        icon = GFX_decision_generic_consumer_goods
+        cost = 50
+        fire_only_once = yes
+        visible = {
+            has_completed_focus = TPMP_USA_limited_intervention
+        }
+        complete_effect = {
+            JAP = {
+                add_timed_idea = {
+                    idea = TPMP_USA_sanctions_idea
+                    days = 365
+                }
+            }
+        }
+    }
+}
+war_measures = {
+    TPMP_USA_victory_bonds_decision = {
+    	icon = generic_industry
+
+    	allowed = {
+            always = yes
+        }
+        available = {
+            has_war = yes
+
+        }
+        visible = {
+            has_war = yes
+            has_completed_focus = TPMP_USA_patriotic_investment
+        }
+
+        fire_only_once = no
+
+		days_remove = 180
+
+		cost = GER_war_bonds_var?50
+
+		modifier = {
+			consumer_goods_factor = -0.15
+		}
+		complete_effect = {
+            IF = {
+                limit = {
+                    check_variable = {
+                        TPMP_USA_deficit_cg_var > 0
                     }
-                    custom_effect_tooltip = generic_skip_one_line_tt
-                    USA_decrease_great_depression = yes
-                    custom_effect_tooltip = generic_skip_one_line_tt
-                    USA_increase_deficit = yes
                 }
+                USA_decrease_deficit = yes
             }
-        }
-    }
-    TPMP_USA_smith_connally_act_decision = {
-        icon = GFX_decision_eng_trade_unions_support
-        visible = {
-            has_completed_focus = TPMP_USA_smith_connally_act
-            NOT = {
-                has_active_mission = TPMP_USA_smith_connally_act_mission
-                has_country_flag = TPMP_USA_smith_connally_act_flag
-            }
-        }
-        complete_effect = {
-            activate_mission = TPMP_USA_smith_connally_act_mission
-        }
-    }
-    TPMP_USA_smith_connally_act_mission = {
-        activation = {
-            always = no
-        }
-        available = {
-            hidden_trigger = {
-                always = no
-            }
-        }
-        icon = GFX_decision_eng_trade_unions_support
-        is_good = yes
-        days_mission_timeout = 120
-        timeout_effect = {
-            custom_effect_tooltip = has_support_lwd_ndd_cd_tt
+			IF = {
+				limit = {
+					NOT = {
+						has_variable = GER_war_bonds_var
+					}
+				}
+				set_variable = {
+					var = GER_war_bonds_var
+					value = 50
+				}
+			}
             IF = {
-                limit = {
-                    has_support_lwd_ndd_cd = yes
-                }
-                remove_ideas = TPMP_USA_strikes_idea_0
-                set_country_flag = TPMP_USA_smith_connally_act_flag
-            }
-            ELSE = {
-                effect_tooltip = {
-                    remove_ideas = TPMP_USA_strikes_idea_0
-                }
-            }
-        }
-    }
-    TPMP_USA_agricultural_adjustment_act_decision = {
-        icon = GFX_decision_eng_trade_unions_support
-        visible = {
-            has_completed_focus = TPMP_USA_agricultural_adjustment_act
-            NOT = {
-                has_active_mission = TPMP_USA_agricultural_adjustment_act_mission
-                has_country_flag = TPMP_USA_agricultural_adjustment_act_flag
-            }
-        }
-        complete_effect = {
-            activate_mission = TPMP_USA_agricultural_adjustment_act_mission
-        }
-    }
-    TPMP_USA_agricultural_adjustment_act_mission = {
-        activation = {
-            always = no
-        }
-        available = {
-            hidden_trigger = {
-                always = no
-            }
-        }
-        icon = GFX_decision_eng_trade_unions_support
-        is_good = yes
-        days_mission_timeout = 120
-        timeout_effect = {
-            custom_effect_tooltip = has_support_lwd_ndd_cd_tt
-            IF = {
-                limit = {
-                    has_support_lwd_ndd_cd = yes
-                }
-                add_ideas = TPMP_USA_agricultural_adjustment_act_idea_0
-                custom_effect_tooltip = generic_skip_one_line_tt
-                USA_decrease_great_depression = yes
-                custom_effect_tooltip = generic_skip_one_line_tt
-                USA_increase_deficit = yes
-                set_country_flag = TPMP_USA_agricultural_adjustment_act_flag
-            }
-            ELSE = {
-                effect_tooltip = {
-                    add_ideas = TPMP_USA_agricultural_adjustment_act_idea_0
-                    custom_effect_tooltip = generic_skip_one_line_tt
-                    USA_decrease_great_depression = yes
-                    custom_effect_tooltip = generic_skip_one_line_tt
-                    USA_increase_deficit = yes
-                }
-            }
-        }
-    }
-    TPMP_USA_strategic_materials_act_decision = {
-        icon = GFX_decision_eng_trade_unions_support
-        visible = {
-            has_completed_focus = TPMP_USA_strategic_materials_act
-            NOT = {
-                has_active_mission = TPMP_USA_strategic_materials_act_mission
-                has_country_flag = TPMP_USA_strategic_materials_act_flag
-            }
-        }
-        complete_effect = {
-            activate_mission = TPMP_USA_strategic_materials_act_mission
-        }
-    }
-    TPMP_USA_strategic_materials_act_mission = {
-        activation = {
-            always = no
-        }
-        available = {
-            hidden_trigger = {
-                always = no
-            }
-        }
-        icon = GFX_decision_eng_trade_unions_support
-        is_good = yes
-        days_mission_timeout = 120
-        timeout_effect = {
-            custom_effect_tooltip = has_support_lwd_ndd_cd_tt
-            IF = {
-                limit = {
-                    has_support_lwd_ndd_cd = yes
-                }
-                add_ideas = TPMP_USA_strategic_materials_act_idea
-                set_country_flag = TPMP_USA_strategic_materials_act_flag
-            }
-            ELSE = {
-                effect_tooltip = {
-                    add_ideas = TPMP_USA_strategic_materials_act_idea
-                }
-            }
-        }
+				limit = {
+					has_variable = GER_war_bonds_war_support_var
+				}
+				add_war_support = GER_war_bonds_war_support_var
+			}
+			add_to_variable = {
+				var = GER_war_bonds_war_support_var
+				value = -0.025
+			}
+			add_to_variable = {
+				var = GER_war_bonds_var
+				value = 25
+			}
+		}
     }
 }

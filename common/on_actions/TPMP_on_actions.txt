@@ -7,6 +7,13 @@ on_actions = {
 			set_variable = { TPMP_reservist_system_mastery_var = 2.5 }
 			set_variable = { TPMP_militia_system_mastery_var = 1.5 }
 			every_country = {
+				limit = {
+					NOT = {
+						OR = {
+							tag = USA
+						}
+					}
+				}
 				set_rule = { can_send_volunteers = yes }
 			}
 			every_country = {

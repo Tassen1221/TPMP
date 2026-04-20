@@ -1,30 +1,105 @@
 ideas = {
 	country = {
-		TPMP_USA_fair_labour_standards_act_idea_0 = {
+		TPMP_USA_neutrality_act_idea_0 = {
+			picture = neutrality_idea
 			modifier = {
 				stability_factor = 0.05
-				industrial_capacity_factory = 0.025
+				war_support_factor = -0.1
+				lend_lease_tension = 0.5
+				custom_modifier_tooltip = TPMP_USA_neutrality_act_tt
+				custom_modifier_tooltip = TPMP_no_volunteers_tt
+			}
+			rule = {
+				can_access_market = no
+				can_join_factions = no
+				can_send_volunteers = no
+			}
+			on_remove = {
+				IF = {
+					limit = {
+						NOT = {
+							has_completed_focus = TPMP_USA_second_neutrality_act
+						}
+					}
+					add_timed_idea = {
+						idea = TPMP_USA_neutrality_act_idea_0
+						days = 180
+					}
+				}
 			}
 		}
-		TPMP_USA_fair_labour_standards_act_idea_1 = {
+		TPMP_USA_neutrality_act_idea_1 = {
+			picture = neutrality_idea
 			modifier = {
-				stability_factor = 0.075
-				industrial_capacity_factory = 0.05
+				stability_factor = -0.05
+				war_support_factor = 0.05
+				custom_modifier_tooltip = TPMP_yes_market_tt
+			}
+			rule = {
+				can_access_market = yes
+				can_join_factions = no
+				can_send_volunteers = yes
 			}
 		}
-		TPMP_USA_agricultural_adjustment_act_idea_0 = {
+		TPMP_USA_neutrality_act_idea_2 = {
+			picture = neutrality_idea
 			modifier = {
-				global_building_slots_factor = 0.1
-				production_speed_buildings_factor = 0.05
-				supply_consumption_factor = -0.05
+				stability_factor = 0.05
+				lend_lease_tension = 0.5
+				custom_modifier_tooltip = TPMP_yes_market_tt
+			}
+			rule = {
+				can_access_market = yes
+				can_join_factions = no
+				can_send_volunteers = no
 			}
 		}
-		TPMP_USA_agricultural_adjustment_act_idea_1 = {
+		TPMP_USA_sanctions_idea = {
+			picture = generic_economic_crisis
 			modifier = {
-				global_building_slots_factor = 0.1
-				production_speed_buildings_factor = 0.1
-				production_speed_supply_node_factor = 0.2
-				supply_consumption_factor = -0.1
+				consumer_goods_factor = 0.05
+				industrial_capacity_factory = -0.05
+				industrial_capacity_dockyard = -0.05
+			}
+		}
+		TPMP_USA_AEF_idea = {
+			picture = generic_volunteer_expedition_bonus
+			modifier = {
+				send_volunteers_tension = -0.5
+				send_volunteer_size = 3
+			}
+		}
+		TPMP_USA_congress_idea = {
+			picture = ARG_american_allyship
+			modifier = {
+				custom_modifier_tooltip = TPMP_USA_congress_tt
+			}
+		}
+		TPMP_USA_expand_civil_spending_idea = {
+			picture = ARG_civilian_economy_boost
+			modifier = {
+				industrial_factory_donations = 5
+				production_speed_industrial_complex_factor = 0.1
+			}
+		}
+
+		TPMP_USA_alphabet_agencies_idea = {
+			picture = generic_political_support
+			modifier = {
+				command_power_gain_mult = 0.1
+				political_power_gain = 0.1
+				custom_modifier_tooltip = TPMP_USA_agencies_tt
+			}
+		}
+
+		TPMP_USA_OSRD_idea = {
+			picture = generic_radar
+			modifier = {
+				production_speed_facility_factor = 0.2
+				research_speed_factor = 0.05
+			}
+			research_bonus = {
+				electronics = 0.05
 			}
 		}
 
@@ -103,8 +178,101 @@ ideas = {
 				industrial_capacity_dockyard = -0.05
 			}
 		}
+		TPMP_USA_the_tank_we_want_idea = {
+			picture = generic_acquire_tanks
+			research_bonus = {
+				cat_chassis_tech = -0.15
+			}
+			equipment_bonus = {
+				TPMP_cat_eq_all_tank = {
+					soft_attack = 0.05
+					hard_attack = 0.05
+					breakthrough = 0.15
+					instant = yes
+				}
+			}
+		}
 	}
 	hidden_ideas = {
+		TPMP_USA_wagner_act_idea_0 = {
+			modifier = {
+				stability_factor = 0.05
+				industrial_capacity_factory = 0.025
+			}
+		}
+		TPMP_USA_fair_labour_standards_act_idea_0 = {
+			modifier = {
+				stability_factor = 0.05
+				industrial_capacity_factory = 0.025
+			}
+		}
+		TPMP_USA_fair_labour_standards_act_idea_1 = {
+			modifier = {
+				stability_factor = 0.075
+				industrial_capacity_factory = 0.05
+			}
+		}
+		TPMP_USA_agricultural_adjustment_act_idea_0 = {
+			modifier = {
+				global_building_slots_factor = 0.1
+				production_speed_buildings_factor = 0.05
+			}
+		}
+		TPMP_USA_agricultural_adjustment_act_idea_1 = {
+			modifier = {
+				global_building_slots_factor = 0.1
+				production_speed_buildings_factor = 0.05
+				production_speed_supply_node_factor = 0.2
+				supply_consumption_factor = -0.05
+			}
+		}
+		TPMP_USA_WPA_idea_0 = {
+			modifier = {
+				stability_factor = 0.1
+				production_speed_buildings_factor = 0.05
+			}
+		}
+		TPMP_USA_WPA_idea_1 = {
+			modifier = {
+				stability_factor = 0.15
+				stability_weekly_factor = 0.001
+				production_speed_buildings_factor = 0.05
+				research_speed_factor = 0.05
+			}
+		}
+		TPMP_USA_FSA_idea_0 = {
+			modifier = {
+				stability_factor = 0.05
+				political_power_gain = 0.1
+			}
+		}
+		TPMP_USA_FSA_idea_1 = {
+			modifier = {
+				stability_factor = 0.05
+				political_power_gain = 0.15
+				experience_loss_factor = -0.2
+			}
+		}
+		TPMP_USA_NYA_idea = {
+			modifier = {
+				conscription_factor = 0.05
+				production_factory_efficiency_gain_factor = 0.05
+				training_time_factor = -0.1
+			}
+		}
+		TPMP_USA_PWA_idea = {
+			modifier = {
+				production_speed_buildings_factor = 0.05
+				max_dig_in = 1
+				dig_in_speed_factor = 0.15
+			}
+		}
+		TPMP_USA_selective_training_and_service_act_idea = {
+			modifier = {
+				conscription_factor = -0.05
+				war_support_factor = 0.1
+			}
+		}
 		TPMP_USA_willow_run_plant_idea_0 = {
 			equipment_bonus = {
 				TPMP_cat_eq_all_plane = {
@@ -830,83 +998,63 @@ ideas = {
 			
 			traits = { TPMP_rubber_concern }
 		}
-
-		standard_oil_california = {
-			
-			
+		TPMP_USA_general_electric_concern = {
 			allowed = {
 				original_tag = USA
 			}
-			
-
+			available = {
+				has_completed_focus = TPMP_USA_the_three_generals
+			}
 			
 			research_bonus = {
 				industry = 0.05
-				synth_resources = 0.15
-			}
-			
-			traits = { refinery_concern }
-			
-			modifier = {
-			}
-		}
-		
-		general_electric = {
-			
-			
-			allowed = {
-				original_tag = USA
-			}
-			
-
-			
-			research_bonus = {
 				electronics = 0.15
 			}
 			
-			traits = { electronics_concern }
-			
-			modifier = {
-			}
+			traits = { TPMP_general_electric_concern }
 		}
-		USA_general_motors = {
-			
-			picture = usa_general_motors
+		TPMP_USA_general_motors_concern = {
 			allowed = {
 				original_tag = USA
 			}
 			available = {
-				has_completed_focus = USA_wartime_industry
+				has_completed_focus = TPMP_USA_the_three_generals
 			}
 			
-
+			equipment_bonus = {
+				TPMP_cat_eq_all_tank = {
+					reliability = 0.03
+					maximum_speed = 0.05
+					instant = yes
+				}
+				TPMP_cat_eq_all_plane = {
+					reliability = 0.03
+					maximum_speed = 0.05
+					instant = yes
+				}
+			}
+			research_bonus = {
+				industry = 0.05
+				cat_air_engine = 0.15
+				cat_armour_engine_tech = 0.15
+			}
+			
+			traits = { TPMP_general_motors_concern }
+		}
+		TPMP_USA_general_mills_concern = {
+			allowed = {
+				original_tag = USA
+			}
+			available = {
+				has_completed_focus = TPMP_USA_the_three_generals
+			}
 			
 			research_bonus = {
 				industry = 0.15
+				cat_logistics_tech = 0.15
 			}
 			
-			traits = { industrial_concern }
-			
-			modifier = {
-				industrial_capacity_factory = 0.05
-			}
-		}
-		USA_union_pacific_railway = {
-
-			picture = idea_USA_union_pacific_railway
-
-			allowed = {
-				original_tag = USA
-			}
-
-			available = {
-			}
-
-			research_bonus = {
-				industry = 0.05
-			}
-
-			traits = { railway_company }
+			traits = { TPMP_general_mills_concern }
 		}
 	}
 }

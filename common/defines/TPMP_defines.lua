@@ -222,8 +222,8 @@ NDefines.NProduction.RESOURCE_TO_ENERGY_COEFFICIENT = 1.0	-- How much energy per
 
 NDefines.NProduction.BASE_FACTORY_MAX_EFFICIENCY_FACTOR = 50	-- Base max efficiency for factories expressed in %.
 
-NDefines.NProduction.BASE_FACTORY_SPEED_MIL = 4			-- Base factory speed multiplier (how much hoi3 style IC each factory gives).
-NDefines.NProduction.BASE_FACTORY_SPEED_NAV = 4			-- vanilla is 2.5
+NDefines.NProduction.BASE_FACTORY_SPEED_MIL = 4		-- Base factory speed multiplier (how much hoi3 style IC each factory gives).
+NDefines.NProduction.BASE_FACTORY_SPEED_NAV = 4		-- vanilla is 2.5
 
 NDefines.NProduction.INFRA_MAX_CONSTRUCTION_COST_EFFECT = 1	-- Building in a state with higher infrastructure will reduce the cost of shared buildings.
 
@@ -451,3 +451,9 @@ NDefines.NIndustrialOrganisation.ASSIGN_DESIGN_TEAM_PP_COST_PER_DAY = 0			-- Cos
 NDefines.NIndustrialOrganisation.DESIGN_TEAM_RESEARCH_BONUS = 0.1				-- Research bonus for applying a Design Team that matches the technology
 NDefines.NIndustrialOrganisation.ENABLE_TASK_CAPACITY = true					-- Enable limited task capacity for MIOs
 NDefines.NIndustrialOrganisation.DEFAULT_INITIAL_TASK_CAPACITY = 2
+
+
+NDefines.NMarket.IC_TO_CIC_FACTOR = 1.0                    	-- The factor for mapping IC cost to CIC cost. Should be a positive number.
+NDefines.NMarket.LOW_PRICE_LEVEL_FACTOR = 0.5                   -- The factor of base equipment price for low price level. Should be in range (0,1]
+NDefines.NMarket.HIGH_PRICE_LEVEL_FACTOR = 2.00                 -- The factor of base equipment price for high price level. Should be more than 1.
+NDefines.NMarket.PURCHASE_CONTRACT_SUBSIDY_BONUS_SPEED_FACTOR = 10.0			-- The factor of speed bonus from subsidies
