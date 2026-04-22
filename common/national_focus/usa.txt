@@ -57,7 +57,12 @@ focus_tree = {
 		prerequisite = { focus = TPMP_USA_moderate_our_rhetoric focus = TPMP_USA_defence_of_the_new_deal }
 		x = 14
 		y = 1
-		cost = 5
+		cost = 0
+		available = {
+			hidden_trigger = {
+				always = no
+			}
+		}
 		completion_reward = {
 		}
 	}
@@ -69,22 +74,15 @@ focus_tree = {
 		icon = GFX_goal_generic_amphibious_assault
 		prerequisite = { focus = TPMP_USA_the_1936_election }
 		mutually_exclusive = { focus = TPMP_USA_a_strong_mandate }
-		x = -5
+		x = -4
 		y = 1
 		relative_position_id = TPMP_USA_the_1936_election
-		cost = 5
-		completion_reward = {
+		cost = 0
+		available = {
+			hidden_trigger = {
+				always = no
+			}
 		}
-	}
-
-	focus = {
-		id = TPMP_USA_separation_of_powers
-		icon = GFX_goal_generic_amphibious_assault
-		prerequisite = { focus = TPMP_USA_a_narrow_victory }
-		x = -2
-		y = 1
-		relative_position_id = TPMP_USA_a_narrow_victory
-		cost = 5
 		completion_reward = {
 		}
 	}
@@ -92,10 +90,10 @@ focus_tree = {
 	focus = {
 		id = TPMP_USA_congressional_mobilization_plan
 		icon = GFX_goal_generic_amphibious_assault
-		prerequisite = { focus = TPMP_USA_separation_of_powers }
-		x = 0
+		prerequisite = { focus = TPMP_USA_a_narrow_victory }
+		x = -2
 		y = 1
-		relative_position_id = TPMP_USA_separation_of_powers
+		relative_position_id = TPMP_USA_a_narrow_victory
 		cost = 5
 		completion_reward = {
 		}
@@ -114,7 +112,7 @@ focus_tree = {
 	}
 
 	focus = {
-		id = TPMP_USA_bipartisan_appointments
+		id = TPMP_USA_the_hatch_act
 		icon = GFX_goal_generic_amphibious_assault
 		prerequisite = { focus = TPMP_USA_a_conservative_coalition }
 		x = 0
@@ -126,25 +124,13 @@ focus_tree = {
 	}
 
 	focus = {
-		id = TPMP_USA_the_hatch_act
-		icon = GFX_goal_generic_amphibious_assault
-		prerequisite = { focus = TPMP_USA_bipartisan_appointments }
-		x = 0
-		y = 1
-		relative_position_id = TPMP_USA_bipartisan_appointments
-		cost = 5
-		completion_reward = {
-		}
-	}
-
-	focus = {
 		id = TPMP_USA_limit_the_executive
 		icon = GFX_goal_generic_amphibious_assault
-		prerequisite = { focus = TPMP_USA_bipartisan_appointments }
+		prerequisite = { focus = TPMP_USA_a_conservative_coalition }
 		mutually_exclusive = { focus = TPMP_USA_a_deal_with_the_executive }
 		x = -1
 		y = 2
-		relative_position_id = TPMP_USA_bipartisan_appointments
+		relative_position_id = TPMP_USA_a_conservative_coalition
 		cost = 5
 		completion_reward = {
 		}
@@ -153,11 +139,11 @@ focus_tree = {
 	focus = {
 		id = TPMP_USA_a_deal_with_the_executive
 		icon = GFX_goal_generic_amphibious_assault
-		prerequisite = { focus = TPMP_USA_bipartisan_appointments }
+		prerequisite = { focus = TPMP_USA_a_conservative_coalition }
 		mutually_exclusive = { focus = TPMP_USA_limit_the_executive }
 		x = 1
 		y = 2
-		relative_position_id = TPMP_USA_bipartisan_appointments
+		relative_position_id = TPMP_USA_a_conservative_coalition
 		cost = 5
 		completion_reward = {
 		}
@@ -179,20 +165,8 @@ focus_tree = {
 		id = TPMP_USA_limited_deregulation
 		icon = GFX_goal_generic_amphibious_assault
 		prerequisite = { focus = TPMP_USA_encourage_lobbyists }
-		x = 1
-		y = 1
-		relative_position_id = TPMP_USA_encourage_lobbyists
-		cost = 5
-		completion_reward = {
-		}
-	}
-
-	focus = {
-		id = TPMP_USA_political_action_committee
-		icon = GFX_goal_generic_amphibious_assault
-		prerequisite = { focus = TPMP_USA_encourage_lobbyists }
 		x = 0
-		y = 2
+		y = 1
 		relative_position_id = TPMP_USA_encourage_lobbyists
 		cost = 5
 		completion_reward = {
@@ -220,7 +194,12 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = TPMP_USA_better_a_third_termer
-		cost = 5
+		cost = 0
+		available = {
+			hidden_trigger = {
+				always = no
+			}
+		}
 		completion_reward = {
 		}
 	}
@@ -258,7 +237,12 @@ focus_tree = {
 		x = 0
 		y = 2
 		relative_position_id = TPMP_USA_the_1940_election
-		cost = 5
+		cost = 0
+		available = {
+			hidden_trigger = {
+				always = no
+			}
+		}
 		completion_reward = {
 		}
 	}
@@ -296,19 +280,25 @@ focus_tree = {
 		icon = GFX_goal_generic_amphibious_assault
 		prerequisite = { focus = TPMP_USA_the_1936_election }
 		mutually_exclusive = { focus = TPMP_USA_a_narrow_victory }
-		x = 5
+		x = 4
 		y = 1
 		relative_position_id = TPMP_USA_the_1936_election
-		cost = 5
+		cost = 0
+		available = {
+			hidden_trigger = {
+				always = no
+			}
+		}
 		completion_reward = {
 		}
 	}
 
 	focus = {
-		id = TPMP_USA_the_new_deal_coalition
+		id = TPMP_USA_court_packing_plan
 		icon = GFX_goal_generic_amphibious_assault
 		prerequisite = { focus = TPMP_USA_a_strong_mandate }
-		x = 1
+		mutually_exclusive = { focus = TPMP_USA_a_switch_in_time }
+		x = -2
 		y = 1
 		relative_position_id = TPMP_USA_a_strong_mandate
 		cost = 5
@@ -317,12 +307,61 @@ focus_tree = {
 	}
 
 	focus = {
-		id = TPMP_USA_the_solid_south
+		id = TPMP_USA_a_switch_in_time
+		icon = GFX_goal_generic_amphibious_assault
+		prerequisite = { focus = TPMP_USA_a_strong_mandate }
+		mutually_exclusive = { focus = TPMP_USA_court_packing_plan }
+		x = 0
+		y = 1
+		relative_position_id = TPMP_USA_a_strong_mandate
+		cost = 5
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = TPMP_USA_the_new_deal_coalition
+		icon = GFX_goal_generic_amphibious_assault
+		prerequisite = { focus = TPMP_USA_court_packing_plan focus = TPMP_USA_a_switch_in_time }
+		x = 1
+		y = 1
+		relative_position_id = TPMP_USA_court_packing_plan
+		cost = 5
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = TPMP_USA_denounce_economic_royalism
 		icon = GFX_goal_generic_amphibious_assault
 		prerequisite = { focus = TPMP_USA_the_new_deal_coalition }
-		x = -2
-		y = 2
+		x = 0
+		y = 1
 		relative_position_id = TPMP_USA_the_new_deal_coalition
+		cost = 5
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = TPMP_USA_the_four_freedoms
+		icon = GFX_goal_generic_amphibious_assault
+		prerequisite = { focus = TPMP_USA_denounce_economic_royalism }
+		x = 0
+		y = 1
+		relative_position_id = TPMP_USA_denounce_economic_royalism
+		cost = 5
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = TPMP_USA_the_solid_south
+		icon = GFX_goal_generic_amphibious_assault
+		prerequisite = { focus = TPMP_USA_a_strong_mandate }
+		x = 2
+		y = 1
+		relative_position_id = TPMP_USA_a_strong_mandate
 		cost = 5
 		completion_reward = {
 		}
@@ -349,92 +388,6 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = TPMP_USA_the_solid_south
-		cost = 5
-		completion_reward = {
-		}
-	}
-
-	focus = {
-		id = TPMP_USA_the_state_of_the_union
-		icon = GFX_goal_generic_amphibious_assault
-		prerequisite = { focus = TPMP_USA_the_new_deal_coalition }
-		x = -1
-		y = 1
-		relative_position_id = TPMP_USA_the_new_deal_coalition
-		cost = 5
-		completion_reward = {
-		}
-	}
-
-	focus = {
-		id = TPMP_USA_popular_rhetoric
-		icon = GFX_goal_generic_amphibious_assault
-		prerequisite = { focus = TPMP_USA_the_new_deal_coalition }
-		x = 1
-		y = 1
-		relative_position_id = TPMP_USA_the_new_deal_coalition
-		cost = 5
-		completion_reward = {
-		}
-	}
-
-	focus = {
-		id = TPMP_USA_denounce_economic_royalism
-		icon = GFX_goal_generic_amphibious_assault
-		prerequisite = { focus = TPMP_USA_popular_rhetoric }
-		x = -1
-		y = 1
-		relative_position_id = TPMP_USA_popular_rhetoric
-		cost = 5
-		completion_reward = {
-		}
-	}
-
-	focus = {
-		id = TPMP_USA_the_four_freedoms
-		icon = GFX_goal_generic_amphibious_assault
-		prerequisite = { focus = TPMP_USA_popular_rhetoric }
-		x = 1
-		y = 1
-		relative_position_id = TPMP_USA_popular_rhetoric
-		cost = 5
-		completion_reward = {
-		}
-	}
-
-	focus = {
-		id = TPMP_USA_a_second_bill_of_rights
-		icon = GFX_goal_generic_amphibious_assault
-		prerequisite = { focus = TPMP_USA_the_four_freedoms }
-		x = 0
-		y = 1
-		relative_position_id = TPMP_USA_the_four_freedoms
-		cost = 5
-		completion_reward = {
-		}
-	}
-
-	focus = {
-		id = TPMP_USA_court_packing_plan
-		icon = GFX_goal_generic_amphibious_assault
-		prerequisite = { focus = TPMP_USA_a_strong_mandate }
-		mutually_exclusive = { focus = TPMP_USA_a_switch_in_time }
-		x = -3
-		y = 1
-		relative_position_id = TPMP_USA_a_strong_mandate
-		cost = 5
-		completion_reward = {
-		}
-	}
-
-	focus = {
-		id = TPMP_USA_a_switch_in_time
-		icon = GFX_goal_generic_amphibious_assault
-		prerequisite = { focus = TPMP_USA_a_strong_mandate }
-		mutually_exclusive = { focus = TPMP_USA_court_packing_plan }
-		x = -1
-		y = 1
-		relative_position_id = TPMP_USA_a_strong_mandate
 		cost = 5
 		completion_reward = {
 		}
@@ -605,7 +558,9 @@ focus_tree = {
 			activate_mission = TPMP_USA_ENG_lend_lease_mission
 			activate_mission = TPMP_USA_FRA_lend_lease_mission 
 			set_country_flag = TPMP_USA_lend_lease_flag
-			# activate_mission = TPMP_USA_CHI_lend_lease_mission 
+			set_country_flag = TPMP_USA_SOV_lend_lease_flag
+			set_country_flag = TPMP_USA_ENG_lend_lease_flag
+			set_country_flag = TPMP_USA_FRA_lend_lease_flag
 		}
 	}
 
@@ -1309,7 +1264,12 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = TPMP_USA_create_the_osrd
-		cost = 5
+		cost = 0
+		available = {
+			hidden_trigger = {
+				always = no
+			}
+		}
 		completion_reward = {
 		}
 	}
@@ -2563,6 +2523,14 @@ focus_tree = {
 		relative_position_id = TPMP_USA_found_the_oss
 		cost = 5
 		completion_reward = {
+			add_mastery = {
+				amount = 50
+				track = special_forces
+			}
+			add_mastery = {
+				amount = 100
+				sub_doctrine = special_forces_doctrine_3
+			}
 		}
 	}
 
@@ -2587,6 +2555,14 @@ focus_tree = {
 		relative_position_id = TPMP_USA_found_the_oss
 		cost = 5
 		completion_reward = {
+			add_mastery = {
+				amount = 50
+				track = special_forces
+			}
+			add_mastery = {
+				amount = 100
+				sub_doctrine = special_forces_doctrine_2
+			}
 		}
 	}
 
@@ -2646,8 +2622,15 @@ focus_tree = {
 				track = armor
 			}
 			add_mastery = {
-				amount = 200
+				amount = 100
 				track = armor_variants
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_unit_bonus = {
+				category_tds = {
+					ap_attack = 0.05
+					maximum_speed = 0.1
+				}
 			}
 		}
 	}
@@ -2662,7 +2645,22 @@ focus_tree = {
 		relative_position_id = TPMP_USA_tank_destroyer_doctrine
 		cost = 5
 		completion_reward = {
-			add_ideas = TPMP_USA_the_tank_we_want_idea
+			add_timed_idea = {
+				idea = TPMP_USA_the_tank_we_want_idea
+				days = 365
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_equipment_bonus = {
+				name = TPMP_USA_the_tank_we_want_tt
+				bonus = {
+					TPMP_cat_eq_all_tank = {
+						soft_attack = 0.05
+						hard_attack = 0.05
+						breakthrough = 0.15
+						instant = yes
+					}
+				}
+			}
 		}
 	}
 
@@ -2712,11 +2710,30 @@ focus_tree = {
 		y = 1
 		relative_position_id = TPMP_USA_the_tank_we_want
 		cost = 5
+		available = {
+			NOT = {
+				has_idea = TPMP_USA_the_tank_we_want_idea
+			}
+			OR = {
+				has_tech = mediumtank3a_tech
+				has_tech = mediumtank3b_tech
+			}
+		}
 		completion_reward = {
 			add_tech_bonus = {
 				bonus = 0.5
-				uses = 3
+				uses = 2
 				category = cat_armour_module_tech
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_ideas = TPMP_USA_iterative_tank_design_idea_0
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = TPMP_USA_iterative_tank_design_tt
+			hidden_effect = {
+				country_event = {
+					id = TPMP_USA_military.1
+					days = 180
+				}
 			}
 		}
 	}
@@ -2881,7 +2898,7 @@ focus_tree = {
 		id = TPMP_USA_us_marine_corps
 		icon = GFX_goal_generic_amphibious_assault
 		prerequisite = { focus = TPMP_USA_department_of_the_navy }
-		x = -6
+		x = -5
 		y = 1
 		relative_position_id = TPMP_USA_department_of_the_navy
 		cost = 5
@@ -2917,7 +2934,7 @@ focus_tree = {
 		id = TPMP_USA_bureau_of_ships
 		icon = GFX_goal_generic_amphibious_assault
 		prerequisite = { focus = TPMP_USA_department_of_the_navy }
-		x = -4
+		x = -3
 		y = 1
 		relative_position_id = TPMP_USA_department_of_the_navy
 		cost = 5
@@ -2938,7 +2955,7 @@ focus_tree = {
 	}
 
 	focus = {
-		id = TPMP_USA_post_treaty_destroyer_effort
+		id = TPMP_USA_post_treaty_design_effort
 		icon = GFX_goal_generic_amphibious_assault
 		prerequisite = { focus = TPMP_USA_bureau_of_ships }
 		prerequisite = { focus = TPMP_USA_two_ocean_navy_act }
@@ -2971,19 +2988,6 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = TPMP_USA_new_fast_battleships
-		cost = 5
-		completion_reward = {
-		}
-	}
-
-	focus = {
-		id = TPMP_USA_post_treaty_cruiser_effort
-		icon = GFX_goal_generic_amphibious_assault
-		prerequisite = { focus = TPMP_USA_bureau_of_ships }
-		prerequisite = { focus = TPMP_USA_two_ocean_navy_act }
-		x = 2
-		y = 2
-		relative_position_id = TPMP_USA_bureau_of_ships
 		cost = 5
 		completion_reward = {
 		}
@@ -3029,7 +3033,7 @@ focus_tree = {
 		id = TPMP_USA_fleet_problems
 		icon = GFX_goal_generic_amphibious_assault
 		prerequisite = { focus = TPMP_USA_department_of_the_navy }
-		x = 4
+		x = 3
 		y = 1
 		relative_position_id = TPMP_USA_department_of_the_navy
 		cost = 5
@@ -3041,7 +3045,7 @@ focus_tree = {
 		id = TPMP_USA_forgo_prize_rules
 		icon = GFX_goal_generic_amphibious_assault
 		prerequisite = { focus = TPMP_USA_fleet_problems }
-		x = -2
+		x = 2
 		y = 1
 		relative_position_id = TPMP_USA_fleet_problems
 		cost = 5
@@ -3091,21 +3095,9 @@ focus_tree = {
 		id = TPMP_USA_the_sunday_punch
 		icon = GFX_goal_generic_amphibious_assault
 		prerequisite = { focus = TPMP_USA_utilize_the_carrier_allowance }
-		x = 1
+		x = -1
 		y = 1
 		relative_position_id = TPMP_USA_utilize_the_carrier_allowance
-		cost = 5
-		completion_reward = {
-		}
-	}
-
-	focus = {
-		id = TPMP_USA_navalized_radar
-		icon = GFX_goal_generic_amphibious_assault
-		prerequisite = { focus = TPMP_USA_fleet_problems }
-		x = 2
-		y = 1
-		relative_position_id = TPMP_USA_fleet_problems
 		cost = 5
 		completion_reward = {
 		}
@@ -3115,7 +3107,7 @@ focus_tree = {
 		id = TPMP_USA_liberty_ships
 		icon = GFX_goal_generic_amphibious_assault
 		prerequisite = { focus = TPMP_USA_department_of_the_navy }
-		x = 6
+		x = 5
 		y = 1
 		relative_position_id = TPMP_USA_department_of_the_navy
 		cost = 5
@@ -3127,7 +3119,7 @@ focus_tree = {
 		id = TPMP_USA_modern_battlefleet
 		icon = GFX_goal_generic_amphibious_assault
 		prerequisite = { focus = TPMP_USA_abandon_the_panamax_standard focus = TPMP_USA_the_essex_class }
-		x = 4
+		x = 3
 		y = 1
 		relative_position_id = TPMP_USA_abandon_the_panamax_standard
 		cost = 5

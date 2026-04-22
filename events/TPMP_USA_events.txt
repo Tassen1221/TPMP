@@ -1,4 +1,5 @@
 ﻿add_namespace = TPMP_USA
+add_namespace = TPMP_USA_military
 
 country_event = {
     id = TPMP_USA.1
@@ -81,62 +82,6 @@ country_event = {
 	option = {
 		name = TPMP_USA.4.a
 		effect_tooltip = {
-			IF = {
-				limit = {
-					check_variable = {
-						new_deal_democrat_support_var > 4
-						conservative_democrat_support_var > 4
-					}
-				}
-				add_to_variable = {
-					new_deal_democrat_support_var = -5
-					tooltip = new_deal_democrat_support_tt
-				}
-				add_to_variable = {
-					conservative_democrat_support_var = -5
-					tooltip = conservative_democrat_support_tt
-				}
-				add_to_variable = {
-					isolationist_republican_support_var = 10
-					tooltip = isolationist_republican_support_tt
-				}
-				recalculate_congressional_ui = yes
-				custom_effect_tooltip = generic_skip_one_line_tt
-			}
-			ELSE_IF = {
-				limit = {
-					check_variable = {
-						new_deal_democrat_support_var > 4
-					}
-				}
-				add_to_variable = {
-					new_deal_democrat_support_var = -5
-					tooltip = new_deal_democrat_support_tt
-				}
-				add_to_variable = {
-					isolationist_republican_support_var = 5
-					tooltip = isolationist_republican_support_tt
-				}
-				recalculate_congressional_ui = yes
-				custom_effect_tooltip = generic_skip_one_line_tt
-			}
-			ELSE_IF = {
-				limit = {
-					check_variable = {
-						conservative_democrat_support_var > 4
-					}
-				}
-				add_to_variable = {
-					conservative_democrat_support_var = -5
-					tooltip = conservative_democrat_support_tt
-				}
-				add_to_variable = {
-					isolationist_republican_support_var = 5
-					tooltip = isolationist_republican_support_tt
-				}
-				recalculate_congressional_ui = yes
-				custom_effect_tooltip = generic_skip_one_line_tt
-			}
 			add_timed_idea = {
 				idea = TPMP_USA_neutrality_act_idea_0
 				days = 180
@@ -206,4 +151,60 @@ country_event = {
 			seller_tags = { USA }
 		}
 	}
+}
+
+country_event = {
+    id = TPMP_USA_military.1
+
+    hidden = yes
+    
+    immediate = {
+        IF = {
+			limit = {
+				NOT = {
+					has_idea = TPMP_USA_iterative_tank_design_idea_3
+				}
+			}
+			country_event = {
+				id = TPMP_USA_military.1
+				days = 180
+			}
+		}
+		IF = {
+			limit = {
+				has_idea = TPMP_USA_iterative_tank_design_idea_3
+			}
+			swap_ideas = {
+				remove_idea = TPMP_USA_iterative_tank_design_idea_3
+				add_idea = TPMP_USA_iterative_tank_design_idea_4
+			}
+		}
+		ELSE_IF = {
+			limit = {
+				has_idea = TPMP_USA_iterative_tank_design_idea_2
+			}
+			swap_ideas = {
+				remove_idea = TPMP_USA_iterative_tank_design_idea_2
+				add_idea = TPMP_USA_iterative_tank_design_idea_3
+			}
+		}
+		ELSE_IF = {
+			limit = {
+				has_idea = TPMP_USA_iterative_tank_design_idea_1
+			}
+			swap_ideas = {
+				remove_idea = TPMP_USA_iterative_tank_design_idea_1
+				add_idea = TPMP_USA_iterative_tank_design_idea_2
+			}
+		}
+		ELSE_IF = {
+			limit = {
+				has_idea = TPMP_USA_iterative_tank_design_idea_0
+			}
+			swap_ideas = {
+				remove_idea = TPMP_USA_iterative_tank_design_idea_0
+				add_idea = TPMP_USA_iterative_tank_design_idea_1
+			}
+		}
+    }
 }
