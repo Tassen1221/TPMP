@@ -7674,7 +7674,7 @@ news_event = {
 		}
 	}
 
-	#Peace for our time?
+	#Peace For Our Time?
 	option = {
 		name = news.200.e
 		trigger = {
@@ -11331,6 +11331,15 @@ news_event = {
 	major = yes
 
 	is_triggered_only = yes
+	trigger = { # Added to minimise the amount of spam non-chinese player about the United Front joining
+		FROM = { 
+			is_chinese_warlord = no
+			NOT = {
+				has_faction_template = faction_template_chinese_united_front
+				is_ally_with = event_target:WTT_current_china_leader 
+			}
+		}
+	}
 
 	#Together we will prevail.
 	option = {
