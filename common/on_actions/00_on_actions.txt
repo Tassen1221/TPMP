@@ -5466,4 +5466,98 @@ on_actions = {
 			}
 		}
 	}
+
+	on_monthly_CZE = {
+		effect = {
+			if = {
+				limit = {
+					has_country_flag = CZE_update_weapon_sales
+				}
+				clr_country_flag = CZE_update_weapon_sales
+				if = {
+					limit = {
+						has_idea = CZE_skoda_weapon_sales_dummy_idea
+					}
+					subtract_from_variable = { weapon_sales_industry_points = weapon_sales_factory_var }
+					subtract_from_variable = { CZE_weapon_sales_duration = 1 }
+				}
+	
+				if = {
+					limit = {
+						OR = {
+							check_variable = { weapon_sales_factory_var = 4 }
+							check_variable = { weapon_sales_industry_points > 20 }
+						}
+					}
+					if = {
+						limit = {
+							OR = {
+								NOT = {
+									has_idea = CZE_skoda_weapon_sales_dummy_idea
+								}
+								check_variable = { weapon_sales_factory_var = 2 }
+							}
+						}
+						if = {
+							limit = {
+								check_variable = { weapon_sales_factory_var = 2 }
+							}
+							remove_ideas = CZE_skoda_weapon_sales_dummy_idea
+						}
+						set_variable = { weapon_sales_factory_var = 4 }
+						set_variable = { CZE_weapon_sales_duration = weapon_sales_industry_points }
+						divide_variable = { CZE_weapon_sales_duration = weapon_sales_factory_var }
+						add_timed_idea = {
+							idea = CZE_skoda_weapon_sales_dummy_idea
+							months = CZE_weapon_sales_duration
+						}
+						add_offsite_building = { type = industrial_complex level = weapon_sales_factory_var }
+					}
+					else = {
+						set_variable = { CZE_weapon_sales_duration_2 = weapon_sales_industry_points }
+						divide_variable = { CZE_weapon_sales_duration_2 = weapon_sales_factory_var }
+
+						set_variable = { CZE_weapon_sales_duration_temp = CZE_weapon_sales_duration }
+						set_variable = { CZE_weapon_sales_duration = CZE_weapon_sales_duration_2 }					#set variable to new idea duration
+						subtract_from_variable = { CZE_weapon_sales_duration_2 = CZE_weapon_sales_duration_temp }	#calculate months to add
+
+						modify_timed_idea = {
+							idea = CZE_skoda_weapon_sales_dummy_idea
+							months = CZE_weapon_sales_duration_2
+						}
+					}
+				}
+				else = {
+					if = {
+						limit = {
+							NOT = {
+								has_idea = CZE_skoda_weapon_sales_dummy_idea
+							}
+						}
+						set_variable = { weapon_sales_factory_var = 2 }
+						set_variable = { CZE_weapon_sales_duration = weapon_sales_industry_points }
+						divide_variable = { CZE_weapon_sales_duration = weapon_sales_factory_var }
+						add_timed_idea = {
+							idea = CZE_skoda_weapon_sales_dummy_idea
+							months = CZE_weapon_sales_duration
+						}
+						add_offsite_building = { type = industrial_complex level = weapon_sales_factory_var }
+					}
+					else = {			#idea was previously already there
+						set_variable = { CZE_weapon_sales_duration_2 = weapon_sales_industry_points }
+						divide_variable = { CZE_weapon_sales_duration_2 = weapon_sales_factory_var }
+
+						set_variable = { CZE_weapon_sales_duration_temp = CZE_weapon_sales_duration }
+						set_variable = { CZE_weapon_sales_duration = CZE_weapon_sales_duration_2 }					#set variable to new idea duration
+						subtract_from_variable = { CZE_weapon_sales_duration_2 = CZE_weapon_sales_duration_temp }	#calculate months to add
+
+						modify_timed_idea = {
+							idea = CZE_skoda_weapon_sales_dummy_idea
+							months = CZE_weapon_sales_duration_2
+						}
+					}
+				}
+			}
+		}
+	}
 }
