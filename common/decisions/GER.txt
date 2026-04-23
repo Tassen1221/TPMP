@@ -297,7 +297,9 @@ GER_seize_gold_reserves_cat = {
 					has_country_flag = GER_dont_seize_gold_reserves_flag
 				}
 				any_core_state = {
-					is_controlled_by = ROOT
+					#is_controlled_by = ROOT
+					is_controlled_by_ROOT_or_ally = yes
+					
 					NOT = { is_core_of = ROOT }
 					NOT = { has_state_flag = GER_seize_gold_reserves_state_flag }
 					OR = {
@@ -331,10 +333,29 @@ GER_seize_gold_reserves_cat = {
 
 		complete_effect = {
 			set_temp_variable = { occupied_state_num_factory = 0 } #This will show how many factories in total Germany controls from FROM's cores
+
+			#TPMP Fix for various countries controlling stuff meant for GER
+
 			add_to_temp_variable = { GER.occupied_state_num_factory = FROM.num_of_military_factories_in_cores@GER }
 			add_to_temp_variable = { GER.occupied_state_num_factory = FROM.num_of_civilian_factories_in_cores@GER }
 			add_to_temp_variable = { GER.occupied_state_num_factory = FROM.num_of_naval_factories_in_cores@GER }
+
+			add_to_temp_variable = { GER.occupied_state_num_factory = FROM.num_of_military_factories_in_cores@ITA }
+			add_to_temp_variable = { GER.occupied_state_num_factory = FROM.num_of_civilian_factories_in_cores@ITA }
+			add_to_temp_variable = { GER.occupied_state_num_factory = FROM.num_of_naval_factories_in_cores@ITA }
+
+			add_to_temp_variable = { GER.occupied_state_num_factory = FROM.num_of_military_factories_in_cores@BUL }
+			add_to_temp_variable = { GER.occupied_state_num_factory = FROM.num_of_civilian_factories_in_cores@BUL }
+			add_to_temp_variable = { GER.occupied_state_num_factory = FROM.num_of_naval_factories_in_cores@BUL }
+
+			add_to_temp_variable = { GER.occupied_state_num_factory = FROM.num_of_military_factories_in_cores@ROM }
+			add_to_temp_variable = { GER.occupied_state_num_factory = FROM.num_of_civilian_factories_in_cores@ROM }
+			add_to_temp_variable = { GER.occupied_state_num_factory = FROM.num_of_naval_factories_in_cores@ROM }
 			
+			add_to_temp_variable = { GER.occupied_state_num_factory = FROM.num_of_military_factories_in_cores@HUN }
+			add_to_temp_variable = { GER.occupied_state_num_factory = FROM.num_of_civilian_factories_in_cores@HUN }
+			add_to_temp_variable = { GER.occupied_state_num_factory = FROM.num_of_naval_factories_in_cores@HUN }			
+
 			divide_temp_variable = { occupied_state_num_factory = 200 } #This is necessary since a single factory will increase the occupied_state_num_factory number to 1, which in turn translates to -100% when subtracting from the Consumer Goods. Dividing it by 100 here will give you 1% instead, which is more like what we want.
 			multiply_temp_variable = { occupied_state_num_factory = -1 }
 
@@ -1102,6 +1123,8 @@ GER_price_controls_cat = {
 		}
 
 		available = {
+			NOT = { has_completed_focus = GER_autarky_achieved }
+			NOT = { has_completed_focus = TPMP_GER_autarky_abandoned }
 		}
 
 		visible = { #This decision is not available for the 1939 Start
@@ -1148,6 +1171,8 @@ GER_price_controls_cat = {
 		}
 
 		available = {
+			NOT = { has_completed_focus = GER_autarky_achieved }
+			NOT = { has_completed_focus = TPMP_GER_autarky_abandoned }
 		}
 
 		visible = { #This decision is not available for the 1939 Start
@@ -1193,6 +1218,8 @@ GER_price_controls_cat = {
 		}
 
 		available = {
+			NOT = { has_completed_focus = GER_autarky_achieved }
+			NOT = { has_completed_focus = TPMP_GER_autarky_abandoned }
 		}
 
 		visible = { #This decision is not available for the 1939 Start
@@ -1242,6 +1269,8 @@ GER_price_controls_cat = {
 
 		available = {
 			has_completed_focus = GER_coal_liquefaction
+			NOT = { has_completed_focus = GER_autarky_achieved }
+			NOT = { has_completed_focus = TPMP_GER_autarky_abandoned }
 		}
 
 		visible = { #This decision is not available for the 1939 Start
@@ -1286,6 +1315,8 @@ GER_price_controls_cat = {
 		}
 
 		available = {
+			NOT = { has_completed_focus = GER_autarky_achieved }
+			NOT = { has_completed_focus = TPMP_GER_autarky_abandoned }
 		}
 
 		visible = { #This decision is not available for the 1939 Start
@@ -1335,6 +1366,8 @@ GER_price_controls_cat = {
 
 		available = {
 			has_stability > 0.2
+			NOT = { has_completed_focus = GER_autarky_achieved }
+			NOT = { has_completed_focus = TPMP_GER_autarky_abandoned }
 		}
 
 		visible = { #This decision is not available for the 1939 Start
@@ -1381,6 +1414,8 @@ GER_price_controls_cat = {
 
 		available = {
 			has_stability > 0.2
+			NOT = { has_completed_focus = GER_autarky_achieved }
+			NOT = { has_completed_focus = TPMP_GER_autarky_abandoned }
 		}
 
 		visible = { #This decision is not available for the 1939 Start
@@ -1451,6 +1486,8 @@ GER_price_controls_cat = {
 					is_in_faction_with = ROOT
 				}
 			}
+			NOT = { has_completed_focus = GER_autarky_achieved }
+			NOT = { has_completed_focus = TPMP_GER_autarky_abandoned }
 		}
 
 		cost = 30
@@ -3370,9 +3407,6 @@ GER_case_anton_category = {
 		icon = generic_operation
 
 		available = {
-			original_tag = GER
-			has_war = yes
-			has_government = fascism
 			any_country_with_original_tag = {
 				original_tag_to_check = FRA
 				has_government = fascism
@@ -3380,8 +3414,10 @@ GER_case_anton_category = {
 					is_subject_of = GER
 					has_focus_tree = vichy_french_focus
 				}
-				NOT = { has_war_with = GER }
-				NOT = { has_country_flag = case_anton }
+				OR = {
+					has_war_with = FRA
+					has_war_with = ENG
+				}
 			}
 		}
 

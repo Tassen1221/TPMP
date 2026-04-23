@@ -1087,7 +1087,7 @@ focus_tree = {
 				name = SPA_doctrinal_advancements
 				cost_reduction = 0.5
 				uses = 1
-				category = cat_land_doctrine
+				category = land_doctrine
 			}
 			add_doctrine_cost_reduction = {
 				name = SPA_doctrinal_advancements
@@ -2731,7 +2731,7 @@ focus_tree = {
 				name = SPA_the_army_of_africa_model
 				cost_reduction = 0.5
 				uses = 2
-				category = cat_land_doctrine
+				category = land_doctrine
 			}
 		}
 	}
@@ -4306,6 +4306,9 @@ focus_tree = {
 
 	focus = {
 		id = SPA_join_the_allies
+		allow_branch = {
+			always = no
+		}
 		available = {
 			has_global_flag = scw_over
 			is_in_faction = no
@@ -4903,7 +4906,7 @@ focus_tree = {
 		prerequisite = { focus = SPA_fuse_the_parties }
 		
 		icon = GFX_focus_generic_treaty
-		x = 6
+		x = 4
 		y = 1
 		relative_position_id = SPA_fuse_the_parties
 		cost = 10
@@ -5234,7 +5237,7 @@ focus_tree = {
 		prerequisite = { focus = SPA_dictator_for_life focus = SPA_restore_the_monarchy }
 		
 		icon = GFX_goal_rhineland
-		x = 0
+		x = -1
 		y = 1
 		relative_position_id = SPA_dictator_for_life
 		cost = 10
@@ -5371,6 +5374,10 @@ focus_tree = {
 			}
 		}
 
+		allow_branch = {
+			always = no
+		}
+
 		prerequisite = { focus = SPA_adopt_the_26_points focus = SPA_settle_the_succession_question }
 		mutually_exclusive = { focus = SPA_dictator_for_life }
 		
@@ -5419,7 +5426,7 @@ focus_tree = {
 		prerequisite = { focus = SPA_dictator_for_life focus = SPA_restore_the_monarchy }
 		
 		icon = GFX_goal_generic_more_territorial_claims
-		x = 2
+		x = 1
 		y = 1
 		relative_position_id = SPA_dictator_for_life
 		cost = 10
@@ -5532,6 +5539,11 @@ focus_tree = {
 
 	focus = {
 		id = SPA_retake_gibraltar
+
+		allow_branch = {
+			always = no
+		}
+
 		available = {
 			NOT = {
 				is_in_faction_with = ENG
@@ -5771,7 +5783,7 @@ focus_tree = {
 				name = SPA_contact_the_union_militar_espanola
 				cost_reduction = 0.5
 				uses = 1
-				category = cat_land_doctrine
+				category = land_doctrine
 			}
 			country_event = { id = lar_spain.33 hours = 6 random_hours = 6 }
 		}
@@ -5853,7 +5865,7 @@ focus_tree = {
 				name = SPA_the_war_in_the_north
 				cost_reduction = 0.5
 				uses = 2
-				category = cat_land_doctrine
+				category = land_doctrine
 			}
 			if = {
 				limit = {
@@ -6012,7 +6024,7 @@ focus_tree = {
 				name = SPA_the_crusade_against_democracy
 				cost_reduction = 0.5
 				uses = 1
-				category = cat_land_doctrine
+				category = land_doctrine
 			}
 		}
 	}
@@ -8337,7 +8349,7 @@ focus_tree = {
 				name = SPR_communal_military_strategies
 				cost_reduction = 0.5
 				uses = 2
-				category = cat_land_doctrine
+				category = land_doctrine
 			}
 			custom_effect_tooltip = available_political_advisor
 			show_ideas_tooltip = SPR_council_of_theorists
@@ -8943,7 +8955,7 @@ focus_tree = {
 				name = SPA_doctrinal_advancements
 				cost_reduction = 0.5
 				uses = 1
-				category = cat_land_doctrine
+				category = land_doctrine
 			}
 			swap_ideas = {
 				remove_idea = SPR_the_threats_abound_2
@@ -10016,7 +10028,7 @@ focus_tree = {
 				name = SPR_the_spanish_red_army
 				cost_reduction = 0.5
 				uses = 1
-				category = cat_land_doctrine
+				category = land_doctrine
 			}
 		}
 	}
@@ -10576,7 +10588,7 @@ focus_tree = {
 				name = SPA_doctrinal_advancements
 				cost_reduction = 0.5
 				uses = 2
-				category = cat_land_doctrine
+				category = land_doctrine
 			}
 			add_doctrine_cost_reduction = {
 				name = SPA_doctrinal_advancements
@@ -10609,7 +10621,7 @@ focus_tree = {
 				name = SPA_doctrinal_advancements
 				cost_reduction = 0.5
 				uses = 2
-				category = cat_land_doctrine
+				category = land_doctrine
 			}
 		}
 	}
@@ -12011,7 +12023,7 @@ focus_tree = {
 				name = SPR_the_popular_army
 				cost_reduction = 0.5
 				uses = 1
-				category = cat_land_doctrine
+				category = land_doctrine
 			}
 		}
 	}
@@ -12980,7 +12992,7 @@ focus_tree = {
 				name = SPR_engineering_advances
 				cost_reduction = 0.5
 				uses = 2
-				category = cat_land_doctrine
+				category = land_doctrine
 			}
 		}
 	}
@@ -13197,7 +13209,7 @@ focus_tree = {
 				name = SPR_engineering_advances
 				cost_reduction = 0.5
 				uses = 1
-				category = cat_land_doctrine
+				category = land_doctrine
 			}
 			random_owned_controlled_state = {
 				limit = {

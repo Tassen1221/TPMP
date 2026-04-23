@@ -54,7 +54,6 @@ recruit_character = MAN_aisin_gioro_xiqia
 recruit_character = MAN_yoshiko_kawashima
 recruit_character = MAN_zhao_shangzhi
 recruit_character = MAN_deng_linge
-recruit_character = MAN_nakajima_kesago
 recruit_character = MAN_yin_zuoqian
 recruit_character = MAN_xian_yuan
 recruit_character = MAN_urzhin_garmaev
@@ -74,7 +73,7 @@ recruit_character = MAN_ding_chao
 recruit_character = MAN_li_zhaolin
 recruit_character = MAN_kanjurjab
 recruit_character = MAN_ding_jianxiu
-recruit_character = MAN_naoki_hoshino
+recruit_character = MAN_kawashima_naniwa
 
 # Old fake characters 
 #recruit_character = MAN_kyoiji_tomonaga
@@ -83,6 +82,7 @@ recruit_character = MAN_naoki_hoshino
 #recruit_character = MAN_guan_xingde
 #recruit_character = MAN_megata_toshiro
 #recruit_character = MAN_hung_zhehuang
+#recruit_character = MAN_nakajima_kesago
 
 IF = {
 	limit = { has_dlc = "No Step Back" }
@@ -240,11 +240,11 @@ set_popularities = {
 }
 
 create_equipment_variant = {
-	name = "Line Infantry Equipment 1"
+	name = "Basic Infantry Equipment"
 	type = line_infantry_equipment_1
 	parent_version = 0
 	modules = {
-		soldier_type_slot_0 = bolt_action_1
+		soldier_type_slot_0 = light_machine_gun_1
 		soldier_type_slot_1 = bolt_action_1
 		soldier_type_slot_2 = bolt_action_1
 		soldier_type_slot_3 = bolt_action_1
@@ -255,6 +255,47 @@ create_equipment_variant = {
 		soldier_type_slot_8 = bolt_action_1
 		soldier_type_slot_9 = bolt_action_1
 		uniform_type_slot = helmet
+		sidearm_type_slot = bayonet
+		support_type_slot_0 = improvised_at_grenades
+	}
+}
+create_equipment_variant = {
+	name = "Basic Special Infantry Equipment"
+	type = special_infantry_equipment_1
+	parent_version = 0
+	modules = {
+		soldier_type_slot_0 = light_machine_gun_1
+		soldier_type_slot_1 = bolt_action_1
+		soldier_type_slot_2 = bolt_action_1
+		soldier_type_slot_3 = bolt_action_1
+		soldier_type_slot_4 = bolt_action_1
+		soldier_type_slot_5 = bolt_action_1
+		soldier_type_slot_6 = bolt_action_1
+		soldier_type_slot_7 = bolt_action_1
+		soldier_type_slot_8 = bolt_action_1
+		soldier_type_slot_9 = bolt_action_1
+		uniform_type_slot = helmet
+		sidearm_type_slot = bayonet
+		support_type_slot_0 = improvised_at_grenades
+	}
+}
+create_equipment_variant = {
+	name = "Basic Mobile Infantry Equipment"
+	type = mobile_infantry_equipment_1
+	parent_version = 0
+	modules = {
+		soldier_type_slot_0 = light_machine_gun_1
+		soldier_type_slot_1 = bolt_action_1
+		soldier_type_slot_2 = bolt_action_1
+		soldier_type_slot_3 = bolt_action_1
+		soldier_type_slot_4 = bolt_action_1
+		soldier_type_slot_5 = bolt_action_1
+		soldier_type_slot_6 = bolt_action_1
+		soldier_type_slot_7 = bolt_action_1
+		soldier_type_slot_8 = bolt_action_1
+		soldier_type_slot_9 = bolt_action_1
+		uniform_type_slot = helmet
+		sidearm_type_slot = bayonet
 		support_type_slot_0 = improvised_at_grenades
 	}
 }

@@ -645,6 +645,11 @@ is_available_to_collaboration_government = { # occupied_countries.1 should be up
 		NOT = { FROM = { original_tag = KUR } }
 	}
 	NOT = {
+		FROM = {
+			original_tag = SDL
+		}
+	}
+	NOT = {
 		any_country_with_original_tag = {
 			original_tag_to_check = FROM
 			is_puppet_of = PREV # if already created one do not create another

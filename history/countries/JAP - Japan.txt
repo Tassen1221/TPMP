@@ -81,7 +81,7 @@ set_variable = { JAP_army_army_morale_factor = 0.05 }
 set_variable = { JAP_army_army_defence_factor = -0.05 }
 set_variable = { JAP_army_initiative_factor = 0.1 }
 set_variable = { JAP_army_army_army_artillery_attack_factor = -0.1 }
-set_variable = { JAP_army_supply_consumption_factor = 0.2 }
+set_variable = { JAP_army_supply_consumption_factor = 0.1 }
 set_variable = { JAP_army_acclimatization_cold_climate_gain_factor = 0 }
 set_variable = { JAP_army_acclimatization_hot_climate_gain_factor = 0 }
 set_variable = { JAP_army_army_core_attack_factor = 0 }
@@ -1440,6 +1440,12 @@ create_equipment_variant = {
 		fixed_ship_secondaries_slot = ship_secondaries_1
 		fixed_ship_armor_slot = empty
 	}
+	optional_assets = {
+		{
+			icon = "GFX_JAP_carrier_hoso"
+			model = "JAP_carrier_entity"
+		}
+	}
 	obsolete = yes
 }
 create_equipment_variant = {
@@ -1480,6 +1486,12 @@ create_equipment_variant = {
 		mid_2_custom_slot = ship_airplane_launcher_1
 		rear_1_custom_slot = ship_heavy_battery_2
 	}
+	optional_assets = {
+		{
+			icon = "GFX_JAP_battleship_nagato"
+			model = "JAP_battleship_3_entity"
+		}
+	}
 }
 create_equipment_variant = {
 	name = "Kongo Class"
@@ -1500,9 +1512,42 @@ create_equipment_variant = {
 		mid_2_custom_slot = ship_airplane_launcher_1
 		rear_1_custom_slot = ship_heavy_battery_1
 	}
+	optional_assets = {
+		{
+			icon = "GFX_JAP_battleship_kongo"
+			model = "JAP_battleship_0_entity"
+		}
+	}
 }
 create_equipment_variant = {
-	name = "Fuso/Ise Class"
+	name = "Fuso Class"
+	type = ship_hull_heavy_1
+	design_team = mio:JAP_sasebo_naval_arsenal_organization
+	name_group = JAP_BB_HISTORICAL
+	parent_version = 0
+	modules = {
+		fixed_ship_battery_slot = ship_heavy_battery_1
+		fixed_ship_anti_air_slot = ship_anti_air_1
+		fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+		fixed_ship_radar_slot = empty
+		fixed_ship_engine_slot = heavy_ship_engine_2
+		fixed_ship_secondaries_slot = ship_secondaries_1
+		fixed_ship_armor_slot = ship_armor_bb_1
+		front_1_custom_slot = ship_heavy_battery_1
+		mid_1_custom_slot = ship_secondaries_1
+		mid_2_custom_slot = ship_airplane_launcher_1
+		rear_1_custom_slot = ship_heavy_battery_1
+	}
+	optional_assets = {
+		{
+			icon = "GFX_JAP_battleship_fuso"
+			model = "JAP_battleship_1_entity"
+		}
+	}
+	obsolete = yes
+}
+create_equipment_variant = {
+	name = "Ise Class"
 	type = ship_hull_heavy_1
 	design_team = mio:JAP_sasebo_naval_arsenal_organization
 	name_group = JAP_BB_HISTORICAL
@@ -1521,6 +1566,12 @@ create_equipment_variant = {
 		rear_1_custom_slot = ship_heavy_battery_1
 	}
 	obsolete = yes
+	optional_assets = {
+		{
+			icon = "GFX_JAP_battleship_ise"
+			model = "JAP_battleship_2_entity"
+		}
+	}
 }
 	
 ### Cruiser Variants			
@@ -1647,6 +1698,12 @@ create_equipment_variant = {
 		mid_2_custom_slot = ship_airplane_launcher_1
 		rear_1_custom_slot = ship_airplane_launcher_1
 	}
+	optional_assets = {
+		{
+			icon = "GFX_JAP_heavy_cruiser_tone"
+			model = "JAP_heavy_cruiser_1_entity"
+		}
+	}
 }
 
 create_equipment_variant = {
@@ -1727,6 +1784,12 @@ create_equipment_variant = {
 		mid_1_custom_slot = ship_torpedo_1
 		mid_2_custom_slot = ship_airplane_launcher_1
 		rear_1_custom_slot = ship_mine_layer_1
+	}
+	optional_assets = {
+		{
+			icon = "GFX_JAP_light_cruiser_sendai"
+			model = "JAP_light_cruiser_entity"
+		}
 	}
 	obsolete = yes
 }
@@ -2051,11 +2114,11 @@ create_equipment_variant = {
 }
 
 create_equipment_variant = {
-	name = "Line Infantry Equipment 1"
+	name = "Basic Infantry Equipment"
 	type = line_infantry_equipment_1
 	parent_version = 0
 	modules = {
-		soldier_type_slot_0 = bolt_action_1
+		soldier_type_slot_0 = light_machine_gun_1
 		soldier_type_slot_1 = bolt_action_1
 		soldier_type_slot_2 = bolt_action_1
 		soldier_type_slot_3 = bolt_action_1
@@ -2066,6 +2129,47 @@ create_equipment_variant = {
 		soldier_type_slot_8 = bolt_action_1
 		soldier_type_slot_9 = bolt_action_1
 		uniform_type_slot = helmet
+		sidearm_type_slot = bayonet
+		support_type_slot_0 = improvised_at_grenades
+	}
+}
+create_equipment_variant = {
+	name = "Basic Special Infantry Equipment"
+	type = special_infantry_equipment_1
+	parent_version = 0
+	modules = {
+		soldier_type_slot_0 = light_machine_gun_1
+		soldier_type_slot_1 = bolt_action_1
+		soldier_type_slot_2 = bolt_action_1
+		soldier_type_slot_3 = bolt_action_1
+		soldier_type_slot_4 = bolt_action_1
+		soldier_type_slot_5 = bolt_action_1
+		soldier_type_slot_6 = bolt_action_1
+		soldier_type_slot_7 = bolt_action_1
+		soldier_type_slot_8 = bolt_action_1
+		soldier_type_slot_9 = bolt_action_1
+		uniform_type_slot = helmet
+		sidearm_type_slot = bayonet
+		support_type_slot_0 = improvised_at_grenades
+	}
+}
+create_equipment_variant = {
+	name = "Basic Mobile Infantry Equipment"
+	type = mobile_infantry_equipment_1
+	parent_version = 0
+	modules = {
+		soldier_type_slot_0 = light_machine_gun_1
+		soldier_type_slot_1 = bolt_action_1
+		soldier_type_slot_2 = bolt_action_1
+		soldier_type_slot_3 = bolt_action_1
+		soldier_type_slot_4 = bolt_action_1
+		soldier_type_slot_5 = bolt_action_1
+		soldier_type_slot_6 = bolt_action_1
+		soldier_type_slot_7 = bolt_action_1
+		soldier_type_slot_8 = bolt_action_1
+		soldier_type_slot_9 = bolt_action_1
+		uniform_type_slot = helmet
+		sidearm_type_slot = bayonet
 		support_type_slot_0 = improvised_at_grenades
 	}
 }
@@ -2104,6 +2208,7 @@ create_equipment_variant = {
 				fixed_auxiliary_weapon_slot_1 = bomb_locks
 				engine_type_slot = engine_2_1x
 				special_type_slot_1 = fuel_tanks_small
+				special_type_slot_2 = lmg_defense_turret
 			}
 			icon = "GFX_JAP_cv_naval_bomber1_medium"
 		}
@@ -2113,7 +2218,7 @@ create_equipment_variant = {
 			modules = {
 				fixed_main_weapon_slot = small_bomb_bay
 				engine_type_slot = engine_2_1x
-				special_type_slot_1 = empty
+				special_type_slot_1 = lmg_defense_turret
 			}
 		}
 		create_equipment_variant = {
@@ -2122,7 +2227,7 @@ create_equipment_variant = {
 			modules = {
 				fixed_main_weapon_slot = medium_bomb_bay
 				engine_type_slot = engine_2_2x
-				special_type_slot_1 = lmg_defense_turret
+				special_type_slot_1 = lmg_defense_turret_2x
 			}
 		}
 		create_equipment_variant = {
@@ -2185,6 +2290,12 @@ create_equipment_variant = {
 				fixed_ship_secondaries_slot = dp_ship_secondaries_1
 				front_1_custom_slot = ship_deck_space
 				mid_1_custom_slot = ship_deck_space
+			}
+			optional_assets = {
+				{
+					icon = "GFX_JAP_carrier_shokaku"
+					model = "JAP_carrier_0_entity"
+				}
 			}
 		}
 		create_equipment_variant = {
@@ -2257,6 +2368,12 @@ create_equipment_variant = {
 				fixed_ship_torpedo_slot = ship_torpedo_2
 				mid_1_custom_slot = ship_torpedo_2
 				rear_1_custom_slot = ship_depth_charge_1
+			}
+			optional_assets = {
+				{
+					icon = "GFX_JAP_destroyer_yukikaze"
+					model = "JAP_destroyer_1_entity"
+				}
 			}
 		}
 		create_equipment_variant = {

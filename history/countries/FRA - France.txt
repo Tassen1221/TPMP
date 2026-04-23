@@ -58,7 +58,7 @@ if = {
 	}
 }
 
-set_research_slots = 4
+set_research_slots = 5
 IF = {
 	limit = {
 		has_dlc = "Gotterdammerung"
@@ -98,8 +98,10 @@ set_technology = {
 	tech_mountaineers = 1
 	tech_trucks = 1
 	motorised_infantry = 1
+	mechanised_infantry = 1
 	artillery0_tech = 1
 	antiair0_tech = 1
+	antitank0_tech = 1
 	
 	fuel_silos = 1
 	fuel_refining = 1
@@ -128,9 +130,9 @@ if = {
 	set_technology = {
 		tank0_tech = 1
 		lighttank1_tech = 1
-		heavytank1_tech = 1
 		lighttank2_tech = 1
-		tankupgrade1_tech = 1
+		mediumtank1_tech = 1
+		heavytank1_tech = 1
 		tankupgrade1_tech = 1
 	}
 }
@@ -433,6 +435,9 @@ recruit_character = FRA_francois_darlan
 recruit_character = FRA_jeanmarie_charles_abrial
 recruit_character = FRA_jeanpierre_esteva
 recruit_character = FRA_jean_de_laborde
+recruit_character = FRA_jean_romatet
+recruit_character = FRA_emile_laure
+recruit_character = FRA_joseph_doumenc
 # recruit_character = FRA_denis_guillaumat # Has been removed to make way for Charles Maurras, but might be readded
 recruit_character = FRA_philippe_fequant
 recruit_character = FRA_victor_denain
@@ -1362,11 +1367,11 @@ if = {
 }
 
 create_equipment_variant = {
-	name = "Line Infantry Equipment 1"
+	name = "Basic Infantry Equipment"
 	type = line_infantry_equipment_1
 	parent_version = 0
 	modules = {
-		soldier_type_slot_0 = bolt_action_1
+		soldier_type_slot_0 = light_machine_gun_1
 		soldier_type_slot_1 = bolt_action_1
 		soldier_type_slot_2 = bolt_action_1
 		soldier_type_slot_3 = bolt_action_1
@@ -1377,6 +1382,47 @@ create_equipment_variant = {
 		soldier_type_slot_8 = bolt_action_1
 		soldier_type_slot_9 = bolt_action_1
 		uniform_type_slot = helmet
+		sidearm_type_slot = bayonet
+		support_type_slot_0 = improvised_at_grenades
+	}
+}
+create_equipment_variant = {
+	name = "Basic Special Infantry Equipment"
+	type = special_infantry_equipment_1
+	parent_version = 0
+	modules = {
+		soldier_type_slot_0 = light_machine_gun_1
+		soldier_type_slot_1 = bolt_action_1
+		soldier_type_slot_2 = bolt_action_1
+		soldier_type_slot_3 = bolt_action_1
+		soldier_type_slot_4 = bolt_action_1
+		soldier_type_slot_5 = bolt_action_1
+		soldier_type_slot_6 = bolt_action_1
+		soldier_type_slot_7 = bolt_action_1
+		soldier_type_slot_8 = bolt_action_1
+		soldier_type_slot_9 = bolt_action_1
+		uniform_type_slot = helmet
+		sidearm_type_slot = bayonet
+		support_type_slot_0 = improvised_at_grenades
+	}
+}
+create_equipment_variant = {
+	name = "Basic Mobile Infantry Equipment"
+	type = mobile_infantry_equipment_1
+	parent_version = 0
+	modules = {
+		soldier_type_slot_0 = light_machine_gun_1
+		soldier_type_slot_1 = bolt_action_1
+		soldier_type_slot_2 = bolt_action_1
+		soldier_type_slot_3 = bolt_action_1
+		soldier_type_slot_4 = bolt_action_1
+		soldier_type_slot_5 = bolt_action_1
+		soldier_type_slot_6 = bolt_action_1
+		soldier_type_slot_7 = bolt_action_1
+		soldier_type_slot_8 = bolt_action_1
+		soldier_type_slot_9 = bolt_action_1
+		uniform_type_slot = helmet
+		sidearm_type_slot = bayonet
 		support_type_slot_0 = improvised_at_grenades
 	}
 }

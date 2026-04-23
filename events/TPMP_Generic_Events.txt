@@ -302,3 +302,98 @@ country_event = {
 		}
 	}
 }
+country_event = {
+	id = TPMP_GEN.5
+	title = TPMP_GEN.5.t
+	desc = TPMP_GEN.5.d
+	picture = GFX_report_event_ETH_ethiopian_warriors
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { 	#just annex 
+		name = TPMP_GEN.5.a
+		add_equipment_to_stockpile = {
+			type = line_infantry_equipment_1
+			amount = 2500
+			producer = ETH
+		}
+		add_equipment_to_stockpile = {
+			type = mobile_infantry_equipment_1
+			amount = 1750
+			producer = ETH
+		}
+	}
+	option = { 	#release 
+		name = TPMP_GEN.5.b
+		release_autonomy = {
+			target = ETH
+			autonomy_state = autonomy_reichskommissariat
+			freedom_level = 0
+		}
+		add_equipment_to_stockpile = {
+				type = line_infantry_equipment_1
+				amount = 1000
+				producer = ETH
+			}
+		ETH = {
+			add_equipment_to_stockpile = {
+				type = line_infantry_equipment_1
+				amount = 1500
+				producer = ETH
+			}
+			add_equipment_to_stockpile = {
+				type = mobile_infantry_equipment_1
+				amount = 1750
+				producer = ETH
+			}
+		}
+		hidden_effect = {
+			ETH = {
+				uncomplete_national_focus = {
+					focus = ETH_rally_around_the_emperor
+					uncomplete_children = yes
+					refund_political_power = no
+				}
+			}
+		}
+	}
+	option = { 	#release + other
+		name = TPMP_GEN.5.c
+		release_autonomy = {
+			target = ETH
+			autonomy_state = autonomy_reichskommissariat
+			freedom_level = 0
+		}
+		550 = {
+			transfer_state_to = ETH
+		}
+		559 = {
+			transfer_state_to = ETH
+		}
+		844 = {
+			transfer_state_to = ETH
+		}
+		ETH = {
+			add_equipment_to_stockpile = {
+				type = line_infantry_equipment_1
+				amount = 2500
+				producer = ETH
+			}
+			add_equipment_to_stockpile = {
+				type = mobile_infantry_equipment_1
+				amount = 1750
+				producer = ETH
+			}
+		}
+		hidden_effect = {
+			ETH = {
+				uncomplete_national_focus = {
+					focus = ETH_rally_around_the_emperor
+					uncomplete_children = yes
+					refund_political_power = no
+				}
+			}
+		}
+	}
+}

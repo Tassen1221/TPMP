@@ -60,7 +60,7 @@ NDefines.NMilitary.UNIT_LEADER_USE_NONLINEAR_XP_GAIN = false	-- Whether unit lea
 NDefines.NMilitary.BASE_LEADER_TRAIT_GAIN_XP = 0.5		-- Base xp gain for traits per hour for armies
 NDefines.NMilitary.MAX_NUM_TRAITS = -1				-- cant have more, -1 to disable
 
-NDefines.NMilitary.BASE_FORT_PENALTY = -0.15			-- fort penalty
+NDefines.NMilitary.BASE_FORT_PENALTY = -0.2			-- fort penalty
 NDefines.NMilitary.DIG_IN_FACTOR = 0.02				-- bonus factor for each dug-in level
 
 NDefines.NMilitary.MAX_DIVISION_BRIGADE_WIDTH = 5		-- Max width of regiments in division designer.

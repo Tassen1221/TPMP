@@ -738,22 +738,6 @@ GER_stop_rearmament = {
 		
 		custom_effect_tooltip = GER_replace_mefo_bills_with_recovering_economy_tt
 		add_to_variable = {
-			GER_mefo_bills_civilian_intel_to_others = 25
-			tooltip = civilian_intel_to_others_tt
-		}
-		add_to_variable = {
-			GER_mefo_bills_army_intel_to_others = 25
-			tooltip = army_intel_to_others_tt
-		}
-		add_to_variable = {
-			GER_mefo_bills_navy_intel_to_others = 25
-			tooltip = navy_intel_to_others_tt
-		}
-		add_to_variable = {
-			GER_mefo_bills_airforce_intel_to_others = 25
-			tooltip = airforce_intel_to_others_tt
-		}
-		add_to_variable = {
 			GER_industrial_production_speed_arms_factory_factor = -0.1
 			tooltip = production_speed_arms_factory_factor_tt
 		}
@@ -855,22 +839,6 @@ GER_autarky_achieved_effects = {
 			add_dynamic_modifier = { modifier = GER_wirtschaftswunder_modifier }
 		}
 		custom_effect_tooltip = GER_replace_mefo_bills_with_wirtschaftswunder_tt
-		add_to_variable = {
-			GER_mefo_bills_civilian_intel_to_others = 0.25
-			tooltip = civilian_intel_to_others_tt
-		}
-		add_to_variable = {
-			GER_mefo_bills_army_intel_to_others = 0.25
-			tooltip = army_intel_to_others_tt
-		}
-		add_to_variable = {
-			GER_mefo_bills_navy_intel_to_others = 0.25
-			tooltip = navy_intel_to_others_tt
-		}
-		add_to_variable = {
-			GER_mefo_bills_airforce_intel_to_others = 0.25
-			tooltip = airforce_intel_to_others_tt
-		}
 	}
 	else_if = {
 		limit = {
@@ -919,7 +887,7 @@ GER_autarky_achieved_effects = {
 		tooltip = industrial_capacity_dockyard_tt
 	}
 	set_variable = {
-		GER_industrial_consumer_goods_factor = 0.49
+		GER_industrial_consumer_goods_factor = 0.99
 		tooltip = consumer_goods_factor_tt
 	}
 }

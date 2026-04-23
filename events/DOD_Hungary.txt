@@ -3631,7 +3631,7 @@ country_event = {
 	option = {# back down
 		name = DOD_hungary.92.a
 		ai_chance = {
-			factor = 10
+			base = 10
 			modifier = {
 				has_war = yes
 				factor = 2
@@ -3643,7 +3643,7 @@ country_event = {
 	option = {# ask Germany for help
 		name = DOD_hungary.92.b
 		ai_chance = {
-			factor = 10
+			base = 10
 			modifier = {
 				is_in_faction_with = GER
 				factor = 5
@@ -3692,7 +3692,7 @@ country_event = {
 		}
 		name = DOD_hungary.92.c
 		ai_chance = {
-			factor = 10
+			base = 10
 			modifier = {
 				is_in_faction_with = ITA
 				factor = 5
@@ -3710,7 +3710,7 @@ country_event = {
 	option = {# ask both for help
 		name = DOD_hungary.92.d
 		ai_chance = {
-			factor = 170
+			base = 170
 		}
 		trigger = {
 			AND = {
@@ -3724,7 +3724,7 @@ country_event = {
 	option = {# Go alone
 		name = DOD_hungary.92.e
 		ai_chance = {
-			factor = 0
+			base = 0
 			modifier = {
 				add = 10
 				AND = {
@@ -4211,6 +4211,17 @@ country_event = {
 		if = {
 			limit = {
 				country_exists = CZE
+				CZE = {
+					NOT = {
+						OR = {
+							has_cosmetic_tag = CZE_union
+							has_cosmetic_tag = CZE_second_republic
+							has_cosmetic_tag = UBF_united_balkan_federation
+							has_cosmetic_tag = CZE_fall_of_the_republic
+							has_cosmetic_tag = CZE_CEF
+						}
+					}
+				}
 			}
 			CZE = {
 				set_cosmetic_tag = CZE_ONLY
@@ -4280,6 +4291,17 @@ country_event = {
 		if = {
 			limit = {
 				country_exists = CZE
+				CZE = {
+					NOT = {
+						OR = {
+							has_cosmetic_tag = CZE_union
+							has_cosmetic_tag = CZE_second_republic
+							has_cosmetic_tag = UBF_united_balkan_federation
+							has_cosmetic_tag = CZE_fall_of_the_republic
+							has_cosmetic_tag = CZE_CEF
+						}
+					}
+				}
 			}
 			CZE = {
 				set_cosmetic_tag = CZE_ONLY

@@ -712,7 +712,15 @@ our_words_are_backed = {
 	}
 	
 	happened = {
-		has_country_flag = RAJ_quit_india_movement
+		if = {
+			limit = {
+				has_dlc = "Graveyard of Empires"
+			}
+			has_completed_focus = RAJ_purna_swaraj
+		}
+		else = {
+			has_completed_focus = RAJ_quit_india_movement
+		}
 		has_country_flag = achievement_has_dropped_nuke
 	}
 }
@@ -1467,7 +1475,15 @@ hail_to_the_qing = {
 	}
 	
 	happened = {
-		has_completed_focus = MAN_claim_the_mandate_of_heaven
+	
+		custom_trigger_tooltip = {
+			tooltip = MAN_has_completed_claim_the_mandate_of_heaven_focus
+			OR = {
+				has_completed_focus = MAN_claim_the_mandate_of_heaven
+				has_completed_focus = MAN_tsr_claim_the_mandate_of_heaven
+			}
+		}
+		
 	}
 }
 
@@ -1544,12 +1560,21 @@ panda_monium = {
 	id = 66
 	
 	possible = {
-		OR = {
+		OR = {		
 			tag = GXC
 			tag = YUN
 			tag = SHX
 			tag = XSM
 			tag = SIK
+			tag = GDC
+			tag = SND
+			tag = SIC
+			tag = NXM
+			tag = GSM
+			tag = XIC
+			tag = KHM
+			tag = KUM
+			tag = HBC
 		}
 		is_ironman = yes
 		difficulty > 1
@@ -1603,12 +1628,21 @@ make_a_man_out_of_you = {
 	id = 67
 	
 	possible = {
-		OR = {
+		OR = {		
 			tag = GXC
 			tag = YUN
 			tag = SHX
 			tag = XSM
 			tag = SIK
+			tag = GDC
+			tag = SND
+			tag = SIC
+			tag = NXM
+			tag = GSM
+			tag = XIC
+			tag = KHM
+			tag = KUM
+			tag = HBC
 		}
 		is_ironman = yes
 		difficulty > 1
@@ -7433,6 +7467,14 @@ the_juannines = {
 		PHI = {
 			SPR = {
 				all_core_state = {
+					hidden_trigger = {
+						if = {
+							limit = {
+								has_dlc = "La Resistance"
+							}
+							has_state_flag = SPR_original_core
+						}
+					}
 					is_fully_controlled_by = PHI
 					is_core_of = PHI
 				}
@@ -7681,3 +7723,184 @@ doctrine_of_choice = {
 	}
 }
 
+### PfOT
+
+im_playing_both_sides_so_i_always_come_out_on_top = {
+    id = 268
+    possible = {
+        is_ironman = yes
+        difficulty > 1
+        has_any_custom_difficulty_setting = no
+        game_rules_allow_achievements = yes
+		OR = {
+			has_dlc = "Arms Against Tyranny"
+			AND = {
+				has_dlc = "Peace For Our Time"
+				tag = CZE
+			}
+		}
+    }
+
+    happened = {
+		OR = {
+			any_country = {
+				has_country_flag = achievement_bought_cze_weapons
+				any_enemy_country = {
+					has_country_flag = achievement_bought_cze_weapons
+				}
+			}
+			any_country = {
+				any_purchase_contract = {
+					seller = ROOT
+				}
+				any_enemy_country = {
+					any_purchase_contract = {
+						seller = ROOT
+					}
+				}
+			}
+		}
+    }
+}
+
+i_didnt_hear_no_bell = {
+    id = 269
+    possible = {
+		tag = CZE
+        is_ironman = yes
+        difficulty > 1
+		has_start_date < 1936.01.02
+        has_any_custom_difficulty_setting = no
+        game_rules_allow_achievements = yes
+		has_dlc = "Peace For Our Time"
+    }
+
+    happened = {
+		custom_trigger_tooltip = {
+			tooltip = i_didnt_hear_no_bell_tt
+			OR = {
+				has_cosmetic_tag = CZE_second_republic
+				has_cosmetic_tag = CZE_fall_of_the_republic
+			}
+		}
+		has_country_flag = CZE_capitulated_germany
+    }
+}
+
+premyslids_dream = {
+    id = 270
+    possible = {
+		tag = CZE
+        is_ironman = yes
+        difficulty > 1
+		has_start_date < 1936.01.02
+        has_any_custom_difficulty_setting = no
+        game_rules_allow_achievements = yes
+		has_dlc = "Peace For Our Time"
+    }
+
+    happened = {
+		has_completed_focus = CZE_proclaim_the_restoration_of_bohemia
+		has_completed_focus = CZE_the_legacy_of_ottokar
+    }
+}
+
+kutaci = {
+    id = 271
+    possible = {
+		tag = CZE
+        is_ironman = yes
+        difficulty > 1
+		has_start_date < 1936.01.02
+        has_any_custom_difficulty_setting = no
+        game_rules_allow_achievements = yes
+    }
+
+    happened = {
+		land_facility > 0
+		air_facility > 0
+		nuclear_facility > 0
+		naval_facility > 0
+    }
+}
+
+first_train_home = {
+    id = 272
+    possible = {
+		tag = CZE
+        is_ironman = yes
+        difficulty > 1
+		has_start_date < 1936.01.02
+        has_any_custom_difficulty_setting = no
+        game_rules_allow_achievements = yes
+    }
+
+    happened = {
+		OR = {
+			owns_state = 219		#Moscow
+			owns_state = 253		#Ivanovo
+			owns_state = 252
+			owns_state = 256
+			owns_state = 249
+			owns_state = 399
+			owns_state = 398
+			owns_state = 573
+			owns_state = 653
+			owns_state = 572		#The railway has 2 routes here, Im counting both
+			owns_state = 403
+			owns_state = 571
+			owns_state = 570
+			owns_state = 569
+			owns_state = 568
+			owns_state = 567
+			owns_state = 566
+			owns_state = 563
+			owns_state = 561
+			owns_state = 657		#Birobidzhan
+			owns_state = 409		#Khabarovosk
+			owns_state = 408		#Vladivostok
+		}
+    }
+}
+
+aint_like_that_now = {
+    id = 273
+    possible = {
+		tag = CZE
+        is_ironman = yes
+        difficulty > 1
+		has_start_date < 1936.01.02
+        has_any_custom_difficulty_setting = no
+        game_rules_allow_achievements = yes
+		has_dlc = "Peace For Our Time"
+    }
+
+    happened = {
+		has_completed_focus = CZE_return_to_democracy
+    }
+}
+
+czechoslovaustrohungarian_union = {
+    id = 274
+    possible = {
+		tag = CZE
+        is_ironman = yes
+        difficulty > 1
+		has_start_date < 1936.01.02
+        has_any_custom_difficulty_setting = no
+        game_rules_allow_achievements = yes
+		has_dlc = "Peace For Our Time"
+    }
+
+    happened = {
+		has_completed_focus = CZE_balkan_union
+		HUN = {
+			is_subject_of = ROOT
+			has_idea = CZE_integration_efforts_communism
+		}
+		AUS = {
+			is_subject_of = ROOT
+			has_idea = CZE_integration_efforts_communism
+		}
+    }
+}

@@ -221,7 +221,6 @@ ideas = {
 				production_speed_dockyard_factor = -0.1
 				fuel_gain_factor = -0.25
 				factory_energy_consumption = -0.15
-				unit_medal_effectiveness = -0.60
 			}
 
 			cancel_if_invalid = no
@@ -325,7 +324,8 @@ ideas = {
 			modifier = {
 				consumer_goods_expected_value = 0.25
 				production_speed_arms_factory_factor = 0.1
-				conversion_cost_civ_to_mil_factor= -0.1
+				conversion_cost_civ_to_mil_factor = -0.1
+				conversion_cost_mil_to_civ_factor = -0.1
 				fuel_gain_factor = -0.1
 			}
 
@@ -514,6 +514,7 @@ ideas = {
 				consumer_goods_expected_value = 0.2
 				production_speed_arms_factory_factor = 0.2
 				conversion_cost_civ_to_mil_factor= -0.2
+				conversion_cost_mil_to_civ_factor = -0.2
 				factory_energy_consumption = 0.25
 			}
 
@@ -671,7 +672,8 @@ ideas = {
 				consumer_goods_expected_value = 0.15
 				conscription = -0.03
 				production_speed_arms_factory_factor = 0.3
-				conversion_cost_civ_to_mil_factor= -0.3
+				conversion_cost_civ_to_mil_factor = -0.3
+				conversion_cost_mil_to_civ_factor = -0.3
 				factory_energy_consumption = 0.5
 			}
 
@@ -704,7 +706,8 @@ ideas = {
 				consumer_goods_expected_value = 0.15
 				conscription = -0.02
 				production_speed_arms_factory_factor = 0.1
-				conversion_cost_civ_to_mil_factor= -0.3
+				conversion_cost_civ_to_mil_factor = -0.3
+				conversion_cost_mil_to_civ_factor = -0.3
 				industrial_capacity_factory = 0.15
 				factory_energy_consumption = 0.25
 			}
@@ -747,7 +750,9 @@ ideas = {
 				consumer_goods_expected_value = 0.15
 				production_speed_arms_factory_factor = 0.3
 				conversion_cost_civ_to_mil_factor= -0.3
-				factory_energy_consumption = 0.45
+				conversion_cost_mil_to_civ_factor = -0.3
+				
+				factory_energy_consumption = 0.25
 			}
 			cancel_if_invalid = no
 		}
@@ -827,6 +832,7 @@ ideas = {
 				consumer_goods_expected_value = 0.15
 				production_speed_industrial_complex_factor = 0.15
 				conversion_cost_civ_to_mil_factor = -0.4
+				conversion_cost_mil_to_civ_factor = -0.4
 				production_speed_infrastructure_factor = 0.15
 				production_speed_arms_factory_factor = -0.15
 				trade_opinion_factor = 0.75
@@ -1526,6 +1532,47 @@ ideas = {
 
 			cancel_if_invalid = no
 		}
+
+
+		TPMP_ROM_romanian_closed_economy = {
+
+			allowed = {
+				always = no
+			}
+			available = {
+			}
+
+			rule = {
+			}
+
+			allowed_to_remove = {
+				hidden_trigger = {
+					always = no
+				}
+			}
+
+			cost = 150
+			removal_cost = -1
+
+			modifier = {
+				min_export = 0
+				#civilian_intel_to_others = 0.0
+				lend_lease_tension = 0.40
+				cic_construction_boost = -0.1
+			}
+
+			cancel_if_invalid = no
+		}
+
+
+
+
+
+
+
+
+
+
 
 		special_economic_zones = {
 			available = {

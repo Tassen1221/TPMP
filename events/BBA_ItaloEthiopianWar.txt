@@ -825,10 +825,6 @@ country_event = {
 		name = BBA_italo_ethiopian_war_events.100.a
 		trigger = {
 			NOT = { is_in_faction_with = ITA }
-			if = {
-				limit = { has_dlc = "No Compromise, No Surrender" }
-				has_active_rule = government_in_exile_allowed
-			}
 		}
 		ai_chance = {
 			
@@ -838,7 +834,7 @@ country_event = {
 				has_government = fascism
 			}
 			modifier = { # Kodoha - Ethiopian Friendship
-				factor = 8
+				factor = 10 
 				OR = {
 					has_completed_focus = JAP_support_the_kodoha_faction
 					has_completed_focus = JAP_revere_the_emperor_destroy_the_traitors

@@ -32,8 +32,13 @@ country_event = {
 				start_civil_war = {
 					ideology = fascism
 					size = civil_war_size_var
-					keep_unit_leaders = { 700 701 702 703 704 705 706 707 708 709 710 711 712 }
+					keep_all_characters = yes
 					states = { 479 480 }
+					PREV = {  # Original country
+				       MEX_saturnino_cedillo = { 
+				           set_nationality = PREV.PREV
+				       }
+				   }
 				}
 			}
 			if = {
@@ -47,8 +52,13 @@ country_event = {
 				start_civil_war = {
 					ideology = neutrality
 					size = civil_war_size_var
-					keep_unit_leaders = { 700 701 702 703 704 705 706 707 708 709 710 711 712 }
+					keep_all_characters = yes
 					states = { 479 480 }
+					PREV = {  # Original country
+				       MEX_saturnino_cedillo = { 
+				           set_nationality = PREV.PREV
+				       }
+				   }
 				}
 			}
 			random_other_country = {
@@ -1096,7 +1106,7 @@ country_event = {
 		set_global_flag = trotsky_exile_mexico
 		set_global_flag = AAT_trotsky_in_mexico
 		ai_chance = {
-			factor = 1
+			base = 1
 			
 			modifier = {
 				add = 100
@@ -1191,7 +1201,7 @@ country_event = {
 			}
 		}
 		ai_chance = {
-			factor = 0
+			base = 0
 			
 			modifier = {
 				add = 100
@@ -1251,7 +1261,7 @@ country_event = {
 		set_global_flag = AAT_trotsky_in_mexico
 		
 		ai_chance = {
-			factor = 0
+			base = 0
 			
 			modifier = {
 				add = 100
@@ -2464,7 +2474,7 @@ country_event = {
 				start_civil_war = {
 					ideology = fascism
 					size = 0.35
-					keep_unit_leaders = { 700 701 702 703 704 705 706 707 708 709 710 711 712 }
+					keep_all_characters = yes
 				}
 			}
 			if = {
@@ -2474,7 +2484,7 @@ country_event = {
 				start_civil_war = {
 					ideology = democratic
 					size = 0.35
-					keep_unit_leaders = { 700 701 702 703 704 705 706 707 708 709 710 711 712 }
+					keep_all_characters = yes
 				}
 			}
 			if = {
@@ -2484,7 +2494,7 @@ country_event = {
 				start_civil_war = {
 					ideology = democratic
 					size = 0.35
-					keep_unit_leaders = { 700 701 702 703 704 705 706 707 708 709 710 711 712 }
+					keep_all_characters = yes
 				}
 			}
 			random_other_country = {
@@ -2556,6 +2566,17 @@ country_event = {
 					}
 					promote_leader = yes
 				}
+				add_country_leader_role = {
+					character = MEX_luis_maria_martinez
+					country_leader = {
+						expire = "1965.1.1"
+						ideology = despotism
+						traits = {
+							primate_of_mexico
+						}
+					}
+					promote_leader = yes
+				}
 				division_template = {
 					name = "Guardia Cristera"
 					division_names_group = MEX_INF_01
@@ -2604,6 +2625,7 @@ country_event = {
 				}
 				set_party_name = { ideology = fascism name = MEX_fascist_party_legionnaires_of_christ_short long_name = MEX_fascist_party_legionnaires_of_christ_long }
 				set_party_name = { ideology = democratic name = MEX_democratic_party_national_action_party_short long_name = MEX_democratic_party_national_action_party_long }
+				set_party_name = { ideology = neutrality name = MEX_democratic_party_national_action_party_short long_name = MEX_democratic_party_national_action_party_long }
 			}
 		}
 	}
@@ -2703,6 +2725,101 @@ country_event = {
 				start_civil_war = {
 					ideology = neutrality
 					size = 0.35
+					keep_all_characters = yes
+					PREV = {  # Original country
+				        MEX_abelardo_rodriguez = { 
+				            set_nationality = PREV.PREV
+				        }
+				        MEX_manuel_avila_camacho = { 
+				            set_nationality = PREV.PREV
+				        }
+				        MEX_heriberto_corona = { 
+				            set_nationality = PREV.PREV
+				        } 
+				        MEX_adolfo_de_la_huerta = { 
+				            set_nationality = PREV.PREV
+				            add_corps_commander_role = {
+				            	character = MEX_adolfo_de_la_huerta
+				            	traits = { }
+				            	skill = 3
+				            	attack_skill = 3
+				            	defense_skill = 3
+				            	planning_skill = 2
+				            	logistics_skill = 2
+				            }				
+				            add_country_leader_role = { # Exiled until 1935 following a rebellion attempt, allowed back in by Cardenas and joined the cabinet of Avila
+				            	character = MEX_adolfo_de_la_huerta
+				            	country_leader = {
+				            		expire = "1965.1.1"
+				            		ideology = conservatism
+				            		traits = {
+				            			#
+				            		}
+				            	}
+				            	promote_leader = yes				
+				            }
+				        }
+				        MEX_vicente_lombardo = { 
+				            set_nationality = PREV.PREV
+				            add_country_leader_role = {
+				            	character = MEX_vicente_lombardo
+				            	country_leader = {
+				            		expire = "1965.1.1"
+				            		ideology = marxism
+				            		traits = {
+				            			the_dean_of_mexican_marxism
+				            		}
+				            	}
+				            	promote_leader = yes				
+				            }
+				            add_corps_commander_role = { # It's your chance to shine, my boy!
+				            	traits = { politically_connected }
+				            	skill = 1
+				            	attack_skill = 1
+				            	defense_skill = 1
+				            	planning_skill = 1
+				            	logistics_skill = 1
+				            }
+				        }
+				        if = {
+				        	limit = {
+				        		NOT = { has_global_flag = flag_mexico_cedillo_has_revolted }
+				        	}
+				        	MEX_saturnino_cedillo = {
+				        		set_nationality = PREV.PREV
+				        	}
+				        	add_country_leader_role = {
+				        		character = MEX_saturnino_cedillo
+				        		country_leader = {
+				        			expire = "1965.1.1"
+				        			ideology = fascism_ideology
+				        			traits = {
+				        				strongman_of_san_luis_potosi
+				        			}
+				        		}
+				        		promote_leader = yes				
+				        	}
+				        }
+				        if = {
+				        	limit = {
+				        		has_global_flag = flag_mexico_cedillo_has_revolted
+				        	}
+				        	MEX_juan_andreu = {
+				        		set_nationality = PREV.PREV
+				        	}
+				        	add_country_leader_role = {
+				        		character = MEX_juan_andreu
+				        		country_leader = {
+				        			expire = "1965.1.1"
+				        			ideology = fascism_ideology
+				        			traits = {
+				        				the_silver_president
+				        			}
+				        		}
+				        		promote_leader = yes				
+				        	}
+				        }
+				    }
 				}
 			}
 			if = {
@@ -2713,6 +2830,101 @@ country_event = {
 				start_civil_war = {
 					ideology = communism
 					size = 0.35
+					keep_all_characters = yes
+					PREV = {  # Original country
+				        MEX_abelardo_rodriguez = { 
+				            set_nationality = PREV.PREV
+				        }
+				        MEX_manuel_avila_camacho = { 
+				            set_nationality = PREV.PREV
+				        }
+				        MEX_heriberto_corona = { 
+				            set_nationality = PREV.PREV
+				        } 
+				        MEX_adolfo_de_la_huerta = { 
+				            set_nationality = PREV.PREV
+				            add_corps_commander_role = {
+				            	character = MEX_adolfo_de_la_huerta
+				            	traits = { }
+				            	skill = 3
+				            	attack_skill = 3
+				            	defense_skill = 3
+				            	planning_skill = 2
+				            	logistics_skill = 2
+				            }				
+				            add_country_leader_role = { # Exiled until 1935 following a rebellion attempt, allowed back in by Cardenas and joined the cabinet of Avila
+				            	character = MEX_adolfo_de_la_huerta
+				            	country_leader = {
+				            		expire = "1965.1.1"
+				            		ideology = conservatism
+				            		traits = {
+				            			#
+				            		}
+				            	}
+				            	promote_leader = yes				
+				            }
+				        }
+				        MEX_vicente_lombardo = { 
+				            set_nationality = PREV.PREV
+				            add_country_leader_role = {
+				            	character = MEX_vicente_lombardo
+				            	country_leader = {
+				            		expire = "1965.1.1"
+				            		ideology = marxism
+				            		traits = {
+				            			the_dean_of_mexican_marxism
+				            		}
+				            	}
+				            	promote_leader = yes				
+				            }
+				            add_corps_commander_role = { # It's your chance to shine, my boy!
+				            	traits = { politically_connected }
+				            	skill = 1
+				            	attack_skill = 1
+				            	defense_skill = 1
+				            	planning_skill = 1
+				            	logistics_skill = 1
+				            }
+				        }
+				        if = {
+				        	limit = {
+				        		NOT = { has_global_flag = flag_mexico_cedillo_has_revolted }
+				        	}
+				        	MEX_saturnino_cedillo = {
+				        		set_nationality = PREV.PREV
+				        	}
+				        	add_country_leader_role = {
+				        		character = MEX_saturnino_cedillo
+				        		country_leader = {
+				        			expire = "1965.1.1"
+				        			ideology = fascism_ideology
+				        			traits = {
+				        				strongman_of_san_luis_potosi
+				        			}
+				        		}
+				        		promote_leader = yes				
+				        	}
+				        }
+				        if = {
+				        	limit = {
+				        		has_global_flag = flag_mexico_cedillo_has_revolted
+				        	}
+				        	MEX_juan_andreu = {
+				        		set_nationality = PREV.PREV
+				        	}
+				        	add_country_leader_role = {
+				        		character = MEX_juan_andreu
+				        		country_leader = {
+				        			expire = "1965.1.1"
+				        			ideology = fascism_ideology
+				        			traits = {
+				        				the_silver_president
+				        			}
+				        		}
+				        		promote_leader = yes				
+				        	}
+				        }
+				    }
 				}
 			}
 			if = {
@@ -2722,6 +2934,101 @@ country_event = {
 				start_civil_war = {
 					ideology = communism
 					size = 0.35
+					keep_all_characters = yes
+					PREV = {  # Original country
+				        MEX_abelardo_rodriguez = { 
+				            set_nationality = PREV.PREV
+				        }
+				        MEX_manuel_avila_camacho = { 
+				            set_nationality = PREV.PREV
+				        }
+				        MEX_heriberto_corona = { 
+				            set_nationality = PREV.PREV
+				        } 
+				        MEX_adolfo_de_la_huerta = { 
+				            set_nationality = PREV.PREV
+				            add_corps_commander_role = {
+				            	character = MEX_adolfo_de_la_huerta
+				            	traits = { }
+				            	skill = 3
+				            	attack_skill = 3
+				            	defense_skill = 3
+				            	planning_skill = 2
+				            	logistics_skill = 2
+				            }				
+				            add_country_leader_role = { # Exiled until 1935 following a rebellion attempt, allowed back in by Cardenas and joined the cabinet of Avila
+				            	character = MEX_adolfo_de_la_huerta
+				            	country_leader = {
+				            		expire = "1965.1.1"
+				            		ideology = conservatism
+				            		traits = {
+				            			#
+				            		}
+				            	}
+				            	promote_leader = yes				
+				            }
+				        }
+				        MEX_vicente_lombardo = { 
+				            set_nationality = PREV.PREV
+				            add_country_leader_role = {
+				            	character = MEX_vicente_lombardo
+				            	country_leader = {
+				            		expire = "1965.1.1"
+				            		ideology = marxism
+				            		traits = {
+				            			the_dean_of_mexican_marxism
+				            		}
+				            	}
+				            	promote_leader = yes				
+				            }
+				            add_corps_commander_role = { # It's your chance to shine, my boy!
+				            	traits = { politically_connected }
+				            	skill = 1
+				            	attack_skill = 1
+				            	defense_skill = 1
+				            	planning_skill = 1
+				            	logistics_skill = 1
+				            }
+				        }
+				        if = {
+				        	limit = {
+				        		NOT = { has_global_flag = flag_mexico_cedillo_has_revolted }
+				        	}
+				        	MEX_saturnino_cedillo = {
+				        		set_nationality = PREV.PREV
+				        	}
+				        	add_country_leader_role = {
+				        		character = MEX_saturnino_cedillo
+				        		country_leader = {
+				        			expire = "1965.1.1"
+				        			ideology = fascism_ideology
+				        			traits = {
+				        				strongman_of_san_luis_potosi
+				        			}
+				        		}
+				        		promote_leader = yes				
+				        	}
+				        }
+				        if = {
+				        	limit = {
+				        		has_global_flag = flag_mexico_cedillo_has_revolted
+				        	}
+				        	MEX_juan_andreu = {
+				        		set_nationality = PREV.PREV
+				        	}
+				        	add_country_leader_role = {
+				        		character = MEX_juan_andreu
+				        		country_leader = {
+				        			expire = "1965.1.1"
+				        			ideology = fascism_ideology
+				        			traits = {
+				        				the_silver_president
+				        			}
+				        		}
+				        		promote_leader = yes				
+				        	}
+				        }
+				    }
 				}
 			}
 			if = {
@@ -2731,6 +3038,101 @@ country_event = {
 				start_civil_war = {
 					ideology = communism
 					size = 0.35
+					keep_all_characters = yes
+					PREV = {  # Original country
+				        MEX_abelardo_rodriguez = { 
+				            set_nationality = PREV.PREV
+				        }
+				        MEX_manuel_avila_camacho = { 
+				            set_nationality = PREV.PREV
+				        }
+				        MEX_heriberto_corona = { 
+				            set_nationality = PREV.PREV
+				        } 
+				        MEX_adolfo_de_la_huerta = { 
+				            set_nationality = PREV.PREV
+				            add_corps_commander_role = {
+				            	character = MEX_adolfo_de_la_huerta
+				            	traits = { }
+				            	skill = 3
+				            	attack_skill = 3
+				            	defense_skill = 3
+				            	planning_skill = 2
+				            	logistics_skill = 2
+				            }				
+				            add_country_leader_role = { # Exiled until 1935 following a rebellion attempt, allowed back in by Cardenas and joined the cabinet of Avila
+				            	character = MEX_adolfo_de_la_huerta
+				            	country_leader = {
+				            		expire = "1965.1.1"
+				            		ideology = conservatism
+				            		traits = {
+				            			#
+				            		}
+				            	}
+				            	promote_leader = yes				
+				            }
+				        }
+				        MEX_vicente_lombardo = { 
+				            set_nationality = PREV.PREV
+				            add_country_leader_role = {
+				            	character = MEX_vicente_lombardo
+				            	country_leader = {
+				            		expire = "1965.1.1"
+				            		ideology = marxism
+				            		traits = {
+				            			the_dean_of_mexican_marxism
+				            		}
+				            	}
+				            	promote_leader = yes				
+				            }
+				            add_corps_commander_role = { # It's your chance to shine, my boy!
+				            	traits = { politically_connected }
+				            	skill = 1
+				            	attack_skill = 1
+				            	defense_skill = 1
+				            	planning_skill = 1
+				            	logistics_skill = 1
+				            }
+				        }
+				        if = {
+				        	limit = {
+				        		NOT = { has_global_flag = flag_mexico_cedillo_has_revolted }
+				        	}
+				        	MEX_saturnino_cedillo = {
+				        		set_nationality = PREV.PREV
+				        	}
+				        	add_country_leader_role = {
+				        		character = MEX_saturnino_cedillo
+				        		country_leader = {
+				        			expire = "1965.1.1"
+				        			ideology = fascism_ideology
+				        			traits = {
+				        				strongman_of_san_luis_potosi
+				        			}
+				        		}
+				        		promote_leader = yes				
+				        	}
+				        }
+				        if = {
+				        	limit = {
+				        		has_global_flag = flag_mexico_cedillo_has_revolted
+				        	}
+				        	MEX_juan_andreu = {
+				        		set_nationality = PREV.PREV
+				        	}
+				        	add_country_leader_role = {
+				        		character = MEX_juan_andreu
+				        		country_leader = {
+				        			expire = "1965.1.1"
+				        			ideology = fascism_ideology
+				        			traits = {
+				        				the_silver_president
+				        			}
+				        		}
+				        		promote_leader = yes				
+				        	}
+				        }
+				    }
 				}
 			}
 			random_other_country = {
@@ -2742,16 +3144,6 @@ country_event = {
 				MEX_remove_church_power = yes
 				save_event_target_as = mexican_second_revolution_rebeller
 				ROOT = {
-					every_unit_leader = {
-						limit = {
-							OR = {
-								has_id = 704 # Former president Abelardo L. Rodríguez
-								has_id = 705 # Future president Manuel Ávila Camacho
-								has_id = 707 # Revolutionary general/admiral Heriberto Jara Corona
-							}
-						}
-						set_nationality = event_target:mexican_second_revolution_rebeller
-					}
 					if = {
 						limit = {
 							ROOT = {
@@ -2774,39 +3166,6 @@ country_event = {
 					}
 				}
 				
-				MEX_vicente_lombardo = {
-					add_corps_commander_role = { # It's your chance to shine, my boy!
-						traits = { politically_connected }
-						skill = 1
-						attack_skill = 1
-						defense_skill = 1
-						planning_skill = 1
-						logistics_skill = 1
-					}	
-					set_nationality = event_target:mexican_second_revolution_rebeller
-
-				}
-
-				add_corps_commander_role = {
-					character = MEX_adolfo_de_la_huerta
-					traits = { }
-					skill = 3
-					attack_skill = 3
-					defense_skill = 3
-					planning_skill = 2
-					logistics_skill = 2
-				}				
-				add_country_leader_role = { # Exiled until 1935 following a rebellion attempt, allowed back in by Cardenas and joined the cabinet of Avila
-					character = MEX_adolfo_de_la_huerta
-					country_leader = {
-						expire = "1965.1.1"
-						ideology = conservatism
-						traits = {
-							#
-						}
-					}
-					promote_leader = yes				
-				}
 				add_country_leader_role = {
 					character = MEX_plutarco_calles
 					country_leader = {
@@ -2818,49 +3177,7 @@ country_event = {
 					}
 					promote_leader = yes				
 				}
-				add_country_leader_role = {
-					character = MEX_vicente_lombardo
-					country_leader = {
-						expire = "1965.1.1"
-						ideology = marxism
-						traits = {
-							the_dean_of_mexican_marxism
-						}
-					}
-				promote_leader = yes				
-				}
-				if = {
-					limit = {
-						NOT = { has_global_flag = flag_mexico_cedillo_has_revolted }
-					}
-					add_country_leader_role = {
-						character = MEX_saturnino_cedillo
-						country_leader = {
-							expire = "1965.1.1"
-							ideology = fascism_ideology
-							traits = {
-								strongman_of_san_luis_potosi
-							}
-						}
-						promote_leader = yes				
-					}
-				}
-				if = {
-					limit = {
-						has_global_flag = flag_mexico_cedillo_has_revolted
-					}
-					add_country_leader_role = {
-						character = MEX_juan_andreu
-						country_leader = {
-							expire = "1965.1.1"
-							ideology = fascism_ideology
-							traits = {
-								the_silver_president
-							}
-						}
-						promote_leader = yes				
-					}
-				}
+				
 				division_template = {
 					name = "Brigada Roja"
 					division_names_group = MEX_INF_01

@@ -106,11 +106,13 @@ set_technology = {
 	infantrymg1_tech = 1
 	infantrysupport1_tech = 1
 	special_tech = 1
+	marines = 1
 	tech_support = 1
 	tech_engineers = 1
 	tech_recon = 1
 	tech_trucks = 1
 	motorised_infantry = 1
+	mechanised_infantry = 1
 	artillery0_tech = 1
 	antiair0_tech = 1
 	basic_train = 1
@@ -201,6 +203,7 @@ if = {
 		mtg_transport = 1
 		basic_fire_control_system = 1
 		basic_dp_light_battery = 1
+		coastal_defense_ships = 1
 	}
 	add_ideas = MTG_naval_treaty_adherent
 	set_global_flag = MTG_second_london_conference
@@ -217,7 +220,6 @@ add_ideas = {
 	stiff_upper_lip
 	ENG_the_war_to_end_all_wars
 	george_v
-	TPMP_ENG_trade_idea
 	subsidized_defence_contracts
 	professional_army
 }
@@ -785,6 +787,12 @@ if = {
 			ship_armor_upgrade = 3
 			ship_gun_upgrade = 3
 		}
+		optional_assets = {
+			{
+				icon = "GFX_commonwealth_heavy_cruiser_australia"
+				model = "commonwealth_gfx_heavy_cruiser_entity"
+			}
+		}
 	}
 	# Battlecruisers #
 	create_equipment_variant = {
@@ -1008,6 +1016,12 @@ if = {
 			mid_1_custom_slot = empty
 			rear_1_custom_slot = ship_depth_charge_1
 		}
+		optional_assets = {
+			{
+				icon = "GFX_commonwealth_destroyer_vampire"
+				model = "commonwealth_gfx_destroyer_1_entity"
+			}
+		}
 		obsolete = yes
 	}
 	create_equipment_variant = {
@@ -1106,6 +1120,12 @@ if = {
 			mid_2_custom_slot = ship_airplane_launcher_1
 			rear_1_custom_slot = ship_light_medium_battery_2
 		}
+		optional_assets = {
+			{
+				icon = "GFX_commonwealth_light_cruiser_hobart"
+				model = "commonwealth_gfx_light_cruiser_entity"
+			}
+		}
 	}
 	create_equipment_variant = {
 		name = "Adventure Class"						# cruiser minelayer
@@ -1127,25 +1147,25 @@ if = {
 		}
 	}
 	create_equipment_variant = {
-			name = "Town Class"
-			type = ship_hull_cruiser_2
-			name_group = ENG_CL_HISTORICAL
-			parent_version = 0
-			design_team = mio:ENG_harland_wolff_organization
-			modules = {
-				fixed_ship_battery_slot = ship_light_medium_battery_2
-				fixed_ship_anti_air_slot = ship_anti_air_2
-				fixed_ship_fire_control_system_slot = ship_fire_control_system_0
-				fixed_ship_radar_slot = empty
-				fixed_ship_engine_slot = cruiser_ship_engine_2
-				fixed_ship_armor_slot = ship_armor_cruiser_2
-				fixed_ship_secondaries_slot = dp_ship_secondaries_2
-				front_1_custom_slot = ship_anti_air_2
-				mid_1_custom_slot = ship_torpedo_1
-				mid_2_custom_slot = ship_secondaries_2
-				rear_1_custom_slot = ship_light_medium_battery_2
-			}
+		name = "Town Class"
+		type = ship_hull_cruiser_2
+		name_group = ENG_CL_HISTORICAL
+		parent_version = 0
+		design_team = mio:ENG_harland_wolff_organization
+		modules = {
+			fixed_ship_battery_slot = ship_light_medium_battery_2
+			fixed_ship_anti_air_slot = ship_anti_air_2
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = cruiser_ship_engine_2
+			fixed_ship_armor_slot = ship_armor_cruiser_2
+			fixed_ship_secondaries_slot = dp_ship_secondaries_2
+			front_1_custom_slot = ship_anti_air_2
+			mid_1_custom_slot = ship_torpedo_1
+			mid_2_custom_slot = ship_secondaries_2
+			rear_1_custom_slot = ship_light_medium_battery_2
 		}
+	}
 	# Heavy Cruisers #
 	create_equipment_variant = {
 		name = "County Class"
@@ -1164,6 +1184,12 @@ if = {
 			mid_1_custom_slot = ship_airplane_launcher_1
 			mid_2_custom_slot = ship_torpedo_1
 			rear_1_custom_slot = ship_medium_battery_2
+		}
+		optional_assets = {
+			{
+				icon = "GFX_commonwealth_heavy_cruiser_australia"
+				model = "commonwealth_gfx_heavy_cruiser_entity"
+			}
 		}
 	}
 	create_equipment_variant = {
@@ -1268,6 +1294,35 @@ if = {
 			rear_1_custom_slot = empty
 		}
 	}
+
+	# Monitors
+	create_equipment_variant = {
+		name = "Erebus Class"
+		type = ship_hull_cruiser_coastal_defense_ship
+		name_group = ENG_BM_HISTORICAL
+		parent_version = 0
+		design_team = mio:ENG_harland_wolff_organization
+		modules = {
+			fixed_ship_battery_slot = ship_heavy_battery_1
+			fixed_ship_anti_air_slot = empty
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = cruiser_ship_engine_1
+			fixed_ship_secondaries_slot = empty
+			fixed_ship_armor_slot = ship_armor_cruiser_2
+			mid_1_custom_slot = empty
+			mid_2_custom_slot = empty
+			rear_1_custom_slot = empty
+		}
+		optional_assets = {
+			{
+				icon = "GFX_commonwealth_heavy_cruiser_erebus"
+				model = "commonwealth_gfx_heavy_cruiser_2_entity"
+			}
+		}
+		obsolete = yes
+	}
+
 	# Battleships #
 	create_equipment_variant = {
 		name = "Nelson Class"
@@ -1329,6 +1384,12 @@ if = {
 			mid_1_custom_slot = empty
 			mid_2_custom_slot = ship_secondaries_1
 			rear_1_custom_slot = ship_heavy_battery_1
+		}
+		optional_assets = {
+			{
+				icon = "GFX_commonwealth_battleship_warspite"
+				model = "commonwealth_gfx_battleship_entity"
+			}
 		}
 		obsolete = yes
 	}
@@ -1483,6 +1544,7 @@ if = {
 				special_type_slot_1 = empty
 			}
 			obsolete = yes
+			icon = GFX_ENG_early_bomber_medium
 		}
 		create_equipment_variant = {
 			name = "Bristol Blenheim" 
@@ -1545,6 +1607,12 @@ if = {
 				front_1_custom_slot = ship_deck_space
 				mid_1_custom_slot = ship_armor_carrier_deck
 			}
+			optional_assets = {
+				{
+					icon = "GFX_commonwealth_carrier_illustrious"
+					model = "commonwealth_gfx_carrier_entity"
+				}
+			}
 		}
 		create_equipment_variant = {
 			name = "Dido Class"
@@ -1564,6 +1632,12 @@ if = {
 				mid_1_custom_slot = ship_anti_air_1
 				mid_2_custom_slot = ship_torpedo_1
 				rear_1_custom_slot = dp_light_battery_3
+			}
+			optional_assets = {
+				{
+					icon = "GFX_commonwealth_light_cruiser_dido"
+					model = "commonwealth_gfx_light_cruiser_1_entity"
+				}
 			}
 		}
 		create_equipment_variant = {
@@ -1659,6 +1733,34 @@ if = {
 				rear_1_custom_slot = ship_heavy_battery_3
 			}
 		}
+		# Monitors
+		create_equipment_variant = {
+			name = "Erebus Class"
+			type = ship_hull_cruiser_coastal_defense_ship
+			name_group = ENG_BM_HISTORICAL
+			parent_version = 0
+			design_team = mio:ENG_harland_wolff_organization
+			modules = {
+				fixed_ship_battery_slot = ship_heavy_battery_1
+				fixed_ship_anti_air_slot = ship_anti_air_2
+				fixed_ship_fire_control_system_slot = ship_fire_control_system_1
+				fixed_ship_radar_slot = empty
+				fixed_ship_engine_slot = cruiser_ship_engine_1
+				fixed_ship_secondaries_slot = ship_secondaries_1
+				fixed_ship_armor_slot = ship_armor_cruiser_2
+				mid_1_custom_slot = empty
+				mid_2_custom_slot = empty
+				rear_1_custom_slot = empty
+			}
+			optional_assets = {
+				{
+					icon = "GFX_commonwealth_heavy_cruiser_erebus"
+					model = "commonwealth_gfx_heavy_cruiser_2_entity"
+				}
+			}
+			obsolete = yes
+		}
+
 		create_equipment_variant = {
 			name = "T Class"
 			type = ship_hull_submarine_2
@@ -1669,6 +1771,12 @@ if = {
 				fixed_ship_torpedo_slot = ship_torpedo_sub_2
 				fixed_ship_engine_slot = sub_ship_engine_2
 				rear_1_custom_slot = empty
+			}
+			optional_assets = {
+				{
+					icon = "GFX_commonwealth_submarine_trenchant"
+					model = "commonwealth_gfx_submarine_entity"
+				}
 			}
 		}
 		create_equipment_variant = {
@@ -1943,11 +2051,11 @@ if = {
 }
 
 create_equipment_variant = {
-	name = "Infantry Equipment"
+	name = "Basic Infantry Equipment"
 	type = line_infantry_equipment_1
 	parent_version = 0
 	modules = {
-		soldier_type_slot_0 = bolt_action_1
+		soldier_type_slot_0 = light_machine_gun_1
 		soldier_type_slot_1 = bolt_action_1
 		soldier_type_slot_2 = bolt_action_1
 		soldier_type_slot_3 = bolt_action_1
@@ -1958,5 +2066,47 @@ create_equipment_variant = {
 		soldier_type_slot_8 = bolt_action_1
 		soldier_type_slot_9 = bolt_action_1
 		uniform_type_slot = helmet
+		sidearm_type_slot = bayonet
+		support_type_slot_0 = improvised_at_grenades
+	}
+}
+create_equipment_variant = {
+	name = "Basic Special Infantry Equipment"
+	type = special_infantry_equipment_1
+	parent_version = 0
+	modules = {
+		soldier_type_slot_0 = light_machine_gun_1
+		soldier_type_slot_1 = bolt_action_1
+		soldier_type_slot_2 = bolt_action_1
+		soldier_type_slot_3 = bolt_action_1
+		soldier_type_slot_4 = bolt_action_1
+		soldier_type_slot_5 = bolt_action_1
+		soldier_type_slot_6 = bolt_action_1
+		soldier_type_slot_7 = bolt_action_1
+		soldier_type_slot_8 = bolt_action_1
+		soldier_type_slot_9 = bolt_action_1
+		uniform_type_slot = helmet
+		sidearm_type_slot = bayonet
+		support_type_slot_0 = improvised_at_grenades
+	}
+}
+create_equipment_variant = {
+	name = "Basic Mobile Infantry Equipment"
+	type = mobile_infantry_equipment_1
+	parent_version = 0
+	modules = {
+		soldier_type_slot_0 = light_machine_gun_1
+		soldier_type_slot_1 = bolt_action_1
+		soldier_type_slot_2 = bolt_action_1
+		soldier_type_slot_3 = bolt_action_1
+		soldier_type_slot_4 = bolt_action_1
+		soldier_type_slot_5 = bolt_action_1
+		soldier_type_slot_6 = bolt_action_1
+		soldier_type_slot_7 = bolt_action_1
+		soldier_type_slot_8 = bolt_action_1
+		soldier_type_slot_9 = bolt_action_1
+		uniform_type_slot = helmet
+		sidearm_type_slot = bayonet
+		support_type_slot_0 = improvised_at_grenades
 	}
 }

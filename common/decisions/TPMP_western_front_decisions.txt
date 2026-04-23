@@ -1,5 +1,81 @@
 
 TPMP_western_front_decision_category = {
+	TPMP_fall_gelb_mission = {
+		icon = GFX_decision_generic_operation
+		allowed = {
+			tag = GER
+		}
+		activation = {
+			has_war_with = FRA
+		}
+		available = {
+			FRA = {
+				has_capitulated = yes
+			}
+		}
+		is_good = yes
+		days_mission_timeout = 270
+		fire_only_once = yes
+		timeout_effect = {
+			GER = {
+				add_ideas = TPMP_GER_gelb_idea
+			}
+		}
+	}
+	TPMP_operation_compass_decision = {
+		icon = GFX_decision_generic_operation
+		allowed = {
+			tag = ENG
+		}
+		activation = {
+			has_war_with = GER
+		}
+		available = {
+		}
+		days_remove = 60
+		fire_only_once = yes
+		remove_effect = {
+			ITA = {
+				declare_war_on = {
+					target = ENG
+					type = annex_everything
+				}
+			}
+			ENG = {
+				add_timed_idea = {
+					idea = TPMP_ENG_compass_idea
+					days = 60
+				}
+			}
+			CAN = {
+				add_timed_idea = {
+					idea = TPMP_ENG_compass_idea
+					days = 60
+				}
+			}
+			AST = {
+				add_timed_idea = {
+					idea = TPMP_ENG_compass_idea
+					days = 60
+				}
+			}
+			RAJ = {
+				add_timed_idea = {
+					idea = TPMP_ENG_compass_idea
+					days = 60
+				}
+			}
+			SAF = {
+				add_timed_idea = {
+					idea = TPMP_ENG_compass_idea
+					days = 60
+				}
+			}
+		}
+		cancel_trigger = {
+            has_war_with = ITA
+        }
+	}
 	TPMP_operation_sealion_decision = {
 		icon = GFX_decision_generic_operation
         allowed = {

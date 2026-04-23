@@ -69,6 +69,37 @@ on_actions = {
 			}
 		}
 	}
+	on_war = { # no more forgetting to join the war
+		effect = {
+			if = {
+				limit = {
+					tag = POR
+				}
+				if = {
+					limit = {
+						ENG = { has_capitulated = no }
+					}
+					SPR = {
+						declare_war_on = {
+							target = ENG
+							type = topple_government
+						}
+					}
+				}
+				else = {
+					SPR = {
+						declare_war_on = {
+							target = USA
+							type = topple_government
+						}
+					}
+				}
+				GER = {
+					add_to_faction = SPR
+				}
+			}
+		}
+	}
 	on_capitulation = { #yugo auto deal
 		effect = {
 			if = {
@@ -156,6 +187,30 @@ on_actions = {
 					}
 					731 = { set_state_controller_to = BUL }
 					184 = { set_state_controller_to = BUL }
+				}
+			}
+		}
+	}
+	on_capitulation_immediate = { #scripted Ethipia
+		effect = {	
+			if = {
+				limit = {
+					tag = ETH
+				}
+				ITA = {
+					annex_country = {
+						target = ETH 
+						# transfer_troops = yes #Whack but if i dont do this ethiopian equiment is all gone
+					}
+					add_named_threat = {
+						threat = 1.3
+						name = TPMP_ITA_ethiopiacap1
+					}
+					add_named_threat = {
+						threat = 6.3
+						name = TPMP_ITA_ethiopiacap2
+					}
+					country_event = TPMP_GEN.5
 				}
 			}
 		}

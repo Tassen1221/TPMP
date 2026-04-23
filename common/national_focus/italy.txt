@@ -69,7 +69,7 @@ focus_tree = {
 		y = 0
 		
 		cost = 5
-
+		
 		bypass = {
 			OR = {
 				NOT = { has_global_flag = second_italo_ethiopian_war_flag }
@@ -146,7 +146,7 @@ focus_tree = {
 	focus = {
 		id = ITA_italian_highways_bba
 		icon = GFX_focus_generic_truck
-		x = 6
+		x = 5
 		y = 0
 		relative_position_id = ITA_ethiopian_war_logistics_bba
 		cost = 5
@@ -227,6 +227,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = ITA_italian_highways_bba
 		cost = 5
+
 		available = {
 			NOT = { has_global_flag = second_italo_ethiopian_war_flag }
 			OR = {
@@ -2724,7 +2725,7 @@ focus_tree = {
 		id = ITA_steel_industry_in_terni
 		icon = GFX_focus_generic_steel
 		prerequisite = { focus = ITA_italian_highways_bba }
-		x = -1
+		x =-1
 		y = 1
 		relative_position_id = ITA_italian_highways_bba
 		cost = 10
@@ -3863,7 +3864,7 @@ focus_tree = {
 				name = ITA_army_primacy_bba #land_doc_bonus
 				cost_reduction = 0.5
 				uses = 1
-				category = cat_land_doctrine
+				category = land_doctrine
 			}
 		}
 	}
@@ -4344,43 +4345,43 @@ focus_tree = {
 				}
 			}
 
-			if = {
-				limit = {
-					has_dlc = "No Step Back"
-				}
-				if = {
-					limit = {
-						has_tech = lighttank2_tech
-					}
-					ITA_add_improved_light_tank_templates = yes
-				}
-				else = {
-					custom_effect_tooltip = ITA_italian_tankettes_light_hull_tt
-					effect_tooltip = {
-						ITA_add_improved_light_tank_templates = yes
-					}
-				}
+			# if = {
+			# 	limit = {
+			# 		has_dlc = "No Step Back"
+			# 	}
+			# 	if = {
+			# 		limit = {
+			# 			has_tech = lighttank2_tech
+			# 		}
+			# 		ITA_add_improved_light_tank_templates = yes
+			# 	}
+			# 	else = {
+			# 		custom_effect_tooltip = ITA_italian_tankettes_light_hull_tt
+			# 		effect_tooltip = {
+			# 			ITA_add_improved_light_tank_templates = yes
+			# 		}
+			# 	}
 				
-				ITA_add_basic_light_tank_destroyer_template = yes
+			# 	ITA_add_basic_light_tank_destroyer_template = yes
 
-				if = {
-					limit = {
-						is_special_project_completed = sp:sp_land_flamethrower_tank
-					}
-					#L3/35 lf Flamethrower
-					ITA_add_basic_light_flamethrower_template = yes
-				}
-				else = {
-					sp:sp_land_flamethrower_tank = {
-						add_project_progress_ratio = 0.5
-					}
-					custom_effect_tooltip = ITA_italian_tankettes_flamethrower_tt
-					effect_tooltip = {
-						#L3/35 lf Flamethrower
-						ITA_add_basic_light_flamethrower_template = yes
-					}
-				}
-			}
+			# 	if = {
+			# 		limit = {
+			# 			is_special_project_completed = sp:sp_land_flamethrower_tank
+			# 		}
+			# 		#L3/35 lf Flamethrower
+			# 		ITA_add_basic_light_flamethrower_template = yes
+			# 	}
+			# 	else = {
+			# 		sp:sp_land_flamethrower_tank = {
+			# 			add_project_progress_ratio = 0.5
+			# 		}
+			# 		custom_effect_tooltip = ITA_italian_tankettes_flamethrower_tt
+			# 		effect_tooltip = {
+			# 			#L3/35 lf Flamethrower
+			# 			ITA_add_basic_light_flamethrower_template = yes
+			# 		}
+			# 	}
+			# }
 		}
 	}
 
@@ -4616,12 +4617,12 @@ focus_tree = {
 				}
 			}
 			
-			if = {
-				limit = {
-					has_dlc = "No Step Back"
-				}
-				ITA_add_basic_medium_tank_templates = yes
-			}
+			# if = {
+			# 	limit = {
+			# 		has_dlc = "No Step Back"
+			# 	}
+			# 	ITA_add_basic_medium_tank_templates = yes
+			# }
 		}
 	}
 
@@ -4649,35 +4650,35 @@ focus_tree = {
 			add_to_variable = { ITA_iri_consumer_goods_factor = 0.02 }
 			custom_effect_tooltip = ITA_ricostruzione_industriale_cg_penalty_tt
 
-			if = {
-				limit = {
-					has_dlc = "No Step Back"
-				}
-				if = {
-					limit = {
-						has_tech = mediumtank2_tech
-					}
-					ITA_add_improved_medium_tank_templates = yes
-				}
-				else = {
-					custom_effect_tooltip = ITA_end_fiat_ansaldo_duopoly_medium_templates_tt
-					effect_tooltip = {
-						ITA_add_improved_medium_tank_templates = yes
-					}
-				}
-				if = {
-					limit = {
-						has_tech = heavytank2_tech
-					}
-					ITA_add_improved_heavy_tank_templates = yes
-				}
-				else = {
-					custom_effect_tooltip = ITA_end_fiat_ansaldo_duopoly_heavy_templates_tt
-					effect_tooltip = {
-						ITA_add_improved_heavy_tank_templates = yes
-					}
-				}	
-			}
+			# if = {
+			# 	limit = {
+			# 		has_dlc = "No Step Back"
+			# 	}
+			# 	if = {
+			# 		limit = {
+			# 			has_tech = mediumtank2_tech
+			# 		}
+			# 		ITA_add_improved_medium_tank_templates = yes
+			# 	}
+			# 	else = {
+			# 		custom_effect_tooltip = ITA_end_fiat_ansaldo_duopoly_medium_templates_tt
+			# 		effect_tooltip = {
+			# 			ITA_add_improved_medium_tank_templates = yes
+			# 		}
+			# 	}
+			# 	if = {
+			# 		limit = {
+			# 			has_tech = heavytank2_tech
+			# 		}
+			# 		ITA_add_improved_heavy_tank_templates = yes
+			# 	}
+			# 	else = {
+			# 		custom_effect_tooltip = ITA_end_fiat_ansaldo_duopoly_heavy_templates_tt
+			# 		effect_tooltip = {
+			# 			ITA_add_improved_heavy_tank_templates = yes
+			# 		}
+			# 	}	
+			# }
 
 			#Update NS icon
 			ITA_improve_regio_esercito_dm_effect = yes
@@ -4747,35 +4748,35 @@ focus_tree = {
 			}
 
 
-			if = {
-				limit = {
-					has_dlc = "No Step Back"
-				}
-				if = {
-					limit = {
-						has_tech = mediumtank2_tech
-					}
-					ITA_add_improved_medium_tank_templates = yes
-				}
-				else = {
-					custom_effect_tooltip = ITA_end_fiat_ansaldo_duopoly_medium_templates_tt
-					effect_tooltip = {
-						ITA_add_improved_medium_tank_templates = yes
-					}
-				}
-				if = {
-					limit = {
-						has_tech = heavytank2_tech
-					}
-					ITA_add_improved_heavy_tank_templates = yes
-				}
-				else = {
-					custom_effect_tooltip = ITA_end_fiat_ansaldo_duopoly_heavy_templates_tt
-					effect_tooltip = {
-						ITA_add_improved_heavy_tank_templates = yes
-					}
-				}	
-			}
+			# if = {
+			# 	limit = {
+			# 		has_dlc = "No Step Back"
+			# 	}
+			# 	if = {
+			# 		limit = {
+			# 			has_tech = mediumtank2_tech
+			# 		}
+			# 		ITA_add_improved_medium_tank_templates = yes
+			# 	}
+			# 	else = {
+			# 		custom_effect_tooltip = ITA_end_fiat_ansaldo_duopoly_medium_templates_tt
+			# 		effect_tooltip = {
+			# 			ITA_add_improved_medium_tank_templates = yes
+			# 		}
+			# 	}
+			# 	if = {
+			# 		limit = {
+			# 			has_tech = heavytank2_tech
+			# 		}
+			# 		ITA_add_improved_heavy_tank_templates = yes
+			# 	}
+			# 	else = {
+			# 		custom_effect_tooltip = ITA_end_fiat_ansaldo_duopoly_heavy_templates_tt
+			# 		effect_tooltip = {
+			# 			ITA_add_improved_heavy_tank_templates = yes
+			# 		}
+			# 	}	
+			# }
 
 			#Update NS icon
 			ITA_improve_regio_esercito_dm_effect = yes
@@ -4828,35 +4829,35 @@ focus_tree = {
 				}
 			}
 
-			if = {
-				limit = {
-					has_dlc = "No Step Back"
-				}
-				if = {
-					limit = {
-						has_tech = mediumtank3a_tech
-					}
-					ITA_add_advanced_medium_tank_templates = yes
-				}
-				else = {
-					custom_effect_tooltip = ITA_ferrea_mole_ferreo_cuore_medium_tempaltes_tt
-					effect_tooltip = {
-						ITA_add_advanced_medium_tank_templates = yes
-					}
-				}
-				if = {
-					limit = {
-						has_tech = heavytank3a_tech
-					}
-					ITA_add_advanced_heavy_tank_templates = yes
-				}
-				else = {
-					custom_effect_tooltip = ITA_ferrea_mole_ferreo_cuore_heavy_tempaltes_tt
-					effect_tooltip = {
-						ITA_add_advanced_heavy_tank_templates = yes
-					}
-				}
-			}
+			# if = {
+			# 	limit = {
+			# 		has_dlc = "No Step Back"
+			# 	}
+			# 	if = {
+			# 		limit = {
+			# 			has_tech = mediumtank3a_tech
+			# 		}
+			# 		ITA_add_advanced_medium_tank_templates = yes
+			# 	}
+			# 	else = {
+			# 		custom_effect_tooltip = ITA_ferrea_mole_ferreo_cuore_medium_tempaltes_tt
+			# 		effect_tooltip = {
+			# 			ITA_add_advanced_medium_tank_templates = yes
+			# 		}
+			# 	}
+			# 	if = {
+			# 		limit = {
+			# 			has_tech = heavytank3a_tech
+			# 		}
+			# 		ITA_add_advanced_heavy_tank_templates = yes
+			# 	}
+			# 	else = {
+			# 		custom_effect_tooltip = ITA_ferrea_mole_ferreo_cuore_heavy_tempaltes_tt
+			# 		effect_tooltip = {
+			# 			ITA_add_advanced_heavy_tank_templates = yes
+			# 		}
+			# 	}
+			# }
 		}
 	}
 
@@ -4992,13 +4993,13 @@ focus_tree = {
 				}
 			}
 
-			if = {
-				limit = {
-					has_dlc = "By Blood Alone"
-				}
-				custom_effect_tooltip = generic_skip_one_line_tt
-				ITA_add_citta_dell_aria_templates = yes
-			}
+			# if = {
+			# 	limit = {
+			# 		has_dlc = "By Blood Alone"
+			# 	}
+			# 	custom_effect_tooltip = generic_skip_one_line_tt
+			# 	ITA_add_citta_dell_aria_templates = yes
+			# }
 		}
 	}
 
@@ -5094,12 +5095,12 @@ focus_tree = {
 				category = air_equipment #Maybe more specific stuff? (Light/Medium bombers, fighters...)
 			}
 
-			if = {
-				limit = {
-					has_dlc = "By Blood Alone"
-				}
-				ITA_add_reggianes_exports_templates = yes
-			}
+			# if = {
+			# 	limit = {
+			# 		has_dlc = "By Blood Alone"
+			# 	}
+			# 	ITA_add_reggianes_exports_templates = yes
+			# }
 		}
 	}
 
@@ -5296,7 +5297,7 @@ focus_tree = {
 
 		completion_reward = {
 			#More expensive to edit templates, more cheap to produce aircraft
-			add_to_variable = { ITA_military_industry_air_equipment_upgrade_xp_cost = -0.5 }
+			# add_to_variable = { ITA_military_industry_air_equipment_upgrade_xp_cost = -0.5 }
 			custom_effect_tooltip = ITA_specialization_ra_tt
 
 			hidden_effect = {
@@ -5375,12 +5376,12 @@ focus_tree = {
 				}
 			}
 
-			if = {
-				limit = {
-					has_dlc = "By Blood Alone"
-				}
-				ITA_add_long_range_aircraft_templates = yes
-			}
+			# if = {
+			# 	limit = {
+			# 		has_dlc = "By Blood Alone"
+			# 	}
+			# 	ITA_add_long_range_aircraft_templates = yes
+			# }
 		}
 	}
 
@@ -5418,12 +5419,12 @@ focus_tree = {
 				}
 			}
 
-			if = {
-				limit = {
-					has_dlc = "By Blood Alone"
-				}
-				ITA_add_bomber_designs_templates = yes
-			}
+			# if = {
+			# 	limit = {
+			# 		has_dlc = "By Blood Alone"
+			# 	}
+			# 	ITA_add_bomber_designs_templates = yes
+			# }
 		}
 	}
 
@@ -5461,12 +5462,12 @@ focus_tree = {
 				}
 			}
 
-			if = {
-				limit = {
-					has_dlc = "By Blood Alone"
-				}
-				ITA_add_fighter_designs_templates = yes
-			}
+			# if = {
+			# 	limit = {
+			# 		has_dlc = "By Blood Alone"
+			# 	}
+			# 	ITA_add_fighter_designs_templates = yes
+			# }
 		}
 	}
 
@@ -5508,12 +5509,12 @@ focus_tree = {
 				}
 			}
 
-			if = {
-				limit = {
-					has_dlc = "By Blood Alone"
-				}
-				ITA_add_multirole_aircraft_templates = yes
-			}
+			# if = {
+			# 	limit = {
+			# 		has_dlc = "By Blood Alone"
+			# 	}
+			# 	ITA_add_multirole_aircraft_templates = yes
+			# }
 		}
 	}
 
@@ -5556,12 +5557,12 @@ focus_tree = {
 				}
 			}
 
-			if = {
-				limit = {
-					has_dlc = "By Blood Alone"
-				}
-				ITA_add_supremacy_in_the_skies_templates = yes
-			}
+			# if = {
+			# 	limit = {
+			# 		has_dlc = "By Blood Alone"
+			# 	}
+			# 	ITA_add_supremacy_in_the_skies_templates = yes
+			# }
 		}
 	}
 
@@ -6566,25 +6567,25 @@ focus_tree = {
 				category = naval_bomber
 			}
 
-			if = {
-				limit = {
-					has_dlc = "By Blood Alone"
-				}
-				ITA_naval_air_coordination_templates = yes
-			}
+			# if = {
+			# 	limit = {
+			# 		has_dlc = "By Blood Alone"
+			# 	}
+			# 	ITA_naval_air_coordination_templates = yes
+			# }
 
-			add_ace = {
-				type = "support_unique"
-				name = "Giulio" #MM: Real name Giulio Cesare Graziani but art won't hook-in with double name :D
-				surname = "Graziani"
-				callsign = "Torpedo Twin"
-			}
-			add_ace = {
-				type = "support_good"
-				name = "Carlo"
-				surname = "Faggioni"
-				callsign = "Torpedo Twin"
-			}
+			# add_ace = {
+			# 	type = "support_unique"
+			# 	name = "Giulio" #MM: Real name Giulio Cesare Graziani but art won't hook-in with double name :D
+			# 	surname = "Graziani"
+			# 	callsign = "Torpedo Twin"
+			# }
+			# add_ace = {
+			# 	type = "support_good"
+			# 	name = "Carlo"
+			# 	surname = "Faggioni"
+			# 	callsign = "Torpedo Twin"
+			# }
 		}
 	}
 
@@ -8539,7 +8540,7 @@ focus_tree = {
 		icon = GFX_focus_ITA_devaluate_the_lire
 		prerequisite = { focus = ITA_triumph_in_africa_bba }
 
-		x = -3
+		x = -2
 		y = 1
 		relative_position_id = ITA_triumph_in_africa_bba
 		cost = 5
@@ -8564,6 +8565,11 @@ focus_tree = {
 		relative_position_id = ITA_triumph_in_africa_bba
 		cost = 5
 
+		allow_branch = {
+			always = no
+		}
+
+		
 		bypass = {
 			NOT = { has_country_flag = SUEZ_SANCTIONS_FLAG }
 			OR = {
@@ -8614,6 +8620,11 @@ focus_tree = {
 		y = 1
 		relative_position_id = ITA_triumph_in_africa_bba
 		cost = 5
+		
+		allow_branch = {
+			always = no
+		}
+
 		available = {
 			OR = {
 				has_government = fascism
@@ -8739,7 +8750,7 @@ focus_tree = {
 		icon = GFX_focus_ITA_the_new_emperor_of_ethiopia
 		prerequisite = { focus = ITA_triumph_in_africa_bba }
 
-		x = 3
+		x = 2
 		y = 1
 		relative_position_id = ITA_triumph_in_africa_bba
 		cost = 5
@@ -8795,10 +8806,10 @@ focus_tree = {
 				}
 			}
 
-			custom_effect_tooltip = ITA_the_new_emperor_of_ethiopia_king_trait_tt
-			ITA_vittorio_emanuele_iii = { 
-				add_country_leader_trait = emperor_of_ethiopia
-			}
+			# custom_effect_tooltip = ITA_the_new_emperor_of_ethiopia_king_trait_tt
+			# ITA_vittorio_emanuele_iii = { 
+			# 	add_country_leader_trait = emperor_of_ethiopia
+			# }
 
 			add_popularity = {
 				ideology = neutrality
@@ -9376,13 +9387,10 @@ focus_tree = {
 		icon = GFX_goal_generic_military_sphere
 		prerequisite = { focus = ITA_culto_del_duce focus = ITA_convene_the_grand_council }
 
-		x = 6
+		x = 5
 		y = 1
 		relative_position_id = ITA_culto_del_duce
 
-		
-		
-		
 
 		cost = 5
 		available = {
@@ -9413,6 +9421,9 @@ focus_tree = {
 		y = 1
 		relative_position_id = ITA_security_militias
 
+		allow_branch = {
+			always = no
+		}
 
 		cost = 10
 		available = {
@@ -9431,7 +9442,7 @@ focus_tree = {
 		icon = GFX_focus_generic_manpower
 		prerequisite = { focus = ITA_security_militias }
 		mutually_exclusive = { focus = ITA_battaglioni_d_assalto }
-		x = 2
+		x = 1
 		y = 0
 		relative_position_id = ITA_battaglioni_d_assalto
 		cost = 10
@@ -9452,33 +9463,33 @@ focus_tree = {
 				add_idea = ITA_camicie_nere_strengthened
 			}
 
-			custom_effect_tooltip = ITA_strengthen_the_blackshirts_template_tt
-			hidden_effect = {
-				add_to_variable = { ITA_militias_cap = 12 }
-				set_division_template_cap = {  division_template = "Camicie Nere" division_cap = ITA_militias_cap }
+			# custom_effect_tooltip = ITA_strengthen_the_blackshirts_template_tt
+			# hidden_effect = {
+			# 	add_to_variable = { ITA_militias_cap = 12 }
+			# 	set_division_template_cap = {  division_template = "Camicie Nere" division_cap = ITA_militias_cap }
 
-				add_units_to_division_template = {
-					template_name = "Camicie Nere"
-					support = { 
-						artillery = 0
-					}
-				}
-			}
-			random_controlled_state = { #Create a few more Blackshirt Divs
-				limit = {
-					is_core_of = ROOT
-					is_fully_controlled_by = ROOT
-				}
-				prioritize = { 2 }
-				custom_effect_tooltip = ITA_strengthen_the_blackshirts_spawn_divs_tt
-				hidden_effect = {
-					create_unit = {
-						division = "division_template = \"Camicie Nere\" start_experience_factor = 0.4 start_equipment_factor = 1.0"
-						owner = ROOT
-						count = 3
-					}
-				}
-			}
+			# 	add_units_to_division_template = {
+			# 		template_name = "Camicie Nere"
+			# 		support = { 
+			# 			artillery = 0
+			# 		}
+			# 	}
+			# }
+			# random_controlled_state = { #Create a few more Blackshirt Divs
+			# 	limit = {
+			# 		is_core_of = ROOT
+			# 		is_fully_controlled_by = ROOT
+			# 	}
+			# 	prioritize = { 2 }
+			# 	custom_effect_tooltip = ITA_strengthen_the_blackshirts_spawn_divs_tt
+			# 	hidden_effect = {
+			# 		create_unit = {
+			# 			division = "division_template = \"Camicie Nere\" start_experience_factor = 0.4 start_equipment_factor = 1.0"
+			# 			owner = ROOT
+			# 			count = 3
+			# 		}
+			# 	}
+			# }
 		}
 	}
 
@@ -9491,6 +9502,11 @@ focus_tree = {
 		y = 1
 		relative_position_id = ITA_battaglioni_d_assalto
 		cost = 10
+
+		allow_branch = {
+			always = no
+		}
+
 		available = {
 			has_government = fascism
 			ITA_has_disbanded_blackshirts = no
@@ -14660,7 +14676,7 @@ focus_tree = {
 			}
 		}
 
-		x = 14
+		x = 10
 		y = 1
 	
 	
@@ -14680,12 +14696,12 @@ focus_tree = {
 			custom_effect_tooltip = available_political_advisor
 			show_ideas_tooltip = ITA_gian_galeazzo_ciano
 
-			if = {
-				limit = {
-					has_dlc = "By Blood Alone"
-				}
-				custom_effect_tooltip = ITA_foreign_affairs_focus_lock_tt
-			}
+			# if = {
+			# 	limit = {
+			# 		has_dlc = "By Blood Alone"
+			# 	}
+			# 	custom_effect_tooltip = ITA_foreign_affairs_focus_lock_tt
+			# }
 		}
 	}
 
@@ -14843,7 +14859,7 @@ focus_tree = {
 		icon = GFX_goal_generic_more_territorial_claims
 		prerequisite = { focus = ITA_foreign_affairs }
 
-		x = -5
+		x = -3
 		y = 1
 		relative_position_id = ITA_foreign_affairs
 		cost = 5
@@ -15550,7 +15566,7 @@ focus_tree = {
 		icon = GFX_focus_ger_oppose_hitler
 		prerequisite = { focus = ITA_pact_of_steel }
 
-		x = -3
+		x = -1
 		y = 1
 		relative_position_id = ITA_pact_of_steel
 		cost = 5
@@ -15636,7 +15652,7 @@ focus_tree = {
 		icon = GFX_focus_generic_diplomatic_treaty
 		prerequisite = { focus = ITA_pact_of_steel }
 
-		x = -1
+		x = 1
 		y = 1
 		relative_position_id = ITA_pact_of_steel
 		cost = 5
@@ -15647,21 +15663,21 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_RESEARCH}
 
 		completion_reward = {
-			if = {
-				limit = {
-					has_dlc = "Arms Against Tyranny"
-				}
-				add_equipment_subsidy = {
-					cic = 500
-					equipment_type = light_tank_chassis
-					seller_tags = { GER }
-				}
-				add_equipment_subsidy = {
-					cic = 500
-					equipment_type = medium_tank_chassis
-					seller_tags = { GER }
-				}
-			}
+			# if = {
+			# 	limit = {
+			# 		has_dlc = "Arms Against Tyranny"
+			# 	}
+			# 	add_equipment_subsidy = {
+			# 		cic = 500
+			# 		equipment_type = light_tank_chassis
+			# 		seller_tags = { GER }
+			# 	}
+			# 	add_equipment_subsidy = {
+			# 		cic = 500
+			# 		equipment_type = medium_tank_chassis
+			# 		seller_tags = { GER }
+			# 	}
+			# }
 			GER = {
 				country_event = { id = italy.5 days = 1 }
 				custom_effect_tooltip = needs_approval
@@ -15855,6 +15871,10 @@ focus_tree = {
 		y = 1
 		relative_position_id = ITA_pact_of_steel
 		cost = 10
+		
+		allow_branch = {
+			always = no
+		}
 
 		available = {
 			country_exists = JAP
@@ -15891,6 +15911,11 @@ focus_tree = {
 		y = 1
 		relative_position_id = ITA_pact_of_steel
 		cost = 10
+
+		allow_branch = {
+			always = no
+		}
+
 		available = {
 			is_subject = no
 		}
@@ -16373,7 +16398,7 @@ focus_tree = {
 		icon = GFX_goal_generic_military_deal
 		prerequisite = { focus = ITA_foreign_affairs }
 
-		x = 5
+		x = 3
 		y = 1
 		relative_position_id = ITA_foreign_affairs
 		cost = 5
@@ -19646,7 +19671,7 @@ focus_tree = {
 				name = ITA_army_modernization
 				cost_reduction = 0.75
 				uses = 3
-				category = cat_land_doctrine
+				category = land_doctrine
 				category = cat_air_doctrine
 				category = naval_doctrine
 			}
@@ -19792,7 +19817,7 @@ focus_tree = {
 				name = ITA_military_cooperation
 				cost_reduction = 0.75
 				uses = 1
-				category = cat_land_doctrine
+				category = land_doctrine
 			}
 
 			if = {

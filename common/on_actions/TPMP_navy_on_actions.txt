@@ -39,8 +39,10 @@ on_actions = {
 
 			#Setting the penalty for exceeding the fleet limit dynamic modifier
 			IF = {
-				check_variable = {
-					active_fleet_var < fleet_limit_var
+				limit = {
+					check_variable = {
+						active_fleet_var < fleet_limit_var
+					}
 				}
 				set_variable = { fleet_limit_penalty_var = 0 }
 			}

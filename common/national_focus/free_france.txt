@@ -244,8 +244,7 @@
 			y = 0
 		}
 		prerequisite = { 
-			focus = FRA_intervention_in_syria
-			focus = FRA_intervention_in_west_africa
+			focus = FRA_appeal_to_overseas_territories
 		}
 		relative_position_id = FRA_appeal_to_overseas_territories
 		
@@ -254,22 +253,9 @@
 			factor = 1
 		}
 		available = {
-			if = {
-				limit = {
-					has_dlc = "Man the Guns"
-				}
-				has_legitimacy > 90
-			}
-			else = {
-				num_of_factories > 24
-			}
+			has_legitimacy > 90
 		}
-		
-		bypass = {
-			16 = {
-				is_controlled_by = ROOT
-			}
-		}
+
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = yes
@@ -277,6 +263,12 @@
 		completion_reward = {
 			add_war_support = 0.1
 			add_stability = 0.1
+			VIC = {
+				declare_war_on = {
+					target = FRA
+					type = annex_everything
+				}
+			}
 		}
 	}
 	focus = {

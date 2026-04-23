@@ -295,6 +295,31 @@ technologies = {
 		industrial_capacity_factory = 0.2
 		industrial_capacity_dockyard = 0.15
 		global_building_slots_factor = 0.2
+
+		on_research_complete = {
+			hidden_effect = {
+				IF = {
+					limit = { has_idea = TPMP_railway_gun_fix_idea_0 }
+					remove_ideas = TPMP_railway_gun_fix_idea_0
+				}
+				ELSE_IF = {
+					limit = { has_idea = TPMP_railway_gun_fix_idea_1 }
+					remove_ideas = TPMP_railway_gun_fix_idea_1
+				}
+				ELSE_IF = {
+					limit = { has_idea = TPMP_railway_gun_fix_idea_2 }
+					remove_ideas = TPMP_railway_gun_fix_idea_2
+				}
+				ELSE_IF = {
+					limit = { has_idea = TPMP_railway_gun_fix_idea_3 }
+					remove_ideas = TPMP_railway_gun_fix_idea_3
+				}
+				ELSE_IF = {
+					limit = { has_idea = TPMP_railway_gun_fix_idea_4 }
+					remove_ideas = TPMP_railway_gun_fix_idea_4
+				}
+			}	
+		}
 		
 		path = {
 			leads_to_tech = concentrated_industry2 
