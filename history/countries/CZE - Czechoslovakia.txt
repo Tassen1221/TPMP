@@ -1,70 +1,5 @@
 capital = 9
 
-if = {
-	limit = {
-		has_dlc = "Peace For Our Time"
-	}
-	if = {
-		limit = {
-			NOT = {
-				has_dlc = "No Step Back"
-			}
-		}
-		set_oob = "CZE_1936_mun"
-	}
-	if = {
-		limit = {
-			has_dlc = "No Step Back"
-		}
-		set_oob = "CZE_1936_nsb_mun"
-	}
-}
-
-if = {
-	limit = {
-		NOT = {
-			has_dlc = "Peace For Our Time"
-		}
-	}
-	if = {
-		limit = {
-			NOT = {
-				has_dlc = "No Step Back"
-			}
-		}
-		set_oob = "CZE_1936"
-	}
-	if = {
-		limit = {
-			has_dlc = "No Step Back"
-		}
-		set_oob = "CZE_1936_nsb"
-	}
-}
-
-if = {
-	limit = { has_dlc = "By Blood Alone" }
-		set_air_oob = "CZE_1936_air_bba"
-		set_technology = {
-			aa_lmg = 1
-			engines_1 = 1
-			engines_2 = 1
-			iw_small_airframe = 1
-			iw_medium_airframe = 1
-			early_bombs = 1
-			bba_early_transport_plane = 1
-		}
-	else = {
-		set_air_oob = "CZE_1936_air_legacy"
-		set_technology = {
-			early_fighter = 1
-			early_bomber = 1
-			CAS1 = 1
-			early_transport_plane = 1
-		}
-	}
-}
-
 IF = {
 	limit = { has_dlc = "Man the Guns" }
 		set_technology = {
@@ -123,289 +58,10 @@ add_breakthrough_progress = {
 
 if = {
 	limit = {
-		NOT = { has_dlc = "No Step Back" }
-	}
-	set_technology = {
-		gwtank = 1
-		basic_light_tank = 1
-		improved_light_tank = 1
-	}
-}
-if = {
-	limit = {
-		has_dlc = "No Step Back"
-	}
-	set_technology = {
-		gwtank_chassis = 1
-		basic_light_tank_chassis = 1
-		improved_light_tank_chassis = 1
-	}
-}
-
-if = {
-	limit = {
 		has_dlc = "La Resistance"
 	}
 	set_technology = {
 		armored_car1 = 1
-	}
-}
-
-### INFANTRY VARIANTS ###
-create_equipment_variant = {
-	type = infantry_equipment_1
-	design_team = mio:CZE_zbrojovka_brno_organization
-	show_position = no
-	mark_older_equipment_obsolete = yes
-}
-create_equipment_variant = {
-	type = artillery_equipment_1
-	design_team = mio:CZE_skoda_artillery_organization
-	show_position = no
-	mark_older_equipment_obsolete = yes
-}
-create_equipment_variant = {
-	type = anti_tank_equipment_1
-	design_team = mio:CZE_skoda_artillery_organization
-	show_position = no
-	mark_older_equipment_obsolete = yes
-}
-create_equipment_variant = {
-	type = anti_air_equipment_1
-	design_team = mio:CZE_skoda_artillery_organization
-	show_position = no
-	mark_older_equipment_obsolete = yes
-}
-create_equipment_variant = {
-	type = motorized_equipment_1
-	design_team = mio:CZE_praga_organization
-	show_position = no
-	mark_older_equipment_obsolete = yes
-}
-create_equipment_variant = {
-	type = transport_plane_equipment_1
-	design_team = mio:CZE_aero_organization
-	show_position = no
-	mark_older_equipment_obsolete = yes
-}
-if = {
-	limit = {
-		has_dlc = "Peace For Our Time"
-	}
-	create_equipment_variant = {
-		type = support_equipment_1
-		design_team = mio:CZE_zbrojovka_vsetin_organization
-		show_position = no
-		mark_older_equipment_obsolete = yes
-	}
-}
-if = {
-	limit = {
-		has_dlc = "Peace For Our Time"
-		has_dlc = "La Resistance"
-	}
-	create_equipment_variant = {
-		type = gw_armored_car_equipment
-		design_team = mio:CZE_skoda_armor_organization
-		show_position = no
-		mark_older_equipment_obsolete = yes
-	}
-}
-
-### PLANE VARIANTS ###
-if = {
-	limit = {
-		has_dlc = "By Blood Alone"
-	}
-	create_equipment_variant = {
-		name = "Avia B.534"
-		type = small_plane_airframe_0
-		design_team = mio:CZE_avia_organization
-		modules = {
-			fixed_main_weapon_slot = light_mg_4x
-			engine_type_slot = engine_2_1x
-			special_type_slot_1 = empty
-		}
-	}
-	create_equipment_variant = {
-		name = "Avia B.34.1"
-		type = small_plane_airframe_0
-		design_team = mio:CZE_avia_organization
-		modules = {
-			fixed_main_weapon_slot = light_mg_4x
-			engine_type_slot = engine_1_1x
-			special_type_slot_1 = empty
-		}
-		obsolete = yes
-	}
-	create_equipment_variant = {
-		name = "Aero A.101"
-		type = small_plane_cas_airframe_0
-		design_team = mio:CZE_aero_organization
-		modules = {
-			fixed_main_weapon_slot = bomb_locks
-			fixed_auxiliary_weapon_slot_1 = light_mg_2x
-			engine_type_slot = engine_2_1x
-			special_type_slot_1 = lmg_defense_turret
-		}
-	}
-	create_equipment_variant = {
-		name = "Letov S-16"
-		type = small_plane_cas_airframe_0
-		design_team = mio:CZE_letov_organization
-		modules = {
-			fixed_main_weapon_slot = bomb_locks
-			engine_type_slot = engine_1_1x
-			special_type_slot_1 = lmg_defense_turret
-		}
-	}
-}
-
-### TANK VARIANTS ###
-if = {
-	limit = {
-		has_dlc = "No Step Back"
-	}
-	create_equipment_variant = {
-		name = "Tancik vz. 33"
-		type = light_tank_chassis_0
-		design_team = mio:CZE_ckd_organization
-		parent_version = 0
-		modules = {
-			main_armament_slot = tank_heavy_machine_gun
-			turret_type_slot = tank_light_fixed_superstructure_turret
-			suspension_type_slot = tank_bogie_suspension
-			armor_type_slot = tank_riveted_armor
-			engine_type_slot = tank_gasoline_engine
-		}
-		upgrades = {
-			tank_nsb_engine_upgrade = 1
-			tank_nsb_armor_upgrade = 1
-		}
-		obsolete = yes
-	}
-	create_equipment_variant = { 
-		name = "AH-IV"
-		type = light_tank_chassis_0
-		design_team = mio:CZE_ckd_organization
-		parent_version = 1
-		modules = {
-			main_armament_slot = tank_heavy_machine_gun
-			turret_type_slot =  tank_light_one_man_tank_turret
-			suspension_type_slot = tank_bogie_suspension
-			armor_type_slot = tank_riveted_armor
-			engine_type_slot = tank_gasoline_engine
-		}
-		upgrades = {
-			tank_nsb_engine_upgrade = 1
-			tank_nsb_armor_upgrade = 1
-		}
-		obsolete = no #Was still being made for export
-		icon = "GFX_ROM_basic_light_tank_medium" #Is this tank
-	}
-	create_equipment_variant = {
-		name = "Lt vz. 34"
-		type = light_tank_chassis_1
-		design_team = mio:CZE_ckd_organization
-		parent_version = 0
-		modules = {
-			main_armament_slot = tank_high_velocity_cannon
-			turret_type_slot = tank_light_one_man_tank_turret
-			suspension_type_slot = tank_bogie_suspension
-			armor_type_slot = tank_riveted_armor
-			engine_type_slot = tank_gasoline_engine
-			special_type_slot_1 = tank_radio_1
-		}
-		upgrades = {
-			tank_nsb_engine_upgrade = 2
-			tank_nsb_armor_upgrade = 1
-		}
-		obsolete = yes
-	}
-	create_equipment_variant = { #Export model by Skoda
-		name = "T-32"
-		type = light_tank_chassis_1
-		design_team = mio:CZE_skoda_armor_organization
-		parent_version = 1
-		modules = {
-			main_armament_slot = tank_high_velocity_cannon
-			turret_type_slot = tank_light_fixed_superstructure_turret
-			suspension_type_slot = tank_bogie_suspension
-			armor_type_slot = tank_riveted_armor
-			engine_type_slot = tank_gasoline_engine
-		}
-		upgrades = {
-			tank_nsb_engine_upgrade = 1
-			tank_nsb_armor_upgrade = 3
-		}
-		obsolete = no #Recent design made for export
-		icon = "GFX_ITA_light_ABA_camo" #Best fit
-	}
-	create_equipment_variant = {
-		name = "LT vz. 35"
-		type = light_tank_chassis_2
-		design_team = mio:CZE_skoda_armor_organization
-		parent_version = 0
-		modules = {
-			main_armament_slot = tank_high_velocity_cannon
-			turret_type_slot = tank_light_two_man_tank_turret
-			suspension_type_slot = tank_bogie_suspension
-			armor_type_slot = tank_riveted_armor
-			engine_type_slot = tank_gasoline_engine
-			special_type_slot_1 = tank_radio_1
-		}
-		upgrades = {
-			tank_nsb_engine_upgrade = 2
-			tank_nsb_armor_upgrade = 3
-		}
-		icon = "GFX_CZE_improved_light_tank_medium"
-	}
-	create_equipment_variant = { #Export model by CKD. TNHP was the variant that was being produced as of start date. 'TNH' refers to the series. Improvements over LT vz. 35
-		name = "TNHP"
-		type = light_tank_chassis_2
-		design_team = mio:CZE_ckd_organization
-		parent_version = 1
-		modules = {
-			main_armament_slot = tank_high_velocity_cannon
-			turret_type_slot = tank_light_two_man_tank_turret
-			suspension_type_slot = tank_christie_suspension #Sort of, kinda, close enough.
-			armor_type_slot = tank_riveted_armor
-			engine_type_slot = tank_gasoline_engine
-			special_type_slot_1 = tank_radio_1
-		}
-		upgrades = {
-			tank_nsb_engine_upgrade = 3
-			tank_nsb_armor_upgrade = 3
-		}
-	}
-	add_equipment_to_stockpile = {
-    	type = light_tank_chassis_1
-    	amount = 50
-		producer = CZE
-		variant_name = "Lt vz. 34"
-	}
-}
-if = {
-	limit = {
-		NOT = { has_dlc = "No Step Back" }
-	}
-	add_equipment_to_stockpile = {
-		type = light_tank_equipment_1
-		amount = 50
-	}
-}
-
-### TRAIN VARIANTS ###
-if = {
-	limit = {
-		has_dlc = "Arms Against Tyranny"
-		has_dlc = "Peace For Our Time"
-	}
-	create_equipment_variant = {
-    	name = "Lokomotiva 464"
-    	type = train_equipment_1
-		mark_older_equipment_obsolete = yes
-		design_team = mio:CZE_CKD_plzen_organization
 	}
 }
 
@@ -611,12 +267,6 @@ if = {
 		CZE_agrarian_politics_1
 		CZE_a_divided_nation_fake_ns
 		CZE_edvard_benesh_idea
-	}
-	if = {
-		limit = {
-			has_dlc = "No Step Back"
-		}
-		add_ideas = CZE_legacy_of_the_czechoslovak_legion_army_spirit
 	}
 }
 
@@ -955,49 +605,6 @@ YUG = {
 		}
 	}
 }
-if = {
-	limit = {
-		has_dlc = "No Step Back"
-	}
-	create_production_license = { #T-32
-		target = YUG
-		equipment = {
-			type = light_tank_chassis_1
-			version = 1
-		}
-		cost_factor = 0
-	}
-	create_production_license = { #AH-IV
-    	target = ROM
-    	equipment = {
-        	type = light_tank_chassis_0
-       		version = 1
-   		}
-    	cost_factor = 0
-	}
-}
-if = {
-	limit = {
-		NOT = { has_dlc = "No Step Back" }
-	}
-	create_production_license = { #T-32
-		target = YUG
-		equipment = {
-			type = light_tank_equipment_2
-			version = 1
-		}
-		cost_factor = 0
-	}
-	#Don't need the license in this context
-	# create_production_license = { #AH-IV
-	# 	target = ROM
-	# 	equipment = {
-	# 		type = light_tank_equipment_1
-	# 		version = 1
-	# 	}
-	# 	cost_factor = 0
-	# }
-}
 #South America
 PRU = {
 	add_relation_modifier = {
@@ -1247,196 +854,64 @@ add_opinion_modifier = {
 	target = PER
 	modifier = CZE_recent_contract_purchases 
 }
-if = {
-	limit = {
-		OR = {
-			has_dlc = "Graveyard of Empires"
-			has_dlc = "Peace For Our Time"
-		}
-	}
-	if = {
-		limit = {
-			has_dlc = "No Step Back"
-		}
-		create_production_license = { #AH-IV
-			target = PER
-			equipment = {
-				type = light_tank_chassis_0
-				version = 1
-			}
-			cost_factor = 0
-		}
-		create_production_license = { #TNHP
-			target = PER
-			equipment = {
-				type = light_tank_chassis_2
-				version = 1
-			}
-			cost_factor = 0
-		}
-	}
-	if = {
-		limit = {
-			NOT = { has_dlc = "No Step Back" }
-		}
-		create_production_license = { #AH-IV
-			target = PER
-			equipment = {
-				type = light_tank_equipment_1
-				version = 1
-			}
-			cost_factor = 0
-		}
-		create_production_license = { #TNHP
-    		target = PER
-    		equipment = {
-        		type = light_tank_equipment_2
-       			version = 1
-   			}
-    		cost_factor = 0
-		}
-	}
-	PER = {
-		add_relation_modifier = {
-			target = ROOT
-			modifier = CZE_i_am_agreeable_to_license
-		}
-		if = {
-			limit = {
-				has_dlc = "Arms Against Tyranny"
-			}
-			add_ai_strategy = {
-				type = equipment_market_trade_desire
-				id = CZE
-				value = 75
-			}
-			add_equipment_subsidy = {
-    			cic = 200
-    			equipment_type = light_tank_chassis
-    			seller_tags = { CZE }
-			}
-		}
-	}
-	#CZE Market AI Strats
-	if = {
-		limit = {
-			has_dlc = "Arms Against Tyranny"
-		}
-		add_ai_strategy = {
-			type = equipment_market_trade_desire
-			id = PER
-			value = 100
-		}
-		give_market_access = PER
+
+create_equipment_variant = {
+	name = "Basic Infantry Equipment"
+	type = line_infantry_equipment_1
+	parent_version = 0
+	modules = {
+		soldier_type_slot_0 = light_machine_gun_1
+		soldier_type_slot_1 = bolt_action_1
+		soldier_type_slot_2 = bolt_action_1
+		soldier_type_slot_3 = bolt_action_1
+		soldier_type_slot_4 = bolt_action_1
+		soldier_type_slot_5 = bolt_action_1
+		soldier_type_slot_6 = bolt_action_1
+		soldier_type_slot_7 = bolt_action_1
+		soldier_type_slot_8 = bolt_action_1
+		soldier_type_slot_9 = bolt_action_1
+		uniform_type_slot = helmet
+		sidearm_type_slot = bayonet
+		support_type_slot_0 = improvised_at_grenades
 	}
 }
-
-### 1939 SETUP ###
-
-1939.1.1 = { #Everything I did before I got eaten
-
-	add_political_power = 1198
-	add_command_power = 100
-
-	set_grand_doctrine = grand_battleplan
-	set_grand_doctrine = new_battlefield_support
-
-	set_technology = {
-		#doctrines
-		# formation_flying = 1
-		# grand_battle_plan = 1
-		# trench_warfare = 1
-
-		#electronics
-		electronic_mechanical_engineering = 1
-		radio = 1
-		mechanical_computing = 1
-		computing_machine = 1
-
-		#industry
-		basic_machine_tools = 1
-		improved_machine_tools = 1
-		fuel_silos = 1
-		construction1 = 1
-		concentrated_industry = 1
-	}
-
-	complete_special_project = {
-		project = sp:sp_air_radar
-	}
-
-	if = {
-		limit = {
-			has_dlc = "Peace For Our Time"
-		}
-		if = {
-			limit = {
-				has_dynamic_modifier = {
-					modifier = CZE_a_divided_nation_dynamic_modifier
-				}
-			}
-			remove_dynamic_modifier = { modifier = CZE_a_divided_nation_dynamic_modifier }
-		}
-
-		#National Focuses
-		complete_national_focus = CZE_force_the_industrialists_hand
-		complete_national_focus = CZE_continue_armed_force_reform
-		complete_national_focus = CZE_form_the_state_defense_guard
-		complete_national_focus = CZE_the_second_fortification_program	
-		complete_national_focus = CZE_vonapo_20
-		complete_national_focus = CZE_placate_benes_faction
-		complete_national_focus = CZE_no_compromise_with_the_sdp
-		complete_national_focus = CZE_keep_focus_on_weapon_exports
-		complete_national_focus = CZE_establish_a_armament_factory_in_uhersky_brod
-		complete_national_focus = CZE_the_slovak_arrow
-		complete_national_focus = CZE_merge_the_financial_and_state_guard
-		complete_national_focus = CZE_department_two_expansion
-		complete_national_focus = CZE_continue_the_central_bohemia_plan
-		complete_national_focus = CZE_free_tuka
-		complete_national_focus = CZE_air_force_officer_recruitment
-		complete_national_focus = CZE_reorient_the_broad_coalition
-		complete_national_focus = CZE_king_of_the_castle
-		complete_national_focus = CZE_bribery_investigations
-		complete_national_focus = CZE_opl_exercises
-		complete_national_focus = CZE_closer_ties_with_the_moderate_germany_parties
-		complete_national_focus = CZE_national_defense_act
-		complete_national_focus = CZE_contact_henlein
-		complete_national_focus = CZE_car_and_oil_rationing
-		complete_national_focus = CZE_establish_the_fall_backlines
-		complete_national_focus = CZE_deepend_ties_with_the_trademans
-		complete_national_focus = CZE_grow_ckd_secondary_facilities
-		complete_national_focus = CZE_bolster_domestic_construction
-		complete_national_focus = CZE_compromise_with_the_veteran_agrarian
-
-		# ONES THAT HAVE TO BE BYPASSED
-		unlock_national_focus = CZE_mobilize_the_reserves
-		unlock_national_focus = CZE_coalition_building
-		unlock_national_focus = CZE_continue_industrial_relocation_schemes
-		unlock_national_focus = CZE_devaluate_the_koruna
-
-		#Skoda setup
-		unlock_national_focus = CZE_raise_more_industrial_funds
-		CZE_start_skoda_GUI = yes
-		mark_focus_tree_layout_dirty = yes
-		add_dynamic_modifier = { modifier = CZE_skoda_works_dynamic_modifier }
-
-		remove_ideas = {
-			CZE_sudeten_german_quandary
-			CZE_taticek_of_czechoslovakia
-			CZE_industrialists_veto
-			CZE_industrialists_veto_2
-			CZE_agrarian_politics_1
-			CZE_a_divided_nation_fake_ns
-		}
-
-		#Second Republic was a thing
-		CZE_get_rid_of_the_auto_blok = yes
-		CZE_emil_hacha = {
-			add_country_leader_trait = CZE_3rd_prezident
-		}
-		set_cosmetic_tag = CZE_fall_of_the_republic
+create_equipment_variant = {
+	name = "Basic Special Infantry Equipment"
+	type = special_infantry_equipment_1
+	parent_version = 0
+	modules = {
+		soldier_type_slot_0 = light_machine_gun_1
+		soldier_type_slot_1 = bolt_action_1
+		soldier_type_slot_2 = bolt_action_1
+		soldier_type_slot_3 = bolt_action_1
+		soldier_type_slot_4 = bolt_action_1
+		soldier_type_slot_5 = bolt_action_1
+		soldier_type_slot_6 = bolt_action_1
+		soldier_type_slot_7 = bolt_action_1
+		soldier_type_slot_8 = bolt_action_1
+		soldier_type_slot_9 = bolt_action_1
+		uniform_type_slot = helmet
+		sidearm_type_slot = bayonet
+		support_type_slot_0 = improvised_at_grenades
 	}
 }
-
-
-
+create_equipment_variant = {
+	name = "Basic Mobile Infantry Equipment"
+	type = mobile_infantry_equipment_1
+	parent_version = 0
+	modules = {
+		soldier_type_slot_0 = light_machine_gun_1
+		soldier_type_slot_1 = bolt_action_1
+		soldier_type_slot_2 = bolt_action_1
+		soldier_type_slot_3 = bolt_action_1
+		soldier_type_slot_4 = bolt_action_1
+		soldier_type_slot_5 = bolt_action_1
+		soldier_type_slot_6 = bolt_action_1
+		soldier_type_slot_7 = bolt_action_1
+		soldier_type_slot_8 = bolt_action_1
+		soldier_type_slot_9 = bolt_action_1
+		uniform_type_slot = helmet
+		sidearm_type_slot = bayonet
+		support_type_slot_0 = improvised_at_grenades
+	}
+}
