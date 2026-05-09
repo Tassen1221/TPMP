@@ -5886,6 +5886,23 @@ mio:SOV_sevastopol_marine_plant_organization = {
 	}
 
 	#TPMP Changes
+	# focus = {
+	# 	id = TPMP_SOV_divert_eastern_reserves
+	# 	icon = GFX_focus_generic_manpower
+	# 	prerequisite = { focus = SOV_strengthen_the_mobilization_plan }
+	# 	x = 5
+	# 	y = 1
+	# 	relative_position_id = SOV_strengthen_the_mobilization_plan
+	# 	cost = 10
+
+	# 	available = {
+	# 		has_war = yes
+	# 		date > 1942.07.01
+	# 	}
+
+	# 	completion_reward = {
+	# 	}
+	# }
 	focus = {
 		id = TPMP_SOV_rebuild_the_red_army
 		icon = GFX_focus_SOV_builder_of_the_red_army
@@ -5897,10 +5914,15 @@ mio:SOV_sevastopol_marine_plant_organization = {
 
 		available = {
 			has_war = yes
-			date > 1943.01.01
+			date > 1942.07.01
 		}
 
 		completion_reward = {
+			add_timed_idea = {
+				idea = TPMP_SOV_rebuild_the_red_army_idea
+				days = 365
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
 			hidden_effect = {
 				division_template = {
 					name = "Strelki"
@@ -5945,18 +5967,6 @@ mio:SOV_sevastopol_marine_plant_organization = {
 							}
 						}
 					}
-				}
-				create_unit = {
-					division = "name = \"Strelki\" division_template = \"Strelki\" start_experience_factor = 0.5"
-					owner = SOV
-					allow_spawning_on_enemy_provs = no
-					count = 2
-				}
-				create_unit = {
-					division = "name = \"Strelki\" division_template = \"Strelki\" start_experience_factor = 0.5"
-					owner = SOV
-					allow_spawning_on_enemy_provs = no
-					count = 2
 				}
 				create_unit = {
 					division = "name = \"Strelki\" division_template = \"Strelki\" start_experience_factor = 0.5"
@@ -6091,7 +6101,6 @@ mio:SOV_sevastopol_marine_plant_organization = {
 
 		available = {
 			has_war = yes
-			date > 1942.07.01
 		}
 		
 		search_filters = {}

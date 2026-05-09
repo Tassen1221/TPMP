@@ -6061,7 +6061,7 @@ focus_tree = {
 		icon = GFX_focus_GER_amerikabomber
 		prerequisite = { focus = GER_aerodynamic_research_institute }
 
-		x = 0
+		x = -1
 		y = 1
 		relative_position_id = GER_aerodynamic_research_institute
 		cost = 10
@@ -6140,6 +6140,27 @@ focus_tree = {
 		}
 	}
 
+	#TPMP Changes
+	focus = {
+		id = TPMP_GER_me262
+		icon = GFX_focus_generic_jet_planes
+		prerequisite = { focus = GER_aerodynamic_research_institute }
+
+		x = 1
+		y = 1
+		relative_position_id = GER_aerodynamic_research_institute
+		cost = 10
+
+		available = {
+			date > 1942.01.01
+			is_special_project_completed = sp:sp_air_jet_engine
+		}
+
+		completion_reward = {
+			complete_special_project = sp:sp_air_axial_jet_engine
+		}
+	}
+	#TPMP Changes
 
 
 	#KRIEGSMARINE
@@ -14670,10 +14691,7 @@ mio:GER_blohm_und_voss_organization = {
 		available = {
 			has_war_with = SOV
 			NOT = {
-				OR = {
-					has_idea = TPMP_GER_barbarossa_idea_0
-					has_idea = TPMP_GER_barbarossa_idea_1
-				}
+				has_idea = TPMP_GER_barbarossa_idea_0
 			}
 		}
 

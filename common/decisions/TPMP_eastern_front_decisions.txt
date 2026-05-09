@@ -17,7 +17,7 @@ TPMP_eastern_front_decision_category = {
 			}
 		}
 		icon = GFX_decision_generic_train
-		days_mission_timeout = 30
+		days_mission_timeout = 15
 		timeout_effect = {
 			custom_effect_tooltip = TPMP_eastern_front_debuff_mission_tt
 			add_to_variable = { global.TPMP_eastern_front_attack_var_0 = -0.005 }
@@ -49,7 +49,7 @@ TPMP_eastern_front_decision_category = {
 		days_mission_timeout = 90
 		fire_only_once = yes
 		complete_effect = {
-			if = {
+			IF = {
 				limit = {
 					GER = {
 						has_idea = TPMP_GER_barbarossa_idea_0
@@ -61,19 +61,6 @@ TPMP_eastern_front_decision_category = {
 				ROM = { modify_timed_idea = { idea = TPMP_GER_barbarossa_idea_0 days = 30 }}
 				BUL = { modify_timed_idea = { idea = TPMP_GER_barbarossa_idea_0 days = 30 }}
 				SPR = { modify_timed_idea = { idea = TPMP_GER_barbarossa_idea_0 days = 30 }}
-			}
-			else_if = {
-				limit = {
-					GER = {
-						has_idea = TPMP_GER_barbarossa_idea_1
-					}
-				}	
-				GER = { modify_timed_idea = { idea = TPMP_GER_barbarossa_idea_1 days = 30 }}
-				ITA = { modify_timed_idea = { idea = TPMP_GER_barbarossa_idea_1 days = 30 }}
-				HUN = { modify_timed_idea = { idea = TPMP_GER_barbarossa_idea_1 days = 30 }}
-				ROM = { modify_timed_idea = { idea = TPMP_GER_barbarossa_idea_1 days = 30 }}
-				BUL = { modify_timed_idea = { idea = TPMP_GER_barbarossa_idea_1 days = 30 }}
-				SPR = { modify_timed_idea = { idea = TPMP_GER_barbarossa_idea_1 days = 30 }}		
 			}
 		}
 		timeout_effect = {
@@ -109,19 +96,6 @@ TPMP_eastern_front_decision_category = {
 				BUL = { modify_timed_idea = { idea = TPMP_GER_barbarossa_idea_0 days = 30 }}
 				SPR = { modify_timed_idea = { idea = TPMP_GER_barbarossa_idea_0 days = 30 }}
 			}
-			else_if = {
-				limit = {
-					GER = {
-						has_idea = TPMP_GER_barbarossa_idea_1
-					}
-				}	
-				GER = { modify_timed_idea = { idea = TPMP_GER_barbarossa_idea_1 days = 30 }}
-				ITA = { modify_timed_idea = { idea = TPMP_GER_barbarossa_idea_1 days = 30 }}
-				HUN = { modify_timed_idea = { idea = TPMP_GER_barbarossa_idea_1 days = 30 }}
-				ROM = { modify_timed_idea = { idea = TPMP_GER_barbarossa_idea_1 days = 30 }}
-				BUL = { modify_timed_idea = { idea = TPMP_GER_barbarossa_idea_1 days = 30 }}
-				SPR = { modify_timed_idea = { idea = TPMP_GER_barbarossa_idea_1 days = 30 }}		
-			}
 		}
 		timeout_effect = {
 			add_stability = -0.05
@@ -143,7 +117,7 @@ TPMP_eastern_front_decision_category = {
 		days_mission_timeout = 90
 		fire_only_once = yes
 		complete_effect = {
-			if = {
+			IF = {
 				limit = {
 					GER = {
 						has_idea = TPMP_GER_barbarossa_idea_0
@@ -155,19 +129,6 @@ TPMP_eastern_front_decision_category = {
 				ROM = { modify_timed_idea = { idea = TPMP_GER_barbarossa_idea_0 days = 30 }}
 				BUL = { modify_timed_idea = { idea = TPMP_GER_barbarossa_idea_0 days = 30 }}
 				SPR = { modify_timed_idea = { idea = TPMP_GER_barbarossa_idea_0 days = 30 }}
-			}
-			else_if = {
-				limit = {
-					GER = {
-						has_idea = TPMP_GER_barbarossa_idea_1
-					}
-				}	
-				GER = { modify_timed_idea = { idea = TPMP_GER_barbarossa_idea_1 days = 30 }}
-				ITA = { modify_timed_idea = { idea = TPMP_GER_barbarossa_idea_1 days = 30 }}
-				HUN = { modify_timed_idea = { idea = TPMP_GER_barbarossa_idea_1 days = 30 }}
-				ROM = { modify_timed_idea = { idea = TPMP_GER_barbarossa_idea_1 days = 30 }}
-				BUL = { modify_timed_idea = { idea = TPMP_GER_barbarossa_idea_1 days = 30 }}
-				SPR = { modify_timed_idea = { idea = TPMP_GER_barbarossa_idea_1 days = 30 }}		
 			}
 		}
 		timeout_effect = {
@@ -190,7 +151,7 @@ TPMP_eastern_front_decision_category = {
 		days_mission_timeout = 180
 		fire_only_once = yes
 		complete_effect = {
-			if = {
+			IF = {
 				limit = {
 					GER = {
 						has_idea = TPMP_GER_barbarossa_idea_0
@@ -202,19 +163,6 @@ TPMP_eastern_front_decision_category = {
 				ROM = { modify_timed_idea = { idea = TPMP_GER_barbarossa_idea_0 days = 30 }}
 				BUL = { modify_timed_idea = { idea = TPMP_GER_barbarossa_idea_0 days = 30 }}
 				SPR = { modify_timed_idea = { idea = TPMP_GER_barbarossa_idea_0 days = 30 }}
-			}
-			else_if = {
-				limit = {
-					GER = {
-						has_idea = TPMP_GER_barbarossa_idea_1
-					}
-				}	
-				GER = { modify_timed_idea = { idea = TPMP_GER_barbarossa_idea_1 days = 30 }}
-				ITA = { modify_timed_idea = { idea = TPMP_GER_barbarossa_idea_1 days = 30 }}
-				HUN = { modify_timed_idea = { idea = TPMP_GER_barbarossa_idea_1 days = 30 }}
-				ROM = { modify_timed_idea = { idea = TPMP_GER_barbarossa_idea_1 days = 30 }}
-				BUL = { modify_timed_idea = { idea = TPMP_GER_barbarossa_idea_1 days = 30 }}
-				SPR = { modify_timed_idea = { idea = TPMP_GER_barbarossa_idea_1 days = 30 }}		
 			}
 		}
 		timeout_effect = {
@@ -237,7 +185,7 @@ TPMP_eastern_front_decision_category = {
 		days_mission_timeout = 180
 		fire_only_once = yes
 		complete_effect = {
-			if = {
+			IF = {
 				limit = {
 					GER = {
 						has_idea = TPMP_GER_barbarossa_idea_0
@@ -249,19 +197,6 @@ TPMP_eastern_front_decision_category = {
 				ROM = { modify_timed_idea = { idea = TPMP_GER_barbarossa_idea_0 days = 30 }}
 				BUL = { modify_timed_idea = { idea = TPMP_GER_barbarossa_idea_0 days = 30 }}
 				SPR = { modify_timed_idea = { idea = TPMP_GER_barbarossa_idea_0 days = 30 }}
-			}
-			else_if = {
-				limit = {
-					GER = {
-						has_idea = TPMP_GER_barbarossa_idea_1
-					}
-				}	
-				GER = { modify_timed_idea = { idea = TPMP_GER_barbarossa_idea_1 days = 30 }}
-				ITA = { modify_timed_idea = { idea = TPMP_GER_barbarossa_idea_1 days = 30 }}
-				HUN = { modify_timed_idea = { idea = TPMP_GER_barbarossa_idea_1 days = 30 }}
-				ROM = { modify_timed_idea = { idea = TPMP_GER_barbarossa_idea_1 days = 30 }}
-				BUL = { modify_timed_idea = { idea = TPMP_GER_barbarossa_idea_1 days = 30 }}
-				SPR = { modify_timed_idea = { idea = TPMP_GER_barbarossa_idea_1 days = 30 }}		
 			}
 		}
 		timeout_effect = {
@@ -284,7 +219,7 @@ TPMP_eastern_front_decision_category = {
 		days_mission_timeout = 180
 		fire_only_once = yes
 		complete_effect = {
-			if = {
+			IF = {
 				limit = {
 					GER = {
 						has_idea = TPMP_GER_barbarossa_idea_0
@@ -296,19 +231,6 @@ TPMP_eastern_front_decision_category = {
 				ROM = { modify_timed_idea = { idea = TPMP_GER_barbarossa_idea_0 days = 30 }}
 				BUL = { modify_timed_idea = { idea = TPMP_GER_barbarossa_idea_0 days = 30 }}
 				SPR = { modify_timed_idea = { idea = TPMP_GER_barbarossa_idea_0 days = 30 }}
-			}
-			else_if = {
-				limit = {
-					GER = {
-						has_idea = TPMP_GER_barbarossa_idea_1
-					}
-				}	
-				GER = { modify_timed_idea = { idea = TPMP_GER_barbarossa_idea_1 days = 30 }}
-				ITA = { modify_timed_idea = { idea = TPMP_GER_barbarossa_idea_1 days = 30 }}
-				HUN = { modify_timed_idea = { idea = TPMP_GER_barbarossa_idea_1 days = 30 }}
-				ROM = { modify_timed_idea = { idea = TPMP_GER_barbarossa_idea_1 days = 30 }}
-				BUL = { modify_timed_idea = { idea = TPMP_GER_barbarossa_idea_1 days = 30 }}
-				SPR = { modify_timed_idea = { idea = TPMP_GER_barbarossa_idea_1 days = 30 }}		
 			}
 		}
 		timeout_effect = {
