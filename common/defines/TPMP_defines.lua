@@ -85,7 +85,7 @@ NDefines.NMilitary.LAND_AIR_COMBAT_MAX_PLANES_PER_ENEMY_WIDTH = 2	-- how many CA
 NDefines.NMilitary.RELIABILITY_ORG_REGAIN = -0.5		-- how much reliability affects org regain
 NDefines.NMilitary.RELIABILTY_RECOVERY = 0.50			-- factor affecting how much equipment is returned "from the dead"
 
-NDefines.NMilitary.LAND_SPEED_MODIFIER = 0.05			-- basic speed control
+NDefines.NMilitary.LAND_SPEED_MODIFIER = 0.045			-- basic speed control
 
 NDefines.NMilitary.COHESION_IMMOBILE_PLANNING_SPEED_MULTIPLIER = 1	-- If using the 'immobile' cohesion setting, factor ALL planning speed growth by this
 NDefines.NMilitary.PLANNING_DECAY = 0.01

@@ -20,7 +20,7 @@ TPMP_eastern_front_decision_category = {
 		days_mission_timeout = 15
 		timeout_effect = {
 			custom_effect_tooltip = TPMP_eastern_front_debuff_mission_tt
-			add_to_variable = { global.TPMP_eastern_front_attack_var_0 = -0.005 }
+			add_to_variable = { global.TPMP_eastern_front_attack_var_0 = -0.01 }
 			# add_to_variable = { global.TPMP_eastern_front_supply_build_var_0 = -0.125 }
 			calculate_eastern_front_variables = yes
 			hidden_effect = {
@@ -28,7 +28,7 @@ TPMP_eastern_front_decision_category = {
 			}
 		}
 		cancel_trigger = {
-			check_variable = { global.TPMP_eastern_front_attack_var_0 = -0.05 }
+			check_variable = { global.TPMP_eastern_front_attack_var_0 = -0.1 }
 		}
 		cancel_effect = {
 			set_country_flag = TPMP_eastern_front_debuff_mission_flag
@@ -537,7 +537,7 @@ TPMP_eastern_front_logistics_decision_category = {
 		days_mission_timeout = 90
 		timeout_effect = {
 			custom_effect_tooltip = TPMP_eastern_front_logistics_mission_tt
-			add_to_variable = { global.TPMP_eastern_front_attack_var_0 = 0.01 }
+			add_to_variable = { global.TPMP_eastern_front_attack_var_0 = 0.02 }
 			calculate_eastern_front_variables = yes
 			hidden_effect = {
 				activate_mission = TPMP_eastern_front_logistics_mission
