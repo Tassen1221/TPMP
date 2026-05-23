@@ -3765,7 +3765,7 @@ focus_tree = {
 
 
 		available = {
-			date > 1941.08.20
+			date > 1941.07.14
 
 
 		}
@@ -3775,6 +3775,10 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOCUS_FILTER_STABILITY}
 
 		completion_reward = {
+			add_timed_idea = {
+				idea = TPMP_SOV_unignorable_wehrmacht_activity_timed_idea
+				days = 140
+			}
 
 
 		}
@@ -3801,13 +3805,30 @@ focus_tree = {
 		allow_branch = {
 		}
 
+		bypass = {
+			
+		}
+
 		available = {
 
 		}
+
 		
 		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOCUS_FILTER_STABILITY}
 
+
+		select_effect = {
+			add_timed_idea = {
+				idea = TPMP_SOV_for_whom_the_bell_tolls_select_idea
+				days = 14
+			}
+		}
+
 		completion_reward = {
+			add_timed_idea = {
+				idea = TPMP_SOV_for_whom_the_bell_tolls_timed_idea
+				days = 80
+			}
 
 
 		}
@@ -4051,7 +4072,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = TPMP_SOV_for_whom_the_bell_tolls
 		
-		cost = 2
+		cost = 7
 
 		mutually_exclusive = { 
 			
@@ -4068,7 +4089,10 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOCUS_FILTER_STABILITY}
 
 		completion_reward = {
-
+			add_timed_idea = {
+				idea = TPMP_SOV_stavka_directive_no_3_timed_idea
+				days = 80
+			}
 
 		}
 	}
