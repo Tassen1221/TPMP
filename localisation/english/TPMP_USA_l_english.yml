@@ -35,9 +35,25 @@
  TPMP_USA_ENG_foreign_aid_text: "§YBritish Routes§!:\nNorth Atlantic: [TPMP_USA_lend_lease_north_atlantic_loc]\nCentral Atlantic: [TPMP_USA_lend_lease_central_atlantic_loc]"
  TPMP_USA_FRA_foreign_aid_text: "§YFrench Routes§!:\nCentral Atlantic: [TPMP_USA_lend_lease_central_atlantic_loc]\nAfrican Coast: [TPMP_USA_lend_lease_african_coast_loc]"
 
- TPMP_USA_lend_lease_inactive_loc: "§RInactive§!"
  TPMP_USA_lend_lease_blocked_loc: "§RBlocked§!"
  TPMP_USA_lend_lease_active_loc: "§GActive§!"
+
+ TPMP_USA_SOV_foreign_aid_tt: "Default monthly shipments to the §YSoviet Union§! per route:\n§G50§! §YMotorized Equipment§!\n§G30§! §YMechanized Equipment§!\n§G30§! §YLight Tank 1938§!\n§G30§! §YMedium Tank 1938§!\n§G40§! §YBasic Small Airframe§!\n§G20§! §YBasic Medium Airframe§!"
+ TPMP_USA_ENG_foreign_aid_tt: "Default monthly shipments to the §YUnited Kingdom§! per route:\n§G400§! §YInfantry Equipment§!\n§G50§! §YSupport Equipment§!\n§G50§! §YMotorized Equipment§!\n§G30§! §YMechanized Equipment§!\n§G30§! §YLight Tank 1938§!\n§G30§! §YMedium Tank 1938§!\n§G20§! §YBasic Large Airframe§!"
+ TPMP_USA_FRA_foreign_aid_tt: "Default monthly shipments to the §YUnited Kingdom§! per route:\n§G400§! §YInfantry Equipment§!\n§G50§! §YSupport Equipment§!\n§G50§! §YMotorized Equipment§!\n§G30§! §YMechanized Equipment§!\n§G30§! §YLight Tank 1938§!\n§G30§! §YMedium Tank 1938§!"
+
+ TPMP_USA_arctic_lend_lease_requirements_decision: "Requirements for Arctic Lend-Lease Route"
+ TPMP_USA_persian_lend_lease_requirements_decision: "Requirements for Persian Gulf Lend-Lease Route"
+ TPMP_USA_far_east_lend_lease_requirements_decision: "Requirements for Far East Lend-Lease Route"
+ TPMP_USA_north_atlantic_lend_lease_requirements_decision: "Requirements for North Atlantic Lend-Lease Route"
+ TPMP_USA_central_atlantic_lend_lease_requirements_decision: "Requirements for Central Atlantic Lend-Lease Route"
+ TPMP_USA_african_coast_lend_lease_requirements_decision: "Requirements for African Coast Lend-Lease Route"
+
+ TPMP_USA_anglo_american_mutual_aid_agreement_tt: "Increases monthly Lend-Lease shipments of §YAll Equipment§! to the §YUnited Kingdom§! by §G50%§!."
+ TPMP_USA_auxiliary_lend_lease_tt: "Increases monthly Lend-Lease shipments of §YInfantry Equipment§! to the §YSoviet Union§! by §G400§! per route.\nIncreases monthly Lend-Lease shipments of §YSupport Equipment§! to the §YSoviet Union§! by §G50§! per route."
+ TPMP_USA_modern_lend_lease_tt: "Replaces monthly Lend-Lease shipments of §YLight Tank 1938§! to the §YSoviet Union§! with §YLight Tank 1940/1941§!.\nReplaces monthly Lend-Lease shipments of §YMedium Tank 1938§! to the §YSoviet Union§! with §YMedium Tank 1940/1941§!.\nReplaces monthly Lend-Lease shipments of §YBasic Small Airframe§! to the §YSoviet Union§! with §YImproved Small Airframe§!.\nReplaces monthly Lend-Lease shipments of §YBasic Medium Airframe§! to the §YSoviet Union§! with §YImproved Medium Airframe§!."
+ TPMP_USA_auxiliary_lend_lease_flag: " Has approved §YAuxiliary Lend-Lease§!."
+ TPMP_USA_modern_lend_lease_flag: " Has approved §YModern Lend-Lease§!."
 
  left_wing_democrat_support_tt: "§lLeft-Wing Democrat Support§!: $RIGHT|+=0$"
  new_deal_democrat_support_tt: "§nNew-Deal Democrat Support§!: $RIGHT|+=0$"
@@ -94,24 +110,51 @@
  has_support_lwd_ndd_cd_tt: "Requires over §Y50 Support§! of §lLeft-Wing Democrats§!, §nNew-Deal Democrats§!, and §cConservative Democrats§!."
  has_support_lwd_ndd_pr_tt: "Requires over §Y50 Support§! of §lLeft-Wing Democrats§!, §nNew-Deal Democrats§!, and §pProgressive Republicans§!."
  has_support_ndd_pr_br_tt: "Requires over §Y50 Support§! of §nNew-Deal Democrats§!, §pProgressive Republicans§!, and §rBusiness Republicans§!."
+ has_support_lwd_ndd_cd_pr_tt: "Requires over §Y50 Support§! of §lLeft-Wing Democrats§!, §nNew-Deal Democrats§!, §cConservative Democrats§!, and §pProgressive Republicans§!"
  has_support_ndd_cd_pr_br_tt: "Requires over §Y50 Support§! of §nNew-Deal Democrats§!, §cConservative Democrats§!, §pProgressive Republicans§!, and §rBusiness Republicans§!."
  has_support_lwd_ndd_cd_pr_br_tt: "Requires over §Y50 Support§! of §lLeft-Wing Democrats§!, §nNew-Deal Democrats§!, §cConservative Democrats§!, §pProgressive Republicans§!, and §rBusiness Republicans§!."
  has_support_cd_pr_br_ir_tt: "Requires over §Y50 Support§! of §cConservative Democrats§!, §pProgressive Republicans§!, §rBusiness Republicans§!, and §iIsolationist Republicans§!."
+ has_support_ndd_cd_pr_br_ir_tt: "Requires over §Y50 Support§! of §nNew-Deal Democrats§!, §cConservative Democrats§!, §pProgressive Republicans§!, §rBusiness Republicans§!, and §iIsolationist Republicans§!."
 
  USA_decrease_great_depression_tt: "Modify §Y$TPMP_USA_great_depression_modifier$§! by:"
  USA_increase_deficit_tt: "Modify §Y$TPMP_USA_deficit_modifier$§! by:"
  USA_increase_megaprojects_tt: "Modify §Y$TPMP_USA_megaprojects_modifier$§! by:"
 
+ TPMP_USA_alphabet_agencies_tt: "[TPMP_USA_FSA_loc][TPMP_USA_NHP_loc][TPMP_USA_WPA_loc][TPMP_USA_NYA_loc][TPMP_USA_PWA_loc][TPMP_USA_OWI_loc][TPMP_USA_WPB_loc][TPMP_USA_OWM_loc][TPMP_USA_OES_loc]"
+ 
+ TPMP_USA_FSA_idea_0: "Federal Security Agency"
+ TPMP_USA_FSA_idea_1: "Federal Security Agency"
+ TPMP_USA_NHP_idea: "\nNational Healthcare Program"
+ TPMP_USA_WPA_idea_0: "\nWorks Progress Administration"
+ TPMP_USA_WPA_idea_1: "\nWorks Progress Administration"
+ TPMP_USA_NYA_idea: "\nNational Youth Administration"
+ TPMP_USA_PWA_idea: "\nPublic Works Administration"
+ TPMP_USA_OWI_idea: "\nOffice of War Information"
+ TPMP_USA_WPB_idea: "\nWar Production Board"
+ TPMP_USA_OWM_idea: "\nOffice of War Mobilization"
+ TPMP_USA_OES_idea: "\nOffice of Economic Stabilization"
+
+ TPMP_USA_JAP_NEUTRALITY: "§RWe cannot join wars unless attacked.§!"
+
  TPMP_USA_congress_tt: "\n"
 
- TPMP_USA_agencies_tt: "\n[TPMP_USA_WPA_loc]\n[TPMP_USA_FSA_loc]\n[TPMP_USA_NYA_loc]\n[TPMP_USA_PWA_loc]\n[TPMP_USA_OWI_loc]\n[TPMP_USA_WPB_loc]\n[TPMP_USA_OWM_loc]\n[TPMP_USA_OES_loc]"
+ TPMP_USA_neutrality_act_tt: "\nThis idea will automatically renew itself for §Y180§! days when it times out granting:\n$ndd_lose_support_small_tt$\n$ir_gain_support_small_tt$\n\n"
 
- TPMP_USA_neutrality_act_tt: "\nThis idea will automatically renew itself for §Y180§! days when it times out, at the cost of Congressional Support.\n\n"
+ TPMP_USA_destroyers_for_bases_tt: "Spawns 43 §YEarly Destroyers§! for §YUnited Kingdom§! and 7 §YEarly Destroyers§! for §YCanada§!."
 
+ TPMP_USA_construct_megaplants_tt: "Country Modifier:\n£prod_eff_cap  Production Efficiency Cap: §G+0.50%§!"
+ 
  TPMP_USA_willow_run_plant_tt: "Every ten §YMilitary Factories§! in §YMichigan§! will make §YAll Plane Equipment§! cheaper by §G2.0%§!, up to a maximum of §G10.0%§!."
  TPMP_USA_detroit_arsenal_tt: "Every ten §YMilitary Factories§! in §YMichigan§! will make §YAll Tank Equipment§! cheaper by §G2.0%§!, up to a maximum of §G10.0%§!."
  TPMP_USA_kaiser_shipyards_tt: "Every five §YDockyards§! in §YOregon§! will make §YAll Ship Equipment§! cheaper by §G2.0%§!, up to a maximum of §G10.0%§!."
  TPMP_USA_megaplants_tt: "\n[TPMP_USA_willow_run_plant_loc]\n[TPMP_USA_detroit_arsenal_loc]\n[TPMP_USA_kaiser_shipyards_loc]"
 
+ TPMP_USA_build_the_pentagon_tt: "Creates the §Y$landmark_pentagon$§! in [361.GetName]\n\nCountry Modifier:\n£prod_eff_cap  Production Efficiency Cap: §G+0.50%§!" 
 
  TPMP_USA_iterative_tank_design_tt: "Every §Y180§! days, this spirit will improve by §G2.0%§!, up to a maximum of §G10.0%§!."
+
+ TPMP_USA.5.t: "Cash and Carry Offer"
+ TPMP_USA.5.d: "A new US policy has recently come into effect, allowing for the purchase of military equipment as long as we provide immediate payment and transportation of the equipment ourselves.\n\nGiven our dire need for more weapons, it seems prudent to invest in this so called 'Cash and Carry' policy immediately. Now the only question that remains is which area of our military requires equipment the most?"
+ TPMP_USA.5.a: "We need modern aircraft."
+ TPMP_USA.5.b: "Our men need guns and artillery."
+ TPMP_USA.5.c: "More tanks are required."

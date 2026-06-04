@@ -18,14 +18,37 @@ ideas = {
 				IF = {
 					limit = {
 						NOT = {
-							has_completed_focus = TPMP_USA_second_neutrality_act
+							OR = {
+								has_completed_focus = TPMP_USA_second_neutrality_act
+								has_war = yes
+							}
 						}
 					}
 					add_timed_idea = {
 						idea = TPMP_USA_neutrality_act_idea_0
 						days = 180
 					}
+					for_loop_effect = {
+						end = 3
+						IF = {
+							limit = {
+								check_variable = {
+									new_deal_democrat_support_var > 0
+								}
+							}
+							add_to_variable = {
+								new_deal_democrat_support_var = -1
+							}
+							add_to_variable = {
+								isolationist_republican_support_var = 1
+							}
+						}
+					}
+					recalculate_congressional_ui = yes
 				}
+			}
+			cancel = {
+				has_war = yes
 			}
 		}
 		TPMP_USA_neutrality_act_idea_1 = {
@@ -40,6 +63,9 @@ ideas = {
 				can_join_factions = no
 				can_send_volunteers = yes
 			}
+			cancel = {
+				has_war = yes
+			}
 		}
 		TPMP_USA_neutrality_act_idea_2 = {
 			picture = neutrality_idea
@@ -52,6 +78,9 @@ ideas = {
 				can_access_market = yes
 				can_join_factions = no
 				can_send_volunteers = no
+			}
+			cancel = {
+				has_war = yes
 			}
 		}
 		TPMP_USA_sanctions_idea = {
@@ -68,6 +97,9 @@ ideas = {
 				send_volunteers_tension = -0.5
 				send_volunteer_size = 3
 			}
+			cancel = {
+				has_war = yes
+			}
 		}
 		TPMP_USA_congress_idea = {
 			picture = ARG_american_allyship
@@ -75,20 +107,49 @@ ideas = {
 				custom_modifier_tooltip = TPMP_USA_congress_tt
 			}
 		}
+
+		TPMP_USA_alphabet_agencies_idea_0 = {
+			picture = generic_political_support
+			modifier = {
+				political_power_gain = 0.15
+				command_power_gain = 0.15
+				custom_modifier_tooltip = generic_skip_one_line_tt
+				custom_modifier_tooltip = TPMP_USA_alphabet_agencies_tt
+			}
+		}
+		TPMP_USA_alphabet_agencies_idea_1 = {
+			picture = generic_political_support
+			modifier = {
+				political_power_gain = 0.25
+				command_power_gain = 0.25
+				custom_modifier_tooltip = generic_skip_one_line_tt
+				custom_modifier_tooltip = TPMP_USA_alphabet_agencies_tt
+			}
+		}
+		TPMP_USA_alphabet_agencies_idea_2 = {
+			picture = generic_political_support
+			modifier = {
+				political_power_gain = 0.1
+				command_power_gain = 0.1
+				custom_modifier_tooltip = generic_skip_one_line_tt
+				custom_modifier_tooltip = TPMP_USA_alphabet_agencies_tt
+			}
+		}
+		TPMP_USA_alphabet_agencies_idea_3 = {
+			picture = generic_political_support
+			modifier = {
+				political_power_gain = 0.3
+				command_power_gain = 0.3
+				custom_modifier_tooltip = generic_skip_one_line_tt
+				custom_modifier_tooltip = TPMP_USA_alphabet_agencies_tt
+			}
+		}
+
 		TPMP_USA_expand_civil_spending_idea = {
 			picture = ARG_civilian_economy_boost
 			modifier = {
 				industrial_factory_donations = 5
 				production_speed_industrial_complex_factor = 0.1
-			}
-		}
-
-		TPMP_USA_alphabet_agencies_idea = {
-			picture = generic_political_support
-			modifier = {
-				command_power_gain_mult = 0.1
-				political_power_gain = 0.1
-				custom_modifier_tooltip = TPMP_USA_agencies_tt
 			}
 		}
 
@@ -100,6 +161,13 @@ ideas = {
 			}
 			research_bonus = {
 				electronics = 0.05
+			}
+		}
+		TPMP_USA_NDAC_idea = {
+			picture = SOV_third_five_year_plan_military
+			modifier = {
+				production_factory_start_efficiency_factor = 0.05
+				production_factory_efficiency_gain_factor = 0.1
 			}
 		}
 
@@ -151,9 +219,6 @@ ideas = {
 		TPMP_USA_megaplants_idea = {
 			picture = generic_improved_industries
 			modifier = {
-				production_cost_arms_factory_factor = 0.075
-				production_factory_max_efficiency_factor = 0.05
-				industrial_capacity_factory = 0.1
 				custom_modifier_tooltip = TPMP_USA_megaplants_tt
 			}
 		}
@@ -283,47 +348,87 @@ ideas = {
 				supply_consumption_factor = -0.05
 			}
 		}
-		TPMP_USA_WPA_idea_0 = {
-			modifier = {
-				stability_factor = 0.1
-				production_speed_buildings_factor = 0.05
-			}
-		}
-		TPMP_USA_WPA_idea_1 = {
-			modifier = {
-				stability_factor = 0.15
-				stability_weekly_factor = 0.001
-				production_speed_buildings_factor = 0.05
-				research_speed_factor = 0.05
-			}
-		}
+
 		TPMP_USA_FSA_idea_0 = {
 			modifier = {
-				stability_factor = 0.05
-				political_power_gain = 0.1
+				stability_factor = 0.075
 			}
 		}
 		TPMP_USA_FSA_idea_1 = {
 			modifier = {
-				stability_factor = 0.05
-				political_power_gain = 0.15
+				stability_factor = 0.1
+			}
+		}
+		TPMP_USA_NHP_idea = {
+			modifier = {
 				experience_loss_factor = -0.2
+				monthly_population = 0.1
+			}
+		}
+		TPMP_USA_WPA_idea_0 = {
+			modifier = {
+				stability_factor = 0.05
+				production_speed_buildings_factor = 0.05
+				industrial_capacity_factory = 0.05
+			}
+		}
+		TPMP_USA_WPA_idea_1 = {
+			modifier = {
+				stability_factor = 0.075
+				stability_weekly = 0.001
+				production_speed_buildings_factor = 0.05
+				industrial_capacity_factory = 0.05
+				research_speed_factor = 0.05
 			}
 		}
 		TPMP_USA_NYA_idea = {
 			modifier = {
 				conscription_factor = 0.05
-				production_factory_efficiency_gain_factor = 0.05
 				training_time_factor = -0.1
+				production_factory_efficiency_gain_factor = 0.05
 			}
 		}
 		TPMP_USA_PWA_idea = {
 			modifier = {
-				production_speed_buildings_factor = 0.05
-				max_dig_in = 1
+				max_dig_in = 2
 				dig_in_speed_factor = 0.15
+				production_speed_buildings_factor = 0.05
 			}
 		}
+		TPMP_USA_OWI_idea = {
+			modifier = {
+				war_support_weekly = 0.001
+				airforce_intel_to_others = -0.05
+				army_intel_to_others = -0.05
+				civilian_intel_to_others = -0.05
+				navy_intel_to_others = -0.05
+				operative_slot = 1
+			}
+		}
+		TPMP_USA_WPB_idea = {
+			modifier = {
+				production_factory_max_efficiency_factor = 0.05
+				production_cost_arms_factory_factor = -0.05
+				production_cost_arms_megaplant_factor = -0.05
+			}
+		}
+		TPMP_USA_OWM_idea = {
+			modifier = {
+				political_advisor_cost_factor = -0.5
+				mobilization_laws_cost_factor = -0.5
+				trade_laws_cost_factor = -0.5
+				economy_cost_factor = -0.5
+				procurement_cost_factor = -0.5
+			}
+		}
+		TPMP_USA_OES_idea = {
+			modifier = {
+				stability_factor = 0.025
+				consumer_goods_factor = -0.1
+				factory_energy_consumption = -0.1
+			}
+		}
+
 		TPMP_USA_selective_training_and_service_act_idea = {
 			modifier = {
 				conscription_factor = -0.05

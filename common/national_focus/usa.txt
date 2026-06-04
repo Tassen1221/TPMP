@@ -23,40 +23,174 @@ focus_tree = {
 			original_tag = USA
 		}
 	}
-	continuous_focus_position = { x = 50 y = 1600 }
+	continuous_focus_position = { x = 1450 y = 725 }
 	default = no
 
 	# 1936 ELECTION BRANCH
 
 	focus = {
 		id = TPMP_USA_moderate_our_rhetoric
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_generic_self_management
 		mutually_exclusive = { focus = TPMP_USA_defence_of_the_new_deal }
-		x = 12
+		x = 5
 		y = 0
 		cost = 5
+		bypass = {
+			has_completed_focus = TPMP_USA_the_1936_election
+		}
 		completion_reward = {
+			custom_effect_tooltip = lwd_lose_support_tt
+			custom_effect_tooltip = cd_gain_support_large_tt
+			custom_effect_tooltip = pr_gain_support_tt
+			custom_effect_tooltip = br_lose_support_tt
+			custom_effect_tooltip = ir_lose_support_tt
+			for_loop_effect = {
+				end = 5
+				IF = {
+					limit = {
+						check_variable = {
+							left_wing_democrat_support_var > 0
+						}
+					}
+					add_to_variable = {
+						left_wing_democrat_support_var = -1
+					}
+					add_to_variable = {
+						conservative_democrat_support_var = 1
+					}
+				}
+			}
+			for_loop_effect = {
+				end = 5
+				IF = {
+					limit = {
+						check_variable = {
+							isolationist_republican_support_var > 0
+						}
+					}
+					add_to_variable = {
+						business_republican_support_var = 1
+					}
+					add_to_variable = {
+						isolationist_republican_support_var = -1
+					}
+				}
+			}
+			for_loop_effect = {
+				end = 10
+				IF = {
+					limit = {
+						check_variable = {
+							business_republican_support_var > 0
+						}
+					}
+					add_to_variable = {
+						progressive_republican_support_var = 1
+					}
+					add_to_variable = {
+						business_republican_support_var = -1
+					}
+				}
+			}
+			for_loop_effect = {
+				end = 5
+				IF = {
+					limit = {
+						check_variable = {
+							progressive_republican_support_var > 0
+						}
+					}
+					add_to_variable = {
+						conservative_democrat_support_var = 1
+					}
+					add_to_variable = {
+						progressive_republican_support_var = -1
+					}
+				}
+			}
+			recalculate_congressional_ui = yes
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_stability = 0.05
 		}
 	}
 
 	focus = {
 		id = TPMP_USA_defence_of_the_new_deal
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_PER_limit_foreign_influence
 		mutually_exclusive = { focus = TPMP_USA_moderate_our_rhetoric }
 		x = 4
 		y = 0
 		relative_position_id = TPMP_USA_moderate_our_rhetoric
 		cost = 5
+		bypass = {
+			has_completed_focus = TPMP_USA_the_1936_election
+		}
 		completion_reward = {
+			custom_effect_tooltip = lwd_gain_support_small_tt
+			custom_effect_tooltip = ndd_gain_support_tt
+			custom_effect_tooltip = br_lose_support_small_tt
+			custom_effect_tooltip = ir_lose_support_tt
+			for_loop_effect = {
+				end = 5
+				IF = {
+					limit = {
+						check_variable = {
+							isolationist_republican_support_var > 0
+						}
+					}
+					add_to_variable = {
+						business_republican_support_var = 1
+					}
+					add_to_variable = {
+						isolationist_republican_support_var = -1
+					}
+				}
+			}
+			for_loop_effect = {
+				end = 8
+				IF = {
+					limit = {
+						check_variable = {
+							business_republican_support_var > 0
+						}
+					}
+					add_to_variable = {
+						new_deal_democrat_support_var = 1
+					}
+					add_to_variable = {
+						business_republican_support_var = -1
+					}
+				}
+			}
+			for_loop_effect = {
+				end = 3
+				IF = {
+					limit = {
+						check_variable = {
+							new_deal_democrat_support_var > 0
+						}
+					}
+					add_to_variable = {
+						left_wing_democrat_support_var = 1
+					}
+					add_to_variable = {
+						new_deal_democrat_support_var = -1
+					}
+				}
+			}
+			recalculate_congressional_ui = yes
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_political_power = 50
 		}
 	}
 
 	focus = {
 		id = TPMP_USA_the_1936_election
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_generic_election
 		prerequisite = { focus = TPMP_USA_moderate_our_rhetoric focus = TPMP_USA_defence_of_the_new_deal }
-		x = 14
+		x = 2
 		y = 1
+		relative_position_id = TPMP_USA_moderate_our_rhetoric
 		cost = 0
 		available = {
 			hidden_trigger = {
@@ -71,7 +205,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_a_narrow_victory
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_goal_generic_neutrality_focus
 		prerequisite = { focus = TPMP_USA_the_1936_election }
 		mutually_exclusive = { focus = TPMP_USA_a_strong_mandate }
 		x = -4
@@ -79,6 +213,7 @@ focus_tree = {
 		relative_position_id = TPMP_USA_the_1936_election
 		cost = 0
 		available = {
+			has_support_lwd_ndd_cd = yes
 			hidden_trigger = {
 				always = no
 			}
@@ -89,7 +224,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_congressional_mobilization_plan
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_generic_little_entente
 		prerequisite = { focus = TPMP_USA_a_narrow_victory }
 		x = -2
 		y = 1
@@ -101,7 +236,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_a_conservative_coalition
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_usa_guarantee_the_american_dream
 		prerequisite = { focus = TPMP_USA_a_narrow_victory }
 		x = 0
 		y = 1
@@ -113,7 +248,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_the_hatch_act
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_hol_the_foundations_of_defense
 		prerequisite = { focus = TPMP_USA_a_conservative_coalition }
 		x = 0
 		y = 1
@@ -125,7 +260,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_limit_the_executive
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_goal_generic_political_pressure
 		prerequisite = { focus = TPMP_USA_a_conservative_coalition }
 		mutually_exclusive = { focus = TPMP_USA_a_deal_with_the_executive }
 		x = -1
@@ -138,7 +273,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_a_deal_with_the_executive
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_goal_generic_improve_relations
 		prerequisite = { focus = TPMP_USA_a_conservative_coalition }
 		mutually_exclusive = { focus = TPMP_USA_limit_the_executive }
 		x = 1
@@ -151,7 +286,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_encourage_lobbyists
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_generic_industrialists
 		prerequisite = { focus = TPMP_USA_a_narrow_victory }
 		x = 2
 		y = 1
@@ -163,7 +298,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_limited_deregulation
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_renounce_the_treaty_of_trianon
 		prerequisite = { focus = TPMP_USA_encourage_lobbyists }
 		x = 0
 		y = 1
@@ -177,7 +312,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_better_a_third_termer
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_goal_support_democracy
 		prerequisite = { focus = TPMP_USA_a_narrow_victory focus = TPMP_USA_a_strong_mandate }
 		x = 0
 		y = 2
@@ -189,7 +324,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_the_1940_election
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_generic_election
 		prerequisite = { focus = TPMP_USA_better_a_third_termer }
 		x = 0
 		y = 1
@@ -206,7 +341,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_rally_our_defeats
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_goal_generic_demand_territory
 		prerequisite = { focus = TPMP_USA_the_1940_election }
 		mutually_exclusive = { focus = TPMP_USA_glorify_our_victories }
 		x = -1
@@ -219,7 +354,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_glorify_our_victories
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_goal_generic_propaganda
 		prerequisite = { focus = TPMP_USA_the_1940_election }
 		mutually_exclusive = { focus = TPMP_USA_rally_our_defeats }
 		x = 1
@@ -232,7 +367,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_the_1944_election
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_generic_election
 		prerequisite = { focus = TPMP_USA_rally_our_defeats focus = TPMP_USA_glorify_our_victories }
 		x = 0
 		y = 2
@@ -249,7 +384,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_to_bring_about_peace
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_SWE_refuge_from_war
 		prerequisite = { focus = TPMP_USA_the_1944_election }
 		mutually_exclusive = { focus = TPMP_USA_to_win_the_war }
 		x = -1
@@ -262,7 +397,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_to_win_the_war
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_goal_generic_major_war
 		prerequisite = { focus = TPMP_USA_the_1944_election }
 		mutually_exclusive = { focus = TPMP_USA_to_bring_about_peace }
 		x = 1
@@ -277,7 +412,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_a_strong_mandate
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_ARG_the_american_push
 		prerequisite = { focus = TPMP_USA_the_1936_election }
 		mutually_exclusive = { focus = TPMP_USA_a_narrow_victory }
 		x = 4
@@ -285,6 +420,7 @@ focus_tree = {
 		relative_position_id = TPMP_USA_the_1936_election
 		cost = 0
 		available = {
+			has_support_ndd = yes
 			hidden_trigger = {
 				always = no
 			}
@@ -295,7 +431,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_court_packing_plan
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_generic_court
 		prerequisite = { focus = TPMP_USA_a_strong_mandate }
 		mutually_exclusive = { focus = TPMP_USA_a_switch_in_time }
 		x = -2
@@ -308,7 +444,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_a_switch_in_time
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_goal_generic_intelligence_exchange
 		prerequisite = { focus = TPMP_USA_a_strong_mandate }
 		mutually_exclusive = { focus = TPMP_USA_court_packing_plan }
 		x = 0
@@ -321,7 +457,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_the_new_deal_coalition
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_generic_befriend_usa
 		prerequisite = { focus = TPMP_USA_court_packing_plan focus = TPMP_USA_a_switch_in_time }
 		x = 1
 		y = 1
@@ -333,7 +469,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_denounce_economic_royalism
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_PER_embrace_opulence
 		prerequisite = { focus = TPMP_USA_the_new_deal_coalition }
 		x = 0
 		y = 1
@@ -345,7 +481,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_the_four_freedoms
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_PER_subserviant_to_noone
 		prerequisite = { focus = TPMP_USA_denounce_economic_royalism }
 		x = 0
 		y = 1
@@ -357,7 +493,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_the_solid_south
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_goal_generic_defence
 		prerequisite = { focus = TPMP_USA_a_strong_mandate }
 		x = 2
 		y = 1
@@ -369,7 +505,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_appease_party_establishment
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_usa_voter_registration_act
 		prerequisite = { focus = TPMP_USA_the_solid_south }
 		mutually_exclusive = { focus = TPMP_USA_encourage_primary_challengers }
 		x = -1
@@ -382,7 +518,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_encourage_primary_challengers
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_goal_generic_propaganda
 		prerequisite = { focus = TPMP_USA_the_solid_south }
 		mutually_exclusive = { focus = TPMP_USA_appease_party_establishment }
 		x = 1
@@ -397,12 +533,12 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_the_second_new_deal
-		icon = GFX_goal_generic_amphibious_assault
-		x = 48
+		icon = GFX_focus_generic_self_management
+		x = 35
 		y = 0
 		cost = 5
 		available = {
-			has_support_ndd = yes
+			has_support_lwd_ndd_cd_pr = yes
 		}
 		completion_reward = {
 			add_stability = 0.05
@@ -414,11 +550,54 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_second_neutrality_act
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_goal_generic_neutrality_focus
 		prerequisite = { focus = TPMP_USA_the_second_new_deal }
-		x = -19
+		x = -15
 		y = 1
 		relative_position_id = TPMP_USA_the_second_new_deal
+		cost = 5
+		available = {
+			has_support_ndd_cd_pr_br_ir = yes
+		}
+		bypass = {
+			has_war = yes
+		}
+		completion_reward = {
+			custom_effect_tooltip = ndd_gain_support_small_tt
+			custom_effect_tooltip = ir_lose_support_small_tt
+			for_loop_effect = {
+				end = 3
+				IF = {
+					limit = {
+						check_variable = {
+							isolationist_republican_support_var > 0
+						}
+					}
+					add_to_variable = {
+						new_deal_democrat_support_var = 1
+					}
+					add_to_variable = {
+						isolationist_republican_support_var = -1
+					}
+				}
+			}
+			recalculate_congressional_ui = yes
+			custom_effect_tooltip = generic_skip_one_line_tt
+			modify_timed_idea = {
+				idea = TPMP_USA_neutrality_act_idea_0
+				days = 365
+			}
+		}
+	}
+
+	focus = {
+		id = TPMP_USA_limited_intervention
+		icon = GFX_goal_generic_territory_or_war
+		prerequisite = { focus = TPMP_USA_second_neutrality_act }
+		mutually_exclusive = { focus = TPMP_USA_cash_and_carry }
+		x = -1
+		y = 1
+		relative_position_id = TPMP_USA_second_neutrality_act
 		cost = 5
 		available = {
 			has_support_ndd = yes
@@ -427,6 +606,8 @@ focus_tree = {
 			has_war = yes
 		}
 		completion_reward = {
+			custom_effect_tooltip = ndd_lose_support_tt
+			custom_effect_tooltip = ir_gain_support_tt
 			for_loop_effect = {
 				end = 5
 				IF = {
@@ -445,26 +626,6 @@ focus_tree = {
 			}
 			recalculate_congressional_ui = yes
 			custom_effect_tooltip = generic_skip_one_line_tt
-			modify_timed_idea = {
-				idea = TPMP_USA_neutrality_act_idea_0
-				days = 365
-			}
-		}
-	}
-
-	focus = {
-		id = TPMP_USA_limited_intervention
-		icon = GFX_goal_generic_amphibious_assault
-		prerequisite = { focus = TPMP_USA_second_neutrality_act }
-		mutually_exclusive = { focus = TPMP_USA_third_neutrality_act }
-		x = -1
-		y = 1
-		relative_position_id = TPMP_USA_second_neutrality_act
-		cost = 5
-		bypass = {
-			has_war = yes
-		}
-		completion_reward = {
 			unlock_decision_category_tooltip = TPMP_USA_sanctions_category
 			custom_effect_tooltip = generic_skip_one_line_tt
 			swap_ideas = {
@@ -476,23 +637,46 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_american_expeditionary_force
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_generic_naval_invasion_tank
 		prerequisite = { focus = TPMP_USA_limited_intervention }
-		x = 0
+		x = -1
 		y = 1
 		relative_position_id = TPMP_USA_limited_intervention
 		cost = 5
+		available = {
+			has_support_ndd = yes
+		}
 		bypass = {
 			has_war = yes
 		}
 		completion_reward = {
+			custom_effect_tooltip = ndd_lose_support_large_tt
+			custom_effect_tooltip = ir_gain_support_large_tt
+			for_loop_effect = {
+				end = 10
+				IF = {
+					limit = {
+						check_variable = {
+							new_deal_democrat_support_var > 0
+						}
+					}
+					add_to_variable = {
+						new_deal_democrat_support_var = -1
+					}
+					add_to_variable = {
+						isolationist_republican_support_var = 1
+					}
+				}
+			}
+			recalculate_congressional_ui = yes
+			custom_effect_tooltip = generic_skip_one_line_tt
 			add_ideas = TPMP_USA_AEF_idea
 		}
 	}
 
 	focus = {
-		id = TPMP_USA_third_neutrality_act
-		icon = GFX_goal_generic_amphibious_assault
+		id = TPMP_USA_cash_and_carry
+		icon = GFX_focus_SMB_purchase_aircraft
 		prerequisite = { focus = TPMP_USA_second_neutrality_act }
 		mutually_exclusive = { focus = TPMP_USA_limited_intervention }
 		x = 1
@@ -500,12 +684,39 @@ focus_tree = {
 		relative_position_id = TPMP_USA_second_neutrality_act
 		cost = 5
 		available = {
-			has_country_flag = TPMP_USA_second_neutrality_act_flag
+			has_support_lwd_ndd_pr = yes
 		}
 		bypass = {
 			has_war = yes
 		}
 		completion_reward = {
+			custom_effect_tooltip = ndd_lose_support_small_tt
+			custom_effect_tooltip = br_gain_support_small_tt
+			for_loop_effect = {
+				end = 3
+				IF = {
+					limit = {
+						check_variable = {
+							new_deal_democrat_support_var > 0
+						}
+					}
+					add_to_variable = {
+						new_deal_democrat_support_var = -1
+					}
+					add_to_variable = {
+						business_republican_support_var = 1
+					}
+				}
+			}
+			recalculate_congressional_ui = yes
+			custom_effect_tooltip = generic_skip_one_line_tt
+			ENG = {
+				country_event = TPMP_USA.5
+			}
+			FRA = {
+				country_event = TPMP_USA.5
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
 			swap_ideas = {
 				remove_idea = TPMP_USA_neutrality_act_idea_0
 				add_idea = TPMP_USA_neutrality_act_idea_2
@@ -514,101 +725,82 @@ focus_tree = {
 	}
 
 	focus = {
-		id = TPMP_USA_cash_and_carry
-		icon = GFX_goal_generic_amphibious_assault
-		prerequisite = { focus = TPMP_USA_third_neutrality_act }
-		x = 0
-		y = 1
-		relative_position_id = TPMP_USA_third_neutrality_act
-		cost = 5
-		bypass = {
-			has_war = yes
-		}
-		completion_reward = {
-			add_equipment_to_stockpile = {
-				type = small_plane_airframe
-				amount = 1000
-				producer = USA
-			}
-			add_equipment_to_stockpile = {
-				type = light_tank_chassis
-				amount = 1000
-				producer = USA
-			}
-			custom_effect_tooltip = generic_skip_one_line_tt
-			ENG = {
-				country_event = TPMP_USA.5
-			}
-			FRA = {
-				country_event = TPMP_USA.5
-			}
-		}
-	}
-
-	focus = {
 		id = TPMP_USA_lend_lease
-		icon = GFX_goal_generic_amphibious_assault
-		prerequisite = { focus = TPMP_USA_american_expeditionary_force focus = TPMP_USA_cash_and_carry}
+		icon = GFX_focus_generic_treaty
+		prerequisite = { focus = TPMP_USA_limited_intervention focus = TPMP_USA_cash_and_carry}
 		x = 1
 		y = 1
-		relative_position_id = TPMP_USA_american_expeditionary_force
+		relative_position_id = TPMP_USA_limited_intervention
 		cost = 5
+		available = {
+			has_support_lwd_ndd_pr = yes
+			ENG = {
+				has_war_with = GER
+			}
+			FRA = {
+				has_war_with = GER
+			}
+		}
 		completion_reward = {
-			activate_mission = TPMP_USA_SOV_lend_lease_mission 
+			custom_effect_tooltip = ndd_lose_support_small_tt
+			custom_effect_tooltip = ir_gain_support_small_tt
+			for_loop_effect = {
+				end = 3
+				IF = {
+					limit = {
+						check_variable = {
+							new_deal_democrat_support_var > 0
+						}
+					}
+					add_to_variable = {
+						new_deal_democrat_support_var = -1
+					}
+					add_to_variable = {
+						isolationist_republican_support_var = 1
+					}
+				}
+			}
+			recalculate_congressional_ui = yes
+			custom_effect_tooltip = generic_skip_one_line_tt
 			activate_mission = TPMP_USA_ENG_lend_lease_mission
 			activate_mission = TPMP_USA_FRA_lend_lease_mission 
-			set_country_flag = TPMP_USA_lend_lease_flag
-			set_country_flag = TPMP_USA_SOV_lend_lease_flag
-			set_country_flag = TPMP_USA_ENG_lend_lease_flag
-			set_country_flag = TPMP_USA_FRA_lend_lease_flag
-		}
-	}
-
-	focus = {
-		id = TPMP_USA_open_new_corridors
-		icon = GFX_goal_generic_amphibious_assault
-		prerequisite = { focus = TPMP_USA_lend_lease }
-		x = -3
-		y = 1
-		relative_position_id = TPMP_USA_lend_lease
-		cost = 5
-		completion_reward = {
 		}
 	}
 
 	focus = {
 		id = TPMP_USA_anglo_american_mutual_aid_agreement
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_chi_british_cooperation
 		prerequisite = { focus = TPMP_USA_lend_lease }
 		x = -1
 		y = 1
 		relative_position_id = TPMP_USA_lend_lease
 		cost = 5
 		completion_reward = {
-		}
-	}
-
-	focus = {
-		id = TPMP_USA_arm_french_divisions
-		icon = GFX_goal_generic_amphibious_assault
-		prerequisite = { focus = TPMP_USA_lend_lease }
-		x = 1
-		y = 1
-		relative_position_id = TPMP_USA_lend_lease
-		cost = 5
-		completion_reward = {
+			USA = {
+				add_war_support = 0.05
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = TPMP_USA_anglo_american_mutual_aid_agreement_tt
 		}
 	}
 
 	focus = {
 		id = TPMP_USA_the_moscow_protocols
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_chi_mission_to_the_soviet_union
 		prerequisite = { focus = TPMP_USA_lend_lease }
-		x = 3
+		x = 1
 		y = 1
 		relative_position_id = TPMP_USA_lend_lease
 		cost = 5
+		available = {
+			SOV = {
+				has_war_with = GER
+			}
+		}
 		completion_reward = {
+			activate_mission = TPMP_USA_SOV_lend_lease_mission 
+			unlock_decision_tooltip = TPMP_USA_auxiliary_lend_lease_decision
+			unlock_decision_tooltip = TPMP_USA_modern_lend_lease_decision
 		}
 	}
 
@@ -616,9 +808,9 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_manage_the_budget
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_mex_privatisation
 		prerequisite = { focus = TPMP_USA_the_second_new_deal }
-		x = -12
+		x = -8
 		y = 1
 		relative_position_id = TPMP_USA_the_second_new_deal
 		cost = 5
@@ -629,7 +821,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_expand_military_spending
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_goal_generic_construct_mil_factory
 		prerequisite = { focus = TPMP_USA_manage_the_budget }
 		mutually_exclusive = { focus = TPMP_USA_expand_civil_spending }
 		x = -4
@@ -660,7 +852,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_cut_procurement_red_tape
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_DEN_no_regulations
 		prerequisite = { focus = TPMP_USA_expand_military_spending }
 		x = 0
 		y = 1
@@ -696,7 +888,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_expand_civil_spending
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_goal_generic_construct_civ_factory
 		prerequisite = { focus = TPMP_USA_manage_the_budget }
 		mutually_exclusive = { focus = TPMP_USA_expand_military_spending }
 		x = -2
@@ -720,7 +912,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_economic_stimulus
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_goal_generic_construction
 		prerequisite = { focus = TPMP_USA_expand_civil_spending }
 		x = 0
 		y = 1
@@ -735,7 +927,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_patriotic_investment
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_generic_american_investments
 		prerequisite = { focus = TPMP_USA_cut_procurement_red_tape focus = TPMP_USA_economic_stimulus }
 		x = 1
 		y = 1
@@ -749,9 +941,9 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_revenue_act
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_generic_treaty
 		prerequisite = { focus = TPMP_USA_manage_the_budget }
-		x = 1
+		x = 3
 		y = 1
 		relative_position_id = TPMP_USA_manage_the_budget
 		cost = 5
@@ -774,7 +966,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_wealth_taxes
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_RAJ_war_taxes
 		prerequisite = { focus = TPMP_USA_revenue_act }
 		mutually_exclusive = { focus = TPMP_USA_cut_federal_spending }
 		x = -1
@@ -787,7 +979,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_cut_federal_spending
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_DEN_heavy_regulations
 		prerequisite = { focus = TPMP_USA_revenue_act }
 		mutually_exclusive = { focus = TPMP_USA_wealth_taxes }
 		x = 1
@@ -800,7 +992,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_wartime_revenue_act
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_goal_generic_forceful_treaty
 		prerequisite = { focus = TPMP_USA_wealth_taxes focus = TPMP_USA_cut_federal_spending }
 		x = 1
 		y = 1
@@ -812,9 +1004,9 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_reach_out_to_kuznets
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_goal_generic_improve_relations
 		prerequisite = { focus = TPMP_USA_manage_the_budget }
-		x = 4
+		x = 0
 		y = 1
 		relative_position_id = TPMP_USA_manage_the_budget
 		cost = 5
@@ -824,7 +1016,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_heed_the_nber
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_goal_generic_intelligence_exchange
 		prerequisite = { focus = TPMP_USA_reach_out_to_kuznets }
 		x = 0
 		y = 1
@@ -849,14 +1041,33 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_regulate_wall_street
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_ARG_anti_corruption_policies
 		prerequisite = { focus = TPMP_USA_the_second_new_deal }
 		mutually_exclusive = { focus = TPMP_USA_incentivize_wall_street }
-		x = -9
+		x = -6
 		y = 1
 		relative_position_id = TPMP_USA_the_second_new_deal
 		cost = 5
 		completion_reward = {
+			custom_effect_tooltip = ndd_lose_support_tt
+			custom_effect_tooltip = br_gain_support_tt
+			for_loop_effect = {
+				end = 5
+				IF = {
+					limit = {
+						check_variable = {
+							new_deal_democrat_support_var > 0
+						}
+					}
+					add_to_variable = {
+						new_deal_democrat_support_var = -1
+					}
+					add_to_variable = {
+						business_republican_support_var = 1
+					}
+				}
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
 			USA_decrease_great_depression = yes
 			custom_effect_tooltip = generic_skip_one_line_tt
 			USA_decrease_deficit = yes
@@ -865,14 +1076,33 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_incentivize_wall_street
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_generic_currency_reforms
 		prerequisite = { focus = TPMP_USA_the_second_new_deal }
 		mutually_exclusive = { focus = TPMP_USA_regulate_wall_street }
-		x = -7
+		x = -4
 		y = 1
 		relative_position_id = TPMP_USA_the_second_new_deal
 		cost = 5
 		completion_reward = {
+			custom_effect_tooltip = ndd_gain_support_small_tt
+			custom_effect_tooltip = br_lose_support_small_tt
+			for_loop_effect = {
+				end = 3
+				IF = {
+					limit = {
+						check_variable = {
+							business_republican_support_var > 0
+						}
+					}
+					add_to_variable = {
+						new_deal_democrat_support_var = 1
+					}
+					add_to_variable = {
+						business_republican_support_var = -1
+					}
+				}
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
 			USA_decrease_deficit = yes
 		}
 	}
@@ -881,9 +1111,9 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_fair_labour_standards_act
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_eng_concessions_to_the_trade_unions
 		prerequisite = { focus = TPMP_USA_the_second_new_deal }
-		x = -4
+		x = -2
 		y = 1
 		relative_position_id = TPMP_USA_the_second_new_deal
 		cost = 5
@@ -898,9 +1128,9 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_federal_housing_act
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_goal_generic_construct_civilian
 		prerequisite = { focus = TPMP_USA_fair_labour_standards_act }
-		x = -2
+		x = -1
 		y = 1
 		relative_position_id = TPMP_USA_fair_labour_standards_act
 		cost = 5
@@ -926,9 +1156,9 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_enforce_the_wagner_act
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_generic_workers
 		prerequisite = { focus = TPMP_USA_fair_labour_standards_act }
-		x = -1
+		x = 0
 		y = 2
 		relative_position_id = TPMP_USA_fair_labour_standards_act
 		cost = 5
@@ -948,30 +1178,10 @@ focus_tree = {
 	}
 
 	focus = {
-		id = TPMP_USA_increase_minimum_wage
-		icon = GFX_goal_generic_amphibious_assault
-		prerequisite = { focus = TPMP_USA_fair_labour_standards_act }
-		x = 0
-		y = 1
-		relative_position_id = TPMP_USA_fair_labour_standards_act
-		cost = 5
-		available = {
-			has_idea = TPMP_USA_fair_labour_standards_act_idea_0
-		}
-		completion_reward = {
-			swap_ideas = {
-				remove_idea = TPMP_USA_fair_labour_standards_act_idea_0
-				add_idea = TPMP_USA_fair_labour_standards_act_idea_1
-			}
-			USA_decrease_great_depression = yes
-		}
-	}
-
-	focus = {
 		id = TPMP_USA_agricultural_adjustment_act
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_goal_generic_consumer_goods
 		prerequisite = { focus = TPMP_USA_fair_labour_standards_act }
-		x = 2
+		x = 1
 		y = 1
 		relative_position_id = TPMP_USA_fair_labour_standards_act
 		cost = 5
@@ -984,68 +1194,26 @@ focus_tree = {
 		}
 	}
 
-	focus = {
-		id = TPMP_USA_food_stamp_program
-		icon = GFX_goal_generic_amphibious_assault
-		prerequisite = { focus = TPMP_USA_agricultural_adjustment_act }
-		mutually_exclusive = { focus = TPMP_USA_price_stabilization }
-		x = -1
-		y = 1
-		relative_position_id = TPMP_USA_agricultural_adjustment_act
-		cost = 5
-		available = {
-			has_idea = TPMP_USA_agricultural_adjustment_act_idea_0
-		}
-		completion_reward = {
-			swap_ideas = {
-				remove_idea = TPMP_USA_agricultural_adjustment_act_idea_0
-				add_idea = TPMP_USA_agricultural_adjustment_act_idea_1
-			}
-			USA_decrease_great_depression = yes
-			custom_effect_tooltip = generic_skip_one_line_tt
-			USA_increase_deficit = yes
-		}
-	}
-
-	focus = {
-		id = TPMP_USA_price_stabilization
-		icon = GFX_goal_generic_amphibious_assault
-		prerequisite = { focus = TPMP_USA_agricultural_adjustment_act }
-		mutually_exclusive = { focus = TPMP_USA_food_stamp_program }
-		x = 1
-		y = 1
-		relative_position_id = TPMP_USA_agricultural_adjustment_act
-		cost = 5
-		available = {
-			has_idea = TPMP_USA_agricultural_adjustment_act_idea_0
-		}
-		completion_reward = {
-			USA_decrease_great_depression = yes
-			custom_effect_tooltip = generic_skip_one_line_tt
-			USA_decrease_deficit = yes
-		}
-	}
-
 	# FORM THE ALPHABET AGENCIES BRANCH
 
 	focus = {
 		id = TPMP_USA_form_the_alphabet_agencies
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_hol_the_foundations_of_defense
 		prerequisite = { focus = TPMP_USA_the_second_new_deal }
 		x = 4
 		y = 1
 		relative_position_id = TPMP_USA_the_second_new_deal
 		cost = 5
 		completion_reward = {
-			add_ideas = TPMP_USA_alphabet_agencies_idea
+			add_ideas = TPMP_USA_alphabet_agencies_idea_0
 			custom_effect_tooltip = generic_skip_one_line_tt
-			unlock_decision_category_tooltip = TPMP_USA_agencies_category
+			unlock_decision_category_tooltip = TPMP_USA_alphabet_category
 		}
 	}
 
 	focus = {
 		id = TPMP_USA_federal_security_agency
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_generic_price_controls
 		prerequisite = { focus = TPMP_USA_form_the_alphabet_agencies }
 		x = -3
 		y = 1
@@ -1053,6 +1221,8 @@ focus_tree = {
 		cost = 5
 		completion_reward = {
 			add_ideas = TPMP_USA_FSA_idea_0
+			custom_effect_tooltip = generic_skip_one_line_tt
+			unlock_decision_tooltip = TPMP_USA_expand_social_security_decision
 			custom_effect_tooltip = generic_skip_one_line_tt
 			USA_decrease_great_depression = yes
 			custom_effect_tooltip = generic_skip_one_line_tt
@@ -1062,17 +1232,15 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_national_healthcare_program
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_generic_field_hostpital
 		prerequisite = { focus = TPMP_USA_federal_security_agency }
 		x = 0
 		y = 1
 		relative_position_id = TPMP_USA_federal_security_agency
 		cost = 5
 		completion_reward = {
-			swap_ideas = {
-				remove_idea = TPMP_USA_FSA_idea_0
-				add_idea = TPMP_USA_FSA_idea_1
-			}
+			add_ideas = TPMP_USA_NHP_idea
+			custom_effect_tooltip = generic_skip_one_line_tt
 			add_tech_bonus = {
 				bonus = 1.0
 				uses = 2
@@ -1087,7 +1255,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_works_progress_administration
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_goal_generic_production
 		prerequisite = { focus = TPMP_USA_form_the_alphabet_agencies }
 		x = 1
 		y = 1
@@ -1096,6 +1264,8 @@ focus_tree = {
 		completion_reward = {
 			add_ideas = TPMP_USA_WPA_idea_0
 			custom_effect_tooltip = generic_skip_one_line_tt
+			unlock_decision_tooltip = TPMP_USA_national_youth_administration_decision
+			custom_effect_tooltip = generic_skip_one_line_tt
 			USA_decrease_great_depression = yes
 			custom_effect_tooltip = generic_skip_one_line_tt
 			USA_increase_deficit = yes
@@ -1103,24 +1273,11 @@ focus_tree = {
 	}
 
 	focus = {
-		id = TPMP_USA_the_wartime_agencies
-		icon = GFX_goal_generic_amphibious_assault
-		prerequisite = { focus = TPMP_USA_the_executive_office_of_the_president }
-		prerequisite = { focus = TPMP_USA_works_progress_administration }
-		x = -1
-		y = 1
-		relative_position_id = TPMP_USA_works_progress_administration
-		cost = 5
-		completion_reward = {
-		}
-	}
-
-	focus = {
 		id = TPMP_USA_federal_project_number_one
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_research2
 		prerequisite = { focus = TPMP_USA_works_progress_administration }
 		x = 0
-		y = 2
+		y = 1
 		relative_position_id = TPMP_USA_works_progress_administration
 		cost = 5
 		completion_reward = {
@@ -1136,7 +1293,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_public_works_administration
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_goal_generic_construction2
 		prerequisite = { focus = TPMP_USA_form_the_alphabet_agencies }
 		x = 3
 		y = 1
@@ -1144,6 +1301,8 @@ focus_tree = {
 		cost = 5
 		completion_reward = {
 			add_ideas = TPMP_USA_PWA_idea
+			custom_effect_tooltip = generic_skip_one_line_tt
+			unlock_decision_tooltip = TPMP_USA_empower_CCC_decision
 			custom_effect_tooltip = generic_skip_one_line_tt
 			add_tech_bonus = {
 				bonus = 1.0
@@ -1161,58 +1320,93 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_the_executive_office_of_the_president
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_generic_improve_the_administration
 		prerequisite = { focus = TPMP_USA_form_the_alphabet_agencies }
 		x = -1
 		y = 1
 		relative_position_id = TPMP_USA_form_the_alphabet_agencies
 		cost = 5
 		completion_reward = {
+			swap_ideas = {
+				remove_idea = TPMP_USA_alphabet_agencies_idea_0
+				add_idea = TPMP_USA_alphabet_agencies_idea_1
+			}
 			add_political_power = 150
+			add_command_power = 50
 		}
 	}
 
 	focus = {
 		id = TPMP_USA_embrace_executive_powers
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_goal_generic_political_pressure
 		prerequisite = { focus = TPMP_USA_the_executive_office_of_the_president }
 		x = 0
-		y = 2
+		y = 1
 		relative_position_id = TPMP_USA_the_executive_office_of_the_president
 		cost = 5
 		completion_reward = {
+			add_command_power = 50
 		}
 	}
 
 	focus = {
 		id = TPMP_USA_destroyers_for_bases
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_goal_generic_navy_cruiser
 		prerequisite = { focus = TPMP_USA_embrace_executive_powers }
 		x = -3
 		y = 1
 		relative_position_id = TPMP_USA_embrace_executive_powers
 		cost = 5
+		bypass = {
+			is_in_faction_with = ENG
+		}
 		completion_reward = {
+			custom_effect_tooltip = TPMP_USA_destroyers_for_bases_tt
+			custom_effect_tooltip = generic_skip_one_line_tt
+			diplomatic_relation = {
+				country = ENG
+				relation = military_access
+				active = yes
+			}
+			diplomatic_relation = {
+				country = ENG
+				relation = docking_rights
+				active = yes
+			}
+			diplomatic_relation = {
+				country = ENG
+				relation = OFFER_AIR_BASE_ACCESS
+				active = yes
+			}
+			hidden_effect = {
+				ENG = {	load_oob = "ENG_destroyers_for_bases_mtg" }
+				CAN = { load_oob = "CAN_destroyers_for_bases_mtg" }
+			}
 		}
 	}
 
 	focus = {
 		id = TPMP_USA_sign_the_atlantic_charter
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_chi_british_cooperation
 		prerequisite = { focus = TPMP_USA_destroyers_for_bases }
 		x = 0
 		y = 1
 		relative_position_id = TPMP_USA_destroyers_for_bases
 		cost = 5
+		bypass = {
+			is_in_faction_with = ENG
+		}
 		completion_reward = {
+			ENG = {
+				add_to_faction = USA
+			}
 		}
 	}
 
 	focus = {
 		id = TPMP_USA_international_conferences
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_goal_generic_improve_relations
 		prerequisite = { focus = TPMP_USA_sign_the_atlantic_charter }
-		prerequisite = { focus = TPMP_USA_day_of_infamy }
 		x = 0
 		y = 1
 		relative_position_id = TPMP_USA_sign_the_atlantic_charter
@@ -1223,7 +1417,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_create_the_osrd
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_research
 		prerequisite = { focus = TPMP_USA_embrace_executive_powers }
 		x = -1
 		y = 1
@@ -1247,40 +1441,40 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_create_the_ndac
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_generic_military_industry
 		prerequisite = { focus = TPMP_USA_embrace_executive_powers }
 		x = 1
 		y = 1
 		relative_position_id = TPMP_USA_embrace_executive_powers
 		cost = 5
 		completion_reward = {
+			add_ideas = TPMP_USA_NDAC_idea
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_ideas = partial_economic_mobilisation
 		}
 	}
 
 	focus = {
-		id = TPMP_USA_day_of_infamy
-		icon = GFX_goal_generic_amphibious_assault
-		prerequisite = { focus = TPMP_USA_create_the_osrd focus = TPMP_USA_create_the_ndac }
+		id = TPMP_USA_the_wartime_agencies
+		icon = GFX_goal_generic_forceful_treaty
+		prerequisite = { focus = TPMP_USA_create_the_osrd }
+		prerequisite = { focus = TPMP_USA_create_the_ndac }
 		x = 1
 		y = 1
 		relative_position_id = TPMP_USA_create_the_osrd
-		cost = 0
-		available = {
-			hidden_trigger = {
-				always = no
-			}
-		}
+		cost = 5
 		completion_reward = {
 		}
 	}
 
+
 	focus = {
 		id = TPMP_USA_war_powers_act
-		icon = GFX_goal_generic_amphibious_assault
-		prerequisite = { focus = TPMP_USA_day_of_infamy }
+		icon = GFX_focus_generic_military_dictatorship
+		prerequisite = { focus = TPMP_USA_the_wartime_agencies }
 		x = 0
 		y = 1
-		relative_position_id = TPMP_USA_day_of_infamy
+		relative_position_id = TPMP_USA_the_wartime_agencies
 		cost = 5
 		completion_reward = {
 		}
@@ -1288,7 +1482,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_the_brain_trust
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_generic_university_2
 		prerequisite = { focus = TPMP_USA_embrace_executive_powers }
 		x = 3
 		y = 1
@@ -1300,7 +1494,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_executive_order_9066
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_generic_national_security
 		prerequisite = { focus = TPMP_USA_the_brain_trust }
 		mutually_exclusive = { focus = TPMP_USA_welcome_refugees }
 		x = -1
@@ -1313,7 +1507,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_welcome_refugees
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_SWE_refuge_from_war
 		prerequisite = { focus = TPMP_USA_the_brain_trust }
 		mutually_exclusive = { focus = TPMP_USA_executive_order_9066 }
 		x = 1
@@ -1329,10 +1523,8 @@ focus_tree = {
 	focus = {
 		id = TPMP_USA_assemble_the_cabinet
 		icon = GFX_goal_generic_amphibious_assault
-		prerequisite = { focus = TPMP_USA_embrace_executive_powers }
-		x = -12
-		y = 1
-		relative_position_id = TPMP_USA_embrace_executive_powers
+		x = 7
+		y = 9
 		cost = 5
 		completion_reward = {
 		}
@@ -1719,10 +1911,10 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_megaprojects
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_goal_generic_construction
 		prerequisite = { focus = TPMP_USA_public_works_administration }
 		prerequisite = { focus = TPMP_USA_expand_the_great_lakes_industrial_zone focus = TPMP_USA_develop_new_industrial_centers }
-		x = 3`
+		x = 4
 		y = 1
 		relative_position_id = TPMP_USA_public_works_administration
 		cost = 5
@@ -1735,7 +1927,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_grand_coulee_dam
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_generic_hydroelectric_energy
 		prerequisite = { focus = TPMP_USA_megaprojects }
 		x = -2
 		y = 1
@@ -1773,7 +1965,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_triborough_bridge
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_goal_generic_construct_infrastructure
 		prerequisite = { focus = TPMP_USA_megaprojects }
 		x = -1
 		y = 2
@@ -1812,7 +2004,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_lincoln_tunnel
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_goal_generic_construction2
 		prerequisite = { focus = TPMP_USA_megaprojects }
 		x = 0
 		y = 1
@@ -1851,7 +2043,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_manhatten_project
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_wonderweapons
 		prerequisite = { focus = TPMP_USA_megaprojects }
 		x = 1
 		y = 2
@@ -1863,7 +2055,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_laguardia_airport
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_generic_air_bases
 		prerequisite = { focus = TPMP_USA_megaprojects }
 		x = 2
 		y = 1
@@ -1880,7 +2072,7 @@ focus_tree = {
 				tooltip = production_speed_air_base_factor_tt
 			}
 			add_to_variable = {
-				TPMP_USA_megaproject_radar_var = 0.5
+				TPMP_USA_megaproject_radar_cons_var = 0.5
 				tooltip = production_speed_radar_station_factor_tt
 			}
 			custom_effect_tooltip = generic_skip_one_line_tt
@@ -1898,9 +2090,9 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_expand_the_great_lakes_industrial_zone
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_generic_industry_3
 		mutually_exclusive = { focus = TPMP_USA_develop_new_industrial_centers }
-		x = 64
+		x = 52
 		y = 0
 		cost = 5
 		completion_reward = {
@@ -1924,7 +2116,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_midwestern_industry
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_goal_generic_construct_civ_factory
 		prerequisite = { focus = TPMP_USA_expand_the_great_lakes_industrial_zone }
 		x = 0
 		y = 1
@@ -1957,7 +2149,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_subassembly_techniques
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_goal_generic_production2
 		prerequisite = { focus = TPMP_USA_midwestern_industry }
 		x = 0
 		y = 1
@@ -1977,7 +2169,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_combat_the_dust_bowl
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_goal_generic_construct_civilian
 		prerequisite = { focus = TPMP_USA_expand_the_great_lakes_industrial_zone focus = TPMP_USA_develop_new_industrial_centers }
 		x = 2
 		y = 1
@@ -1999,7 +2191,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_rural_electrification_program
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_ARG_develop_the_electricity_sector
 		prerequisite = { focus = TPMP_USA_combat_the_dust_bowl }
 		x = 0
 		y = 1
@@ -2037,7 +2229,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_develop_new_industrial_centers
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_generic_industry_1
 		mutually_exclusive = { focus = TPMP_USA_expand_the_great_lakes_industrial_zone }
 		x = 4
 		y = 0
@@ -2065,7 +2257,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_west_coast_industry
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_goal_generic_construct_civ_factory
 		prerequisite = { focus = TPMP_USA_develop_new_industrial_centers }
 		x = 0
 		y = 1
@@ -2134,7 +2326,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_quality_control_techniques
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_goal_generic_production
 		prerequisite = { focus = TPMP_USA_west_coast_industry }
 		x = 0
 		y = 1
@@ -2153,7 +2345,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_arsenal_of_democracy
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_goal_support_democracy
 		prerequisite = { focus = TPMP_USA_subassembly_techniques focus = TPMP_USA_quality_control_techniques }
 		x = 2
 		y = 1
@@ -2186,7 +2378,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_fund_the_bureau_of_mines
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_generic_mining_industry
 		prerequisite = { focus = TPMP_USA_arsenal_of_democracy }
 		x = -3
 		y = 1
@@ -2215,7 +2407,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_strategic_materials_act
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_generic_central_planning
 		prerequisite = { focus = TPMP_USA_fund_the_bureau_of_mines }
 		x = -1
 		y = 1
@@ -2228,7 +2420,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_rubber_reserve_company
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_generic_rubber
 		prerequisite = { focus = TPMP_USA_fund_the_bureau_of_mines }
 		x = 1
 		y = 1
@@ -2248,7 +2440,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_dollar_a_year_men
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_generic_industrialists
 		prerequisite = { focus = TPMP_USA_arsenal_of_democracy }
 		x = 3
 		y = 1
@@ -2260,7 +2452,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_the_three_generals
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_generic_modernize_industry
 		prerequisite = { focus = TPMP_USA_dollar_a_year_men }
 		x = 0
 		y = 1
@@ -2280,20 +2472,32 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_construct_megaplants
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_generic_reorient_production
 		prerequisite = { focus = TPMP_USA_arsenal_of_democracy }
 		x = -1
 		y = 1
 		relative_position_id = TPMP_USA_arsenal_of_democracy
 		cost = 5
 		completion_reward = {
-			add_ideas = TPMP_USA_megaplants_idea
+			custom_override_tooltip = {
+				tooltip = {
+					localization_key = SP_UNLOCK_BUILDING_ICON_DESC
+					BUILDING = arms_megaplant
+					BUILDING_DESCRIPTION = arms_megaplant_desc
+					ICON_FRAME = 2
+				}
+				set_technology = {
+					arms_megaplant_tech = 1
+					popup = no
+				}
+			}
+			custom_effect_tooltip = TPMP_USA_construct_megaplants_tt
 		}
 	}
 
 	focus = {
 		id = TPMP_USA_at_scale_at_speed
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_generic_military_industry
 		prerequisite = { focus = TPMP_USA_arsenal_of_democracy }
 		x = 1
 		y = 1
@@ -2311,7 +2515,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_the_giant_wakes
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_generic_the_giant_wakes
 		prerequisite = { focus = TPMP_USA_construct_megaplants }
 		prerequisite = { focus = TPMP_USA_at_scale_at_speed }
 		x = 1
@@ -2322,13 +2526,13 @@ focus_tree = {
 			has_war_support > 0.5
 		}
 		completion_reward = {
-			add_ideas = partial_economic_mobilisation
+			add_ideas = war_economy
 		}
 	}
 
 	focus = {
 		id = TPMP_USA_willow_run_plant
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_generic_aircraft_production
 		prerequisite = { focus = TPMP_USA_the_giant_wakes }
 		x = -2
 		y = 1
@@ -2339,12 +2543,22 @@ focus_tree = {
 		}
 		completion_reward = {
 			custom_effect_tooltip = TPMP_USA_willow_run_plant_tt
+			hidden_effect = {
+				IF = {
+					limit = {
+						NOT = {
+							has_idea = TPMP_USA_megaplants_idea
+						}
+					}
+					add_ideas = TPMP_USA_megaplants_idea
+				}
+			}
 		}
 	}
 
 	focus = {
 		id = TPMP_USA_detroit_arsenal
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_generic_tank_production
 		prerequisite = { focus = TPMP_USA_the_giant_wakes }
 		x = 0
 		y = 1
@@ -2355,12 +2569,22 @@ focus_tree = {
 		}
 		completion_reward = {
 			custom_effect_tooltip = TPMP_USA_detroit_arsenal_tt
+			hidden_effect = {
+				IF = {
+					limit = {
+						NOT = {
+							has_idea = TPMP_USA_megaplants_idea
+						}
+					}
+					add_ideas = TPMP_USA_megaplants_idea
+				}
+			}
 		}
 	}
 
 	focus = {
 		id = TPMP_USA_kaiser_shipyards
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_generic_torpedo_production
 		prerequisite = { focus = TPMP_USA_the_giant_wakes }
 		x = 2
 		y = 1
@@ -2371,12 +2595,22 @@ focus_tree = {
 		}
 		completion_reward = {
 			custom_effect_tooltip = TPMP_USA_kaiser_shipyards_tt
+			hidden_effect = {
+				IF = {
+					limit = {
+						NOT = {
+							has_idea = TPMP_USA_megaplants_idea
+						}
+					}
+					add_ideas = TPMP_USA_megaplants_idea
+				}
+			}
 		}
 	}
 
 	focus = {
 		id = TPMP_USA_limitless_potential
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_generic_mass_production
 		prerequisite = { focus = TPMP_USA_willow_run_plant focus = TPMP_USA_detroit_arsenal focus = TPMP_USA_kaiser_shipyards }
 		x = 0
 		y = 1
@@ -2389,8 +2623,6 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
-			add_ideas = war_economy
-			custom_effect_tooltip = generic_skip_one_line_tt
 			IF = {
 				limit = {
 					has_tech = concentrated_industry
@@ -2422,9 +2654,9 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_department_of_war
-		icon = GFX_goal_generic_amphibious_assault
-		x = 35
-		y = 13
+		icon = GFX_goal_generic_army_doctrines
+		x = 26
+		y = 8
 		cost = 5
 		completion_reward = {
 		}
@@ -2432,7 +2664,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_war_plans_division
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_goal_generic_position_armies
 		prerequisite = { focus = TPMP_USA_department_of_war }
 		x = -9
 		y = 1
@@ -2445,7 +2677,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_europe_first
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_usa_focus_on_europe
 		prerequisite = { focus = TPMP_USA_war_plans_division }
 		mutually_exclusive = { focus = TPMP_USA_asia_first }
 		x = -1
@@ -2458,7 +2690,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_asia_first
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_usa_focus_on_asia
 		prerequisite = { focus = TPMP_USA_war_plans_division }
 		mutually_exclusive = { focus = TPMP_USA_europe_first }
 		x = 1
@@ -2471,7 +2703,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_victory_program
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_BEL_v_for_victory
 		prerequisite = { focus = TPMP_USA_war_plans_division }
 		x = 2
 		y = 2
@@ -2483,7 +2715,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_liberation_plan
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_generic_democratic_europe
 		prerequisite = { focus = TPMP_USA_victory_program }
 		x = 0
 		y = 1
@@ -2495,7 +2727,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_found_the_oss
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_generic_secret_service_agency
 		prerequisite = { focus = TPMP_USA_department_of_war }
 		x = -5
 		y = 1
@@ -2503,12 +2735,11 @@ focus_tree = {
 		cost = 5
 		completion_reward = {
 			create_intelligence_agency = yes
-			custom_effect_tooltip = generic_skip_one_line_tt
 			upgrade_intelligence_agency = upgrade_army_department
 			upgrade_intelligence_agency = upgrade_commando_training
 			custom_effect_tooltip = generic_skip_one_line_tt
 			add_mastery = {
-				amount = 100
+				amount = 50
 				track = special_forces
 			}
 		}
@@ -2516,19 +2747,25 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_first_special_service_force
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_goal_generic_special_forces
 		prerequisite = { focus = TPMP_USA_found_the_oss }
 		x = -1
 		y = 1
 		relative_position_id = TPMP_USA_found_the_oss
 		cost = 5
 		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 2
+				category = cat_commandos_tech
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
 			add_mastery = {
 				amount = 50
 				track = special_forces
 			}
 			add_mastery = {
-				amount = 100
+				amount = 50
 				sub_doctrine = special_forces_doctrine_3
 			}
 		}
@@ -2536,7 +2773,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_magic
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_goal_generic_radar
 		prerequisite = { focus = TPMP_USA_found_the_oss }
 		x = 0
 		y = 2
@@ -2548,19 +2785,25 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_airborne_divisions
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_generic_paratrooper
 		prerequisite = { focus = TPMP_USA_found_the_oss }
 		x = 1
 		y = 1
 		relative_position_id = TPMP_USA_found_the_oss
 		cost = 5
 		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 2
+				category = cat_para_tech
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
 			add_mastery = {
 				amount = 50
 				track = special_forces
 			}
 			add_mastery = {
-				amount = 100
+				amount = 50
 				sub_doctrine = special_forces_doctrine_2
 			}
 		}
@@ -2568,19 +2811,30 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_build_the_pentagon
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_usa_build_the_pentagon
 		prerequisite = { focus = TPMP_USA_department_of_war }
 		x = -2
 		y = 1
 		relative_position_id = TPMP_USA_department_of_war
 		cost = 5
 		completion_reward = {
+			custom_effect_tooltip = TPMP_USA_build_the_pentagon_tt
+			hidden_effect = {
+				361 = {
+					add_building_construction = {
+						type = landmark_pentagon
+						level = 1
+						instant_build = yes
+						province = 3957
+					}
+				}
+			}
 		}
 	}
 
 	focus = {
 		id = TPMP_USA_selective_training_and_service_act
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_generic_military_mission
 		prerequisite = { focus = TPMP_USA_department_of_war }
 		x = 0
 		y = 1
@@ -2610,7 +2864,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_tank_destroyer_doctrine
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_usa_tank_destroyer_doctrine
 		prerequisite = { focus = TPMP_USA_selective_training_and_service_act }
 		x = -2
 		y = 1
@@ -2628,7 +2882,7 @@ focus_tree = {
 			custom_effect_tooltip = generic_skip_one_line_tt
 			add_unit_bonus = {
 				category_tds = {
-					ap_attack = 0.05
+					ap_attack = 0.1
 					maximum_speed = 0.1
 				}
 			}
@@ -2637,7 +2891,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_the_tank_we_want
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_generic_army_tanks2
 		prerequisite = { focus = TPMP_USA_tank_destroyer_doctrine }
 		mutually_exclusive = { focus = TPMP_USA_the_tank_we_need }
 		x = -1
@@ -2666,7 +2920,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_the_tank_we_need
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_goal_generic_army_tanks
 		prerequisite = { focus = TPMP_USA_tank_destroyer_doctrine }
 		mutually_exclusive = { focus = TPMP_USA_the_tank_we_want }
 		x = 1
@@ -2704,7 +2958,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_iterative_tank_design
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_generic_tank_assembly
 		prerequisite = { focus = TPMP_USA_the_tank_we_want focus = TPMP_USA_the_tank_we_need }
 		x = 0
 		y = 1
@@ -2740,7 +2994,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_t29_project
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_generic_heavy_tank
 		prerequisite = { focus = TPMP_USA_the_tank_we_need focus = TPMP_USA_the_tank_we_need }
 		x = 0
 		y = 1
@@ -2762,7 +3016,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_louisiana_manouvers
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_generic_little_entente
 		prerequisite = { focus = TPMP_USA_selective_training_and_service_act }
 		x = 2
 		y = 1
@@ -2781,7 +3035,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_265_division_plan
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_generic_limited_social_mobilization
 		prerequisite = { focus = TPMP_USA_louisiana_manouvers }
 		mutually_exclusive = { focus = TPMP_USA_90_division_plan }
 		x = -1
@@ -2794,7 +3048,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_90_division_plan
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_generic_manpower
 		prerequisite = { focus = TPMP_USA_louisiana_manouvers }
 		mutually_exclusive = { focus = TPMP_USA_265_division_plan }
 		x = 1
@@ -2807,7 +3061,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_desegregate_the_armed_forces
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_goal_generic_national_unity
 		prerequisite = { focus = TPMP_USA_265_division_plan focus = TPMP_USA_90_division_plan }
 		x = 1
 		y = 1
@@ -2819,7 +3073,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_adopt_the_garand
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_goal_generic_small_arms
 		prerequisite = { focus = TPMP_USA_department_of_war }
 		x = 2
 		y = 1
@@ -2849,7 +3103,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_rock_island_arsenal
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_goal_generic_army_artillery
 		prerequisite = { focus = TPMP_USA_department_of_war }
 		x = 4
 		y = 1
@@ -2866,7 +3120,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_the_long_tom
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_SWE_let_fly_all_guns
 		prerequisite = { focus = TPMP_USA_rock_island_arsenal }
 		x = 0
 		y = 1
@@ -2886,9 +3140,9 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_department_of_the_navy
-		icon = GFX_goal_generic_amphibious_assault
-		x = 48
-		y = 13
+		icon = GFX_goal_generic_build_navy
+		x = 39
+		y = 8
 		cost = 5
 		completion_reward = {
 		}
@@ -2903,12 +3157,20 @@ focus_tree = {
 		relative_position_id = TPMP_USA_department_of_the_navy
 		cost = 5
 		completion_reward = {
+			add_mastery = {
+				amount = 50
+				track = special_forces
+			}
+			add_mastery = {
+				amount = 50
+				sub_doctrine = special_forces_doctrine_1
+			}
 		}
 	}
 
 	focus = {
 		id = TPMP_USA_code_talkers
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_prc_infiltration
 		prerequisite = { focus = TPMP_USA_us_marine_corps }
 		x = -1
 		y = 1
@@ -2920,7 +3182,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_the_lvt
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_generic_naval_invasion
 		prerequisite = { focus = TPMP_USA_us_marine_corps }
 		x = 0
 		y = 2
@@ -2932,7 +3194,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_bureau_of_ships
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_generic_navy_research_bonus
 		prerequisite = { focus = TPMP_USA_department_of_the_navy }
 		x = -3
 		y = 1
@@ -2944,7 +3206,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_large_cruisers
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_GER_panzerschiff
 		prerequisite = { focus = TPMP_USA_bureau_of_ships }
 		x = -1
 		y = 1
@@ -2956,7 +3218,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_post_treaty_design_effort
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_generic_cruiser2
 		prerequisite = { focus = TPMP_USA_bureau_of_ships }
 		prerequisite = { focus = TPMP_USA_two_ocean_navy_act }
 		x = 1
@@ -2969,7 +3231,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_new_fast_battleships
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_goal_generic_navy_battleship
 		prerequisite = { focus = TPMP_USA_bureau_of_ships }
 		x = 0
 		y = 2
@@ -2981,7 +3243,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_abandon_the_panamax_standard
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_generic_navy_battleship2
 		prerequisite = { focus = TPMP_USA_new_fast_battleships }
 		prerequisite = { focus = TPMP_USA_bethlehem_steel_yards }
 		mutually_exclusive = { focus = TPMP_USA_the_essex_class }
@@ -2995,7 +3257,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_two_ocean_navy_act
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_generic_treaty
 		prerequisite = { focus = TPMP_USA_department_of_the_navy }
 		x = 0
 		y = 1
@@ -3007,7 +3269,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_east_coast_naval_yards
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_goal_generic_construct_naval_dockyard
 		prerequisite = { focus = TPMP_USA_two_ocean_navy_act }
 		x = 0
 		y = 1
@@ -3019,7 +3281,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_bethlehem_steel_yards
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_generic_steel
 		prerequisite = { focus = TPMP_USA_east_coast_naval_yards }
 		x = 0
 		y = 1
@@ -3031,7 +3293,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_fleet_problems
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_goal_generic_navy_doctrines_tactics
 		prerequisite = { focus = TPMP_USA_department_of_the_navy }
 		x = 3
 		y = 1
@@ -3043,7 +3305,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_forgo_prize_rules
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_goal_generic_wolf_pack
 		prerequisite = { focus = TPMP_USA_fleet_problems }
 		x = 2
 		y = 1
@@ -3055,7 +3317,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_large_fleet_submarines
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_goal_generic_navy_submarine
 		prerequisite = { focus = TPMP_USA_forgo_prize_rules }
 		x = 0
 		y = 1
@@ -3067,7 +3329,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_utilize_the_carrier_allowance
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_generic_air_carrier
 		prerequisite = { focus = TPMP_USA_fleet_problems }
 		x = 0
 		y = 1
@@ -3079,7 +3341,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_the_essex_class
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_goal_generic_navy_carrier
 		prerequisite = { focus = TPMP_USA_utilize_the_carrier_allowance }
 		prerequisite = { focus = TPMP_USA_bethlehem_steel_yards }
 		mutually_exclusive = { focus = TPMP_USA_abandon_the_panamax_standard }
@@ -3093,7 +3355,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_the_sunday_punch
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_goal_generic_air_naval_bomber
 		prerequisite = { focus = TPMP_USA_utilize_the_carrier_allowance }
 		x = -1
 		y = 1
@@ -3105,7 +3367,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_liberty_ships
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_generic_merchant_fleet
 		prerequisite = { focus = TPMP_USA_department_of_the_navy }
 		x = 5
 		y = 1
@@ -3117,7 +3379,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_modern_battlefleet
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_SMB_blue_water_fleet
 		prerequisite = { focus = TPMP_USA_abandon_the_panamax_standard focus = TPMP_USA_the_essex_class }
 		x = 3
 		y = 1
@@ -3130,7 +3392,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_supercarriers
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_generic_air_carrier
 		prerequisite = { focus = TPMP_USA_the_essex_class }
 		x = 0
 		y = 1
@@ -3144,9 +3406,9 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_us_army_air_corps
-		icon = GFX_goal_generic_amphibious_assault
-		x = 60
-		y = 13
+		icon = GFX_goal_generic_build_airforce
+		x = 51
+		y = 8
 		cost = 5
 		completion_reward = {
 		}
@@ -3154,7 +3416,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_utilize_civilian_aircraft_industry
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_generic_aircraft_production
 		prerequisite = { focus = TPMP_USA_us_army_air_corps }
 		x = -4
 		y = 1
@@ -3166,7 +3428,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_oppose_the_bomber_mafia
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_goal_generic_air_fighter2
 		prerequisite = { focus = TPMP_USA_us_army_air_corps }
 		mutually_exclusive = { focus = TPMP_USA_strategic_air_campaign }
 		x = -2
@@ -3179,7 +3441,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_army_air_integration
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_generic_tank_air_support
 		prerequisite = { focus = TPMP_USA_oppose_the_bomber_mafia }
 		x = -1
 		y = 1
@@ -3191,7 +3453,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_heavy_strike_aircraft
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_generic_multi_role_aircraft
 		prerequisite = { focus = TPMP_USA_army_air_integration }
 		x = 0
 		y = 1
@@ -3203,7 +3465,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_fighter_bombers
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_goal_generic_air_fighter
 		prerequisite = { focus = TPMP_USA_oppose_the_bomber_mafia focus = TPMP_USA_strategic_air_campaign }
 		mutually_exclusive = { focus = TPMP_USA_escort_fighters }
 		x = 1
@@ -3216,7 +3478,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_strategic_air_campaign
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_SWE_marauder_bombers
 		prerequisite = { focus = TPMP_USA_us_army_air_corps }
 		mutually_exclusive = { focus = TPMP_USA_oppose_the_bomber_mafia }
 		x = 2
@@ -3229,7 +3491,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_escort_fighters
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_usa_escort_fighters
 		prerequisite = { focus = TPMP_USA_oppose_the_bomber_mafia focus = TPMP_USA_strategic_air_campaign }
 		mutually_exclusive = { focus = TPMP_USA_fighter_bombers }
 		x = -1
@@ -3242,7 +3504,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_flying_fortresses
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_goal_generic_air_bomber
 		prerequisite = { focus = TPMP_USA_strategic_air_campaign }
 		x = 1
 		y = 2
@@ -3254,7 +3516,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_naca
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_generic_air_research_boost
 		prerequisite = { focus = TPMP_USA_us_army_air_corps }
 		x = 4
 		y = 1
@@ -3266,7 +3528,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_increase_naca_funding
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_SMB_purchase_aircraft
 		prerequisite = { focus = TPMP_USA_naca }
 		x = 0
 		y = 1
@@ -3278,7 +3540,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_us_army_air_forces
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_JAP_unify_the_air_forces
 		prerequisite = { focus = TPMP_USA_fighter_bombers focus = TPMP_USA_escort_fighters }
 		x = 1
 		y = 1
@@ -3290,7 +3552,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_create_the_eighth_air_force
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_goal_generic_air_doctrine
 		prerequisite = { focus = TPMP_USA_us_army_air_forces focus = TPMP_USA_heavy_strike_aircraft }
 		x = -2
 		y = 1
@@ -3302,7 +3564,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_unleash_the_fighters
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_generic_air_defense
 		prerequisite = { focus = TPMP_USA_create_the_eighth_air_force }
 		x = -1
 		y = 1
@@ -3314,7 +3576,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_crown_an_ace_of_aces
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_PER_raf_planes
 		prerequisite = { focus = TPMP_USA_us_army_air_forces }
 		x = 0
 		y = 1
@@ -3326,7 +3588,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_create_the_fifth_air_force
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_goal_generic_air_doctrine
 		prerequisite = { focus = TPMP_USA_us_army_air_forces focus = TPMP_USA_flying_fortresses }
 		x = 2
 		y = 1
@@ -3338,7 +3600,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_superfortress
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_generic_long_range_aircraft
 		prerequisite = { focus = TPMP_USA_create_the_fifth_air_force }
 		prerequisite = { focus = TPMP_USA_flying_fortresses }
 		x = 1
@@ -3351,7 +3613,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_superprops
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_generic_copy_plane_designs
 		prerequisite = { focus = TPMP_USA_create_the_eighth_air_force focus = TPMP_USA_create_the_fifth_air_force }
 		mutually_exclusive = { focus = TPMP_USA_shooting_star }
 		x = -1
@@ -3364,7 +3626,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_USA_shooting_star
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_generic_jet_planes
 		prerequisite = { focus = TPMP_USA_create_the_eighth_air_force focus = TPMP_USA_create_the_fifth_air_force }
 		mutually_exclusive = { focus = TPMP_USA_superprops }
 		x = 1

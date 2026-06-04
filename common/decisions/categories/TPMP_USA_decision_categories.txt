@@ -17,9 +17,19 @@ TPMP_USA_congress_category = {
 	}
 	scripted_gui = TPMP_USA_congress_ui	
 }
-TPMP_USA_deficit_category = {
+TPMP_USA_alphabet_category = {
 	priority = 98
-	icon =  GFX_decision_category_generic_economy
+	icon =  GFX_decision_category_generic_political_actions
+	allowed = {
+		tag = USA
+	}
+	visible = {
+		has_completed_focus = TPMP_USA_form_the_alphabet_agencies
+	}
+}
+TPMP_USA_deficit_category = {
+	priority = 97
+	icon =  GFX_decision_category_gre_paying_ifc_debt
 	allowed = {
 		tag = USA
 	}
@@ -28,23 +38,20 @@ TPMP_USA_deficit_category = {
 	}
 }
 TPMP_USA_foreign_aid_category = {
-	priority = 97
+	priority = 96
 	picture = GFX_decision_cat_foreign_aid
 	icon =  GFX_decision_category_generic_arms_trade
 	allowed = {
 		tag = USA
 	}
 	visible = {
-		OR = {
-			has_completed_focus = TPMP_USA_limited_intervention
-			has_completed_focus = TPMP_USA_cash_and_carry
-		}
+		has_completed_focus = TPMP_USA_lend_lease
 	}
 	scripted_gui = TPMP_USA_foreign_aid_ui	
 }
 TPMP_USA_sanctions_category = {
-	priority = 96
-	icon =  GFX_decision_category_generic_arms_trade
+	priority = 95
+	icon =  GFX_decision_category_generic_economy
 	allowed = {
 		tag = USA
 	}
