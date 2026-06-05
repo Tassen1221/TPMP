@@ -2,12 +2,12 @@ TPMP_game_decisions_category = {
 	
 	TPMP_NA_rom_annex_bul_decision = {	
         visible = {
-            BUL = {
-				is_ai = yes
-			}
-            JAP = {
-				is_ai = yes
-			}
+			
+				has_game_rule = {
+					rule = no_asia_setting
+					option = NO
+				}
+
         }
         available = {
             tag = ROM
@@ -44,12 +44,11 @@ TPMP_game_decisions_category = {
 		icon = generic_prepare_civil_war
 
 		visible = {
-            BUL = {
-				is_ai = yes
-			}
-            JAP = {
-				is_ai = yes
-			}
+			
+				has_game_rule = {
+					rule = no_asia_setting
+					option = NO
+				}
 		}
 
 		available = {
@@ -76,12 +75,11 @@ TPMP_game_decisions_category = {
 
 		icon = generic_prepare_civil_war
         visible = {
-            BUL = {
-				is_ai = yes
-			}
-            JAP = {
-				is_ai = yes
-			}
+			
+				has_game_rule = {
+					rule = no_asia_setting
+					option = NO
+				}
         }
         available = {
             tag = ENG
@@ -125,15 +123,17 @@ TPMP_game_decisions_category = {
 
 		icon = generic_prepare_civil_war
         visible = {
-            BUL = {
-				is_ai = yes
-			}
-            JAP = {
-				is_ai = yes
-			}
+			
+				has_game_rule = {
+					rule = no_asia_setting
+					option = NO
+				}
         }
         available = {
             tag = GER
+				SPR = {
+					is_ai = yes
+				}
         }
 
 		fire_only_once = yes
@@ -162,12 +162,11 @@ TPMP_game_decisions_category = {
 
 		icon = generic_prepare_civil_war
         visible = {
-            BUL = {
-				is_ai = yes
-			}
-            JAP = {
-				is_ai = yes
-			}
+			
+				has_game_rule = {
+					rule = no_asia_setting
+					option = NO
+				}
         }
         available = {
 			AND = {
@@ -187,6 +186,79 @@ TPMP_game_decisions_category = {
 				idea = TPMP_NA_USA_usa_mandatory_decision_timed_idea
 				days = 9999
 			}
+			
+
+
+		}
+	}
+
+	TPMP_NA_allied_minors_are_allowed_to_fail = {
+
+		icon = generic_prepare_civil_war
+        visible = {
+			
+				has_game_rule = {
+					rule = no_asia_setting
+					option = NO
+				}
+        }
+				available = {
+			date > 1942.7.1
+			OR = {
+				tag = AST
+				tag = CAN
+				tag = FRA
+			}
+		}
+
+		fire_only_once = yes
+
+		modifier = {
+			
+		}
+
+		complete_effect = {
+			add_timed_idea = {
+				idea = TPMP_NA_allied_minors_are_allowed_to_fail_decision_timed_idea
+				days = 9999
+			}
+			
+
+
+		}
+	}
+
+
+	TPMP_NA_spain_counterbalances_raj = {
+
+		icon = generic_prepare_civil_war
+        visible = {
+			
+				has_game_rule = {
+					rule = no_asia_setting
+					option = NO
+				}
+        }
+		available = {
+			date > 1939.1.1
+			OR = {
+				tag = SPR
+			}
+		}
+
+		fire_only_once = yes
+
+		modifier = {
+			
+		}
+
+		complete_effect = {
+			add_timed_idea = {
+				idea = TPMP_NA_spain_counterbalances_raj_decision_timed_idea
+				days = 9999
+			}
+
+
 			
 
 
