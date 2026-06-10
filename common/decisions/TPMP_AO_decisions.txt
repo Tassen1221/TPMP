@@ -59,15 +59,17 @@ TPMP_game_decisions_category = {
 
 		fire_only_once = yes
 
-		days_remove = 45
-
 
 		modifier = {
-			army_attack_factor = 0.5
 		}
 
 		complete_effect = {
-
+			every_faction_member = {
+				add_timed_idea = {
+					idea = TPMP_NA_ENDSIEG_decision_timed_idea
+					days = 60
+				}
+			}
 		}
 	}
 
@@ -151,6 +153,13 @@ TPMP_game_decisions_category = {
 				add_resource = {
 					type = tungsten
 					amount = 1000
+				}
+
+			}
+			2 = {
+				add_resource = {
+					type = rubber
+					amount = 6000
 				}
 
 			}
