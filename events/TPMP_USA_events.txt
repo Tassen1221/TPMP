@@ -1,4 +1,5 @@
 ﻿add_namespace = TPMP_USA
+add_namespace = TPMP_USA_election
 add_namespace = TPMP_USA_military
 
 country_event = {
@@ -150,6 +151,33 @@ country_event = {
 			equipment_type = heavy_tank_chassis
 			seller_tags = { USA }
 		}
+	}
+}
+
+country_event = {
+    id = TPMP_USA_election.1
+	title = TPMP_USA_election.1.t
+	desc = TPMP_USA_election.1.d
+	picture = GFX_report_event_cash_carry
+
+	is_triggered_only = yes
+	
+	option = {
+		name = TPMP_USA_election.1.a
+		set_country_flag = TPMP_USA_elections_flag
+	}
+}
+country_event = {
+    id = TPMP_USA_election.2
+	title = TPMP_USA_election.2.t
+	desc = TPMP_USA_election.2.d
+	picture = GFX_report_event_cash_carry
+
+	is_triggered_only = yes
+	
+	option = {
+		name = TPMP_USA_election.2.a
+		clr_country_flag = TPMP_USA_elections_flag
 	}
 }
 

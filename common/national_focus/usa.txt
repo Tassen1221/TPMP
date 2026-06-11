@@ -23,7 +23,7 @@ focus_tree = {
 			original_tag = USA
 		}
 	}
-	continuous_focus_position = { x = 1450 y = 725 }
+	continuous_focus_position = { x = 425 y = 1175 }
 	default = no
 
 	# 1936 ELECTION BRANCH
@@ -1518,395 +1518,6 @@ focus_tree = {
 		}
 	}
 
-	# ASSEMBLE THE CABINET BRANCH
-
-	focus = {
-		id = TPMP_USA_assemble_the_cabinet
-		icon = GFX_goal_generic_amphibious_assault
-		x = 7
-		y = 9
-		cost = 5
-		completion_reward = {
-		}
-	}
-
-	focus = {
-		id = TPMP_USA_hopkins
-		icon = GFX_goal_generic_amphibious_assault
-		prerequisite = { focus = TPMP_USA_assemble_the_cabinet }
-		x = -6
-		y = 1
-		relative_position_id = TPMP_USA_assemble_the_cabinet
-		cost = 5
-		completion_reward = {
-		}
-	}
-
-	focus = {
-		id = TPMP_USA_wpa_administrator
-		icon = GFX_goal_generic_amphibious_assault
-		prerequisite = { focus = TPMP_USA_hopkins }
-		x = 0
-		y = 1
-		relative_position_id = TPMP_USA_hopkins
-		cost = 5
-		completion_reward = {
-		}
-	}
-
-	focus = {
-		id = TPMP_USA_delegate_to_the_soviet_union
-		icon = GFX_goal_generic_amphibious_assault
-		prerequisite = { focus = TPMP_USA_wpa_administrator }
-		x = 0
-		y = 1
-		relative_position_id = TPMP_USA_wpa_administrator
-		cost = 5
-		completion_reward = {
-		}
-	}
-
-	focus = {
-		id = TPMP_USA_truman
-		icon = GFX_goal_generic_amphibious_assault
-		prerequisite = { focus = TPMP_USA_delegate_to_the_soviet_union }
-		x = -1
-		y = 1
-		relative_position_id = TPMP_USA_delegate_to_the_soviet_union
-		cost = 5
-		completion_reward = {
-		}
-	}
-
-	focus = {
-		id = TPMP_USA_attend_international_conferences
-		icon = GFX_goal_generic_amphibious_assault
-		prerequisite = { focus = TPMP_USA_delegate_to_the_soviet_union }
-		x = 0
-		y = 2
-		relative_position_id = TPMP_USA_delegate_to_the_soviet_union
-		cost = 5
-		completion_reward = {
-		}
-	}
-
-	focus = {
-		id = TPMP_USA_bush
-		icon = GFX_goal_generic_amphibious_assault
-		prerequisite = { focus = TPMP_USA_assemble_the_cabinet }
-		x = -4
-		y = 1
-		relative_position_id = TPMP_USA_assemble_the_cabinet
-		cost = 5
-		completion_reward = {
-		}
-	}
-
-	focus = {
-		id = TPMP_USA_head_of_the_osrd
-		icon = GFX_goal_generic_amphibious_assault
-		prerequisite = { focus = TPMP_USA_bush }
-		x = 0
-		y = 1
-		relative_position_id = TPMP_USA_bush
-		cost = 5
-		completion_reward = {
-		}
-	}
-
-	focus = {
-		id = TPMP_USA_military_inventions
-		icon = GFX_goal_generic_amphibious_assault
-		prerequisite = { focus = TPMP_USA_head_of_the_osrd }
-		x = 0
-		y = 1
-		relative_position_id = TPMP_USA_head_of_the_osrd
-		cost = 5
-		completion_reward = {
-		}
-	}
-
-	focus = {
-		id = TPMP_USA_as_we_may_think
-		icon = GFX_goal_generic_amphibious_assault
-		prerequisite = { focus = TPMP_USA_military_inventions }
-		x = 0
-		y = 1
-		relative_position_id = TPMP_USA_military_inventions
-		cost = 5
-		completion_reward = {
-		}
-	}
-
-	focus = {
-		id = TPMP_USA_morgenthau
-		icon = GFX_goal_generic_amphibious_assault
-		prerequisite = { focus = TPMP_USA_assemble_the_cabinet }
-		x = -2
-		y = 1
-		relative_position_id = TPMP_USA_assemble_the_cabinet
-		cost = 5
-		completion_reward = {
-		}
-	}
-
-	focus = {
-		id = TPMP_USA_balance_the_budget
-		icon = GFX_goal_generic_amphibious_assault
-		prerequisite = { focus = TPMP_USA_morgenthau }
-		x = 0
-		y = 1
-		relative_position_id = TPMP_USA_morgenthau
-		cost = 5
-		completion_reward = {
-		}
-	}
-
-	focus = {
-		id = TPMP_USA_war_financier
-		icon = GFX_goal_generic_amphibious_assault
-		prerequisite = { focus = TPMP_USA_balance_the_budget }
-		x = 0
-		y = 1
-		relative_position_id = TPMP_USA_balance_the_budget
-		cost = 5
-		completion_reward = {
-		}
-	}
-
-	focus = {
-		id = TPMP_USA_bretton_woods_system
-		icon = GFX_goal_generic_amphibious_assault
-		prerequisite = { focus = TPMP_USA_war_financier }
-		x = 0
-		y = 1
-		relative_position_id = TPMP_USA_war_financier
-		cost = 5
-		completion_reward = {
-		}
-	}
-
-	focus = {
-		id = TPMP_USA_hull
-		icon = GFX_goal_generic_amphibious_assault
-		prerequisite = { focus = TPMP_USA_assemble_the_cabinet }
-		x = 0
-		y = 1
-		relative_position_id = TPMP_USA_assemble_the_cabinet
-		cost = 5
-		completion_reward = {
-		}
-	}
-
-	focus = {
-		id = TPMP_USA_secretary_of_state
-		icon = GFX_goal_generic_amphibious_assault
-		prerequisite = { focus = TPMP_USA_hull }
-		x = 0
-		y = 1
-		relative_position_id = TPMP_USA_hull
-		cost = 5
-		completion_reward = {
-		}
-	}
-
-	focus = {
-		id = TPMP_USA_good_neighbour_policy
-		icon = GFX_goal_generic_amphibious_assault
-		prerequisite = { focus = TPMP_USA_secretary_of_state }
-		x = 0
-		y = 1
-		relative_position_id = TPMP_USA_secretary_of_state
-		cost = 5
-		completion_reward = {
-		}
-	}
-
-	focus = {
-		id = TPMP_USA_write_the_united_nations_charter
-		icon = GFX_goal_generic_amphibious_assault
-		prerequisite = { focus = TPMP_USA_good_neighbour_policy }
-		x = 0
-		y = 1
-		relative_position_id = TPMP_USA_good_neighbour_policy
-		cost = 5
-		completion_reward = {
-		}
-	}
-
-	focus = {
-		id = TPMP_USA_byrnes
-		icon = GFX_goal_generic_amphibious_assault
-		prerequisite = { focus = TPMP_USA_write_the_united_nations_charter }
-		x = 0
-		y = 1
-		relative_position_id = TPMP_USA_write_the_united_nations_charter
-		cost = 5
-		completion_reward = {
-		}
-	}
-
-
-	focus = {
-		id = TPMP_USA_marshall
-		icon = GFX_goal_generic_amphibious_assault
-		prerequisite = { focus = TPMP_USA_assemble_the_cabinet }
-		x = 2
-		y = 1
-		relative_position_id = TPMP_USA_assemble_the_cabinet
-		cost = 5
-		completion_reward = {
-		}
-	}
-
-	focus = {
-		id = TPMP_USA_stimson
-		icon = GFX_goal_generic_amphibious_assault
-		prerequisite = { focus = TPMP_USA_assemble_the_cabinet }
-		x = 4
-		y = 1
-		relative_position_id = TPMP_USA_assemble_the_cabinet
-		cost = 5
-		completion_reward = {
-		}
-	}
-
-	focus = {
-		id = TPMP_USA_secretary_of_war
-		icon = GFX_goal_generic_amphibious_assault
-		prerequisite = { focus = TPMP_USA_marshall focus = TPMP_USA_stimson  }
-		x = 1
-		y = 1
-		relative_position_id = TPMP_USA_marshall
-		cost = 5
-		completion_reward = {
-		}
-	}
-
-	focus = {
-		id = TPMP_USA_expand_the_army
-		icon = GFX_goal_generic_amphibious_assault
-		prerequisite = { focus = TPMP_USA_secretary_of_war }
-		mutually_exclusive = { focus = TPMP_USA_quash_isolationism }
-		x = -1
-		y = 1
-		relative_position_id = TPMP_USA_secretary_of_war
-		cost = 5
-		completion_reward = {
-		}
-	}
-
-	focus = {
-		id = TPMP_USA_organizer_of_victory
-		icon = GFX_goal_generic_amphibious_assault
-		prerequisite = { focus = TPMP_USA_expand_the_army }
-		x = 0
-		y = 1
-		relative_position_id = TPMP_USA_expand_the_army
-		cost = 5
-		completion_reward = {
-		}
-	}
-
-	focus = {
-		id = TPMP_USA_quash_isolationism
-		icon = GFX_goal_generic_amphibious_assault
-		prerequisite = { focus = TPMP_USA_secretary_of_war }
-		mutually_exclusive = { focus = TPMP_USA_expand_the_army }
-		x = 1
-		y = 1
-		relative_position_id = TPMP_USA_secretary_of_war
-		cost = 5
-		completion_reward = {
-		}
-	}
-
-	focus = {
-		id = TPMP_USA_atomic_advisor
-		icon = GFX_goal_generic_amphibious_assault
-		prerequisite = { focus = TPMP_USA_quash_isolationism }
-		x = 0
-		y = 1
-		relative_position_id = TPMP_USA_quash_isolationism
-		cost = 5
-		completion_reward = {
-		}
-	}
-
-	focus = {
-		id = TPMP_USA_king
-		icon = GFX_goal_generic_amphibious_assault
-		prerequisite = { focus = TPMP_USA_assemble_the_cabinet }
-		x = 6
-		y = 1
-		relative_position_id = TPMP_USA_assemble_the_cabinet
-		cost = 5
-		completion_reward = {
-		}
-	}
-
-	focus = {
-		id = TPMP_USA_secretary_of_navy
-		icon = GFX_goal_generic_amphibious_assault
-		prerequisite = { focus = TPMP_USA_king }
-		mutually_exclusive = { focus = TPMP_USA_sole_head_of_the_navy }
-		x = -1
-		y = 1
-		relative_position_id = TPMP_USA_king
-		cost = 5
-		completion_reward = {
-		}
-	}
-
-	focus = {
-		id = TPMP_USA_sole_head_of_the_navy
-		icon = GFX_goal_generic_amphibious_assault
-		prerequisite = { focus = TPMP_USA_king }
-		mutually_exclusive = { focus = TPMP_USA_secretary_of_navy }
-		x = 1
-		y = 1
-		relative_position_id = TPMP_USA_king
-		cost = 5
-		completion_reward = {
-		}
-	}
-
-	focus = {
-		id = TPMP_USA_two_ocean_operations
-		icon = GFX_goal_generic_amphibious_assault
-		prerequisite = { focus = TPMP_USA_secretary_of_navy focus = TPMP_USA_sole_head_of_the_navy }
-		x = 1
-		y = 1
-		relative_position_id = TPMP_USA_secretary_of_navy
-		cost = 5
-		completion_reward = {
-		}
-	}
-
-	focus = {
-		id = TPMP_USA_paramount_of_naval_strategy
-		icon = GFX_goal_generic_amphibious_assault
-		prerequisite = { focus = TPMP_USA_two_ocean_operations }
-		x = 0
-		y = 1
-		relative_position_id = TPMP_USA_two_ocean_operations
-		cost = 5
-		completion_reward = {
-		}
-	}
-
-	focus = {
-		id = TPMP_USA_forrestal
-		icon = GFX_goal_generic_amphibious_assault
-		prerequisite = { focus = TPMP_USA_paramount_of_naval_strategy }
-		x = 0
-		y = 1
-		relative_position_id = TPMP_USA_paramount_of_naval_strategy
-		cost = 5
-		completion_reward = {
-		}
-	}
-
 	# MEGAPROJECTS BRANCH
 
 	focus = {
@@ -2655,10 +2266,11 @@ focus_tree = {
 	focus = {
 		id = TPMP_USA_department_of_war
 		icon = GFX_goal_generic_army_doctrines
-		x = 26
+		x = 24
 		y = 8
 		cost = 5
 		completion_reward = {
+			add_ideas = TPMP_USA_department_of_war_idea_0
 		}
 	}
 
@@ -2819,6 +2431,17 @@ focus_tree = {
 		cost = 5
 		completion_reward = {
 			custom_effect_tooltip = TPMP_USA_build_the_pentagon_tt
+			custom_effect_tooltip = generic_skip_one_line_tt
+			swap_ideas = {
+				remove_idea = TPMP_USA_department_of_war_idea_0
+				add_ideas = TPMP_USA_department_of_war_idea_1
+			}
+			IF = {
+				limit = {
+					has_idea = reservist_system
+				}
+				add_ideas = semi_professional_army
+			}
 			hidden_effect = {
 				361 = {
 					add_building_construction = {
@@ -3043,6 +2666,7 @@ focus_tree = {
 		relative_position_id = TPMP_USA_louisiana_manouvers
 		cost = 5
 		completion_reward = {
+			add_ideas = TPMP_USA_265_division_plan_idea_0
 		}
 	}
 
@@ -3056,6 +2680,7 @@ focus_tree = {
 		relative_position_id = TPMP_USA_louisiana_manouvers
 		cost = 5
 		completion_reward = {
+			add_ideas = TPMP_USA_90_division_plan_idea_0
 		}
 	}
 
@@ -3141,7 +2766,7 @@ focus_tree = {
 	focus = {
 		id = TPMP_USA_department_of_the_navy
 		icon = GFX_goal_generic_build_navy
-		x = 39
+		x = 37
 		y = 8
 		cost = 5
 		completion_reward = {
@@ -3407,7 +3032,7 @@ focus_tree = {
 	focus = {
 		id = TPMP_USA_us_army_air_corps
 		icon = GFX_goal_generic_build_airforce
-		x = 51
+		x = 49
 		y = 8
 		cost = 5
 		completion_reward = {

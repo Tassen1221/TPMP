@@ -3,6 +3,55 @@ on_actions = {
 		effect = {
 			IF = {
 				limit = {
+					OR = {
+						has_completed_focus = TPMP_USA_90_division_plan
+						has_completed_focus = TPMP_USA_265_division_plan
+					}
+					has_war = yes
+				}
+				IF = {
+					limit = {
+						has_idea = TPMP_USA_90_division_plan_idea_0
+						num_divisions > 90
+					}
+					swap_ideas = {
+						remove_idea = TPMP_USA_90_division_plan_idea_0
+						add_idea = TPMP_USA_90_division_plan_idea_1
+					}
+				}
+				ELSE_IF = {
+					limit = {
+						has_idea = TPMP_USA_90_division_plan_idea_1
+						num_divisions < 91
+					}
+					swap_ideas = {
+						remove_idea = TPMP_USA_90_division_plan_idea_1
+						add_idea = TPMP_USA_90_division_plan_idea_0
+					}
+				}
+				IF = {
+					limit = {
+						has_idea = TPMP_USA_265_division_plan_idea_0
+						num_divisions > 265
+					}
+					swap_ideas = {
+						remove_idea = TPMP_USA_265_division_plan_idea_0
+						add_idea = TPMP_USA_265_division_plan_idea_1
+					}
+				}
+				ELSE_IF = {
+					limit = {
+						has_idea = TPMP_USA_265_division_plan_idea_1
+						num_divisions < 266
+					}
+					swap_ideas = {
+						remove_idea = TPMP_USA_265_division_plan_idea_1
+						add_idea = TPMP_USA_265_division_plan_idea_0
+					}
+				}
+			}
+			IF = {
+				limit = {
 					has_completed_focus = TPMP_USA_willow_run_plant
 				}
 				IF = {
