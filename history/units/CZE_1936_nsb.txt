@@ -49,20 +49,25 @@ division_template = {
 	}
 }
 
-division_template = {
-	name = "Rychlá divize"	#Fast division		
+division_template = {				
+	name = "Rychlá divize"	#Fast division -- these are in really bad shape in 1936. Orders are behind and they were force to take on tanks they didn't want due to politcal pressure. Large orders placed in 1936 to fill them
 	division_names_group = CZE_ARM_01
 	regiments = {
 		light_armor = { x = 0 y = 0 }
 		light_armor = { x = 0 y = 1 }
 		cavalry = { x = 1 y = 0 }
 		cavalry = { x = 1 y = 1 }
+		cavalry = { x = 1 y = 2 }
 	}
+
+	regimental_support = { #Various field pieces operated by the division at the regeniment level
+		field_guns = { x = 1 y = 0 }
+	}
+
 	support = {
 		recon = { x = 0 y = 0 }      # includes 1x AC comp, 1x L tank comp
 	}
 }
-
 
 units = {
 	#### Československá Vojenská Jednotka #####
