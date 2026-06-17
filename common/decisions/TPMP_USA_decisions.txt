@@ -32,7 +32,41 @@ TPMP_USA_elections_category = {
                 state = 376
             }
         }
+        fire_only_once = no
+        days_remove = 30
+        cost = TPMP_USA_west_campaign_cost_var?10
         complete_effect = {
+            IF = {
+                limit = {
+                    has_variable = TPMP_USA_west_campaign_cost_var
+                }
+                multiply_variable = {
+                    TPMP_USA_west_campaign_cost_var = 2
+                }
+            }
+            ELSE = {
+                set_variable = {
+                    TPMP_USA_west_campaign_cost_var = 20
+                }
+            }
+        }
+        remove_effect = {
+            custom_effect_tooltip = pr_lose_support_tiny_tt
+            custom_effect_tooltip = lwd_gain_support_tiny_tt
+            IF = {
+                limit = {
+                    check_variable = {
+                        progressive_republican_support_var > 0
+                    }
+                }
+                add_to_variable = {
+                    left_wing_democrat_support_var = 1
+                }
+                add_to_variable = {
+                    progressive_republican_support_var = -1
+                }
+            }
+            recalculate_congressional_ui = yes
         }
     }
     TPMP_USA_midwest_campaigning_decision = {
@@ -56,7 +90,41 @@ TPMP_USA_elections_category = {
                 state = 261
             }
         }
+        fire_only_once = no
+        days_remove = 30
+        cost = TPMP_USA_midwest_campaign_cost_var?10
         complete_effect = {
+            IF = {
+                limit = {
+                    has_variable = TPMP_USA_midwest_campaign_cost_var
+                }
+                multiply_variable = {
+                    TPMP_USA_midwest_campaign_cost_var = 2
+                }
+            }
+            ELSE = {
+                set_variable = {
+                    TPMP_USA_midwest_campaign_cost_var = 20
+                }
+            }
+        }
+        remove_effect = {
+            custom_effect_tooltip = ir_lose_support_tiny_tt
+            custom_effect_tooltip = ndd_gain_support_tiny_tt
+            IF = {
+                limit = {
+                    check_variable = {
+                        isolationist_republican_support_var > 0
+                    }
+                }
+                add_to_variable = {
+                    new_deal_democrat_support_var = 1
+                }
+                add_to_variable = {
+                    isolationist_republican_support_var = -1
+                }
+            }
+            recalculate_congressional_ui = yes
         }
     }
     TPMP_USA_south_campaigning_decision = {
@@ -82,7 +150,41 @@ TPMP_USA_elections_category = {
                 state = 362
             }
         }
+        fire_only_once = no
+        days_remove = 30
+        cost = TPMP_USA_south_campaign_cost_var?10
         complete_effect = {
+            IF = {
+                limit = {
+                    has_variable = TPMP_USA_south_campaign_cost_var
+                }
+                multiply_variable = {
+                    TPMP_USA_south_campaign_cost_var = 2
+                }
+            }
+            ELSE = {
+                set_variable = {
+                    TPMP_USA_south_campaign_cost_var = 20
+                }
+            }
+        }
+        remove_effect = {
+            custom_effect_tooltip = ir_lose_support_tiny_tt
+            custom_effect_tooltip = cd_gain_support_tiny_tt
+            IF = {
+                limit = {
+                    check_variable = {
+                        isolationist_republican_support_var > 0
+                    }
+                }
+                add_to_variable = {
+                    conservative_democrat_support_var = 1
+                }
+                add_to_variable = {
+                    isolationist_republican_support_var = -1
+                }
+            }
+            recalculate_congressional_ui = yes
         }
     }
     TPMP_USA_northeast_campaigning_decision = {
@@ -99,7 +201,41 @@ TPMP_USA_elections_category = {
 
             }
         }
+        fire_only_once = no
+        days_remove = 30
+        cost = TPMP_USA_northeast_campaign_cost_var?10
         complete_effect = {
+            IF = {
+                limit = {
+                    has_variable = TPMP_USA_northeast_campaign_cost_var
+                }
+                multiply_variable = {
+                    TPMP_USA_northeast_campaign_cost_var = 2
+                }
+            }
+            ELSE = {
+                set_variable = {
+                    TPMP_USA_northeast_campaign_cost_var = 20
+                }
+            }
+        }
+        remove_effect = {
+            custom_effect_tooltip = br_lose_support_tiny_tt
+            custom_effect_tooltip = ndd_gain_support_tiny_tt
+            IF = {
+                limit = {
+                    check_variable = {
+                        business_republican_support_var > 0
+                    }
+                }
+                add_to_variable = {
+                    new_deal_democrat_support_var = 1
+                }
+                add_to_variable = {
+                    business_republican_support_var = -1
+                }
+            }
+            recalculate_congressional_ui = yes
         }
     }
 }
@@ -155,6 +291,33 @@ TPMP_USA_congress_category = {
             set_variable = {
                 isolationist_republican_support_var = 20
             }
+        }
+    }
+    TPMP_USA_congress_mission = {
+        icon = GFX_decision_generic_allies
+
+        fire_only_once = no
+        is_good = no
+
+        available = {
+            hidden_trigger = { always = no }
+        }
+
+        # Variable length. Define/set TPMP_USA_congress_mission_length_var yourself.
+        # The ?30 is only a safety fallback so the mission cannot loop instantly while the
+        # variable is undefined - remove it once the variable is scripted.
+        days_mission_timeout = TPMP_USA_congress_mission_length_var?10
+
+        # Self-contained start; restrict this trigger as needed.
+        activation = {
+            always = yes
+        }
+
+        timeout_effect = {
+            set_variable = {
+                TPMP_USA_congress_mission_length_var = 20
+            }
+            activate_mission = TPMP_USA_congress_mission
         }
     }
 }
@@ -462,6 +625,271 @@ TPMP_USA_alphabet_category = {
                 add_command_power = -50
                 add_political_power = -50
             }
+        }
+    }
+    TPMP_USA_OWI_decision = {
+        icon = GFX_decision_eng_trade_unions_support
+        custom_cost_trigger = {
+            command_power > 49
+            has_political_power > 99
+        }
+        custom_cost_text = decision_cost_CP_50_PP_100
+        fire_only_once = yes
+        visible = {
+            has_completed_focus = TPMP_USA_the_wartime_agencies
+        }
+        available = {
+            has_support_lwd_ndd_cd = yes
+        }
+        complete_effect = {
+			add_ideas = TPMP_USA_OWI_idea
+            hidden_effect = {
+                add_command_power = -50
+                add_political_power = -100
+            }
+        }
+    }
+    TPMP_USA_WPB_decision = {
+        icon = GFX_decision_eng_trade_unions_support
+        custom_cost_trigger = {
+            command_power > 49
+            has_political_power > 99
+        }
+        custom_cost_text = decision_cost_CP_50_PP_100
+        fire_only_once = yes
+        visible = {
+            has_completed_focus = TPMP_USA_the_wartime_agencies
+        }
+        available = {
+            has_support_lwd_ndd_cd = yes
+        }
+        complete_effect = {
+			add_ideas = TPMP_USA_WPB_idea
+            hidden_effect = {
+                add_command_power = -50
+                add_political_power = -100
+            }
+        }
+    }
+    TPMP_USA_OWM_decision = {
+        icon = GFX_decision_eng_trade_unions_support
+        custom_cost_trigger = {
+            command_power > 49
+            has_political_power > 99
+        }
+        custom_cost_text = decision_cost_CP_50_PP_100
+        fire_only_once = yes
+        visible = {
+            has_completed_focus = TPMP_USA_the_wartime_agencies
+        }
+        available = {
+            has_support_lwd_ndd_cd = yes
+        }
+        complete_effect = {
+			add_ideas = TPMP_USA_OWM_idea
+            hidden_effect = {
+                add_command_power = -50
+                add_political_power = -100
+            }
+        }
+    }
+    TPMP_USA_OES_decision = {
+        icon = GFX_decision_eng_trade_unions_support
+        custom_cost_trigger = {
+            command_power > 49
+            has_political_power > 99
+        }
+        custom_cost_text = decision_cost_CP_50_PP_100
+        fire_only_once = yes
+        visible = {
+            has_completed_focus = TPMP_USA_the_wartime_agencies
+        }
+        available = {
+            has_support_lwd_ndd_cd = yes
+        }
+        complete_effect = {
+			add_ideas = TPMP_USA_OES_idea
+            hidden_effect = {
+                add_command_power = -50
+                add_political_power = -100
+            }
+        }
+    }
+}
+TPMP_USA_deficit_category = {
+    TPMP_USA_victory_bonds_decision = {
+    	icon = generic_industry
+        available = {
+            has_war = yes
+        }
+        visible = {
+            has_war = yes
+            has_completed_focus = TPMP_USA_patriotic_investment
+        }
+		days_remove = 180
+		cost = GER_war_bonds_var?50
+		modifier = {
+			consumer_goods_factor = -0.15
+		}
+		complete_effect = {
+            IF = {
+                limit = {
+                    check_variable = {
+                        TPMP_USA_deficit_cg_var > 0
+                    }
+                }
+                USA_decrease_deficit = yes
+            }
+			IF = {
+				limit = {
+					NOT = {
+						has_variable = GER_war_bonds_var
+					}
+				}
+				set_variable = {
+					var = GER_war_bonds_var
+					value = 50
+				}
+			}
+            IF = {
+				limit = {
+				    has_variable = GER_war_bonds_war_support_var
+				}
+				add_war_support = GER_war_bonds_war_support_var
+			}
+			add_to_variable = {
+				var = GER_war_bonds_war_support_var
+				value = -0.025
+			}
+			add_to_variable = {
+				var = GER_war_bonds_var
+				value = 25
+			}
+		}
+    }
+    TPMP_USA_wartime_revenue_decision_0 = {
+        icon = GFX_decision_generic_factory
+        days_remove = 120
+        cost = TPMP_USA_wartime_revenue_0_cost_var?20
+        visible = {
+            has_completed_focus = TPMP_USA_wartime_revenue_act
+        }
+        available = {
+            has_war = yes
+            check_variable = {
+                TPMP_USA_deficit_cg_var > 0
+            }
+        }
+        modifier = {
+            industrial_capacity_factory = 0.05
+		}
+        complete_effect = {
+            IF = {
+                limit = {
+                    has_variable = TPMP_USA_wartime_revenue_0_cost_var
+                }
+                multiply_variable = {
+                    TPMP_USA_wartime_revenue_0_cost_var = 2
+                }
+            }
+            ELSE = {
+                set_variable = {
+                    TPMP_USA_wartime_revenue_0_cost_var = 40
+                }
+            }
+            every_core_state = {
+				limit = {
+					industrial_complex > 1
+				}
+				random_select_amount = 1
+				remove_building = {
+                    type = industrial_complex
+                    level = 2
+                }
+			}
+            custom_effect_tooltip = generic_skip_one_line_tt
+            USA_decrease_deficit = yes
+            custom_effect_tooltip = generic_skip_zero_line_tt
+        }
+    }
+    TPMP_USA_wartime_revenue_decision_1 = {
+        icon = GFX_decision_generic_industry
+        days_remove = 120
+        cost = TPMP_USA_wartime_revenue_1_cost_var?20
+        visible = {
+            has_completed_focus = TPMP_USA_wartime_revenue_act
+        }
+        available = {
+            has_war = yes
+            check_variable = {
+                TPMP_USA_deficit_cg_var > 0
+            }
+        }
+        modifier = {
+			industrial_capacity_factory = 0.05
+		}
+        complete_effect = {
+            IF = {
+                limit = {
+                    has_variable = TPMP_USA_wartime_revenue_1_cost_var
+                }
+                multiply_variable = {
+                    TPMP_USA_wartime_revenue_1_cost_var = 2
+                }
+            }
+            ELSE = {
+                set_variable = {
+                    TPMP_USA_wartime_revenue_1_cost_var = 40
+                }
+            }
+            every_core_state = {
+				limit = {
+					arms_factory > 1
+				}
+				random_select_amount = 1
+				remove_building = {
+                    type = arms_factory
+                    level = 2
+                }
+			}
+            custom_effect_tooltip = generic_skip_one_line_tt
+            USA_decrease_deficit = yes
+            custom_effect_tooltip = generic_skip_zero_line_tt
+        }
+    }
+    TPMP_USA_wartime_revenue_decision_2 = {
+        icon = GFX_decision_ger_military_buildup
+        days_remove = 120
+        cost = TPMP_USA_wartime_revenue_2_cost_var?20
+        visible = {
+            has_completed_focus = TPMP_USA_wartime_revenue_act
+        }
+        available = {
+            has_war = yes
+            check_variable = {
+                TPMP_USA_deficit_cg_var > 0
+            }
+        }
+        modifier = {
+			industrial_capacity_factory = 0.05
+            military_industrial_organization_funds_gain = -0.75
+		}
+        complete_effect = {
+            IF = {
+                limit = {
+                    has_variable = TPMP_USA_wartime_revenue_2_cost_var
+                }
+                multiply_variable = {
+                    TPMP_USA_wartime_revenue_2_cost_var = 2
+                }
+            }
+            ELSE = {
+                set_variable = {
+                    TPMP_USA_wartime_revenue_2_cost_var = 40
+                }
+            }
+            USA_decrease_deficit = yes
+            custom_effect_tooltip = generic_skip_zero_line_tt
         }
     }
 }
@@ -1722,65 +2150,36 @@ TPMP_USA_sanctions_category = {
         }
     }
 }
-war_measures = {
-    TPMP_USA_victory_bonds_decision = {
-    	icon = generic_industry
-
-    	allowed = {
-            always = yes
-        }
-        available = {
-            has_war = yes
-
-        }
+propaganda_efforts = {
+    TPMP_USA_economic_royalism_propaganda_decision = {
+        icon = GFX_decision_eng_propaganda_campaigns
+        cost = 75
+        fire_only_once = yes
         visible = {
-            has_war = yes
-            has_completed_focus = TPMP_USA_patriotic_investment
+            has_completed_focus = TPMP_USA_denounce_economic_royalism
         }
-
-        fire_only_once = no
-
-		days_remove = 180
-
-		cost = GER_war_bonds_var?50
-
-		modifier = {
-			consumer_goods_factor = -0.15
-		}
-		complete_effect = {
-            IF = {
-                limit = {
-                    check_variable = {
-                        TPMP_USA_deficit_cg_var > 0
-                    }
-                }
-                USA_decrease_deficit = yes
-            }
-			IF = {
-				limit = {
-					NOT = {
-						has_variable = GER_war_bonds_var
+        complete_effect = {
+            custom_effect_tooltip = ndd_lose_support_small_tt
+			custom_effect_tooltip = br_gain_support_small_tt
+			for_loop_effect = {
+				end = 3
+				IF = {
+					limit = {
+						check_variable = {
+							new_deal_democrat_support_var > 0
+						}
+					}
+					add_to_variable = {
+						business_republican_support_var = 1
+					}
+					add_to_variable = {
+						new_deal_democrat_support_var = -1
 					}
 				}
-				set_variable = {
-					var = GER_war_bonds_var
-					value = 50
-				}
 			}
-            IF = {
-				limit = {
-					has_variable = GER_war_bonds_war_support_var
-				}
-				add_war_support = GER_war_bonds_war_support_var
-			}
-			add_to_variable = {
-				var = GER_war_bonds_war_support_var
-				value = -0.025
-			}
-			add_to_variable = {
-				var = GER_war_bonds_var
-				value = 25
-			}
-		}
+			custom_effect_tooltip = generic_skip_one_line_tt
+            USA_decrease_great_depression = yes
+            custom_effect_tooltip = generic_skip_zero_line_tt
+        }
     }
 }

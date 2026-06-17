@@ -1,5 +1,13 @@
 ideas = {
 	country = {
+		TPMP_USA_encourage_primary_challengers_idea = {
+			picture = FRA_matignon_agreements
+			modifier = {
+				stability_factor = -0.1
+				political_power_gain = -0.3
+			}
+		}
+
 		TPMP_USA_neutrality_act_idea_0 = {
 			picture = neutrality_idea
 			modifier = {
@@ -26,10 +34,10 @@ ideas = {
 					}
 					add_timed_idea = {
 						idea = TPMP_USA_neutrality_act_idea_0
-						days = 180
+						days = 60
 					}
 					for_loop_effect = {
-						end = 3
+						end = 1
 						IF = {
 							limit = {
 								check_variable = {
@@ -156,11 +164,9 @@ ideas = {
 		TPMP_USA_OSRD_idea = {
 			picture = generic_radar
 			modifier = {
+				special_project_speed_factor  = 0.1
 				production_speed_facility_factor = 0.2
 				research_speed_factor = 0.05
-			}
-			research_bonus = {
-				electronics = 0.05
 			}
 		}
 		TPMP_USA_NDAC_idea = {

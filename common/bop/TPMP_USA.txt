@@ -1,0 +1,90 @@
+### United States Balance of Power - Congressional vs Presidential Authority
+### BASIC PLACEHOLDER - fill in modifiers / on_activate / on_deactivate as needed.
+### Value runs -1 (full Congressional control) <---> +1 (full Presidential control).
+### NOTE: side icons currently reuse vanilla BBA sprites as placeholders.
+###       Replace GFX_bop_ITA_* with custom GFX_bop_TPMP_USA_* sprites later.
+
+TPMP_USA_power_balance = {
+	initial_value = 0.0
+	left_side = TPMP_USA_congress_side
+	right_side = TPMP_USA_president_side
+	#decision_category = TPMP_USA_power_balance_category   # add once a decision category exists
+
+	### Balanced / Neutral status
+	range = {
+		id = TPMP_USA_power_balance_neutral_range
+		min = -0.2
+		max = 0.2
+		modifier = {
+			# placeholder - balanced government, no modifiers
+		}
+		on_activate = {
+		}
+		on_deactivate = {
+		}
+	}
+
+	### Congressional Authority (left, negative)
+	side = {
+		id = TPMP_USA_congress_side
+		icon = GFX_bop_ITA_grand_council_side   # placeholder icon
+
+		range = {
+			id = TPMP_USA_congress_low_range
+			min = -0.6
+			max = -0.2
+			modifier = {
+				# placeholder
+			}
+			on_activate = {
+			}
+			on_deactivate = {
+			}
+		}
+
+		range = {
+			id = TPMP_USA_congress_high_range
+			min = -1
+			max = -0.6
+			modifier = {
+				# placeholder
+			}
+			on_activate = {
+			}
+			on_deactivate = {
+			}
+		}
+	}
+
+	### Presidential Authority (right, positive)
+	side = {
+		id = TPMP_USA_president_side
+		icon = GFX_bop_ITA_mussolini_side   # placeholder icon
+
+		range = {
+			id = TPMP_USA_president_low_range
+			min = 0.2
+			max = 0.6
+			modifier = {
+				# placeholder
+			}
+			on_activate = {
+			}
+			on_deactivate = {
+			}
+		}
+
+		range = {
+			id = TPMP_USA_president_high_range
+			min = 0.6
+			max = 1
+			modifier = {
+				# placeholder
+			}
+			on_activate = {
+			}
+			on_deactivate = {
+			}
+		}
+	}
+}

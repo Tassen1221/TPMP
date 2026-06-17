@@ -89,11 +89,16 @@ USA_decrease_great_depression = {
 			tooltip = industrial_capacity_dockyard_tt
 		}
 	}
+	ELSE = {
+		custom_effect_tooltip = USA_decrease_great_depression_fail_tt
+	}
 	hidden_effect = {
 		IF = {
 			limit = {
 				check_variable = {
-					TPMP_USA_great_depression_cg_var < 0.05
+					var = TPMP_USA_great_depression_cg_var
+					value = 0
+					compare = less_than_or_equals
 				}
 			}
 			remove_dynamic_modifier = {

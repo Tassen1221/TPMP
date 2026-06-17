@@ -5,8 +5,6 @@
  TPMP_USA_deficit_modifier: "Growing Government Deficit"
  TPMP_USA_deficit_modifier_desc: ""
 
- TPMP_USA_if_passed_tt: "\nCompleting the mission will grant the following:"
-
  TPMP_USA_congress_category: "United States Congress"
  TPMP_USA_congress_category_desc: "The United States Congress is the legislative body of the United States government, maintaining its support is necessary for any president who wishes to implement their policies and agenda. Two parties, the Democrats and Republicans hold power within congress, however, each party is divided into various factions with their own unique priorities."
 
@@ -27,6 +25,9 @@
 
  TPMP_USA_congress_isolationist_republican_text: "§iIsolationist Republican Support§!"
  TPMP_USA_congress_isolationist_republican_support_text: "[?isolationist_republican_support_var|i0] / §Y100§!"
+
+ TPMP_USA_the_new_deal_coalition_tt: "£political_power_texticon Political Power: §G+3§! for every §nNew-Deal Democrat§! §YSupport§!."
+ TPMP_USA_the_solid_south_tt: "£political_power_texticon Political Power: §G+3§! for every §cConservative Democrat§! §YSupport§!."
 
  TPMP_USA_foreign_aid_category: "The Lend-Lease Program"
  TPMP_USA_foreign_aid_category_desc: "We give people stuff to fight the axis."
@@ -55,12 +56,30 @@
  TPMP_USA_auxiliary_lend_lease_flag: " Has approved §YAuxiliary Lend-Lease§!."
  TPMP_USA_modern_lend_lease_flag: " Has approved §YModern Lend-Lease§!."
 
+ TPMP_USA_elections_category: "Presidential Election"
+
+ TPMP_USA_west_campaigning_decision: "Campaign in the West"
+ TPMP_USA_west_campaigning_decision_desc: "Rally voters across the Western states. Western progressives can be won over to the §lLeft-Wing Democrats§! with the right message.\n\nEach campaign takes §Y30§! days and the §YPolitical Power§! cost §Rdoubles§! with every campaign run in this region."
+ TPMP_USA_midwest_campaigning_decision: "Campaign in the Midwest"
+ TPMP_USA_midwest_campaigning_decision_desc: "Take the campaign trail through the heartland. Midwestern isolationists can be drawn toward the §nNew-Deal Democrats§! with the right message.\n\nEach campaign takes §Y30§! days and the §YPolitical Power§! cost §Rdoubles§! with every campaign run in this region."
+ TPMP_USA_south_campaigning_decision: "Campaign in the South"
+ TPMP_USA_south_campaigning_decision_desc: "Court the Southern electorate. Southern isolationists can be brought into the §cConservative Democrat§! fold with the right message.\n\nEach campaign takes §Y30§! days and the §YPolitical Power§! cost §Rdoubles§! with every campaign run in this region."
+ TPMP_USA_northeast_campaigning_decision: "Campaign in the Northeast"
+ TPMP_USA_northeast_campaigning_decision_desc: "Win over the industrial Northeast. Business Republicans can be persuaded to back the §nNew-Deal Democrats§! with the right message.\n\nEach campaign takes §Y30§! days and the §YPolitical Power§! cost §Rdoubles§! with every campaign run in this region."
+
  left_wing_democrat_support_tt: "§lLeft-Wing Democrat Support§!: $RIGHT|+=0$"
  new_deal_democrat_support_tt: "§nNew-Deal Democrat Support§!: $RIGHT|+=0$"
  conservative_democrat_support_tt: "§cConservative Democrat Support§!: $RIGHT|+=0$"
  progressive_republican_support_tt: "§pProgressive Republican Support§!: $RIGHT|+=0$"
  business_republican_support_tt: "§rBusiness Republican Support§!: $RIGHT|+=0$"
  isolationist_republican_support_tt: "§iIsolationist Republican Support§!: $RIGHT|+=0$"
+
+ lwd_lose_support_tiny_tt: "§lLeft-Wing Democrats§!:\nLoses §R-1§! Support."
+ ndd_lose_support_tiny_tt: "§nNew-Deal Democrats§!:\nLoses §R-1§! Support."
+ cd_lose_support_tiny_tt: "§cConservative Democrats§!:\nLoses §R-1§! Support."
+ pr_lose_support_tiny_tt: "§pProgressive Republicans§!:\nLoses §R-1§! Support."
+ br_lose_support_tiny_tt: "§rBusiness Republicans§!:\nLoses §R-1§! Support."
+ ir_lose_support_tiny_tt: "§iIsolationist Republicans§!:\nLoses §R-1§! Support."
 
  lwd_lose_support_tt: "§lLeft-Wing Democrats§!:\nLoses Up to §R-5§! Support."
  ndd_lose_support_tt: "§nNew-Deal Democrats§!:\nLoses Up to §R-5§! Support."
@@ -82,6 +101,13 @@
  pr_lose_support_large_tt: "§pProgressive Republicans§!:\nLoses Up to §R-10§! Support."
  br_lose_support_large_tt: "§rBusiness Republicans§!:\nLoses Up to §R-10§! Support."
  ir_lose_support_large_tt: "§iIsolationist Republicans§!:\nLoses Up to §R-10§! Support."
+
+ lwd_gain_support_tiny_tt: "§lLeft-Wing Democrats§!:\nGains §G+1§! Support."
+ ndd_gain_support_tiny_tt: "§nNew-Deal Democrats§!:\nGains §G+1§! Support."
+ cd_gain_support_tiny_tt: "§cConservative Democrats§!:\nGains §G+1§! Support."
+ pr_gain_support_tiny_tt: "§pProgressive Republicans§!:\nGains §G+1§! Support."
+ br_gain_support_tiny_tt: "§rBusiness Republicans§!:\nGains §G+1§! Support."
+ ir_gain_support_tiny_tt: "§iIsolationist Republicans§!:\nGains §G+1§! Support."
 
  lwd_gain_support_tt: "§lLeft-Wing Democrats§!:\nGains Up to §G+5§! Support."
  ndd_gain_support_tt: "§nNew-Deal Democrats§!:\nGains Up to §G+5§! Support."
@@ -117,6 +143,7 @@
  has_support_ndd_cd_pr_br_ir_tt: "Requires over §Y50 Support§! of §nNew-Deal Democrats§!, §cConservative Democrats§!, §pProgressive Republicans§!, §rBusiness Republicans§!, and §iIsolationist Republicans§!."
 
  USA_decrease_great_depression_tt: "Modify §Y$TPMP_USA_great_depression_modifier$§! by:"
+ USA_decrease_great_depression_fail_tt: "Modifies §Y$TPMP_USA_great_depression_modifier$§! if it exists."
  USA_increase_deficit_tt: "Modify §Y$TPMP_USA_deficit_modifier$§! by:"
  USA_increase_megaprojects_tt: "Modify §Y$TPMP_USA_megaprojects_modifier$§! by:"
 
@@ -138,7 +165,7 @@
 
  TPMP_USA_congress_tt: "\n"
 
- TPMP_USA_neutrality_act_tt: "\nThis idea will automatically renew itself for §Y180§! days when it times out granting:\n$ndd_lose_support_small_tt$\n$ir_gain_support_small_tt$\n\n"
+ TPMP_USA_neutrality_act_tt: "\nThis idea will automatically renew itself for §Y60§! days when it times out granting:\n$ndd_lose_support_tiny_tt$\n$ir_gain_support_tiny_tt$\n\n"
 
  TPMP_USA_destroyers_for_bases_tt: "Spawns 43 §YEarly Destroyers§! for §YUnited Kingdom§! and 7 §YEarly Destroyers§! for §YCanada§!."
 

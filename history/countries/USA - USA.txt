@@ -36,6 +36,17 @@ set_variable = { business_republican_support_var = 16 }
 set_variable = { isolationist_republican_support_var = 11 }
 recalculate_congressional_ui = yes
 
+# Congressional vs Presidential Balance of Power (placeholder - see common/bop/TPMP_USA.txt)
+if = {
+	limit = { has_any_power_balance = no }
+	set_power_balance = {
+		id = TPMP_USA_power_balance
+		left_side = TPMP_USA_congress_side
+		right_side = TPMP_USA_president_side
+		set_value = 0.0
+	}
+}
+
 set_variable = { TPMP_USA_great_depression_cg_var = 1.0 }
 set_variable = { TPMP_USA_great_depression_stab_var = -0.5 }
 set_variable = { TPMP_USA_great_depression_eff_cap_var = -0.2 }
@@ -74,7 +85,7 @@ add_dynamic_modifier = {
 add_ideas = TPMP_USA_congress_idea
 add_timed_idea = {
 	idea = TPMP_USA_neutrality_act_idea_0
-	days = 180
+	days = 60
 }
 
 recruit_character = TPMP_USA_reserve_fleet
