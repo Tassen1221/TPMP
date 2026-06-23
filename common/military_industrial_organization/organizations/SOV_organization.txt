@@ -1176,7 +1176,13 @@ SOV_yakovlev_design_bureau_organization = {
 	icon = GFX_idea_yakovlev_design_bureau
 	
 	allowed = {	
-		original_tag = SOV
+		OR = {
+			original_tag = SOV
+			AND = {
+			    tag = AST
+			    has_dlc = "Thunder at Our Gates"
+			}
+		}
 	}
 
 	available = {
@@ -1185,6 +1191,10 @@ SOV_yakovlev_design_bureau_organization = {
 				FROM = { original_tag = SOV }
 			}
 			FROM = { NOT = { has_country_flag = SOV_yakovlev_design_bureau_dissolved_flag } }
+		}
+		if = {
+		    limit = { FROM = { original_tag = AST } }
+		    FROM = { has_completed_focus = AST_westward_battles }
 		}
 	}
 
