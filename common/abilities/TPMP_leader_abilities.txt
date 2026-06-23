@@ -24,20 +24,12 @@ ability = {
 		unit_modifiers = {
 			special_forces_attack_factor = 0.1
 			special_forces_defence_factor = 0.1
-		}
-		
-		one_time_effect = {
-			add_temporary_buff_to_units = {
-				combat_offense = 0.2
-				combat_breakthrough = 0.25
-				org_damage_multiplier = -0.2
-				str_damage_multiplier = 0.4
-				war_support_reduction_on_damage = 0.2
-				cannot_retreat_while_attacking = 1.0
-				
-				days = 7
-				tooltip = ABILITY_LEAD_THE_WAY_TOOLTIP
-			}
+			offence = 0.2
+			breakthrough_factor = 0.25
+			org_damage_multiplier = -0.2
+			str_damage_multiplier = 0.4
+			war_support_reduction_on_damage = 0.2
+			cannot_retreat_while_attacking = 1.0
 		}
 	}
 	tanks_forward = {
@@ -65,15 +57,7 @@ ability = {
 		unit_modifiers = {
 			army_armor_attack_factor = 0.05
 			army_armor_speed_factor = 0.15
-		}
-		
-		one_time_effect = {
-			add_temporary_buff_to_units = {
-				cannot_retreat_while_attacking = 1.0
-				
-				days = 7
-				tooltip = ABILITY_TANKS_FORWARD_TOOLTIP
-			}
+			cannot_retreat_while_attacking = 1.0
 		}
 	}
 	rain_of_fire = {
@@ -100,15 +84,8 @@ ability = {
 
 		unit_modifiers = {
 			modifier_army_sub_unit_category_rocket_artillery_attack_factor = 0.25
-		}
-		
-		one_time_effect = {
-			add_temporary_buff_to_units = {
-				org_damage_multiplier = 1.0
-				
-				days = 3
-				tooltip = ABILITY_RAIN_OF_FIRE_TOOLTIP
-			}
+			org_damage_multiplier = 0.25
+			str_damage_multiplier = -0.5
 		}
 	}
 }
