@@ -1,8 +1,8 @@
 on_actions = {
 	on_startup = {
 
+		# Add Canals
 		effect = {
-			# Add Canals
 			IF = {
 				limit = {
 					has_dlc = "Gotterdammerung" 
@@ -21,6 +21,33 @@ on_actions = {
 						level = 1
 						instant_build = yes
 						province =  7617
+					}
+				}
+			}
+		}
+
+		# Add Dams
+		effect = {
+			IF = {
+				limit = {
+					has_dlc = "Thunder at Our Gates"
+				}
+				285 = {
+					add_building_construction = {
+						type = cataract_dam_mountain
+						level = 1
+						instant_build = yes
+						province =  4864
+					}
+				}
+				ELSE = {
+					285 = {
+						add_building_construction = {
+							type = dam
+							level = 1
+							instant_build = yes
+							province =  4864
+						}
 					}
 				}
 			}
@@ -219,6 +246,12 @@ on_actions = {
 		random_events = {
 			100 = ace_promoted.1
 			5 = ace_promoted.2
+		}
+		effect = {
+			if = {
+				limit = { original_tag = SIA }
+				add_to_variable = { SIA_ace_count = 1 }
+			}
 		}
 	}
 
@@ -1070,6 +1103,16 @@ on_actions = {
 				add_state_core = 976
 			}
 		}
+
+		effect = {
+			if = {
+				limit = {
+					tag = GRE
+					date < 1945.01.01
+				}
+				set_global_flag = achievement_anzac_failed
+			}
+		}
 	}
 
 	# ROOT is previously capitulated country
@@ -1186,6 +1229,19 @@ on_actions = {
 				}
 
 				635 = { set_state_flag = prevent_auto_flip_after_capitulation }
+			}
+
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = FRA
+						is_in_faction = yes
+					}
+
+					1071 = { is_fully_controlled_by = ROOT }
+				}
+
+				1071 = { set_state_flag = prevent_auto_flip_after_capitulation }
 			}
 		}
 	}
@@ -2535,6 +2591,20 @@ on_actions = {
 							}
 							set_country_flag = CZE_AI_RANDOM_FASCIST
 							set_add_fascist_weight_small = yes
+						}
+						20 = {
+							modifier = {
+								factor = 0.25
+								game_weight_can_add_unaligned = no
+							}
+							modifier = {
+								factor = 0
+								NOT = {
+									has_dlc = "Peace For Our Time"
+								}
+							}
+							set_country_flag = CZE_AI_RANDOM_MONARCHIST
+							set_add_democratic_weight_small = yes
 						}
 					}
 				}
@@ -4632,7 +4702,137 @@ on_actions = {
 						}
 					}
 				}
-			}	
+			}
+
+			AST = {
+				IF = {
+					limit = {
+						OR = {
+							AND = {
+								is_historical_focus_on = no
+								has_game_rule = {
+									rule = AST_AI_BEHAVIOR
+									option = DEFAULT
+								}
+							}
+							has_game_rule = {
+								rule = AST_AI_BEHAVIOR
+								option = RANDOM
+							}
+						}
+					}
+					random_list = {
+						30 = {
+							AST = { set_country_flag = AST_AI_RANDOM_TAOG_HISTORICAL }
+						}
+						15 = {
+							AST = { set_country_flag = AST_ADELA_FASCIST_TAOG_AI }
+						}
+						15 = {
+							AST = { set_country_flag = AST_PETER_FASCIST_TAOG_AI }
+						}
+						20 = {
+							AST = { set_country_flag = AST_RANDOM_DEMOCRATIC_TAOG_AI }
+						}
+						15 = {
+							AST = { set_country_flag = AST_ANTI_COMMONWEALTH_COMMUNIST_TAOG_AI }
+						}
+						15 = {
+							AST = { set_country_flag = AST_COMINTERN_COMMUNIST_TAOG_AI }
+						}
+					}
+				}
+			}
+
+			INS = {
+				IF = {
+					limit = {
+						OR = {
+							AND = {
+								is_historical_focus_on = no
+								has_game_rule = {
+									rule = INS_ai_behavior
+									option = DEFAULT
+								}
+							}
+							has_game_rule = {
+								rule = INS_ai_behavior
+								option = RANDOM
+							}
+						}
+					}
+					random_list = {
+						35 = {
+							INS = { set_country_flag = INS_AI_RANDOM_TRUE_HISTORICAL }
+						}
+						35 = {
+							INS = { set_country_flag = INS_AI_RANDOM_LOYALIST }
+						}
+						10 = {
+							INS = { set_country_flag = INS_AI_RANDOM_REVOLUTION_DEMOCRATIC }
+						}
+						10 = {
+							INS = { set_country_flag = INS_AI_RANDOM_REVOLUTION_UNALIGNED }
+						}
+						10 = {
+							INS = { set_country_flag = INS_AI_RANDOM_REVOLUTION_COMMUNIST }
+						}
+					}
+				}
+			}
+
+			SIA = {
+				if = {
+					limit = {
+						OR = {
+							AND = {
+								is_historical_focus_on = no
+								has_game_rule = {
+									rule = SIA_ai_behavior
+									option = DEFAULT
+								}
+							}
+							has_game_rule = {
+								rule = SIA_ai_behavior
+								option = RANDOM
+							}
+						}
+					}
+
+					###
+					random_list = {
+						20 = {
+							modifier = {
+								factor = 0.25
+								game_weight_can_add_democratic = no
+							}
+							set_add_democratic_weight_small = yes
+							SIA = { set_country_flag = SIA_AI_RANDOM_DEMOCRATIC }
+						}
+						50 = {
+							modifier = {
+								factor = 0.25
+								game_weight_can_add_fascist = no
+							}
+							set_add_fascist_weight_small = yes
+							SIA = { set_country_flag = SIA_AI_RANDOM_HISTORICAL }
+							
+						}
+						30 = {
+									
+							modifier = {
+								factor = 0.25
+								game_weight_can_add_unaligned = no
+							}
+							set_add_unaligned_weight_small = yes
+							set_country_flag = SWE_AI_RANDOM_UNALIGNED
+						
+							SIA = { set_country_flag = SIA_AI_RANDOM_MONARCHIST }
+						}
+					}
+				}
+			}
+
 		}
 	}
 
@@ -4828,6 +5028,27 @@ on_actions = {
 	#ROOT is new controller #FROM is old controller #FROM.FROM is state ID
 	on_state_control_changed = {
 		effect = {
+			if = {
+				limit = {
+					OR = {
+						tag = ENG
+						is_in_faction_with = ENG
+					}
+					controls_state = 35
+					FROM.FROM = { state = 36 }
+					ENG = {
+						is_ai = no
+						any_unit_leader = {
+							is_character = ENG_bernard_montgomery
+							is_leading_army_in_province = {
+								province = 9363
+								include_field_marshal = yes
+							}
+						}
+					}
+				}
+				ENG = { set_country_flag = achievement_a_bridge_too_far }
+			}
 			if = {
 				limit = {
 					tag = FRA #to avoid third party taking over
@@ -5284,6 +5505,62 @@ on_actions = {
 		}
 	}
 
+	on_deployed_leader_defeated = {
+		effect = {
+			if = {
+				limit = { can_be_captured = yes }
+				# TODO TAOG: a percentage chance to be captured? Other effects otherwise?
+
+				# is_in_state requires the leader to still be deployed, so check before capture_by
+				if = {
+					limit = {
+						is_in_state = 224
+						FROM = { is_ai = no }
+					}
+					FROM = {
+						set_country_flag = achievement_captured_general_in_bryansk
+					}
+				}
+
+				capture_by = FROM
+				FROM = {
+					if = {
+						limit = { is_ai = no }
+						set_country_flag = achievement_captured_a_general
+					}
+				}
+				if = {
+					limit = {
+						is_field_marshal = yes
+						FROM = { is_ai = no }
+					}
+					FROM = {
+						set_country_flag = achievement_captured_a_field_marshal
+					}
+				}
+				if = {
+					limit = {
+						tag = GER
+						FROM = { is_ai = no }
+					}
+					if = {
+						limit = { is_character = GER_erwin_rommel }
+						FROM = { set_country_flag = achievement_captured_rommel }
+					}
+				}
+			}
+			else = {
+				# uncapturable leaders (e.g. country leaders) get wounded instead
+				if = {
+					limit = { NOT = { has_trait = wounded } }
+					add_timed_unit_leader_trait = {
+						trait = wounded
+						days = 90
+					}
+				}
+			}
+		}
+	}
 	# root country that paradrops
 	# scope state that is paradroped into
 	# from scope state that the paradrop started
@@ -5308,10 +5585,12 @@ on_actions = {
 
 	on_unit_leader_promote_from_ranks_veteran = { #Unit leader scope, FROM is unit
 		effect = {
-			FROM = {
-				add_random_valid_trait_from_unit = {
-					character = ROOT
+			if = {
+				limit = {
+					is_navy_leader = yes
+					OWNER = { is_ai = no }
 				}
+				OWNER = { set_country_flag = achievement_navy_promoted_from_ranks }
 			}
 			set_unit_leader_flag = field_promotion_achievement
 		}
@@ -5319,7 +5598,13 @@ on_actions = {
 
 	on_unit_leader_promote_from_ranks_green = { #Unit leader scope, FROM is unit
 		effect = {
-			set_unit_leader_flag = field_promotion_achievement
+			if = {
+				limit = {
+					is_navy_leader = yes
+					OWNER = { is_ai = no }
+				}
+				OWNER = { set_country_flag = achievement_navy_promoted_from_ranks }
+			}
 		}
 	}
 
@@ -5328,6 +5613,20 @@ on_actions = {
 			#add_unit_medal_to_latest_entry = {
 			#	unit_medals = iron_cross_second_class
 			#} #This would add a unit medal to the history entry you just received
+		}
+	}
+
+	# Achievement: "Steiner!" - track if GER reaches 30% surrender progress after Barbarossa
+	on_daily_GER = {
+		effect = {
+			if = {
+				limit = {
+					date > 1941.06.22
+					surrender_progress > 0.30
+					NOT = { has_country_flag = achievement_steiner_reached_surrender }
+				}
+				set_country_flag = achievement_steiner_reached_surrender
+			}
 		}
 	}
 
@@ -5410,6 +5709,13 @@ on_actions = {
 					635 = { has_state_flag = prevent_auto_flip_after_capitulation }
 				}
 				635 = { clr_state_flag = prevent_auto_flip_after_capitulation }
+			}
+
+			if = {
+				limit = {
+					1071 = { has_state_flag = prevent_auto_flip_after_capitulation }
+				}
+				1071 = { clr_state_flag = prevent_auto_flip_after_capitulation }
 			}
 		}
 	}
