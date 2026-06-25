@@ -54,9 +54,6 @@ armor_generic = {
 				artillery = 1
 			}
 
-			regimental_support = {
-				anti_tank_battery = 1
-			}
 
 			regiments = {
 				light_armor = 3
@@ -168,10 +165,6 @@ armor_generic = {
 				logistics_company = 1
 			}
 			
-			regimental_support = {
-				anti_air_battery = 1
-				anti_tank_battery = 1 
-			}
 
 			regiments = {
 				medium_armor = 2
@@ -214,10 +207,6 @@ armor_generic = {
 				logistics_company = 1
 			}
 			
-			regimental_support = {
-				anti_air_battery = 1
-				anti_tank_battery = 1
-			}
 
 			regiments = {
 				medium_armor = 3
@@ -254,15 +243,9 @@ armor_generic = {
 				signal_company = 1
 			}
 			
-			regimental_support = {
-				anti_air_battery = 1
-				anti_tank_battery = 1
-			}
 
 			regiments = {
-				modern_armor = 3
 				mechanized = 7
-				modern_sp_artillery_brigade = 1
 			}
 		}
 	}
@@ -419,10 +402,6 @@ infantry_generic = {
 				artillery = 1
 			}
 
-			regimental_support = {
-				anti_tank_battery = 1
-				fire_support = 1
-			}
 			
 			regiments = {
 				infantry = 9
@@ -455,11 +434,6 @@ infantry_generic = {
 				logistics_company = 1
 			}
 
-			regimental_support = {
-				anti_air_battery = 1
-				anti_tank_battery = 1
-				fire_support = 1
-			}
 			
 			regiments = {
 				infantry = 9
@@ -512,10 +486,6 @@ mountaineers_generic = {
 				logistics_company = 1
 			}
 			
-			regimental_support = {
-				anti_air_battery = 1
-				anti_tank_battery = 1
-			}
 
 			regiments = {
 				mountaineers = 9
@@ -566,10 +536,6 @@ marines_generic = {
 				artillery = 1
 			}
 			
-			regimental_support = {
-				anti_air_battery = 1
-				anti_tank_battery = 1
-			}
 
 			regiments = {
 				marine = 9
@@ -613,13 +579,8 @@ marines_generic = {
 				logistics_company = 1
 			}
 			
-			regimental_support = {
-				anti_air_battery = 1
-				anti_tank_battery = 1
-			}
 
 			regiments = {
-				amphibious_armor = 3
 				amphibious_mechanized = 6
 			}
 		}
@@ -668,58 +629,9 @@ paratrooper_generic = {
 				recon = 1
 			}
 
-			regimental_support = {
-				field_guns = 2
-			}
 			
 			regiments = {
 				paratrooper = 9
-			}
-		}
-	}
-}
-
-rangers_generic = {
-
-	role = rangers_role
-	
-	upgrade_prio = {
-		base = 2
-
-		modifier = {
-			factor = 0
-			NOT = {
-				has_tech = rangers1_tech
-			}
-		}
-	}
-
-	rangers_default = {
-	
-		upgrade_prio = {
-			base = 1
-
-			modifier = {
-				factor = 1
-			}
-		}
-
-		target_template = {
-			
-			support = {
-				engineer = 1
-				rangers_support = 1
-				logistics_company = 1
-				artillery = 1
-			}
-
-			regimental_support = {
-				anti_air_battery = 1
-				anti_tank_battery = 1
-			}
-			
-			regiments = {
-				ranger_battalion = 9
 			}
 		}
 	}
@@ -810,30 +722,6 @@ super_heavy_generic = {
 			regiments = {
 				medium_armor = 2
 				motorized = 6
-			}
-		}
-	}
-}
-
-hq_generic = {
-	role = hq_role
-	
-	upgrade_prio = {
-		base = 0
-	}
-
-	hq_default = {
-		upgrade_prio = {
-			base = 0
-		}
-
-		target_template = {
-			support = {
-				hq_support_company = 1
-			}
-			
-			regiments = {
-				infantry = 4
 			}
 		}
 	}

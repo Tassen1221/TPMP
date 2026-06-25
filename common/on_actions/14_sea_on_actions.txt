@@ -91,13 +91,9 @@ on_actions = {
 
 		#JAPAN - Add Chinese States to an array for Strategic Offensives Decision purposes
 		effect = {
-			
 			every_state = {
 				limit = {
-					owner = {
-						is_literally_china = yes
-						controls_state = PREV
-					}
+					is_owned_by = CHI
 				}
 				add_to_array = { 
 					array = JAP.JAP_strategic_offensives_targets_array 

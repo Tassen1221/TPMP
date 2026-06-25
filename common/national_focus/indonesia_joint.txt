@@ -483,7 +483,7 @@ joint_focus = {
 					level = 1
 				}
 				add_equipment_to_stockpile = { 
-					type = infantry_equipment_1
+					type = line_infantry_equipment_1
 					amount = 1000
 				}
 			}
@@ -537,7 +537,7 @@ joint_focus = {
 			}
 			else = {
 				add_equipment_to_stockpile = { 
-					type = infantry_equipment_1
+					type = line_infantry_equipment_1
 					amount = 1000
 				}
 			}
@@ -975,12 +975,6 @@ joint_focus = {
 				track = infantry
 				name = INSHOL_modernize_knil
 			}
-			add_mastery_bonus = {
-				bonus = 0.1
-				days = 240
-				track = combat_support
-				name = INSHOL_modernize_knil
-			}
 			custom_effect_tooltip = INS_netherlands_can_remove_autonomy_tt_150
 		}
 		else_if = {
@@ -1009,12 +1003,6 @@ joint_focus = {
 				bonus = 0.1
 				days = 240
 				track = infantry
-				name = INSHOL_modernize_knil
-			}
-			add_mastery_bonus = {
-				bonus = 0.1
-				days = 240
-				track = combat_support
 				name = INSHOL_modernize_knil
 			}
 		}
@@ -1063,10 +1051,8 @@ joint_focus = {
 				}
 				if = {
 					limit = {
-						NOT = { has_tech = rangers_tech }
 					}
 					set_technology = {
-						rangers_tech = 1
 						popup = yes
 					}
 					add_tech_bonus = {
@@ -1096,18 +1082,6 @@ joint_focus = {
 					}
 					custom_effect_tooltip = ranger_subdoctrines_default_add_mastery_bonus_effect_tooltip
 					hidden_effect = {
-						add_mastery_bonus = {
-							name = INSHOL_rangers
-							bonus = 0.1
-							days = 240
-							sub_doctrine = rangers_1
-						}
-						add_mastery_bonus = {
-							name = INSHOL_rangers
-							bonus = 0.1
-							days = 240
-							sub_doctrine = rangers_2
-						}
 					}					
 				}
 				else = {
@@ -1162,10 +1136,8 @@ joint_focus = {
 				}
 				if = {
 					limit = {
-						NOT = { has_tech = rangers_tech }
 					}
 					set_technology = {
-						rangers_tech = 1
 						popup = yes
 					}
 					add_tech_bonus = {
@@ -1195,18 +1167,6 @@ joint_focus = {
 					}
 					custom_effect_tooltip = ranger_subdoctrines_default_add_mastery_bonus_effect_tooltip
 					hidden_effect = {
-						add_mastery_bonus = {
-							name = INSHOL_rangers
-							bonus = 0.1
-							days = 240
-							sub_doctrine = rangers_1
-						}
-						add_mastery_bonus = {
-							name = INSHOL_rangers
-							bonus = 0.1
-							days = 240
-							sub_doctrine = rangers_2
-						}
 					}					
 				}
 				else = {
@@ -1309,18 +1269,6 @@ joint_focus = {
 					}
 					custom_effect_tooltip = mountaineer_subdoctrines_default_add_mastery_bonus_effect_tooltip
 					hidden_effect = {
-						add_mastery_bonus = {
-							name = INSHOL_mountaineers
-							bonus = 0.1
-							days = 240
-							sub_doctrine = mountaineers_1
-						}
-						add_mastery_bonus = {
-							name = INSHOL_mountaineers
-							bonus = 0.1
-							days = 240
-							sub_doctrine = mountaineers_2
-						}
 					}					
 				}
 				else = {
@@ -1351,18 +1299,6 @@ joint_focus = {
 					}
 					custom_effect_tooltip = mountaineer_subdoctrines_default_add_mastery_bonus_effect_tooltip
 					hidden_effect = {
-						add_mastery_bonus = {
-							name = INSHOL_mountaineers
-							bonus = 0.1
-							days = 240
-							sub_doctrine = mountaineers_1
-						}
-						add_mastery_bonus = {
-							name = INSHOL_mountaineers
-							bonus = 0.1
-							days = 240
-							sub_doctrine = mountaineers_2
-						}
 					}					
 				}
 				else = {
@@ -1412,18 +1348,6 @@ joint_focus = {
 					}
 					custom_effect_tooltip = mountaineer_subdoctrines_default_add_mastery_bonus_effect_tooltip
 					hidden_effect = {
-						add_mastery_bonus = {
-							name = INSHOL_mountaineers
-							bonus = 0.1
-							days = 240
-							sub_doctrine = mountaineers_1
-						}
-						add_mastery_bonus = {
-							name = INSHOL_mountaineers
-							bonus = 0.1
-							days = 240
-							sub_doctrine = mountaineers_2
-						}
 					}					
 				}
 				else = {
@@ -1454,18 +1378,6 @@ joint_focus = {
 					}
 					custom_effect_tooltip = mountaineer_subdoctrines_default_add_mastery_bonus_effect_tooltip
 					hidden_effect = {
-						add_mastery_bonus = {
-							name = INSHOL_mountaineers
-							bonus = 0.1
-							days = 240
-							sub_doctrine = mountaineers_1
-						}
-						add_mastery_bonus = {
-							name = INSHOL_mountaineers
-							bonus = 0.1
-							days = 240
-							sub_doctrine = mountaineers_2
-						}
 					}					
 				}
 				else = {
@@ -1742,15 +1654,6 @@ joint_focus = {
 				limit = {
 					has_dlc = "Arms Against Tyranny"
 				}
-				mio:INS_artillerie_inrichtingen_organization = {
-					add_mio_size = 1
-				}
-				mio:INS_artillerie_inrichtingen_pyrotechnische_organization = {
-					add_mio_size = 1
-				}
-				mio:INS_bio_pharma_organization = {
-					add_mio_size = 1
-				}
 			}
 			else = {
 				try_build_mil_in_core_otherwise_build_in_controlled = yes
@@ -1770,15 +1673,6 @@ joint_focus = {
 			if = {
 				limit = {
 					has_dlc = "Arms Against Tyranny"
-				}
-				mio:INS_artillerie_inrichtingen_organization = {
-					add_mio_size = 1
-				}
-				mio:INS_artillerie_inrichtingen_pyrotechnische_organization = {
-					add_mio_size = 1
-				}
-				mio:INS_bio_pharma_organization = {
-					add_mio_size = 1
 				}
 			}
 			else = {
@@ -2617,10 +2511,6 @@ joint_focus = {
 				limit = {
 					has_dlc = "Arms Against Tyranny"
 				}
-				mio:INS_artillerie_inrichtingen_organization = {
-					add_mio_size = 2
-					add_mio_funds = 1000
-				}
 			}
 		}
 		else_if = {
@@ -2665,10 +2555,6 @@ joint_focus = {
 			if = {
 				limit = {
 					has_dlc = "Arms Against Tyranny"
-				}
-				mio:INS_artillerie_inrichtingen_organization = {
-					add_mio_size = 2
-					add_mio_funds = 1000
 				}
 			}
 		}
@@ -2823,10 +2709,6 @@ joint_focus = {
 				limit = {
 					has_dlc = "Arms Against Tyranny"
 				}
-				mio:INS_artillerie_inrichtingen_pyrotechnische_organization = {
-					add_mio_size = 2
-					add_mio_funds = 1000
-				}
 				random_owned_controlled_state = {
 					limit = {
 						impassable = no
@@ -2894,10 +2776,6 @@ joint_focus = {
 			if = {
 				limit = {
 					has_dlc = "Arms Against Tyranny"
-				}
-				mio:INS_artillerie_inrichtingen_pyrotechnische_organization = {
-					add_mio_size = 2
-					add_mio_funds = 1000
 				}
 			}
 		}
@@ -3039,10 +2917,6 @@ joint_focus = {
 				limit = {
 					has_dlc = "Arms Against Tyranny"
 				}
-				mio:INS_bio_pharma_organization = {
-					add_mio_size = 2
-					add_mio_funds = 1000
-				}
 			}
 		}
 		else_if = {
@@ -3093,10 +2967,6 @@ joint_focus = {
 			if = {
 				limit = {
 					has_dlc = "Arms Against Tyranny"
-				}
-				mio:INS_bio_pharma_organization = {
-					add_mio_size = 2
-					add_mio_funds = 1000
 				}
 			}
 		}
@@ -4849,10 +4719,10 @@ joint_focus = {
 				name = "Indigenous Auxiliary Corps"
 				is_locked = yes
 				regiments = {
-					irregular_infantry = { x = 0 y = 0 }
-					irregular_infantry = { x = 0 y = 1 }
-					irregular_infantry = { x = 1 y = 0 }
-					irregular_infantry = { x = 1 y = 1 }
+					militia = { x = 0 y = 0 }
+					militia = { x = 0 y = 1 }
+					militia = { x = 1 y = 0 }
+					militia = { x = 1 y = 1 }
 				}
 			}
 
@@ -4920,10 +4790,10 @@ joint_focus = {
 				name = "Indigenous Auxiliary Corps"
 				is_locked = yes
 				regiments = {
-					irregular_infantry = { x = 0 y = 0 }
-					irregular_infantry = { x = 0 y = 1 }
-					irregular_infantry = { x = 1 y = 0 }
-					irregular_infantry = { x = 1 y = 1 }
+					militia = { x = 0 y = 0 }
+					militia = { x = 0 y = 1 }
+					militia = { x = 1 y = 0 }
+					militia = { x = 1 y = 1 }
 				}
 			}
 
@@ -6423,10 +6293,6 @@ joint_focus = {
 				limit = {
 					has_dlc = "Arms Against Tyranny"
 				}
-				mio:INS_fokker_organization = {
-					add_mio_size = 2
-					add_mio_research_bonus = 0.1
-				}
 			}
 			else = {
 				custom_effect_tooltip = unlock_mio_tt
@@ -6439,9 +6305,6 @@ joint_focus = {
 			if = {
 				limit = {
 					has_dlc = "Arms Against Tyranny"
-				}
-				mio:HOL_fokker_organization = {
-					add_mio_size = 1
 				}
 			}
 		}
@@ -6464,10 +6327,6 @@ joint_focus = {
 				limit = {
 					has_dlc = "Arms Against Tyranny"
 				}
-				mio:INS_fokker_organization = {
-					add_mio_size = 2
-					add_mio_research_bonus = 0.1
-				}
 			}
 			else = {
 				custom_effect_tooltip = unlock_mio_tt
@@ -6479,9 +6338,6 @@ joint_focus = {
 			if = {
 				limit = {
 					has_dlc = "Arms Against Tyranny"
-				}
-				mio:HOL_fokker_organization = {
-					add_mio_size = 1
 				}
 			}
 		}
@@ -11227,18 +11083,18 @@ joint_focus = {
 					}
 					if = {
 						limit = {
-							has_tech = improved_infantry_weapons
-							USA = { has_tech = improved_infantry_weapons }
+							has_tech = infantrymg2_tech
+							USA = { has_tech = infantrymg2_tech }
 						}
 						add_equipment_to_stockpile = { 
-							type = infantry_equipment_2
+							type = line_infantry_equipment_1
 							amount = var:INS_guns_from_seek_help_focus
 							producer = USA
 						}
 					}
 					else = {
 						add_equipment_to_stockpile = { 
-							type = infantry_equipment_1
+							type = line_infantry_equipment_1
 							amount = var:INS_guns_from_seek_help_focus
 							producer = USA
 						}
@@ -11268,18 +11124,18 @@ joint_focus = {
 					}
 					if = {
 						limit = {
-							has_tech = improved_infantry_weapons
-							JAP = { has_tech = improved_infantry_weapons }
+							has_tech = infantrymg2_tech
+							JAP = { has_tech = infantrymg2_tech }
 						}
 						add_equipment_to_stockpile = { 
-							type = infantry_equipment_2
+							type = line_infantry_equipment_1
 							amount = var:INS_guns_from_seek_help_focus
 							producer = JAP
 						}
 					}
 					else = {
 						add_equipment_to_stockpile = { 
-							type = infantry_equipment_1
+							type = line_infantry_equipment_1
 							amount = var:INS_guns_from_seek_help_focus
 							producer = JAP
 						}
@@ -11312,18 +11168,18 @@ joint_focus = {
 					}
 					if = {
 						limit = {
-							has_tech = improved_infantry_weapons
-							AST = { has_tech = improved_infantry_weapons }
+							has_tech = infantrymg2_tech
+							AST = { has_tech = infantrymg2_tech }
 						}
 						add_equipment_to_stockpile = { 
-							type = infantry_equipment_2
+							type = line_infantry_equipment_1
 							amount = var:INS_guns_from_seek_help_focus
 							producer = AST
 						}
 					}
 					else = {
 						add_equipment_to_stockpile = { 
-							type = infantry_equipment_1
+							type = line_infantry_equipment_1
 							amount = var:INS_guns_from_seek_help_focus
 							producer = AST
 						}
@@ -11356,18 +11212,18 @@ joint_focus = {
 					}
 					if = {
 						limit = {
-							has_tech = improved_infantry_weapons
-							RAJ = { has_tech = improved_infantry_weapons }
+							has_tech = infantrymg2_tech
+							RAJ = { has_tech = infantrymg2_tech }
 						}
 						add_equipment_to_stockpile = { 
-							type = infantry_equipment_2
+							type = line_infantry_equipment_1
 							amount = var:INS_guns_from_seek_help_focus
 							producer = RAJ
 						}
 					}
 					else = {
 						add_equipment_to_stockpile = { 
-							type = infantry_equipment_1
+							type = line_infantry_equipment_1
 							amount = var:INS_guns_from_seek_help_focus
 							producer = RAJ
 						}
@@ -11397,18 +11253,18 @@ joint_focus = {
 					}
 					if = {
 						limit = {
-							has_tech = improved_infantry_weapons
-							CHI = { has_tech = improved_infantry_weapons }
+							has_tech = infantrymg2_tech
+							CHI = { has_tech = infantrymg2_tech }
 						}
 						add_equipment_to_stockpile = { 
-							type = infantry_equipment_2
+							type = line_infantry_equipment_1
 							amount = var:INS_guns_from_seek_help_focus
 							producer = CHI
 						}
 					}
 					else = {
 						add_equipment_to_stockpile = { 
-							type = infantry_equipment_1
+							type = line_infantry_equipment_1
 							amount = var:INS_guns_from_seek_help_focus
 							producer = CHI
 						}
@@ -11438,18 +11294,18 @@ joint_focus = {
 					}
 					if = {
 						limit = {
-							has_tech = improved_infantry_weapons
-							PHI = { has_tech = improved_infantry_weapons }
+							has_tech = infantrymg2_tech
+							PHI = { has_tech = infantrymg2_tech }
 						}
 						add_equipment_to_stockpile = { 
-							type = infantry_equipment_2
+							type = line_infantry_equipment_1
 							amount = var:INS_guns_from_seek_help_focus
 							producer = PHI
 						}
 					}
 					else = {
 						add_equipment_to_stockpile = { 
-							type = infantry_equipment_1
+							type = line_infantry_equipment_1
 							amount = var:INS_guns_from_seek_help_focus
 							producer = PHI
 						}

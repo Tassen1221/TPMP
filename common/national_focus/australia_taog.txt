@@ -2872,20 +2872,8 @@ focus_tree = {
 					has_dlc = "Arms Against Tyranny"
 				}
 				custom_effect_tooltip = available_mio_tt
-				show_mio_tooltip = AST_american_car_and_foundry_organization
-				mio:AST_american_car_and_foundry_organization = {
-					add_mio_size = 3
-				}
 				custom_effect_tooltip = generic_skip_one_line_tt
-				show_mio_tooltip = AST_curtiss-wright_organization
-				mio:AST_curtiss-wright_organization = {
-					add_mio_size = 3
-				}
 				custom_effect_tooltip = generic_skip_one_line_tt
-				show_mio_tooltip = AST_lockheed_organization
-				mio:AST_lockheed_organization = {
-					add_mio_size = 3
-				}
 			}
 
 			ELSE = {
@@ -6898,13 +6886,13 @@ focus = {
 			custom_effect_tooltip = if_they_accept_tt
 			effect_tooltip = {
 				add_equipment_to_stockpile = { 
-					type = infantry_equipment_0
+					type = line_infantry_equipment_1
 					amount = -2500
 					producer = PHI
 				}
 				PRC = { 
 					add_equipment_to_stockpile = { 
-						type = infantry_equipment_0
+						type = line_infantry_equipment_1
 						amount = 2500
 						producer = AST
 					}
@@ -6949,7 +6937,6 @@ focus = {
 			    limit = { has_dlc = "Arms Against Tyranny" }
 			    custom_effect_tooltip = generic_skip_one_line_tt
 			    custom_effect_tooltip = available_mio_tt
-			    show_mio_tooltip = SOV_kirov_organization
 			    show_mio_tooltip = SOV_yakovlev_design_bureau_organization
 			}
 			else = {
@@ -8996,7 +8983,6 @@ focus = {
 
 			hidden_effect = {
 				set_technology = {
-					northern_territory_recon_support_tech = 1
 					popup = no
 				}
 			}
@@ -9040,18 +9026,6 @@ focus = {
 				}
 				custom_effect_tooltip = marine_subdoctrines_default_add_mastery_bonus_effect_tooltip
 				hidden_effect = {
-					add_mastery_bonus = {
-						name = AST_torres_strait_battalion
-						bonus = 0.1
-						days = 240
-						sub_doctrine = marines_1
-					}
-					add_mastery_bonus = {
-						name = AST_torres_strait_battalion
-						bonus = 0.1
-						days = 240
-						sub_doctrine = marines_2
-					}
 				}	
 			}
 
@@ -9347,11 +9321,6 @@ focus = {
 			IF = {
 				limit = { has_dlc = "Arms Against Tyranny"}
 
-				mio:AST_lithgow_arms_organization = {
-					add_mio_size = 1
-					add_mio_funds_gain_factor = 0.1
-					add_mio_research_bonus = 0.05
-				}
 			}
 
 			ELSE = {
@@ -9406,11 +9375,6 @@ focus = {
 			IF = {
 				limit = { has_dlc = "Arms Against Tyranny"}
 
-				mio:AST_ford_australia_organization = {
-					add_mio_size = 1
-					add_mio_funds_gain_factor = 0.1
-					add_mio_research_bonus = 0.05
-				}
 			}
 
 			ELSE = {
@@ -9423,11 +9387,6 @@ focus = {
 			IF = {
 				limit = { has_dlc = "Arms Against Tyranny"}
 
-				mio:AST_holden_organization = {
-					add_mio_size = 1
-					add_mio_funds_gain_factor = 0.1
-					add_mio_research_bonus = 0.05
-				}
 			}
 
 			ELSE = {
@@ -9526,7 +9485,6 @@ focus = {
 
 			hidden_effect = {
 			    set_technology = {
-			        AST_war_carriers_tech = 1
 					popup = no
 			    }
 			}
@@ -9597,9 +9555,6 @@ focus = {
 			IF = {
 				limit = { has_dlc = "Arms Against Tyranny"}
 
-				mio:AST_lithgow_arms_organization = {
-					unlock_mio_trait_tooltip = AST_mio_trait_lee_enfield_no1_mark3
-				}
 			}
 
 			ELSE = {
@@ -9635,11 +9590,6 @@ focus = {
 			IF = {
 				limit = { has_dlc = "Arms Against Tyranny"}
 
-				mio:AST_new_south_wales_government_railways_organization = {
-					add_mio_size = 1
-					add_mio_funds_gain_factor = 0.1
-					add_mio_research_bonus = 0.05
-				}
 			}
 
 			ELSE = {
@@ -9808,9 +9758,6 @@ focus = {
 			IF = {
 				limit = { has_dlc = "Arms Against Tyranny"}
 
-				mio:AST_lithgow_arms_organization = {
-					unlock_mio_trait_tooltip = AST_mio_trait_owen_gun
-				}
 			}
 
 			ELSE = {
@@ -9866,12 +9813,6 @@ focus = {
 			IF = {
 				limit = { has_dlc = "Arms Against Tyranny"}
 
-				mio:AST_lithgow_arms_organization = {
-					unlock_mio_trait_tooltip = AST_mio_trait_better_ammo_supply
-				}
-				mio:AST_vickers-ruwolt_organization = {
-					unlock_mio_trait_tooltip = AST_mio_trait_better_ammo_supply
-				}
 			}
 
 			ELSE = {
@@ -9918,11 +9859,6 @@ focus = {
 			IF = {
 				limit = { has_dlc = "Arms Against Tyranny"}
 
-				mio:AST_new_south_wales_government_railways_organization = {
-					add_mio_size = 1
-					add_mio_funds_gain_factor = 0.1
-					add_mio_research_bonus = 0.05
-				}
 			}
 
 			ELSE = {
@@ -9955,9 +9891,6 @@ focus = {
 		available_if_capitulated = no
 	
 		completion_reward = {
-			unlock_decision_tooltip = AST_specialize_on_jungle_combat
-			unlock_decision_tooltip = AST_specialize_on_desert_combat
-			unlock_decision_tooltip = AST_switch_combat_specialization
 			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = AST_jungle_tanks_if_sentinel_tank_development
 			effect_tooltip = {
@@ -10162,21 +10095,9 @@ focus = {
 			IF = {
 				limit = { has_dlc = "Arms Against Tyranny"}
 
-				mio:AST_nuffield_mechanizations_and_aero_organization = {
-					unlock_mio_trait_tooltip = AST_mio_trait_yeramba_engineering
-				}
 				custom_effect_tooltip = generic_skip_one_line_tt
-				mio:AST_vulcan_foundry_organization = {
-					unlock_mio_trait_tooltip = AST_mio_trait_yeramba_engineering
-				}
 				custom_effect_tooltip = generic_skip_one_line_tt
-				mio:AST_new_south_wales_government_railways_organization = {
-					unlock_mio_trait_tooltip = AST_mio_trait_yeramba_engineering
-				}
 				custom_effect_tooltip = generic_skip_one_line_tt
-				mio:AST_american_car_and_foundry_organization = {
-					unlock_mio_trait_tooltip = AST_mio_trait_yeramba_engineering
-				}
 			}
 
 			ELSE = {
