@@ -8909,7 +8909,10 @@ focus = {
 		available = {
 			OR = {
 				has_government = communism
-				AST_richard_dixon = { is_hired_as_advisor = yes }
+				AND = {
+					has_character = AST_richard_dixon
+					AST_richard_dixon = { is_hired_as_advisor = yes }
+				}
 			}
 		}
 
