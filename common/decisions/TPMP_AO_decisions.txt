@@ -1,0 +1,280 @@
+TPMP_game_decisions_category = {
+	
+	TPMP_NA_rom_annex_bul_decision = {	
+        visible = {
+			
+				has_game_rule = {
+					rule = no_asia_setting
+					option = NO
+				}
+
+        }
+        available = {
+            tag = ROM
+			AND = {
+				BUL = {
+					is_ai = yes
+				}
+				JAP = {
+					is_ai = yes
+				}
+			}
+        }
+        icon = GFX_decision_generic_decision
+		fire_only_once = yes
+        complete_effect = {
+			annex_country = {
+				target = BUL
+				transfer_troops = yes
+			}
+			BUL = {
+				every_core_state = {
+					add_core_of = ROM
+				}
+			}
+			106 = {
+				add_core_of = ROM
+
+			}
+        }
+	}
+
+	TPMP_NA_ENDSIEG_decision = {
+
+		icon = generic_prepare_civil_war
+
+		visible = {
+			
+				has_game_rule = {
+					rule = no_asia_setting
+					option = NO
+				}
+		}
+
+		available = {
+            GER = {
+				surrender_progress > 0.3
+			}
+		}
+
+		fire_only_once = yes
+
+
+		modifier = {
+		}
+
+		complete_effect = {
+			every_faction_member = {
+				add_timed_idea = {
+					idea = TPMP_NA_ENDSIEG_decision_timed_idea
+					days = 60
+				}
+			}
+		}
+	}
+
+	TPMP_NA_england_resources_decision = {
+
+		icon = generic_prepare_civil_war
+        visible = {
+			
+				has_game_rule = {
+					rule = no_asia_setting
+					option = NO
+				}
+        }
+        available = {
+            tag = ENG
+        }
+
+		fire_only_once = yes
+
+		modifier = {
+			
+		}
+
+		complete_effect = {
+			132 = {
+				add_resource = {
+					type = steel
+					amount = 3500
+				}
+				add_resource = {
+					type = oil
+					amount = 5000
+				}
+				add_resource = {
+					type = coal
+					amount = 1000
+				}
+				add_resource = {
+					type = aluminium
+					amount = 1500
+				}
+				add_resource = {
+					type = tungsten
+					amount = 1000
+				}
+
+			}
+
+		}
+	}
+
+	TPMP_NA_germany_resources_decision = {
+
+		icon = generic_prepare_civil_war
+        visible = {
+			
+				has_game_rule = {
+					rule = no_asia_setting
+					option = NO
+				}
+        }
+        available = {
+            tag = GER
+				SPR = {
+					is_ai = yes
+				}
+        }
+
+		fire_only_once = yes
+
+		modifier = {
+			
+		}
+
+		complete_effect = {
+			65 = {
+				add_resource = {
+					type = steel
+					amount = 600
+				}
+				add_resource = {
+					type = tungsten
+					amount = 1000
+				}
+
+			}
+			2 = {
+				add_resource = {
+					type = rubber
+					amount = 600
+				}
+
+			}
+
+		}
+	}
+
+	TPMP_NA_usa_mandatory_decision = {
+
+		icon = generic_prepare_civil_war
+        visible = {
+			
+				has_game_rule = {
+					rule = no_asia_setting
+					option = NO
+				}
+        }
+        available = {
+			AND = {
+				date > 1939.7.1
+			}
+            tag = USA
+        }
+
+		fire_only_once = yes
+
+		modifier = {
+			
+		}
+
+		complete_effect = {
+			add_timed_idea = {
+				idea = TPMP_NA_USA_usa_mandatory_decision_timed_idea
+				days = 9999
+			}
+			
+
+
+		}
+	}
+
+	TPMP_NA_allied_minors_are_allowed_to_fail = {
+
+		icon = generic_prepare_civil_war
+        visible = {
+			
+				has_game_rule = {
+					rule = no_asia_setting
+					option = NO
+				}
+        }
+				available = {
+			date > 1942.7.1
+			OR = {
+				tag = AST
+				tag = CAN
+				tag = FRA
+			}
+		}
+
+		fire_only_once = yes
+
+		modifier = {
+			
+		}
+
+		complete_effect = {
+			add_timed_idea = {
+				idea = TPMP_NA_allied_minors_are_allowed_to_fail_decision_timed_idea
+				days = 9999
+			}
+			
+
+
+		}
+	}
+
+
+	TPMP_NA_spain_counterbalances_raj = {
+
+		icon = generic_prepare_civil_war
+        visible = {
+			
+				has_game_rule = {
+					rule = no_asia_setting
+					option = NO
+				}
+        }
+		available = {
+			date > 1939.1.1
+			OR = {
+				tag = SPR
+			}
+		}
+
+		fire_only_once = yes
+
+		modifier = {
+			
+		}
+
+		complete_effect = {
+			add_timed_idea = {
+				idea = TPMP_NA_spain_counterbalances_raj_decision_timed_idea
+				days = 9999
+			}
+
+
+			
+
+
+		}
+	}
+
+
+
+
+}

@@ -190,7 +190,7 @@ country_event = {
 		16 = { is_controlled_by = GER }
 		is_in_faction_with = ENG
 		ENG = { has_war_with = GER }
-		surrender_progress > 0.7
+		has_capitulated = yes
 		GER = {
 			OR = {
 				is_faction_leader = yes
@@ -1214,6 +1214,21 @@ country_event = {
 							state = 680
 							state = 553
 							state = 554
+						}
+						# Keep French Indochina out of Vichy while Siam's limited war over it is ongoing
+						NOT = {
+							AND = {
+								OR = {
+									is_core_of = VIN
+									is_core_of = CAM
+									is_core_of = LAO
+								}
+								SIA = {
+									has_active_mission = SIA_limited_war_indochina
+									has_variable = limited_war_target
+									var:limited_war_target = { original_tag = FRA }
+								}
+							}
 						}
 					}
 					event_target:vichy_france = { transfer_state = PREV }

@@ -4,7 +4,7 @@ armor_doctrine_1 = {
     description = SUBDOCTRINE_ARMOR_1_DESC
     icon = GFX_doctrine_armored_spearhead_medium
 
-    xp_cost = 100
+    xp_cost = 0
     xp_type = army
 
     available = {
@@ -185,7 +185,7 @@ armor_doctrine_2 = {
     description = SUBDOCTRINE_ARMOR_2_DESC
     icon = GFX_doctrine_armored_spearhead_medium
 
-    xp_cost = 100
+    xp_cost = 0
     xp_type = army
 
     available = {
@@ -206,37 +206,37 @@ armor_doctrine_2 = {
     }
     light_armor = {
         need = {
-            light_tank_chassis = -4
+            light_tank_chassis = -6
         }
     }
     medium_armor = {
         need = {
-            medium_tank_chassis = -4
+            medium_tank_chassis = -6
         }
     }
     heavy_armor = {
         need = {
-            heavy_tank_chassis = -4
+            heavy_tank_chassis = -6
         }
     }
     super_heavy_armor = {
         need = {
-            super_heavy_tank_chassis = -4
+            super_heavy_tank_chassis = -6
         }
     }
     amphibious_light_armor = {
         need = {
-            light_tank_amphibious_chassis = -4
+            light_tank_amphibious_chassis = -6
         }
     }
     amphibious_medium_armor = {
         need = {
-            medium_tank_amphibious_chassis = -4
+            medium_tank_amphibious_chassis = -6
         }
     }
     amphibious_heavy_armor = {
         need = {
-            heavy_tank_amphibious_chassis = -4
+            heavy_tank_amphibious_chassis = -6
         }
     }
     effect = {
@@ -283,8 +283,8 @@ armor_doctrine_2 = {
             effect = {
                 custom_effect_tooltip = armor_doctrine_2_a_tt
                 add_tech_bonus = {
-					bonus = 0.25
-					uses = 2
+					bonus = 1.0
+					uses = 1
 					category = cat_armour_tech
 				}
             }
@@ -347,7 +347,7 @@ armor_doctrine_3 = {
     description = SUBDOCTRINE_ARMOR_3_DESC
     icon = GFX_doctrine_armored_spearhead_medium
 
-    xp_cost = 100
+    xp_cost = 0
     xp_type = army
 
     available = {
@@ -382,12 +382,10 @@ armor_doctrine_3 = {
                 max_organisation = 5
                 default_morale = 0.05
                 breakthrough = 0.1
-                soft_attack = 0.05
             }
             category_tank_variants = {
                 default_morale = 0.05
                 breakthrough = 0.1
-                soft_attack = 0.05
             }
         }
         c = {
@@ -406,10 +404,10 @@ armor_doctrine_3 = {
                 armor_value = 0.05
             }
             category_heavy_tanks = {
-                armor_value = 0.05
+                armor_value = 0.03
             }
             category_super_heavy_tanks = {
-                armor_value = 0.05
+                armor_value = 0.03
             }
         }
         e = {

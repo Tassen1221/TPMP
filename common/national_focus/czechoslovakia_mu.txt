@@ -7055,15 +7055,12 @@ focus_tree = {
 		id = CZE_strike_at_the_heart_of_bolshevism
 
 		icon = {
-			trigger = {
+			GFX_focus_attack_soviet = {
 				SOV = {
 					has_government = communism
 				}
 			}
-			value = GFX_focus_attack_soviet
-		}
-		icon = {
-			value = GFX_goal_generic_occupy_states_ongoing_war
+			GFX_focus_attack_soviet = yes
 		}
 
 		dynamic = yes
@@ -9682,19 +9679,13 @@ focus_tree = {
 		# }
 
 		icon = {
-			trigger = {
+			GFX_focus_ger_great_red_menace = {
 				has_government = communism
 			}
-			value = GFX_SOV_a_global_class_struggle_ccp_2d_sov_compatibility
-		}
-		icon = {
-			trigger = {
+			GFX_focus_POL_support_global_falangism = {
 				has_government = fascism
 			}
-			value = GFX_focus_POL_support_global_falangism
-		}
-		icon = {
-			value = GFX_focus_CZE_czechoslovak_legion
+			GFX_focus_CZE_czechoslovak_legion = yes
 		}
 
 		relative_position_id = CZE_coalition_building
@@ -9824,13 +9815,10 @@ focus_tree = {
 		id = CZE_state_sponsored_recruitment_for_spain
 
 		icon = {
-			trigger = {
+			GFX_focus_intervention_spain_nationalists = {
 				has_government = fascism
 			}
-			value = GFX_focus_intervention_spain_nationalists
-		}
-		icon = {
-			value = GFX_focus_intervention_spain_republic
+			GFX_focus_intervention_spain_republic = yes
 		}
 
 		cost = 5
@@ -21778,5 +21766,204 @@ focus_tree = {
 			}
 		}
 		search_filters = { FOCUS_FILTER_RESEARCH }
+	}
+
+	focus = {
+		id = CZE_bend_the_bars
+		icon = GFX_focus_generic_the_council_of_europe
+	
+		prerequisite = { focus = CZE_form_a_federation focus = CZE_demand_guarantees  }					
+
+		relative_position_id = CZE_form_a_federation
+
+		x = -1
+		y = 2
+		offset = {
+			x = -1
+			y = -1
+			trigger = {
+				has_game_rule = {
+					rule = obsolete_focus_branches_visibility
+					option = HIDE
+				}
+				has_completed_focus = CZE_negotiations_with_the_autonomous_bloc
+			}
+		}
+
+		offset = {
+			x = -3
+			y = -1
+			trigger = {
+				has_game_rule = {
+					rule = obsolete_focus_branches_visibility
+					option = HIDE
+				}
+				has_completed_focus = CZE_placate_benes_faction
+			}
+		}
+	
+		cost = 10
+
+		ai_will_do = {
+			factor = 0
+		}
+
+		available = {
+			is_major = yes
+			custom_trigger_tooltip = {
+				tooltip = CZE_bop_no_divided_nation_tt
+				NOT = {
+					has_dynamic_modifier = {
+						modifier = CZE_a_divided_nation_dynamic_modifier
+					}
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = CZE_bop_no_agrarians_tt
+				NOT = {
+					has_idea = CZE_agrarian_politics_3
+					has_idea = CZE_agrarian_politics_2
+					has_idea = CZE_agrarian_politics_1
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = CZE_bop_no_industrialists_tt
+				NOT = {
+					has_idea = CZE_industrialists_veto
+					has_idea = CZE_industrialists_veto_2
+				}
+			}
+			NOT = {
+				has_power_balance = {
+    				id = CZE_bop_army_readiness
+				}
+			}
+			is_subject = no
+		}
+	
+		completion_reward = {
+			add_political_power = 150
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+
+			every_other_country = {
+				limit = {
+					is_subject_of = ROOT
+					
+				}
+				add_autonomy_score = {
+    				value = -25
+    				localization = CZE_bend_the_bars
+				}
+
+				custom_effect_tooltip = generic_skip_one_line_tt
+			}
+			unlock_decision_tooltip = form_european_union
+		}
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+	}
+
+	focus = {
+		id = CZE_usurp_the_mantle
+		icon = GFX_focus_POL_habsburg
+
+		# prerequisite = {
+		# 	focus = CZE_catholic_focus
+		# 	focus = CZE_hussite_legacy
+		# }
+
+		allow_branch = {
+			OR = {
+				#is_debug = yes
+				has_completed_focus = CZE_proclaim_the_restoration_of_bohemia
+			}
+		}
+
+		prerequisite = {
+			focus = CZE_integrate_lost_territories
+		}
+
+		prerequisite = {
+			focus = CZE_demand_the_istrian_peninsula
+		}
+
+		cost = 10
+
+		relative_position_id = CZE_proclaim_the_restoration_of_bohemia
+		x = 2
+		y = 2
+
+		available = {
+			is_subject = no
+		}
+
+		completion_reward = {
+			unlock_decision_tooltip = {
+				decision = form_hre
+				show_effect_tooltip = no
+			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+
+			every_other_country = {
+				limit = {
+					NOT = {
+						is_ally_with = ROOT
+						has_war_with = ROOT
+						ROOT = {
+							has_wargoal_against = PREV
+						}
+					}
+					OR = {
+						any_owned_state = {
+							is_in_array = { HRE_states = THIS }
+						}
+						any_controlled_state = {
+							is_in_array = { HRE_states = THIS }
+						}
+					}
+				}
+				hidden_effect = {
+					clear_temp_array = temp_states
+					every_owned_state = {
+						limit = {
+							is_in_array = { HRE_states = THIS }
+							NOT = {
+								is_in_array = { temp_states = THIS }
+							}
+						}
+						add_to_temp_array = {
+							temp_states = THIS
+						}
+					}
+					every_controlled_state = {
+						limit = {
+							is_in_array = { HRE_states = THIS }
+							NOT = {
+								is_in_array = { temp_states = THIS }
+							}
+						}
+						add_to_temp_array = {
+							temp_states = THIS
+						}
+					}
+				}
+				ROOT = {
+					create_wargoal = {
+						type = take_state_focus
+						target = PREV
+						generator = temp_states
+					}
+				}
+			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+
+			add_relation_modifier = {
+				target = GER
+				modifier = CZE_usurp_the_mantle
+			}
+		}
 	}
 }

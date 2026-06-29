@@ -4380,6 +4380,7 @@ mio:SOV_sevastopol_marine_plant_organization = {
 
 		available = {
 			NOT = { has_country_flag = SOV_paranoia_system_active_flag }
+			date > 1941.3.1
 		}
 		
 		search_filters = {FOCUS_FILTER_INDUSTRY}
@@ -5884,6 +5885,112 @@ mio:SOV_sevastopol_marine_plant_organization = {
 		}
 	}
 
+	#TPMP Changes
+	# focus = {
+	# 	id = TPMP_SOV_divert_eastern_reserves
+	# 	icon = GFX_focus_generic_manpower
+	# 	prerequisite = { focus = SOV_strengthen_the_mobilization_plan }
+	# 	x = 5
+	# 	y = 1
+	# 	relative_position_id = SOV_strengthen_the_mobilization_plan
+	# 	cost = 10
+
+	# 	available = {
+	# 		has_war = yes
+	# 		date > 1942.07.01
+	# 	}
+
+	# 	completion_reward = {
+	# 	}
+	# }
+	focus = {
+		id = TPMP_SOV_rebuild_the_red_army
+		icon = GFX_focus_SOV_builder_of_the_red_army
+		prerequisite = { focus = SOV_military_reorganization }
+		x = 0
+		y = 2
+		relative_position_id = SOV_military_reorganization
+		cost = 10
+
+		available = {
+			has_war = yes
+			date > 1942.07.01
+		}
+
+		completion_reward = {
+			add_timed_idea = {
+				idea = TPMP_SOV_rebuild_the_red_army_idea
+				days = 365
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			hidden_effect = {
+				division_template = {
+					name = "Strelki"
+					regiments = {
+						infantry = { x = 0 y = 0 }
+						infantry = { x = 0 y = 1 }
+						infantry = { x = 0 y = 2 }
+						infantry = { x = 0 y = 3 }
+						infantry = { x = 0 y = 4 }
+
+						infantry = { x = 1 y = 0 }
+						infantry = { x = 1 y = 1 }
+						infantry = { x = 1 y = 2 }
+						infantry = { x = 1 y = 3 }
+						infantry = { x = 1 y = 4 }
+
+						infantry = { x = 2 y = 0 }
+						infantry = { x = 2 y = 1 }
+						infantry = { x = 2 y = 2 }
+						infantry = { x = 2 y = 3 }
+						infantry = { x = 2 y = 4 }
+					}
+					support = {
+						engineer = { x = 0 y = 0 }
+						artillery = { x = 0 y = 1 }
+					}
+				}
+			}
+			every_state = {
+				limit = {
+					controller = {
+						OR = {
+							tag = SOV
+							is_in_faction_with = SOV
+						}
+					}
+					any_neighbor_state = {
+						controller = {
+							OR = {
+								tag = GER
+								is_in_faction_with = GER
+							}
+						}
+					}
+				}
+				create_unit = {
+					division = "name = \"Strelki\" division_template = \"Strelki\" start_experience_factor = 0.5"
+					owner = SOV
+					allow_spawning_on_enemy_provs = no
+					count = 2
+				}
+				create_unit = {
+					division = "name = \"Strelki\" division_template = \"Strelki\" start_experience_factor = 0.5"
+					owner = SOV
+					allow_spawning_on_enemy_provs = no
+					count = 2
+				}
+				create_unit = {
+					division = "name = \"Strelki\" division_template = \"Strelki\" start_experience_factor = 0.5"
+					owner = SOV
+					allow_spawning_on_enemy_provs = no
+					count = 2
+				}
+			}
+		}
+	}
+	#TPMP Changes
+
 	focus = {
 		id = SOV_desperate_measures
 		icon = GFX_SOV_desperate_measures_ccp_2d_sov_compatibility
@@ -5999,11 +6106,7 @@ mio:SOV_sevastopol_marine_plant_organization = {
 		search_filters = {}
 
 		completion_reward = {
-			#Spawn Penal divisions
-			custom_effect_tooltip = SOV_penal_battalions_spawn_tt
 			hidden_effect = {
-				#set_technology = { penal_infantry = 1 popup = no } #Note: Granting tech will make the penal battalion available for any template
-
 				division_template = {
 					name = "Shtrafnaya Chast"
 					division_names_group = SOV_PEN_01
@@ -6013,19 +6116,74 @@ mio:SOV_sevastopol_marine_plant_organization = {
 						militia = { x = 0 y = 0 }
 						militia = { x = 0 y = 1 }
 						militia = { x = 0 y = 2 }
+						militia = { x = 0 y = 3 }
+						militia = { x = 0 y = 4 }
+
 						militia = { x = 1 y = 0 }
 						militia = { x = 1 y = 1 }
 						militia = { x = 1 y = 2 }
+						militia = { x = 1 y = 3 }
+						militia = { x = 1 y = 4 }
+
 						militia = { x = 2 y = 0 }
 						militia = { x = 2 y = 1 }
 						militia = { x = 2 y = 2 }
+						militia = { x = 2 y = 3 }
+						militia = { x = 2 y = 4 }
 					}
 					support = {
-						artillery = { x = 0 y = 0 }
+						engineer = { x = 0 y = 0 }
+						artillery = { x = 0 y = 1 }
 					}
 				}
-
-				SOV_spawn_penal_divisions_effect = yes
+			}
+			every_state = {
+				limit = {
+					controller = {
+						OR = {
+							tag = SOV
+							is_in_faction_with = SOV
+						}
+					}
+					any_neighbor_state = {
+						controller = {
+							OR = {
+								tag = GER
+								is_in_faction_with = GER`
+							}
+						}
+					}
+				}
+				create_unit = {
+					division = "name = \"Shtrafnaya Chast\" division_template = \"Shtrafnaya Chast\" start_experience_factor = 0.5"
+					owner = SOV
+					allow_spawning_on_enemy_provs = no
+					count = 3
+				}
+				create_unit = {
+					division = "name = \"Shtrafnaya Chast\" division_template = \"Shtrafnaya Chast\" start_experience_factor = 0.5"
+					owner = SOV
+					allow_spawning_on_enemy_provs = no
+					count = 3
+				}
+				create_unit = {
+					division = "name = \"Shtrafnaya Chast\" division_template = \"Shtrafnaya Chast\" start_experience_factor = 0.5"
+					owner = SOV
+					allow_spawning_on_enemy_provs = no
+					count = 3
+				}
+				create_unit = {
+					division = "name = \"Shtrafnaya Chast\" division_template = \"Shtrafnaya Chast\" start_experience_factor = 0.5"
+					owner = SOV
+					allow_spawning_on_enemy_provs = no
+					count = 3
+				}
+				create_unit = {
+					division = "name = \"Shtrafnaya Chast\" division_template = \"Shtrafnaya Chast\" start_experience_factor = 0.5"
+					owner = SOV
+					allow_spawning_on_enemy_provs = no
+					count = 3
+				}
 			}
 		}
 	}
@@ -15659,6 +15817,10 @@ ai_will_do = {
 					type = send_lend_lease_desire
 					id = SOV
 					value = 300
+				}
+				add_relation_rule_override = {
+					target = SOV
+					can_send_volunteers = yes 
 				}
 			}
 		}

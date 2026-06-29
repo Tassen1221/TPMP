@@ -19,7 +19,6 @@ mio_cat_eq_all_light_tank = { #Includes (standalone) Amphibious Tank Chassis
 mio_cat_eq_all_medium_tank = { #Includes Modern Tank Chassis
 	equipment_type = {
 		medium_tank_chassis
-		modern_tank_chassis
 	}
 }
 
@@ -47,7 +46,6 @@ mio_cat_eq_all_tanks = { #Includes All Tank Chassis
 		amphibious_tank_chassis
 		#Medium
 		medium_tank_chassis
-		modern_tank_chassis
 		#Heavy
 		heavy_tank_chassis
 		super_heavy_tank_chassis
@@ -162,6 +160,20 @@ mio_cat_eq_only_light_fighter = { #Includes Small Fighter and CV Fighter (no CAS
 		cv_fighter_equipment_3
 		jet_fighter_equipment
 		rocket_interceptor_equipment
+	}
+}
+
+mio_cat_eq_only_light_cas = { #Includes Small CAS and CV CAS (no Fighter, no Nav...) --- Needed because plane designer is a gift to us all
+	equipment_type = {
+		small_plane_cas_airframe
+		cv_small_plane_cas_airframe	
+	}
+}
+
+mio_cat_eq_only_light_nav = { #Includes Small NAV and CV NAV (no CAS, no Nav...) --- Needed because plane designer is a gift to us all
+	equipment_type = {
+		small_plane_naval_bomber_airframe
+		cv_small_plane_naval_bomber_airframe	
 	}
 }
 

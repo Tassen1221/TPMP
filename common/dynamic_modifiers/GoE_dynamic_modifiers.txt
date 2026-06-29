@@ -547,6 +547,15 @@ PER_technological_modifier = {
 idea_RAJ_famine_state = {
 	icon = GFX_modifiers_RAJ_famine_state
 	resistance_target = 0.1
+
+	remove_trigger = {
+		owner = {
+			NOT = {
+				original_tag = RAJ
+				is_subject_of = RAJ 
+			}
+		}
+	}
 	army_core_defence_factor = -0.25
 }
 
@@ -559,6 +568,16 @@ idea_RAJ_famine_country = {
 
 idea_RAJ_epidemic = {
 	icon = GFX_modifiers_RAJ_famine_state
+
+	remove_trigger = {
+		owner = {
+			NOT = {
+				original_tag = RAJ
+				is_subject_of = RAJ 
+			}
+		}
+	}
+	
 	political_power_factor = RAJ_famine_political_power_factor
 	stability_factor = RAJ_famine_stability_factor
 }

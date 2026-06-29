@@ -652,6 +652,13 @@ recruit_character = ENG_charles_goodeve
 recruit_character = ENG_nevil_shute
 recruit_character = ENG_robert_watson_watt
 
+if = { 
+	limit = {
+		has_dlc = "Thunder at Our Gates"
+	}
+	recruit_character = ENG_robert_menzies #Through AST focus tree, Australian PM Menzies can become leader in ENG
+}
+
 if = {
 	limit = {
 		has_dlc = "Graveyard of Empires"
@@ -1364,6 +1371,12 @@ if = {
 			mid_2_custom_slot = ship_secondaries_1
 			rear_1_custom_slot = ship_heavy_battery_1
 		}
+		optional_assets = {
+			{
+				icon = "GFX_commonwealth_battleship_warspite"
+				model = "commonwealth_gfx_battleship_entity"
+			}
+		}
 		obsolete = yes
 	}
 	create_equipment_variant = {
@@ -1384,12 +1397,6 @@ if = {
 			mid_1_custom_slot = empty
 			mid_2_custom_slot = ship_secondaries_1
 			rear_1_custom_slot = ship_heavy_battery_1
-		}
-		optional_assets = {
-			{
-				icon = "GFX_commonwealth_battleship_warspite"
-				model = "commonwealth_gfx_battleship_entity"
-			}
 		}
 		obsolete = yes
 	}

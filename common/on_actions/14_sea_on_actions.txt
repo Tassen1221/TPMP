@@ -91,13 +91,9 @@ on_actions = {
 
 		#JAPAN - Add Chinese States to an array for Strategic Offensives Decision purposes
 		effect = {
-			
 			every_state = {
 				limit = {
-					owner = {
-						is_literally_china = yes
-						controls_state = PREV
-					}
+					is_owned_by = CHI
 				}
 				add_to_array = { 
 					array = JAP.JAP_strategic_offensives_targets_array 
@@ -385,6 +381,17 @@ on_actions = {
 			PRC = {
 				every_core_state = {
 					add_to_array = { global.PRC_starting_PRC_core_states = THIS }
+				}
+			}
+		}
+
+		effect = {
+			SPR = {
+				every_core_state = {
+					limit = {
+						is_on_continent = europe
+					}
+					add_to_array = { global.starting_SPR_european_core_states = THIS }
 				}
 			}
 		}
@@ -3873,6 +3880,27 @@ on_actions = {
                         has_idea = BEL_surrender_ns
                     }
                     remove_ideas = BEL_surrender_ns
+                }
+            }
+        }
+
+        effect = {
+            FROM = {
+                IF = {
+                	limit = {
+                		original_tag = RAJ 
+                		has_cosmetic_tag = RAJ_UK
+                		OR = {
+                			is_subject = no
+                			any_country = {
+                				has_subject = PREV
+                				NOT = {
+                					original_tag = ENG 
+                				}
+                			}
+                		}
+                	}
+                	drop_cosmetic_tag = yes
                 }
             }
         }

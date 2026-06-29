@@ -2150,51 +2150,73 @@ focus_tree = {
 		relative_position_id = TPMP_USA_megaprojects
 		cost = 5
 		completion_reward = {
-		}
-	}
-
-	focus = {
-		id = TPMP_USA_laguardia_airport
-		icon = GFX_focus_generic_air_bases
-		prerequisite = { focus = TPMP_USA_megaprojects }
-		x = 2
-		y = 1
-		relative_position_id = TPMP_USA_megaprojects
-		cost = 5
-		completion_reward = {
-			custom_effect_tooltip = USA_increase_megaprojects_tt
-			add_to_variable = {
-				TPMP_USA_megaproject_cons_var = 0.025
-				tooltip = production_speed_buildings_factor_tt
-			}
-			add_to_variable = {
-				TPMP_USA_megaproject_airbase_cons_var = 0.5
-				tooltip = production_speed_air_base_factor_tt
-			}
-			add_to_variable = {
-				TPMP_USA_megaproject_radar_cons_var = 0.5
-				tooltip = production_speed_radar_station_factor_tt
-			}
-			custom_effect_tooltip = generic_skip_one_line_tt
-			358 = {
-				add_building_construction = {
-					type = air_base
-					level = 5
-					instant_build = yes
+			every_country = {
+				limit = {
+					OR = {
+						original_tag = CUB
+						original_tag = HAI
+						original_tag = DOM
+						original_tag = GUA
+						original_tag = MEX
+						original_tag = CAN
+						original_tag = HON
+						original_tag = NIC
+						original_tag = PAN
+						original_tag = COS
+						original_tag = ELS
+					}
+					not = { has_war_with = ROOT }
+					not = { is_subject_of = ROOT }
+					exists = yes
 				}
+				country_event = mtg_usa_north_american_dominion.1
 			}
 		}
 	}
-
-	# INDUSTRY BRANCH
-
 	focus = {
-		id = TPMP_USA_expand_the_great_lakes_industrial_zone
-		icon = GFX_focus_generic_industry_3
-		mutually_exclusive = { focus = TPMP_USA_develop_new_industrial_centers }
-		x = 52
-		y = 0
-		cost = 5
+		id = USA_strategic_interests
+		icon = GFX_goal_generic_more_territorial_claims
+		x = -1
+		y = 4
+		prerequisite = { focus = USA_north_american_dominion }
+		relative_position_id = USA_war_powers_act
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+				AND = {
+					336 = {
+						OR = {
+							is_controlled_by = ROOT
+							CONTROLLER = { has_war_with = ROOT }
+						}	
+					}
+					326 = {
+						OR = {
+							is_controlled_by = ROOT
+							CONTROLLER = { has_war_with = ROOT }
+						}	
+					}
+					118 = {
+						OR = {
+							is_controlled_by = ROOT
+							CONTROLLER = { has_war_with = ROOT }
+						}	
+					}
+				}
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
 		completion_reward = {
 			every_core_state = {
 				limit = {

@@ -50,6 +50,26 @@ division_template = {
 }
 
 division_template = {
+	name = "Rychlá divize"	#Fast division -- these are in really bad shape in 1936. Orders are behind and they were force to take on tanks they didn't want due to politcal pressure. Large orders placed in 1936 to fill them		
+	division_names_group = CZE_ARM_01
+	regiments = {
+		light_armor = { x = 0 y = 0 }
+		light_armor = { x = 0 y = 1 }
+		cavalry = { x = 1 y = 0 }
+		cavalry = { x = 1 y = 1 }
+		cavalry = { x = 1 y = 2 }
+	}
+
+	regimental_support = { #Various field pieces operated by the division at the regeniment level
+		field_guns = { x = 1 y = 0 }
+	}
+
+	support = {
+		recon = { x = 0 y = 0 }      # includes 1x AC comp, 1x L tank comp
+	}
+}
+
+division_template = {
    	name = "Finanční Stráž"  #Financial Guard -- garison formations before their merger with State Defense Guard. Precursor to some reservists units
 	division_names_group = CZE_GAR_01
     is_locked = yes #unlock via focus
@@ -71,6 +91,18 @@ units = {
 		start_experience_factor = 0.2
 		start_equipment_factor = 0.7
 
+	}
+	division = { # "1. fast"
+		division_name = {
+			is_name_ordered = yes
+			name_order = 1
+		}
+		location = 11542  # Prague
+		division_template = "Rychlá divize"
+		start_experience_factor = 0.2
+		start_equipment_factor = 1
+		force_equipment_variants = { light_tank_chassis_1936 = { owner = "CZE" version_name = "Tancik vz. 33" } }
+		
 	}
 	division = { # "4. divize"
 		division_name = {
@@ -117,6 +149,17 @@ units = {
 		start_equipment_factor = 0.7
 
 	}
+	division = { # "2. fast"
+		division_name = {
+			is_name_ordered = yes
+			name_order = 2
+		}
+		location = 3569 # Brno
+		division_template = "Rychlá divize"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.5
+		force_equipment_variants = { light_tank_chassis_1936 = { owner = "CZE" version_name = "Tancik vz. 33" } }
+	}
 	division = { # "15. divize"
 		division_name = {
 			is_name_ordered = yes
@@ -138,6 +181,28 @@ units = {
 		start_experience_factor = 0.2
 		start_equipment_factor = 0.7
 
+	}
+	division = { # "3. fast"
+		division_name = {
+			is_name_ordered = yes
+			name_order = 3
+		}
+		location = 9692  # Bratislava
+		division_template = "Rychlá divize"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.1
+		force_equipment_variants = { light_tank_chassis_1936 = { owner = "CZE" version_name = "Tancik vz. 33" } }
+	}
+	division = { # "4. fast"
+		division_name = {
+			is_name_ordered = yes
+			name_order = 3
+		}
+		location = 9692  # Bratislava
+		division_template = "Rychlá divize"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.1
+		force_equipment_variants = { light_tank_chassis_1936 = { owner = "CZE" version_name = "Tancik vz. 33" } }
 	}
 	### I Armáda ###
 	division = { # "18. divize"

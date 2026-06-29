@@ -545,20 +545,12 @@ FIN_national_defense_category = {
 			has_war_with = SOV
 			surrender_progress > 0.25
 			has_civil_war = no
-			OR = {
-				is_in_faction = no
-				is_faction_leader = yes
-			}
 			NOT = { has_country_flag = FIN_reached_out_to_soviets_to_surrender_flag } #Tooltip purposes
 		}
 
 		visible = {
 			has_war_with = SOV
 			has_civil_war = no
-			OR = {
-				is_in_faction = no
-				is_faction_leader = yes
-			}
 			NOT = { has_country_flag = FIN_reached_out_to_soviets_to_surrender_flag }
 			has_country_flag = FIN_available_decision_to_surrender_to_soviets_flag
 		}

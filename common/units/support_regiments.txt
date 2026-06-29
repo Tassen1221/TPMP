@@ -1,0 +1,685 @@
+sub_units = {
+	commandos = {
+		abbreviation = "COM"
+		sprite = assault_engineer
+		map_icon_category = armored
+		priority = 0
+		ai_priority = 0
+		
+		active = no
+		special_forces = yes
+		can_be_parachuted = yes
+		affects_speed = no
+
+		type = {
+			infantry
+			support
+		}
+		
+		group = support
+		divisional = no
+		
+		categories = {
+			category_army
+			category_support
+			category_infantry
+			category_support_infantry
+			category_leg_infantry
+			category_special_forces
+		}
+
+		#Size Definitions
+		combat_width = 0
+		max_strength = 5
+		max_organisation = 60
+		default_morale = 0.1
+		manpower = 300
+		training_time = 180
+
+		#Combat
+		soft_attack = -0.3
+		hard_attack = -0.3
+		breakthrough = -0.3
+		defense = -0.3
+		ap_attack = -0.3
+		armor_value = -0.3
+		air_attack = -0.3
+
+		#Misc Abilities
+		weight = 0.5
+		supply_consumption = 0.1
+		same_support_type = commandos
+
+		essential = {
+			special_equipment
+			special_infantry_equipment_1
+		}
+		
+		need = {
+			special_equipment = 100
+			special_infantry_equipment_1 = 100
+		}
+
+		urban = {
+			attack = 0.05
+			defence = 0.05
+		}
+		fort = {
+			attack = 0.05
+			defence = 0.05
+		}
+
+		battalion_mult = {
+			category = category_special_forces
+			soft_attack = 0.1
+		}
+	}
+	assault_squad = {
+		abbreviation = "ASQ"
+		sprite = infantry
+		map_icon_category = infantry
+		priority = 0
+		ai_priority = 0
+		
+		active = no
+		can_be_parachuted = yes
+		affects_speed = no
+
+		type = {
+			infantry
+			support
+		}
+		
+		group = support
+		divisional = no
+		
+		categories = {
+			category_army
+			category_support
+			category_infantry
+			category_support_infantry
+			category_leg_infantry
+		}
+
+		#Size Definitions
+		combat_width = 0
+		max_strength = 5
+		max_organisation = 60
+		default_morale = 0.1
+		manpower = 300
+		training_time = 150
+
+		#Combat
+		soft_attack = -0.3
+		hard_attack = -0.3
+		breakthrough = -0.1
+		defense = -0.5
+		ap_attack = -0.3
+		armor_value = -0.3
+		air_attack = -0.3
+
+		#Misc Abilities
+		weight = 0.5
+		supply_consumption = 0.1
+		same_support_type = commandos
+
+		essential = {
+			special_equipment
+			special_infantry_equipment_1
+		}
+		
+		need = {
+			special_equipment = 10
+			special_infantry_equipment_1 = 100
+		}
+	}
+	# heavy_weapons_team = {
+	# 	abbreviation = "HWT"
+	# 	sprite = infantry
+	# 	map_icon_category = infantry
+	# 	priority = 0
+	# 	ai_priority = 0
+
+	# 	active = yes
+	# 	can_be_parachuted = yes
+	# 	affects_speed = no
+
+	# 	type = {
+	# 		infantry
+	# 		support
+	# 	}
+		
+	# 	group = support
+	# 	divisional = no
+		
+
+	# 	categories = {
+	# 		category_army
+	# 		category_support
+	# 		category_infantry
+	# 		category_support_infantry
+	# 		category_leg_infantry
+	# 	}
+
+	# 	divisional = no
+	# 	combat_width = 0
+
+	# 	#Size Definitions
+	# 	combat_width = 0
+	# 	max_strength = 5
+	# 	max_organisation = 30
+	# 	default_morale = 0.1
+	# 	manpower = 300
+	# 	training_time = 90
+
+	# 	#Combat
+	# 	soft_attack = -0.3
+	# 	hard_attack = -0.3
+	# 	breakthrough = -0.5
+	# 	defense = -0.1
+	# 	ap_attack = -0.3
+	# 	armor_value = -0.3
+	# 	air_attack = -0.3
+
+	# 	#Misc Abilities
+	# 	weight = 0.5
+	# 	supply_consumption = 0.1
+
+	# 	essential = {
+	# 		line_infantry_equipment_1
+	# 	}
+		
+	# 	need = {
+	# 		line_infantry_equipment_1 = 100
+	# 	}
+	# }
+
+	artillery = {
+		abbreviation = "ART"
+		sprite = artillery
+		map_icon_category = infantry
+		priority = 0
+		ai_priority = 0
+
+		active = yes
+		is_artillery_brigade = yes
+		can_be_parachuted = yes
+		affects_speed = no
+
+		type = {
+			infantry
+			artillery
+			support
+		}
+		
+		group = support
+		divisional = no
+		
+		categories = {
+			category_army
+			category_support
+			category_artillery
+			category_support_artillery
+			category_light_artillery
+		}		
+		
+		#Size Definitions
+		combat_width = 0
+		max_strength = 1
+		max_organisation = 0
+		default_morale = 0.1
+		manpower = 300
+		training_time = 120
+
+		#Combat
+		soft_attack = -0.3
+		hard_attack = -0.3
+		breakthrough = -0.3
+		defense = -0.3
+		ap_attack = -0.3
+		armor_value = -0.3
+		air_attack = -0.3
+
+		#Misc Abilities
+		weight = 0.5
+		supply_consumption = 0.15
+		same_support_type = artillery
+
+		need = {
+			artillery_equipment = 15
+		}
+	}
+	heavy_artillery = {
+		abbreviation = "ART"
+		sprite = heavy_artillery
+		map_icon_category = infantry
+		priority = 0
+		ai_priority = 0
+
+		active = yes
+		is_artillery_brigade = yes
+		affects_speed = no
+
+		type = {
+			infantry
+			artillery
+			support
+		}
+		
+		group = support
+		divisional = no
+		
+		categories = {
+			category_army
+			category_support
+			category_artillery
+			category_support_artillery
+			category_heavy_artillery
+		}		
+		
+		#Size Definitions
+		combat_width = 0
+		max_strength = 1
+		max_organisation = 0
+		default_morale = 0.1
+		manpower = 300
+		training_time = 120
+
+		#Combat
+		soft_attack = -0.3
+		hard_attack = -0.3
+		breakthrough = -0.3
+		defense = -0.3
+		ap_attack = -0.3
+		armor_value = -0.3
+		air_attack = -0.3
+
+		#Misc Abilities
+		weight = 0.5
+		supply_consumption = 0.2
+		same_support_type = artillery
+
+		need = {
+			heavy_artillery_equipment = 15
+		}
+	}
+	rocket_artillery = {
+		abbreviation = "RART"
+		sprite = "artillery"
+		map_icon_category = infantry
+		priority = 0
+		ai_priority = 0
+
+		active = yes
+		is_artillery_brigade = yes
+		can_be_parachuted = yes
+		affects_speed = no
+
+		type = {
+			infantry
+			artillery
+			support
+		}
+		
+		group = support
+		divisional = no
+		
+		categories = {
+			category_army
+			category_support
+			category_artillery
+			category_support_artillery
+			category_rocket_artillery
+		}		
+		
+		#Size Definitions
+		combat_width = 0
+		max_strength = 1
+		max_organisation = 0
+		default_morale = 0.1
+		manpower = 300
+		training_time = 120
+
+		#Combat
+		soft_attack = -0.3
+		hard_attack = -0.3
+		breakthrough = -0.3
+		defense = -0.3
+		ap_attack = -0.3
+		armor_value = -0.3
+		air_attack = -0.3
+
+		#Misc Abilities
+		weight = 0.5
+		supply_consumption = 0.25
+		same_support_type = artillery
+
+		need = {
+			rocket_artillery_equipment = 15
+		}
+	}
+	super_heavy_artillery = {
+		abbreviation = "SHART"
+		sprite = super_heavy_artillery
+		map_icon_category = infantry
+		priority = 0
+		ai_priority = 0
+
+		active = yes
+		is_artillery_brigade = yes
+		affects_speed = yes
+
+		type = {
+			infantry
+			artillery
+			support
+		}
+		
+		group = support
+		divisional = no
+		
+		categories = {
+			category_army
+			category_support
+			category_artillery
+			category_support_artillery
+			category_heavy_artillery
+		}		
+		
+		#Size Definitions
+		combat_width = 0
+		max_strength = 1
+		max_organisation = 0
+		default_morale = 0.1
+		manpower = 300
+		training_time = 120
+
+		#Combat
+		soft_attack = -0.3
+		hard_attack = -0.3
+		breakthrough = -0.3
+		defense = -0.3
+		ap_attack = -0.3
+		armor_value = -0.3
+		air_attack = -0.3
+
+		#Misc Abilities
+		weight = 0.5
+		supply_consumption = 0.25
+		same_support_type = artillery
+
+		need = {
+			super_heavy_artillery_equipment = 15
+		}
+	}
+	self_propelled_super_heavy_artillery = {
+		abbreviation = "SPSHART"
+		sprite = self_propelled_super_heavy_artillery
+		map_icon_category = infantry
+		priority = 0
+		ai_priority = 0
+
+		active = yes
+		is_artillery_brigade = yes
+		affects_speed = yes
+
+		type = {
+			infantry
+			artillery
+			support
+		}
+		
+		group = support
+		divisional = no
+		
+		categories = {
+			category_army
+			category_support
+			category_artillery
+			category_support_artillery
+			category_heavy_artillery
+		}		
+		
+		#Size Definitions
+		combat_width = 0
+		max_strength = 1
+		max_organisation = 0
+		default_morale = 0.1
+		manpower = 300
+		training_time = 120
+
+		#Combat
+		soft_attack = -0.3
+		hard_attack = -0.3
+		breakthrough = -0.3
+		defense = -0.3
+		ap_attack = -0.3
+		armor_value = -0.3
+		air_attack = -0.3
+
+		#Misc Abilities
+		weight = 0.5
+		supply_consumption = 0.25
+		same_support_type = artillery
+
+		need = {
+			self_propelled_super_heavy_artillery_equipment = 15
+		}
+	}
+
+	anti_tank = {
+		abbreviation = "AT"
+		sprite = anti_tank
+		map_icon_category = infantry
+		priority = 0
+		ai_priority = 0
+
+		active = yes
+		can_be_parachuted = yes
+		affects_speed = no
+		
+		group = support
+		divisional = no
+		
+		type = {
+			infantry
+			anti_tank
+			support
+		}
+		
+		categories = {
+			category_army
+			category_support
+			category_anti_tank
+			category_support_anti_tank
+			category_light_anti_tank
+		}
+
+		#Size Definitions
+		combat_width = 0
+		max_strength = 1
+		max_organisation = 0
+		default_morale = 0.1
+		manpower = 300
+		training_time = 120
+
+		#Combat
+		soft_attack = -0.3
+		hard_attack = -0.3
+		breakthrough = -0.3
+		defense = -0.3
+		ap_attack = -0.3
+		armor_value = -0.3
+		air_attack = -0.3
+
+		#Misc Abilities
+		weight = 0.5
+		supply_consumption = 0.1
+		same_support_type = anti_tank
+
+		need = {
+			anti_tank_equipment = 15
+		}
+	}
+	heavy_anti_tank = {
+		abbreviation = "HAT"
+		sprite = anti_tank
+		map_icon_category = infantry
+		priority = 0
+		ai_priority = 0
+
+		active = yes
+		affects_speed = no
+
+		group = support
+		divisional = no
+
+		type = {
+			infantry
+			anti_tank
+			support
+		}
+
+		categories = {
+			category_army
+			category_support
+			category_anti_tank
+			category_support_anti_tank
+			category_heavy_anti_tank
+		}
+
+		#Size Definitions
+		combat_width = 0
+		max_strength = 1
+		max_organisation = 0
+		default_morale = 0.1
+		manpower = 300
+		training_time = 120
+
+		#Combat
+		soft_attack = -0.3
+		hard_attack = -0.3
+		breakthrough = -0.3
+		defense = -0.3
+		ap_attack = -0.3
+		armor_value = -0.3
+		air_attack = -0.3
+
+		#Misc Abilities
+		weight = 0.5
+		supply_consumption = 0.15
+		same_support_type = anti_tank
+
+		need = {
+			heavy_anti_tank_equipment = 15
+		}
+	}
+
+	anti_air = {
+		abbreviation = "AA"
+		sprite = infantry
+		map_icon_category = infantry
+		priority = 0
+		ai_priority = 0
+
+		active = yes
+		can_be_parachuted = yes
+		affects_speed = no
+
+		type = {
+			infantry
+			support
+			anti_air
+		}
+		
+		group = support
+		divisional = no
+		
+		categories = {
+			category_army
+			category_support
+			category_anti_air
+			category_support_anti_air
+			category_light_anti_air
+		}		
+		
+		#Size Definitions
+		combat_width = 0
+		max_strength = 1
+		max_organisation = 0
+		default_morale = 0.1
+		manpower = 300
+		training_time = 120
+
+		#Combat
+		soft_attack = -0.3
+		hard_attack = -0.3
+		breakthrough = -0.3
+		defense = -0.3
+		ap_attack = -0.3
+		armor_value = -0.3
+		air_attack = -0.3
+
+		#Misc Abilities
+		weight = 0.5
+		supply_consumption = 0.1
+		same_support_type = anti_air
+
+		need = {
+			anti_air_equipment = 15
+		}
+	}
+	heavy_anti_air = {
+		abbreviation = "HAA"
+		sprite = infantry
+		map_icon_category = infantry
+		priority = 0
+		ai_priority = 0
+
+		active = yes
+		affects_speed = no
+
+		type = {
+			infantry
+			support
+			anti_air
+		}
+		
+		group = support
+		divisional = no
+		
+		categories = {
+			category_army
+			category_support
+			category_anti_air
+			category_support_anti_air
+			category_heavy_anti_air
+		}		
+		
+		#Size Definitions
+		combat_width = 0
+		max_strength = 1
+		max_organisation = 0
+		default_morale = 0.1
+		manpower = 300
+		training_time = 120
+
+		#Combat
+		soft_attack = -0.3
+		hard_attack = -0.3
+		breakthrough = -0.3
+		defense = -0.3
+		ap_attack = -0.3
+		armor_value = -0.3
+		air_attack = -0.3
+
+		#Misc Abilities
+		weight = 0.5
+		supply_consumption = 0.15
+		same_support_type = anti_air
+
+		need = {
+			heavy_anti_air_equipment = 15
+		}
+	}
+}

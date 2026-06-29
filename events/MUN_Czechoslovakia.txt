@@ -490,6 +490,9 @@ country_event = { #Triggers MUN_czech.2
 			original_tag = SDL #the call is coming from inside the house
 		}
 		exists = yes
+		NOT = {
+			is_subject_of = CZE
+		}
 		any_country_with_original_tag = {
 			original_tag_to_check = CZE
 			has_idea = CZE_sudeten_german_quandary
@@ -4232,7 +4235,6 @@ country_event = { #The government is on its last legs
 						}
 					}
 				}
-				country_event = { id = MUN_the_fall_of_the_republic.3 days = 10 }
 			}
 		}
 	}
