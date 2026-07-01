@@ -2,20 +2,18 @@ TPMP_game_decisions_category = {
 	
 	TPMP_NA_rom_annex_bul_decision = {	
         visible = {
-			
-				has_game_rule = {
-					rule = no_asia_setting
-					option = NO
+            tag = ROM
+			AND = {
+				BUL = {
+					is_ai = yes
 				}
+			}
 
         }
         available = {
             tag = ROM
 			AND = {
 				BUL = {
-					is_ai = yes
-				}
-				JAP = {
 					is_ai = yes
 				}
 			}
@@ -273,6 +271,13 @@ TPMP_game_decisions_category = {
 
 		}
 	}
+
+
+
+
+
+
+
 
 
 
