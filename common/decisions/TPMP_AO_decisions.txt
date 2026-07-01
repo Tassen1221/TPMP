@@ -37,6 +37,57 @@ TPMP_game_decisions_category = {
         }
 	}
 
+	
+	TPMP_no_spain_germany_resources_decision = {
+
+		icon = generic_prepare_civil_war
+        visible = {
+            tag = GER
+			SPR = {
+				is_ai = yes
+			}
+			
+				has_game_rule = {
+					rule = no_asia_setting
+					option = YES
+				}
+        }
+        available = {
+            tag = GER
+			SPR = {
+				is_ai = yes
+			}
+			
+				has_game_rule = {
+					rule = no_asia_setting
+					option = YES
+				}
+        }
+
+		fire_only_once = yes
+
+		modifier = {
+			
+		}
+
+		complete_effect = {
+			65 = {
+				add_resource = {
+					type = steel
+					amount = 600
+				}
+				add_resource = {
+					type = tungsten
+					amount = 500
+				}
+
+			}
+
+		}
+	}
+
+
+
 	TPMP_NA_ENDSIEG_decision = {
 
 		icon = generic_prepare_civil_war
