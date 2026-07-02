@@ -2174,49 +2174,46 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = USA_strategic_interests
-		icon = GFX_goal_generic_more_territorial_claims
-		x = -1
-		y = 4
-		prerequisite = { focus = USA_north_american_dominion }
-		relative_position_id = USA_war_powers_act
-		cost = 10
-
-		ai_will_do = {
-			factor = 1
-		}
-
-		available = {
-
-		}
-		
-		bypass = {
-				AND = {
-					336 = {
-						OR = {
-							is_controlled_by = ROOT
-							CONTROLLER = { has_war_with = ROOT }
-						}	
-					}
-					326 = {
-						OR = {
-							is_controlled_by = ROOT
-							CONTROLLER = { has_war_with = ROOT }
-						}	
-					}
-					118 = {
-						OR = {
-							is_controlled_by = ROOT
-							CONTROLLER = { has_war_with = ROOT }
-						}	
-					}
+		id = TPMP_USA_laguardia_airport
+		icon = GFX_focus_generic_air_bases
+		prerequisite = { focus = TPMP_USA_megaprojects }
+		x = 2
+		y = 1
+		relative_position_id = TPMP_USA_megaprojects
+		cost = 5
+		completion_reward = {
+			custom_effect_tooltip = USA_increase_megaprojects_tt
+			add_to_variable = {
+				TPMP_USA_megaproject_cons_var = 0.025
+				tooltip = production_speed_buildings_factor_tt
+			}
+			add_to_variable = {
+				TPMP_USA_megaproject_airbase_cons_var = 0.5
+				tooltip = production_speed_air_base_factor_tt
+			}
+			add_to_variable = {
+				TPMP_USA_megaproject_radar_cons_var = 0.5
+				tooltip = production_speed_radar_station_factor_tt
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			358 = {
+				add_building_construction = {
+					type = air_base
+					level = 5
+					instant_build = yes
 				}
+			}
 		}
+	}
 
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-
+	# INDUSTRY BRANCH
+	focus = {
+		id = TPMP_USA_expand_the_great_lakes_industrial_zone
+		icon = GFX_focus_generic_industry_3
+		mutually_exclusive = { focus = TPMP_USA_develop_new_industrial_centers }
+		x = 52
+		y = 0
+		cost = 5
 		completion_reward = {
 			every_core_state = {
 				limit = {
