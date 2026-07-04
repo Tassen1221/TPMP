@@ -134,6 +134,7 @@ focus_tree = {
 			NOT = {
 				has_dynamic_modifier = { modifier = GER_economy_of_conquest_modifier }
 			}
+			always = no
 		}
 
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL_CHARACTER }
@@ -1266,17 +1267,17 @@ focus_tree = {
 						59 = {
 							is_fully_controlled_by = ROOT
 							free_building_slots = {
-								building = arms_factory
+								building = industrial_complex
 								size > 2
 								include_locked = yes
 							}
 						}
 					}
 					59 = { #Hannover
-						add_extra_state_shared_building_slots = 2
+						add_extra_state_shared_building_slots = 3
 						add_building_construction = {
 							type = industrial_complex
-							level = 2
+							level = 3
 							instant_build = yes
 						}
 					}
@@ -1287,14 +1288,14 @@ focus_tree = {
 							is_controlled_by = ROOT
 							free_building_slots = {
 								building = industrial_complex
-								size > 1
+								size > 2
 								include_locked = yes
 							}
 						}
-						add_extra_state_shared_building_slots = 2
+						add_extra_state_shared_building_slots = 3
 						add_building_construction = {
 							type = industrial_complex
-							level = 2
+							level = 3
 							instant_build = yes
 						}
 					}
@@ -1305,14 +1306,14 @@ focus_tree = {
 					is_fully_controlled_by = ROOT
 					free_building_slots = {
 						building = industrial_complex
-						size > 1
+						size > 2
 						include_locked = yes
 					}
 				}
-				add_extra_state_shared_building_slots = 2
+				add_extra_state_shared_building_slots = 3
 				add_building_construction = {
 					type = industrial_complex
-					level = 2
+					level = 3
 					instant_build = yes
 				}
 			}
@@ -1321,14 +1322,14 @@ focus_tree = {
 					is_fully_controlled_by = ROOT
 					free_building_slots = {
 						building = industrial_complex
-						size > 1
+						size > 2
 						include_locked = yes
 					}
 				}
-				add_extra_state_shared_building_slots = 2
+				add_extra_state_shared_building_slots = 3
 				add_building_construction = {
 					type = industrial_complex
-					level = 2
+					level = 3
 					instant_build = yes
 				}
 			}
@@ -1634,15 +1635,15 @@ focus_tree = {
 					is_fully_controlled_by = ROOT
 					free_building_slots = {
 						building = industrial_complex
-						size > 1
+						size > 2
 						include_locked = yes
 					}
 				}
 				random_select_amount = 2
-				add_extra_state_shared_building_slots = 2
+				add_extra_state_shared_building_slots = 3
 				add_building_construction = {
 					type = industrial_complex
-					level = 2
+					level = 3
 					instant_build = yes
 				}
 			}
@@ -1652,7 +1653,7 @@ focus_tree = {
 			add_tech_bonus = {
 				name = GER_the_four_year_plan
 				bonus = 1
-				uses = 1
+				uses = 2
 				category = industry
 			}
 		}
@@ -2503,15 +2504,15 @@ focus_tree = {
 					is_fully_controlled_by = ROOT
 					free_building_slots = {
 						building = arms_factory
-						size > 1
+						size > 2
 						include_locked = yes
 					}
 				}
 				random_select_amount = 3
-				add_extra_state_shared_building_slots = 2
+				add_extra_state_shared_building_slots = 3
 				add_building_construction = {
 					type = arms_factory
-					level = 2
+					level = 3
 					instant_build = yes
 				}
 			}
@@ -4734,6 +4735,12 @@ focus_tree = {
 
 			custom_effect_tooltip = available_chief_of_airforce
 			show_ideas_tooltip = ritter_von_greim
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_equipment_to_stockpile = {
+				type = small_plane_airframe
+				amount = 1000
+				producer = GER
+			}
 		}
 	}
 	
@@ -4864,26 +4871,11 @@ focus_tree = {
 				category = light_air
 			}
 
-			if = {
-				limit = {
-					has_dlc = "By Blood Alone"
-				}
-				custom_effect_tooltip = generic_skip_one_line_tt
-				create_equipment_variant = { 
-					name = "Ju 87 G" 
-					type = small_plane_cas_airframe_2
-					allow_without_tech = no
-					design_team = mio:GER_junkers_organization
-					modules = {
-						fixed_main_weapon_slot = bomb_locks
-						fixed_auxiliary_weapon_slot_1 = tank_buster_1
-						engine_type_slot = engine_3_1x
-						special_type_slot_1 = lmg_defense_turret
-						special_type_slot_2 = empty
-					}
-					icon = "GFX_GER_CAS2_medium"
-					model = "GER_CAS_equipment_2_entity"
-				}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_equipment_to_stockpile = {
+				type = small_plane_CAS_airframe
+				amount = 500
+				producer = GER
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
@@ -5002,28 +4994,12 @@ focus_tree = {
 				category = medium_air
 			}
 
-			# if = {
-			# 	limit = {
-			# 		has_dlc = "By Blood Alone"
-			# 	}
-			# 	custom_effect_tooltip = generic_skip_one_line_tt
-			# 	create_equipment_variant = { 
-			# 		name = "Ju 88" 
-			# 		type = medium_plane_airframe_2
-			# 		allow_without_tech = no
-			# 		design_team = mio:GER_dornier_organization
-			# 		modules = {
-			# 			fixed_main_weapon_slot = medium_bomb_bay
-			# 			fixed_auxiliary_weapon_slot_1 = medium_bomb_bay
-			# 			fixed_auxiliary_weapon_slot_2 = torpedo_mounting
-			# 			engine_type_slot = engine_3_2x
-			# 			special_type_slot_1 = lmg_defense_turret_2x
-			# 			special_type_slot_2 = empty	
-			# 		}
-			# 		icon = "GFX_GER_tactical_bomber2_medium"
-			# 		model = "GER_medium_plane_entity"
-			# 	}
-			# }
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_equipment_to_stockpile = {
+				type = medium_plane_airframe
+				amount = 500
+				producer = GER
+			}
 			
 			custom_effect_tooltip = generic_skip_one_line_tt
 
@@ -5138,28 +5114,12 @@ focus_tree = {
 				category = heavy_air
 			}
 
-			# if = {
-			# 	limit = {
-			# 		has_dlc = "By Blood Alone"
-			# 	}
-			# 	custom_effect_tooltip = generic_skip_one_line_tt
-			# 	create_equipment_variant = { 
-			# 		name = "Ju 89" 
-			# 		type = large_plane_airframe_1
-			# 		allow_without_tech = no
-			# 		design_team = mio:GER_heinkel_organization
-			# 		modules = {
-			# 			fixed_main_weapon_slot = large_bomb_bay
-			# 			fixed_auxiliary_weapon_slot_1 = empty
-			# 			fixed_auxiliary_weapon_slot_2 = empty
-			# 			engine_type_slot = engine_2_4x
-			# 			special_type_slot_1 = lmg_defense_turret_2x
-			# 			special_type_slot_2 = lmg_defense_turret
-			# 		}
-			# 		icon = "GFX_GER_strategic_bomber1_medium"
-			# 		model = "GER_strat_bomber_equipment_1_entity"
-			# 	}
-			# }
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_equipment_to_stockpile = {
+				type = large_plane_airframe
+				amount = 300
+				producer = GER
+			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
@@ -14691,7 +14651,7 @@ mio:GER_blohm_und_voss_organization = {
 		available = {
 			has_war_with = SOV
 			NOT = {
-				has_idea = TPMP_GER_barbarossa_idea_0
+				has_idea = TPMP_GER_barbarossa_idea
 			}
 		}
 

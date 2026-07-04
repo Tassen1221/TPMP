@@ -4911,7 +4911,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = ITA_air_innovations_bba
-		cost = 10
+		cost = 5
 		available = {
 			has_full_control_of_state = 2
 		}
@@ -5347,7 +5347,7 @@ focus_tree = {
 		x = -2
 		y = 1
 		relative_position_id = ITA_standardization
-		cost = 10
+		cost = 5
 		available = {
 		}
 
@@ -5375,13 +5375,12 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
-
-			# if = {
-			# 	limit = {
-			# 		has_dlc = "By Blood Alone"
-			# 	}
-			# 	ITA_add_long_range_aircraft_templates = yes
-			# }
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_equipment_to_stockpile = {
+				type = large_plane_airframe
+				amount = 300
+				producer = ITA
+			}
 		}
 	}
 
@@ -5393,7 +5392,7 @@ focus_tree = {
 		x = 2
 		y = 0
 		relative_position_id = ITA_long_range_aircraft
-		cost = 10
+		cost = 5
 		available = {
 		}
 
@@ -5418,13 +5417,12 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
-
-			# if = {
-			# 	limit = {
-			# 		has_dlc = "By Blood Alone"
-			# 	}
-			# 	ITA_add_bomber_designs_templates = yes
-			# }
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_equipment_to_stockpile = {
+				type = large_plane_airframe
+				amount = 300
+				producer = ITA
+			}
 		}
 	}
 
@@ -5436,7 +5434,7 @@ focus_tree = {
 		x = 4
 		y = 0
 		relative_position_id = ITA_long_range_aircraft
-		cost = 10
+		cost = 5
 		available = {
 		}
 
@@ -5461,13 +5459,12 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
-
-			# if = {
-			# 	limit = {
-			# 		has_dlc = "By Blood Alone"
-			# 	}
-			# 	ITA_add_fighter_designs_templates = yes
-			# }
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_equipment_to_stockpile = {
+				type = small_plane_airframe
+				amount = 500
+				producer = ITA
+			}
 		}
 	}
 
@@ -5479,7 +5476,7 @@ focus_tree = {
 		x = 6
 		y = 0
 		relative_position_id = ITA_long_range_aircraft
-		cost = 10
+		cost = 5
 		available = {
 		}
 
@@ -5508,13 +5505,17 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
-
-			# if = {
-			# 	limit = {
-			# 		has_dlc = "By Blood Alone"
-			# 	}
-			# 	ITA_add_multirole_aircraft_templates = yes
-			# }
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_equipment_to_stockpile = {
+				type = small_plane_airframe
+				amount = 300
+				producer = ITA
+			}
+			add_equipment_to_stockpile = {
+				type = medium_plane_airframe
+				amount = 300
+				producer = ITA
+			}
 		}
 	}
 
