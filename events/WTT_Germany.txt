@@ -109,10 +109,6 @@ country_event = {
 
 				    	set_variable = { GER_monthly_consumer_goods_increase = GER_monthly_consumer_goods_start } #Amount of increasing CG each month
 				    	set_variable = { GER_industrial_consumer_goods_factor = 0.1 } #Used for MEFO Bills, Economy of Conquest and Recovering Economy and Wirtschaftswunder
-				    	set_variable = { GER_industrial_civilian_intel_to_others = -25 }
-				    	set_variable = { GER_industrial_army_intel_to_others = -25 }
-				    	set_variable = { GER_industrial_navy_intel_to_others = -25 }
-				    	set_variable = { GER_industrial_airforce_intel_to_others = -25 }
 				    	set_variable = { GER_industrial_production_speed_arms_factory_factor = 0.1 }
 				    	set_variable = { GER_industrial_production_speed_dockyard_factor = 0.1 }
 				    	set_variable = { GER_industrial_industrial_capacity_factory = 0 }
@@ -309,10 +305,6 @@ country_event = {
 
 				    	set_variable = { GER_monthly_consumer_goods_increase = GER_monthly_consumer_goods_start } #Amount of increasing CG each month
 				    	set_variable = { GER_industrial_consumer_goods_factor = 0.1 } #Used for MEFO Bills, Economy of Conquest and Recovering Economy and Wirtschaftswunder
-				    	set_variable = { GER_industrial_civilian_intel_to_others = -25 }
-				    	set_variable = { GER_industrial_army_intel_to_others = -25 }
-				    	set_variable = { GER_industrial_navy_intel_to_others = -25 }
-				    	set_variable = { GER_industrial_airforce_intel_to_others = -25 }
 				    	set_variable = { GER_industrial_production_speed_arms_factory_factor = 0.1 }
 				    	set_variable = { GER_industrial_production_speed_dockyard_factor = 0.1 }
 				    	set_variable = { GER_industrial_industrial_capacity_factory = 0 }
@@ -3717,7 +3709,7 @@ country_event = {
 	option = {
 		name = wtt_germany.65.a
 		ai_chance = {
-			factor = 10
+			base = 10
 			modifier = {
 				factor = 0.5
 				has_opinion = { target = GER value < 0 }
@@ -3775,7 +3767,7 @@ country_event = {
 	option = {
 		name = wtt_germany.65.b
 		ai_chance = {
-			factor = 0
+			base = 0
 			modifier = {
 				factor = 0.5
 				has_opinion = { target = GER value > 50 }

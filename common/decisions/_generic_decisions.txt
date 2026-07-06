@@ -573,13 +573,7 @@ propaganda_efforts = {
 				#has_tech = radio
 				has_completed_focus = BRA_radio_nacional
 			}
-			ELSE = {
-				threat > 0.25
-				has_tech = radio
-			}
-		
-
-			IF = {
+			ELSE_IF = {
 				limit = {
 					tag = AFG
 				}
@@ -1925,15 +1919,13 @@ war_measures = {
 		allowed = {
 			has_dlc = "Arms Against Tyranny"
 			NOT = {
-				OR = {
-					tag = ENG #has a focus
-					tag = USA #has a focus
-					tag = SOV #has a focus
-					tag = JAP #has a focus
-					tag = AST #has a focus
-					tag = FRA #has a focus
-					tag = GER #has a focus
-				}
+				tag = ENG #has a focus
+				tag = USA #has a focus
+				tag = SOV #has a focus
+				tag = JAP #has a focus
+				tag = AST #has a focus
+				tag = FRA #has a focus
+				tag = GER #has a focus
 			}
 		}
 
@@ -1948,13 +1940,11 @@ war_measures = {
 					has_dlc = "Trial of Allegiance"
 				}
 				NOT = {
-					OR = {
-						tag = CHL #has a focus
-						tag = BRA #has a focus
-						tag = ARG #has a focus
-						tag = URG #has a focus
-						tag = PAR #has a focus
-					}
+					tag = CHL #has a focus
+					tag = BRA #has a focus
+					tag = ARG #has a focus
+					tag = URG #has a focus
+					tag = PAR #has a focus
 				}
 			}
 			IF = {
@@ -1962,11 +1952,9 @@ war_measures = {
             		has_dlc = "Graveyard of Empires"
 				}
 				NOT = {
-					OR = {
-						tag = PER #has a focus
-						tag = IRQ #has a focus
-						tag = RAJ #has a focus
-					}
+					tag = PER #has a focus
+					tag = IRQ #has a focus
+					tag = RAJ #has a focus
 				}
 			}
 			IF = {
@@ -1974,13 +1962,26 @@ war_measures = {
 					has_dlc = "Gotterdammerung"
 				}
 				NOT = {
-					OR = {
-						tag = BEL #has a focus
-						tag = COG #has a focus
-					}
+					tag = BEL #has a focus
+					tag = COG #has a focus
 				}
 			}
-			PHI_SEA = no
+			IF = {
+				limit = {
+					has_dlc = "No Compromise, No Surrender"
+				}
+				NOT = {
+					tag = PHI #has a focus
+				}
+			}
+			IF = {
+				limit = {
+					has_dlc = "Thunder at Our Gates"
+				}
+				NOT = {
+					tag = INS #has a focus
+				}
+			}
 		}
 
 		fire_only_once = yes

@@ -288,321 +288,321 @@ country_event = {
 }
 
 # Yugoslavian independence war(s) - event for YUG
-country_event = {
-	id = DOD_yugoslavia.10
-	title = DOD_yugoslavia.10.t
-	desc = DOD_yugoslavia.10.desc
-	picture = GFX_report_event_yugoslavia_partisans
+# country_event = {
+# 	id = DOD_yugoslavia.10
+# 	title = DOD_yugoslavia.10.t
+# 	desc = DOD_yugoslavia.10.desc
+# 	picture = GFX_report_event_yugoslavia_partisans
 	
-	trigger = {
-		original_tag = YUG
-		OR = {
-			has_idea = YUG_idea_croatian_opposition
-			AND = {
-				is_ai = yes 
-				has_idea = YUG_idea_croats_suppressed
-			}
-		}
-		any_country = {
-			original_tag = GER
-			has_government = fascism
-			has_war_with = YUG
-		}
-		OR = {
-			AND = {
-				CRO = { exists = yes }
-				CRO = { is_subject_of = YUG }
-			}
-			109 = { is_owned_and_controlled_by = YUG }
-			103 = { is_owned_and_controlled_by = YUG }
-			163 = { is_owned_and_controlled_by = YUG }
-			852 = { is_owned_and_controlled_by = YUG }
-		}
-	}
+# 	trigger = {
+# 		original_tag = YUG
+# 		OR = {
+# 			has_idea = YUG_idea_croatian_opposition
+# 			AND = {
+# 				is_ai = yes 
+# 				has_idea = YUG_idea_croats_suppressed
+# 			}
+# 		}
+# 		any_country = {
+# 			original_tag = GER
+# 			has_government = fascism
+# 			has_war_with = YUG
+# 		}
+# 		OR = {
+# 			AND = {
+# 				CRO = { exists = yes }
+# 				CRO = { is_subject_of = YUG }
+# 			}
+# 			109 = { is_owned_and_controlled_by = YUG }
+# 			103 = { is_owned_and_controlled_by = YUG }
+# 			163 = { is_owned_and_controlled_by = YUG }
+# 			852 = { is_owned_and_controlled_by = YUG }
+# 		}
+# 	}
 	
-	mean_time_to_happen = {
-		days = 2
-	}
+# 	mean_time_to_happen = {
+# 		days = 2
+# 	}
 	
-	fire_only_once = yes #would be funny though
+# 	fire_only_once = yes #would be funny though
 
-	option = {
-		name = DOD_yugoslavia.10.a
-		ai_chance = {
-			base = 100
-		}	
-		IF = {
-			limit = {
-				CRO = {
-					exists = yes
-					is_subject_of = YUG
-				}
-			}
-			set_autonomy = { target = CRO autonomy_state = autonomy_free }
-			CRO = {
-				declare_war_on = {
-					target = YUG
-					type = annex_everything
-				}
-			}
-		}
-		IF = { #if Montenegro exists, they also join
-			limit = {
-				MNT = {
-					exists = yes
-					is_subject_of = YUG
-				}
-			}
-			set_autonomy = { target = MNT autonomy_state = autonomy_free }
-			MNT = {
-				declare_war_on = {
-					target = YUG
-					type = annex_everything
-				}
-			}
-		}
-		IF = {
-			limit = {
-				CRO = {
-					exists = no
-				}
-			}
-			if = {
-				limit = { 109 = { is_owned_and_controlled_by = YUG } }
-				CRO = { transfer_state = 109 }
-			}
-			IF = {
-				limit = { 103 = { is_owned_and_controlled_by = YUG } }
-				CRO = { transfer_state = 103 }
-			}
-			IF = {
-				limit = { 163 = { is_owned_and_controlled_by = YUG } }
-				CRO = { transfer_state = 163 }
-			}
-			IF = {
-				limit = { 852 = { is_owned_and_controlled_by = YUG } }
-				CRO = { transfer_state = 852 }
-			}
-			hidden_effect = {
-				104 =  {
-					add_claim_by = CRO
-				}
-				804 =  {
-					add_claim_by = CRO
-				}
+# 	option = {
+# 		name = DOD_yugoslavia.10.a
+# 		ai_chance = {
+# 			base = 100
+# 		}	
+# 		IF = {
+# 			limit = {
+# 				CRO = {
+# 					exists = yes
+# 					is_subject_of = YUG
+# 				}
+# 			}
+# 			set_autonomy = { target = CRO autonomy_state = autonomy_free }
+# 			CRO = {
+# 				declare_war_on = {
+# 					target = YUG
+# 					type = annex_everything
+# 				}
+# 			}
+# 		}
+# 		IF = { #if Montenegro exists, they also join
+# 			limit = {
+# 				MNT = {
+# 					exists = yes
+# 					is_subject_of = YUG
+# 				}
+# 			}
+# 			set_autonomy = { target = MNT autonomy_state = autonomy_free }
+# 			MNT = {
+# 				declare_war_on = {
+# 					target = YUG
+# 					type = annex_everything
+# 				}
+# 			}
+# 		}
+# 		IF = {
+# 			limit = {
+# 				CRO = {
+# 					exists = no
+# 				}
+# 			}
+# 			if = {
+# 				limit = { 109 = { is_owned_and_controlled_by = YUG } }
+# 				CRO = { transfer_state = 109 }
+# 			}
+# 			IF = {
+# 				limit = { 103 = { is_owned_and_controlled_by = YUG } }
+# 				CRO = { transfer_state = 103 }
+# 			}
+# 			IF = {
+# 				limit = { 163 = { is_owned_and_controlled_by = YUG } }
+# 				CRO = { transfer_state = 163 }
+# 			}
+# 			IF = {
+# 				limit = { 852 = { is_owned_and_controlled_by = YUG } }
+# 				CRO = { transfer_state = 852 }
+# 			}
+# 			hidden_effect = {
+# 				104 =  {
+# 					add_claim_by = CRO
+# 				}
+# 				804 =  {
+# 					add_claim_by = CRO
+# 				}
 
-				IF = {
-					limit = {
-						CRO = {
-							capital_scope = {
-								NOT = {
-									is_in_array = {
-										array = AUS.expansion_targets
-										value = THIS
-									}
-								}
-							}
-						}
-					}
+# 				IF = {
+# 					limit = {
+# 						CRO = {
+# 							capital_scope = {
+# 								NOT = {
+# 									is_in_array = {
+# 										array = AUS.expansion_targets
+# 										value = THIS
+# 									}
+# 								}
+# 							}
+# 						}
+# 					}
 
-					CRO = {
-						capital_scope = {
-							add_to_array = {
-								array = AUS.expansion_targets
-								value = THIS
-							}
-						}
-					}
+# 					CRO = {
+# 						capital_scope = {
+# 							add_to_array = {
+# 								array = AUS.expansion_targets
+# 								value = THIS
+# 							}
+# 						}
+# 					}
 
-					IF = {
-						limit = {
-							SLV = {
-								capital_scope = {
-									NOT = {
-										is_in_array = {
-											array = AUS.expansion_targets
-											value = THIS
-										}
-									}
-								}
-							}
-						}
+# 					IF = {
+# 						limit = {
+# 							SLV = {
+# 								capital_scope = {
+# 									NOT = {
+# 										is_in_array = {
+# 											array = AUS.expansion_targets
+# 											value = THIS
+# 										}
+# 									}
+# 								}
+# 							}
+# 						}
 
-						YUG = {
-							capital_scope = {
-								remove_from_array = {
-									array = AUS.expansion_targets
-									value = THIS
-								}
-								set_state_flag = AUS_no_longer_expansion_target
-							} 
-						}
+# 						YUG = {
+# 							capital_scope = {
+# 								remove_from_array = {
+# 									array = AUS.expansion_targets
+# 									value = THIS
+# 								}
+# 								set_state_flag = AUS_no_longer_expansion_target
+# 							} 
+# 						}
 						
-					}
-				}
+# 					}
+# 				}
 				
-			}
+# 			}
 
-			custom_effect_tooltip = generic_skip_one_line_tt
+# 			custom_effect_tooltip = generic_skip_one_line_tt
 
-			CRO = {
-				declare_war_on = {
-					target = YUG
-					type = annex_everything
-				}
-				custom_effect_tooltip = YUG_CRO_independence_war_troops_tt
-				hidden_effect = {
-					load_oob = "CRO_YUG_independence"
-				}
-			}
-		}
-	}
-	# Play as Croatia
-	option = { 
-		name = DOD_yugoslavia.10.b
-		ai_chance = {
-			base = 0
-		}	
+# 			CRO = {
+# 				declare_war_on = {
+# 					target = YUG
+# 					type = annex_everything
+# 				}
+# 				custom_effect_tooltip = YUG_CRO_independence_war_troops_tt
+# 				hidden_effect = {
+# 					load_oob = "CRO_YUG_independence"
+# 				}
+# 			}
+# 		}
+# 	}
+# 	# Play as Croatia
+# 	option = { 
+# 		name = DOD_yugoslavia.10.b
+# 		ai_chance = {
+# 			base = 0
+# 		}	
 		
-		IF = {
-			limit = {
-				CRO = {
-					exists = yes
-					is_subject_of = YUG
-				}
-			}
-			set_autonomy = { target = CRO autonomy_state = autonomy_free }
-			CRO = {
-				declare_war_on = {
-					target = YUG
-					type = annex_everything
-				}
-			}
-		}
+# 		IF = {
+# 			limit = {
+# 				CRO = {
+# 					exists = yes
+# 					is_subject_of = YUG
+# 				}
+# 			}
+# 			set_autonomy = { target = CRO autonomy_state = autonomy_free }
+# 			CRO = {
+# 				declare_war_on = {
+# 					target = YUG
+# 					type = annex_everything
+# 				}
+# 			}
+# 		}
 
-		IF = { #if Montenegro exists, they also join
-			limit = {
-				MNT = {
-					exists = yes
-					is_subject_of = YUG
-				}
-			}
-			set_autonomy = { target = MNT autonomy_state = autonomy_free }
-			MNT = {
-				declare_war_on = {
-					target = YUG
-					type = annex_everything
-				}
-			}
-		}
+# 		IF = { #if Montenegro exists, they also join
+# 			limit = {
+# 				MNT = {
+# 					exists = yes
+# 					is_subject_of = YUG
+# 				}
+# 			}
+# 			set_autonomy = { target = MNT autonomy_state = autonomy_free }
+# 			MNT = {
+# 				declare_war_on = {
+# 					target = YUG
+# 					type = annex_everything
+# 				}
+# 			}
+# 		}
 
-		IF = {
-			limit = {
-				CRO = {
-					exists = no
-				}
-				109 = { is_owned_and_controlled_by = YUG }
-			}
-			CRO = { transfer_state = 109 }
-			IF = {
-				limit = {
-					103 = { is_owned_and_controlled_by = YUG }
-				}
-				CRO = { transfer_state = 103 }
-			}
-			IF = {
-				limit = {
-					163 = { is_owned_and_controlled_by = YUG }
-				}
-				CRO = { transfer_state = 163 }
-			}
-			IF = {
-				limit = {
-					852 = { is_owned_and_controlled_by = YUG }
-				}
-				CRO = { transfer_state = 852 }
-			}
-			hidden_effect = {
-				104 =  {
-					add_claim_by = CRO
-				}
-				804 =  {
-					add_claim_by = CRO
-				}
-			}
+# 		IF = {
+# 			limit = {
+# 				CRO = {
+# 					exists = no
+# 				}
+# 				109 = { is_owned_and_controlled_by = YUG }
+# 			}
+# 			CRO = { transfer_state = 109 }
+# 			IF = {
+# 				limit = {
+# 					103 = { is_owned_and_controlled_by = YUG }
+# 				}
+# 				CRO = { transfer_state = 103 }
+# 			}
+# 			IF = {
+# 				limit = {
+# 					163 = { is_owned_and_controlled_by = YUG }
+# 				}
+# 				CRO = { transfer_state = 163 }
+# 			}
+# 			IF = {
+# 				limit = {
+# 					852 = { is_owned_and_controlled_by = YUG }
+# 				}
+# 				CRO = { transfer_state = 852 }
+# 			}
+# 			hidden_effect = {
+# 				104 =  {
+# 					add_claim_by = CRO
+# 				}
+# 				804 =  {
+# 					add_claim_by = CRO
+# 				}
+# 			}
 
-			custom_effect_tooltip = generic_skip_one_line_tt
+# 			custom_effect_tooltip = generic_skip_one_line_tt
 
-			custom_effect_tooltip = warning_we_will_change_to_this_country_tt
+# 			custom_effect_tooltip = warning_we_will_change_to_this_country_tt
 
-			custom_effect_tooltip = generic_skip_one_line_tt
+# 			custom_effect_tooltip = generic_skip_one_line_tt
 
-			CRO = {
-				declare_war_on = {
-					target = YUG
-					type = annex_everything
-				}
-				custom_effect_tooltip = YUG_CRO_independence_war_troops_tt
-				hidden_effect = {
-					load_oob = "CRO_YUG_independence"
+# 			CRO = {
+# 				declare_war_on = {
+# 					target = YUG
+# 					type = annex_everything
+# 				}
+# 				custom_effect_tooltip = YUG_CRO_independence_war_troops_tt
+# 				hidden_effect = {
+# 					load_oob = "CRO_YUG_independence"
 
-					IF = {
-						limit = {
-							CRO = {
-								capital_scope = {
-									NOT = {
-										is_in_array = {
-											array = AUS.expansion_targets
-											value = THIS
-										}
-									}
-								}
-							}
-						}
+# 					IF = {
+# 						limit = {
+# 							CRO = {
+# 								capital_scope = {
+# 									NOT = {
+# 										is_in_array = {
+# 											array = AUS.expansion_targets
+# 											value = THIS
+# 										}
+# 									}
+# 								}
+# 							}
+# 						}
 
-						CRO = {
-							capital_scope = {
-								add_to_array = {
-									array = AUS.expansion_targets
-									value = THIS
-								}
-							}
-						}
+# 						CRO = {
+# 							capital_scope = {
+# 								add_to_array = {
+# 									array = AUS.expansion_targets
+# 									value = THIS
+# 								}
+# 							}
+# 						}
 
-						IF = {
-							limit = {
-								SLV = {
-									capital_scope = {
-										NOT = {
-											is_in_array = {
-												array = AUS.expansion_targets
-												value = THIS
-											}
-										}
-									}
-								}
-							}
+# 						IF = {
+# 							limit = {
+# 								SLV = {
+# 									capital_scope = {
+# 										NOT = {
+# 											is_in_array = {
+# 												array = AUS.expansion_targets
+# 												value = THIS
+# 											}
+# 										}
+# 									}
+# 								}
+# 							}
 
-							YUG = {
-								capital_scope = {
-									remove_from_array = {
-										array = AUS.expansion_targets
-										value = THIS
-									}
-								}
-							}
-						}
-					}
-				}
+# 							YUG = {
+# 								capital_scope = {
+# 									remove_from_array = {
+# 										array = AUS.expansion_targets
+# 										value = THIS
+# 									}
+# 								}
+# 							}
+# 						}
+# 					}
+# 				}
 
-				change_tag_from = ROOT
+# 				change_tag_from = ROOT
 
-			}
+# 			}
 
-		}
+# 		}
 
-	}
-}
+# 	}
+# }
 
 #Yugoslavia wants to buy planes - event for GER,FRA,ENG,ITA
 country_event = {

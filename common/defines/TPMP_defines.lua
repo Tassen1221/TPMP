@@ -60,32 +60,63 @@ NDefines.NMilitary.UNIT_LEADER_USE_NONLINEAR_XP_GAIN = false	-- Whether unit lea
 NDefines.NMilitary.BASE_LEADER_TRAIT_GAIN_XP = 0.5		-- Base xp gain for traits per hour for armies
 NDefines.NMilitary.MAX_NUM_TRAITS = -1				-- cant have more, -1 to disable
 
-NDefines.NMilitary.BASE_FORT_PENALTY = -0.15			-- fort penalty
-NDefines.NMilitary.DIG_IN_FACTOR = 0.015			-- bonus factor for each dug-in level
+NDefines.NMilitary.BASE_FORT_PENALTY = -0.2			-- fort penalty
+NDefines.NMilitary.DIG_IN_FACTOR = 0.02				-- bonus factor for each dug-in level
 
-NDefines.NMilitary.MAX_DIVISION_BRIGADE_WIDTH = 5		-- Max width of regiments in division designer.
-NDefines.NMilitary.MAX_DIVISION_BRIGADE_HEIGHT = 5		-- Max height of regiments in division designer.
+NDefines.NMilitary.MAX_DIVISION_BRIGADE_WIDTH = 5		-- Max width of regiments in division designer (non-HQ templates).
+NDefines.NMilitary.MAX_DIVISION_BRIGADE_HEIGHT = 5		-- Max height of regiments in division designer (non-HQ templates).
 NDefines.NMilitary.MIN_DIVISION_BRIGADE_HEIGHT = 5		-- Min height of regiments in division designer.
-NDefines.NMilitary.MAX_DIVISION_SUPPORT_WIDTH = 1		-- Max width of support in division designer.
-NDefines.NMilitary.MAX_DIVISION_SUPPORT_HEIGHT = 7		-- Max height of support in division designer.
+NDefines.NMilitary.MAX_DIVISION_SUPPORT_WIDTH = 1		-- Max width of support in division designer (non-HQ templates).
+NDefines.NMilitary.MAX_DIVISION_SUPPORT_HEIGHT = 6		-- Max height of support in division designer (non-HQ templates).
+NDefines.NMilitary.MAX_REGIMENTAL_SUPPORT_WIDTH = 5		-- Max width of regimental supports in division designer.
+NDefines.NMilitary.MAX_REGIMENTAL_SUPPORT_HEIGHT = 1		-- Max height of regimental supports in division designer.
+
+NDefines.NMilitary.MAX_HQ_BATTALION_WIDTH = 1			-- Max width of regiments in division designer (Army HQ templates).
+NDefines.NMilitary.MAX_HQ_BATTALION_HEIGHT = 4			-- Max height of regiments in division designer (Army HQ templates).
+NDefines.NMilitary.MAX_HQ_SUPPORT_WIDTH = 1			-- Max width of support in division designer (Army HQ templates).
+NDefines.NMilitary.MAX_HQ_SUPPORT_HEIGHT = 4			-- Max height of support in division designer (Army HQ templates).
+NDefines.NMilitary.MAX_HQ_REGIMENTAL_SUPPORT_WIDTH = 0		-- Max width of regimental supports in division designer (Army HQ templates).
+NDefines.NMilitary.MAX_HQ_REGIMENTAL_SUPPORT_HEIGHT = 0		-- Max height of regimental supports in division designer (Army HQ templates).
+
+NDefines.NMilitary.REGIMENTAL_SUPPORT_REQUIRED_BATTALIONS = { 3 } -- For each regimental support row, how many battalions are required in the regiment to be able to place a support in that row.
 
 NDefines.NMilitary.BASE_DIVISION_BRIGADE_GROUP_COST = 0 	--Base cost to unlock a regiment slot,
 NDefines.NMilitary.BASE_DIVISION_BRIGADE_CHANGE_COST = 0	--Base cost to change a regiment column.
-NDefines.NMilitary.BASE_DIVISION_SUPPORT_SLOT_COST = 0	 	--Base cost to unlock a support slot
+NDefines.NMilitary.BASE_DIVISION_SUPPORT_SLOT_COST = 0 		--Base cost to unlock a support slot
+
+NDefines.NMilitary.REGIMENTAL_SUPPORT_SLOT_COST_MULTIPLIER = 0  -- Regimental support slot costs are scaled by this value compared to normal support slots
+
+NDefines.NMilitary.COMMANDER_ABILITY_BASE_RANGE = 20            -- Base radius range of commander abilities
+
+NDefines.NMilitary.COMMS_MAX_DISTANCE = 4			-- If N is >= the size of the below arrays, the last value will be considered repeated
+NDefines.NMilitary.PLANNING_CAP_COMMS_SCALING = { 1.0, 0.95, 0.9, 0.85, 0.8 }		-- Value at index J is the scaling applied to planning cap when HQ is J provinces behind the frontline
+NDefines.NMilitary.PLANNING_CAP_NO_HQ_SCALING = 0.8								-- Scaling applied to planning cap when there's no HQ (no leader or leader not deployed or not the same root order)
+NDefines.NMilitary.PLANNING_SPEED_COMMS_SCALING = { 1.0, 0.95, 0.9, 0.85, 0.8 }		-- Same as PLANNING_CAP_COMMS_SCALING but for planning speed
+NDefines.NMilitary.PLANNING_SPEED_NO_HQ_SCALING = 0.8								-- Same as PLANNING_CAP_NO_HQ_SCALING but for planning speed
+NDefines.NMilitary.LEADER_MOD_COMMS_SCALING = { 1.06, 1.04, 1.02, 1.01, 1.0 }		-- Same as PLANNING_CAP_COMMS_SCALING but for leader modifiers
+NDefines.NMilitary.LEADER_MOD_NO_HQ_SCALING = 1.0									-- Same as PLANNING_CAP_NO_HQ_SCALING but for leader modifiers
+NDefines.NMilitary.ABILITY_COMMS_SCALING = { 1.06, 1.04, 1.02, 1.01, 1.0 }			-- Same as PLANNING_CAP_COMMS_SCALING but for active abilities
+NDefines.NMilitary.ABILITY_NO_HQ_SCALING = 1.0								-- Same as PLANNING_CAP_NO_HQ_SCALING but for active abilities
+NDefines.NMilitary.GENERAL_PROXIMITY_CLOSE = 1								-- At the "close" proximity setting, the general should stay this many provinces behind the frontline
+NDefines.NMilitary.GENERAL_PROXIMITY_MEDIUM = 2									-- At the "medium" proximity setting, the general should stay this many provinces behind the frontline
+NDefines.NMilitary.GENERAL_PROXIMITY_FAR = 3									-- At the "far" proximity setting, the general should stay this many provinces behind the frontline
+NDefines.NMilitary.GENERAL_PROXIMITY_DEFAULT = 1						-- The default proximity setting for a deployed general. This number should correspond to one of the values above
+NDefines.NMilitary.GENERAL_RANK_TO_ARMY_HQ_EXP_LEVEL_FACTOR = 0.5		    -- The general's rank is multiplied by this factor (rounded up) to determine the spawned Army HQ division's experience level
+NDefines.NMilitary.ARMY_HQ_REQUISITION_MINIMUM_REMAINING_PERCENTAGE = 10	    -- When deploying an Army HQ, divisions will not have their equipment or manpower requisitioned below this percentage of their target manpower or equipment
 
 NDefines.NMilitary.SUPPLY_GRACE = 240				-- troops always carry 5 days of food and supply
 
-NDefines.NMilitary.LAND_COMBAT_STR_DAMAGE_MODIFIER = 0.048	-- global damage modifier... but some equipment is returned at end of battles see : EQUIPMENT_COMBAT_LOSS_FACTOR
-NDefines.NMilitary.LAND_COMBAT_ORG_DAMAGE_MODIFIER = 0.048	-- global damage modifier
+NDefines.NMilitary.LAND_COMBAT_STR_DAMAGE_MODIFIER = 0.050	-- global damage modifier... but some equipment is returned at end of battles see : EQUIPMENT_COMBAT_LOSS_FACTOR
+NDefines.NMilitary.LAND_COMBAT_ORG_DAMAGE_MODIFIER = 0.040	-- global damage modifier
 
 NDefines.NMilitary.LAND_AIR_COMBAT_STR_DAMAGE_MODIFIER = 0.020	-- air global damage modifier
 NDefines.NMilitary.LAND_AIR_COMBAT_ORG_DAMAGE_MODIFIER = 0.020	-- global damage modifier
-NDefines.NMilitary.LAND_AIR_COMBAT_MAX_PLANES_PER_ENEMY_WIDTH = 1	-- how many CAS/TAC can enter a combat depending on enemy width there
+NDefines.NMilitary.LAND_AIR_COMBAT_MAX_PLANES_PER_ENEMY_WIDTH = 2	-- how many CAS/TAC can enter a combat depending on enemy width there
 
 NDefines.NMilitary.RELIABILITY_ORG_REGAIN = -0.5		-- how much reliability affects org regain
 NDefines.NMilitary.RELIABILTY_RECOVERY = 0.50			-- factor affecting how much equipment is returned "from the dead"
 
-NDefines.NMilitary.LAND_SPEED_MODIFIER = 0.04			-- basic speed control
+NDefines.NMilitary.LAND_SPEED_MODIFIER = 0.045			-- basic speed control
 
 NDefines.NMilitary.COHESION_IMMOBILE_PLANNING_SPEED_MULTIPLIER = 1	-- If using the 'immobile' cohesion setting, factor ALL planning speed growth by this
 NDefines.NMilitary.PLANNING_DECAY = 0.01
@@ -100,11 +131,16 @@ NDefines.NMilitary.COMBAT_SUPPLY_LACK_ATTACKER_DEFEND = -0.6	-- defend combat pe
 NDefines.NMilitary.COMBAT_SUPPLY_LACK_DEFENDER_ATTACK = -0.2	-- attack combat penalty for defender if out of supply
 NDefines.NMilitary.COMBAT_SUPPLY_LACK_DEFENDER_DEFEND = -0.3	-- defend combat penalty for defender if out of supply
 
+NDefines.NMilitary.NON_CORE_SUPPLY_SPEED = 0			-- we are not running on our own VP supply so need to steal stuff along the way
+NDefines.NMilitary.NON_CORE_SUPPLY_AIR_SPEED = 0		-- we are not running on our own VP supply so need to steal stuff along the way, a bit less due to air supply
+
 NDefines.NMilitary.STRATEGIC_SPEED_INFRA_BASE = 5.0		-- Base speed of strategic redeployment when not on railways
 NDefines.NMilitary.STRATEGIC_SPEED_INFRA_MAX = 10.0		-- Additional speed of strategic redeployment on max-level infrastructure
 NDefines.NMilitary.STRATEGIC_SPEED_RAIL_BASE = 15.0		-- Base speed of strategic redeployment when on railways
 NDefines.NMilitary.STRATEGIC_SPEED_RAIL_MAX = 25.0		-- Additional speed of strategic redeployment on max-level railways
 
+NDefines.NMilitary.RETREAT_SPEED_FACTOR = 0	                -- speed bonus when retreating
+NDefines.NMilitary.WITHDRAWING_SPEED_FACTOR = 0.15		-- speed bonus when withdrawing
 
 NDefines.NMilitary.RIVER_CROSSING_PENALTY = -0.3		-- small river crossing
 NDefines.NMilitary.RIVER_CROSSING_PENALTY_LARGE = -0.5		-- large river crossing
@@ -127,7 +163,7 @@ NDefines.NMilitary.BATALION_NOT_CHANGED_EXPERIENCE_DROP = 0.0	-- Division experi
 NDefines.NMilitary.BATALION_CHANGED_EXPERIENCE_DROP = 1		-- Division experience drop if unit has different batalion
 
 NDefines.NMilitary.EXPERIENCE_LOSS_FACTOR = 0.7			-- percentage of experienced solders who die when manpower is removed
-NDefines.NMilitary.EQUIPMENT_COMBAT_LOSS_FACTOR = 0.80	 	-- % of equipment lost to strength ratio in combat, so some % is returned if below 1
+NDefines.NMilitary.EQUIPMENT_COMBAT_LOSS_FACTOR = 0.70	 	-- % of equipment lost to strength ratio in combat, so some % is returned if below 1
 
 NDefines.NMilitary.TRAINING_MAX_LEVEL = 2
 NDefines.NMilitary.DEPLOY_TRAINING_MAX_LEVEL = 1
@@ -159,8 +195,8 @@ NDefines.NMilitary.TRAINING_ATTRITION = 0		  	-- amount of extra attrition from 
 NDefines.NMilitary.TRAINING_EXPERIENCE_SCALE = 0
 
 NDefines.NMilitary.TACTIC_SWAP_FREQUENCEY = 24                  -- hours between tactic swaps
-NDefines.NMilitary.RECON_SKILL_IMPACT = 10				-- how many skillpoints is a recon advantage worth when picking a tactic.
-NDefines.NMilitary.INITIATIVE_PICK_COUNTER_ADVANTAGE_FACTOR  = 1	-- advantage per leader level for picking a counter
+NDefines.NMilitary.RECON_SKILL_IMPACT = 5				-- how many skillpoints is a recon advantage worth when picking a tactic.
+NDefines.NMilitary.INITIATIVE_PICK_COUNTER_ADVANTAGE_FACTOR  = 0.5	-- advantage per leader level for picking a counter
 
 NDefines.NMilitary.SLOWEST_SPEED = 1
 
@@ -171,16 +207,16 @@ NDefines.NMilitary.ENEMY_AIR_SUPERIORITY_SPEED_IMPACT = -0.4	-- effect on speed 
 NDefines.NMilitary.ENEMY_AIR_SUPERIORITY_DEFENSE = 1.6		-- more AA attack will approach this amount of help (diminishing returns)
 NDefines.NMilitary.ENEMY_AIR_SUPERIORITY_DEFENSE_STEEPNESS = 353-- how quickly defense approaches the max impact diminishing returns curve
 
-NDefines.NMilitary.ANTI_AIR_TARGETTING_TO_CHANCE = 0.1		-- Balancing value to determine the chance of ground AA hitting an attacking airplane, affecting both the effective average damage done by AA to airplanes, and the reduction of damage done by airplanes due to AA support
+NDefines.NMilitary.ANTI_AIR_TARGETTING_TO_CHANCE = 0.15		-- Balancing value to determine the chance of ground AA hitting an attacking airplane, affecting both the effective average damage done by AA to airplanes, and the reduction of damage done by airplanes due to AA support
 NDefines.NMilitary.ANTI_AIR_ATTACK_TO_AMOUNT = 0.001		-- Balancing value to convert equipment stat anti_air_attack to the random % value of airplanes being hit.
-NDefines.NAir.ANTI_AIR_ATTACK_TO_DAMAGE_REDUCTION_FACTOR = 0.06	-- Balancing value to convert equipment stat anti_air_attack to the damage reduction modifier apply to incoming air attacks against units with AA.
+NDefines.NAir.ANTI_AIR_ATTACK_TO_DAMAGE_REDUCTION_FACTOR = 0.04	-- Balancing value to convert equipment stat anti_air_attack to the damage reduction modifier apply to incoming air attacks against units with AA.
 NDefines.NAir.ANTI_AIR_MAXIMUM_DAMAGE_REDUCTION_FACTOR = 0.90	-- Maximum damage reduction factor applied to incoming air attacks against units with AA.
 
 NDefines.NAir.COMBAT_DAMAGE_SCALE = 0.25			-- Higher value = more shot down planes
 NDefines.NAir.COMBAT_DAMAGE_SCALE_CARRIER = 5			-- same as above but used inside naval combat for carrier battles
 
-NDefines.NAir.DISRUPTION_FACTOR = 5.0						-- multiplier on disruption damage to scale its effects on planes
-NDefines.NAir.DISRUPTION_FACTOR_CARRIER = 7.5				-- multiplier on disruption damage to scale its effects on carrier vs carrier planes
+NDefines.NAir.DISRUPTION_FACTOR = 5.0				-- multiplier on disruption damage to scale its effects on planes
+NDefines.NAir.DISRUPTION_FACTOR_CARRIER = 7.5			-- multiplier on disruption damage to scale its effects on carrier vs carrier planes
 
 NDefines.NAir.AA_INDUSTRY_AIR_DAMAGE_FACTOR = -0.1		-- 5x levels = 60% defense from bombing
 
@@ -201,6 +237,7 @@ NDefines.NMilitary.UNIT_LEADER_INITIAL_TRAIT_SLOT = { 		-- trait slot for 0 leve
 	0.0, -- operative
 }
 
+NDefines.NRailwayGun.RAILWAY_GUN_POSSIBLE_RANGES = { 30, 15, 45 }	-- Possible values for railway gun range in pixel.
 NDefines.NRailwayGun.ATTACK_TO_FORTS_MODIFIER_FACTOR = 1		-- Forts modifier is calculated by multiplying railway gun attack value with this and dividing by 100
 NDefines.NRailwayGun.ATTACK_TO_ENTRENCHMENT_MODIFIER_FACTOR = 1		-- Entrenchment modifier is calculated by multiplying railway gun attack value with this and dividing by 100
 NDefines.NRailwayGun.ATTACK_TO_BOMBARDMENT_MODIFIER_FACTOR = 0.2	-- Bombardment modifier is calculated by multiplying railway gun attack value with this and dividing by 100
@@ -216,8 +253,8 @@ NDefines.NProduction.RESOURCE_TO_ENERGY_COEFFICIENT = 1.0	-- How much energy per
 
 NDefines.NProduction.BASE_FACTORY_MAX_EFFICIENCY_FACTOR = 50	-- Base max efficiency for factories expressed in %.
 
-NDefines.NProduction.BASE_FACTORY_SPEED_MIL = 4			-- Base factory speed multiplier (how much hoi3 style IC each factory gives).
-NDefines.NProduction.BASE_FACTORY_SPEED_NAV = 4			-- vanilla is 2.5
+NDefines.NProduction.BASE_FACTORY_SPEED_MIL = 5		-- Base factory speed multiplier (how much hoi3 style IC each factory gives).
+NDefines.NProduction.BASE_FACTORY_SPEED_NAV = 5		-- vanilla is 2.5
 
 NDefines.NProduction.INFRA_MAX_CONSTRUCTION_COST_EFFECT = 1	-- Building in a state with higher infrastructure will reduce the cost of shared buildings.
 
@@ -265,7 +302,7 @@ NDefines.NBuildings.MAX_SHARED_SLOTS = 50				-- Max slots shared by factories
 NDefines.NBuildings.AIRBASE_CAPACITY_MULT = 100			-- Each level of airbase building multiplied by this, gives capacity (max operational value). Value is int. 1 for each airplane.
 
 NDefines.NAir.NAVAL_STRIKE_TARGETTING_TO_AMOUNT = 0.3	-- Balancing value to convert the naval_strike_targetting equipment stats to chances of how many airplanes managed to do successfull strike.
-NDefines.NAir.NAVAL_STRIKE_DAMAGE_TO_STR = 1.0			-- Balancing value to convert damage ( naval_strike_attack * hits ) to Strength reduction.
+NDefines.NAir.NAVAL_STRIKE_DAMAGE_TO_STR = 1.5			-- Balancing value to convert damage ( naval_strike_attack * hits ) to Strength reduction.
 NDefines.NAir.NAVAL_STRIKE_DAMAGE_TO_ORG = 4.0			-- Balancing value to convert damage ( naval_strike_attack * hits ) to Organisation reduction.
 NDefines.NAir.NAVAL_STRIKE_CARRIER_MULTIPLIER = 2.0		-- damage bonus when planes are in naval combat where their carrier is present (and can thus sortie faster and more effectively)
 
@@ -283,9 +320,6 @@ NDefines.NNavy.COMBAT_DAMAGE_TO_ORG_FACTOR = 0.3		-- casting damage value to shi
 NDefines.NNavy.SUPPLY_NEED_FACTOR = 0.1					-- multiplies supply usage
 NDefines.NNavy.BASE_CARRIER_SORTIE_EFFICIENCY = 0.1		-- factor of planes that can sortie by default from a carrier
 
-NDefines.NNavy.CARRIER_STACK_PENALTY = 4				-- The most efficient is 4 carriers in combat. 5+ brings the penalty to the amount of wings in battle.
-NDefines.NNavy.CARRIER_STACK_PENALTY_EFFECT = 0.20		-- Each carrier above the optimal amount decreases the amount of airplanes being able to takeoff by such %.
-
 NDefines.NNavy.CARRIER_ONLY_COMBAT_ACTIVATE_TIME = 0		-- hours from start of combat when carriers get to fight
 NDefines.NNavy.CAPITAL_ONLY_COMBAT_ACTIVATE_TIME = 0		-- hours from start of combat when only carriers, capitals and subs get to attack
 NDefines.NNavy.ALL_SHIPS_ACTIVATE_TIME = 0
@@ -297,28 +331,16 @@ NDefines.NNavy.NAVAL_COMBAT_AIR_CONVOY_TARGET_SCORE = 1.0
 NDefines.NNavy.NAVAL_COMBAT_AIR_STRENGTH_TARGET_SCORE = 5	-- how much score factor from low health (scales between 0->this number)
 NDefines.NNavy.NAVAL_COMBAT_AIR_LOW_AA_TARGET_SCORE = 5		-- how much score factor from low AA guns (scales between 0->this number)
 
-NDefines.NNavy.MISSION_SUPREMACY_RATIOS = {
-		0.0, -- HOLD
-		1.0, -- PATROL
-		0.1, -- STRIKE FORCE
-		0.3, -- CONVOY RAIDING
-		0.6, -- CONVOY ESCORT
-		0.0, -- MINES PLANTING
-		0.0, -- MINES SWEEPING
-		0.0, -- TRAIN
-		0.0, -- RESERVE_FLEET
-		0.1, -- NAVAL_INVASION_SUPPORT
-	}
 
 NDefines.NNavy.BASE_JOIN_COMBAT_HOURS = 24			-- the taskforces that wants to join existing combats will wait for at least this amount
 NDefines.NNavy.LOW_ORG_FACTOR_ON_JOIN_COMBAT_DURATION = 2.0	-- low org of the ships will be factored in when a taskforce wants to join combat
 
 NDefines.NNavy.BASE_POSITIONING = 0.8				-- base value for positioning
 
-NDefines.NNavy.HIGHER_SHIP_RATIO_POSITIONING_PENALTY_FACTOR = 1.0					-- if one side has more ships than the other, that side will get this penalty for each +100% ship ratio it has
-NDefines.NNavy.MAX_POSITIONING_PENALTY_FROM_HIGHER_SHIP_RATIO = 2.0				-- maximum penalty to get from larger fleets
+NDefines.NNavy.HIGHER_SHIP_RATIO_POSITIONING_PENALTY_FACTOR = 0.5					-- if one side has more ships than the other, that side will get this penalty for each +100% ship ratio it has
+NDefines.NNavy.MAX_POSITIONING_PENALTY_FROM_HIGHER_SHIP_RATIO = 1.0				-- maximum penalty to get from larger fleets
 NDefines.NNavy.MIN_SHIPS_FOR_HIGHER_SHIP_RATIO_PENALTY = 51					-- the minimum fleet size in ships that a fleet must be before having the large fleet penalty applied to them
-NDefines.NNavy.DAMAGE_PENALTY_ON_MINIMUM_POSITIONING = 1.0					-- damage penalty at 0% positioning
+NDefines.NNavy.DAMAGE_PENALTY_ON_MINIMUM_POSITIONING = 0.9					-- damage penalty at 0% positioning
 
 NDefines.NNavy.SCREEN_RATIO_FOR_FULL_SCREENING_FOR_CAPITALS = 2.0				-- this screen ratio to num capital/carriers is needed for full screening beyond screen line
 NDefines.NNavy.SCREEN_RATIO_FOR_FULL_SCREENING_FOR_CONVOYS = 0.2				-- this screen ratio to num convoys is needed for full screening beyond screen line
@@ -460,3 +482,9 @@ NDefines.NIndustrialOrganisation.ASSIGN_DESIGN_TEAM_PP_COST_PER_DAY = 0			-- Cos
 NDefines.NIndustrialOrganisation.DESIGN_TEAM_RESEARCH_BONUS = 0.1				-- Research bonus for applying a Design Team that matches the technology
 NDefines.NIndustrialOrganisation.ENABLE_TASK_CAPACITY = true					-- Enable limited task capacity for MIOs
 NDefines.NIndustrialOrganisation.DEFAULT_INITIAL_TASK_CAPACITY = 2
+
+
+NDefines.NMarket.IC_TO_CIC_FACTOR = 1.0                    	-- The factor for mapping IC cost to CIC cost. Should be a positive number.
+NDefines.NMarket.LOW_PRICE_LEVEL_FACTOR = 0.5                   -- The factor of base equipment price for low price level. Should be in range (0,1]
+NDefines.NMarket.HIGH_PRICE_LEVEL_FACTOR = 2.00                 -- The factor of base equipment price for high price level. Should be more than 1.
+NDefines.NMarket.PURCHASE_CONTRACT_SUBSIDY_BONUS_SPEED_FACTOR = 10.0			-- The factor of speed bonus from subsidies

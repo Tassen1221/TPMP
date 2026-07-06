@@ -307,7 +307,7 @@
 		y = 1
 		relative_position_id = MAN_tsr_collective_farms
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 10
@@ -438,7 +438,7 @@
 		y = 1
 		relative_position_id = MAN_tsr_trade_delegation
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 4
@@ -1836,6 +1836,7 @@
 			}
 			custom_effect_tooltip = generic_skip_one_line_tt
 			MAN_low_legitimacy_level_down = yes
+			custom_effect_tooltip = TPMP_MAN_promise_of_territory
 		}
 	}
 
@@ -1874,6 +1875,10 @@
 			# }
 		}
 
+		allow_branch = {
+			always = no
+		}
+
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
@@ -1897,11 +1902,11 @@
 		id = MAN_tsr_national_cooperation_government
 		icon = GFX_goal_generic_improve_relations
 		prerequisite = { focus = MAN_tsr_chinese_leadership }
-		x = 1
+		x = 0
 		y = 1
 		relative_position_id = MAN_tsr_chinese_leadership
 
-		cost = 10
+		cost = 20
 
 		ai_will_do = {
 			factor = 1
@@ -1929,12 +1934,6 @@
 						is_core_of = CHI
 						NOT = { 
 							state = 524
-							state = 591
-							state = 743
-							state = 531
-							state = 728
-							state = 729
-							state = 326
 						}
 					}	 
 				}
@@ -1946,7 +1945,7 @@
 	focus = {
 		id = MAN_tsr_the_two_emperors
 		icon = GFX_goal_anschluss
-		prerequisite = { focus = MAN_tsr_vassalize_mengukuo }
+		# prerequisite = { focus = MAN_tsr_vassalize_mengukuo }
 		prerequisite = { focus = MAN_tsr_national_cooperation_government }
 		x = 0
 		y = 2
@@ -1986,10 +1985,6 @@
 
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		completion_reward = {
-			add_autonomy_ratio = {
-				value = 0.15
-				localization = MAN_the_two_emperors
-			}
 			MAN_low_legitimacy_level_down_twice = yes
 			set_cosmetic_tag = MAN_restored
 		}
@@ -4391,16 +4386,22 @@
 		
 
 		completion_reward = {
+
 			add_popularity = {
 				ideology = neutrality
 				popularity = 0.05
 			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+
 			add_trait = {
 				character = MAN_aisin_gioro_puyi
 				trait = MAN_figurehead_emperor
 				ideology = despotism
 			}
+
 		}
+
 	}
 
 	focus = {
@@ -4689,7 +4690,10 @@
 					NOT = { tag = event_target:WTT_current_china_leader }
 					is_subject = no
 				}
-				country_event = { id = wtt_manchukou.1 }
+				country_event = { 
+					id = wtt_manchukou.1 
+					hours = 2
+				}
 			}
 		}
 	}
@@ -5068,11 +5072,13 @@
 
 			MAN_low_legitimacy_clear_all = yes	
 
+			custom_effect_tooltip = generic_skip_one_line_tt
+
 			set_cosmetic_tag = MAN_restored
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
-			add_country_leader_trait = CHI_tsr_son_of_heaven
+			add_country_leader_trait = CHI_tsr_son_of_heaven_2
 
 			hidden_effect = {
 				news_event = { id = wtt_news.44 days = 2 }

@@ -190,7 +190,7 @@ country_event = {
 		16 = { is_controlled_by = GER }
 		is_in_faction_with = ENG
 		ENG = { has_war_with = GER }
-		surrender_progress > 0.7
+		has_capitulated = yes
 		GER = {
 			OR = {
 				is_faction_leader = yes
@@ -1188,23 +1188,6 @@ country_event = {
 				}
 				set_state_flag = vichy_italian_conquest
 			}
-			hidden_effect = {
-				add_equipment_to_stockpile = {
-					type = convoy
-					amount = 200
-					producer = FRA
-				}
-				add_equipment_to_stockpile = {
-					type = motorized_equipment
-					amount = 1000
-					producer = FRA
-				}
-				add_equipment_to_stockpile = {
-					type = train_equipment
-					amount = 50
-					producer = FRA
-				}
-			}
 		}
 		custom_effect_tooltip = establishing_vichy_tt
 
@@ -1217,8 +1200,6 @@ country_event = {
 				set_country_flag = vichy_france
 				every_state = { #transfer French colonial empire
 					limit = {
-						is_controlled_by = FRA
-						is_owned_by = FRA
 						OR = {
 							state = 1
 							state = 458
@@ -1228,6 +1209,26 @@ country_event = {
 							state = 462
 							state = 513
 							state = 665
+							state = 799
+							state = 677
+							state = 680
+							state = 553
+							state = 554
+						}
+						# Keep French Indochina out of Vichy while Siam's limited war over it is ongoing
+						NOT = {
+							AND = {
+								OR = {
+									is_core_of = VIN
+									is_core_of = CAM
+									is_core_of = LAO
+								}
+								SIA = {
+									has_active_mission = SIA_limited_war_indochina
+									has_variable = limited_war_target
+									var:limited_war_target = { original_tag = FRA }
+								}
+							}
 						}
 					}
 					event_target:vichy_france = { transfer_state = PREV }
@@ -1341,7 +1342,7 @@ country_event = {
 						target = event_target:vichy_france
 						size = 0.9
 						stockpile_ratio = 0.7
-						army_ratio = 0.5
+						army_ratio = 0.7
 						navy_ratio = 0.85
 						air_ratio = 1.0
 					}
@@ -1450,6 +1451,19 @@ country_event = {
 		remove_ideas = FRA_victors_of_wwi
 		remove_ideas = FRA_disjointed_government
 		remove_ideas = FRA_protected_by_the_maginot_line
+		remove_ideas = FRA_full_employment
+		IF = {
+			limit = {
+				has_idea = FRA_inefficient_economy_1
+			}
+			remove_ideas = FRA_inefficient_economy_1
+		}
+		ELSE_IF = {
+			limit = {
+				has_idea = FRA_inefficient_economy_2
+			}
+			remove_ideas = FRA_inefficient_economy_2
+		}
 	}
 }
 

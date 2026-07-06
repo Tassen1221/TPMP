@@ -12,20 +12,20 @@ units= {
 			name = "Battleships, Battle Force"
 			location = 1562 # San Diego
 			### Battleship Division 1 ###			
-			ship = { name = "USS Nevada" definition = battleship start_experience_factor = 0.25 equipment = { ship_hull_heavy_1 = { amount = 1 owner = USA version_name = "Pennsylvania Class" } } }				
+			ship = { name = "USS Nevada" definition = battleship start_experience_factor = 0.25 equipment = { ship_hull_heavy_1 = { amount = 1 owner = USA version_name = "Nevada Class" } } }				
 			ship = { name = "USS Arizona" definition = battleship start_experience_factor = 0.25 equipment = { ship_hull_heavy_1 = { amount = 1 owner = USA version_name = "Pennsylvania Class" } } }				
-			ship = { name = "USS Pennsylvania" pride_of_the_fleet = yes definition = battleship start_experience_factor = 0.25 equipment = { ship_hull_heavy_1 = { amount = 1 owner = USA version_name = "Pennsylvania Class" } } }				
+			ship = { name = "USS Pennsylvania" definition = battleship start_experience_factor = 0.25 equipment = { ship_hull_heavy_1 = { amount = 1 owner = USA version_name = "Pennsylvania Class" } } }				
 			### Battleship Division 2 ###			
-			ship = { name = "USS Oklahoma" definition = battleship start_experience_factor = 0.25 equipment = { ship_hull_heavy_1 = { amount = 1 owner = USA version_name = "Pennsylvania Class" } } }				
-			ship = { name = "USS Tennessee" definition = battleship start_experience_factor = 0.25 equipment = { ship_hull_heavy_1 = { amount = 1 owner = USA version_name = "Pennsylvania Class" } } }				
-			ship = { name = "USS California" definition = battleship start_experience_factor = 0.25 equipment = { ship_hull_heavy_1 = { amount = 1 owner = USA version_name = "Pennsylvania Class" } } }				
+			ship = { name = "USS Oklahoma" definition = battleship start_experience_factor = 0.25 equipment = { ship_hull_heavy_1 = { amount = 1 owner = USA version_name = "Nevada Class" } } }				
+			ship = { name = "USS Tennessee" definition = battleship start_experience_factor = 0.25 equipment = { ship_hull_heavy_1 = { amount = 1 owner = USA version_name = "Tennessee Class" } } }				
+			ship = { name = "USS California" definition = battleship start_experience_factor = 0.25 equipment = { ship_hull_heavy_1 = { amount = 1 owner = USA version_name = "Tennessee Class" } } }				
 			### Battleship Division 3 ###			
 			ship = { name = "USS New Mexico" definition = battleship start_experience_factor = 0.25 equipment = { ship_hull_heavy_1 = { amount = 1 owner = USA version_name = "Pennsylvania Class" } } }				
 			ship = { name = "USS Mississippi" definition = battleship start_experience_factor = 0.25 equipment = { ship_hull_heavy_1 = { amount = 1 owner = USA version_name = "Pennsylvania Class" } } }				
 			ship = { name = "USS Idaho" definition = battleship start_experience_factor = 0.25 equipment = { ship_hull_heavy_1 = { amount = 1 owner = USA version_name = "Pennsylvania Class" } } }				
 			### Battleship Division 4 ###			
 			ship = { name = "USS Colorado" definition = battleship start_experience_factor = 0.25 equipment = { ship_hull_heavy_1 = { amount = 1 owner = USA version_name = "Colorado Class" } } }				
-			ship = { name = "USS West Virginia" definition = battleship start_experience_factor = 0.25 equipment = { ship_hull_heavy_1 = { amount = 1 owner = USA version_name = "Colorado Class" } } }				
+			ship = { name = "USS West Virginia" pride_of_the_fleet = yes definition = battleship start_experience_factor = 0.25 equipment = { ship_hull_heavy_1 = { amount = 1 owner = USA version_name = "Colorado Class" } } }				
 			ship = { name = "USS Maryland" definition = battleship start_experience_factor = 0.25 equipment = { ship_hull_heavy_1 = { amount = 1 owner = USA version_name = "Colorado Class" } } }				
 		}				
 		task_force = {					
@@ -39,6 +39,9 @@ units= {
 			}
 			ship = { name = "USS Saratoga" definition = carrier start_experience_factor = 0.25 equipment = { ship_hull_carrier_conversion_bb = { amount = 1 owner = USA version_name = "Lexington Class" } } 
 				
+			}
+			ship = { name = "USS Langley" definition = carrier start_experience_factor = 0.25 equipment = { ship_hull_carrier_conversion_bb = { amount = 1 owner = USA version_name = "Langley Class" } } 
+
 			}
 		}					
 		task_force = {					
@@ -222,7 +225,7 @@ units= {
 			ship = { name = "USS Dolphin" definition = submarine equipment = { ship_hull_submarine_2 = { amount = 1 owner = USA version_name = "Barracuda Class" } } }
 			# 13th Submarine Division				
 			ship = { name = "USS Nautilus" definition = submarine equipment = { ship_hull_submarine_2 = { amount = 1 owner = USA version_name = "Barracuda Class" } } }
-			ship = { name = "USS Cachalot" definition = submarine equipment = { ship_hull_submarine_2 = { amount = 1 owner = USA version_name = "Barracuda Class" } } }
+			ship = { name = "USS Cachalot" definition = submarine officer = { name = USA_slade_cutter portraits = { navy = { large = GFX_portrait_USA_slade_cutter small = GFX_portrait_USA_slade_cutter_small } } } equipment = { ship_hull_submarine_2 = { amount = 1 owner = USA version_name = "Barracuda Class" } } } #Not historical for Cutter, but closest we can get
 			ship = { name = "USS Cuttlefish" definition = submarine equipment = { ship_hull_submarine_2 = { amount = 1 owner = USA version_name = "Barracuda Class" } } }
 			ship = { name = "USS Porpoise" definition = submarine equipment = { ship_hull_submarine_2 = { amount = 1 owner = USA version_name = "Porpoise Class" } } }
 			ship = { name = "USS Pike" definition = submarine equipment = { ship_hull_submarine_2 = { amount = 1 owner = USA version_name = "Porpoise Class" } } }

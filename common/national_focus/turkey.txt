@@ -129,182 +129,6 @@ focus_tree = {
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
-			IF = {
-				limit = {
-					has_idea = TUR_first_five_year_plan
-				}
-				custom_effect_tooltip = TUR_continue_the_sumerbank_industrialization_scheme_tt
-				IF = {
-					limit = {
-						356 = {
-							is_controlled_by = ROOT
-							free_building_slots = {
-								building = industrial_complex
-								size > 0
-								include_locked = yes
-							}	
-						}
-					}
-					356 = {
-						add_extra_state_shared_building_slots = 1
-						add_building_construction = {
-							type = industrial_complex
-							level = 1
-							instant_build = yes
-						}	
-					}
-				}
-				IF = {
-					limit = {
-						339 = {
-							is_controlled_by = ROOT
-							free_building_slots = {
-								building = industrial_complex
-								size > 0
-								include_locked = yes
-							}	
-						}
-					}
-					339 = {
-						add_extra_state_shared_building_slots = 1
-						add_building_construction = {
-							type = industrial_complex
-							level = 1
-							instant_build = yes
-						}	
-					}
-				}
-				IF = {
-					limit = {
-						344 = {
-							is_controlled_by = ROOT
-						}
-					}
-					344 = {
-						add_resource = {
-							type = steel
-							amount = 6
-						}		
-					}
-				}
-				IF = {
-					limit = {
-						348 = {
-							is_controlled_by = ROOT
-						}
-					}
-					348 = {
-						add_resource = {
-							type = steel
-							amount = 4
-						}		
-					}
-				}
-				custom_effect_tooltip = generic_skip_one_line_tt
-				custom_effect_tooltip = TUR_continue_the_sumerbank_industrialization_scheme_2_tt
-				effect_tooltip = {
-					IF = {
-						limit = {
-							356 = {
-								is_controlled_by = ROOT
-								free_building_slots = {
-									building = industrial_complex
-									size > 0
-									include_locked = yes
-								}	
-							}
-						}
-						356 = {
-							add_extra_state_shared_building_slots = 1
-							add_building_construction = {
-								type = industrial_complex
-								level = 1
-								instant_build = yes
-							}	
-						}
-					}
-					IF = {
-						limit = {
-							344 = {
-								is_controlled_by = ROOT
-							}
-						}
-						344 = {
-							add_resource = {
-								type = steel
-								amount = 4
-							}		
-						}
-					}
-					IF = {
-						limit = {
-							348 = {
-								is_controlled_by = ROOT
-							}
-						}
-						348 = {
-							add_resource = {
-								type = steel
-								amount = 2
-							}		
-						}
-					}
-				}
-			}
-			ELSE_IF = {
-				limit = {
-					NOT = {
-						has_idea = TUR_first_five_year_plan
-					}
-				}
-				IF = {
-					limit = {
-						356 = {
-							is_controlled_by = ROOT
-							free_building_slots = {
-								building = industrial_complex
-								size > 0
-								include_locked = yes
-							}	
-						}
-					}
-					356 = {
-						add_extra_state_shared_building_slots = 1
-						add_building_construction = {
-							type = industrial_complex
-							level = 1
-							instant_build = yes
-						}	
-					}
-				}
-				IF = {
-					limit = {
-						344 = {
-							is_controlled_by = ROOT
-						}
-					}
-					344 = {
-						add_resource = {
-							type = steel
-							amount = 4
-						}		
-					}
-				}
-				IF = {
-					limit = {
-						348 = {
-							is_controlled_by = ROOT
-						}
-					}
-					348 = {
-						add_resource = {
-							type = steel
-							amount = 2
-						}		
-					}
-				}
-			}
-
 		}
 	}
 
@@ -332,13 +156,6 @@ focus_tree = {
 
 			add_political_power = 50
 			
-			IF = {
-				limit = {
-					has_idea = TUR_widespread_illiteracy_idea
-				}
-				custom_effect_tooltip = generic_skip_one_line_tt
-				remove_ideas = TUR_widespread_illiteracy_idea
-			}
 
 		}
 	}
@@ -2351,12 +2168,11 @@ focus_tree = {
 	focus = {
 		id = TUR_georgian_manganese_extraction
 		icon = {
-			value = GFX_focus_generic_steel
-			trigger = {
+			GFX_focus_generic_steel = {
 				SOV = { NOT = { controls_state = 231 } } #APPROPRIATE CONDITIONS FOR GENERIC ICON
 			}
+			GFX_focus_chi_mission_to_the_soviet_union = yes
 		}
-		icon = GFX_focus_chi_mission_to_the_soviet_union
 		prerequisite = { focus = TUR_halk_ve_devlet }
 		x = -2
 		y = 1

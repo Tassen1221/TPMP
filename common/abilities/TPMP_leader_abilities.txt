@@ -24,20 +24,68 @@ ability = {
 		unit_modifiers = {
 			special_forces_attack_factor = 0.1
 			special_forces_defence_factor = 0.1
+			offence = 0.2
+			breakthrough_factor = 0.25
+			org_damage_multiplier = -0.2
+			str_damage_multiplier = 0.4
+			war_support_reduction_on_damage = 0.2
+			cannot_retreat_while_attacking = 1.0
+		}
+	}
+	tanks_forward = {
+		name = ABILITY_TANKS_FORWARD
+		desc = ABILITY_TANKS_FORWARD_DESC
+		
+		sound_effect = command_power_ability_offensive
+		
+		type = army_leader
+		
+		allowed = {
+			is_leading_army_group = no
+			is_border_war = no
+			OWNER = {
+				has_mastery_level = {
+					amount = 1
+					sub_doctrine = armor_doctrine_3
+				}
+			}
 		}
 		
-		one_time_effect = {
-			add_temporary_buff_to_units = {
-				combat_offense = 0.2
-				combat_breakthrough = 0.25
-				org_damage_multiplier = -0.2
-				str_damage_multiplier = 0.4
-				war_support_reduction_on_damage = 0.2
-				cannot_retreat_while_attacking = 1.0
-				
-				days = 7
-				tooltip = ABILITY_LEAD_THE_WAY_TOOLTIP
+		cost = 0.22
+		duration = 168
+
+		unit_modifiers = {
+			army_armor_attack_factor = 0.05
+			army_armor_speed_factor = 0.15
+			cannot_retreat_while_attacking = 1.0
+		}
+	}
+	rain_of_fire = {
+		name = ABILITY_RAIN_OF_FIRE
+		desc = ABILITY_RAIN_OF_FIRE_DESC
+		
+		sound_effect = command_power_ability_offensive
+		
+		type = army_leader
+		
+		allowed = {
+			is_leading_army_group = no
+			is_border_war = no
+			OWNER = {
+				has_mastery_level = {
+					amount = 5
+					sub_doctrine = artillery_doctrine_4
+				}
 			}
+		}
+		
+		cost = 0.22
+		duration = 168
+
+		unit_modifiers = {
+			modifier_army_sub_unit_category_rocket_artillery_attack_factor = 0.25
+			org_damage_multiplier = 0.25
+			str_damage_multiplier = -0.5
 		}
 	}
 }

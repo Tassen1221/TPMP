@@ -4,46 +4,82 @@ infantry_doctrine_1 = {
     description = SUBDOCTRINE_MOBILE_1_DESC
     icon = GFX_doctrine_human_infantry_offensive_medium
 
-    xp_cost = 100
+    xp_cost = 0
     xp_type = army
 
     available = {
         always = yes
     }
 
+    visible = {
+		NOT = {
+			has_subdoctrine_in_track = infantry
+		}
+	}
+    
     category_leg_infantry = {
+        max_organisation = 5
         defense = 0.1
-        maximum_speed = -0.05
+        entrenchment = 0.1
+        maximum_speed = -0.1
     }
 
     rewards = {
-        infantry_doctrine_1a = {
-             category_leg_infantry = {
-                entrenchment = 0.2
-            }
-        }
-        infantry_doctrine_1b = {
+        a = {
             category_leg_infantry = {
-                defense = 0.05
-                default_morale = 0.1
+                entrenchment = 0.1
             }
-        }
-        infantry_doctrine_1c = {
-            category_leg_infantry = {
-                max_organisation = 10
+            headquarters = {
+                battalion_mult = {
+                    category = category_frontline_infantry
+                    defense = 0.05
+                }
             }
-        }
-        infantry_doctrine_1d = {
-            category_leg_infantry = {
-                defense = 0.05
-                max_organisation = 5
+            armored_headquarters = {
+                battalion_mult = {
+                    category = category_frontline_infantry
+                    defense = 0.05
+                }
             }
-        }
-        infantry_doctrine_1e = {
             max_dig_in = 1
+        }
+        b = {
             category_leg_infantry = {
-                soft_attack = 0.05
+                default_morale = 0.05
             }
+            infantry = { fort = { defence = 0.1 }}
+            militia = { fort = { defence = 0.1 }}
+            cavalry = { fort = { defence = 0.1 }}
+            marine = { fort = { defence = 0.1 }}
+            mountaineers = { fort = { defence = 0.1 }}
+            rangers = { fort = { defence = 0.1 }}
+            paratrooper = { fort = { defence = 0.1 }}
+        }
+        c = {
+            engineer = {
+                entrenchment = 2
+            }
+            assault_engineer = {
+                entrenchment = 2
+            }
+            armored_engineer = {
+                entrenchment = 2
+            }
+            recon_factor_while_entrenched = 0.1
+        }
+        d = {
+            category_infantry = {
+                defense = 0.05
+                soft_attack = 0.1
+                hard_attack = 0.1
+            }
+        }
+        e = {
+            category_infantry = {
+                max_organisation = 5
+                defense = 0.1
+            }
+            dig_in_speed_factor = 0.2
         }
     }
 }
@@ -53,54 +89,67 @@ infantry_doctrine_2 = {
     description = SUBDOCTRINE_MOBILE_2_DESC
     icon = GFX_doctrine_human_infantry_offensive_medium
 
-    xp_cost = 100
+    xp_cost = 0
     xp_type = army
 
     available = {
         always = yes
     }
 
+    visible = {
+		NOT = {
+			has_subdoctrine_in_track = infantry
+		}
+	}
+
     infantry = {
-        combat_width = -0.2
+        combat_width = -0.3
+        max_strength = -5
+        need = {
+            line_infantry_equipment_1 = -10
+        }
+    }
+    effect = {
+        custom_effect_tooltip = infantry_doctrine_2_tt
     }
 
     rewards = {
-        infantry_doctrine_2a = {
-            conscription = 0.01
+        a = {
+            infantry = {
+                combat_width = -0.2
+                max_strength = -2
+            }
+            conscription = 0.02
+        }
+        b = {
+            category_leg_infantry = {
+                default_morale = 0.05
+            }
             infantry = {
                 need = {
                     line_infantry_equipment_1 = -10
                 }
             }
+            effect = {
+                custom_effect_tooltip = infantry_doctrine_2_b_tt
+            }
         }
-        infantry_doctrine_2b = {
+        c = {
+            effect = {
+                custom_effect_tooltip = infantry_doctrine_2_c_tt
+            }
+        }
+        d = {
             category_leg_infantry = {
-                default_morale = 0.1
-                max_organisation = 5
+                default_morale = 0.05
+                initiative = 0.01
             }
         }
-        infantry_doctrine_2c = {
-            category_leg_infantry = {
-                supply_consumption = -0.01
-            }
-             infantry = {
-                need = {
-                    line_infantry_equipment_1 = -10
-                }
-            }
-        }
-        infantry_doctrine_2d = {
-            category_leg_infantry = {
-                default_morale = 0.1
-                max_organisation = 5
-            }
-        }
-        infantry_doctrine_2e = {
-            land_reinforce_rate = 0.01
-            supply_consumption_factor = -0.05
+        e = { 
             category_leg_infantry = {
                 supply_consumption = -0.01
             }
+            land_reinforce_rate = 0.02
         }
     }
 }
@@ -110,49 +159,89 @@ infantry_doctrine_3 = {
     description = SUBDOCTRINE_MOBILE_3_DESC
     icon = GFX_doctrine_human_infantry_offensive_medium
 
-    xp_cost = 100
+    xp_cost = 0
     xp_type = army
 
     available = {
         always = yes
     }
 
+    visible = {
+		NOT = {
+			has_subdoctrine_in_track = infantry
+		}
+	}
+
     category_leg_infantry = {
+        default_morale = 0.05
+        maximum_speed = 0.1
+        supply_consumption = -0.01
+    }
+    infantry = {
         breakthrough = 0.1
-        default_morale = 0.1
     }
 
     rewards = {
-        infantry_doctrine_2a = {
+        a = {
+            effect = {
+                hidden_effect = {
+                    set_technology = {
+                        TPMP_infantry_doctrine_3_a_tech = 1
+                        popup = no
+                    }
+                }
+                custom_effect_tooltip = infantry_doctrine_3_a_tt
+            }
+            assault_squad = {
+                battalion_mult = {
+                    category = category_frontline_infantry
+                    soft_attack = 0.05
+                }
+            }
+        }
+        b = {
             category_leg_infantry = {
-                maximum_speed = 0.1
+                defense = 0.05
+            }
+            infantry = {
+                soft_attack = 0.2
+            }
+        }
+        c = {
+            assault_squad = {
+                battalion_mult = {
+                    category = category_frontline_infantry
+                    breakthrough = 0.05
+                }
+            }
+            infantry = {
+                maximum_speed = 0.05
+                hills = { attack = 0.03 }
+				mountain = { attack = 0.03 }
+				forest = { attack = 0.03 }
+				jungle = { attack = 0.03 }
+				marsh = { attack = 0.03 }
+				urban = { attack = 0.03 }
+            }
+        }
+        d = {
+            category_leg_infantry = {
                 max_organisation = 5
+                defense = 0.05
             }
         }
-        infantry_doctrine_2b = {
+        e = { 
             category_leg_infantry = {
-                soft_attack = 0.1
-                hard_attack = 0.1
-            }
-        }
-        infantry_doctrine_2c = {
-            category_leg_infantry = {
-                breakthrough = 0.05
                 max_organisation = 5
-            }
-        }
-        infantry_doctrine_2d = {
-            category_leg_infantry = {
                 breakthrough = 0.1
-                max_organisation = 5
             }
-        }
-        infantry_doctrine_2e = {
-            land_reinforce_rate = 0.01
-            supply_consumption_factor = -0.05
-            category_leg_infantry = {
-                supply_consumption = -0.01
-            }
+            effect = {
+				add_tech_bonus = {
+					bonus = 0.25
+					uses = 1
+					category = cat_infantry_support_tech
+				}
+			}
         }
     }
 }

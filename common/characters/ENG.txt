@@ -51,12 +51,7 @@ characters={
 				}
 			}
 			visible = {
-				if = {
-					limit = {
-						original_tag = RAJ
-					}
-					NOT = { has_character_flag = RAJ_churchill_as_country_leader_flag }
-				}
+				always = no
 			}
 			traits  = {
 				royalist_bulldog 
@@ -102,6 +97,9 @@ characters={
 			}
 		}
 		advisor={
+			visible = {
+				always = no
+			}
 			slot = political_advisor
 			idea_token = ENG_oswald_mosley
 			available  = {
@@ -141,6 +139,9 @@ characters={
 		advisor={
 			slot = political_advisor
 			idea_token = harry_pollitt
+			visible = {
+				always = no
+			}
 			allowed  = {
 				original_tag  = ENG
 			}
@@ -209,6 +210,15 @@ characters={
 			traits={ quartermaster_general compassionate_gentleman }
 			expire="1945.1.1.12"
 			id=-1
+		}
+	}
+
+	ENG_robert_menzies={ #Through AST focus tree, Australian PM Menzies can become leader in ENG
+		name=AST_robert_menzies
+		portraits={
+			civilian={
+				large = GFX_portrait_AST_robert_menzies
+			}
 		}
 	}
 
@@ -367,7 +377,7 @@ characters={
 			}
 		}
 		corps_commander={
-			traits={ inflexible_strategist armor_officer politically_connected }
+			traits={ inflexible_strategist panzer_leader politically_connected }
 			skill=4
 			attack_skill=3
 			defense_skill=4
@@ -1724,6 +1734,9 @@ characters={
 		advisor={
 			slot = political_advisor
 			idea_token = john_beckett
+			visible = {
+				always = no
+			}
 			allowed  = {
 				original_tag  = ENG
 			}
@@ -1895,6 +1908,9 @@ characters={
 		advisor={
 			slot = political_advisor
 			idea_token = ENG_mary_sophia_allen
+			visible = {
+				always = no
+			}
 			available  = {
 				has_government  = fascism 
 			}
@@ -1921,6 +1937,9 @@ characters={
 		advisor={
 			slot = political_advisor
 			idea_token = ENG_george_orwell
+			visible = {
+				always = no
+			}
 			available  = {
 				has_government  = communism 
 				if  = {
@@ -1956,6 +1975,9 @@ characters={
 		advisor={
 			slot = political_advisor
 			idea_token = ENG_sylvia_pankhurst
+			visible = {
+				always = no
+			}
 			available  = {
 				OR = {
 					has_government  = communism 
@@ -2014,6 +2036,9 @@ characters={
 		advisor={
 			slot = political_advisor
 			idea_token = ENG_david_lloyd_george
+			visible = {
+				always = no
+			}
 			available  = {
 				has_government  = neutrality 
 				has_completed_focus  = ENG_the_kings_party 

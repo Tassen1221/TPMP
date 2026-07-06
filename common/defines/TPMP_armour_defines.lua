@@ -46,8 +46,8 @@ NDefines.NMilitary.PIERCING_THRESHOLD_DAMAGE_VALUES = {		-- 0 armor will always 
 		0.00,
 		0.00
 	}
-NDefines.NMilitary.ARMOR_VS_AVERAGE = 0.3			-- how to weight in highest armor & pen vs the division average
-NDefines.NMilitary.PEN_VS_AVERAGE = 0.2
+NDefines.NMilitary.ARMOR_VS_AVERAGE = 0.2			-- how to weight in highest armor & pen vs the division average
+NDefines.NMilitary.PEN_VS_AVERAGE = 0.3
 
 NDefines.NNavy.NAVY_PIERCING_THRESHOLDS = {			-- Our piercing / their armor must be this value to deal damage fraction equal to the index in the array below [higher number = higher penetration]. If armor is 0, 1.00 will be returned.
 		1.00,

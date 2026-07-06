@@ -1,4 +1,4 @@
-add_namespace = AAT_Sweden_flashpoints
+﻿add_namespace = AAT_Sweden_flashpoints
 add_namespace = Sweden_rearnament
 add_namespace = AAT_Sweden
 add_namespace = AAT_Sweden_BoP
@@ -1928,6 +1928,14 @@ country_event = {
 				long_name = SWE_aat_hogern_long
 			}		
 		}
+		else = {
+			SWE_gosta_bagge = {
+				remove_trait = {
+					trait = SWE_minor_opposition_party_in_power
+					ideology = liberalism
+				}
+			}
+		}
 	}
 
 	#Wigfors
@@ -3198,10 +3206,11 @@ country_event = {
 		}
 		set_country_flag = SWE_has_rangers
 		add_doctrine_cost_reduction = {
+		 	name = SWE_special_forces
 		 	cost_reduction = 0.65
 		 	uses = 1
-		 	category = cat_mountaineers_doctrine
-		 } 
+		 	category = special_forces_doctrine
+		 }
 	}
 	# Marines
 	option = { 
@@ -3223,10 +3232,11 @@ country_event = {
 		}
 		set_country_flag = SWE_has_marines
 		add_doctrine_cost_reduction = {
+		 	name = SWE_special_forces
 		 	cost_reduction = 0.65
 		 	uses = 1
-		 	category = cat_marines_doctrine
-		 } 
+		 	category = special_forces_doctrine
+		 }
 	}
 	# Paratroopers
 	option = { 
@@ -3248,10 +3258,11 @@ country_event = {
 		}
 		set_country_flag = SWE_has_paratroopers
 		add_doctrine_cost_reduction = {
+			name = SWE_special_forces
 			cost_reduction = 0.65
 			uses = 1
-			category = cat_paratroopers_doctrine
-		} 
+			category = special_forces_doctrine
+		}
 	}
 }
 
@@ -4019,7 +4030,7 @@ country_event = { #yes
 				factor = 3
 				strength_ratio = {
 					tag = FROM
-					ratio < 0.7
+					ratio > 0.3 # previously implemented as 'ratio < 0.7', which was not the expected effect
 				}
 			}
 		}

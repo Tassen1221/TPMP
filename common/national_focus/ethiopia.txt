@@ -3089,10 +3089,12 @@ focus_tree = {
 			base = 2
 		}
 
+		
+
 		search_filters = {FOCUS_FILTER_POLITICAL}
 
 		completion_reward = {
-			custom_effect_tooltip = ETH_rally_around_the_emperor_tt
+			# custom_effect_tooltip = ETH_rally_around_the_emperor_tt
 			custom_effect_tooltip = ETH_the_second_italo-ethiopian_war_tt
 			add_political_power = 50
 			add_popularity = {
@@ -3111,33 +3113,14 @@ focus_tree = {
 		relative_position_id = ETH_rally_around_the_emperor
 		cost = 5
 		available = {
-			surrender_progress > 0.1
-			has_civil_war = no 
-			has_country_leader = {
-				character = ETH_haile_selassie
-				ruling_only = yes 
-				 
-			}
-			custom_trigger_tooltip = {
-				tooltip = ETH_has_host_nation_tt
-				has_variable = ETH.host_nation
-			}
-			hidden_trigger = {
-				IF = {
-					limit = {
-						is_ai = yes 	
-					}
-					is_tutorial = no
-				}
-			}
-
+			always = no
 		}
 		ai_will_do = {
-			base = 2
-			modifier = {
-				factor = 2
-				surrender_progress > 0.35
-			}
+			base = 0
+		}
+		
+		allow_branch = {
+			always = no
 		}
 
 		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_BALANCE_OF_POWER}
@@ -3155,7 +3138,7 @@ focus_tree = {
 		icon = GFX_focus_ETH_the_emperor_stays
 		prerequisite = { focus = ETH_rally_around_the_emperor }
 		mutually_exclusive = { focus = ETH_boarding_the_train }
-		x = -3
+		x = 0
 		y = 1
 		relative_position_id = ETH_rally_around_the_emperor
 		cost = 5
@@ -3583,9 +3566,9 @@ focus_tree = {
 		icon = GFX_focus_ETH_the_abuna
 		prerequisite = { focus = ETH_boarding_the_train focus = ETH_the_emperor_stays }
 
-		x = -3
+		x = 2
 		y = 1
-		relative_position_id = ETH_boarding_the_train
+		relative_position_id = ETH_the_emperor_stays
 		cost = 5
 		available = {
 		}
@@ -4078,6 +4061,11 @@ focus_tree = {
 			}
 			ITA = { has_civil_war = no}
 		}
+
+		allow_branch = {
+			always = no
+		}
+		
 		bypass = {
 			
 		}
@@ -5688,6 +5676,10 @@ focus_tree = {
 			is_subject = no
 		}	
 
+		allow_branch = {
+			always = no
+		}
+
 		completion_reward = {
 			add_timed_idea = {
 				idea = ETH_military_communism
@@ -6548,7 +6540,7 @@ focus_tree = {
 		id = ETH_support_spain
 		prerequisite = { focus = ETH_peace_negotiations}
 		allow_branch = {
-			has_dlc = "La Resistance"
+			always = no
 		}
 			
 		icon = GFX_focus_intervention_spain_republic
@@ -6567,6 +6559,10 @@ focus_tree = {
 				country_exists = SPC
 				NOT = { has_global_flag = scw_over}	
 			}
+		}
+
+		allow_branch = {
+			always = no
 		}
 			
 		search_filters = {}
@@ -7393,30 +7389,33 @@ focus_tree = {
 		#relative_position_id =
 		cost = 5
 		available = {
-			controls_half_ethiopian_owned_states = yes 
-			has_global_flag = second_italo_ethiopian_war_flag
-			ITA = { has_civil_war = no }
+			always = no
+		}
+
+		bypass = {
+			NOT = { has_global_flag = second_italo_ethiopian_war_flag }
 		}
 
 		search_filters = {FOCUS_FILTER_POLITICAL}
 
 		completion_reward = {
-			custom_effect_tooltip = ETH_reach_out_to_the_italians_tt
-			custom_effect_tooltip = if_they_accept_tt  
-			custom_effect_tooltip = ETH_can_start_a_civil_war_tt
-			custom_effect_tooltip = ETH_ethiopia_italian_puppet_tt
-			custom_effect_tooltip = if_they_refuse_tt
-			custom_effect_tooltip = ETH_italy_refuse_cooperation
-			hidden_effect = {
-				ROOT = {
-					country_event = {
-						id = BBA_ethiopia_fascist_events.01
-						hours = 0
-					}
-				}
-			}
-			set_variable = { ETH_civil_war_size = 0.9 }
-			set_variable = { ETH_civil_war_army = 0.8 }
+			add_political_power = 50
+			# custom_effect_tooltip = ETH_reach_out_to_the_italians_tt
+			# custom_effect_tooltip = if_they_accept_tt  
+			# custom_effect_tooltip = ETH_can_start_a_civil_war_tt
+			# custom_effect_tooltip = ETH_ethiopia_italian_puppet_tt
+			# custom_effect_tooltip = if_they_refuse_tt
+			# custom_effect_tooltip = ETH_italy_refuse_cooperation
+			# hidden_effect = {
+			# 	ROOT = {
+			# 		country_event = {
+			# 			id = BBA_ethiopia_fascist_events.01
+			# 			hours = 0
+			# 		}
+			# 	}
+			# }
+			# set_variable = { ETH_civil_war_size = 0.9 }
+			# set_variable = { ETH_civil_war_army = 0.8 }
 		}
 	}
 	focus = {
@@ -7431,6 +7430,10 @@ focus_tree = {
 		available = {
 			controls_half_ethiopian_owned_states = yes 
 			has_global_flag = second_italo_ethiopian_war_flag
+		}
+
+		allow_branch = {
+			always = no
 		}
 
 		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_BALANCE_OF_POWER}
@@ -7458,6 +7461,10 @@ focus_tree = {
 		available = {
 			controls_half_ethiopian_owned_states = yes 
 			has_global_flag = second_italo_ethiopian_war_flag
+		}
+
+		allow_branch = {
+			always = no
 		}
 
 		search_filters = {FOCUS_FILTER_BALANCE_OF_POWER}
@@ -7502,11 +7509,11 @@ focus_tree = {
 	focus = {
 		id = ETH_restore_the_country
 		icon = GFX_goal_generic_construction2
-		prerequisite = { focus = ETH_declare_for_italy }
+		prerequisite = { focus = ETH_reach_out_to_the_italians }
 
 		x = 0
 		y = 1
-		relative_position_id = ETH_declare_for_italy
+		relative_position_id = ETH_reach_out_to_the_italians
 		cost = 10
 		available = {
 			has_civil_war = no
@@ -7717,10 +7724,10 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_POLITICAL}
 
 		completion_reward = {
-			add_autonomy_score = { 
-				value = 500 
-				localization = ETH_amedeos_feast_of_maskal
-			}
+			# add_autonomy_score = { 
+			# 	value = 500 
+			# 	localization = ETH_amedeos_feast_of_maskal
+			# }
 			effect_tooltip = {
 				swap_ideas = {
 					remove_idea = ETH_victor_emanuel_of_ethiopia_idea
@@ -7740,7 +7747,7 @@ focus_tree = {
 			}	
 
 			add_political_power = 100 
-			custom_effect_tooltip = ETH_amedeos_feast_of_maskal_tt
+			# custom_effect_tooltip = ETH_amedeos_feast_of_maskal_tt
 			IF = { 
 				limit = {
 					has_completed_focus = ETH_sway_the_warlords
@@ -7768,6 +7775,11 @@ focus_tree = {
 		relative_position_id = ETH_replace_the_abuna
 		cost = 10
 		available = {
+			always = no
+		}
+
+		allow_branch = {
+			always = no
 		}
 
 		search_filters = {FOCUS_FILTER_POLITICAL}
@@ -7884,6 +7896,10 @@ focus_tree = {
 				}
 			}
 		}
+		
+		allow_branch = {
+			always = no
+		}
 
 		search_filters = {FOCUS_FILTER_ANNEXATION}
 
@@ -7947,13 +7963,14 @@ focus_tree = {
 
 		completion_reward = {
 			ETH_BOP_centralization_large_effect = yes
-			custom_effect_tooltip = ETH_italian_general_staff_tt
-			ITA = {
-				country_event = {
-					id = BBA_ethiopia_fascist_events.69
-					hours = 12
-				}
-			}
+			# custom_effect_tooltip = ETH_italian_general_staff_tt
+			# ITA = {
+			# 	country_event = {
+			# 		id = BBA_ethiopia_fascist_events.69
+			# 		hours = 12
+			# 	}
+			# }
+			army_experience = 50
 		}
 	}
 	focus = {
@@ -8095,10 +8112,15 @@ focus_tree = {
 		search_filters = {}
 
 		completion_reward = {
-			custom_effect_tooltip = ETH_request_italian_equipment_tt
-			country_event = {
-				id = BBA_ethiopia_fascist_events.53
-				hours = 1
+			# custom_effect_tooltip = ETH_request_italian_equipment_tt
+			# country_event = {
+			# 	id = BBA_ethiopia_fascist_events.53
+			# 	hours = 1
+			# }
+			add_equipment_to_stockpile = {
+				type = line_infantry_equipment_1
+				amount = 2500
+				producer = ITA
 			}
 		}
 	}
@@ -8293,27 +8315,28 @@ focus_tree = {
 		# Medium Air - IMAM
 		
 		completion_reward = {
-			country_event = {
-				id = BBA_ethiopia_fascist_events.60
-				hours = 1
-			}
-			custom_effect_tooltip = ETH_outsourced_production_tt
-			IF = {
-				limit = {
-					has_dlc = "Arms Against Tyranny"
-				}	
-			}
-			ELSE = {
-				custom_effect_tooltip = ETH_outsourced_production_air_tt
-				show_ideas_tooltip = ETH_imam
-				show_ideas_tooltip = caproni_ETH
-				show_ideas_tooltip = macchi_ETH
-				custom_effect_tooltip = ETH_outsourced_production_army_tt
-				show_ideas_tooltip = fiat_ETH
-				show_ideas_tooltip = breda_ETH
-				show_ideas_tooltip = beretta_ETH
-			}
-			custom_effect_tooltip = ETH_outsourced_production_factories_tt
+			# country_event = {
+			# 	id = BBA_ethiopia_fascist_events.60
+			# 	hours = 1
+			# }
+			# custom_effect_tooltip = ETH_outsourced_production_tt
+			# IF = {
+			# 	limit = {
+			# 		has_dlc = "Arms Against Tyranny"
+			# 	}	
+			# }
+			# ELSE = {
+			# 	custom_effect_tooltip = ETH_outsourced_production_air_tt
+			# 	show_ideas_tooltip = ETH_imam
+			# 	show_ideas_tooltip = caproni_ETH
+			# 	show_ideas_tooltip = macchi_ETH
+			# 	custom_effect_tooltip = ETH_outsourced_production_army_tt
+			# 	show_ideas_tooltip = fiat_ETH
+			# 	show_ideas_tooltip = breda_ETH
+			# 	show_ideas_tooltip = beretta_ETH
+			# }
+			# custom_effect_tooltip = ETH_outsourced_production_factories_tt
+			add_offsite_building = { type = arms_factory level = 4 }
 		}
 	}
 	focus = {
@@ -8518,6 +8541,10 @@ focus_tree = {
 					}
 				}
 			}
+		}
+		
+		bypass = {
+			owns_state = 550
 		}
 
 		search_filters = {FOCUS_FILTER_ANNEXATION}

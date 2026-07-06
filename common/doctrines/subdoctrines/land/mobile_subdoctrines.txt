@@ -4,52 +4,157 @@ mobile_doctrine_1 = {
     description = SUBDOCTRINE_MOBILE_1_DESC
     icon = GFX_doctrine_mobile_infantry_medium
 
-    xp_cost = 100
+    xp_cost = 0
     xp_type = army
 
     available = {
         always = yes
     }
 
+    visible = {
+		NOT = {
+			has_subdoctrine_in_track = mobile
+		}
+	}
+
     category_mobile_infantry = {
-        max_organisation = 15
+        default_morale = 0.1
+    }
+    motorized = {
+        need = {
+            motorized_equipment = -20
+        }
+    }
+    equipment_bonus = {
+	    motorized_equipment = {
+            fuel_consumption = -0.8
+            instant = yes
+        }
+    }
+    effect = {
+        custom_effect_tooltip = mobile_doctrine_1_tt
     }
 
     rewards = {
-        mobile_doctrine_1a = {
-             category_mobile_infantry = {
-                max_organisation = 5
+        a = {
+            recon = {
+                battalion_mult = {
+                    category = category_mobile_infantry
+                    recon = 0.1
+                    add = yes
+                }
+            }
+            mot_recon = {
+                battalion_mult = {
+                    category = category_mobile_infantry
+                    recon = 0.1
+                    add = yes
+                }
+            }
+            mech_recon = {
+                battalion_mult = {
+                    category = category_mobile_infantry
+                    recon = 0.1
+                    add = yes
+                }
+            }
+            armored_car_recon = {
+                battalion_mult = {
+                    category = category_mobile_infantry
+                    recon = 0.1
+                    add = yes
+                }
+            }
+            light_tank_recon = {
+                battalion_mult = {
+                    category = category_mobile_infantry
+                    recon = 0.1
+                    add = yes
+                }
+            }
+            medium_tank_recon = {
+                battalion_mult = {
+                    category = category_mobile_infantry
+                    recon = 0.1
+                    add = yes
+                }
+            }
+            helicopter_recon = {
+                battalion_mult = {
+                    category = category_mobile_infantry
+                    recon = 0.1
+                    add = yes
+                }
+            }
+            motorized = {
+                need = {
+                    motorized_equipment = -10
+                }
+            }
+            effect = {
+                custom_effect_tooltip = mobile_doctrine_1_a_tt
+            }
+        }
+        b = {
+            category_mobile_infantry = {
+                defense = 0.1
+            }
+            motorized = {
                 default_morale = 0.1
             }
         }
-        mobile_doctrine_1b = {
-            category_mobile_infantry = {
-                armor_value = 0.25
+        c = {
+            motorized = {
+                need = {
+                    motorized_equipment = -10
+                }
+                hills = { defence = 0.03 }
+				mountain = { defence = 0.03 }
+				forest = { defence = 0.03 }
+				jungle = { defence = 0.03 }
+				marsh = { defence = 0.03 }
+				urban = { defence = 0.03 }
             }
-            artillery_mechanized = {
-                soft_attack = 0.05
-            }
-            anti_tank_mechanized = {
-                ap_attack = 0.1
-            }
-            anti_air_mechanized = {
-                air_attack = 0.1
-            }
-        }
-        mobile_doctrine_1c = {
-            category_recon = {
-                recon = 1
+            effect = {
+                custom_effect_tooltip = mobile_doctrine_1_c_tt
             }
         }
-        mobile_doctrine_1d = {
-            category_mobile_infantry = {
-                max_organisation = 10
+        d = {
+            mot_anti_tank_brigade = {
+                max_organisation = 2
+                soft_attack = 0.02
+                hard_attack = 0.02
+                ap_attack = 0.02
+                air_attack = 0.02
+            }
+            mot_anti_air_brigade = {
+                max_organisation = 2
+                soft_attack = 0.02
+                hard_attack = 0.02
+                ap_attack = 0.02
+                air_attack = 0.02
+            }
+            mot_artillery_brigade = {
+                max_organisation = 2
+                soft_attack = 0.02
+                hard_attack = 0.02
+                ap_attack = 0.02
+                air_attack = 0.02
+            }
+            motorized_rocket_brigade = {
+                max_organisation = 2
+                soft_attack = 0.02
+                hard_attack = 0.02
+                ap_attack = 0.02
+                air_attack = 0.02
             }
         }
-        mobile_doctrine_1e = {
+        e = {
             category_mobile_infantry = {
-                defense = 0.10
-                default_morale = 0.1
+                initiative = 0.01
+            }
+            effect = {
+                custom_effect_tooltip = mobile_doctrine_1_e_tt
             }
         }
     }
@@ -60,94 +165,70 @@ mobile_doctrine_2 = {
     description = SUBDOCTRINE_MOBILE_2_DESC
     icon = GFX_doctrine_mobile_infantry_medium
 
-    xp_cost = 100
+    xp_cost = 0
     xp_type = army
 
     available = {
         always = yes
     }
 
+    visible = {
+		NOT = {
+			has_subdoctrine_in_track = mobile
+		}
+	}
+
     category_mobile_infantry = {
-        max_strength = -3
-        breakthrough = 0.25
-        soft_attack = 0.05
-        hard_attack = 0.05
+        breakthrough = 0.1
     }
+    category_mechanized_infantry = {
+        max_strength = -5
+    }
+    army_armor_attack_factor = -0.1
+    army_armor_defence_factor = -0.1
+    mechanized_attack_factor = 0.1
+    mechanized_defence_factor = 0.1
 
     rewards = {
-        mobile_doctrine_2a = {
-            category_mobile_infantry = {
-                default_morale = 0.1
+        a = {
+            category_mechanized_infantry = {
+                max_organisation = 5
+                defense = 0.05
             }
+        }
+        b = {
+            effect = {
+                custom_effect_tooltip = mobile_doctrine_2_b_tt
+            }
+        }
+        c = {
             mechanized = {
-                need = {
-                    mechanized_equipment = -5
-                }
+                defense = 0.1
             }
             artillery_mechanized = {
-                need = {
-                    artillery_mechanized_equipment = -5
-                }
+                soft_attack = 0.1
             }
             anti_tank_mechanized = {
-                need = {
-		        	anti_tank_mechanized_equipment = -5
-                }
+                hard_attack = 0.1
+                ap_attack = 0.1
             }
             anti_air_mechanized = {
-                need = {
-                    anti_air_mechanized_equipment = -5
-                }
+                air_attack = 0.15
             }
             amphibious_mechanized = {
-                need = {
-                    amphibious_mechanized_equipment = -5
-                }
+                marsh = { attack = 0.05 }
+                river = { attack = 0.05 }
             }
         }
-        mobile_doctrine_2b = {
-            category_mobile_infantry = {
-                max_organisation = 10
-            }
-        }
-        mobile_doctrine_2c = {
-            category_mobile_infantry = {
+        d = {
+            category_mechanized_infantry = {
                 breakthrough = 0.1
                 maximum_speed = 0.1
             }
         }
-        mobile_doctrine_2d = {
-             category_mobile_infantry = {
-                max_organisation = 5
-            }
-            mechanized = {
-                need = {
-                    mechanized_equipment = -5
-                }
-            }
-            artillery_mechanized = {
-                need = {
-                    artillery_mechanized_equipment = -5
-                }
-            }
-            anti_tank_mechanized = {
-                need = {
-		        	anti_tank_mechanized_equipment = -5
-                }
-            }
-            anti_air_mechanized = {
-                need = {
-                    anti_air_mechanized_equipment = -5
-                }
-            }
-            amphibious_mechanized = {
-                need = {
-                    amphibious_mechanized_equipment = -5
-                }
-            }
-        }
-        mobile_doctrine_2e = {
-            category_mobile_infantry = {
+        e = {
+            category_mechanized_infantry = {
+                breakthrough = 0.05
                 soft_attack = 0.05
                 hard_attack = 0.05
             }
@@ -160,49 +241,83 @@ mobile_doctrine_3 = {
     description = SUBDOCTRINE_MOBILE_3_DESC
     icon = GFX_doctrine_mobile_infantry_medium
 
-    xp_cost = 100
+    xp_cost = 0
     xp_type = army
 
     available = {
         always = yes
     }
 
-    motorized = {
-        need = {
-            motorized_equipment = -25
-        }
-        supply_consumption = -0.05
-        maximum_speed = -0.1
+    visible = {
+		NOT = {
+			has_subdoctrine_in_track = mobile
+		}
+	}
+
+    category_mobile_infantry = {
+        max_organisation = 5
+        default_morale = 0.03
+        defense = 0.1
     }
 
     rewards = {
-        mobile_doctrine_3a = {
-            motorized = {
-                max_strength = 2
-                default_morale = 0.2
+        a = {
+            category_mobile_infantry = {
+                max_organisation = 5
+                defense = 0.1
             }
         }
-        mobile_doctrine_3b = {
-            motorized = {
-                default_morale = 0.3
+        b = {
+            category_mobile_infantry = {
+                max_strength = 1
+                default_morale = 0.05
+            }
+            army_fuel_capacity_factor = 0.1
+        }
+        c = {
+            category_mechanized_infantry = {
+                armor_value = 0.5
+            }
+            category_tanks = {
+                max_organisation = 1
             }
         }
-        mobile_doctrine_3c = {
-            army_fuel_consumption_factor = -0.1
-            motorized = {
-                supply_consumption = -0.05
+        d = {
+            mechanized = {
+                need = {
+                    mechanized_equipment = -5
+                }
+            }
+            artillery_mechanized = {
+                need = {
+                    artillery_mechanized_equipment = -5
+                }
+            }
+            anti_tank_mechanized = {
+                need = {
+                    anti_tank_mechanized_equipment = -5
+                }
+            }
+            anti_air_mechanized = {
+                need = {
+                    anti_air_mechanized_equipment = -5
+                }
+            }
+            amphibious_mechanized = {
+                need = {
+                    amphibious_mechanized_equipment = -5
+                }
+            }
+            effect = {
+                custom_effect_tooltip = mobile_doctrine_3_d_tt
             }
         }
-        mobile_doctrine_3d = {
-            field_hospital = {
-                casualty_trickleback = 0.05
+        e = {
+            category_mobile_infantry = {
+                max_organisation = 5
+                defense = 0.05
             }
-            logistics_company = {
-                fuel_consumption_factor = -0.05
-            }
-        }
-        mobile_doctrine_3e = {
-            land_reinforce_rate = 0.02
+            coordination_bonus = 0.1
         }
     }
 }

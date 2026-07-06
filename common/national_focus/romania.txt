@@ -127,8 +127,8 @@ focus_tree = {
 
 		completion_reward = {
 			add_popularity = { ideology = communism popularity = 0.1 }
-			add_opinion_modifier = { target = SOV modifier = ROM_a_deal_with_the_devil }
-			SOV = { add_opinion_modifier = { target = ROOT modifier = ROM_a_deal_with_the_devil } }
+			# add_opinion_modifier = { target = SOV modifier = ROM_a_deal_with_the_devil }
+			# SOV = { add_opinion_modifier = { target = ROOT modifier = ROM_a_deal_with_the_devil } }
 		}
 	}
 
@@ -136,7 +136,7 @@ focus_tree = {
 		id = ROM_form_peasant_militias
 		icon = GFX_goal_generic_political_pressure
 		prerequisite = { focus = ROM_a_deal_with_the_devil }
-		x = -1
+		x = 0
 		y = 1
 		relative_position_id = ROM_a_deal_with_the_devil
 
@@ -171,6 +171,10 @@ focus_tree = {
 		x = 0
 		y = 2
 		relative_position_id = ROM_a_deal_with_the_devil
+
+		allow_branch = {
+			always = no
+		}
 
 		cost = 10
 
@@ -361,11 +365,13 @@ focus_tree = {
 					}
 				}
 			}
-			add_doctrine_cost_reduction = {
-				name = ROM_invite_german_advisors
-			    cost_reduction = 0.5
-			    uses = 2
-			    category = cat_land_doctrine
+			add_mastery = {
+				amount = 50
+				track = infantry
+			}
+			add_mastery = {
+				amount = 50
+				track = army
 			}
 		}
 	}
@@ -401,10 +407,7 @@ focus_tree = {
 
 
 		completion_reward = {
-			add_relation_modifier = {
-				target = GER
-				modifier = ROM_license_german_equipment
-			}
+			add_ideas = TPMP_ROM_license_idea
 		}
 	}
 
@@ -897,7 +900,7 @@ focus_tree = {
 				name = ROM_joint_allied_staff_college
 			    cost_reduction = 0.35
 			    uses = 2
-			    category = cat_land_doctrine
+			    category = land_doctrine
 			}
 		}
 	}
@@ -1031,7 +1034,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = ROM_civil_works
 
-		cost = 10
+		cost = 5
 
 		available = {
 		}
@@ -1064,7 +1067,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = TPMP_ROM_expand_factories
 
-		cost = 10
+		cost = 5
 
 		available = {
 		}
@@ -1084,7 +1087,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = ROM_national_defense_industry
 
-		cost = 10
+		cost = 5
 
 		available = {
 		}
@@ -1100,7 +1103,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = TPMP_ROM_domestic_gun_production
 
-		cost = 10
+		cost = 5
 
 		available = {
 		}
@@ -2969,6 +2972,10 @@ focus_tree = {
 
 		}
 
+		allow_branch = {
+			always = no
+		}
+
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
@@ -4019,9 +4026,32 @@ focus_tree = {
 		available_if_capitulated = no
 		search_filters = { FOCUS_FILTER_RESEARCH }
 		completion_reward = {
+			random_core_state = {
+				limit = {
+					NOT = {
+						OR = {
+							state = 80
+							state = 78
+							state = 766
+						}
+					}
+					free_building_slots = {
+						building = arms_factory
+						size > 2
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
 			add_tech_bonus = {
 				name = ROM_the_zb_53
 				bonus = 1.0
+				ahead_reduction = 1
 				uses = 1
 				category = cat_infantry_tech
 			}
@@ -4137,6 +4167,28 @@ focus_tree = {
 		available_if_capitulated = no
 		search_filters = { FOCUS_FILTER_RESEARCH }
 		completion_reward = {
+			random_core_state = {
+				limit = {
+					NOT = {
+						OR = {
+							state = 80
+							state = 78
+							state = 766
+						}
+					}
+					free_building_slots = {
+						building = arms_factory
+						size > 2
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
 			add_tech_bonus = {
 				name = ROM_artillery_modernization
 				bonus = 0.5
@@ -4463,6 +4515,28 @@ focus_tree = {
 		available_if_capitulated = no
 
 		completion_reward = {
+			random_core_state = {
+				limit = {
+					NOT = {
+						OR = {
+							state = 80
+							state = 78
+							state = 766
+						}
+					}
+					free_building_slots = {
+						building = arms_factory
+						size > 2
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
 			add_tech_bonus = {
 				bonus = 0.5
 				ahead_reduction = 1

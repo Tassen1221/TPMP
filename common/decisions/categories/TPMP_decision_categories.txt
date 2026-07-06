@@ -89,6 +89,20 @@ TPMP_eastern_front_logistics_decision_category = {
 		has_war_with = SOV
 	}
 }
+TPMP_western_front_decision_category = {
+	icon = GFX_decision_category_ger_military_buildup
+	priority = 1000
+	
+	allowed = {
+		OR = {
+			tag = GER
+			tag = ENG
+		}
+	}
+	visible = {
+		has_war = yes
+	}
+}
 TPMP_GER_escalate_spain_decision_category = {
 	icon = GFX_decision_category_intervention_in_spain
 	allowed = {

@@ -41,23 +41,14 @@ focus_tree = {
 		y = 0
 		#relative_position_id =
 
-		cost = 5
+		cost = 10
 
 		ai_will_do = {
 			factor = 10
 		}
 
 		allow_branch = {
-			IF = {
-				limit = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-				}
-				NOT = { has_completed_focus = wuw_HUN_continue_the_regency }
-				NOT = { has_completed_focus = wuw_HUN_end_the_white_terror }
-			}
+			always = no
 		}
 
 		offset = {
@@ -634,17 +625,7 @@ focus_tree = {
 		}
 
 		allow_branch = {
-			IF = {
-				limit = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-				}
-				NOT = { has_completed_focus = wuw_HUN_reinstate_the_pragmatic_sanction }
-				NOT = { has_completed_focus = wuw_HUN_continue_the_regency }
-				NOT = { has_completed_focus = wuw_HUN_end_the_white_terror }
-			}
+			always = no
 		}
 
 		# 	offset = {
@@ -5674,19 +5655,7 @@ focus_tree = {
 		}
 
 		allow_branch = {
-			IF = {
-				limit = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-				}
-				NOT = { has_completed_focus = wuw_HUN_continue_the_regency }
-				NOT = { has_completed_focus = wuw_HUN_end_the_white_terror }
-				NOT = { has_completed_focus = wuw_HUN_establishing_a_new_dynasty }
-				NOT = { has_completed_focus = wuw_HUN_elect_a_democratic_king }
-				NOT = { has_completed_focus = wuw_HUN_reinstate_the_pragmatic_sanction }
-			}
+			always = no
 		}
 
 		# offset = {
@@ -7914,7 +7883,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = wuw_HUN_strengthen_horthys_reign
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 15
@@ -8432,7 +8401,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = wuw_HUN_undermine_the_admiral
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 15
@@ -8487,7 +8456,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = wuw_HUN_undermine_the_admiral
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 10
@@ -9008,7 +8977,7 @@ focus_tree = {
 						}
 
 						amount_taken_ideas = {
-						    amount < 3
+						    amount < 6
 						    slots = {
 						        political_advisor
 						    }
@@ -9094,6 +9063,10 @@ focus_tree = {
 		will_lead_to_war_with = SOV
 
 		cost = 10
+
+		allow_branch = {
+			always = no
+		}
 
 		ai_will_do = {
 			factor = 2
@@ -9342,26 +9315,26 @@ focus_tree = {
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
-			IF = {
-				limit = {
-					TUR = {
-						exists = yes
-						NOT = {
-							has_war_with = ROOT
-						}
-					}
-				}
-				add_opinion_modifier = {
-					target = TUR
-					modifier = turanist_connections_op_modifier
-				}
-				TUR = {
-					add_opinion_modifier = {
-						target = ROOT
-						modifier = turanist_connections_op_modifier
-					}
-				}
-			}
+			# IF = {
+			# 	limit = {
+			# 		TUR = {
+			# 			exists = yes
+			# 			NOT = {
+			# 				has_war_with = ROOT
+			# 			}
+			# 		}
+			# 	}
+			# 	add_opinion_modifier = {
+			# 		target = TUR
+			# 		modifier = turanist_connections_op_modifier
+			# 	}
+			# 	TUR = {
+			# 		add_opinion_modifier = {
+			# 			target = ROOT
+			# 			modifier = turanist_connections_op_modifier
+			# 		}
+			# 	}
+			# }
 
 
 			hidden_effect = {
@@ -9382,6 +9355,10 @@ focus_tree = {
 		relative_position_id = wuw_HUN_strengthen_the_turani_vadaszok
 
 		cost = 10
+
+		allow_branch = {
+			always = no
+		}
 
 		ai_will_do = {
 			factor = 5
@@ -9540,6 +9517,10 @@ focus_tree = {
 
 		cost = 10
 
+		allow_branch = {
+			always = no
+		}
+
 		ai_will_do = {
 			factor = 10
 		}
@@ -9662,7 +9643,7 @@ focus_tree = {
 				strength_ratio = { tag = SLO ratio > 0.75 }
 			}
 
-			has_army_manpower = { size > 120000 }
+			# has_army_manpower = { size > 120000 }
 
 		}
 
@@ -9779,7 +9760,7 @@ focus_tree = {
 				strength_ratio = { tag = CZE ratio > 0.70 }
 			}
 
-			has_army_manpower = { size > 150000 }
+			# has_army_manpower = { size > 150000 }
 
 		}
 
@@ -9846,7 +9827,7 @@ focus_tree = {
 		available = {
 
 			is_subject = no
-			has_army_manpower = { size > 200000 }
+			# has_army_manpower = { size > 200000 }
 
 			NOT = {
 				OR = {
@@ -9873,14 +9854,14 @@ focus_tree = {
 				}
 			}
 
-			IF = {
-				limit = {
-					ROM = {
-						owns_state = 76
-					}
-				}
-				strength_ratio = { tag = ROM ratio > 0.66 }
-			}
+			# IF = {
+			# 	limit = {
+			# 		ROM = {
+			# 			owns_state = 76
+			# 		}
+			# 	}
+			# 	strength_ratio = { tag = ROM ratio > 0.66 }
+			# }
 
 
 		}
@@ -9914,10 +9895,10 @@ focus_tree = {
 						is_owned_by = ROM
 					}
 				}
-				custom_effect_tooltip = HUN_demands_tt
+				# custom_effect_tooltip = HUN_demands_tt
 				ROM = { 
 					country_event = { 
-						id = DOD_hungary.50 
+						id = TPMP_GEN.2 
 						hours = 6
 						random_hours = 12
 					} 
@@ -9982,7 +9963,7 @@ focus_tree = {
 				strength_ratio = { tag = YUG ratio > 0.75 }
 			}
 
-			has_army_manpower = { size > 175000 }
+			# has_army_manpower = { size > 175000 }
 
 		}
 
@@ -10104,7 +10085,7 @@ focus_tree = {
 				strength_ratio = { tag = AUS ratio > 0.70 }
 			}
 
-			has_army_manpower = { size > 185000 }
+			# has_army_manpower = { size > 185000 }
 
 		}
 
@@ -10188,7 +10169,7 @@ focus_tree = {
 				strength_ratio = { tag = SLO ratio > 0.75 }
 				NOT = { has_war_with = SLO }
 			}
-			has_army_manpower = { size > 175000 }
+			# has_army_manpower = { size > 175000 }
 
 		}
 
@@ -10308,7 +10289,7 @@ focus_tree = {
 				}
 			}
 
-			has_army_manpower = { size > 180000 }
+			# has_army_manpower = { size > 180000 }
 
 		}
 
@@ -10606,6 +10587,10 @@ focus_tree = {
 		x = -4
 		y = 1
 		relative_position_id = wuw_HUN_act_of_defense
+
+		allow_branch = {
+			always = no
+		}
 
 		# offset = {
 			# x = 1
@@ -13519,7 +13504,7 @@ focus_tree = {
 				name = HUN_soviet_hungarian_military_academy
 			    cost_reduction = 0.5
 			    uses = 2
-			    category = cat_land_doctrine
+			    category = land_doctrine
 			}
 
 		}
@@ -15091,7 +15076,7 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_MANPOWER FOCUS_FILTER_HISTORICAL }
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 10
@@ -15454,16 +15439,16 @@ focus_tree = {
 				}
 			}
 
-			custom_effect_tooltip = generic_skip_one_line_tt
+			# custom_effect_tooltip = generic_skip_one_line_tt
 
-			IF = {
-				limit = { country_exists = AUS }
-				reverse_add_opinion_modifier = { target = AUS modifier = HUN_reintegrate_the_railroads }
-			}
-			IF = {
-				limit = { country_exists = CZE }
-				reverse_add_opinion_modifier = { target = CZE modifier = HUN_reintegrate_the_railroads }
-			}
+			# IF = {
+			# 	limit = { country_exists = AUS }
+			# 	reverse_add_opinion_modifier = { target = AUS modifier = HUN_reintegrate_the_railroads }
+			# }
+			# IF = {
+			# 	limit = { country_exists = CZE }
+			# 	reverse_add_opinion_modifier = { target = CZE modifier = HUN_reintegrate_the_railroads }
+			# }
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
@@ -15496,7 +15481,7 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_MANPOWER FOCUS_FILTER_INDUSTRY }
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 5
@@ -15643,7 +15628,7 @@ focus_tree = {
 		y = 2
 		relative_position_id = wuw_HUN_reintigrate_the_imperial_railroads
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 10
@@ -15845,6 +15830,10 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_HISTORICAL }
 
 		cost = 2
+
+		allow_branch = {
+			always = no
+		}
 
 		ai_will_do = {
 			factor = 5
@@ -16425,7 +16414,7 @@ focus_tree = {
 				name = HUN_army_maneuvers
 				cost_reduction = 0.5
 				uses = 1
-				category = cat_land_doctrine
+				category = land_doctrine
 			}
 
 		}
@@ -16882,7 +16871,7 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY }
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 10
@@ -18130,7 +18119,7 @@ focus_tree = {
 				name = wuw_HUN_doctrinal_studies
 				cost_reduction = 0.25
 				uses = 1
-				category = cat_land_doctrine
+				category = land_doctrine
 			}
 
 			add_doctrine_cost_reduction = {
@@ -18673,111 +18662,111 @@ focus_tree = {
 				category = cat_medium_chassis_tech
 			}
 
-			IF = {
-				limit = {
-					has_dlc = "No Step Back"
-				}
-				IF = {
-					limit = {
-						has_tech = mediumtank2_tech
-					}
-					#40M Turán
-					create_equipment_variant = {
-						name = "40M Turán"
-						type = medium_tank_chassis_1938
-						parent_version = 0
-						modules = {
-							main_armament_slot = tank_medium_cannon_2
-							turret_type_slot = tank_simple_medium_turret_1
-							suspension_type_slot = tank_bogie_suspension
-							armor_type_slot = tank_welded_armor
-							engine_type_slot = tank_gasoline_engine_1
-							special_type_slot_1 = additional_machine_guns
-							special_type_slot_2 = additional_machine_guns
-						}
-						upgrades = {
-							tank_nsb_engine_upgrade = 0
-							tank_nsb_armor_upgrade = 0
-						}
-						#icon = "GFX_ITA_basic_medium_tank_medium"
-					}
-				}
-				ELSE = {
-					custom_effect_tooltip = wuw_HUN_the_turan_40_tt
-					effect_tooltip = {
-						#40M Turán
-						create_equipment_variant = {
-							name = "40M Turán"
-							type = medium_tank_chassis_1938
-							parent_version = 0
-							modules = {
-								main_armament_slot = tank_medium_cannon_2
-								turret_type_slot = tank_simple_medium_turret_1
-								suspension_type_slot = tank_bogie_suspension
-								armor_type_slot = tank_welded_armor
-								engine_type_slot = tank_gasoline_engine_1
-								special_type_slot_1 = additional_machine_guns
-								special_type_slot_2 = additional_machine_guns
-							}
-							upgrades = {
-								tank_nsb_engine_upgrade = 0
-								tank_nsb_armor_upgrade = 0
-							}
-							#icon = "GFX_ITA_basic_medium_tank_medium"
-						}
-					}
-				}
-				IF = {
-					limit = {
-						has_tech = mediumtank3a_tech
-					}
-					#43M Turán III
-					create_equipment_variant = {
-						name = "43M Turán III"
-						type = medium_tank_chassis_1940
-						parent_version = 0
-						modules = {
-							main_armament_slot = tank_medium_cannon_2
-							turret_type_slot = tank_medium_turret_1
-							suspension_type_slot = tank_bogie_suspension
-							armor_type_slot = tank_welded_armor
-							engine_type_slot = tank_gasoline_engine_1
-							special_type_slot_1 = secondary_turret_hmg
-							special_type_slot_2 = additional_machine_guns
-						}
-						upgrades = {
-							tank_nsb_engine_upgrade = 0
-							tank_nsb_armor_upgrade = 0
-						}
-						#icon = "GFX_ITA_basic_medium_tank_medium"
-					}
-				}
-				ELSE = {
-					custom_effect_tooltip = wuw_HUN_the_turan_43_tt
-					effect_tooltip = {
-						#43M Turán III
-						create_equipment_variant = {
-							name = "43M Turán III"
-							type = medium_tank_chassis_1940
-							parent_version = 0
-							modules = {
-								main_armament_slot = tank_medium_cannon_2
-								turret_type_slot = tank_medium_turret_1
-								suspension_type_slot = tank_bogie_suspension
-								armor_type_slot = tank_welded_armor
-								engine_type_slot = tank_gasoline_engine_1
-								special_type_slot_1 = secondary_turret_hmg
-								special_type_slot_2 = additional_machine_guns
-							}
-							upgrades = {
-								tank_nsb_engine_upgrade = 0
-								tank_nsb_armor_upgrade = 0
-							}
-							#icon = "GFX_ITA_basic_medium_tank_medium"
-						}
-					}
-				}
-			}
+			# IF = {
+			# 	limit = {
+			# 		has_dlc = "No Step Back"
+			# 	}
+			# 	IF = {
+			# 		limit = {
+			# 			has_tech = mediumtank2_tech
+			# 		}
+			# 		#40M Turán
+			# 		create_equipment_variant = {
+			# 			name = "40M Turán"
+			# 			type = medium_tank_chassis_1938
+			# 			parent_version = 0
+			# 			modules = {
+			# 				main_armament_slot = tank_medium_cannon_2
+			# 				turret_type_slot = tank_simple_medium_turret_1
+			# 				suspension_type_slot = tank_bogie_suspension
+			# 				armor_type_slot = tank_welded_armor
+			# 				engine_type_slot = tank_gasoline_engine_1
+			# 				special_type_slot_1 = additional_machine_guns
+			# 				special_type_slot_2 = additional_machine_guns
+			# 			}
+			# 			upgrades = {
+			# 				tank_nsb_engine_upgrade = 0
+			# 				tank_nsb_armor_upgrade = 0
+			# 			}
+			# 			#icon = "GFX_ITA_basic_medium_tank_medium"
+			# 		}
+			# 	}
+			# 	ELSE = {
+			# 		custom_effect_tooltip = wuw_HUN_the_turan_40_tt
+			# 		effect_tooltip = {
+			# 			#40M Turán
+			# 			create_equipment_variant = {
+			# 				name = "40M Turán"
+			# 				type = medium_tank_chassis_1938
+			# 				parent_version = 0
+			# 				modules = {
+			# 					main_armament_slot = tank_medium_cannon_2
+			# 					turret_type_slot = tank_simple_medium_turret_1
+			# 					suspension_type_slot = tank_bogie_suspension
+			# 					armor_type_slot = tank_welded_armor
+			# 					engine_type_slot = tank_gasoline_engine_1
+			# 					special_type_slot_1 = additional_machine_guns
+			# 					special_type_slot_2 = additional_machine_guns
+			# 				}
+			# 				upgrades = {
+			# 					tank_nsb_engine_upgrade = 0
+			# 					tank_nsb_armor_upgrade = 0
+			# 				}
+			# 				#icon = "GFX_ITA_basic_medium_tank_medium"
+			# 			}
+			# 		}
+			# 	}
+			# 	IF = {
+			# 		limit = {
+			# 			has_tech = mediumtank3a_tech
+			# 		}
+			# 		#43M Turán III
+			# 		create_equipment_variant = {
+			# 			name = "43M Turán III"
+			# 			type = medium_tank_chassis_1940
+			# 			parent_version = 0
+			# 			modules = {
+			# 				main_armament_slot = tank_medium_cannon_2
+			# 				turret_type_slot = tank_medium_turret_1
+			# 				suspension_type_slot = tank_bogie_suspension
+			# 				armor_type_slot = tank_welded_armor
+			# 				engine_type_slot = tank_gasoline_engine_1
+			# 				special_type_slot_1 = secondary_turret_hmg
+			# 				special_type_slot_2 = additional_machine_guns
+			# 			}
+			# 			upgrades = {
+			# 				tank_nsb_engine_upgrade = 0
+			# 				tank_nsb_armor_upgrade = 0
+			# 			}
+			# 			#icon = "GFX_ITA_basic_medium_tank_medium"
+			# 		}
+			# 	}
+			# 	ELSE = {
+			# 		custom_effect_tooltip = wuw_HUN_the_turan_43_tt
+			# 		effect_tooltip = {
+			# 			#43M Turán III
+			# 			create_equipment_variant = {
+			# 				name = "43M Turán III"
+			# 				type = medium_tank_chassis_1940
+			# 				parent_version = 0
+			# 				modules = {
+			# 					main_armament_slot = tank_medium_cannon_2
+			# 					turret_type_slot = tank_medium_turret_1
+			# 					suspension_type_slot = tank_bogie_suspension
+			# 					armor_type_slot = tank_welded_armor
+			# 					engine_type_slot = tank_gasoline_engine_1
+			# 					special_type_slot_1 = secondary_turret_hmg
+			# 					special_type_slot_2 = additional_machine_guns
+			# 				}
+			# 				upgrades = {
+			# 					tank_nsb_engine_upgrade = 0
+			# 					tank_nsb_armor_upgrade = 0
+			# 				}
+			# 				#icon = "GFX_ITA_basic_medium_tank_medium"
+			# 			}
+			# 		}
+			# 	}
+			# }
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 		}
@@ -19021,59 +19010,59 @@ focus_tree = {
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
-			IF = {
-				limit = {
-					has_dlc = "No Step Back"
-				}
-				IF = {
-					limit = {
-						has_tech = lighttank2_tech
-					}
-					#38M Toldi
-					create_equipment_variant = {
-						name = "38M Toldi"
-						type = light_tank_chassis_1938
-						parent_version = 0
-						modules = {
-							main_armament_slot = tank_light_cannon_1
-							turret_type_slot = tank_light_superstructure_1
-							suspension_type_slot = tank_torsion_bar_suspension
-							armor_type_slot = tank_riveted_armor
-							engine_type_slot = tank_gasoline_engine_1
-							special_type_slot_2 = tank_radio_1
-						}
-						upgrades = {
-							tank_nsb_engine_upgrade = 0
-							tank_nsb_armor_upgrade = 0
-						}
-						#icon = "GFX_ITA_improved_light_tank_medium"
-					}
-				}
-				ELSE = {
-					custom_effect_tooltip = wuw_HUN_the_toldi_tt
-					effect_tooltip = {
-						#38M Toldi
-						create_equipment_variant = {
-							name = "38M Toldi"
-							type = light_tank_chassis_1938
-							parent_version = 0
-							modules = {
-								main_armament_slot = tank_light_cannon_1
-								turret_type_slot = tank_light_superstructure_1
-								suspension_type_slot = tank_torsion_bar_suspension
-								armor_type_slot = tank_riveted_armor
-								engine_type_slot = tank_gasoline_engine_1
-								special_type_slot_2 = tank_radio_1
-							}
-							upgrades = {
-								tank_nsb_engine_upgrade = 0
-								tank_nsb_armor_upgrade = 0
-							}
-							#icon = "GFX_ITA_improved_light_tank_medium"
-						}
-					}
-				}
-			}
+			# IF = {
+			# 	limit = {
+			# 		has_dlc = "No Step Back"
+			# 	}
+			# 	IF = {
+			# 		limit = {
+			# 			has_tech = lighttank2_tech
+			# 		}
+			# 		#38M Toldi
+			# 		create_equipment_variant = {
+			# 			name = "38M Toldi"
+			# 			type = light_tank_chassis_1938
+			# 			parent_version = 0
+			# 			modules = {
+			# 				main_armament_slot = tank_light_cannon_1
+			# 				turret_type_slot = tank_light_superstructure_1
+			# 				suspension_type_slot = tank_torsion_bar_suspension
+			# 				armor_type_slot = tank_riveted_armor
+			# 				engine_type_slot = tank_gasoline_engine_1
+			# 				special_type_slot_2 = tank_radio_1
+			# 			}
+			# 			upgrades = {
+			# 				tank_nsb_engine_upgrade = 0
+			# 				tank_nsb_armor_upgrade = 0
+			# 			}
+			# 			#icon = "GFX_ITA_improved_light_tank_medium"
+			# 		}
+			# 	}
+			# 	ELSE = {
+			# 		custom_effect_tooltip = wuw_HUN_the_toldi_tt
+			# 		effect_tooltip = {
+			# 			#38M Toldi
+			# 			create_equipment_variant = {
+			# 				name = "38M Toldi"
+			# 				type = light_tank_chassis_1938
+			# 				parent_version = 0
+			# 				modules = {
+			# 					main_armament_slot = tank_light_cannon_1
+			# 					turret_type_slot = tank_light_superstructure_1
+			# 					suspension_type_slot = tank_torsion_bar_suspension
+			# 					armor_type_slot = tank_riveted_armor
+			# 					engine_type_slot = tank_gasoline_engine_1
+			# 					special_type_slot_2 = tank_radio_1
+			# 				}
+			# 				upgrades = {
+			# 					tank_nsb_engine_upgrade = 0
+			# 					tank_nsb_armor_upgrade = 0
+			# 				}
+			# 				#icon = "GFX_ITA_improved_light_tank_medium"
+			# 			}
+			# 		}
+			# 	}
+			# }
 
 		}
 	}

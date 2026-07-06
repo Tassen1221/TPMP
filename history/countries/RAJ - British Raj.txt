@@ -137,6 +137,8 @@ if = {
 	recruit_character = RAJ_mughal_industrialist
 	recruit_character = RAJ_silent_mughal
 	recruit_character = RAJ_backroom_mughal
+	recruit_character = RAJ_abdul_ghaffar_khan
+	recruit_character = RAJ_GOE_muhammad_musa
 	
 	else = {
 		recruit_character = RAJ_karam_singh_mann
@@ -554,8 +556,8 @@ if = {
 	limit = {
 		NOT = { has_dlc = "Arms Against Tyranny" }
 	}
-	set_variable = { khadi_level = 0 }
-	set_variable = { gun_and_shell_level = 0 }
+	set_variable = { global.khadi_level = 0 }
+	set_variable = { global.gun_and_shell_level = 0 }
 }
 
 set_variable = { RAJ_recruitment_offices_timeout_max = 12 } 
@@ -651,11 +653,11 @@ if = {
 }
 
 create_equipment_variant = {
-	name = "Line Infantry Equipment 1"
+	name = "Basic Infantry Equipment"
 	type = line_infantry_equipment_1
 	parent_version = 0
 	modules = {
-		soldier_type_slot_0 = bolt_action_1
+		soldier_type_slot_0 = light_machine_gun_1
 		soldier_type_slot_1 = bolt_action_1
 		soldier_type_slot_2 = bolt_action_1
 		soldier_type_slot_3 = bolt_action_1
@@ -666,6 +668,47 @@ create_equipment_variant = {
 		soldier_type_slot_8 = bolt_action_1
 		soldier_type_slot_9 = bolt_action_1
 		uniform_type_slot = helmet
+		sidearm_type_slot = bayonet
+		support_type_slot_0 = improvised_at_grenades
+	}
+}
+create_equipment_variant = {
+	name = "Basic Special Infantry Equipment"
+	type = special_infantry_equipment_1
+	parent_version = 0
+	modules = {
+		soldier_type_slot_0 = light_machine_gun_1
+		soldier_type_slot_1 = bolt_action_1
+		soldier_type_slot_2 = bolt_action_1
+		soldier_type_slot_3 = bolt_action_1
+		soldier_type_slot_4 = bolt_action_1
+		soldier_type_slot_5 = bolt_action_1
+		soldier_type_slot_6 = bolt_action_1
+		soldier_type_slot_7 = bolt_action_1
+		soldier_type_slot_8 = bolt_action_1
+		soldier_type_slot_9 = bolt_action_1
+		uniform_type_slot = helmet
+		sidearm_type_slot = bayonet
+		support_type_slot_0 = improvised_at_grenades
+	}
+}
+create_equipment_variant = {
+	name = "Basic Mobile Infantry Equipment"
+	type = mobile_infantry_equipment_1
+	parent_version = 0
+	modules = {
+		soldier_type_slot_0 = light_machine_gun_1
+		soldier_type_slot_1 = bolt_action_1
+		soldier_type_slot_2 = bolt_action_1
+		soldier_type_slot_3 = bolt_action_1
+		soldier_type_slot_4 = bolt_action_1
+		soldier_type_slot_5 = bolt_action_1
+		soldier_type_slot_6 = bolt_action_1
+		soldier_type_slot_7 = bolt_action_1
+		soldier_type_slot_8 = bolt_action_1
+		soldier_type_slot_9 = bolt_action_1
+		uniform_type_slot = helmet
+		sidearm_type_slot = bayonet
 		support_type_slot_0 = improvised_at_grenades
 	}
 }

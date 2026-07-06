@@ -49,7 +49,10 @@ faction_goal_one_germany = {
 		add_faction_power_projection = 50
 		custom_effect_tooltip = THE_FACTION_LEADER
 		add_faction_initiative = 1
-		add_stability = 0.05
+		if = {
+			limit = { NOT = { has_completed_goal = faction_goal_one_germany } }
+			add_stability = 0.05
+		}
 	}
 	ai_will_do = {
 		base = 10
@@ -57,11 +60,11 @@ faction_goal_one_germany = {
 }
 
 
-#  #  ##  ##  
-#  # #   #  # 
-#  #  #  #### 
-#  #   # #  # 
- ##  ##  #  # 
+#  #  ##  ##
+#  # #   #  #
+#  #  #  ####
+#  #   # #  #
+ ##  ##  #  #
 
 
 faction_goal_building_up_guam = {
@@ -79,10 +82,13 @@ faction_goal_building_up_guam = {
 		638 = { naval_base > 2 }
 	}
 	complete_effect = {
-		add_faction_power_projection = 100 
+		add_faction_power_projection = 100
 		custom_effect_tooltip = THE_FACTION_LEADER
 		add_faction_initiative = 1
-		add_war_support = 0.02
+		if = {
+			limit = { NOT = { has_completed_goal = faction_goal_building_up_guam } }
+			add_war_support = 0.02
+		}
 	}
 	ai_will_do = {
 		base = 10
@@ -90,11 +96,11 @@ faction_goal_building_up_guam = {
 }
 
 
-### #  # ###      ##  #   #   ### ###  ## 
- #  #  # #       #  # #   #    #  #   #   
- #  #### ##      #### #   #    #  ##   #  
- #  #  # #       #  # #   #    #  #     # 
- #  #  # ###     #  # ### ### ### ### ## 
+### #  # ###      ##  #   #   ### ###  ##
+ #  #  # #       #  # #   #    #  #   #
+ #  #### ##      #### #   #    #  ##   #
+ #  #  # #       #  # #   #    #  #     #
+ #  #  # ###     #  # ### ### ### ### ##
 
 
 ### none!
@@ -144,7 +150,10 @@ faction_goal_guerilla_expansion = {
 				name = GUERILLA_ABOVE_THRESHOLD
 			}
 			add_faction_influence_ratio = 0.2
-			add_war_support = 0.05
+			IF = {
+				limit = { NOT = { has_completed_goal = faction_goal_guerilla_expansion } }
+				add_war_support = 0.05
+			}
 		}
 	}
 	ai_will_do = {
@@ -222,9 +231,12 @@ faction_goal_north_subjugated = {
 				name = ALL_FACTION_MEMBERS
 			}
 			custom_effect_tooltip = ALL_FACTION_MEMBERS
-			add_timed_idea = {
-				idea = idea_CHI_central_government_integration_pressure
-				days = 365
+			IF = {
+				limit = { NOT = { has_completed_goal = faction_goal_north_subjugated } }
+				add_timed_idea = {
+					idea = idea_CHI_central_government_integration_pressure
+					days = 365
+				}
 			}
 		}
 	}
@@ -245,86 +257,27 @@ faction_goal_unlock_research = {
 		FROM = { has_faction_research_unlocked = no }
 	}
 	select_effect = {
-		set_temp_variable = { total_techs = 0 }
-		every_collection_element = {
-			input = {
-				input = game:scope
-				operators =  {
-					faction_members
+		scope:faction = {
+			set_temp_variable = {
+				total_techs = {
+					value = 0
+					every_collection = {
+						named_collection = faction_members
+						add = {
+							value = num_researched_technologies
+							multiply = {
+								value = 0
+								if = { limit = { value = num_researched_technologies  less_than = 50 }  add = 1.25 }
+								else_if = { limit = { value = num_researched_technologies  less_than = 75 }  add = 1.2 }
+								else_if = { limit = { value = num_researched_technologies  less_than = 100 }  add = 1.15 }
+								else_if = { limit = { value = num_researched_technologies  less_than = 150 }  add = 1.1 }
+								else_if = { limit = { value = num_researched_technologies  less_than = 200 }  add = 1.05 }
+							}
+						}
+					}
+					round = yes
 				}
 			}
-			add_to_temp_variable = { total_techs = num_researched_technologies }
-		}
-
-		#Divide the numbers of total numbers of techs researched with the numbers of faction members to get an average of reserached techs
-		divide_temp_variable = { total_techs = num_faction_members }
-
-		#Check the numbers of average researched tech between the faction members and adjust the numbers of tech needed to complete the goal
-		if = {
-			limit = {
-				check_variable = { total_techs < 25 }
-			}
-			multiply_temp_variable = {
-				var = total_techs
-				value = 2.25
-			}
-		}
-		else_if = {
-			limit = {
-				check_variable = { total_techs < 50 }
-			}
-			multiply_temp_variable = {
-				var = total_techs
-				value = 2
-			}
-		}
-		else_if = {
-			limit = {
-				check_variable = { total_techs < 75 }
-			}
-			multiply_temp_variable = {
-				var = total_techs
-				value = 1.75
-			}
-		}
-		else_if = {
-			limit = {
-				check_variable = { total_techs < 125 }
-			}
-			multiply_temp_variable = {
-				var = total_techs
-				value = 1.5
-			}
-		}
-		else_if = {
-			limit = {
-				check_variable = { total_techs < 175 }
-			}
-			multiply_temp_variable = {
-				var = total_techs
-				value = 1.35
-			}
-		}
-		else_if = {
-			limit = {
-				check_variable = { total_techs < 225 }
-			}
-			multiply_temp_variable = {
-				var = total_techs
-				value = 1.20
-			}
-		}
-		else_if = {
-			limit = {
-				check_variable = { total_techs < 260 }
-			}
-			multiply_temp_variable = {
-				var = total_techs
-				value = 1.05
-			}
-		}
-		
-		scope:faction = {
 			set_variable = { unlock_military_techs_researched_target = total_techs }
 		}
 	}
@@ -332,88 +285,36 @@ faction_goal_unlock_research = {
 		scope:faction = {
 			hidden_trigger = {
 				tooltip_evaluation = eval
-				set_temp_variable = { unlock_military_techs_researched_compare = 0 }
-				set_temp_variable = { total_faction_compare_members = 0 }	
-				all_collection_elements = {
-					collection = {
-						input = game:scope
-						operators =  { faction_members }
-					}
-					add_to_temp_variable = { unlock_military_techs_researched_compare = num_researched_technologies }
-					add_to_temp_variable = { total_faction_compare_members = 1 }
-				}
-
-				#Divide the numbers of total numbers of techs researched with the numbers of faction members to get an average of reserached techs
-				divide_temp_variable = { unlock_military_techs_researched_compare = total_faction_compare_members }
-
-				set_temp_variable = { unlock_military_techs_researched_compare_temp_target = unlock_military_techs_researched_compare }
-
-				#Check the numbers of average researched tech between the faction members and adjust the numbers of tech needed to complete the goal
-				if = {
-					limit = {
-						check_variable = { unlock_military_techs_researched_compare < 25 }
-					}
-					multiply_temp_variable = {
-						var = unlock_military_techs_researched_compare
-						value = 2.25
+				set_temp_variable = {
+					unlock_military_techs_researched_compare_temp_target = {
+						value = 0
+						every_collection = {
+							named_collection = faction_members
+							add = num_researched_technologies
+						}
 					}
 				}
-				else_if = {
-					limit = {
-						check_variable = { unlock_military_techs_researched_compare < 50 }
-					}
-					multiply_temp_variable = {
-						var = unlock_military_techs_researched_compare
-						value = 2
-					}
-				}
-				else_if = {
-					limit = {
-						check_variable = { unlock_military_techs_researched_compare < 75 }
-					}
-					multiply_temp_variable = {
-						var = unlock_military_techs_researched_compare
-						value = 1.75
-					}
-				}
-				else_if = {
-					limit = {
-						check_variable = { unlock_military_techs_researched_compare < 125 }
-					}
-					multiply_temp_variable = {
-						var = unlock_military_techs_researched_compare
-						value = 1.5
-					}
-				}
-				else_if = {
-					limit = {
-						check_variable = { unlock_military_techs_researched_compare < 175 }
-					}
-					multiply_temp_variable = {
-						var = unlock_military_techs_researched_compare
-						value = 1.35
-					}
-				}
-				else_if = {
-					limit = {
-						check_variable = { unlock_military_techs_researched_compare < 225 }
-					}
-					multiply_temp_variable = {
-						var = unlock_military_techs_researched_compare
-						value = 1.20
-					}
-				}
-				else_if = {
-					limit = {
-						check_variable = { unlock_military_techs_researched_compare < 260 }
-					}
-					multiply_temp_variable = {
-						var = unlock_military_techs_researched_compare
-						value = 1.05
+				set_temp_variable = {
+					unlock_military_techs_researched_compare = {
+						value = 0
+						every_collection = {
+							named_collection = faction_members
+							add = {
+								value = num_researched_technologies
+								multiply = {
+									value = 0
+									if = { limit = { value = num_researched_technologies  less_than = 50 }  add = 1.25 }
+									else_if = { limit = { value = num_researched_technologies  less_than = 75 }  add = 1.2 }
+									else_if = { limit = { value = num_researched_technologies  less_than = 100 }  add = 1.15 }
+									else_if = { limit = { value = num_researched_technologies  less_than = 150 }  add = 1.1 }
+									else_if = { limit = { value = num_researched_technologies  less_than = 200 }  add = 1.05 }
+								}
+							}
+						}
+						round = yes
 					}
 				}
 			}
-
 
 			if = {
 				limit = {
@@ -422,7 +323,7 @@ faction_goal_unlock_research = {
 				check_variable = {
 					var = unlock_military_techs_researched_compare_temp_target
 					value = unlock_military_techs_researched_target
-					compare = greater_than_or_equals
+					compare = greater_than
 					tooltip = "GOAL_T_TRIGGER_A"
 				}
 			}
@@ -430,7 +331,7 @@ faction_goal_unlock_research = {
 				check_variable = {
 					value = unlock_military_techs_researched_compare
 					var = unlock_military_techs_researched_compare_temp_target
-					compare = greater_than_or_equals
+					compare = greater_than
 					tooltip = "GOAL_T_TRIGGER_A"
 				}
 			}
@@ -442,6 +343,10 @@ faction_goal_unlock_research = {
 	}
 	ai_will_do = {
 		base = 1000 # They should always do this if they can
+		modifier = {
+			add = 1000
+			original_tag = ENG
+		}
 	}
 }
 
@@ -457,22 +362,17 @@ faction_goal_unlock_military = {
 		FROM = { has_faction_military_unlocked = no }
 	}
 	select_effect = {
-		set_temp_variable = { total_divs = 0 }
-		every_collection_element = {
-			input = {
-				input = game:scope
-				operators =  {
-					faction_members
+		scope:faction = {
+			set_temp_variable = {
+				total_divs = {
+					value = 0
+					every_collection = {
+						named_collection = faction_members
+						add = num_armies
+					}
+					multiply = 1.20
 				}
 			}
-			add_to_temp_variable = { total_divs = num_armies }
-		}
-		
-		multiply_temp_variable = {
-			var = total_divs
-			value = 1.20
-		}
-		scope:faction = {
 			set_variable = { unlock_target = total_divs }
 		}
 	}
@@ -480,15 +380,20 @@ faction_goal_unlock_military = {
 		scope:faction = {
 			hidden_trigger = {
 				tooltip_evaluation = eval
-				set_temp_variable = { unlock_compare = 0 }			
-				all_collection_elements = {
-					collection = {
-						input = game:scope
-						operators =  { faction_members }
+				set_temp_variable = {
+					unlock_compare = {
+						value = 0
+						every_collection = {
+							named_collection = faction_members
+							add = num_armies
+						}
 					}
-					add_to_temp_variable = { unlock_compare = num_armies }
-					set_temp_variable = { unlock_military_techs_researched_compare_temp_target = unlock_compare }
-					multiply_temp_variable = { unlock_military_techs_researched_compare_temp_target = 1.20 }
+				}
+				set_temp_variable = {
+					unlock_military_techs_researched_compare_temp_target = {
+						value = unlock_compare
+						multiply = 1.20
+					}
 				}
 			}
 			if = {
@@ -518,6 +423,10 @@ faction_goal_unlock_military = {
 	}
 	ai_will_do = {
 		base = 1000 # They should always do this if they can
+		modifier = {
+			add = 1000
+			original_tag = GER
+		}
 	}
 }
 
@@ -576,9 +485,12 @@ faction_goal_west_subjugated = {
 				name = ALL_FACTION_MEMBERS
 			}
 			custom_effect_tooltip = ALL_FACTION_MEMBERS
-			add_timed_idea = {
-				idea = idea_CHI_central_government_integration_pressure
-				days = 365
+			IF = {
+				limit = { NOT = { has_completed_goal = faction_goal_west_subjugated } }
+				add_timed_idea = {
+					idea = idea_CHI_central_government_integration_pressure
+					days = 365
+				}
 			}
 		}
 	}
@@ -637,9 +549,12 @@ faction_goal_south_subjugated = {
 				name = ALL_FACTION_MEMBERS
 			}
 			custom_effect_tooltip = ALL_FACTION_MEMBERS
-			add_timed_idea = {
-				idea = idea_CHI_central_government_integration_pressure
-				days = 365
+			IF = {
+				limit = { NOT = { has_completed_goal = faction_goal_south_subjugated } }
+				add_timed_idea = {
+					idea = idea_CHI_central_government_integration_pressure
+					days = 365
+				}
 			}
 		}
 	}
@@ -649,7 +564,7 @@ faction_goal_south_subjugated = {
 }
 
 
- ###  ##  ###   ##  #  # 
+ ###  ##  ###   ##  #  #
    # #  # #  # #  # ## # 
    # #### ###  #### # ## 
 #  # #  # #    #  # #  # 
@@ -687,7 +602,10 @@ faction_goal_coastal_security = {
 				}	
 				name = ALL_FACTION_MEMBERS
 			}
-			navy_experience = 50
+			IF = {
+				limit = { NOT = { has_completed_goal = faction_goal_coastal_security } }
+				navy_experience = 50
+			}
 		}
 	}
 	ai_will_do = {
@@ -700,7 +618,7 @@ faction_goal_coastal_security = {
 }
 
 
- ##  ##  #   # ### ### ###     #  # #  # ###  ##  #  # 
+ ##  ##  #   # ### ### ###     #  # #  # ###  ##  #  #
 #   #  # #   #  #  #    #      #  # ## #  #  #  # ## # 
  #  #  #  # #   #  ##   #      #  # # ##  #  #  # # ## 
   # #  #  # #   #  #    #      #  # #  #  #  #  # #  # 
@@ -756,7 +674,10 @@ faction_goal_production_quotas = {
 		custom_effect_tooltip = INFLUENCE_ABOVE_30_PERCENT
 		every_faction_member = {
 			limit = { faction_influence_ratio > 0.3}
-			add_political_power = 75
+			IF = {
+				limit = { NOT = { has_completed_goal = faction_goal_production_quotas } }
+				add_political_power = 75
+			}
 		}
 	}
 	ai_will_do = {
@@ -800,7 +721,12 @@ faction_goal_stall_the_fascist_threat = {
 		add_faction_initiative = 1
 		custom_effect_tooltip = generic_skip_one_line_tt
 		custom_effect_tooltip = ALL_FACTION_MEMBERS
-		every_faction_member = { army_experience = 50 }
+		every_faction_member = {
+			IF = {
+				limit = { NOT = { has_completed_goal = faction_goal_stall_the_fascist_threat } }
+				army_experience = 50
+			}
+		}
 	}
 	ai_will_do = {
 		base = 0
@@ -894,18 +820,24 @@ faction_goal_spy_master = {
 		custom_effect_tooltip = THE_SPY_MASTER
 		add_faction_initiative = 1
 		custom_effect_tooltip = generic_skip_one_line_tt
-		every_faction_member = { 
+		every_faction_member = {
 			limit = {
 				has_intelligence_agency = no
 			}
-			create_intelligence_agency = yes
+			IF = {
+				limit = { NOT = { has_completed_goal = faction_goal_spy_master } }
+				create_intelligence_agency = yes
+			}
 		}
-		every_faction_member = { 
+		every_faction_member = {
 			limit = {
 				has_intelligence_agency = yes
 				NOT = { has_done_agency_upgrade  = upgrade_form_department }
 			}
-			upgrade_intelligence_agency = upgrade_form_department
+			IF = {
+				limit = { NOT = { has_completed_goal = faction_goal_spy_master } }
+				upgrade_intelligence_agency = upgrade_form_department
+			}
 		}
 		every_faction_member = {
 			limit = {
@@ -913,9 +845,12 @@ faction_goal_spy_master = {
 				has_done_agency_upgrade  = upgrade_form_department
 				NOT = { has_done_agency_upgrade = upgrade_crypto_strength }
 			}
-			upgrade_intelligence_agency = upgrade_crypto_strength
+			IF = {
+				limit = { NOT = { has_completed_goal = faction_goal_spy_master } }
+				upgrade_intelligence_agency = upgrade_crypto_strength
+			}
 		}
-		every_faction_member = { 
+		every_faction_member = {
 			limit = {
 				has_intelligence_agency = yes
 				has_done_agency_upgrade = upgrade_crypto_strength
@@ -923,9 +858,12 @@ faction_goal_spy_master = {
 				NOT = { has_done_agency_upgrade = upgrade_crypto_strength_2 }
 			}
 			add_faction_initiative = 1
-			upgrade_intelligence_agency = upgrade_crypto_strength_2
+			IF = {
+				limit = { NOT = { has_completed_goal = faction_goal_spy_master } }
+				upgrade_intelligence_agency = upgrade_crypto_strength_2
+			}
 		}
-		every_faction_member = { 
+		every_faction_member = {
 			limit = {
 				has_intelligence_agency = yes
 				NOT = { agency_upgrade_number > 30 }
@@ -935,7 +873,10 @@ faction_goal_spy_master = {
 				}
 			}
 			add_faction_initiative = 1
-			gain_random_agency_upgrade = yes
+			IF = {
+				limit = { NOT = { has_completed_goal = faction_goal_spy_master } }
+				gain_random_agency_upgrade = yes
+			}
 		}
 		every_faction_member = { # Fallback in case someone completed everything
 			visible_when_empty = no
@@ -944,12 +885,15 @@ faction_goal_spy_master = {
 				agency_upgrade_number > 30
 			}
 			add_faction_initiative = 1
-			add_political_power = 100
+			IF = {
+				limit = { NOT = { has_completed_goal = faction_goal_spy_master } }
+				add_political_power = 100
+			}
 		}
 	}
 	ai_will_do = {
 		base = 1
-		modifier = {  
+		modifier = {
 			add = 2
 			has_intelligence_agency = yes
 		}
@@ -981,19 +925,22 @@ faction_goal_convoy_sufficiency = {
 		custom_effect_tooltip = generic_skip_one_line_tt
 		every_faction_member = {
 			tooltip = AT_LEAST_200_CONVOYS
-			visible_when_empty = yes 
+			visible_when_empty = yes
 			limit = {
 				has_navy_size = {
 				    size > 199
 				    type = convoy
 				}
 			}
-			navy_experience = 50
+			IF = {
+				limit = { NOT = { has_completed_goal = faction_goal_convoy_sufficiency } }
+				navy_experience = 50
+			}
 		}
 	}
 	ai_will_do = {
 		base = 1
-		modifier = {  
+		modifier = {
 			add = -1
 			collection_size = {
 				input = {
@@ -1285,12 +1232,15 @@ faction_goal_military_infrastructure = {
 		custom_effect_tooltip = generic_skip_one_line_tt
 		custom_effect_tooltip = ALL_FACTION_MEMBERS
 		every_faction_member = {
-			army_experience = 50
+			IF = {
+				limit = { NOT = { has_completed_goal = faction_goal_military_infrastructure } }
+				army_experience = 50
+			}
 		}
 	}
 	ai_will_do = {
 		base = 0
-		modifier = {  
+		modifier = {
 			add = 1
 			has_war = no
 		}
@@ -1401,15 +1351,18 @@ faction_goal_preemptive_strike_on_fascism = {
 		custom_effect_tooltip = generic_skip_one_line_tt
 		custom_effect_tooltip = ALL_FACTION_MEMBERS
 		every_faction_member = {
-			army_experience = 25
-			add_war_support = 0.05
+			IF = {
+				limit = { NOT = { has_completed_goal = faction_goal_preemptive_strike_on_fascism } }
+				army_experience = 25
+				add_war_support = 0.05
+			}
 		}
 	}
 	ai_will_do = {
 		base = 0
 		modifier = {
 			add = 1
-			is_historical_focus_on = yes
+			is_historical_focus_on = no
 		}
 	}
 }
@@ -1454,7 +1407,10 @@ faction_goal_war_on_communism = {
 		custom_effect_tooltip = generic_skip_one_line_tt
 		custom_effect_tooltip = ALL_FACTION_MEMBERS
 		every_faction_member = {
-			add_war_support = 0.05
+			IF = {
+				limit = { NOT = { has_completed_goal = faction_goal_war_on_communism } }
+				add_war_support = 0.05
+			}
 		}
 	}
 	ai_will_do = {
@@ -1503,7 +1459,10 @@ faction_goal_war_on_democracy = {
 		custom_effect_tooltip = generic_skip_one_line_tt
 		custom_effect_tooltip = ALL_FACTION_MEMBERS
 		every_faction_member = {
-			add_war_support = 0.05
+			IF = {
+				limit = { NOT = { has_completed_goal = faction_goal_war_on_democracy } }
+				add_war_support = 0.05
+			}
 		}
 	}
 	ai_will_do = {
@@ -1538,20 +1497,23 @@ faction_goal_an_armored_fist = {
 		add_faction_power_projection = 200
 		custom_effect_tooltip = ALL_FACTION_MEMBERS
 		every_faction_member = {
-			army_experience = 50 
-			random_character = {
-				tooltip = ONE_PANZER_GENERAL	
-				visible_when_empty = yes
-				limit = {
-					is_unit_leader = yes 
-					OR = {
-						has_trait = armor_officer
-						has_trait = panzer_leader
-						has_trait = panzer_expert 
+			IF = {
+				limit = { NOT = { has_completed_goal = faction_goal_an_armored_fist } }
+				army_experience = 50
+				random_character = {
+					tooltip = ONE_PANZER_GENERAL
+					visible_when_empty = yes
+					limit = {
+						is_unit_leader = yes
+						OR = {
+							has_trait = armor_officer
+							has_trait = panzer_leader
+							has_trait = panzer_expert
+						}
 					}
+					gain_xp = 400
+					add_attack = 1
 				}
-				gain_xp = 400
-				add_attack = 1
 			}
 		}
 	}
@@ -1580,20 +1542,23 @@ faction_goal_an_infantry_army = {
 		add_faction_power_projection = 200
 		custom_effect_tooltip = ALL_FACTION_MEMBERS
 		every_faction_member = {
-			army_experience = 50 
-			random_character = {
-				tooltip = ONE_INFANTRY_GENERAL
-				visible_when_empty = yes
-				limit = {
-					is_unit_leader = yes 
-					OR = {
-						has_trait = infantry_officer
-						has_trait = infantry_leader
-						has_trait = infantry_expert 
+			IF = {
+				limit = { NOT = { has_completed_goal = faction_goal_an_infantry_army } }
+				army_experience = 50
+				random_character = {
+					tooltip = ONE_INFANTRY_GENERAL
+					visible_when_empty = yes
+					limit = {
+						is_unit_leader = yes
+						OR = {
+							has_trait = infantry_officer
+							has_trait = infantry_leader
+							has_trait = infantry_expert
+						}
 					}
+					gain_xp = 400
+					add_logistics = 1
 				}
-				gain_xp = 400
-				add_logistics = 1
 			}
 		}
 	}
@@ -1651,18 +1616,21 @@ faction_goal_develop_mexican_oil = {
 	}
 	complete_effect = {
 		add_faction_power_projection = 100
-		every_state = {
-			limit = {
-				OR = {
-					state = 480
-					state = 479
-					state = 477
-					state = 476
+		if = {
+			limit = { NOT = { has_completed_goal = faction_goal_develop_mexican_oil } }
+			every_state = {
+				limit = {
+					OR = {
+						state = 480
+						state = 479
+						state = 477
+						state = 476
+					}
 				}
-			}
-			add_resource = {
-			    type = oil
-			    amount = 40
+				add_resource = {
+				    type = oil
+				    amount = 40
+				}
 			}
 		}
 	}
@@ -1721,10 +1689,13 @@ faction_goal_develop_curacao_oil = {
 	}
 	complete_effect = {
 		add_faction_power_projection = 100
-		695 = {
-			add_resource = {
-			    type = oil
-			    amount = 140
+		if = {
+			limit = { NOT = { has_completed_goal = faction_goal_develop_curacao_oil } }
+			695 = {
+				add_resource = {
+				    type = oil
+				    amount = 140
+				}
 			}
 		}
 	}
@@ -1788,16 +1759,19 @@ faction_goal_develop_venezuelan_oil = {
 	}
 	complete_effect = {
 		add_faction_power_projection = 100
-		every_state = {
-			limit = {
-				OR = {
-					state = 489
-					state = 307
+		if = {
+			limit = { NOT = { has_completed_goal = faction_goal_develop_venezuelan_oil } }
+			every_state = {
+				limit = {
+					OR = {
+						state = 489
+						state = 307
+					}
 				}
-			}
-			add_resource = {
-			    type = oil
-			    amount = 80
+				add_resource = {
+				    type = oil
+				    amount = 80
+				}
 			}
 		}
 	}
@@ -1855,10 +1829,13 @@ faction_goal_develop_guyanan_bauxite = {
 	}
 	complete_effect = {
 		add_faction_power_projection = 100
-		687 = {
-			add_resource = {
-			    type = aluminium
-			    amount = 140
+		if = {
+			limit = { NOT = { has_completed_goal = faction_goal_develop_guyanan_bauxite } }
+			687 = {
+				add_resource = {
+				    type = aluminium
+				    amount = 140
+				}
 			}
 		}
 	}
@@ -1877,7 +1854,7 @@ faction_goal_develop_guyanan_bauxite = {
 						name = FACTION
 				}
 				resource = aluminium
-				amount < 30
+				amount < 300
 				extracted = no # (optional, default: no) checks extracted amount instead of country balance
 			}
 		}
@@ -1890,7 +1867,7 @@ faction_goal_develop_guyanan_bauxite = {
 						name = FACTION
 				}
 				resource = aluminium
-				amount < 10
+				amount < 100
 				extracted = no # (optional, default: no) checks extracted amount instead of country balance
 			}
 		}
@@ -1924,10 +1901,13 @@ faction_goal_develop_suriname_bauxite = {
 	}
 	complete_effect = {
 		add_faction_power_projection = 100
-		309 = {
-			add_resource = {
-			    type = aluminium
-			    amount = 140
+		if = {
+			limit = { NOT = { has_completed_goal = faction_goal_develop_suriname_bauxite } }
+			309 = {
+				add_resource = {
+				    type = aluminium
+				    amount = 140
+				}
 			}
 		}
 	}
@@ -1946,7 +1926,7 @@ faction_goal_develop_suriname_bauxite = {
 						name = FACTION
 				}
 				resource = aluminium
-				amount < 30
+				amount < 300
 				extracted = no # (optional, default: no) checks extracted amount instead of country balance
 			}
 		}
@@ -1959,7 +1939,7 @@ faction_goal_develop_suriname_bauxite = {
 						name = FACTION
 				}
 				resource = aluminium
-				amount < 10
+				amount < 100
 				extracted = no # (optional, default: no) checks extracted amount instead of country balance
 			}
 		}
@@ -2001,32 +1981,35 @@ faction_goal_develop_lappland_metals = {
 	}
 	complete_effect = {
 		add_faction_power_projection = 100
-		666 = {
-			add_resource = {
-			    type = tungsten
-			    amount = 140
+		if = {
+			limit = { NOT = { has_completed_goal = faction_goal_develop_lappland_metals } }
+			666 = {
+				add_resource = {
+				    type = tungsten
+				    amount = 140
+				}
+				add_resource = {
+				    type = steel
+				    amount = 140
+				}
+				add_resource = {
+				    type = chromium
+				    amount = 80
+				}
 			}
-			add_resource = {
-			    type = steel
-			    amount = 140
-			}
-			add_resource = {
-			    type = chromium
-			    amount = 80
-			}
-		}
-		918 = {
-			add_resource = {
-			    type = tungsten
-			    amount = 100
-			}
-			add_resource = {
-			    type = steel
-			    amount = 100
-			}
-			add_resource = {
-			    type = chromium
-			    amount = 50
+			918 = {
+				add_resource = {
+				    type = tungsten
+				    amount = 100
+				}
+				add_resource = {
+				    type = steel
+				    amount = 100
+				}
+				add_resource = {
+				    type = chromium
+				    amount = 50
+				}
 			}
 		}
 	}
@@ -2049,7 +2032,7 @@ faction_goal_develop_lappland_metals = {
 							name = FACTION
 					}
 					resource = tungsten
-					amount < 45
+					amount < 450
 					extracted = no # (optional, default: no) checks extracted amount instead of country balance
 				}
 				has_resources_in_collection = {
@@ -2059,7 +2042,7 @@ faction_goal_develop_lappland_metals = {
 							name = FACTION
 					}
 					resource = steel
-					amount < 45
+					amount < 450
 					extracted = no # (optional, default: no) checks extracted amount instead of country balance
 				}
 				has_resources_in_collection = {
@@ -2069,7 +2052,7 @@ faction_goal_develop_lappland_metals = {
 							name = FACTION
 					}
 					resource = chromium
-					amount < 24
+					amount < 240
 					extracted = no # (optional, default: no) checks extracted amount instead of country balance
 				}
 			}
@@ -2084,7 +2067,7 @@ faction_goal_develop_lappland_metals = {
 							name = FACTION
 					}
 					resource = tungsten
-					amount < 15
+					amount < 150
 					extracted = no # (optional, default: no) checks extracted amount instead of country balance
 				}
 				has_resources_in_collection = {
@@ -2094,7 +2077,7 @@ faction_goal_develop_lappland_metals = {
 							name = FACTION
 					}
 					resource = steel
-					amount < 15
+					amount < 150
 					extracted = no # (optional, default: no) checks extracted amount instead of country balance
 				}
 				has_resources_in_collection = {
@@ -2104,7 +2087,7 @@ faction_goal_develop_lappland_metals = {
 							name = FACTION
 					}
 					resource = chromium
-					amount < 8
+					amount < 80
 					extracted = no # (optional, default: no) checks extracted amount instead of country balance
 				}
 			}
@@ -2138,10 +2121,13 @@ faction_goal_develop_ploiesti_oil_fields = {
 	}
 	complete_effect = {
 		add_faction_power_projection = 100
-		46 = {
-			add_resource = {
-			    type = oil
-			    amount = 140
+		if = {
+			limit = { NOT = { has_completed_goal = faction_goal_develop_ploiesti_oil_fields } }
+			46 = {
+				add_resource = {
+				    type = oil
+				    amount = 140
+				}
 			}
 		}
 	}
@@ -2211,22 +2197,25 @@ faction_goal_develop_baku_oil_fields = {
 	}
 	complete_effect = {
 		add_faction_power_projection = 100
-		every_state = {
-			limit = {
-				OR = {
-					state = 232
-					state = 821
+		if = {
+			limit = { NOT = { has_completed_goal = faction_goal_develop_baku_oil_fields } }
+			every_state = {
+				limit = {
+					OR = {
+						state = 232
+						state = 821
+					}
+				}
+				add_resource = {
+				    type = oil
+				    amount = 40
 				}
 			}
-			add_resource = {
-			    type = oil
-			    amount = 40
-			}
-		}
-		229 = {
-			add_resource = {
-			    type = oil
-			    amount = 140
+			229 = {
+				add_resource = {
+				    type = oil
+				    amount = 140
+				}
 			}
 		}
 	}
@@ -2295,22 +2284,25 @@ faction_goal_develop_iraqi_oil = {
 	}
 	complete_effect = {
 		add_faction_power_projection = 100
-		291 = {
-			add_resource = {
-			    type = oil
-			    amount = 60
+		if = {
+			limit = { NOT = { has_completed_goal = faction_goal_develop_iraqi_oil } }
+			291 = {
+				add_resource = {
+				    type = oil
+				    amount = 60
+				}
 			}
-		}
-		676 = {
-			add_resource = {
-			    type = oil
-			    amount = 40
+			676 = {
+				add_resource = {
+				    type = oil
+				    amount = 40
+				}
 			}
-		}
-		1010 = {
-			add_resource = {
-			    type = oil
-			    amount = 20
+			1010 = {
+				add_resource = {
+				    type = oil
+				    amount = 20
+				}
 			}
 		}
 	}
@@ -2379,22 +2371,25 @@ faction_goal_develop_persian_oil = {
 	}
 	complete_effect = {
 		add_faction_power_projection = 100
-		411 = {
-			add_resource = {
-			    type = oil
-			    amount = 60
+		if = {
+			limit = { NOT = { has_completed_goal = faction_goal_develop_persian_oil } }
+			411 = {
+				add_resource = {
+				    type = oil
+				    amount = 60
+				}
 			}
-		}
-		412 = {
-			add_resource = {
-			    type = oil
-			    amount = 40
+			412 = {
+				add_resource = {
+				    type = oil
+				    amount = 40
+				}
 			}
-		}
-		413 = {
-			add_resource = {
-			    type = oil
-			    amount = 80
+			413 = {
+				add_resource = {
+				    type = oil
+				    amount = 80
+				}
 			}
 		}
 	}
@@ -2469,60 +2464,63 @@ faction_goal_develop_chinese_metals = {
 	}
 	complete_effect = {
 		add_faction_power_projection = 100
-		592 = {
-			add_resource = {
-			    type = tungsten
-			    amount = 40
+		if = {
+			limit = { NOT = { has_completed_goal = faction_goal_develop_chinese_metals } }
+			592 = {
+				add_resource = {
+				    type = tungsten
+				    amount = 40
+				}
+				add_resource = {
+				    type = steel
+				    amount = 60
+				}
+				add_resource = {
+				    type = chromium
+				    amount = 20
+				}
 			}
-			add_resource = {
-			    type = steel
-			    amount = 60
+			593 = {
+				add_resource = {
+				    type = tungsten
+				    amount = 60
+				}
+				add_resource = {
+				    type = steel
+				    amount = 60
+				}
+				add_resource = {
+				    type = chromium
+				    amount = 20
+				}
 			}
-			add_resource = {
-			    type = chromium
-			    amount = 20
+			594 = {
+				add_resource = {
+				    type = tungsten
+				    amount = 40
+				}
+				add_resource = {
+				    type = steel
+				    amount = 40
+				}
+				add_resource = {
+				    type = chromium
+				    amount = 20
+				}
 			}
-		}
-		593 = {
-			add_resource = {
-			    type = tungsten
-			    amount = 60
-			}
-			add_resource = {
-			    type = steel
-			    amount = 60
-			}
-			add_resource = {
-			    type = chromium
-			    amount = 20
-			}
-		}
-		594 = {
-			add_resource = {
-			    type = tungsten
-			    amount = 40
-			}
-			add_resource = {
-			    type = steel
-			    amount = 40
-			}
-			add_resource = {
-			    type = chromium
-			    amount = 20
-			}
-		}
-		599 = {
-			add_resource = {
-			    type = tungsten
-			    amount = 60
-			}
-			add_resource = {
-			    type = steel
-			    amount = 60
-			}
-			add_resource = {
-			    type = chromium
-			    amount = 20
+			599 = {
+				add_resource = {
+				    type = tungsten
+				    amount = 60
+				}
+				add_resource = {
+				    type = steel
+				    amount = 60
+				}
+				add_resource = {
+				    type = chromium
+				    amount = 20
+				}
 			}
 		}
 	}
@@ -2547,7 +2545,7 @@ faction_goal_develop_chinese_metals = {
 							name = FACTION
 					}
 					resource = tungsten
-					amount < 45
+					amount < 450
 					extracted = no # (optional, default: no) checks extracted amount instead of country balance
 				}
 				has_resources_in_collection = {
@@ -2557,7 +2555,7 @@ faction_goal_develop_chinese_metals = {
 							name = FACTION
 					}
 					resource = steel
-					amount < 45
+					amount < 450
 					extracted = no # (optional, default: no) checks extracted amount instead of country balance
 				}
 				has_resources_in_collection = {
@@ -2567,7 +2565,7 @@ faction_goal_develop_chinese_metals = {
 							name = FACTION
 					}
 					resource = chromium
-					amount < 24
+					amount < 240
 					extracted = no # (optional, default: no) checks extracted amount instead of country balance
 				}
 			}
@@ -2582,7 +2580,7 @@ faction_goal_develop_chinese_metals = {
 							name = FACTION
 					}
 					resource = tungsten
-					amount < 15
+					amount < 150
 					extracted = no # (optional, default: no) checks extracted amount instead of country balance
 				}
 				has_resources_in_collection = {
@@ -2592,7 +2590,7 @@ faction_goal_develop_chinese_metals = {
 							name = FACTION
 					}
 					resource = steel
-					amount < 15
+					amount < 150
 					extracted = no # (optional, default: no) checks extracted amount instead of country balance
 				}
 				has_resources_in_collection = {
@@ -2602,7 +2600,7 @@ faction_goal_develop_chinese_metals = {
 							name = FACTION
 					}
 					resource = chromium
-					amount < 8
+					amount < 80
 					extracted = no # (optional, default: no) checks extracted amount instead of country balance
 				}
 			}
@@ -2625,6 +2623,12 @@ faction_goal_develop_malayan_riches = {
 			336 = {	is_controlled_by_ROOT_or_ally = yes }
 			1021 = { is_controlled_by_ROOT_or_ally = yes }
 			1024 = { is_controlled_by_ROOT_or_ally = yes }
+			1059 = { is_controlled_by_ROOT_or_ally = yes }
+			1060 = { is_controlled_by_ROOT_or_ally = yes }
+			1063 = { is_controlled_by_ROOT_or_ally = yes }
+			1064 = { is_controlled_by_ROOT_or_ally = yes }
+			1062 = { is_controlled_by_ROOT_or_ally = yes }
+			1061 = { is_controlled_by_ROOT_or_ally = yes }
 		}
 	}
 	available = {
@@ -2636,6 +2640,12 @@ faction_goal_develop_malayan_riches = {
 		336 = {	is_controlled_by_ROOT_or_ally = yes }
 		1021 = { is_controlled_by_ROOT_or_ally = yes }
 		1024 = { is_controlled_by_ROOT_or_ally = yes }
+		1059 = { is_controlled_by_ROOT_or_ally = yes }
+		1060 = { is_controlled_by_ROOT_or_ally = yes }
+		1063 = { is_controlled_by_ROOT_or_ally = yes }
+		1064 = { is_controlled_by_ROOT_or_ally = yes }
+		1062 = { is_controlled_by_ROOT_or_ally = yes }
+		1061 = { is_controlled_by_ROOT_or_ally = yes }
 	}
 	completed = {
 		333 = {
@@ -2654,59 +2664,118 @@ faction_goal_develop_malayan_riches = {
 			CONTROLLER = { has_tech = excavation3 }
 			infrastructure > 4
 		}
+		1059 = {
+			CONTROLLER = { has_tech = excavation3 }
+			infrastructure > 4
+		}
+		1060 = {
+			CONTROLLER = { has_tech = excavation3 }
+			infrastructure > 4
+		}
+		1063 = {
+			CONTROLLER = { has_tech = excavation3 }
+			infrastructure > 4
+		}
+		1064 = {
+			CONTROLLER = { has_tech = excavation3 }
+			infrastructure > 4
+		}
+		1062 = {
+			CONTROLLER = { has_tech = excavation3 }
+			infrastructure > 4
+		}
+		1061 = {
+			CONTROLLER = { has_tech = excavation3 }
+			infrastructure > 4
+		}
 	}
 	complete_effect = {
 		add_faction_power_projection = 100
-		333 = {
-			add_resource = {
-			    type = oil
-			    amount = 20
+		if = {
+			limit = { NOT = { has_completed_goal = faction_goal_develop_malayan_riches } }
+			333 = {
+				add_resource = {
+				    type = oil
+				    amount = 20
+				}
+				add_resource = {
+				    type = rubber
+				    amount = 40
+				}
+				add_resource = {
+				    type = coal
+				    amount = 10
+				}
 			}
-			add_resource = {
-			    type = rubber
-			    amount = 80
+			1059 = {
+				add_resource = {
+				    type = oil
+				    amount = 20
+				}
+				add_resource = {
+				    type = rubber
+				    amount = 60
+				}
+				add_resource = {
+				    type = coal
+				    amount = 10
+				}
 			}
-			add_resource = {
-			    type = coal
-			    amount = 10
+			336 = {
+				add_resource = {
+				    type = aluminium
+				    amount = 40
+				}
+				add_resource = {
+				    type = rubber
+				    amount = 200
+				}
+				add_resource = {
+				    type = tungsten
+				    amount = 200
+				}
+				add_resource = {
+				    type = steel
+				    amount = 40
+				}
 			}
-		}
-		336 = {
-			add_resource = {
-			    type = aluminium
-			    amount = 40
+			1062 = {
+				add_resource = {
+				    type = aluminium
+				    amount = 40
+				}
+				add_resource = {
+				    type = rubber
+				    amount = 400
+				}
+				add_resource = {
+				    type = tungsten
+				    amount = 80
+				}
+				add_resource = {
+				    type = steel
+				    amount = 40
+				}
 			}
-			add_resource = {
-			    type = rubber
-			    amount = 600
+			1021 = {
+				add_resource = {
+				    type = aluminium
+				    amount = 30
+				}
+				add_resource = {
+				    type = tungsten
+				    amount = 120
+				}
+				add_resource = {
+				    type = steel
+				    amount = 40
+				}
 			}
-			add_resource = {
-			    type = tungsten
-			    amount = 280
-			}
-			add_resource = {
-			    type = steel
-			    amount = 40
-			}
-		}
-		1021 = {
-			add_resource = {
-			    type = aluminium
-			    amount = 30
-			}
-			add_resource = {
-			    type = tungsten
-			    amount = 120
-			}
-			add_resource = {
-			    type = steel
-			    amount = 40
-			}
-		}
-		1024 = {
-			add_resource = {
-			    type = rubber
-			    amount = 80
+			1024 = {
+				add_resource = {
+				    type = rubber
+				    amount = 80
+				}
 			}
 		}
 	}
@@ -2731,7 +2800,7 @@ faction_goal_develop_malayan_riches = {
 							name = FACTION
 					}
 					resource = rubber
-					amount < 45
+					amount < 450
 					extracted = no # (optional, default: no) checks extracted amount instead of country balance
 				}
 				has_resources_in_collection = {
@@ -2741,7 +2810,7 @@ faction_goal_develop_malayan_riches = {
 							name = FACTION
 					}
 					resource = tungsten
-					amount < 45
+					amount < 450
 					extracted = no # (optional, default: no) checks extracted amount instead of country balance
 				}
 				has_resources_in_collection = {
@@ -2751,7 +2820,7 @@ faction_goal_develop_malayan_riches = {
 							name = FACTION
 					}
 					resource = steel
-					amount < 24
+					amount < 240
 					extracted = no # (optional, default: no) checks extracted amount instead of country balance
 				}
 				has_resources_in_collection = {
@@ -2761,7 +2830,7 @@ faction_goal_develop_malayan_riches = {
 							name = FACTION
 					}
 					resource = aluminium
-					amount < 12
+					amount < 120
 					extracted = no # (optional, default: no) checks extracted amount instead of country balance
 				}
 				has_resources_in_collection = {
@@ -2771,7 +2840,7 @@ faction_goal_develop_malayan_riches = {
 							name = FACTION
 					}
 					resource = oil
-					amount < 30
+					amount < 300
 					extracted = yes  # (optional, default: no) checks extracted amount instead of country balance
 				}
 			}
@@ -2786,7 +2855,7 @@ faction_goal_develop_malayan_riches = {
 							name = FACTION
 					}
 					resource = rubber
-					amount < 15
+					amount < 150
 					extracted = no # (optional, default: no) checks extracted amount instead of country balance
 				}
 				has_resources_in_collection = {
@@ -2796,7 +2865,7 @@ faction_goal_develop_malayan_riches = {
 							name = FACTION
 					}
 					resource = tungsten
-					amount < 15
+					amount < 150
 					extracted = no # (optional, default: no) checks extracted amount instead of country balance
 				}
 				has_resources_in_collection = {
@@ -2806,7 +2875,7 @@ faction_goal_develop_malayan_riches = {
 							name = FACTION
 					}
 					resource = steel
-					amount < 8
+					amount < 80
 					extracted = no # (optional, default: no) checks extracted amount instead of country balance
 				}
 				has_resources_in_collection = {
@@ -2816,7 +2885,7 @@ faction_goal_develop_malayan_riches = {
 							name = FACTION
 					}
 					resource = aluminium
-					amount < 4
+					amount < 40
 					extracted = no # (optional, default: no) checks extracted amount instead of country balance
 				}
 				has_resources_in_collection = {
@@ -2826,7 +2895,7 @@ faction_goal_develop_malayan_riches = {
 							name = FACTION
 					}
 					resource = oil
-					amount < 10
+					amount < 100
 					extracted = yes  # (optional, default: no) checks extracted amount instead of country balance
 				}
 			}
@@ -2887,58 +2956,61 @@ faction_goal_develop_indonesian_riches = {
 	}
 	complete_effect = {
 		add_faction_power_projection = 100
-		334 = {
-			add_resource = {
-			    type = oil
-			    amount = 30
+		if = {
+			limit = { NOT = { has_completed_goal = faction_goal_develop_indonesian_riches } }
+			334 = {
+				add_resource = {
+				    type = oil
+				    amount = 30
+				}
+				add_resource = {
+				    type = rubber
+				    amount = 280
+				}
+				add_resource = {
+				    type = coal
+				    amount = 20
+				}
 			}
-			add_resource = {
-			    type = rubber
-			    amount = 280
+			335 = {
+				add_resource = {
+				    type = oil
+				    amount = 40
+				}
+				add_resource = {
+				    type = rubber
+				    amount = 480
+				}
 			}
-			add_resource = {
-			    type = coal
-			    amount = 200
+			667 = {
+				add_resource = {
+				    type = rubber
+				    amount = 60
+				}
 			}
-		}
-		335 = {
-			add_resource = {
-			    type = oil
-			    amount = 40
+			672 = {
+				add_resource = {
+				    type = oil
+				    amount = 50
+				}
+				add_resource = {
+				    type = aluminium
+				    amount = 80
+				}
+				add_resource = {
+				    type = rubber
+				    amount = 500
+				}
+				add_resource = {
+				    type = coal
+				    amount = 30
+				}
 			}
-			add_resource = {
-			    type = rubber
-			    amount = 480
-			}
-		}
-		667 = {
-			add_resource = {
-			    type = rubber
-			    amount = 60
-			}
-		}
-		672 = {
-			add_resource = {
-			    type = oil
-			    amount = 50
-			}
-			add_resource = {
-			    type = aluminium
-			    amount = 80
-			}
-			add_resource = {
-			    type = rubber
-			    amount = 500
-			}
-			add_resource = {
-			    type = coal
-			    amount = 30
-			}
-		}
-		673 = {
-			add_resource = {
-			    type = rubber
-			    amount = 100
+			673 = {
+				add_resource = {
+				    type = rubber
+				    amount = 100
+				}
 			}
 		}
 	}
@@ -2964,7 +3036,7 @@ faction_goal_develop_indonesian_riches = {
 							name = FACTION
 					}
 					resource = rubber
-					amount < 45
+					amount < 450
 					extracted = no # (optional, default: no) checks extracted amount instead of country balance
 				}
 				has_resources_in_collection = {
@@ -2974,7 +3046,7 @@ faction_goal_develop_indonesian_riches = {
 							name = FACTION
 					}
 					resource = tungsten
-					amount < 45
+					amount < 450
 					extracted = no # (optional, default: no) checks extracted amount instead of country balance
 				}
 				has_resources_in_collection = {
@@ -2984,7 +3056,7 @@ faction_goal_develop_indonesian_riches = {
 							name = FACTION
 					}
 					resource = steel
-					amount < 24
+					amount < 240
 					extracted = no # (optional, default: no) checks extracted amount instead of country balance
 				}
 				has_resources_in_collection = {
@@ -2994,7 +3066,7 @@ faction_goal_develop_indonesian_riches = {
 							name = FACTION
 					}
 					resource = aluminium
-					amount < 12
+					amount < 120
 					extracted = no # (optional, default: no) checks extracted amount instead of country balance
 				}
 				has_resources_in_collection = {
@@ -3004,7 +3076,7 @@ faction_goal_develop_indonesian_riches = {
 							name = FACTION
 					}
 					resource = oil
-					amount < 30
+					amount < 300
 					extracted = yes  # (optional, default: no) checks extracted amount instead of country balance
 				}
 			}
@@ -3019,7 +3091,7 @@ faction_goal_develop_indonesian_riches = {
 							name = FACTION
 					}
 					resource = rubber
-					amount < 15
+					amount < 150
 					extracted = no # (optional, default: no) checks extracted amount instead of country balance
 				}
 				has_resources_in_collection = {
@@ -3029,7 +3101,7 @@ faction_goal_develop_indonesian_riches = {
 							name = FACTION
 					}
 					resource = tungsten
-					amount < 15
+					amount < 150
 					extracted = no # (optional, default: no) checks extracted amount instead of country balance
 				}
 				has_resources_in_collection = {
@@ -3039,7 +3111,7 @@ faction_goal_develop_indonesian_riches = {
 							name = FACTION
 					}
 					resource = steel
-					amount < 8
+					amount < 80
 					extracted = no # (optional, default: no) checks extracted amount instead of country balance
 				}
 				has_resources_in_collection = {
@@ -3049,7 +3121,7 @@ faction_goal_develop_indonesian_riches = {
 							name = FACTION
 					}
 					resource = aluminium
-					amount < 4
+					amount < 40
 					extracted = no # (optional, default: no) checks extracted amount instead of country balance
 				}
 				has_resources_in_collection = {
@@ -3059,7 +3131,7 @@ faction_goal_develop_indonesian_riches = {
 							name = FACTION
 					}
 					resource = oil
-					amount < 10
+					amount < 100
 					extracted = yes  # (optional, default: no) checks extracted amount instead of country balance
 				}
 			}

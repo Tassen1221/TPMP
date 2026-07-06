@@ -1,4 +1,74 @@
 technologies = {
+	TPMP_armor_doctrine_1_c_tech = {
+		allow = {
+			always = no
+		}
+		enable_subunits = {
+			medium_tank_destroyer
+			heavy_tank_destroyer
+		}
+	}
+	TPMP_armor_doctrine_3_c_tech = {
+		allow = {
+			always = no
+		}
+		medium_armor = {
+			armor_value = 0.1
+			need = {
+				medium_tank_chassis = -2
+			}
+
+		}
+	}
+	TPMP_infantry_doctrine_2_c_tech = {
+		allow = {
+			always = no
+		}
+		infantry = {
+			max_strength = 2
+			max_organisation = 5
+		}
+	}
+	TPMP_infantry_doctrine_3_a_tech = {
+		allow = {
+			always = no
+		}
+		enable_subunits = {
+			assault_squad
+		}
+	}
+	TPMP_artillery_doctrine_1_c_tech = {
+		allow = {
+			always = no
+		}
+		max_planning = 0.05
+	}
+	TPMP_artillery_doctrine_3_e_tech = {
+		allow = {
+			always = no
+		}
+		category_army = {
+			soft_attack = 0.05
+		}
+	}
+	TPMP_mobile_doctrine_1_e_tech = {
+		allow = {
+			always = no
+		}
+		motorized = {
+			soft_attack = 0.15
+			breakthrough = 0.15
+		}
+	}
+	TPMP_mobile_doctrine_2_b_tech = {
+		allow = {
+			always = no
+		}
+		category_mechanized_infantry = {
+			max_organisation = 3
+			breakthrough = 0.1
+		}
+	}
 	TPMP_anti_tank_air_doctrine_2_c_tech = {
 		allow = {
 			always = no
@@ -20,9 +90,10 @@ technologies = {
 			always = no
 		}
 		enable_subunits = {
-			light_tank_destroyer
-			light_sp_artillery
-			light_sp_anti_air
+			# medium_armor_support
+			medium_tank_destroyer
+			medium_sp_artillery
+			medium_sp_anti_air
 		}
 	}
 	TPMP_armor_variants_doctrine_2_d_tech = {
@@ -30,9 +101,7 @@ technologies = {
 			always = no
 		}
 		enable_subunits = {
-			medium_tank_destroyer
-			medium_sp_artillery
-			medium_sp_anti_air
+			# heavy_armor_support
 			heavy_tank_destroyer
 			heavy_sp_artillery
 			heavy_sp_anti_air

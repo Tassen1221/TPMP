@@ -90,80 +90,80 @@ country_event = {
 	}
 
 	# It's shougunating time heck yea
-	option = { 
-		name = SEA_japan.1.b
-		ai_chance = {
-			base = 0
-			modifier = {
-				add = 100
-				OR = {
-					has_country_flag = JAP_AI_RANDOM_NEUTRALITY
-					has_game_rule = {
-						rule = JAP_ai_behavior
-						option = NEUTRALITY
-					}
-				}
-			}
-		}
+	# option = { 
+	# 	name = SEA_japan.1.b
+	# 	ai_chance = {
+	# 		base = 0
+	# 		modifier = {
+	# 			add = 100
+	# 			OR = {
+	# 				has_country_flag = JAP_AI_RANDOM_NEUTRALITY
+	# 				has_game_rule = {
+	# 					rule = JAP_ai_behavior
+	# 					option = NEUTRALITY
+	# 				}
+	# 			}
+	# 		}
+	# 	}
 
-		custom_effect_tooltip = JAP_kodoha_coup_will_succeed_tt
+	# 	custom_effect_tooltip = JAP_kodoha_coup_will_succeed_tt
 	
-		retire_character = JAP_takahashi_korekiyo
-	 	set_country_flag = JAP_takahashi_korekiyo_was_killed
+	# 	retire_character = JAP_takahashi_korekiyo
+	#  	set_country_flag = JAP_takahashi_korekiyo_was_killed
 	
-	 	retire_character = JAP_jotaro_watanabe
-	 	set_country_flag = JAP_jotaro_watanabe_was_killed
+	#  	retire_character = JAP_jotaro_watanabe
+	#  	set_country_flag = JAP_jotaro_watanabe_was_killed
 		
-	 	IF = {
-	 		limit = {
-	 			has_dlc = "No Compromise, No Surrender"
-	 		}
-	 		# Due to one of the other assassinations failing, they will go harder for Saionji Kinmochi instead, killing hnm. 
-	 		retire_character = JAP_saionji_kinmochi
-	 	}
+	#  	IF = {
+	#  		limit = {
+	#  			has_dlc = "No Compromise, No Surrender"
+	#  		}
+	#  		# Due to one of the other assassinations failing, they will go harder for Saionji Kinmochi instead, killing hnm. 
+	#  		retire_character = JAP_saionji_kinmochi
+	#  	}
 
-	 	custom_effect_tooltip = generic_skip_one_line_tt
+	#  	custom_effect_tooltip = generic_skip_one_line_tt
 		
-	 	IF = {
-	 		limit = {
-	 			has_dlc = "No Compromise, No Surrender"
-	 		}
-	 		IF = {
-	 			limit = {
-	 				has_country_leader = {
-						ruling_only = yes
-	 					character = JAP_keisuke_okada
-	 				}	
-	 			}
-	 			kill_country_leader = yes
-	 		}
-			add_country_leader_role = {
-	 			character =  JAP_jinzaburo_masaki
-	 			promote_leader = yes
-	 			country_leader = {
-	 				ideology = japan_militarism_ideology
-					expire = "1952.1.1.1"
-	 				traits = { JAP_military_prime_minister } 
-	 			}
-	 		}
+	#  	IF = {
+	#  		limit = {
+	#  			has_dlc = "No Compromise, No Surrender"
+	#  		}
+	#  		IF = {
+	#  			limit = {
+	#  				has_country_leader = {
+	# 					ruling_only = yes
+	#  					character = JAP_keisuke_okada
+	#  				}	
+	#  			}
+	#  			kill_country_leader = yes
+	#  		}
+	# 		add_country_leader_role = {
+	#  			character =  JAP_jinzaburo_masaki
+	#  			promote_leader = yes
+	#  			country_leader = {
+	#  				ideology = japan_militarism_ideology
+	# 				expire = "1952.1.1.1"
+	#  				traits = { JAP_military_prime_minister } 
+	#  			}
+	#  		}
 
-	 		custom_effect_tooltip = generic_skip_one_line_tt
+	#  		custom_effect_tooltip = generic_skip_one_line_tt
 			
-	 		complete_national_focus = JAP_revere_the_emperor_destroy_the_traitors
-	 		#custom_effect_tooltip = focus_effects_are_as_follows_tt
-	 		#effect_tooltip = {
-	 		#	
-	 		#}
-	 	}
-	 	ELSE = {
-	 		complete_national_focus = JAP_support_the_kodoha_faction
-	 	}
+	#  		complete_national_focus = JAP_revere_the_emperor_destroy_the_traitors
+	#  		#custom_effect_tooltip = focus_effects_are_as_follows_tt
+	#  		#effect_tooltip = {
+	#  		#	
+	#  		#}
+	#  	}
+	#  	ELSE = {
+	#  		complete_national_focus = JAP_support_the_kodoha_faction
+	#  	}
 
-	 	hidden_effect = {
-	 		set_country_flag = JAP_aizawas_trial_over_flag
-	 	}
+	#  	hidden_effect = {
+	#  		set_country_flag = JAP_aizawas_trial_over_flag
+	#  	}
 
-	}
+	# }
 
 	# We have come to the conclusion that fascism = bad
 	# option = { 
@@ -605,15 +605,24 @@ country_event = {
 	is_triggered_only = yes
 
 	fire_only_once = yes
-	
+
 	# We will be stronger together 
 	option = { 
 		name = SEA_japan_foreign_policy.4.a
+		trigger = {
+			NOT = { has_active_mission = SIA_limited_war_indochina }
+		}
 		ai_chance = {
 			base = 70
 			modifier = {
 				strength_ratio = { tag = JAP ratio < 0.8 }
 				factor = 1.5
+			}
+
+			modifier = {
+				has_dlc = "Thunder at Our Gates"
+				is_historical_focus_on = yes
+				factor = 0
 			}
 		}
 
@@ -632,11 +641,26 @@ country_event = {
 			}
 		}
 
+		#Make sure reluctant submission is triggered via this event
+		if = {
+			limit = {
+				has_dlc = "Thunder at Our Gates"
+				NOT = { 
+					has_completed_focus = SIA_standing_our_ground 
+					has_completed_focus = SIA_reluctant_submission
+				}
+			} 
+			complete_national_focus = SIA_reluctant_submission
+		}
+
 	}
 
 	# That would go against our principals of neutrality!
 	option = { 
 		name = SEA_japan_foreign_policy.4.b
+		trigger = {
+			NOT = { has_active_mission = SIA_limited_war_indochina }
+		}
 		ai_chance = {
 			base = 30
 			modifier = {
@@ -665,6 +689,14 @@ country_event = {
 			}
 		}
 
+	}
+
+	option = { 
+		name = SEA_japan_foreign_policy.4.c
+		trigger = { has_active_mission = SIA_limited_war_indochina }
+
+		JAP = { SIA = { country_event = { id = SEA_japan_foreign_policy.4 days = 181 } } } #Scoping to JAP first for loc to work with FROM
+		custom_effect_tooltip = SEA_japan_foreign_policy.4.c_tt
 	}
 }
 
@@ -756,6 +788,12 @@ country_event = {
 		name = SEA_japan_foreign_policy.7.a
 		ai_chance = {
 			base = 90
+
+			modifier = {
+				is_historical_focus_on = yes
+				has_dlc = "Thunder at Our Gates"
+				factor = 0
+			}
 		}
 
 		FROM = {
@@ -807,7 +845,6 @@ country_event = {
 				}
 			}
 		}
-
 	}
 }
 
@@ -2974,6 +3011,7 @@ country_event = { # [FROM.GetNameDefCap] Develops our Industries - event for cou
 		name = SEA_japan_foreign_policy.48.a	
 		
 		add_tech_bonus = {
+			name = JAP_east_asia_development_board
 			bonus = 0.5
 			uses = 2
 			category = industry
@@ -9591,71 +9629,71 @@ country_event = {
 	}
 
 	# We have other candidates in mind
-	option = {
-		name = SEA_japan_popup_events.4.b
-		ai_chance = {
-			base = 45
-		}
+	# option = {
+	# 	name = SEA_japan_popup_events.4.b
+	# 	ai_chance = {
+	# 		base = 45
+	# 	}
 
-		IF = {
-			limit = {
-				NOT = {
-					divisions_in_state = {
-						state = 282
-						size > 4
-						unit = cavalry 
-					}
-				}
-			}
-			random_list = {
-			    50 = {
-			    	ROOT = {
-			    		country_event = {
-			    			id = SEA_japan_popup_events.5
-			    			days = 7
-			    			random_days = 4
-			    		}
-			    	}
-			    }
-			    50 = {
-			    	ROOT = {
-			    		country_event = {
-			    			id = SEA_japan_popup_events.6
-			    			days = 7
-			    			random_days = 4
-			    		}	
-			    	}
-			    }
-			}
-		}
-		ELSE = {
-			country_event = {
-				id = SEA_japan_popup_events.6
-				days = 7
-				random_days = 4
-			}
-		}
+	# 	IF = {
+	# 		limit = {
+	# 			NOT = {
+	# 				divisions_in_state = {
+	# 					state = 282
+	# 					size > 4
+	# 					unit = cavalry 
+	# 				}
+	# 			}
+	# 		}
+	# 		random_list = {
+	# 		    100 = {
+	# 		    	ROOT = {
+	# 		    		country_event = {
+	# 		    			id = SEA_japan_popup_events.5
+	# 		    			days = 7
+	# 		    			random_days = 4
+	# 		    		}
+	# 		    	}
+	# 		    }
+	# 		    50 = {
+	# 		    	ROOT = {
+	# 		    		country_event = {
+	# 		    			id = SEA_japan_popup_events.6
+	# 		    			days = 7
+	# 		    			random_days = 4
+	# 		    		}	
+	# 		    	}
+	# 		    }
+	# 		}
+	# 	}
+	# 	ELSE = {
+	# 		country_event = {
+	# 			id = SEA_japan_popup_events.6
+	# 			days = 7
+	# 			random_days = 4
+	# 		}
+	# 	}
 
-	}
+	# }
 
-	# If he doesn't support us, he must go
-	option = {
-		name = SEA_japan_popup_events.4.c
-		ai_chance = {
-			base = 5
-		}
+	# # If he doesn't support us, he must go
+	# option = {
+	# 	name = SEA_japan_popup_events.4.c
+	# 	ai_chance = {
+	# 		base = 5
+	# 	}
 		
-		add_stability = -0.15
+	# 	add_stability = -0.15
 
-		custom_effect_tooltip = generic_skip_one_line_tt
+	# 	custom_effect_tooltip = generic_skip_one_line_tt
 
-		country_event = {
-			id = SEA_japan_popup_events.7
-			days = 7
-			random_days = 4
-		}
+	# 	country_event = {
+	# 		id = SEA_japan_popup_events.7
+	# 		days = 7
+	# 		random_days = 4
+	# 	}
 
-	}
+	# }
 
 }
 
@@ -9780,30 +9818,30 @@ country_event = {
 	fire_only_once = yes
 
 	# Mazaki is more popular among the men
-	option = {
-		name = SEA_japan_popup_events.8.a
-		ai_chance = {
-			base = 50
-		}
+	# option = {
+	# 	name = SEA_japan_popup_events.8.a
+	# 	ai_chance = {
+	# 		base = 50
+	# 	}
 
-		JAP_jinzaburo_masaki = {
-			add_country_leader_trait = JAP_soto_trait
-		}
+	# 	JAP_jinzaburo_masaki = {
+	# 		add_country_leader_trait = JAP_soto_trait
+	# 	}
 
-		hidden_effect = { # For if you choose to go fascist in a later event 
-			JAP_jinzaburo_masaki = {
-				add_country_leader_role = {
-					promote_leader = yes
-					country_leader = {
-						ideology = emperor_fascism
-						expire = "1966.1.1.1"
-						traits = { JAP_military_prime_minister JAP_soto_trait } 
-					}
-				}	
-			}
-		}
+	# 	hidden_effect = { # For if you choose to go fascist in a later event 
+	# 		JAP_jinzaburo_masaki = {
+	# 			add_country_leader_role = {
+	# 				promote_leader = yes
+	# 				country_leader = {
+	# 					ideology = emperor_fascism
+	# 					expire = "1966.1.1.1"
+	# 					traits = { JAP_military_prime_minister JAP_soto_trait } 
+	# 				}
+	# 			}	
+	# 		}
+	# 	}
 
-	}
+	# }
 
 	# Araki should be the nation's Sōtō
 	option = {
@@ -9864,44 +9902,44 @@ country_event = {
 	}
 
 	# Araki is right, and we should embrace those ideas
-	option = {
-		name = SEA_japan_popup_events.9.b
-		ai_chance = {
-			base = 0
-		}
-		trigger = {
-			has_government = neutrality
-			OR = {
-				has_country_leader = {
-					ruling_only = yes
-					character = JAP_emperor_yasuhito
-				}	
-				#has_country_leader = {
-				#	ruling_only = yes
-				#	character = JAP_jinzaburo_masaki
-				#}	
-				has_country_leader = {
-					ruling_only = yes
-					character = JAP_sadao_araki
-				}	
-			}
-		}
+	# option = {
+	# 	name = SEA_japan_popup_events.9.b
+	# 	ai_chance = {
+	# 		base = 0
+	# 	}
+	# 	trigger = {
+	# 		has_government = neutrality
+	# 		OR = {
+	# 			has_country_leader = {
+	# 				ruling_only = yes
+	# 				character = JAP_emperor_yasuhito
+	# 			}	
+	# 			#has_country_leader = {
+	# 			#	ruling_only = yes
+	# 			#	character = JAP_jinzaburo_masaki
+	# 			#}	
+	# 			has_country_leader = {
+	# 				ruling_only = yes
+	# 				character = JAP_sadao_araki
+	# 			}	
+	# 		}
+	# 	}
 
-		set_politics = {
-			ruling_party = fascism
-			elections_allowed = no
-			long_name = JAP_fascism_party_kodoha_long
-			name = JAP_fascism_party_kodoha
-		}	
+	# 	set_politics = {
+	# 		ruling_party = fascism
+	# 		elections_allowed = no
+	# 		long_name = JAP_fascism_party_kodoha_long
+	# 		name = JAP_fascism_party_kodoha
+	# 	}	
 
-		custom_effect_tooltip = generic_skip_one_line_tt
+	# 	custom_effect_tooltip = generic_skip_one_line_tt
 
-		add_popularity = {
-			ideology = fascism
-			popularity = 0.35
-		}	
+	# 	add_popularity = {
+	# 		ideology = fascism
+	# 		popularity = 0.35
+	# 	}	
 
-	}
+	# }
 
 }
 

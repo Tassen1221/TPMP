@@ -1219,7 +1219,7 @@ focus_tree = {
 				name = BUL_rebuild_the_army
 			    cost_reduction = 0.5
 			    uses = 2
-				category = cat_land_doctrine
+				category = land_doctrine
 			}
 			if = {
 				limit = { has_idea = BUL_bulgarian_army_02 }
@@ -1266,7 +1266,7 @@ focus_tree = {
 				name = BUL_vasil_levsky_national_military_university
 			    cost_reduction = 0.35
 			    uses = 2
-				category = cat_land_doctrine
+				category = land_doctrine
 				category = naval_doctrine
 				category = cat_air_doctrine
 			}
@@ -1347,7 +1347,7 @@ focus_tree = {
 				name = BUL_national_military_academy
 			    cost_reduction = 0.5
 			    uses = 1
-				category = cat_land_doctrine
+				category = land_doctrine
 			}
 			if = {
 				limit = { has_idea = BUL_bulgarian_army_01}
@@ -3460,7 +3460,7 @@ focus_tree = {
 				name = BUL_darzhavna_samoletna_fabrika
 			    cost_reduction = 0.5
 			    uses = 2
-				category = cat_land_doctrine
+				category = land_doctrine
 				category = cat_air_doctrine
 				category = naval_doctrine
 			}
@@ -6788,7 +6788,7 @@ focus_tree = {
 		cost = 10
 
 		available = {
-			democratic > 0.20
+			# democratic > 0.20
 		}
 		
 		search_filters = {FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL FOCUS_FILTER_INTERNAL_AFFAIRS}
@@ -6943,7 +6943,7 @@ focus_tree = {
 		cost = 10
 
 		available = {
-			has_war = yes
+			# has_war = yes
 		}
 		
 		search_filters = {FOCUS_FILTER_INDUSTRY FOCUS_FILTER_MANPOWER}
@@ -7347,23 +7347,23 @@ focus_tree = {
 		}
 		
 		completion_reward = {
-			if = {
-				limit = {
-					is_in_faction = yes
-				}
-				leave_faction = yes
-			}
-			set_rule = {
-				can_join_factions = no
-			}
-			create_faction_from_template = {
-				template = faction_template_balkan_pact
-				name = BUL_greater_bulgarian_federation
-				icon = GFX_faction_logo_generic_5
-			}
+			# if = {
+			# 	limit = {
+			# 		is_in_faction = yes
+			# 	}
+			# 	leave_faction = yes
+			# }
+			# set_rule = {
+			# 	can_join_factions = no
+			# }
+			# create_faction_from_template = {
+			# 	template = faction_template_balkan_pact
+			# 	name = BUL_greater_bulgarian_federation
+			# 	icon = GFX_faction_logo_generic_5
+			# }
 			add_timed_idea = {
 				idea = BUL_the_fate_of_the_balkans
-				days = 365
+				days = 548
 			}
 			every_other_country = {
 				limit = {
@@ -7375,10 +7375,11 @@ focus_tree = {
 				}
 				add_timed_idea = {
 					idea = BUL_the_bulgarian_threat
-					days = 365
+					days = 548
 				}
 			}
-			unlock_decision_category_tooltip = BUL_the_fate_of_the_balkans_dec_cat
+			# unlock_decision_category_tooltip = BUL_the_fate_of_the_balkans_dec_cat
+			GER = { country_event = { id = generic.2 hours = 4 random_hours = 2 } }
 		}
 	}
 
@@ -8799,10 +8800,10 @@ focus_tree = {
 		cost = 10
 
 		available = {
-			any_controlled_state = {
-				has_state_flag = BUL_historical_bulgarian_claim_flag
-				is_fully_controlled_by = BUL
-			}
+			# any_controlled_state = {
+			# 	has_state_flag = BUL_historical_bulgarian_claim_flag
+			# 	is_fully_controlled_by = BUL
+			# }
 		}
 		
 		search_filters = {FOCUS_FILTER_ANNEXATION}

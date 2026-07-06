@@ -4,131 +4,177 @@ armor_doctrine_1 = {
     description = SUBDOCTRINE_ARMOR_1_DESC
     icon = GFX_doctrine_armored_spearhead_medium
 
-    xp_cost = 100
+    xp_cost = 0
     xp_type = army
 
     available = {
         always = yes
     }
 
+	visible = {
+		NOT = {
+			has_subdoctrine_in_track = armor
+		}
+	}
+
     category_tanks = {
-        defense = 0.1
-        hard_attack = 0.02
+        breakthrough = 0.1
+        hard_attack = 0.05
+        ap_attack = 0.05
     }
     category_tank_variants = {
-        defense = 0.1
-        hard_attack = 0.02
+        breakthrough = 0.1
+        hard_attack = 0.05
+        ap_attack = 0.05
     }
 
     rewards = {
-        armor_doctrine_1a = {
+        a = {
             category_tanks = {
-                soft_attack = 0.05
-                max_organisation = 5
+                defense = 0.1
+                hard_attack = 0.05
+                ap_attack = 0.05
             }
             category_tank_variants = {
-                soft_attack = 0.05
-                max_organisation = 5
+                defense = 0.1
             }
         }
-        armor_doctrine_1b = {
+        b = {
+            category_tanks = {
+                defense = 0.1
+                armor_value = 0.1
+                entrenchment = 0.1
+            }
+            category_tank_variants = {
+                defense = 0.1
+            }
             light_armor = {
-                forest = {
-                    defence = 0.1
-                }
-                jungle = {
-                    defence = 0.1
-                }
-                hills = {
-                    defence = 0.1
-                }
-                mountain = {
-                    defence = 0.1
-                }
-                marsh = {
-                    defence = 0.1
-                }
-            }
+				hills = { defence = 0.1 }
+				mountain = { defence = 0.1 }
+				forest = { defence = 0.1 }
+				jungle = { defence = 0.1 }
+				marsh = { defence = 0.1 }
+				urban = { defence = 0.1 }
+			}
             medium_armor = {
-                forest = {
-                    defence = 0.1
-                }
-                jungle = {
-                    defence = 0.1
-                }
-                hills = {
-                    defence = 0.1
-                }
-                mountain = {
-                    defence = 0.1
-                }
-                marsh = {
-                    defence = 0.1
-                }
-            }
+				hills = { defence = 0.1 }
+				mountain = { defence = 0.1 }
+				forest = { defence = 0.1 }
+				jungle = { defence = 0.1 }
+				marsh = { defence = 0.1 }
+				urban = { defence = 0.1 }
+			}
             heavy_armor = {
-                forest = {
-                    defence = 0.1
-                }
-                jungle = {
-                    defence = 0.1
-                }
-                hills = {
-                    defence = 0.1
-                }
-                mountain = {
-                    defence = 0.1
-                }
-                marsh = {
-                    defence = 0.1
-                }
-            }
+				hills = { defence = 0.1 }
+				mountain = { defence = 0.1 }
+				forest = { defence = 0.1 }
+				jungle = { defence = 0.1 }
+				marsh = { defence = 0.1 }
+				urban = { defence = 0.1 }
+			}
             super_heavy_armor = {
-                forest = {
-                    defence = 0.1
+				hills = { defence = 0.1 }
+				mountain = { defence = 0.1 }
+				forest = { defence = 0.1 }
+				jungle = { defence = 0.1 }
+				marsh = { defence = 0.1 }
+				urban = { defence = 0.1 }
+			}
+            amphibious_light_armor = {
+				hills = { defence = 0.1 }
+				mountain = { defence = 0.1 }
+				forest = { defence = 0.1 }
+				jungle = { defence = 0.1 }
+				marsh = { defence = 0.1 }
+				urban = { defence = 0.1 }
+			}
+            amphibious_medium_armor = {
+				hills = { defence = 0.1 }
+				mountain = { defence = 0.1 }
+				forest = { defence = 0.1 }
+				jungle = { defence = 0.1 }
+				marsh = { defence = 0.1 }
+				urban = { defence = 0.1 }
+			}
+            amphibious_heavy_armor = {
+				hills = { defence = 0.1 }
+				mountain = { defence = 0.1 }
+				forest = { defence = 0.1 }
+				jungle = { defence = 0.1 }
+				marsh = { defence = 0.1 }
+				urban = { defence = 0.1 }
+			}
+        }
+        c = {
+            coordination_bonus = 0.05
+            effect = {
+                hidden_effect = {
+                    set_technology = {
+                        TPMP_armor_doctrine_1_c_tech = 1
+                        popup = no
+                    }
                 }
-                jungle = {
-                    defence = 0.1
-                }
-                hills = {
-                    defence = 0.1
-                }
-                mountain = {
-                    defence = 0.1
-                }
-                marsh = {
-                    defence = 0.1
-                }
+                custom_effect_tooltip = armor_doctrine_1_c_tt
             }
         }
-        armor_doctrine_1c = {
+        d = {
             category_tanks = {
-                default_morale = 0.1
-                hard_attack = 0.05
-            }
-            category_tank_variants = {
-                default_morale = 0.1
-                hard_attack = 0.05
-            }
-        }
-        armor_doctrine_1d = {
-            category_tanks = {
+                max_organisation = 3
+                default_morale = 0.05
                 breakthrough = 0.1
-                max_organisation = 5
             }
             category_tank_variants = {
+                max_organisation = 3
+                default_morale = 0.05
                 breakthrough = 0.1
-                max_organisation = 5
             }
         }
-        armor_doctrine_1e = {
+        e = {
             category_tanks = {
-                soft_attack = 0.03
+                defense = 0.1
                 hard_attack = 0.05
+                ap_attack = 0.05
             }
             category_tank_variants = {
-                soft_attack = 0.03
+                defense = 0.1
                 hard_attack = 0.05
+                ap_attack = 0.05
+            }
+            recon = {
+                battalion_mult = {
+                    category = category_frontline_tanks
+                    ap_attack = 0.1
+                }
+            }
+            mot_recon = {
+                battalion_mult = {
+                    category = category_frontline_tanks
+                    ap_attack = 0.1
+                }
+            }
+            mech_recon = {
+                battalion_mult = {
+                    category = category_frontline_tanks
+                    ap_attack = 0.1
+                }
+            }
+            helicopter_recon = {
+                battalion_mult = {
+                    category = category_frontline_tanks
+                    ap_attack = 0.1
+                }
+            }
+            light_tank_recon = {
+                battalion_mult = {
+                    category = category_frontline_tanks
+                    hard_attack = 0.03
+                }
+            }
+            medium_tank_recon = {
+                battalion_mult = {
+                    category = category_frontline_tanks
+                    hard_attack = 0.03
+                }
             }
         }
     }
@@ -139,109 +185,158 @@ armor_doctrine_2 = {
     description = SUBDOCTRINE_ARMOR_2_DESC
     icon = GFX_doctrine_armored_spearhead_medium
 
-    xp_cost = 100
+    xp_cost = 0
     xp_type = army
 
     available = {
         always = yes
     }
 
+	visible = {
+		NOT = {
+			has_subdoctrine_in_track = armor
+		}
+	}
+
     category_tanks = {
-        soft_attack = 0.02
+        breakthrough = 0.05
     }
     category_tank_variants = {
-        soft_attack = 0.02
+        breakthrough = 0.05
     }
     light_armor = {
         need = {
-            light_tank_chassis = -4
+            light_tank_chassis = -6
         }
     }
     medium_armor = {
         need = {
-            medium_tank_chassis = -4
+            medium_tank_chassis = -6
         }
     }
     heavy_armor = {
         need = {
-            heavy_tank_chassis = -4
+            heavy_tank_chassis = -6
         }
     }
     super_heavy_armor = {
         need = {
-            super_heavy_tank_chassis = -4
+            super_heavy_tank_chassis = -6
         }
+    }
+    amphibious_light_armor = {
+        need = {
+            light_tank_amphibious_chassis = -6
+        }
+    }
+    amphibious_medium_armor = {
+        need = {
+            medium_tank_amphibious_chassis = -6
+        }
+    }
+    amphibious_heavy_armor = {
+        need = {
+            heavy_tank_amphibious_chassis = -6
+        }
+    }
+    effect = {
+        custom_effect_tooltip = armor_doctrine_2_tt
     }
 
     rewards = {
-        armor_doctrine_2a = {
-            category_tanks = {
-                breakthrough = 0.1
-                max_organisation = 5
-            }
-            category_tank_variants = {
-                breakthrough = 0.1
-                max_organisation = 5
-            }
-        }
-        armor_doctrine_2b = {
-            category_tanks = {
-                default_morale = 0.1
-                supply_consumption = -0.04
-            }
-            category_tank_variants = {
-                default_morale = 0.1
-                supply_consumption = -0.04
-            }
+        a = {
             light_armor = {
                 need = {
-                    light_tank_chassis = -2
+                    light_tank_chassis = -4
                 }
             }
             medium_armor = {
                 need = {
-                    medium_tank_chassis = -2
+                    medium_tank_chassis = -4
                 }
             }
             heavy_armor = {
                 need = {
-                    heavy_tank_chassis = -2
+                    heavy_tank_chassis = -4
                 }
             }
             super_heavy_armor = {
                 need = {
-                    super_heavy_tank_chassis = -2
+                    super_heavy_tank_chassis = -4
                 }
             }
+            amphibious_light_armor = {
+                need = {
+                    light_tank_amphibious_chassis = -4
+                }
+            }
+            amphibious_medium_armor = {
+                need = {
+                    medium_tank_amphibious_chassis = -4
+                }
+            }
+            amphibious_heavy_armor = {
+                need = {
+                    heavy_tank_amphibious_chassis = -4
+                }
+            }
+            effect = {
+                custom_effect_tooltip = armor_doctrine_2_a_tt
+                add_tech_bonus = {
+					bonus = 1.0
+					uses = 1
+					category = cat_armour_tech
+				}
+            }
         }
-        armor_doctrine_2c = {
+        b = {
             category_tanks = {
-                max_strength = 1
+                breakthrough = 0.1
+                maximum_speed = 0.1
+            }
+            category_tank_variants = {
+                breakthrough = 0.1
+                maximum_speed = 0.1
+            }
+            category_light_tanks = {
+                supply_consumption = -0.03
+            }
+            category_medium_tanks = {
+                supply_consumption = -0.04
+            }
+            category_heavy_tanks = {
+                supply_consumption = -0.05
+            }
+            category_super_heavy_tanks = {
+                supply_consumption = -0.06
+            }
+        }
+        c = {
+            category_tanks = {
+                max_strength = 2
                 max_organisation = 3
+                default_morale = 0.05
+                armor_value = 0.05
             }
             category_tank_variants = {
-                max_strength = 1
                 max_organisation = 3
+                default_morale = 0.05
             }
         }
-        armor_doctrine_2d = {
+        d = {
             category_tanks = {
-                soft_attack = 0.03
-                hard_attack = 0.05
-            }
-            category_tank_variants = {
-                soft_attack = 0.03
-                hard_attack = 0.05
+                default_morale = 0.03
+                initiative = 0.01
             }
         }
-        armor_doctrine_2e = {
+        e = {
             category_tanks = {
-                breakthrough = 0.05
-                default_morale = 0.1
+                breakthrough = 0.1
+                soft_attack = 0.1
             }
             category_tank_variants = {
-                breakthrough = 0.05
-                default_morale = 0.1
+                breakthrough = 0.1
+                soft_attack = 0.1
             }
         }
     }
@@ -252,70 +347,79 @@ armor_doctrine_3 = {
     description = SUBDOCTRINE_ARMOR_3_DESC
     icon = GFX_doctrine_armored_spearhead_medium
 
-    xp_cost = 100
+    xp_cost = 0
     xp_type = army
 
     available = {
         always = yes
     }
 
+	visible = {
+		NOT = {
+			has_subdoctrine_in_track = armor
+		}
+	}
+
     category_tanks = {
-        breakthrough = 0.15
-        maximum_speed = 0.05
+        max_organisation = 5
+        breakthrough = 0.2
+        maximum_speed = 0.1
     }
     category_tank_variants = {
-        breakthrough = 0.15
-        maximum_speed = 0.05
+        max_organisation = 5
+        breakthrough = 0.2
+        maximum_speed = 0.1
     }
 
     rewards = {
-        armor_doctrine_3a = {
-            category_tanks = {
-                max_organisation = 10
-                default_morale = 0.1
-            }
-            category_tank_variants = {
-                max_organisation = 10
-                default_morale = 0.1
+        a = {
+            effect = {
+                custom_effect_tooltip = armor_doctrine_3_a_tt
             }
         }
-        armor_doctrine_3b = {
+        b = {
             category_tanks = {
                 max_organisation = 5
-                hard_attack = 0.05
-            }
-            category_tank_variants = {
-                max_organisation = 5
-                hard_attack = 0.05
-            }
-        }
-        armor_doctrine_3c = {
-            category_tanks = {
-                breakthrough = 0.1
-                soft_attack = 0.03
-            }
-            category_tank_variants = {
-                breakthrough = 0.1
-                soft_attack = 0.03
-            }
-        }
-        armor_doctrine_3d = {
-            category_tanks = {
-                max_organisation = 5
-                soft_attack = 0.05
-            }
-            category_tank_variants = {
-                max_organisation = 5
-                soft_attack = 0.05
-            }
-        }
-        armor_doctrine_3e = {
-            coordination_bonus = 0.1
-            category_tanks = {
                 default_morale = 0.05
+                breakthrough = 0.1
             }
             category_tank_variants = {
                 default_morale = 0.05
+                breakthrough = 0.1
+            }
+        }
+        c = {
+            category_tanks = {
+                armor_value = 0.05
+            }
+            effect = {
+                custom_effect_tooltip = armor_doctrine_3_c_tt
+            }
+        }
+        d = {
+            category_tanks = {
+                armor_value = 0.05
+            }
+            category_tank_variants = {
+                armor_value = 0.05
+            }
+            category_heavy_tanks = {
+                armor_value = 0.03
+            }
+            category_super_heavy_tanks = {
+                armor_value = 0.03
+            }
+        }
+        e = {
+            category_tanks = {
+                breakthrough = 0.1
+                soft_attack = 0.05
+                hard_attack = 0.05
+            }
+            category_tank_variants = {
+                breakthrough = 0.1
+                soft_attack = 0.05
+                hard_attack = 0.05
             }
         }
     }

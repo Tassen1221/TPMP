@@ -191,6 +191,7 @@ IF = {
 	recruit_character = BRA_integralist_militia_general
 	recruit_character = BRA_pedro_henrique
 	recruit_character = BRA_pedro_de_alcantara
+	recruit_character = BRA_pedro_gastao
 	recruit_character = BRA_alianca_nacional_libertadora_council
 	recruit_character = BRA_minervino_de_oliveira
 	recruit_character = BRA_olga_benario_prestes
@@ -459,7 +460,7 @@ IF = {
 		has_dlc = "Man the Guns"
 	}
 	create_equipment_variant = {
-		name = "Minas Geras Class"
+		name = "Minas Geraes Class"
 		type = ship_hull_heavy_1
 		name_group = BRA_BB_HISTORICAL
 		parent_version = 0
@@ -544,11 +545,11 @@ IF = {
 }
 
 create_equipment_variant = {
-	name = "Line Infantry Equipment 1"
+	name = "Basic Infantry Equipment"
 	type = line_infantry_equipment_1
 	parent_version = 0
 	modules = {
-		soldier_type_slot_0 = bolt_action_1
+		soldier_type_slot_0 = light_machine_gun_1
 		soldier_type_slot_1 = bolt_action_1
 		soldier_type_slot_2 = bolt_action_1
 		soldier_type_slot_3 = bolt_action_1
@@ -559,6 +560,47 @@ create_equipment_variant = {
 		soldier_type_slot_8 = bolt_action_1
 		soldier_type_slot_9 = bolt_action_1
 		uniform_type_slot = helmet
+		sidearm_type_slot = bayonet
+		support_type_slot_0 = improvised_at_grenades
+	}
+}
+create_equipment_variant = {
+	name = "Basic Special Infantry Equipment"
+	type = special_infantry_equipment_1
+	parent_version = 0
+	modules = {
+		soldier_type_slot_0 = light_machine_gun_1
+		soldier_type_slot_1 = bolt_action_1
+		soldier_type_slot_2 = bolt_action_1
+		soldier_type_slot_3 = bolt_action_1
+		soldier_type_slot_4 = bolt_action_1
+		soldier_type_slot_5 = bolt_action_1
+		soldier_type_slot_6 = bolt_action_1
+		soldier_type_slot_7 = bolt_action_1
+		soldier_type_slot_8 = bolt_action_1
+		soldier_type_slot_9 = bolt_action_1
+		uniform_type_slot = helmet
+		sidearm_type_slot = bayonet
+		support_type_slot_0 = improvised_at_grenades
+	}
+}
+create_equipment_variant = {
+	name = "Basic Mobile Infantry Equipment"
+	type = mobile_infantry_equipment_1
+	parent_version = 0
+	modules = {
+		soldier_type_slot_0 = light_machine_gun_1
+		soldier_type_slot_1 = bolt_action_1
+		soldier_type_slot_2 = bolt_action_1
+		soldier_type_slot_3 = bolt_action_1
+		soldier_type_slot_4 = bolt_action_1
+		soldier_type_slot_5 = bolt_action_1
+		soldier_type_slot_6 = bolt_action_1
+		soldier_type_slot_7 = bolt_action_1
+		soldier_type_slot_8 = bolt_action_1
+		soldier_type_slot_9 = bolt_action_1
+		uniform_type_slot = helmet
+		sidearm_type_slot = bayonet
 		support_type_slot_0 = improvised_at_grenades
 	}
 }

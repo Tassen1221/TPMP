@@ -4,7 +4,7 @@ anti_tank_air_doctrine_1 = {
     description = SUBDOCTRINE_ANTI_TANK_AIR_1_DESC
     icon = GFX_doctrine_antitank_frontline_medium
 
-    xp_cost = 100
+    xp_cost = 0
     xp_type = army
 
     available = {
@@ -60,7 +60,7 @@ anti_tank_air_doctrine_1 = {
 			}
 			heavy_anti_tank = {
 				need = {
-					anti_tank_equipment = 30
+					heavy_anti_tank_equipment = 30
 				}
 			}
 			anti_air = {
@@ -70,7 +70,7 @@ anti_tank_air_doctrine_1 = {
 			}
 			heavy_anti_air = {
 				need = {
-					anti_air_equipment = 30
+					heavy_anti_air_equipment = 30
 				}
 			}
 			effect = {
@@ -84,17 +84,27 @@ anti_tank_air_doctrine_1 = {
 			category_anti_air = {
 				defense = 0.1
 				air_attack = 0.1
+			}
+			anti_air_brigade = {
 				maximum_speed = 0.1
-			}			
+			}
+			heavy_anti_air_brigade = {
+				maximum_speed = 0.1
+			}	
         }
         d = {
 			category_anti_tank = {
 				max_strength = 0.5
-				ap_attack = 0.1
-				maximum_speed = 0.1				
+				ap_attack = 0.1			
 			}
 			category_anti_air = {
 				max_strength = 0.5
+			}
+			anti_tank_brigade = {
+				maximum_speed = 0.1
+			}
+			heavy_anti_tank_brigade = {
+				maximum_speed = 0.1
 			}
         }
         e = {
@@ -113,7 +123,7 @@ anti_tank_air_doctrine_2 = {
     description = SUBDOCTRINE_ANTI_TANK_AIR_2_DESC
     icon = GFX_doctrine_antitank_frontline_medium
 
-    xp_cost = 100
+    xp_cost = 0
     xp_type = army
 
     available = {
@@ -211,7 +221,7 @@ anti_tank_air_doctrine_3 = {
     description = SUBDOCTRINE_ANTI_TANK_AIR_3_DESC
     icon = GFX_doctrine_antitank_frontline_medium
 
-    xp_cost = 100
+    xp_cost = 0
     xp_type = army
 
     available = {
@@ -343,7 +353,7 @@ anti_tank_air_doctrine_4 = {
     description = SUBDOCTRINE_ANTI_TANK_AIR_4_DESC
     icon = GFX_doctrine_antitank_frontline_medium
 
-    xp_cost = 100
+    xp_cost = 0
     xp_type = army
 
     available = {
@@ -377,6 +387,8 @@ anti_tank_air_doctrine_4 = {
 				hard_attack = 0.05
 				ap_attack = 0.1
 				air_attack = -0.1
+			}
+			heavy_anti_air_brigade = {
 				maximum_speed = 0.3
 			}
         }

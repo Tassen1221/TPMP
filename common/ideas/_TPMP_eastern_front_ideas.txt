@@ -1,12 +1,11 @@
 ideas = {
 	country = {
-		TPMP_GER_barbarossa_idea_0 = {
+		TPMP_GER_barbarossa_idea = {
 			removal_cost = -1
 			picture = generic_attack_soviet_union
 			modifier = {
 				army_speed_factor = 0.1
 				supply_consumption_factor = -0.1
-				air_superiority_efficiency = 0.2
 			}
 			targeted_modifier = {
 				tag = SOV
@@ -21,34 +20,6 @@ ideas = {
 			targeted_modifier = {
 				tag = MON
 				attack_bonus_against = 0.20
-				defense_bonus_against = 0.05
-			}
-			on_remove = {
-				add_timed_idea = {
-					idea = TPMP_GER_barbarossa_idea_1
-					days = 60
-				}
-			}
-		}
-		TPMP_GER_barbarossa_idea_1 = {
-			removal_cost = -1
-			picture = generic_attack_soviet_union
-			modifier = {
-				air_superiority_efficiency = 0.1
-			}
-			targeted_modifier = {
-				tag = SOV
-				attack_bonus_against = 0.10
-				defense_bonus_against = 0.05
-			}
-			targeted_modifier = {
-				tag = UKR
-				attack_bonus_against = 0.10
-				defense_bonus_against = 0.05
-			}
-			targeted_modifier = {
-				tag = MON
-				attack_bonus_against = 0.10
 				defense_bonus_against = 0.05
 			}
 		}

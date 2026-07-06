@@ -193,10 +193,6 @@ set_variable = { GER_reduce_russian_CG_bonus = 0 } #Used to reduce Soviet Gold R
 #REMINDER to always update the fake NS if these numbers are altered!
 set_variable = { GER_monthly_consumer_goods_increase = GER_monthly_consumer_goods_start } #Amount of increasing CG each month
 set_variable = { GER_industrial_consumer_goods_factor = 0.1 } #Used for MEFO Bills, Economy of Conquest and Recovering Economy and Wirtschaftswunder - must correspond with the Fake MEFO Bills NS for the 1936 Bookmark
-set_variable = { GER_industrial_civilian_intel_to_others = -25 }
-set_variable = { GER_industrial_army_intel_to_others = -25 }
-set_variable = { GER_industrial_navy_intel_to_others = -25 }
-set_variable = { GER_industrial_airforce_intel_to_others = -25 }
 set_variable = { GER_industrial_production_speed_arms_factory_factor = 0.1 }
 set_variable = { GER_industrial_production_speed_dockyard_factor = 0.1 }
 set_variable = { GER_industrial_industrial_capacity_factory = 0 }
@@ -643,6 +639,37 @@ set_war_support = 0.3
 	complete_national_focus = GER_total_control_over_domestic_affairs
 	#Remove too much PP from focuses
 	add_political_power = -150
+
+	#Bohemia related setup - Pfot
+	activate_decision = GER_reichsprotektorat_bohemia_moravia
+	set_nationality = {
+		target_country = RKH
+		character = GER_konstantin_von_neurath
+	}
+	RKH = {
+		add_ideas = GER_reichsprotectorate_idea
+		GER_konstantin_von_neurath = {
+			add_country_leader_role = {
+				promote_leader = yes
+				country_leader = {
+					ideology = nazism
+					expire = 1960.1.1
+					traits = { GER_reichsprotektor_trait } 
+				}
+			}	
+		}
+	}
+
+	if = {
+		limit = {
+			has_dlc = "Peace For Our Time"
+		}
+		RKH = {
+			add_ideas = {
+				CZE_form_the_government_army_idea
+			}
+		}
+	}
 
 	#Remove cooldown flag
 	clr_country_flag = GER_inner_circle_cd_flag
@@ -1775,11 +1802,11 @@ if = {
 }
 
 create_equipment_variant = {
-	name = "Line Infantry Equipment 1"
+	name = "Basic Infantry Equipment"
 	type = line_infantry_equipment_1
 	parent_version = 0
 	modules = {
-		soldier_type_slot_0 = bolt_action_1
+		soldier_type_slot_0 = light_machine_gun_1
 		soldier_type_slot_1 = bolt_action_1
 		soldier_type_slot_2 = bolt_action_1
 		soldier_type_slot_3 = bolt_action_1
@@ -1790,6 +1817,47 @@ create_equipment_variant = {
 		soldier_type_slot_8 = bolt_action_1
 		soldier_type_slot_9 = bolt_action_1
 		uniform_type_slot = helmet
+		sidearm_type_slot = bayonet
+		support_type_slot_0 = improvised_at_grenades
+	}
+}
+create_equipment_variant = {
+	name = "Basic Special Infantry Equipment"
+	type = special_infantry_equipment_1
+	parent_version = 0
+	modules = {
+		soldier_type_slot_0 = light_machine_gun_1
+		soldier_type_slot_1 = bolt_action_1
+		soldier_type_slot_2 = bolt_action_1
+		soldier_type_slot_3 = bolt_action_1
+		soldier_type_slot_4 = bolt_action_1
+		soldier_type_slot_5 = bolt_action_1
+		soldier_type_slot_6 = bolt_action_1
+		soldier_type_slot_7 = bolt_action_1
+		soldier_type_slot_8 = bolt_action_1
+		soldier_type_slot_9 = bolt_action_1
+		uniform_type_slot = helmet
+		sidearm_type_slot = bayonet
+		support_type_slot_0 = improvised_at_grenades
+	}
+}
+create_equipment_variant = {
+	name = "Basic Mobile Infantry Equipment"
+	type = mobile_infantry_equipment_1
+	parent_version = 0
+	modules = {
+		soldier_type_slot_0 = light_machine_gun_1
+		soldier_type_slot_1 = bolt_action_1
+		soldier_type_slot_2 = bolt_action_1
+		soldier_type_slot_3 = bolt_action_1
+		soldier_type_slot_4 = bolt_action_1
+		soldier_type_slot_5 = bolt_action_1
+		soldier_type_slot_6 = bolt_action_1
+		soldier_type_slot_7 = bolt_action_1
+		soldier_type_slot_8 = bolt_action_1
+		soldier_type_slot_9 = bolt_action_1
+		uniform_type_slot = helmet
+		sidearm_type_slot = bayonet
 		support_type_slot_0 = improvised_at_grenades
 	}
 }

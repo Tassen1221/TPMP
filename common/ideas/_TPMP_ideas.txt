@@ -54,35 +54,12 @@ ideas = {
 				ai_desired_divisions_factor = -10
 			}
 		}
-		TPMP_ENG_trade_idea = {
-			removal_cost = -1
-			picture = can_wartime_prices_and_trade_board
-			targeted_modifier = {
-				tag = USA
-				trade_cost_for_target_factor = -0.5
-			}
-			targeted_modifier = {
-				tag = FRA
-				trade_cost_for_target_factor = -0.5
-			}
-			targeted_modifier = {
-				tag = CAN
-				trade_cost_for_target_factor = -0.5
-			}
-			targeted_modifier = {
-				tag = RAJ
-				trade_cost_for_target_factor = -0.5
-			}
-			targeted_modifier = {
-				tag = AST
-				trade_cost_for_target_factor = -0.5
-			}
-			targeted_modifier = {
-				tag = SAF
-				trade_cost_for_target_factor = -0.5
-			}
-			cancel = {
-				has_war = yes
+		TPMP_ENG_rule_the_waves = {
+			picture = eng_the_sun_never_sets
+			modifier = {
+				navy_max_range_factor = 0.25
+				industrial_capacity_dockyard = 0.2
+				naval_damage_factor = 0.05
 			}
 		}
 		TPMP_USA_tank_destroyer_idea = {
@@ -131,6 +108,18 @@ ideas = {
 			targeted_modifier = {
 				tag = GER
 				extra_trade_to_target_factor = 0.25
+			}
+		}
+		TPMP_ROM_license_idea = {
+			removal_cost = -1
+			picture = generic_license_production
+			modifier = {
+				industrial_capacity_factory = 0.1
+			}
+			targeted_modifier = {
+				tag = GER
+				license_tech_difference_speed = 0.25
+				license_production_speed = 0.25
 			}
 		}
 		TPMP_ROM_expand_factory_idea = {
@@ -317,6 +306,31 @@ ideas = {
 				supply_consumption_factor = -0.1
 				breakthrough_factor = 0.1
 				consumer_goods_factor = -0.15
+			}
+		}
+		TPMP_SPR_allies_reconciliation = {
+			removal_cost = -1
+			picture = generic_victors_of_ww1
+			modifier = {
+				send_volunteer_factor = -0.1
+				democratic_drift = 0.01
+			}
+			rule = {
+                can_join_factions = no
+            }
+			cancel = {
+                is_in_faction = yes
+            }
+		}
+		TPMP_SOV_rebuild_the_red_army_idea = {
+			picture = eng_spirit_of_the_industrial_revolution
+			modifier = {
+				training_time_army_factor = -0.5
+				production_factory_start_efficiency_factor = 0.2
+				production_factory_efficiency_gain_factor = 0.2
+				line_change_production_efficiency_factor = 0.2
+				production_factory_max_efficiency_factor = 0.2
+				industrial_capacity_factory = 0.5
 			}
 		}
 	}

@@ -1,0 +1,31 @@
+mio_policy_SOV_quantity = {
+	icon = GFX_mio_policy_welding_specialists
+	allowed = {
+		OR ={
+			has_mio_equipment_type = light_tank_chassis
+			has_mio_equipment_type = medium_tank_chassis
+			has_mio_equipment_type = heavy_tank_chassis
+			has_mio_equipment_type = super_heavy_tank_chassis
+		}
+		owner = {
+			original_tag = SOV
+		}
+	}
+	visible = {
+		owner = {
+			has_completed_focus = SOV_merge_tank_and_materiel_plants
+		}
+	}
+	available = {
+		has_mio_size > 5
+	}
+	equipment_bonus = {
+		TPMP_cat_eq_all_tank = {
+			build_cost_ic = -0.1
+			reliability = -0.05
+			soft_attack = -0.05
+			hard_attack = -0.05
+			armor_value = -0.05
+		}
+	}
+}

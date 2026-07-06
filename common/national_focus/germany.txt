@@ -134,6 +134,7 @@ focus_tree = {
 			NOT = {
 				has_dynamic_modifier = { modifier = GER_economy_of_conquest_modifier }
 			}
+			always = no
 		}
 
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL_CHARACTER }
@@ -156,15 +157,15 @@ focus_tree = {
 					is_fully_controlled_by = ROOT
 					free_building_slots = {
 						building = industrial_complex
-						size > 0
+						size > 1
 						include_locked = yes
 					}
 				}
 				random_select_amount = 2
-				add_extra_state_shared_building_slots = 1
+				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = industrial_complex
-					level = 1
+					level = 2
 					instant_build = yes
 				}
 			}
@@ -1266,17 +1267,17 @@ focus_tree = {
 						59 = {
 							is_fully_controlled_by = ROOT
 							free_building_slots = {
-								building = arms_factory
+								building = industrial_complex
 								size > 2
 								include_locked = yes
 							}
 						}
 					}
 					59 = { #Hannover
-						add_extra_state_shared_building_slots = 2
+						add_extra_state_shared_building_slots = 3
 						add_building_construction = {
 							type = industrial_complex
-							level = 2
+							level = 3
 							instant_build = yes
 						}
 					}
@@ -1287,17 +1288,49 @@ focus_tree = {
 							is_controlled_by = ROOT
 							free_building_slots = {
 								building = industrial_complex
-								size > 1
+								size > 2
 								include_locked = yes
 							}
 						}
-						add_extra_state_shared_building_slots = 2
+						add_extra_state_shared_building_slots = 3
 						add_building_construction = {
 							type = industrial_complex
-							level = 2
+							level = 3
 							instant_build = yes
 						}
 					}
+				}
+			}
+			random_core_state = {
+				limit = {
+					is_fully_controlled_by = ROOT
+					free_building_slots = {
+						building = industrial_complex
+						size > 2
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+				}
+			}
+			random_core_state = {
+				limit = {
+					is_fully_controlled_by = ROOT
+					free_building_slots = {
+						building = industrial_complex
+						size > 2
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex
+					level = 3
+					instant_build = yes
 				}
 			}
 		}
@@ -1602,15 +1635,15 @@ focus_tree = {
 					is_fully_controlled_by = ROOT
 					free_building_slots = {
 						building = industrial_complex
-						size > 0
+						size > 2
 						include_locked = yes
 					}
 				}
 				random_select_amount = 2
-				add_extra_state_shared_building_slots = 1
+				add_extra_state_shared_building_slots = 3
 				add_building_construction = {
 					type = industrial_complex
-					level = 1
+					level = 3
 					instant_build = yes
 				}
 			}
@@ -1620,7 +1653,7 @@ focus_tree = {
 			add_tech_bonus = {
 				name = GER_the_four_year_plan
 				bonus = 1
-				uses = 1
+				uses = 2
 				category = industry
 			}
 		}
@@ -1761,10 +1794,6 @@ focus_tree = {
 		relative_position_id = GER_autarky_efforts
 		cost = 5
 		available = {
-			custom_trigger_tooltip = {
-				tooltip = GER_industrial_consumer_goods_factor_limit_tt
-				check_variable = { GER_industrial_consumer_goods_factor < 0.9 }
-			}
 		}
 
 		continue_if_invalid = yes
@@ -1845,10 +1874,6 @@ focus_tree = {
 		relative_position_id = GER_establish_the_reichswerke
 		cost = 5
 		available = {
-			custom_trigger_tooltip = {
-				tooltip = GER_industrial_consumer_goods_factor_limit_tt
-				check_variable = { GER_industrial_consumer_goods_factor < 0.9 }
-			}
 			any_controlled_state = {
 				NOT = { is_core_of = ROOT }
 				is_fully_controlled_by = ROOT
@@ -2028,10 +2053,6 @@ focus_tree = {
 		relative_position_id = GER_autarky_efforts
 		cost = 5
 		available = {
-			custom_trigger_tooltip = {
-				tooltip = GER_industrial_consumer_goods_factor_limit_tt
-				check_variable = { GER_industrial_consumer_goods_factor < 0.9 }
-			}
 		}
 
 		continue_if_invalid = yes
@@ -2044,15 +2065,15 @@ focus_tree = {
 					is_fully_controlled_by = ROOT
 					free_building_slots = {
 						building = synthetic_refinery
-						size > 0
+						size > 2
 						include_locked = yes
 					}
 				}
 				prioritize = { 65 }
-				add_extra_state_shared_building_slots = 1
+				add_extra_state_shared_building_slots = 3
 				add_building_construction = {
 					type = synthetic_refinery
-					level = 1
+					level = 3
 					instant_build = yes
 				}
 			}
@@ -2125,10 +2146,6 @@ focus_tree = {
 		relative_position_id = GER_coal_liquefaction
 		cost = 5
 		available = {
-			custom_trigger_tooltip = {
-				tooltip = GER_industrial_consumer_goods_factor_limit_tt
-				check_variable = { GER_industrial_consumer_goods_factor < 0.9 }
-			}
 			has_tech = oil_processing
 		}
 
@@ -2152,15 +2169,15 @@ focus_tree = {
 					is_fully_controlled_by = ROOT
 					free_building_slots = {
 						building = synthetic_refinery
-						size > 0
+						size > 2
 						include_locked = yes
 					}
 				}
 				prioritize = { 57 }
-				add_extra_state_shared_building_slots = 1
+				add_extra_state_shared_building_slots = 3
 				add_building_construction = {
 					type = synthetic_refinery
-					level = 1
+					level = 3
 					instant_build = yes
 				}
 			}
@@ -2212,10 +2229,6 @@ focus_tree = {
 		relative_position_id = GER_coal_liquefaction
 		cost = 5
 		available = {
-			custom_trigger_tooltip = {
-				tooltip = GER_industrial_consumer_goods_factor_limit_tt
-				check_variable = { GER_industrial_consumer_goods_factor < 0.9 }
-			}
 			has_tech = rubber_processing
 		}
 
@@ -2238,15 +2251,15 @@ focus_tree = {
 					is_fully_controlled_by = ROOT
 					free_building_slots = {
 						building = synthetic_refinery
-						size > 0
+						size > 2
 						include_locked = yes
 					}
 				}
 				prioritize = { 65 }
-				add_extra_state_shared_building_slots = 1
+				add_extra_state_shared_building_slots = 3
 				add_building_construction = {
 					type = synthetic_refinery
-					level = 1
+					level = 3
 					instant_build = yes
 				}
 			}
@@ -2293,12 +2306,16 @@ focus_tree = {
 		prerequisite = { focus = GER_seize_foreign_industries }
 		prerequisite = { focus = GER_subsidize_hoesch_benzin }
 		prerequisite = { focus = GER_establish_buna_werke }
+		mutually_exclusive = { focus = TPMP_GER_autarky_abandoned }
 
-		x = 2
+		x = 1
 		y = 1
 		relative_position_id = GER_seize_foreign_industries
 		cost = 10
 		available = {
+			NOT = {
+				has_idea = SOV_soviet_german_trade_agreement
+			}
 			all_core_state = {
 				is_fully_controlled_by = ROOT
 			}
@@ -2350,30 +2367,74 @@ focus_tree = {
 
 		completion_reward = {
 			GER_autarky_achieved_effects = yes
-
-			custom_effect_tooltip = generic_skip_one_line_tt
-			if = {
-				limit = { #Notify that you will get an improved version of the Trade Law
-					NOT = { has_idea = autarkic_economy }
-				}
-				custom_effect_tooltip = GER_improve_autarkic_economy_tt
-			}
-			else = { #Get the improved version of the Trade Law
-				swap_ideas = {
-					remove_idea = autarkic_economy
-					add_idea = autarkic_economy_improved
-				}
-			}			
-
-			#custom_effect_tooltip = generic_skip_one_line_tt
-
-			#custom_effect_tooltip = GER_modify_wehrwirtschaft_modifier_tt
-			#add_to_variable = { 
-			#	GER_wehrwirtschaft_production_speed_buildings_factor = 0.05
-			#	tooltip = production_speed_buildings_factor_tt
-			#}
 		}
 	}
+
+	#TPMP Changes
+	focus = {
+		id = TPMP_GER_autarky_abandoned
+		icon = GFX_goal_generic_trade
+		prerequisite = { focus = GER_seize_foreign_industries }
+		prerequisite = { focus = GER_subsidize_hoesch_benzin }
+		prerequisite = { focus = GER_establish_buna_werke }
+		mutually_exclusive = { focus = GER_autarky_achieved }
+
+		x = 3
+		y = 1
+		relative_position_id = GER_seize_foreign_industries
+		cost = 10
+		available = {
+		}
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			if = {
+				limit = {
+					has_dynamic_modifier = { modifier = GER_mefo_bills_modifier }
+				}
+				hidden_effect = {
+					remove_dynamic_modifier = { modifier = GER_mefo_bills_modifier }
+					add_dynamic_modifier = { modifier = GER_wirtschaftswunder_modifier }
+				}
+				custom_effect_tooltip = GER_replace_mefo_bills_with_wirtschaftswunder_tt
+			}
+			else_if = {
+				limit = {
+					has_dynamic_modifier = { modifier = GER_economy_of_conquest_modifier }
+				}
+				hidden_effect = {
+					remove_dynamic_modifier = { modifier = GER_economy_of_conquest_modifier }
+					add_dynamic_modifier = { modifier = GER_wirtschaftswunder_modifier }
+				}
+				if = {
+					limit = { 
+						check_variable = { var = GER_industrial_consumer_goods_factor value = 1 compare = greater_than_or_equals }
+					}
+					clr_country_flag = GER_mefo_bills_penalty_flag #This flag is always set when reaching 100% CGFF
+					subtract_from_variable = { GER_industrial_consumer_goods_expected_value = GER_expected_consumer_goods_penalty }
+					add_to_variable = { GER_industrial_industrial_capacity_factory = GER_factory_output_penalty }
+					add_to_variable = { GER_industrial_industrial_capacity_dockyard = GER_dockyard_output_penalty }
+				}
+				custom_effect_tooltip = GER_replace_economy_of_conquest_with_wirtschaftswunder_tt
+			}
+			else_if = {
+				limit = {
+					has_dynamic_modifier = { modifier = GER_recovering_economy_modifier }
+				}
+				hidden_effect = {
+					remove_dynamic_modifier = { modifier = GER_recovering_economy_modifier }
+					add_dynamic_modifier = { modifier = GER_wirtschaftswunder_modifier }
+				}
+				custom_effect_tooltip = GER_replace_recovering_economy_with_wirtschaftswunder_tt
+			}
+			set_variable = {
+				GER_industrial_consumer_goods_factor = 1.0
+				tooltip = consumer_goods_factor_tt
+			}
+		}
+	}
+	#TPMP Changes
 
 
 	focus = {
@@ -2396,15 +2457,15 @@ focus_tree = {
 					is_fully_controlled_by = ROOT
 					free_building_slots = {
 						building = arms_factory
-						size > 0
+						size > 1
 						include_locked = yes
 					}
 				}
 				random_select_amount = 2
-				add_extra_state_shared_building_slots = 1
+				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = arms_factory
-					level = 1
+					level = 2
 					instant_build = yes
 				}
 			}
@@ -2443,15 +2504,15 @@ focus_tree = {
 					is_fully_controlled_by = ROOT
 					free_building_slots = {
 						building = arms_factory
-						size > 1
+						size > 2
 						include_locked = yes
 					}
 				}
-				random_select_amount = 2
-				add_extra_state_shared_building_slots = 2
+				random_select_amount = 3
+				add_extra_state_shared_building_slots = 3
 				add_building_construction = {
 					type = arms_factory
-					level = 2
+					level = 3
 					instant_build = yes
 				}
 			}
@@ -2478,14 +2539,14 @@ focus_tree = {
 					is_controlled_by = ROOT
 					free_building_slots = {
 						building = arms_factory
-						size > 0
+						size > 1
 						include_locked = yes
 					}
 				}
-				add_extra_state_shared_building_slots = 1
+				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = arms_factory
-					level = 1
+					level = 2
 					instant_build = yes
 				}
 			}
@@ -2595,10 +2656,8 @@ focus_tree = {
 		x = 1
 		y = 2
 		relative_position_id = GER_concentrated_armament_program
-		cost = 10
+		cost = 5
 		available = {
-			has_war_with_major = yes
-			has_civil_war = no
 		}
 
 		continue_if_invalid = yes
@@ -2661,7 +2720,7 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = GER_zentrale_planung
-		cost = 10
+		cost = 5
 		available = {
 		}
 
@@ -2713,7 +2772,7 @@ focus_tree = {
 		x = -1
 		y = 1
 		relative_position_id = GER_zentrale_planung
-		cost = 10
+		cost = 5
 		available = {
 		}
 
@@ -2760,16 +2819,6 @@ focus_tree = {
 		cost = 5
 		available = {
 			has_war_with_major = yes
-			OR = {
-				has_war_support > 0.89
-				surrender_progress > 0
-			}
-			any_enemy_country = {
-				ic_ratio = {
-					tag = ROOT
-					ratio > 0.5
-				}
-			}
 			date > 1942.01.01
 		}
 
@@ -2831,7 +2880,7 @@ focus_tree = {
 			#	name = GER_develop_modern_maneuver_warfare
 			#	cost_reduction = 0.25
 			#	uses = 1
-			#	category = cat_land_doctrine
+			#	category = land_doctrine
 			#}
 			custom_effect_tooltip = available_chief_of_army
 			show_ideas_tooltip = walther_von_brauchitsch
@@ -3053,7 +3102,7 @@ focus_tree = {
 				name = GER_lessons_of_the_great_war
 				cost_reduction = 0.25
 				uses = 2
-				category = cat_land_doctrine
+				category = land_doctrine
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
@@ -3090,7 +3139,7 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = GER_improve_motorized_troops
-		cost = 10
+		cost = 5
 		available = {
 		}
 
@@ -3122,48 +3171,48 @@ focus_tree = {
 				value = 0.5
 			}
 
-			if = {
-				limit = {
-					has_dlc = "No Step Back"
-				}
-				custom_effect_tooltip = generic_skip_one_line_tt
+			# if = {
+			# 	limit = {
+			# 		has_dlc = "No Step Back"
+			# 	}
+			# 	custom_effect_tooltip = generic_skip_one_line_tt
 
-				create_equipment_variant = {
-					name = "Sturmpanzer"
-					parent_version = 0
-					type = medium_tank_artillery_chassis_1936
-					modules = {
-						main_armament_slot = tank_light_cannon_1
-						turret_type_slot = tank_medium_superstructure_1
-						suspension_type_slot = tank_bogie_suspension
-						armor_type_slot = tank_welded_armor
-						engine_type_slot = tank_gasoline_engine_1
-					}
-					upgrades = {
-						tank_nsb_engine_upgrade = 0
-						tank_nsb_armor_upgrade = 0
-					}
-					icon = "GFX_GER_basic_medium_art_medium"
-				}
+			# 	create_equipment_variant = {
+			# 		name = "Sturmpanzer"
+			# 		parent_version = 0
+			# 		type = medium_tank_artillery_chassis_1936
+			# 		modules = {
+			# 			main_armament_slot = tank_light_cannon_1
+			# 			turret_type_slot = tank_medium_superstructure_1
+			# 			suspension_type_slot = tank_bogie_suspension
+			# 			armor_type_slot = tank_welded_armor
+			# 			engine_type_slot = tank_gasoline_engine_1
+			# 		}
+			# 		upgrades = {
+			# 			tank_nsb_engine_upgrade = 0
+			# 			tank_nsb_armor_upgrade = 0
+			# 		}
+			# 		icon = "GFX_GER_basic_medium_art_medium"
+			# 	}
 
-				create_equipment_variant = {
-					name = "Nashorn"
-					parent_version = 0
-					type = medium_tank_destroyer_chassis_1936
-					modules = {
-						main_armament_slot = tank_light_cannon_1
-						turret_type_slot = tank_medium_superstructure_1
-						suspension_type_slot = tank_bogie_suspension
-						armor_type_slot = tank_welded_armor
-						engine_type_slot = tank_gasoline_engine_1
-					}
-					upgrades = {
-						tank_nsb_engine_upgrade = 0
-						tank_nsb_armor_upgrade = 0
-					}
-					icon = "GFX_GER_basic_light_td"
-				}
-			}
+			# 	create_equipment_variant = {
+			# 		name = "Nashorn"
+			# 		parent_version = 0
+			# 		type = medium_tank_destroyer_chassis_1936
+			# 		modules = {
+			# 			main_armament_slot = tank_light_cannon_1
+			# 			turret_type_slot = tank_medium_superstructure_1
+			# 			suspension_type_slot = tank_bogie_suspension
+			# 			armor_type_slot = tank_welded_armor
+			# 			engine_type_slot = tank_gasoline_engine_1
+			# 		}
+			# 		upgrades = {
+			# 			tank_nsb_engine_upgrade = 0
+			# 			tank_nsb_armor_upgrade = 0
+			# 		}
+			# 		icon = "GFX_GER_basic_light_td"
+			# 	}
+			# }
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
@@ -3223,7 +3272,7 @@ focus_tree = {
 				name = GER_stormtroopers
 				cost_reduction = 0.25
 				uses = 1
-				category = cat_land_doctrine
+				category = land_doctrine
 			}
 			add_tech_bonus = {
 				name = GER_stormtroopers
@@ -3387,13 +3436,13 @@ focus_tree = {
 				tooltip = equipment_capture_tt
 			}
 
-			custom_effect_tooltip = generic_skip_one_line_tt
+			# custom_effect_tooltip = generic_skip_one_line_tt
 
-			GER_modify_industrial_modifier = yes
-			add_to_variable = { 
-				GER_industrial_equipment_conversion_speed = 0.1
-				tooltip = equipment_conversion_speed_tt
-			}
+			# GER_modify_industrial_modifier = yes
+			# add_to_variable = { 
+			# 	GER_industrial_equipment_conversion_speed = 0.1
+			# 	tooltip = equipment_conversion_speed_tt
+			# }
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
@@ -3427,7 +3476,7 @@ focus_tree = {
 				name = GER_instill_auftragstaktik
 				cost_reduction = 0.25
 				uses = 1
-				category = cat_land_doctrine
+				category = land_doctrine
 			}
 			
 			custom_effect_tooltip = generic_skip_one_line_tt
@@ -3580,18 +3629,18 @@ focus_tree = {
 				tooltip = acclimatization_cold_climate_gain_factor_tt
 			}
 
-			if = {
-				limit = {
-					has_dlc = "Arms Against Tyranny"
-				}
-				custom_effect_tooltip = generic_skip_one_line_tt
-				add_doctrine_cost_reduction = {
-					name = GER_establish_the_skijager
-					cost_reduction = 0.25
-					uses = 2
-					category = cat_mountaineers_doctrine
-				}
-			}
+			# if = {
+			# 	limit = {
+			# 		has_dlc = "Arms Against Tyranny"
+			# 	}
+			# 	custom_effect_tooltip = generic_skip_one_line_tt
+			# 	add_doctrine_cost_reduction = {
+			# 		name = GER_establish_the_skijager
+			# 		cost_reduction = 0.25
+			# 		uses = 2
+			# 		category = cat_mountaineers_doctrine
+			# 	}
+			# }
 			add_tech_bonus = {
 				name = GER_establish_the_skijager
 				bonus = 0.5
@@ -3609,7 +3658,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = GER_instill_auftragstaktik
-		cost = 10
+		cost = 5
 		available = {
 		}
 
@@ -4251,7 +4300,7 @@ focus_tree = {
 				name = GER_adopt_new_panzer_doctrine
 				cost_reduction = 0.25
 				uses = 2
-				category = cat_land_doctrine
+				category = land_doctrine
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
@@ -4277,7 +4326,7 @@ focus_tree = {
 		x = 3
 		y = 1
 		relative_position_id = GER_adopt_new_panzer_doctrine
-		cost = 10
+		cost = 5
 		available = {
 			has_tech = radio
 		}
@@ -4294,69 +4343,69 @@ focus_tree = {
 			}
 
 
-			if = {
-				limit = { 
-					has_dlc = "No Step Back"
-				}
-				custom_effect_tooltip = generic_skip_one_line_tt
-				create_equipment_variant = {
-					name = "Panzer III Ausf. A"
-					type = medium_tank_chassis_1936
-					parent_version = 0
-					modules = {
-						main_armament_slot = tank_light_cannon_1
-						turret_type_slot = tank_medium_turret_1
-						suspension_type_slot = tank_bogie_suspension
-						armor_type_slot = tank_welded_armor
-						engine_type_slot = tank_gasoline_engine_1
-						special_type_slot_1 = tank_radio_1
-						special_type_slot_2 = smoke_launchers
-					}
-					upgrades = {
-						tank_nsb_engine_upgrade = 0
-						tank_nsb_armor_upgrade = 0
-					}
-					icon = "GFX_GER_basic_medium_tank_medium"
-				}
-				create_equipment_variant = {
-					name = "Panzer IV"
-					type = medium_tank_chassis_1936
+			# if = {
+			# 	limit = { 
+			# 		has_dlc = "No Step Back"
+			# 	}
+			# 	custom_effect_tooltip = generic_skip_one_line_tt
+			# 	create_equipment_variant = {
+			# 		name = "Panzer III Ausf. A"
+			# 		type = medium_tank_chassis_1936
+			# 		parent_version = 0
+			# 		modules = {
+			# 			main_armament_slot = tank_light_cannon_1
+			# 			turret_type_slot = tank_medium_turret_1
+			# 			suspension_type_slot = tank_bogie_suspension
+			# 			armor_type_slot = tank_welded_armor
+			# 			engine_type_slot = tank_gasoline_engine_1
+			# 			special_type_slot_1 = tank_radio_1
+			# 			special_type_slot_2 = smoke_launchers
+			# 		}
+			# 		upgrades = {
+			# 			tank_nsb_engine_upgrade = 0
+			# 			tank_nsb_armor_upgrade = 0
+			# 		}
+			# 		icon = "GFX_GER_basic_medium_tank_medium"
+			# 	}
+			# 	create_equipment_variant = {
+			# 		name = "Panzer IV"
+			# 		type = medium_tank_chassis_1936
 
-					parent_version = 0
-					modules = {
-						main_armament_slot = tank_light_cannon_1
-						turret_type_slot = tank_medium_turret_1
-						suspension_type_slot = tank_bogie_suspension
-						armor_type_slot = tank_welded_armor
-						engine_type_slot = tank_gasoline_engine_1
-						special_type_slot_1 = tank_radio_1
-						special_type_slot_2 = smoke_launchers
-					}
-					upgrades = {
-						tank_nsb_engine_upgrade = 0
-						tank_nsb_armor_upgrade = 0
-					}
-					icon = "GFX_GER_basic_medium_tank_medium"
-				}
-				create_equipment_variant = {
-					name = "Sturmgeschütz III"
-					parent_version = 0
-					type = medium_tank_artillery_chassis_1936
-					modules = {
-						main_armament_slot = tank_light_cannon_1
-						turret_type_slot = tank_medium_superstructure_1
-						suspension_type_slot = tank_bogie_suspension
-						armor_type_slot = tank_welded_armor
-						engine_type_slot = tank_gasoline_engine_1
-						special_type_slot_1 = tank_radio_1
-					}
-					upgrades = {
-						tank_nsb_engine_upgrade = 0
-						tank_nsb_armor_upgrade = 0
-					}
-					icon = "GFX_GER_basic_medium_td_medium"
-				}
-			}
+			# 		parent_version = 0
+			# 		modules = {
+			# 			main_armament_slot = tank_light_cannon_1
+			# 			turret_type_slot = tank_medium_turret_1
+			# 			suspension_type_slot = tank_bogie_suspension
+			# 			armor_type_slot = tank_welded_armor
+			# 			engine_type_slot = tank_gasoline_engine_1
+			# 			special_type_slot_1 = tank_radio_1
+			# 			special_type_slot_2 = smoke_launchers
+			# 		}
+			# 		upgrades = {
+			# 			tank_nsb_engine_upgrade = 0
+			# 			tank_nsb_armor_upgrade = 0
+			# 		}
+			# 		icon = "GFX_GER_basic_medium_tank_medium"
+			# 	}
+			# 	create_equipment_variant = {
+			# 		name = "Sturmgeschütz III"
+			# 		parent_version = 0
+			# 		type = medium_tank_artillery_chassis_1936
+			# 		modules = {
+			# 			main_armament_slot = tank_light_cannon_1
+			# 			turret_type_slot = tank_medium_superstructure_1
+			# 			suspension_type_slot = tank_bogie_suspension
+			# 			armor_type_slot = tank_welded_armor
+			# 			engine_type_slot = tank_gasoline_engine_1
+			# 			special_type_slot_1 = tank_radio_1
+			# 		}
+			# 		upgrades = {
+			# 			tank_nsb_engine_upgrade = 0
+			# 			tank_nsb_armor_upgrade = 0
+			# 		}
+			# 		icon = "GFX_GER_basic_medium_td_medium"
+			# 	}
+			# }
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
@@ -4445,50 +4494,50 @@ focus_tree = {
 			}
 
 			
-			if = {
-				limit = { 
-					has_dlc = "No Step Back"
-				}
-				custom_effect_tooltip = generic_skip_one_line_tt
-				create_equipment_variant = {
-					name = "Panther Ausf. A"
-					type = medium_tank_chassis_1940
-					modules = {
-						main_armament_slot = tank_light_cannon_1
-						turret_type_slot = tank_medium_turret_1
-						suspension_type_slot = tank_interleaved_suspension
-						armor_type_slot = tank_welded_armor
-						engine_type_slot = tank_gasoline_engine_1
-						special_type_slot_1 = tank_radio_1
-						special_type_slot_2 = sloped_armor
-						special_type_slot_3 = smoke_launchers
-					}
-					upgrades = {
-						tank_nsb_engine_upgrade = 0
-						tank_nsb_armor_upgrade = 0
-					}
-					icon = "GFX_GER_advanced_medium_tank_medium"
-				}
-				create_equipment_variant = {
-					name = "Tiger I Ausf. A"
-					type = heavy_tank_chassis_1938
-					modules = {
-						main_armament_slot = tank_light_cannon_1
-						turret_type_slot = tank_heavy_turret_1
-						suspension_type_slot = tank_interleaved_suspension
-						armor_type_slot = tank_welded_armor
-						engine_type_slot = tank_gasoline_engine_1
-						special_type_slot_1 = tank_radio_1
-						special_type_slot_2 = smoke_launchers
-						special_type_slot_3 = additional_machine_guns
-					}
-					upgrades = {
-						tank_nsb_engine_upgrade = 0
-						tank_nsb_armor_upgrade = 0
-					}
-					icon = "GFX_GER_advanced_heavy_tank_medium"
-				}
-			}
+			# if = {
+			# 	limit = { 
+			# 		has_dlc = "No Step Back"
+			# 	}
+			# 	custom_effect_tooltip = generic_skip_one_line_tt
+			# 	create_equipment_variant = {
+			# 		name = "Panther Ausf. A"
+			# 		type = medium_tank_chassis_1940
+			# 		modules = {
+			# 			main_armament_slot = tank_light_cannon_1
+			# 			turret_type_slot = tank_medium_turret_1
+			# 			suspension_type_slot = tank_interleaved_suspension
+			# 			armor_type_slot = tank_welded_armor
+			# 			engine_type_slot = tank_gasoline_engine_1
+			# 			special_type_slot_1 = tank_radio_1
+			# 			special_type_slot_2 = sloped_armor
+			# 			special_type_slot_3 = smoke_launchers
+			# 		}
+			# 		upgrades = {
+			# 			tank_nsb_engine_upgrade = 0
+			# 			tank_nsb_armor_upgrade = 0
+			# 		}
+			# 		icon = "GFX_GER_advanced_medium_tank_medium"
+			# 	}
+			# 	create_equipment_variant = {
+			# 		name = "Tiger I Ausf. A"
+			# 		type = heavy_tank_chassis_1938
+			# 		modules = {
+			# 			main_armament_slot = tank_light_cannon_1
+			# 			turret_type_slot = tank_heavy_turret_1
+			# 			suspension_type_slot = tank_interleaved_suspension
+			# 			armor_type_slot = tank_welded_armor
+			# 			engine_type_slot = tank_gasoline_engine_1
+			# 			special_type_slot_1 = tank_radio_1
+			# 			special_type_slot_2 = smoke_launchers
+			# 			special_type_slot_3 = additional_machine_guns
+			# 		}
+			# 		upgrades = {
+			# 			tank_nsb_engine_upgrade = 0
+			# 			tank_nsb_armor_upgrade = 0
+			# 		}
+			# 		icon = "GFX_GER_advanced_heavy_tank_medium"
+			# 	}
+			# }
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
@@ -4686,6 +4735,12 @@ focus_tree = {
 
 			custom_effect_tooltip = available_chief_of_airforce
 			show_ideas_tooltip = ritter_von_greim
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_equipment_to_stockpile = {
+				type = small_plane_airframe
+				amount = 1000
+				producer = GER
+			}
 		}
 	}
 	
@@ -4816,26 +4871,11 @@ focus_tree = {
 				category = light_air
 			}
 
-			if = {
-				limit = {
-					has_dlc = "By Blood Alone"
-				}
-				custom_effect_tooltip = generic_skip_one_line_tt
-				create_equipment_variant = { 
-					name = "Ju 87 G" 
-					type = small_plane_cas_airframe_2
-					allow_without_tech = no
-					design_team = mio:GER_junkers_organization
-					modules = {
-						fixed_main_weapon_slot = bomb_locks
-						fixed_auxiliary_weapon_slot_1 = tank_buster_1
-						engine_type_slot = engine_3_1x
-						special_type_slot_1 = lmg_defense_turret
-						special_type_slot_2 = empty
-					}
-					icon = "GFX_GER_CAS2_medium"
-					model = "GER_CAS_equipment_2_entity"
-				}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_equipment_to_stockpile = {
+				type = small_plane_CAS_airframe
+				amount = 500
+				producer = GER
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
@@ -4954,27 +4994,11 @@ focus_tree = {
 				category = medium_air
 			}
 
-			if = {
-				limit = {
-					has_dlc = "By Blood Alone"
-				}
-				custom_effect_tooltip = generic_skip_one_line_tt
-				create_equipment_variant = { 
-					name = "Ju 88" 
-					type = medium_plane_airframe_2
-					allow_without_tech = no
-					design_team = mio:GER_dornier_organization
-					modules = {
-						fixed_main_weapon_slot = medium_bomb_bay
-						fixed_auxiliary_weapon_slot_1 = medium_bomb_bay
-						fixed_auxiliary_weapon_slot_2 = torpedo_mounting
-						engine_type_slot = engine_3_2x
-						special_type_slot_1 = lmg_defense_turret_2x
-						special_type_slot_2 = empty	
-					}
-					icon = "GFX_GER_tactical_bomber2_medium"
-					model = "GER_medium_plane_entity"
-				}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_equipment_to_stockpile = {
+				type = medium_plane_airframe
+				amount = 500
+				producer = GER
 			}
 			
 			custom_effect_tooltip = generic_skip_one_line_tt
@@ -5090,27 +5114,11 @@ focus_tree = {
 				category = heavy_air
 			}
 
-			if = {
-				limit = {
-					has_dlc = "By Blood Alone"
-				}
-				custom_effect_tooltip = generic_skip_one_line_tt
-				create_equipment_variant = { 
-					name = "Ju 89" 
-					type = large_plane_airframe_1
-					allow_without_tech = no
-					design_team = mio:GER_heinkel_organization
-					modules = {
-						fixed_main_weapon_slot = large_bomb_bay
-						fixed_auxiliary_weapon_slot_1 = empty
-						fixed_auxiliary_weapon_slot_2 = empty
-						engine_type_slot = engine_2_4x
-						special_type_slot_1 = lmg_defense_turret_2x
-						special_type_slot_2 = lmg_defense_turret
-					}
-					icon = "GFX_GER_strategic_bomber1_medium"
-					model = "GER_strat_bomber_equipment_1_entity"
-				}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_equipment_to_stockpile = {
+				type = large_plane_airframe
+				amount = 300
+				producer = GER
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
@@ -5245,23 +5253,23 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_HISTORICAL FOCUS_FILTER_MILITARY_CHARACTER }
 
 		completion_reward = {
-			if = {
-				limit = {
-					has_dlc = "Arms Against Tyranny"
-				}
-				if = {
-					limit = {
-						NOT = { has_completed_focus = GER_marinestosstrupp }
-					}
-					add_potential_special_forces_tree = yes
-				}
-				add_doctrine_cost_reduction = {
-					name = GER_fallschirmjager
-					cost_reduction = 0.25
-					uses = 2
-					category = cat_special_forces_doctrine
-				}
-			}
+			# if = {
+			# 	limit = {
+			# 		has_dlc = "Arms Against Tyranny"
+			# 	}
+			# 	if = {
+			# 		limit = {
+			# 			NOT = { has_completed_focus = GER_marinestosstrupp }
+			# 		}
+			# 		add_potential_special_forces_tree = yes
+			# 	}
+			# 	add_doctrine_cost_reduction = {
+			# 		name = GER_fallschirmjager
+			# 		cost_reduction = 0.25
+			# 		uses = 2
+			# 		category = cat_special_forces_doctrine
+			# 	}
+			# }
 			add_tech_bonus = {
 				name = GER_fallschirmjager
 				bonus = 1
@@ -5320,27 +5328,27 @@ focus_tree = {
 			}
 
 
-			if = {
-				limit = {
-					has_dlc = "By Blood Alone"
-				}
-				custom_effect_tooltip = generic_skip_one_line_tt
-				create_equipment_variant = { 
-					name = "FW 190" 
-					type = small_plane_airframe_2
-					allow_without_tech = no
-					design_team = mio:GER_messerschmitt_organization
-					modules = {
-						fixed_main_weapon_slot = light_mg_4x
-						fixed_auxiliary_weapon_slot_1 = aircraft_cannon_1_2x
-						engine_type_slot = engine_3_1x
-						special_type_slot_1 = armor_plate_small
-						special_type_slot_2 = drop_tanks	
-					}
-					icon = "GFX_GER_fighter2_medium"
-					model = "GER_fighter_equipment_2_entity"
-				}
-			}
+			# if = {
+			# 	limit = {
+			# 		has_dlc = "By Blood Alone"
+			# 	}
+			# 	custom_effect_tooltip = generic_skip_one_line_tt
+			# 	create_equipment_variant = { 
+			# 		name = "FW 190" 
+			# 		type = small_plane_airframe_2
+			# 		allow_without_tech = no
+			# 		design_team = mio:GER_messerschmitt_organization
+			# 		modules = {
+			# 			fixed_main_weapon_slot = light_mg_4x
+			# 			fixed_auxiliary_weapon_slot_1 = aircraft_cannon_1_2x
+			# 			engine_type_slot = engine_3_1x
+			# 			special_type_slot_1 = armor_plate_small
+			# 			special_type_slot_2 = drop_tanks	
+			# 		}
+			# 		icon = "GFX_GER_fighter2_medium"
+			# 		model = "GER_fighter_equipment_2_entity"
+			# 	}
+			# }
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
@@ -5800,27 +5808,27 @@ focus_tree = {
 			}
 
 
-			if = {
-				limit = {
-					has_dlc = "By Blood Alone"
-				}
-				custom_effect_tooltip = generic_skip_one_line_tt
-				create_equipment_variant = { 
-					name = "He 115" 
-					type = small_plane_naval_bomber_airframe_2
-					allow_without_tech = no
-					design_team = mio:GER_fieseler_organization
-					modules = {
-						fixed_main_weapon_slot = torpedo_mounting
-						fixed_auxiliary_weapon_slot_1 = bomb_locks
-						engine_type_slot = engine_2_2x
-						special_type_slot_1 = lmg_defense_turret	
-						special_type_slot_2 = empty
-					}
-					icon = "GFX_GER_naval_bomber2_medium"
-					model = "GER_nav_bomber_equipment_2_entity"
-				}
-			}
+			# if = {
+			# 	limit = {
+			# 		has_dlc = "By Blood Alone"
+			# 	}
+			# 	custom_effect_tooltip = generic_skip_one_line_tt
+			# 	create_equipment_variant = { 
+			# 		name = "He 115" 
+			# 		type = small_plane_naval_bomber_airframe_2
+			# 		allow_without_tech = no
+			# 		design_team = mio:GER_fieseler_organization
+			# 		modules = {
+			# 			fixed_main_weapon_slot = torpedo_mounting
+			# 			fixed_auxiliary_weapon_slot_1 = bomb_locks
+			# 			engine_type_slot = engine_2_2x
+			# 			special_type_slot_1 = lmg_defense_turret	
+			# 			special_type_slot_2 = empty
+			# 		}
+			# 		icon = "GFX_GER_naval_bomber2_medium"
+			# 		model = "GER_nav_bomber_equipment_2_entity"
+			# 	}
+			# }
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
@@ -5945,45 +5953,45 @@ focus_tree = {
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
-			if = {
-				limit = {
-					has_dlc = "By Blood Alone"
-				}
-				create_equipment_variant = { 
-					name = "Me 262" 
-					allow_without_tech = no
-					type = small_plane_airframe_4
-					design_team = mio:GER_messerschmitt_organization
-					modules = {
-						fixed_main_weapon_slot = aircraft_cannon_2_2x
-						fixed_auxiliary_weapon_slot_1 = aircraft_cannon_2_2x
-						engine_type_slot = jet_engine_2x
-						special_type_slot_1 = armor_plate_small
-						special_type_slot_2 = drop_tanks	
-						special_type_slot_3 = self_sealing_fuel_tanks_small	
-					}
-					icon = "GFX_GER_jet_plane_1_medium"
-					model = "GER_jet_plane_entity"
-				}
-				create_equipment_variant = { 
-					name = "Ar 234" 
-					allow_without_tech = no
-					type = medium_plane_airframe_4
-					design_team = mio:GER_dornier_organization
-					modules = {
-						fixed_main_weapon_slot = medium_bomb_bay
-						fixed_auxiliary_weapon_slot_1 = medium_bomb_bay
-						fixed_auxiliary_weapon_slot_2 = bomb_locks
-						engine_type_slot = jet_engine_2x
-						special_type_slot_1 = fuel_tanks_medium
-						special_type_slot_2 = empty	
-					}
-					icon = "GFX_medium_plane_4_medium"
-					model = "GER_medium_jet_plane_1_entity"
-				}
+			# if = {
+			# 	limit = {
+			# 		has_dlc = "By Blood Alone"
+			# 	}
+			# 	create_equipment_variant = { 
+			# 		name = "Me 262" 
+			# 		allow_without_tech = no
+			# 		type = small_plane_airframe_4
+			# 		design_team = mio:GER_messerschmitt_organization
+			# 		modules = {
+			# 			fixed_main_weapon_slot = aircraft_cannon_2_2x
+			# 			fixed_auxiliary_weapon_slot_1 = aircraft_cannon_2_2x
+			# 			engine_type_slot = jet_engine_2x
+			# 			special_type_slot_1 = armor_plate_small
+			# 			special_type_slot_2 = drop_tanks	
+			# 			special_type_slot_3 = self_sealing_fuel_tanks_small	
+			# 		}
+			# 		icon = "GFX_GER_jet_plane_1_medium"
+			# 		model = "GER_jet_plane_entity"
+			# 	}
+			# 	create_equipment_variant = { 
+			# 		name = "Ar 234" 
+			# 		allow_without_tech = no
+			# 		type = medium_plane_airframe_4
+			# 		design_team = mio:GER_dornier_organization
+			# 		modules = {
+			# 			fixed_main_weapon_slot = medium_bomb_bay
+			# 			fixed_auxiliary_weapon_slot_1 = medium_bomb_bay
+			# 			fixed_auxiliary_weapon_slot_2 = bomb_locks
+			# 			engine_type_slot = jet_engine_2x
+			# 			special_type_slot_1 = fuel_tanks_medium
+			# 			special_type_slot_2 = empty	
+			# 		}
+			# 		icon = "GFX_medium_plane_4_medium"
+			# 		model = "GER_medium_jet_plane_1_entity"
+			# 	}
 				
-				custom_effect_tooltip = generic_skip_one_line_tt
-			}
+			# 	custom_effect_tooltip = generic_skip_one_line_tt
+			# }
 
 
 			GER_modify_airforce_modifier = yes
@@ -6013,7 +6021,7 @@ focus_tree = {
 		icon = GFX_focus_GER_amerikabomber
 		prerequisite = { focus = GER_aerodynamic_research_institute }
 
-		x = 0
+		x = -1
 		y = 1
 		relative_position_id = GER_aerodynamic_research_institute
 		cost = 10
@@ -6092,6 +6100,27 @@ focus_tree = {
 		}
 	}
 
+	#TPMP Changes
+	focus = {
+		id = TPMP_GER_me262
+		icon = GFX_focus_generic_jet_planes
+		prerequisite = { focus = GER_aerodynamic_research_institute }
+
+		x = 1
+		y = 1
+		relative_position_id = GER_aerodynamic_research_institute
+		cost = 10
+
+		available = {
+			date > 1942.01.01
+			is_special_project_completed = sp:sp_air_jet_engine
+		}
+
+		completion_reward = {
+			complete_special_project = sp:sp_air_axial_jet_engine
+		}
+	}
+	#TPMP Changes
 
 
 	#KRIEGSMARINE
@@ -6989,28 +7018,28 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			if = {
-				limit = {
-					has_dlc = "Arms Against Tyranny"
-				}
-				if = {
-					limit = {
-						NOT = { has_completed_focus = GER_fallschirmjager }
-					}
-					add_potential_special_forces_tree = yes
-				}
-				add_doctrine_cost_reduction = {
-					name = GER_marinestosstrupp
-					cost_reduction = 0.25
-					uses = 2
-					category = cat_special_forces_doctrine
-				}
-			}
+			# if = {
+			# 	limit = {
+			# 		has_dlc = "Arms Against Tyranny"
+			# 	}
+			# 	if = {
+			# 		limit = {
+			# 			NOT = { has_completed_focus = GER_fallschirmjager }
+			# 		}
+			# 		add_potential_special_forces_tree = yes
+			# 	}
+			# 	add_doctrine_cost_reduction = {
+			# 		name = GER_marinestosstrupp
+			# 		cost_reduction = 0.25
+			# 		uses = 2
+			# 		category = cat_special_forces_doctrine
+			# 	}
+			# }
 			add_tech_bonus = {
 				name = GER_marinestosstrupp
 				bonus = 1
 				uses = 1
-				category = cat_armour_tech
+				category = cat_marine_tech
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
@@ -7837,7 +7866,7 @@ mio:GER_blohm_und_voss_organization = {
 			}
 		}
 
-		x = 33
+		x = 30
 		y = 0
 		relative_position_id = GER_prioritize_economic_growth
 
@@ -7904,7 +7933,7 @@ mio:GER_blohm_und_voss_organization = {
 		id = GER_legion_condor
 		icon = GFX_focus_intervention_spain_nationalists
 		prerequisite = { focus = GER_remilitarize_the_rhineland focus = GER_oppose_hitler_ww focus = GER_oppose_hitler }
-		x = 14
+		x = 9
 		y = 1
 		relative_position_id = GER_remilitarize_the_rhineland
 
@@ -7983,6 +8012,9 @@ mio:GER_blohm_und_voss_organization = {
 		relative_position_id = GER_remilitarize_the_rhineland
 		cost = 5
 		available = {
+		}
+		allow_branch = {
+			always = no
 		}
 
 		search_filters = { FOCUS_FILTER_POLITICAL_CHARACTER FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
@@ -8124,21 +8156,7 @@ mio:GER_blohm_und_voss_organization = {
 		cost = 10
 
 		allow_branch = {
-			has_dlc = "La Resistance"
-			if = {
-				limit = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-				}
-				NOT = {
-					OR = {
-						has_completed_focus = GER_oppose_hitler
-						has_completed_focus = GER_oppose_hitler_ww
-					}
-				}
-			}
+			always = no
 		}
 
 		available = {
@@ -8234,7 +8252,6 @@ mio:GER_blohm_und_voss_organization = {
 		}
 
 		available = { 
-			has_army_manpower = { size > 749999 }
 			NOT = { has_war_with = CZE }
 			CZE = {
 				custom_trigger_tooltip = {
@@ -8516,12 +8533,12 @@ mio:GER_blohm_und_voss_organization = {
 		icon = GFX_focus_GER_anschluss
 		alternate_icon = GFX_focus_GER_anschluss_historical
 
-		prerequisite = { focus = GER_reorganize_the_wehrmacht focus = GER_heed_von_neuraths_concerns }
+		prerequisite = { focus = GER_reorganize_the_wehrmacht }
 
 		x = 7
 		y = 1
 		relative_position_id = GER_heed_von_neuraths_concerns
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 10
@@ -8568,26 +8585,6 @@ mio:GER_blohm_und_voss_organization = {
 		available = {
 			has_war = no
 			is_subject = no
-			IF = {
-				limit = { has_dlc = "Gotterdammerung" }
-
-				custom_trigger_tooltip = {
-					tooltip = GER_anschluss_army_trigger_tt
-					fighting_army_strength_ratio = {
-						tag = AUS
-						ratio > global.deployed_manpower_ratio_needed_for_anschluss
-					}
-				}
-			}
-
-			ELSE = {
-				has_army_manpower = { size > 499999 }
-				
-				custom_trigger_tooltip = {
-				 	tooltip = GER_anschluss_eq_trigger_tt
-				 	check_variable = { num_equipment_in_armies_k@infantry_equipment > 50 }
-				}
-			}
 			
 			NOT = { has_idea = rhineland_challenge_met }
 			if = {
@@ -8845,7 +8842,7 @@ mio:GER_blohm_und_voss_organization = {
 		icon = GFX_goal_generic_dangerous_deal
 		prerequisite = { focus = GER_remilitarize_the_rhineland }
 
-		x = -14
+		x = -9
 		y = 1
 		relative_position_id = GER_remilitarize_the_rhineland
 		cost = 5
@@ -9105,7 +9102,7 @@ mio:GER_blohm_und_voss_organization = {
 			add_doctrine_cost_reduction = {
 				cost_reduction = 0.5
 				uses = 2
-				category = cat_land_doctrine
+				category = land_doctrine
 				name = GER_autonomy_in_the_kriegsschulen
 			}
 
@@ -9240,9 +9237,9 @@ mio:GER_blohm_und_voss_organization = {
 		id = GER_uplift_the_rosenberg_office
 		icon = GFX_focus_ger_reichskommisariats
 		alternate_icon = GFX_focus_ger_reichskommisariats_historical
-		prerequisite = { focus = GER_heed_von_neuraths_concerns focus = GER_reorganize_the_wehrmacht }
+		prerequisite = { focus = GER_reorganize_the_wehrmacht }
 
-		x = 17
+		x = 15
 		y = 1
 		relative_position_id = GER_heed_von_neuraths_concerns
 		cost = 5
@@ -9433,7 +9430,7 @@ mio:GER_blohm_und_voss_organization = {
 		y = 1
 		relative_position_id = GER_anschluss
 
-		cost = 10
+		cost = 5
 
 		will_lead_to_war_with = CZE
 		will_lead_to_war_with = FRA
@@ -9478,7 +9475,6 @@ mio:GER_blohm_und_voss_organization = {
 
 		available = {
 			is_subject = no
-			has_army_manpower = { size > 724999 } #80 div
 		}
 		
 		cancel = {
@@ -9770,7 +9766,7 @@ mio:GER_blohm_und_voss_organization = {
 		x = 0
 		y = 1
 		relative_position_id = GER_first_vienna_award
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 10
@@ -9812,7 +9808,6 @@ mio:GER_blohm_und_voss_organization = {
 		
 		available = { 
 			is_subject = no
-			has_army_manpower = { size > 749999 }
 		}
 
 		search_filters = { FOCUS_FILTER_ANNEXATION FOCUS_FILTER_HISTORICAL }
@@ -10196,6 +10191,10 @@ mio:GER_blohm_und_voss_organization = {
 		y = 1
 		relative_position_id = GER_anschluss
 		cost = 5
+		
+		allow_branch = {
+			always = no
+		}
 
 		available = {
 			is_subject = no
@@ -10490,7 +10489,6 @@ mio:GER_blohm_und_voss_organization = {
 	#	available = {
 	#		is_subject = no
 	#		is_faction_leader = yes
-	#		has_army_manpower = { size > 749999 }
 	#		custom_trigger_tooltip = {
 	#		 	tooltip = GER_second_vienna_award_eq_trigger_tt
 	#		 	check_variable = { num_equipment_in_armies_k@infantry_equipment > 60 }
@@ -10531,7 +10529,7 @@ mio:GER_blohm_und_voss_organization = {
 
 		prerequisite = { focus = GER_fate_of_czechoslovakia focus = GER_integrate_czechoslovakia }
 		mutually_exclusive = { focus = GER_invade_italy }
-		x = 2
+		x = 4
 		y = 2
 		relative_position_id = GER_integrate_czechoslovakia
 		cost = 5
@@ -11112,7 +11110,11 @@ mio:GER_blohm_und_voss_organization = {
 		y = 1
 		relative_position_id = GER_fate_of_czechoslovakia
 
-		cost = 10
+		cost = 5
+
+		allow_branch = {
+			always = no
+		}
 
 		ai_will_do = {
 			factor = 10
@@ -11167,6 +11169,163 @@ mio:GER_blohm_und_voss_organization = {
 
 		}
 	}
+
+	focus = {
+		id = GER_molotov_ribbentrop_pact
+
+		icon = GFX_goal_molotov_ribbentrop_pact
+		alternate_icon = GFX_focus_GER_molotov_ribbentrop_pact
+
+		prerequisite = { focus = GER_reassert_eastern_claims }
+		mutually_exclusive = { focus = GER_anti_soviet_pact }
+		x = 0
+		y = 1
+		relative_position_id = GER_reassert_eastern_claims
+		cost = 5
+		
+		available = {
+			is_subject = no
+			has_government = fascism
+			SOV = {
+				NOT = { has_war_with = GER }
+				country_exists = SOV
+				has_civil_war = no
+			}
+			NOT = { has_global_flag = beck_ribbentrop_signed }
+		}
+
+		cancel = {
+			OR = {
+				has_war_with = SOV
+				NOT = { country_exists = SOV }
+				has_global_flag = beck_ribbentrop_signed
+			}
+		}
+
+		continue_if_invalid = yes
+
+		ai_will_do = {
+			factor = 10
+			modifier = {
+				factor = 0
+				NOT = { has_completed_focus = GER_anti_comintern_pact }
+			}
+			modifier = {
+				factor = 2
+				has_idea = SOV_soviet_german_trade_agreement
+			}
+		}
+
+		search_filters = { FOCUS_FILTER_HISTORICAL FOCUS_FILTER_POLITICAL }
+	
+		completion_reward = {
+			SOV = {
+				country_event = { id = germany.11 days = 1 }
+				custom_effect_tooltip = GER_mol_rib_pact_tt
+				custom_effect_tooltip = needs_approval
+			}
+			GER = {
+				add_timed_idea = { idea = SOV_soviet_german_trade_agreement days = 800 } #Technically 1 year but really 18 months for Soviet payment 
+			}
+		}
+	}
+
+	focus = {
+		id = GER_treaty_with_the_ussr
+		icon = GFX_goal_generic_scientific_exchange
+		prerequisite = { focus = GER_molotov_ribbentrop_pact }
+
+		x = 1
+		y = 1
+		relative_position_id = GER_molotov_ribbentrop_pact
+		cost = 5
+		
+		bypass = { 
+			OR = {
+				has_war_with = SOV
+				NOT = { country_exists = SOV }
+				has_completed_focus = GER_bulwark_against_bolshevism
+				has_completed_focus = GER_the_great_red_menace
+			}
+		}
+
+		available = {
+			NOT = { has_completed_focus = GER_anti_soviet_pact }
+			OR = {
+				NOT = { has_completed_focus = GER_bulwark_against_bolshevism }
+				NOT = { has_completed_focus = GER_the_great_red_menace }
+			}
+		}
+
+		cancel = { 
+			OR = {
+				has_war_with = SOV
+				NOT = { country_exists = SOV }
+			} 
+		}
+
+		ai_will_do = {
+			factor = 10
+		}
+
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			SOV = {
+				country_event = { id = germany.75 days = 1 }
+				custom_effect_tooltip = needs_approval
+				# Actual reward effects added in event if Soviets approve
+				effect_tooltip = {
+					# Trade influence with the USSR? Or simply let the opinion mod do the work
+					give_SOV_armor_research_bonuses = yes
+				}
+			}
+
+			if = {
+				limit = { 
+					has_dlc = "No Step Back"
+				}
+				#custom_effect_tooltip = GER_soviet_treaty_research_nsb_tt #Obsolete now
+				effect_tooltip = {
+					add_tech_bonus = {
+						name = armor_bonus
+						bonus = 2.0
+						uses = 1
+						category = cat_armour_tech
+					}
+				}
+				custom_effect_tooltip = generic_skip_one_line_tt
+			}
+			else = {
+				effect_tooltip = {
+					add_tech_bonus = {
+						name = med_armor_bonus
+						ahead_reduction = 1
+						category = cat_medium_chassis_tech
+					}
+					add_tech_bonus = {
+						name = armor_bonus
+						bonus = 1.0
+						uses = 2
+						category = cat_armour_tech
+					}
+				}
+				custom_effect_tooltip = generic_skip_one_line_tt
+			}
+
+			add_breakthrough_progress = {
+				specialization = specialization_land
+				value = 1
+			}
+
+			SOV = {
+				add_breakthrough_progress = {
+					specialization = specialization_land
+					value = 1
+				}
+			}
+		}
+	}
 	
 	focus = {
 		id = GER_danzig_or_war
@@ -11174,11 +11333,11 @@ mio:GER_blohm_und_voss_organization = {
 		icon = GFX_focus_GER_danzig_or_war
 		alternate_icon = GFX_focus_GER_danzig_or_war_historical
 
-		prerequisite = { focus = GER_reassert_eastern_claims }
+		prerequisite = { focus = GER_molotov_ribbentrop_pact }
 		mutually_exclusive = { focus = GER_danzig_for_slovakia }
 		x = 0
-		y = 3
-		relative_position_id = GER_reassert_eastern_claims
+		y = 2
+		relative_position_id = GER_molotov_ribbentrop_pact
 		cost = 10
 
 		will_lead_to_war_with = POL
@@ -11203,8 +11362,7 @@ mio:GER_blohm_und_voss_organization = {
 		continue_if_invalid = yes
 
 		available = {
-			is_subject = no
-			has_army_manpower = { size > 949999 } #100 div			
+			is_subject = no	
 			#Make custom trigger tooltip here
 			85 = {
 				owner = {
@@ -11411,16 +11569,6 @@ mio:GER_blohm_und_voss_organization = {
 		relative_position_id = GER_danzig_or_war
 		cost = 5
 		available = {
-			ROM = {
-				fascism > 0.35
-				has_full_control_of_state = 46
-				NOT = { has_war_with = ROOT }
-				OR = {
-					is_in_faction = no
-					is_in_faction_with = ROOT
-				}
-				threat > 0.3
-			}
 
 		}
 
@@ -11428,31 +11576,56 @@ mio:GER_blohm_und_voss_organization = {
 
 		completion_reward = {
 
+			add_political_power = -150
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+
 			ROM = {
+
+				set_technology = {
+					fuel_refining = 1
+					fuel_refining2 = 1
+					fuel_refining3 = 1
+				}
+
+
+
+				add_ideas = TPMP_ROM_romanian_closed_economy
+				add_research_slot = -1
+
+				
 				country_event = { 
 					id = wuw_GER_diplomacy.111 
 					days = 2 
 				}
+
+
+
+
+
+
+
+
 			}
 
-			custom_effect_tooltip = if_they_accept_tt
-			effect_tooltip = {
-				ROM = {
-					add_ideas = GER_development_of_economic_relations_ns
-					custom_effect_tooltip = generic_skip_one_line_tt
-					add_opinion_modifier = {
-						target = ROOT
-						modifier = GER_trading_partners
-					}
-					add_opinion_modifier = {
-						target = ROOT
-						modifier = GER_align_romania
-					}	
-					custom_effect_tooltip = generic_skip_one_line_tt
-					add_ideas = GER_align_romania
-				}
-				custom_effect_tooltip = war_will_cancel_deal_tt
-			}
+			# custom_effect_tooltip = if_they_accept_tt
+			# effect_tooltip = {
+			# 	ROM = {
+			# 		add_ideas = GER_development_of_economic_relations_ns
+			# 		custom_effect_tooltip = generic_skip_one_line_tt
+			# 		add_opinion_modifier = {
+			# 			target = ROOT
+			# 			modifier = GER_trading_partners
+			# 		}
+			# 		add_opinion_modifier = {
+			# 			target = ROOT
+			# 			modifier = GER_align_romania
+			# 		}	
+			# 		custom_effect_tooltip = generic_skip_one_line_tt
+			# 		add_ideas = GER_align_romania
+			# 	}
+			# 	custom_effect_tooltip = war_will_cancel_deal_tt
+			# }
 
 		}
 	}
@@ -12278,11 +12451,6 @@ mio:GER_blohm_und_voss_organization = {
 
 		available = {
 			has_war_with = ENG
-			has_army_manpower = { size > 999999 }
-			custom_trigger_tooltip = {
-			 	tooltip = GER_sea_lion_eq_trigger_tt
-			 	check_variable = { num_equipment_in_armies_k@infantry_equipment > 90 }
-			}
 		}
 
 		bypass = {
@@ -12298,13 +12466,7 @@ mio:GER_blohm_und_voss_organization = {
 		search_filters = {}
 
 		completion_reward = {
-			add_timed_idea = {
-				idea = GER_operation_sea_lion_ns
-				days = 180
-			}
-
-			custom_effect_tooltip = generic_skip_one_line_tt
-			
+			unlock_decision_tooltip = TPMP_operation_sealion_decision
 			if = {
 				limit = {
 					has_dlc = "La Resistance"
@@ -12376,6 +12538,7 @@ mio:GER_blohm_und_voss_organization = {
 				is_ally_with = ENG
 				has_subject = RGB
 			}
+
 		}
 
 		search_filters = { FOCUS_FILTER_ANNEXATION }
@@ -12842,12 +13005,6 @@ mio:GER_blohm_und_voss_organization = {
 				add_claim_by = ROOT
 			}
 			custom_effect_tooltip = generic_skip_one_line_tt
-
-			unlock_decision_tooltip = GER_reichskommissariat_klein_venedig
-			unlock_decision_tooltip = GER_reichskommissariat_anden
-			unlock_decision_tooltip = GER_reichskommissariat_kolumbus
-			unlock_decision_tooltip = GER_reichskommissariat_nordamerika
-
 		}
 	}
 
@@ -12856,7 +13013,7 @@ mio:GER_blohm_und_voss_organization = {
 		icon = GFX_goal_generic_political_pressure
 		prerequisite = { focus = GER_anschluss }
 
-		x = 8
+		x = 6
 		y = 1
 		relative_position_id = GER_anschluss
 		cost = 10
@@ -12901,7 +13058,6 @@ mio:GER_blohm_und_voss_organization = {
 			is_subject = no
 			controls_state = 4
 			controls_state = 152
-			has_army_manpower = { size > 749999 } #ca 80 div
 		}
 
 		ai_will_do = {
@@ -13818,7 +13974,7 @@ mio:GER_blohm_und_voss_organization = {
 
 		prerequisite = { focus = GER_remilitarize_the_rhineland }
 		mutually_exclusive = { focus = GER_heed_von_neuraths_concerns }
-		x = 20
+		x = 10
 		y = 0
 		relative_position_id = GER_heed_von_neuraths_concerns
 		cost = 5
@@ -13919,7 +14075,7 @@ mio:GER_blohm_und_voss_organization = {
 
 		prerequisite = { focus = GER_remilitarize_the_rhineland }
 
-		x = 2
+		x = 7
 		y = 0
 		relative_position_id = GER_reorganize_the_wehrmacht
 		cost = 5
@@ -13997,9 +14153,11 @@ mio:GER_blohm_und_voss_organization = {
 		relative_position_id = GER_anti_comintern_pact
 		cost = 10
 		
+		allow_branch = {
+			always = no
+		}
 		available = {
 			is_subject = no
-			has_army_manpower = { size > 849999 } #ca 90 div
 			SOU = {
 				has_government = communism
 			}
@@ -14141,7 +14299,6 @@ mio:GER_blohm_und_voss_organization = {
 			modifier = {
 				factor = 0
 				OR = {
-					has_army_manpower = { size < 1199999 }
 					any_home_area_neighbor_country = {
 						has_war_with = ROOT
 					}
@@ -14211,161 +14368,6 @@ mio:GER_blohm_und_voss_organization = {
 				country_event = {
 					id = wuw_GER_legions.8
 				}	
-			}
-		}
-	}
-
-	focus = {
-		id = GER_molotov_ribbentrop_pact
-
-		icon = GFX_goal_molotov_ribbentrop_pact
-		alternate_icon = GFX_focus_GER_molotov_ribbentrop_pact
-
-		prerequisite = { focus = GER_reorganize_the_wehrmacht }
-		mutually_exclusive = { focus = GER_anti_soviet_pact }
-		x = -1
-		y = 1
-		relative_position_id = GER_reorganize_the_wehrmacht
-		cost = 5
-		
-		available = {
-			is_subject = no
-			has_government = fascism
-			has_army_manpower = { size > 849999 } #ca 90 div
-			SOV = {
-				NOT = { has_war_with = GER }
-				country_exists = SOV
-				has_civil_war = no
-			}
-			NOT = { has_global_flag = beck_ribbentrop_signed }
-		}
-
-		cancel = {
-			OR = {
-				has_war_with = SOV
-				NOT = { country_exists = SOV }
-				has_global_flag = beck_ribbentrop_signed
-			}
-		}
-
-		continue_if_invalid = yes
-
-		ai_will_do = {
-			factor = 10
-			modifier = {
-				factor = 0
-				NOT = { has_completed_focus = GER_anti_comintern_pact }
-			}
-			modifier = {
-				factor = 2
-				has_idea = SOV_soviet_german_trade_agreement
-			}
-		}
-
-		search_filters = { FOCUS_FILTER_HISTORICAL FOCUS_FILTER_POLITICAL }
-	
-		completion_reward = {
-			SOV = {
-				country_event = { id = germany.11 days = 1 }
-				custom_effect_tooltip = GER_mol_rib_pact_tt
-				custom_effect_tooltip = needs_approval
-			}
-		}
-	}
-
-	focus = {
-		id = GER_treaty_with_the_ussr
-		icon = GFX_goal_generic_scientific_exchange
-		prerequisite = { focus = GER_molotov_ribbentrop_pact }
-
-		x = 0
-		y = 1
-		relative_position_id = GER_molotov_ribbentrop_pact
-		cost = 5
-		
-		bypass = { 
-			OR = {
-				has_war_with = SOV
-				NOT = { country_exists = SOV }
-				has_completed_focus = GER_bulwark_against_bolshevism
-				has_completed_focus = GER_the_great_red_menace
-			}
-		}
-
-		available = {
-			NOT = { has_completed_focus = GER_anti_soviet_pact }
-			OR = {
-				NOT = { has_completed_focus = GER_bulwark_against_bolshevism }
-				NOT = { has_completed_focus = GER_the_great_red_menace }
-			}
-		}
-
-		cancel = { 
-			OR = {
-				has_war_with = SOV
-				NOT = { country_exists = SOV }
-			} 
-		}
-
-		ai_will_do = {
-			factor = 10
-		}
-
-		search_filters = { FOCUS_FILTER_RESEARCH }
-
-		completion_reward = {
-			SOV = {
-				country_event = { id = germany.75 days = 1 }
-				custom_effect_tooltip = needs_approval
-				# Actual reward effects added in event if Soviets approve
-				effect_tooltip = {
-					# Trade influence with the USSR? Or simply let the opinion mod do the work
-					give_SOV_armor_research_bonuses = yes
-				}
-			}
-
-			if = {
-				limit = { 
-					has_dlc = "No Step Back"
-				}
-				#custom_effect_tooltip = GER_soviet_treaty_research_nsb_tt #Obsolete now
-				effect_tooltip = {
-					add_tech_bonus = {
-						name = armor_bonus
-						bonus = 2.0
-						uses = 1
-						category = cat_armour_tech
-					}
-				}
-				custom_effect_tooltip = generic_skip_one_line_tt
-			}
-			else = {
-				effect_tooltip = {
-					add_tech_bonus = {
-						name = med_armor_bonus
-						ahead_reduction = 1
-						category = cat_medium_chassis_tech
-					}
-					add_tech_bonus = {
-						name = armor_bonus
-						bonus = 1.0
-						uses = 2
-						category = cat_armour_tech
-					}
-				}
-				custom_effect_tooltip = generic_skip_one_line_tt
-			}
-
-			add_breakthrough_progress = {
-				specialization = specialization_land
-				value = 1
-			}
-
-			SOV = {
-				add_breakthrough_progress = {
-					specialization = specialization_land
-					value = 1
-				}
 			}
 		}
 	}
@@ -14649,10 +14651,7 @@ mio:GER_blohm_und_voss_organization = {
 		available = {
 			has_war_with = SOV
 			NOT = {
-				OR = {
-					has_idea = TPMP_GER_barbarossa_idea_0
-					has_idea = TPMP_GER_barbarossa_idea_1
-				}
+				has_idea = TPMP_GER_barbarossa_idea
 			}
 		}
 
@@ -15101,6 +15100,10 @@ mio:GER_blohm_und_voss_organization = {
 		cost = 5
 		
 		available_if_capitulated = yes
+
+		allow_branch = {
+			always = no
+		}
 
 		available = {
 			is_subject = no
@@ -16092,17 +16095,6 @@ mio:GER_blohm_und_voss_organization = {
 				}
 				add_state_claim = 770
 			}
-
-			custom_effect_tooltip = generic_skip_one_line_tt
-
-			unlock_decision_tooltip = GER_reichskommissariat_nordafrika
-			unlock_decision_tooltip = GER_reichskommissariat_mittelafrika
-
-			custom_effect_tooltip = generic_skip_one_line_tt 
-
-			custom_effect_tooltip = GER_mittelafrika_revive_the_schutztruppe_tt
-
-			custom_effect_tooltip = generic_skip_one_line_tt
 			add_named_threat = { 
 				threat = 3
 				name = GER_mittelafrika
@@ -17316,12 +17308,6 @@ mio:GER_blohm_und_voss_organization = {
 					show_unit_leaders_tooltip = GER_alexander_von_falkenhausen
 				}
 			}
-
-			custom_effect_tooltip = generic_skip_one_line_tt
-			unlock_decision_tooltip = GER_reichskommissariat_arabien
-			unlock_decision_tooltip = GER_reichskommissariat_hindustan
-			unlock_decision_tooltip = GER_reichskommissariat_ostasien
-			unlock_decision_tooltip = GER_reichskommissariat_australasien
 		}
 	}
 	
@@ -17509,82 +17495,60 @@ mio:GER_blohm_und_voss_organization = {
 		alternate_icon = GFX_focus_GER_support_the_fuhrer_historical
 
 		icon = {
-			trigger = {
+			GFX_focus_GER_fuhrerprinzip_todt = {
 				has_country_leader = {
 					ruling_only = yes
 					character = GER_fritz_todt
 				}
 			}
-			value = GFX_focus_GER_fuhrerprinzip_todt
-		}
-		icon = {
-			trigger = {
+			GFX_focus_GER_fuhrerprinzip_speer = {
 				has_country_leader = {
 					ruling_only = yes
 					character = GER_albert_speer
 				}
 			}
-			value = GFX_focus_GER_fuhrerprinzip_speer
-		}
-		icon = {
-			trigger = {
+			GFX_focus_GER_fuhrerprinzip_goring = {
 				has_country_leader = {
 					ruling_only = yes
 					character = GER_hermann_goring
 				}
 			}
-			value = GFX_focus_GER_fuhrerprinzip_goring
-		}
-		icon = {
-			trigger = {
+			GFX_focus_GER_fuhrerprinzip_himmler = {
 				has_country_leader = {
 					ruling_only = yes
 					character = GER_heinrich_himmler
 				}
 			}
-			value = GFX_focus_GER_fuhrerprinzip_himmler
-		}
-		icon = {
-			trigger = {
+			GFX_focus_GER_fuhrerprinzip_goebbels = {
 				has_country_leader = {
 					ruling_only = yes
 					character = GER_joseph_goebbels
 				}
 			}
-			value = GFX_focus_GER_fuhrerprinzip_goebbels
-		}
-		icon = {
-			trigger = {
+			GFX_focus_GER_fuhrerprinzip_hess = {
 				has_country_leader = {
 					ruling_only = yes
 					character = GER_rudolf_hess
 				}
 			}
-			value = GFX_focus_GER_fuhrerprinzip_hess
-		}
-		icon = {
-			trigger = {
+			GFX_focus_GER_fuhrerprinzip_bormann = {
 				has_country_leader = {
 					ruling_only = yes
 					character = GER_martin_bormann
 				}
 			}
-			value = GFX_focus_GER_fuhrerprinzip_bormann
-		}
-		icon = {
-			trigger = {
+			GFX_focus_GER_fuhrerprinzip_braun = {
 				has_country_leader = {
 					ruling_only = yes
 					character = GER_eva_braun
 				}
 			}
-			value = GFX_focus_GER_fuhrerprinzip_braun
+			GFX_focus_GER_support_the_fuhrer = yes
 		}
-		icon = GFX_focus_GER_support_the_fuhrer
 
 		prerequisite = { focus = GER_remilitarize_the_rhineland }
-		x = -17
-		y = 8
+		x = -14
+		y = 7
 		relative_position_id = GER_remilitarize_the_rhineland
 		cost = 5
 		available = {
@@ -26286,7 +26250,7 @@ mio:GER_blohm_und_voss_organization = {
 				name = GER_prussian_artillery
 				cost_reduction = 0.25
 				uses = 2
-				category = cat_land_doctrine
+				category = land_doctrine
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
@@ -28951,19 +28915,11 @@ mio:GER_blohm_und_voss_organization = {
 		id = GER_german_hegemony_in_the_middle_east
 
 		icon = {
-			trigger = {
+			GFX_focus_GER_german_hegemony_in_the_middle_east_demcoratic = {
 				has_government = democratic
 			}
-			value = GFX_focus_GER_german_hegemony_in_the_middle_east_demcoratic
+			GFX_focus_GER_german_hegemony_in_the_middle_east_neutrality = yes
 		}
-		icon = {
-			trigger = {
-				NOT = {
-					has_government = democratic
-				}
-			}
-			value = GFX_focus_GER_german_hegemony_in_the_middle_east_neutrality
-		} 
 
 		prerequisite = { focus = GER_conquer_italy focus = GER_european_confederation focus = GER_align_italy focus = GER_prepare_italian_coup_ww }
 		mutually_exclusive = { focus = GER_bring_turkey_into_the_fold }
@@ -29070,19 +29026,11 @@ mio:GER_blohm_und_voss_organization = {
 		mutually_exclusive = { focus = GER_german_hegemony_in_the_middle_east }
 
 		icon = {
-			trigger = {
+			GFX_focus_TUR_pivot_to_the_past = {
 				has_government = neutrality
 			}
-			value = GFX_focus_TUR_pivot_to_the_past
+			GFX_focus_generic_befriend_turkey = yes
 		}
-		icon = {
-			trigger = {
-				NOT = {
-					has_government = neutrality
-				}
-			}
-			value = GFX_focus_generic_befriend_turkey
-		} 
 
 		x = 1
 		y = 1 
@@ -30754,7 +30702,6 @@ mio:GER_blohm_und_voss_organization = {
 
 		available = {
 			is_subject = no
-			has_army_manpower = { size > 599999 }
 			NOT = {
 				188 = {
 					is_controlled_by = ROOT
@@ -30814,7 +30761,6 @@ mio:GER_blohm_und_voss_organization = {
 
 		available = {
 			is_subject = no
-			has_army_manpower = { size > 799999 }
 			LIT = {
 				exists = yes
 				has_civil_war = no
@@ -30873,7 +30819,6 @@ mio:GER_blohm_und_voss_organization = {
 		cost = 10
 		available = {
 			is_subject = no
-			has_army_manpower = { size > 849999 }
 			NOT = {
 				is_in_faction_with = POL
 				has_war_with = POL
@@ -30974,7 +30919,6 @@ mio:GER_blohm_und_voss_organization = {
 
 		available = {
 			is_subject = no
-			has_army_manpower = { size > 849999 }
 			NOT = {
 				is_in_faction_with = POL
 				has_war_with = POL
@@ -31443,7 +31387,6 @@ mio:GER_blohm_und_voss_organization = {
 
 		available = {
 			is_subject = no
-			has_army_manpower = { size > 999999 }
 
 			custom_trigger_tooltip = {
 			 	tooltip = GER_strike_eastward_eq_trigger_tt
@@ -31618,7 +31561,7 @@ mio:GER_blohm_und_voss_organization = {
 
 		available = {
 			is_subject = no
-			has_army_manpower = { size > 949999 }
+
 			28 = {
 				NOT = {
 					controller = {
@@ -36514,7 +36457,6 @@ mio:GER_blohm_und_voss_organization = {
 		prerequisite = { focus = GER_anti_comintern_pact_unaligned }
 		available = {
 			is_subject = no
-			has_army_manpower = { size > 849999 } #ca 90 div
 		}
 		bypass = {
 			SOV = {
