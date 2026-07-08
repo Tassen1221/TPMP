@@ -165,6 +165,21 @@ country_event = {
 	option = {
 		name = TPMP_USA_election.1.a
 		set_country_flag = TPMP_USA_elections_flag
+		set_variable = {
+			TPMP_USA_west_campaign_cost_var = 20
+		}
+		set_variable = {
+			TPMP_USA_midwest_campaign_cost_var = 20
+		}
+		set_variable = {
+			TPMP_USA_south_campaign_cost_var = 20
+		}
+		set_variable = {
+			TPMP_USA_northeast_campaign_cost_var = 20
+		}
+		clr_country_flag = TPMP_USA_elections_decision_0_flag
+		clr_country_flag = TPMP_USA_elections_decision_1_flag
+		clr_country_flag = TPMP_USA_elections_decision_2_flag
 	}
 }
 country_event = {
@@ -174,9 +189,139 @@ country_event = {
 	picture = GFX_report_event_cash_carry
 
 	is_triggered_only = yes
+	trigger = {
+		tag = USA
+		date > 1936.1.1
+		date < 1937.1.1
+	}
 	
 	option = {
 		name = TPMP_USA_election.2.a
+		trigger = {
+			has_support_lwd_ndd = yes
+		}
+		complete_national_focus = TPMP_USA_the_1936_election
+		complete_national_focus = TPMP_USA_a_strong_mandate
+		clr_country_flag = TPMP_USA_elections_flag
+	}
+	option = {
+		name = TPMP_USA_election.2.b
+		trigger = {
+			NOT = {
+				has_support_lwd_ndd = yes
+			}
+			has_support_lwd_ndd_cd = yes
+		}
+		complete_national_focus = TPMP_USA_the_1936_election
+		complete_national_focus = TPMP_USA_a_narrow_victory
+		clr_country_flag = TPMP_USA_elections_flag
+	}
+	option = {
+		name = TPMP_USA_election.2.c
+		trigger = {
+			NOT = {
+				has_support_lwd_ndd_cd = yes
+			}
+		}
+		custom_effect_tooltip = generic_skip_one_line_tt
+		add_political_power = -300
+		custom_effect_tooltip = generic_skip_one_line_tt
+		complete_national_focus = TPMP_USA_the_1936_election
+		complete_national_focus = TPMP_USA_a_narrow_victory
+		clr_country_flag = TPMP_USA_elections_flag
+	}
+}
+country_event = {
+    id = TPMP_USA_election.3
+	title = TPMP_USA_election.3.t
+	desc = TPMP_USA_election.3.d
+	picture = GFX_report_event_cash_carry
+
+	is_triggered_only = yes
+	
+	option = {
+		name = TPMP_USA_election.3.a
+		set_country_flag = TPMP_USA_elections_flag
+		set_variable = {
+			TPMP_USA_west_campaign_cost_var = 20
+		}
+		set_variable = {
+			TPMP_USA_midwest_campaign_cost_var = 20
+		}
+		set_variable = {
+			TPMP_USA_south_campaign_cost_var = 20
+		}
+		set_variable = {
+			TPMP_USA_northeast_campaign_cost_var = 20
+		}
+		clr_country_flag = TPMP_USA_elections_decision_0_flag
+		clr_country_flag = TPMP_USA_elections_decision_1_flag
+		clr_country_flag = TPMP_USA_elections_decision_2_flag
+	}
+}
+country_event = {
+    id = TPMP_USA_election.4
+	title = TPMP_USA_election.4.t
+	desc = TPMP_USA_election.4.d
+	picture = GFX_report_event_cash_carry
+
+	is_triggered_only = yes
+	trigger = {
+		tag = USA
+		date > 1940.1.1
+		date < 1941.1.1
+	}
+	
+	option = {
+		name = TPMP_USA_election.4.a
+		complete_national_focus = TPMP_USA_the_1940_election
+		clr_country_flag = TPMP_USA_elections_flag
+	}
+}
+country_event = {
+    id = TPMP_USA_election.5
+	title = TPMP_USA_election.5.t
+	desc = TPMP_USA_election.5.d
+	picture = GFX_report_event_cash_carry
+
+	is_triggered_only = yes
+	
+	option = {
+		name = TPMP_USA_election.5.a
+		set_country_flag = TPMP_USA_elections_flag
+		set_variable = {
+			TPMP_USA_west_campaign_cost_var = 20
+		}
+		set_variable = {
+			TPMP_USA_midwest_campaign_cost_var = 20
+		}
+		set_variable = {
+			TPMP_USA_south_campaign_cost_var = 20
+		}
+		set_variable = {
+			TPMP_USA_northeast_campaign_cost_var = 20
+		}
+		clr_country_flag = TPMP_USA_elections_decision_0_flag
+		clr_country_flag = TPMP_USA_elections_decision_1_flag
+		clr_country_flag = TPMP_USA_elections_decision_2_flag
+	}
+}
+country_event = {
+    id = TPMP_USA_election.6
+	title = TPMP_USA_election.6.t
+	desc = TPMP_USA_election.6.d
+	picture = GFX_report_event_cash_carry
+
+	is_triggered_only = yes
+	trigger = {
+		tag = USA
+		date > 1944.1.1
+		date < 1945.1.1
+	}
+	
+	option = {
+		name = TPMP_USA_election.6.a
+		complete_national_focus = TPMP_USA_the_1944_election
 		clr_country_flag = TPMP_USA_elections_flag
 	}
 }

@@ -95,6 +95,11 @@ focus_tree = {
 			recalculate_congressional_ui = yes
 			custom_effect_tooltip = generic_skip_one_line_tt
 			add_stability = 0.05
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_power_balance_value = {
+				id = TPMP_USA_power_balance
+				value = -0.05
+			}
 		}
 	}
 
@@ -149,6 +154,11 @@ focus_tree = {
 			recalculate_congressional_ui = yes
 			custom_effect_tooltip = generic_skip_one_line_tt
 			add_political_power = 50
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_power_balance_value = {
+				id = TPMP_USA_power_balance
+				value = 0.05
+			}
 		}
 	}
 
@@ -388,7 +398,7 @@ focus_tree = {
 		relative_position_id = TPMP_USA_the_1936_election
 		cost = 0
 		available = {
-			has_support_ndd = yes
+			has_support_lwd_ndd = yes
 			hidden_trigger = {
 				always = no
 			}

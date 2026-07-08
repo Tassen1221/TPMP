@@ -301,4 +301,39 @@ on_actions = {
 			}
 		}
 	}
+	on_monthly_USA = {
+		effect = {
+			IF = {
+				limit = {
+					date > 1936.01.01
+					NOT = { has_country_flag = TPMP_USA_1936_campaign_flag }
+				}
+				set_country_flag = TPMP_USA_1936_campaign_flag
+				country_event = { id = TPMP_USA_election.1 }
+			}
+			IF = {
+				limit = {
+					date > 1940.01.01
+					NOT = { has_country_flag = TPMP_USA_1940_campaign_flag }
+				}
+				set_country_flag = TPMP_USA_1940_campaign_flag
+				country_event = { id = TPMP_USA_election.3 }
+			}
+			IF = {
+				limit = {
+					date > 1944.01.01
+					NOT = { has_country_flag = TPMP_USA_1944_campaign_flag }
+				}
+				set_country_flag = TPMP_USA_1944_campaign_flag
+				country_event = { id = TPMP_USA_election.5 }
+			}
+		}
+	}
+	on_new_term_election = {
+		random_events = {
+			100 = TPMP_USA_election.2
+			100 = TPMP_USA_election.4
+			100 = TPMP_USA_election.6
+		}
+	}
 }

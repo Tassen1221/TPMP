@@ -1,15 +1,117 @@
 TPMP_USA_elections_category = {
-    TPMP_USA_elections_decision = {
+    TPMP_USA_elections_decision_0 = {
         icon = GFX_decision_generic_allies
         visible = {
             has_country_flag = TPMP_USA_elections_flag
-        }
-        highlight_states = {
-            highlight_state_targets = {
-                state = 375
+            NOT = {
+                has_country_flag = TPMP_USA_elections_decision_0_flag
             }
         }
+        available = {
+            has_tech = radio
+        }
+        fire_only_once = no
+        cost = 30
         complete_effect = {
+            IF = {
+                limit = { has_tech = advanced_radio }
+                custom_effect_tooltip = ndd_gain_support_tt
+                custom_effect_tooltip = ir_lose_support_tt
+                for_loop_effect = {
+                    end = 5
+                    IF = {
+                        limit = {
+                            check_variable = {
+                                isolationist_republican_support_var > 0
+                            }
+                        }
+                        add_to_variable = {
+                            new_deal_democrat_support_var = 1
+                        }
+                        add_to_variable = {
+                            isolationist_republican_support_var = -1
+                        }
+                    }
+                }
+                recalculate_congressional_ui = yes
+            }
+            ELSE_IF = {
+                limit = { has_tech = improved_radio }
+                custom_effect_tooltip = ndd_gain_support_small_tt
+                custom_effect_tooltip = ir_lose_support_small_tt
+                for_loop_effect = {
+                    end = 3
+                    IF = {
+                        limit = {
+                            check_variable = {
+                                isolationist_republican_support_var > 0
+                            }
+                        }
+                        add_to_variable = {
+                            new_deal_democrat_support_var = 1
+                        }
+                        add_to_variable = {
+                            isolationist_republican_support_var = -1
+                        }
+                    }
+                }
+                recalculate_congressional_ui = yes
+            }
+            ELSE_IF = {
+                limit = { has_tech = radio }
+                custom_effect_tooltip = ndd_gain_support_tiny_tt
+                custom_effect_tooltip = ir_lose_support_tiny_tt
+                IF = {
+                    limit = {
+                        check_variable = {
+                            isolationist_republican_support_var > 0
+                        }
+                    }
+                    add_to_variable = {
+                        new_deal_democrat_support_var = 1
+                    }
+                    add_to_variable = {
+                        isolationist_republican_support_var = -1
+                    }
+                }
+                recalculate_congressional_ui = yes
+            }
+            custom_effect_tooltip = generic_skip_one_line_tt
+            custom_effect_tooltip = TPMP_USA_elections_decision_0_tt
+            set_country_flag = TPMP_USA_elections_decision_0_flag
+            custom_effect_tooltip = generic_skip_zero_line_tt
+        }
+    }
+    TPMP_USA_elections_decision_1 = {
+        icon = GFX_decision_generic_allies
+        visible = {
+            has_country_flag = TPMP_USA_elections_flag
+            NOT = {
+                has_country_flag = TPMP_USA_elections_decision_1_flag
+            }
+        }
+        available = {
+        }
+        fire_only_once = no
+        cost = 30
+        complete_effect = {
+            
+        }
+    }
+    TPMP_USA_elections_decision_2 = {
+        icon = GFX_decision_generic_allies
+        visible = {
+            has_country_flag = TPMP_USA_elections_flag
+            NOT = {
+                has_country_flag = TPMP_USA_elections_decision_2_flag
+            }
+        }
+        available = {
+        }
+        fire_only_once = no
+        cost = 30
+        complete_effect = {
+            
         }
     }
     TPMP_USA_west_campaigning_decision = {
@@ -36,18 +138,8 @@ TPMP_USA_elections_category = {
         days_remove = 30
         cost = TPMP_USA_west_campaign_cost_var?10
         complete_effect = {
-            IF = {
-                limit = {
-                    has_variable = TPMP_USA_west_campaign_cost_var
-                }
-                multiply_variable = {
-                    TPMP_USA_west_campaign_cost_var = 2
-                }
-            }
-            ELSE = {
-                set_variable = {
-                    TPMP_USA_west_campaign_cost_var = 20
-                }
+            multiply_variable = {
+                TPMP_USA_west_campaign_cost_var = 2
             }
         }
         remove_effect = {
@@ -67,6 +159,9 @@ TPMP_USA_elections_category = {
                 }
             }
             recalculate_congressional_ui = yes
+            custom_effect_tooltip = generic_skip_one_line_tt
+            custom_effect_tooltip = TPMP_USA_campaigning_decision_tt
+            custom_effect_tooltip = generic_skip_zero_line_tt
         }
     }
     TPMP_USA_midwest_campaigning_decision = {
@@ -94,18 +189,8 @@ TPMP_USA_elections_category = {
         days_remove = 30
         cost = TPMP_USA_midwest_campaign_cost_var?10
         complete_effect = {
-            IF = {
-                limit = {
-                    has_variable = TPMP_USA_midwest_campaign_cost_var
-                }
-                multiply_variable = {
-                    TPMP_USA_midwest_campaign_cost_var = 2
-                }
-            }
-            ELSE = {
-                set_variable = {
-                    TPMP_USA_midwest_campaign_cost_var = 20
-                }
+            multiply_variable = {
+                TPMP_USA_midwest_campaign_cost_var = 2
             }
         }
         remove_effect = {
@@ -125,6 +210,9 @@ TPMP_USA_elections_category = {
                 }
             }
             recalculate_congressional_ui = yes
+            custom_effect_tooltip = generic_skip_one_line_tt
+            custom_effect_tooltip = TPMP_USA_campaigning_decision_tt
+            custom_effect_tooltip = generic_skip_zero_line_tt
         }
     }
     TPMP_USA_south_campaigning_decision = {
@@ -154,18 +242,8 @@ TPMP_USA_elections_category = {
         days_remove = 30
         cost = TPMP_USA_south_campaign_cost_var?10
         complete_effect = {
-            IF = {
-                limit = {
-                    has_variable = TPMP_USA_south_campaign_cost_var
-                }
-                multiply_variable = {
-                    TPMP_USA_south_campaign_cost_var = 2
-                }
-            }
-            ELSE = {
-                set_variable = {
-                    TPMP_USA_south_campaign_cost_var = 20
-                }
+            multiply_variable = {
+                TPMP_USA_south_campaign_cost_var = 2
             }
         }
         remove_effect = {
@@ -185,6 +263,9 @@ TPMP_USA_elections_category = {
                 }
             }
             recalculate_congressional_ui = yes
+            custom_effect_tooltip = generic_skip_one_line_tt
+            custom_effect_tooltip = TPMP_USA_campaigning_decision_tt
+            custom_effect_tooltip = generic_skip_zero_line_tt
         }
     }
     TPMP_USA_northeast_campaigning_decision = {
@@ -205,18 +286,8 @@ TPMP_USA_elections_category = {
         days_remove = 30
         cost = TPMP_USA_northeast_campaign_cost_var?10
         complete_effect = {
-            IF = {
-                limit = {
-                    has_variable = TPMP_USA_northeast_campaign_cost_var
-                }
-                multiply_variable = {
-                    TPMP_USA_northeast_campaign_cost_var = 2
-                }
-            }
-            ELSE = {
-                set_variable = {
-                    TPMP_USA_northeast_campaign_cost_var = 20
-                }
+            multiply_variable = {
+                TPMP_USA_northeast_campaign_cost_var = 2
             }
         }
         remove_effect = {
@@ -236,6 +307,9 @@ TPMP_USA_elections_category = {
                 }
             }
             recalculate_congressional_ui = yes
+            custom_effect_tooltip = generic_skip_one_line_tt
+            custom_effect_tooltip = TPMP_USA_campaigning_decision_tt
+            custom_effect_tooltip = generic_skip_zero_line_tt
         }
     }
 }
