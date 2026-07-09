@@ -380,7 +380,8 @@
 		
 		search_filters = { FOCUS_FILTER_RESEARCH }
 		completion_reward = {
-			add_research_slot = 1			
+			
+			add_ideas = TPMP_MAN_tsr_beiyang_university_idea	
 		}
 	}
 
@@ -1209,7 +1210,8 @@
 
 		search_filters = { FOCUS_FILTER_RESEARCH }
 		completion_reward = {
-			add_research_slot = 1
+			
+			add_ideas = TPMP_MAN_tsr_beiyang_university_idea
 		}
 	}
 
@@ -1469,52 +1471,52 @@
 
 	}
 
-	focus = {
-		id = MAN_tsr_request_dalian
-		icon = GFX_focus_PER_fascist_reach_out_to_japan
-		prerequisite = { focus = MAN_tsr_alliance_with_the_kwantung_army }
-		x = 3
-		y = 1
-		relative_position_id = MAN_tsr_alliance_with_the_kwantung_army
+	# focus = {
+	# 	id = MAN_tsr_request_dalian
+	# 	icon = GFX_focus_PER_fascist_reach_out_to_japan
+	# 	prerequisite = { focus = MAN_tsr_alliance_with_the_kwantung_army }
+	# 	x = 3
+	# 	y = 1
+	# 	relative_position_id = MAN_tsr_alliance_with_the_kwantung_army
 
-		cost = 0
+	# 	cost = 0
 
-		ai_will_do = {
-			factor = 1
-		}
+	# 	ai_will_do = {
+	# 		factor = 1
+	# 	}
 
-		available = {
-			JAP = {
-				owns_state = 745
-				controls_state = 745
-			}
-			ROOT = {
-				is_subject_of = JAP
-			}
-		}
+	# 	available = {
+	# 		JAP = {
+	# 			owns_state = 745
+	# 			controls_state = 745
+	# 		}
+	# 		ROOT = {
+	# 			is_subject_of = JAP
+	# 		}
+	# 	}
 
-		bypass = {
+	# 	bypass = {
 
-		}
+	# 	}
 
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = yes
-
-		
+	# 	cancel_if_invalid = yes
+	# 	continue_if_invalid = no
+	# 	available_if_capitulated = yes
 
 		
 
-		completion_reward = {
-			JAP = {
-				country_event = {
-					id = tsr_manchukuo.2
-					hours = 6
-				}
-			}
-		}
+		
 
-	}
+	# 	completion_reward = {
+	# 		JAP = {
+	# 			country_event = {
+	# 				id = tsr_manchukuo.2
+	# 				hours = 6
+	# 			}
+	# 		}
+	# 	}
+
+	# }
 
 	focus = {
 		id = MAN_tsr_further_mobilization
@@ -1906,7 +1908,7 @@
 		y = 1
 		relative_position_id = MAN_tsr_chinese_leadership
 
-		cost = 20
+		cost = 10
 
 		ai_will_do = {
 			factor = 1
@@ -3328,7 +3330,7 @@
 
 		search_filters = { FOCUS_FILTER_RESEARCH }
 		completion_reward = {
-			add_research_slot = 1
+			add_ideas = TPMP_MAN_tsr_beiyang_university_idea
 		}
 	}
 
@@ -3740,7 +3742,8 @@
 
 		search_filters = { FOCUS_FILTER_RESEARCH }
 		completion_reward = {
-			add_research_slot = 1
+			
+			add_ideas = TPMP_MAN_tsr_beiyang_university_idea
 			IF = {
 				limit = {
 					is_in_faction_with = PRC
@@ -4604,7 +4607,8 @@
 
 		search_filters = { FOCUS_FILTER_RESEARCH }
 		completion_reward = {
-			add_research_slot = 1
+			
+			add_ideas = TPMP_MAN_tsr_beiyang_university_idea
 		}
 	}
 
