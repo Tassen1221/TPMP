@@ -109,9 +109,9 @@ NDefines.NMilitary.SUPPLY_GRACE = 240				-- troops always carry 5 days of food a
 NDefines.NMilitary.LAND_COMBAT_STR_DAMAGE_MODIFIER = 0.050	-- global damage modifier... but some equipment is returned at end of battles see : EQUIPMENT_COMBAT_LOSS_FACTOR
 NDefines.NMilitary.LAND_COMBAT_ORG_DAMAGE_MODIFIER = 0.040	-- global damage modifier
 
-NDefines.NMilitary.LAND_AIR_COMBAT_STR_DAMAGE_MODIFIER = 0.020	-- air global damage modifier
-NDefines.NMilitary.LAND_AIR_COMBAT_ORG_DAMAGE_MODIFIER = 0.020	-- global damage modifier
-NDefines.NMilitary.LAND_AIR_COMBAT_MAX_PLANES_PER_ENEMY_WIDTH = 2	-- how many CAS/TAC can enter a combat depending on enemy width there
+NDefines.NMilitary.LAND_AIR_COMBAT_STR_DAMAGE_MODIFIER = 0.025	-- air global damage modifier
+NDefines.NMilitary.LAND_AIR_COMBAT_ORG_DAMAGE_MODIFIER = 0.025	-- global damage modifier
+NDefines.NMilitary.LAND_AIR_COMBAT_MAX_PLANES_PER_ENEMY_WIDTH = 1	-- how many CAS/TAC can enter a combat depending on enemy width there
 
 NDefines.NMilitary.RELIABILITY_ORG_REGAIN = -0.5		-- how much reliability affects org regain
 NDefines.NMilitary.RELIABILTY_RECOVERY = 0.50			-- factor affecting how much equipment is returned "from the dead"
@@ -200,7 +200,7 @@ NDefines.NMilitary.INITIATIVE_PICK_COUNTER_ADVANTAGE_FACTOR  = 0.5	-- advantage 
 
 NDefines.NMilitary.SLOWEST_SPEED = 1
 
-NDefines.NMilitary.AIR_SUPPORT_BASE = 0.15			-- CAS bonus factor for air support moddifier for land unit in combat
+NDefines.NMilitary.AIR_SUPPORT_BASE = 0.25			-- CAS bonus factor for air support moddifier for land unit in combat
 
 NDefines.NMilitary.ENEMY_AIR_SUPERIORITY_IMPACT = -0.8		-- effect on defense due to enemy air superiorty
 NDefines.NMilitary.ENEMY_AIR_SUPERIORITY_SPEED_IMPACT = -0.4	-- effect on speed due to enemy air superiority
