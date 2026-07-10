@@ -86,24 +86,6 @@ NDefines.NMilitary.BASE_DIVISION_SUPPORT_SLOT_COST = 0 		--Base cost to unlock a
 
 NDefines.NMilitary.REGIMENTAL_SUPPORT_SLOT_COST_MULTIPLIER = 0  -- Regimental support slot costs are scaled by this value compared to normal support slots
 
-NDefines.NMilitary.COMMANDER_ABILITY_BASE_RANGE = 20            -- Base radius range of commander abilities
-
-NDefines.NMilitary.COMMS_MAX_DISTANCE = 4			-- If N is >= the size of the below arrays, the last value will be considered repeated
-NDefines.NMilitary.PLANNING_CAP_COMMS_SCALING = { 1.0, 0.95, 0.9, 0.85, 0.8 }		-- Value at index J is the scaling applied to planning cap when HQ is J provinces behind the frontline
-NDefines.NMilitary.PLANNING_CAP_NO_HQ_SCALING = 0.8								-- Scaling applied to planning cap when there's no HQ (no leader or leader not deployed or not the same root order)
-NDefines.NMilitary.PLANNING_SPEED_COMMS_SCALING = { 1.0, 0.95, 0.9, 0.85, 0.8 }		-- Same as PLANNING_CAP_COMMS_SCALING but for planning speed
-NDefines.NMilitary.PLANNING_SPEED_NO_HQ_SCALING = 0.8								-- Same as PLANNING_CAP_NO_HQ_SCALING but for planning speed
-NDefines.NMilitary.LEADER_MOD_COMMS_SCALING = { 1.06, 1.04, 1.02, 1.01, 1.0 }		-- Same as PLANNING_CAP_COMMS_SCALING but for leader modifiers
-NDefines.NMilitary.LEADER_MOD_NO_HQ_SCALING = 1.0									-- Same as PLANNING_CAP_NO_HQ_SCALING but for leader modifiers
-NDefines.NMilitary.ABILITY_COMMS_SCALING = { 1.06, 1.04, 1.02, 1.01, 1.0 }			-- Same as PLANNING_CAP_COMMS_SCALING but for active abilities
-NDefines.NMilitary.ABILITY_NO_HQ_SCALING = 1.0								-- Same as PLANNING_CAP_NO_HQ_SCALING but for active abilities
-NDefines.NMilitary.GENERAL_PROXIMITY_CLOSE = 1								-- At the "close" proximity setting, the general should stay this many provinces behind the frontline
-NDefines.NMilitary.GENERAL_PROXIMITY_MEDIUM = 2									-- At the "medium" proximity setting, the general should stay this many provinces behind the frontline
-NDefines.NMilitary.GENERAL_PROXIMITY_FAR = 3									-- At the "far" proximity setting, the general should stay this many provinces behind the frontline
-NDefines.NMilitary.GENERAL_PROXIMITY_DEFAULT = 1						-- The default proximity setting for a deployed general. This number should correspond to one of the values above
-NDefines.NMilitary.GENERAL_RANK_TO_ARMY_HQ_EXP_LEVEL_FACTOR = 0.5		    -- The general's rank is multiplied by this factor (rounded up) to determine the spawned Army HQ division's experience level
-NDefines.NMilitary.ARMY_HQ_REQUISITION_MINIMUM_REMAINING_PERCENTAGE = 10	    -- When deploying an Army HQ, divisions will not have their equipment or manpower requisitioned below this percentage of their target manpower or equipment
-
 NDefines.NMilitary.SUPPLY_GRACE = 240				-- troops always carry 5 days of food and supply
 
 NDefines.NMilitary.LAND_COMBAT_STR_DAMAGE_MODIFIER = 0.050	-- global damage modifier... but some equipment is returned at end of battles see : EQUIPMENT_COMBAT_LOSS_FACTOR
@@ -236,6 +218,18 @@ NDefines.NMilitary.UNIT_LEADER_INITIAL_TRAIT_SLOT = { 		-- trait slot for 0 leve
 	1.0, -- navy general
 	0.0, -- operative
 }
+
+NDefines.NMilitary.COMMANDER_ABILITY_BASE_RANGE = 20            -- Base radius range of commander abilities
+NDefines.NMilitary.COMMS_MAX_DISTANCE = 1			-- If N is >= the size of the below arrays, the last value will be considered repeated
+NDefines.NMilitary.PLANNING_CAP_COMMS_SCALING = { 1.0 }		-- Value at index J is the scaling applied to planning cap when HQ is J provinces behind the frontline
+NDefines.NMilitary.PLANNING_CAP_NO_HQ_SCALING = 1.0		-- Scaling applied to planning cap when there's no HQ (no leader or leader not deployed or not the same root order)
+NDefines.NMilitary.PLANNING_SPEED_COMMS_SCALING = { 1.0 }	-- Same as PLANNING_CAP_COMMS_SCALING but for planning speed
+NDefines.NMilitary.PLANNING_SPEED_NO_HQ_SCALING = 1.0		-- Same as PLANNING_CAP_NO_HQ_SCALING but for planning speed
+NDefines.NMilitary.LEADER_MOD_COMMS_SCALING = { 1.0 }		-- Same as PLANNING_CAP_COMMS_SCALING but for leader modifiers
+NDefines.NMilitary.LEADER_MOD_NO_HQ_SCALING = 1.0		-- Same as PLANNING_CAP_NO_HQ_SCALING but for leader modifiers
+NDefines.NMilitary.ABILITY_COMMS_SCALING = { 1.0 }		-- Same as PLANNING_CAP_COMMS_SCALING but for active abilities
+NDefines.NMilitary.ABILITY_NO_HQ_SCALING = 1.0			-- Same as PLANNING_CAP_NO_HQ_SCALING but for active abilities
+
 
 NDefines.NRailwayGun.RAILWAY_GUN_POSSIBLE_RANGES = { 30, 15, 45 }	-- Possible values for railway gun range in pixel.
 NDefines.NRailwayGun.ATTACK_TO_FORTS_MODIFIER_FACTOR = 1		-- Forts modifier is calculated by multiplying railway gun attack value with this and dividing by 100
