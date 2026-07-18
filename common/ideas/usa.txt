@@ -161,22 +161,6 @@ ideas = {
 			}
 		}
 
-		TPMP_USA_OSRD_idea = {
-			picture = generic_radar
-			modifier = {
-				special_project_speed_factor  = 0.1
-				production_speed_facility_factor = 0.2
-				research_speed_factor = 0.05
-			}
-		}
-		TPMP_USA_NDAC_idea = {
-			picture = SOV_third_five_year_plan_military
-			modifier = {
-				production_factory_start_efficiency_factor = 0.05
-				production_factory_efficiency_gain_factor = 0.1
-			}
-		}
-
 		TPMP_USA_subassembly_idea = {
 			picture = ARG_rapid_militarization
 			modifier = {
@@ -217,9 +201,16 @@ ideas = {
 			picture = generic_exploit_mines
 			modifier = {
 				min_export = -0.1
-				country_resource_chromium = 800
-				country_resource_tungsten = 800
-				country_resource_aluminium = 800
+				country_resource_chromium = 1200
+				country_resource_tungsten = 1200
+				country_resource_aluminium = 1200
+			}
+		}
+		TPMP_USA_giant_wakes_idea = {
+			picture = generic_democratic_drift_bonus
+			modifier = {
+				consumer_goods_factor = -0.2
+				conversion_cost_civ_to_mil_factor = -0.5
 			}
 		}
 		TPMP_USA_megaplants_idea = {
@@ -456,10 +447,10 @@ ideas = {
 		TPMP_USA_OWI_idea = {
 			modifier = {
 				war_support_weekly = 0.001
-				airforce_intel_to_others = -0.05
-				army_intel_to_others = -0.05
-				civilian_intel_to_others = -0.05
-				navy_intel_to_others = -0.05
+				airforce_intel_to_others = -5
+				army_intel_to_others = -5
+				civilian_intel_to_others = -5
+				navy_intel_to_others = -5
 				operative_slot = 1
 			}
 		}
@@ -1226,8 +1217,7 @@ ideas = {
 			}
 			
 			research_bonus = {
-				industry = 0.05
-				electronics = 0.15
+				industry = 0.15
 			}
 			
 			traits = { TPMP_general_electric_concern }
@@ -1241,23 +1231,17 @@ ideas = {
 			}
 			
 			equipment_bonus = {
-				TPMP_cat_eq_all_tank = {
-					reliability = 0.03
-					maximum_speed = 0.05
-					instant = yes
-				}
 				TPMP_cat_eq_all_plane = {
+					maximum_speed = 0.1
+					thrust = 0.05
+					instant = yes
+				}
+				TPMP_cat_eq_all_vehicle = {
 					reliability = 0.03
-					maximum_speed = 0.05
+					maximum_speed = 0.1
 					instant = yes
 				}
 			}
-			research_bonus = {
-				industry = 0.05
-				cat_air_engine = 0.15
-				cat_armour_engine_tech = 0.15
-			}
-			
 			traits = { TPMP_general_motors_concern }
 		}
 		TPMP_USA_general_mills_concern = {
@@ -1269,7 +1253,6 @@ ideas = {
 			}
 			
 			research_bonus = {
-				industry = 0.15
 				cat_logistics_tech = 0.15
 			}
 			

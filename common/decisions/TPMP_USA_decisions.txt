@@ -1,10 +1,10 @@
 TPMP_USA_elections_category = {
-    TPMP_USA_elections_decision_0 = {
+    TPMP_USA_elections_decision = {
         icon = GFX_decision_generic_allies
         visible = {
             has_country_flag = TPMP_USA_elections_flag
             NOT = {
-                has_country_flag = TPMP_USA_elections_decision_0_flag
+                has_country_flag = TPMP_USA_elections_decision_flag
             }
         }
         available = {
@@ -15,103 +15,19 @@ TPMP_USA_elections_category = {
         complete_effect = {
             IF = {
                 limit = { has_tech = advanced_radio }
-                custom_effect_tooltip = ndd_gain_support_tt
-                custom_effect_tooltip = ir_lose_support_tt
-                for_loop_effect = {
-                    end = 5
-                    IF = {
-                        limit = {
-                            check_variable = {
-                                isolationist_republican_support_var > 0
-                            }
-                        }
-                        add_to_variable = {
-                            new_deal_democrat_support_var = 1
-                        }
-                        add_to_variable = {
-                            isolationist_republican_support_var = -1
-                        }
-                    }
-                }
-                recalculate_congressional_ui = yes
+                USA_electoral_support_gain_large = yes
             }
             ELSE_IF = {
                 limit = { has_tech = improved_radio }
-                custom_effect_tooltip = ndd_gain_support_small_tt
-                custom_effect_tooltip = ir_lose_support_small_tt
-                for_loop_effect = {
-                    end = 3
-                    IF = {
-                        limit = {
-                            check_variable = {
-                                isolationist_republican_support_var > 0
-                            }
-                        }
-                        add_to_variable = {
-                            new_deal_democrat_support_var = 1
-                        }
-                        add_to_variable = {
-                            isolationist_republican_support_var = -1
-                        }
-                    }
-                }
-                recalculate_congressional_ui = yes
+                USA_electoral_support_gain = yes
             }
-            ELSE_IF = {
-                limit = { has_tech = radio }
-                custom_effect_tooltip = ndd_gain_support_tiny_tt
-                custom_effect_tooltip = ir_lose_support_tiny_tt
-                IF = {
-                    limit = {
-                        check_variable = {
-                            isolationist_republican_support_var > 0
-                        }
-                    }
-                    add_to_variable = {
-                        new_deal_democrat_support_var = 1
-                    }
-                    add_to_variable = {
-                        isolationist_republican_support_var = -1
-                    }
-                }
-                recalculate_congressional_ui = yes
+            ELSE = {
+                USA_electoral_support_gain_small = yes
             }
             custom_effect_tooltip = generic_skip_one_line_tt
-            custom_effect_tooltip = TPMP_USA_elections_decision_0_tt
-            set_country_flag = TPMP_USA_elections_decision_0_flag
+            custom_effect_tooltip = TPMP_USA_elections_decision_tt
+            set_country_flag = TPMP_USA_elections_decision_flag
             custom_effect_tooltip = generic_skip_zero_line_tt
-        }
-    }
-    TPMP_USA_elections_decision_1 = {
-        icon = GFX_decision_generic_allies
-        visible = {
-            has_country_flag = TPMP_USA_elections_flag
-            NOT = {
-                has_country_flag = TPMP_USA_elections_decision_1_flag
-            }
-        }
-        available = {
-        }
-        fire_only_once = no
-        cost = 30
-        complete_effect = {
-            
-        }
-    }
-    TPMP_USA_elections_decision_2 = {
-        icon = GFX_decision_generic_allies
-        visible = {
-            has_country_flag = TPMP_USA_elections_flag
-            NOT = {
-                has_country_flag = TPMP_USA_elections_decision_2_flag
-            }
-        }
-        available = {
-        }
-        fire_only_once = no
-        cost = 30
-        complete_effect = {
-            
         }
     }
     TPMP_USA_west_campaigning_decision = {
@@ -143,24 +59,12 @@ TPMP_USA_elections_category = {
             }
         }
         remove_effect = {
-            custom_effect_tooltip = pr_lose_support_tiny_tt
-            custom_effect_tooltip = lwd_gain_support_tiny_tt
-            IF = {
-                limit = {
-                    check_variable = {
-                        progressive_republican_support_var > 0
-                    }
-                }
-                add_to_variable = {
-                    left_wing_democrat_support_var = 1
-                }
-                add_to_variable = {
-                    progressive_republican_support_var = -1
-                }
-            }
-            recalculate_congressional_ui = yes
-            custom_effect_tooltip = generic_skip_one_line_tt
-            custom_effect_tooltip = TPMP_USA_campaigning_decision_tt
+            set_temp_variable = { new_support = left_wing_democrat_support_var }
+            divide_temp_variable = { new_support = 3 }
+            round_temp_variable = new_support
+            add_to_variable = { TPMP_USA_electoral_support_var = new_support }
+            recalculate_electoral_ui = yes
+            custom_effect_tooltip = TPMP_USA_west_campaigning_decision_tt
             custom_effect_tooltip = generic_skip_zero_line_tt
         }
     }
@@ -194,24 +98,13 @@ TPMP_USA_elections_category = {
             }
         }
         remove_effect = {
-            custom_effect_tooltip = ir_lose_support_tiny_tt
-            custom_effect_tooltip = ndd_gain_support_tiny_tt
-            IF = {
-                limit = {
-                    check_variable = {
-                        isolationist_republican_support_var > 0
-                    }
-                }
-                add_to_variable = {
-                    new_deal_democrat_support_var = 1
-                }
-                add_to_variable = {
-                    isolationist_republican_support_var = -1
-                }
-            }
-            recalculate_congressional_ui = yes
-            custom_effect_tooltip = generic_skip_one_line_tt
-            custom_effect_tooltip = TPMP_USA_campaigning_decision_tt
+            set_temp_variable = { new_support = progressive_republican_support_var }
+            add_to_temp_variable = { new_support = isolationist_republican_support_var }
+            divide_temp_variable = { new_support = 3 }
+            round_temp_variable = new_support
+            add_to_variable = { TPMP_USA_electoral_support_var = new_support }
+            recalculate_electoral_ui = yes
+            custom_effect_tooltip = TPMP_USA_midwest_campaigning_decision_tt
             custom_effect_tooltip = generic_skip_zero_line_tt
         }
     }
@@ -247,24 +140,12 @@ TPMP_USA_elections_category = {
             }
         }
         remove_effect = {
-            custom_effect_tooltip = ir_lose_support_tiny_tt
-            custom_effect_tooltip = cd_gain_support_tiny_tt
-            IF = {
-                limit = {
-                    check_variable = {
-                        isolationist_republican_support_var > 0
-                    }
-                }
-                add_to_variable = {
-                    conservative_democrat_support_var = 1
-                }
-                add_to_variable = {
-                    isolationist_republican_support_var = -1
-                }
-            }
-            recalculate_congressional_ui = yes
-            custom_effect_tooltip = generic_skip_one_line_tt
-            custom_effect_tooltip = TPMP_USA_campaigning_decision_tt
+            set_temp_variable = { new_support = conservative_democrat_support_var }
+            divide_temp_variable = { new_support = 3 }
+            round_temp_variable = new_support
+            add_to_variable = { TPMP_USA_electoral_support_var = new_support }
+            recalculate_electoral_ui = yes
+            custom_effect_tooltip = TPMP_USA_south_campaigning_decision_tt
             custom_effect_tooltip = generic_skip_zero_line_tt
         }
     }
@@ -291,107 +172,63 @@ TPMP_USA_elections_category = {
             }
         }
         remove_effect = {
-            custom_effect_tooltip = br_lose_support_tiny_tt
-            custom_effect_tooltip = ndd_gain_support_tiny_tt
-            IF = {
-                limit = {
-                    check_variable = {
-                        business_republican_support_var > 0
-                    }
-                }
-                add_to_variable = {
-                    new_deal_democrat_support_var = 1
-                }
-                add_to_variable = {
-                    business_republican_support_var = -1
-                }
-            }
-            recalculate_congressional_ui = yes
-            custom_effect_tooltip = generic_skip_one_line_tt
-            custom_effect_tooltip = TPMP_USA_campaigning_decision_tt
+            set_temp_variable = { new_support = business_republican_support_var }
+            divide_temp_variable = { new_support = 3 }
+            round_temp_variable = new_support
+            add_to_variable = { TPMP_USA_electoral_support_var = new_support }
+            recalculate_electoral_ui = yes
+            custom_effect_tooltip = TPMP_USA_northeast_campaigning_decision_tt
             custom_effect_tooltip = generic_skip_zero_line_tt
         }
     }
 }
 
 TPMP_USA_congress_category = {
-    TPMP_USA_debug_decision = {
+    TPMP_USA_congress_event_mission = {
         icon = GFX_decision_generic_allies
-        complete_effect = {
-            recalculate_congressional_ui = yes
-        }
-    }
-    TPMP_USA_debug_decision_2 = {
-        icon = GFX_decision_generic_allies
-        complete_effect = {
-            set_variable = {
-                left_wing_democrat_support_var = 8
-            }
-            set_variable = {
-                new_deal_democrat_support_var = 38
-            }
-            set_variable = {
-                conservative_democrat_support_var = 22
-            }
-            set_variable = {
-                progressive_republican_support_var = 5
-            }
-            set_variable = {
-                business_republican_support_var = 16
-            }
-            set_variable = {
-                isolationist_republican_support_var = 11
-            }
-        }
-    }
-    TPMP_USA_debug_decision_3 = {
-        icon = GFX_decision_generic_allies
-        complete_effect = {
-            set_variable = {
-                left_wing_democrat_support_var = 0
-            }
-            set_variable = {
-                new_deal_democrat_support_var = 0
-            }
-            set_variable = {
-                conservative_democrat_support_var = 0
-            }
-            set_variable = {
-                progressive_republican_support_var = 30
-            }
-            set_variable = {
-                business_republican_support_var = 50
-            }
-            set_variable = {
-                isolationist_republican_support_var = 20
-            }
-        }
-    }
-    TPMP_USA_congress_mission = {
-        icon = GFX_decision_generic_allies
-
-        fire_only_once = no
-        is_good = no
-
-        available = {
-            hidden_trigger = { always = no }
-        }
-
-        # Variable length. Define/set TPMP_USA_congress_mission_length_var yourself.
-        # The ?30 is only a safety fallback so the mission cannot loop instantly while the
-        # variable is undefined - remove it once the variable is scripted.
-        days_mission_timeout = TPMP_USA_congress_mission_length_var?10
-
-        # Self-contained start; restrict this trigger as needed.
         activation = {
             always = yes
         }
+        available = {
+            hidden_trigger = { always = no }
+        }
+        is_good = yes
+        days_mission_timeout = TPMP_USA_congress_event_mission_length_var?180
 
         timeout_effect = {
-            set_variable = {
-                TPMP_USA_congress_mission_length_var = 20
+            activate_mission = TPMP_USA_congress_event_mission
+        }
+    }
+    TPMP_USA_congress_mission_0 = {
+        icon = GFX_decision_generic_allies
+        activation = {
+            always = no
+        }
+        available = {
+            subtract_from_variable = { TPMP_USA_infantry_equipment_mission_var = num_equipment_in_armies@infantry_equipment }
+            subtract_from_variable = { TPMP_USA_special_infantry_equipment_mission_var = num_equipment_in_armies@special_infantry_equipment }
+            subtract_from_variable = { TPMP_USA_support_equipment_mission_var = num_equipment_in_armies@support_equipment }
+            subtract_from_variable = { TPMP_USA_special_equipment_mission_var = num_equipment_in_armies@special_equipment }
+            has_equipment = {
+                infantry_equipment > TPMP_USA_infantry_equipment_mission_var
             }
-            activate_mission = TPMP_USA_congress_mission
+            has_equipment = {
+                special_infantry_equipment > TPMP_USA_special_infantry_equipment_mission_var
+            }
+            has_equipment = {
+                support_equipment > TPMP_USA_support_equipment_mission_var
+            }
+            has_equipment = {
+                special_equipment > TPMP_USA_special_equipment_mission_var
+            }
+        }
+        is_good = yes
+        days_mission_timeout = 180
+
+        complete_effect = {
+            
+        }
+        timeout_effect = {
         }
     }
 }
@@ -703,90 +540,50 @@ TPMP_USA_alphabet_category = {
     }
     TPMP_USA_OWI_decision = {
         icon = GFX_decision_eng_trade_unions_support
-        custom_cost_trigger = {
-            command_power > 49
-            has_political_power > 99
-        }
-        custom_cost_text = decision_cost_CP_50_PP_100
-        fire_only_once = yes
         visible = {
             has_completed_focus = TPMP_USA_the_wartime_agencies
         }
-        available = {
-            has_support_lwd_ndd_cd = yes
-        }
-        complete_effect = {
+        fire_only_once = yes
+        cost = TPMP_USA_wartime_agency_cost_var?100
+        days_remove = 90
+        remove_effect = {
 			add_ideas = TPMP_USA_OWI_idea
-            hidden_effect = {
-                add_command_power = -50
-                add_political_power = -100
-            }
         }
     }
     TPMP_USA_WPB_decision = {
         icon = GFX_decision_eng_trade_unions_support
-        custom_cost_trigger = {
-            command_power > 49
-            has_political_power > 99
-        }
-        custom_cost_text = decision_cost_CP_50_PP_100
-        fire_only_once = yes
         visible = {
             has_completed_focus = TPMP_USA_the_wartime_agencies
         }
-        available = {
-            has_support_lwd_ndd_cd = yes
-        }
-        complete_effect = {
+        fire_only_once = yes
+        cost = TPMP_USA_wartime_agency_cost_var?100
+        days_remove = 90
+        remove_effect = {
 			add_ideas = TPMP_USA_WPB_idea
-            hidden_effect = {
-                add_command_power = -50
-                add_political_power = -100
-            }
         }
     }
     TPMP_USA_OWM_decision = {
         icon = GFX_decision_eng_trade_unions_support
-        custom_cost_trigger = {
-            command_power > 49
-            has_political_power > 99
-        }
-        custom_cost_text = decision_cost_CP_50_PP_100
-        fire_only_once = yes
         visible = {
             has_completed_focus = TPMP_USA_the_wartime_agencies
         }
-        available = {
-            has_support_lwd_ndd_cd = yes
-        }
-        complete_effect = {
+        fire_only_once = yes
+        cost = TPMP_USA_wartime_agency_cost_var?100
+        days_remove = 90
+        remove_effect = {
 			add_ideas = TPMP_USA_OWM_idea
-            hidden_effect = {
-                add_command_power = -50
-                add_political_power = -100
-            }
         }
     }
     TPMP_USA_OES_decision = {
         icon = GFX_decision_eng_trade_unions_support
-        custom_cost_trigger = {
-            command_power > 49
-            has_political_power > 99
-        }
-        custom_cost_text = decision_cost_CP_50_PP_100
-        fire_only_once = yes
         visible = {
             has_completed_focus = TPMP_USA_the_wartime_agencies
         }
-        available = {
-            has_support_lwd_ndd_cd = yes
-        }
-        complete_effect = {
+        fire_only_once = yes
+        cost = TPMP_USA_wartime_agency_cost_var?100
+        days_remove = 90
+        remove_effect = {
 			add_ideas = TPMP_USA_OES_idea
-            hidden_effect = {
-                add_command_power = -50
-                add_political_power = -100
-            }
         }
     }
 }

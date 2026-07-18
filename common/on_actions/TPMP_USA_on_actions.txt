@@ -317,7 +317,7 @@ on_actions = {
 					NOT = { has_country_flag = TPMP_USA_1940_campaign_flag }
 				}
 				set_country_flag = TPMP_USA_1940_campaign_flag
-				country_event = { id = TPMP_USA_election.3 }
+				country_event = { id = TPMP_USA_election.1 }
 			}
 			IF = {
 				limit = {
@@ -325,15 +325,15 @@ on_actions = {
 					NOT = { has_country_flag = TPMP_USA_1944_campaign_flag }
 				}
 				set_country_flag = TPMP_USA_1944_campaign_flag
-				country_event = { id = TPMP_USA_election.5 }
+				country_event = { id = TPMP_USA_election.1 }
 			}
 		}
 	}
 	on_new_term_election = {
 		random_events = {
 			100 = TPMP_USA_election.2
+			100 = TPMP_USA_election.3
 			100 = TPMP_USA_election.4
-			100 = TPMP_USA_election.6
 		}
 	}
 }

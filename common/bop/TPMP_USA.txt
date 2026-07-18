@@ -19,6 +19,19 @@ TPMP_USA_power_balance = {
 			# placeholder - balanced government, no modifiers
 		}
 		on_activate = {
+			IF = {
+				limit = {
+					has_completed_focus = TPMP_USA_limited_deregulation
+				}
+				set_variable = {
+					TPMP_USA_congress_event_mission_length_var = 165
+				}
+			}
+			ELSE = {
+				set_variable = {
+					TPMP_USA_congress_event_mission_length_var = 180
+				}
+			}
 		}
 		on_deactivate = {
 		}
@@ -37,6 +50,19 @@ TPMP_USA_power_balance = {
 				# placeholder
 			}
 			on_activate = {
+				IF = {
+					limit = {
+						has_completed_focus = TPMP_USA_limited_deregulation
+					}
+					set_variable = {
+						TPMP_USA_congress_event_mission_length_var = 105
+					}
+				}
+				ELSE = {
+					set_variable = {
+						TPMP_USA_congress_event_mission_length_var = 120
+					}
+				}
 			}
 			on_deactivate = {
 			}
@@ -50,6 +76,19 @@ TPMP_USA_power_balance = {
 				# placeholder
 			}
 			on_activate = {
+				IF = {
+					limit = {
+						has_completed_focus = TPMP_USA_limited_deregulation
+					}
+					set_variable = {
+						TPMP_USA_congress_event_mission_length_var = 75
+					}
+				}
+				ELSE = {
+					set_variable = {
+						TPMP_USA_congress_event_mission_length_var = 90
+					}
+				}
 			}
 			on_deactivate = {
 			}
@@ -69,6 +108,19 @@ TPMP_USA_power_balance = {
 				# placeholder
 			}
 			on_activate = {
+				IF = {
+					limit = {
+						has_completed_focus = TPMP_USA_limited_deregulation
+					}
+					set_variable = {
+						TPMP_USA_congress_event_mission_length_var = 255
+					}
+				}
+				ELSE = {
+					set_variable = {
+						TPMP_USA_congress_event_mission_length_var = 270
+					}
+				}
 			}
 			on_deactivate = {
 			}
@@ -82,6 +134,19 @@ TPMP_USA_power_balance = {
 				# placeholder
 			}
 			on_activate = {
+				IF = {
+					limit = {
+						has_completed_focus = TPMP_USA_limited_deregulation
+					}
+					set_variable = {
+						TPMP_USA_congress_event_mission_length_var = 345
+					}
+				}
+				ELSE = {
+					set_variable = {
+						TPMP_USA_congress_event_mission_length_var = 360
+					}
+				}
 			}
 			on_deactivate = {
 			}

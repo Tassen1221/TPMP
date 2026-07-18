@@ -26,8 +26,8 @@
  TPMP_USA_congress_isolationist_republican_text: "§iIsolationist Republican Support§!"
  TPMP_USA_congress_isolationist_republican_support_text: "[?isolationist_republican_support_var|i0] / §Y100§!"
 
- TPMP_USA_the_new_deal_coalition_tt: "£political_power_texticon Political Power: §G+3§! for every §nNew-Deal Democrat§! §YSupport§!."
- TPMP_USA_the_solid_south_tt: "£political_power_texticon Political Power: §G+3§! for every §cConservative Democrat§! §YSupport§!."
+ TPMP_USA_the_new_deal_coalition_tt: "£political_power_texticon Political Power: §G+5§! for every §nNew-Deal Democrat§! §YSupport§!."
+ TPMP_USA_the_solid_south_tt: "£political_power_texticon Political Power: §G+5§! for every §cConservative Democrat§! §YSupport§!."
 
  TPMP_USA_foreign_aid_category: "The Lend-Lease Program"
  TPMP_USA_foreign_aid_category_desc: "We give people stuff to fight the axis."
@@ -57,19 +57,28 @@
  TPMP_USA_modern_lend_lease_flag: " Has approved §YModern Lend-Lease§!."
 
  TPMP_USA_elections_category: "Presidential Election"
- TPMP_USA_elections_category_desc: "Every November, citizens of the United States across the country vote for their next president. Although the outcome is decided in a single night, the campaigning season leading up to the election can last for months. During this time, candidates rally support across the nation, targetting key constituencies to build their winning coalition.\n\nThe current incumbent is: §Y[USA.GetLeader]§!, his wide popularity makes winning the election a foregone conclusion, however, the degree of his victory is yet to be determined.\n\nGetting over §Y50 Support§! from §lLeft-Wing Democrats§! and §nNew-Deal Democrats§! will complete the focus §Y$TPMP_USA_a_strong_mandate$§!, otherwise the focus §Y$TPMP_USA_a_narrow_victory$`§! will be completed."
+ TPMP_USA_elections_category_desc: "Every November, citizens of the United States across the country vote for their next president. Although the outcome is decided in a single night, the campaigning season leading up to the election can last for months. During this time, candidates rally support across the nation, targetting key constituencies to build their winning coalition.\n\nThe current incumbent is: §Y[USA.GetLeader]§!, his wide popularity makes winning the election a foregone conclusion, however, the degree of his victory is yet to be determined.\n\nGetting over §Y75 Electoral Support§! is nessecary to win a landslide victory, getting less than §Y75§!, §Y50§! or §Y25§! §YElectoral Support§! will result in an increasingly narrow victory with §Rpenalties§!.\n\nYour starting §YSupport§! is one-third of your §nNew-Deal Democrat§! Support."
 
- TPMP_USA_elections_decision_0_tt: "Researching §Y$radio$§!, §Y$improved_radio$§! and §Y$advanced_radio$§! will increase the effects."
+ electoral_support_gain_small_tt: "Gain §Y3§! Electoral Support"
+ electoral_support_gain_tt: "Gain §Y5§! Electoral Support"
+ electoral_support_gain_large_tt: "Gain §Y10§! Electoral Support"
+
+ TPMP_USA_elections_decision_0_tt: "Researching §Y$improved_radio$§! and §Y$advanced_radio$§! will increase the effects."
+
+ TPMP_USA_electoral_support_header_text: "§YElectoral Support§!: [?TPMP_USA_electoral_support_var|0] / §Y100§!"
 
  TPMP_USA_west_campaigning_decision: "Campaign in the West"
- TPMP_USA_west_campaigning_decision_desc: "Rally voters across the Western states. §pProgressive Republicans§! can be won over to the §lLeft-Wing Democrats§! with the right message."
+ TPMP_USA_west_campaigning_decision_desc: ""
+ TPMP_USA_west_campaigning_decision_tt: "One-third of §lLeft-Wing Democrat§! Support will be added to Electoral Support.\n\n§YPolitical Power§! cost §Rdoubles§! with every campaign run in this region."
  TPMP_USA_midwest_campaigning_decision: "Campaign in the Midwest"
- TPMP_USA_midwest_campaigning_decision_desc: "Take the campaign trail through the heartland. §iIsolationist Republicans§! can be drawn toward the §nNew-Deal Democrats§! with the right message."
+ TPMP_USA_midwest_campaigning_decision_desc: ""
+ TPMP_USA_midwest_campaigning_decision_tt: "One-third of §pProgressive Republican§! and §iIsolationist Republican§! Support will be added to `Electoral Support.\n\n§YPolitical Power§! cost §Rdoubles§! with every campaign run in this region."
  TPMP_USA_south_campaigning_decision: "Campaign in the South"
- TPMP_USA_south_campaigning_decision_desc: "Court the Southern electorate. §iIsolationist Republicans§! can be brought into the §cConservative Democrat§! fold with the right message."
+ TPMP_USA_south_campaigning_decision_desc: ""
+ TPMP_USA_south_campaigning_decision_tt: "One-third of §cConservative Democrat§! Support will be added to Electoral Support.\n\n§YPolitical Power§! cost §Rdoubles§! with every campaign run in this region."
  TPMP_USA_northeast_campaigning_decision: "Campaign in the Northeast"
- TPMP_USA_northeast_campaigning_decision_desc: "Win over the industrial Northeast. §rBusiness Republicans§! can be persuaded to back the §nNew-Deal Democrats§! with the right message."
- TPMP_USA_campaigning_decision_tt: "§YPolitical Power§! cost §Rdoubles§! with every campaign run in this region."
+ TPMP_USA_northeast_campaigning_decision_desc: ""
+ TPMP_USA_northeast_campaigning_decision_tt: "One-third of §rBusiness Republican§! Support will be added to Electoral Support.\n\n§YPolitical Power§! cost §Rdoubles§! with every campaign run in this region."
 
  left_wing_democrat_support_tt: "§lLeft-Wing Democrat Support§!: $RIGHT|+=0$"
  new_deal_democrat_support_tt: "§nNew-Deal Democrat Support§!: $RIGHT|+=0$"
@@ -137,11 +146,13 @@
  has_support_ndd_tt: "Requires over §Y50 Support§! of §nNew-Deal Democrats§!."
  has_support_lwd_ndd_tt: "Requires over §Y50 Support§! of §lLeft-Wing Democrats§! and §nNew-Deal Democrats§!."
  has_support_ndd_pr_tt: "Requires over §Y50 Support§! of §nNew-Deal Democrats§! and §pProgressive Republicans§!."
+ has_support_ndd_cd_tt: "Requires over §Y50 Support§! of §nNew-Deal Democrats§! and §cConservative Democrats§!."
  has_support_lwd_ndd_cd_tt: "Requires over §Y50 Support§! of §lLeft-Wing Democrats§!, §nNew-Deal Democrats§!, and §cConservative Democrats§!."
  has_support_lwd_ndd_pr_tt: "Requires over §Y50 Support§! of §lLeft-Wing Democrats§!, §nNew-Deal Democrats§!, and §pProgressive Republicans§!."
  has_support_ndd_pr_br_tt: "Requires over §Y50 Support§! of §nNew-Deal Democrats§!, §pProgressive Republicans§!, and §rBusiness Republicans§!."
  has_support_lwd_ndd_cd_pr_tt: "Requires over §Y50 Support§! of §lLeft-Wing Democrats§!, §nNew-Deal Democrats§!, §cConservative Democrats§!, and §pProgressive Republicans§!"
  has_support_ndd_cd_pr_br_tt: "Requires over §Y50 Support§! of §nNew-Deal Democrats§!, §cConservative Democrats§!, §pProgressive Republicans§!, and §rBusiness Republicans§!."
+ has_support_ndd_cd_br_ir_tt: "Requires over §Y50 Support§! of §nNew-Deal Democrats§!, §cConservative Democrats§!, §rBusiness Republicans§!, and §iIsolationist Republicans§!."
  has_support_lwd_ndd_cd_pr_br_tt: "Requires over §Y50 Support§! of §lLeft-Wing Democrats§!, §nNew-Deal Democrats§!, §cConservative Democrats§!, §pProgressive Republicans§!, and §rBusiness Republicans§!."
  has_support_cd_pr_br_ir_tt: "Requires over §Y50 Support§! of §cConservative Democrats§!, §pProgressive Republicans§!, §rBusiness Republicans§!, and §iIsolationist Republicans§!."
  has_support_ndd_cd_pr_br_ir_tt: "Requires over §Y50 Support§! of §nNew-Deal Democrats§!, §cConservative Democrats§!, §pProgressive Republicans§!, §rBusiness Republicans§!, and §iIsolationist Republicans§!."
@@ -160,6 +171,7 @@
  TPMP_USA_WPA_idea_1: "\nWorks Progress Administration"
  TPMP_USA_NYA_idea: "\nNational Youth Administration"
  TPMP_USA_PWA_idea: "\nPublic Works Administration"
+
  TPMP_USA_OWI_idea: "\nOffice of War Information"
  TPMP_USA_WPB_idea: "\nWar Production Board"
  TPMP_USA_OWM_idea: "\nOffice of War Mobilization"
@@ -190,12 +202,15 @@
  TPMP_USA.5.b: "Our men need guns and artillery."
  TPMP_USA.5.c: "More tanks are required."
 
+
+ TPMP_USA_congress_equipment_tt: "§YDeploy§! or §YDelete§! divisions in your deployment queue before clicking, keeping divisions in your queue will dramatically §Rincrease§! the §Rdifficulty§! of the mission."
+
  #Political Focuses
  TPMP_USA_a_strong_mandate: "A Strong Mandate"
  TPMP_USA_a_narrow_victory: "A Narrow Victory"
 
-
-
+ TPMP_USA_executive_order_9066_tt: "Enemies can §Rno longer§! use the §Y$raid_type_proxy_forces_raid$§! raid against us."
+ TPMP_USA_war_powers_act_tt: "Reduces £political_power_texticon §YPolitical Power§! cost of establishing the §YWartime Agencies§! from §Y100§! to §Y50§!."
  # Military Focuses
 
  TPMP_USA_90_division_plan_idea_tt: "Maintain §Y90 divisions§! or less to gain army bonuses"

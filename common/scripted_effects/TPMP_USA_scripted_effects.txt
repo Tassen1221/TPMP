@@ -52,6 +52,32 @@ recalculate_congressional_ui = {
 		}
 	}
 }
+recalculate_electoral_ui = {
+	set_variable = { USA.TPMP_USA_electoral_bar_frame_var = USA.TPMP_USA_electoral_support_var }
+	divide_variable = { USA.TPMP_USA_electoral_bar_frame_var = 5 }
+	round_variable = USA.TPMP_USA_electoral_bar_frame_var
+	add_to_variable = { USA.TPMP_USA_electoral_bar_frame_var = 1 }
+	clamp_variable = {
+		var = USA.TPMP_USA_electoral_bar_frame_var
+		min = 1
+		max = 21
+	}
+}
+USA_electoral_support_gain_small = {
+	custom_effect_tooltip = electoral_support_gain_small_tt
+	add_to_variable = { TPMP_USA_electoral_support_var = 3 }
+	recalculate_electoral_ui = yes
+}
+USA_electoral_support_gain = {
+	custom_effect_tooltip = electoral_support_gain_tt
+	add_to_variable = { TPMP_USA_electoral_support_var = 5 }
+	recalculate_electoral_ui = yes
+}
+USA_electoral_support_gain_large = {
+	custom_effect_tooltip = electoral_support_gain_large_tt
+	add_to_variable = { TPMP_USA_electoral_support_var = 10 }
+	recalculate_electoral_ui = yes
+}
 USA_decrease_great_depression = {
 	IF = {
 		limit = {
