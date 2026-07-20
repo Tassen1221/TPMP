@@ -205,28 +205,774 @@ TPMP_USA_congress_category = {
             always = no
         }
         available = {
-            subtract_from_variable = { TPMP_USA_infantry_equipment_mission_var = num_equipment_in_armies@infantry_equipment }
-            subtract_from_variable = { TPMP_USA_special_infantry_equipment_mission_var = num_equipment_in_armies@special_infantry_equipment }
-            subtract_from_variable = { TPMP_USA_support_equipment_mission_var = num_equipment_in_armies@support_equipment }
-            subtract_from_variable = { TPMP_USA_special_equipment_mission_var = num_equipment_in_armies@special_equipment }
+            set_temp_variable = { inf_mission_var =  TPMP_USA_infantry_equipment_mission_var }
+            subtract_from_temp_variable = { inf_mission_var = num_equipment_in_armies@infantry_equipment }
+            set_temp_variable = { spec_inf_mission_var =  TPMP_USA_special_infantry_equipment_mission_var }
+            subtract_from_temp_variable = { spec_inf_mission_var = num_equipment_in_armies@special_infantry_equipment }
+            set_temp_variable = { support_mission_var =  TPMP_USA_support_equipment_mission_var }
+            subtract_from_temp_variable = { support_mission_var = num_equipment_in_armies@support_equipment }
+            set_temp_variable = { spec_mission_var =  TPMP_USA_special_equipment_mission_var }
+            subtract_from_temp_variable = { spec_mission_var = num_equipment_in_armies@special_equipment }
             has_equipment = {
-                infantry_equipment > TPMP_USA_infantry_equipment_mission_var
+                infantry_equipment > inf_mission_var
             }
             has_equipment = {
-                special_infantry_equipment > TPMP_USA_special_infantry_equipment_mission_var
+                special_infantry_equipment > spec_inf_mission_var
             }
             has_equipment = {
-                support_equipment > TPMP_USA_support_equipment_mission_var
+                support_equipment > support_mission_var
             }
             has_equipment = {
-                special_equipment > TPMP_USA_special_equipment_mission_var
+                special_equipment > spec_mission_var
             }
         }
-        is_good = yes
         days_mission_timeout = 180
 
         complete_effect = {
-            
+            random_list = {
+                10 = {
+                    IF = {
+                        limit = {
+                            has_idea = TPMP_USA_congress_mission_infantry_reward_idea
+                        }
+                        modify_timed_idea = {
+                            idea = TPMP_USA_congress_mission_infantry_reward_idea
+                            days = 90
+                        }
+                    }
+                    ELSE = {
+                        add_timed_idea = {
+                            idea = TPMP_USA_congress_mission_infantry_reward_idea
+                            days = 90
+                        }
+                    }
+                }
+                10 = {
+                    add_equipment_to_stockpile = {
+                        type = infantry_equipment
+                        amount = 5000
+                        producer = USA
+                    }
+                    add_equipment_to_stockpile = {
+                        type = special_infantry_equipment
+                        amount = 1000
+                        producer = USA
+                    }
+                    add_equipment_to_stockpile = {
+                        type = support_equipment
+                        amount = 500
+                        producer = USA
+                    }
+                    add_equipment_to_stockpile = {
+                        type = special_equipment
+                        amount = 500
+                        producer = USA
+                    }
+                }
+                10 = {
+                    every_military_industrial_organization = {
+                        limit = {
+                            has_mio_equipment_type = TPMP_cat_eq_all_inf
+                        }
+                        add_mio_size = 1
+                    }
+                }
+                2 = {
+                    modifier = {
+                        factor = 0
+                        has_country_flag = TPMP_USA_congress_mission_0_reward_flag
+                    }
+                    add_equipment_bonus = {
+                        name = TPMP_USA_congress_mission_0_reward_tt
+                        bonus = {
+                            TPMP_cat_eq_all_inf = {
+                                defense = 0.05
+                                breakthrough = 0.1
+                                build_cost_ic = -0.03
+                                instant = yes
+                            }
+                        }
+                    }
+                    set_country_flag = TPMP_USA_congress_mission_0_reward_flag
+                }
+            }
+        }
+        timeout_effect = {
+        }
+    }
+    TPMP_USA_congress_mission_1 = {
+        icon = GFX_decision_generic_allies
+        activation = {
+            always = no
+        }
+        available = {
+            set_temp_variable = { lt_mission_var = TPMP_USA_light_tank_equipment_mission_var }
+            subtract_from_temp_variable = { lt_mission_var = num_equipment_in_armies@light_tank_chassis }
+            set_temp_variable = { lt_td_mission_var = TPMP_USA_light_TD_equipment_mission_var }
+            subtract_from_temp_variable = { lt_td_mission_var = num_equipment_in_armies@light_tank_destroyer_chassis }
+            set_temp_variable = { lt_spg_mission_var = TPMP_USA_light_SPG_equipment_mission_var }
+            subtract_from_temp_variable = { lt_spg_mission_var = num_equipment_in_armies@light_tank_artillery_chassis }
+            set_temp_variable = { lt_spaa_mission_var = TPMP_USA_light_SPAA_equipment_mission_var }
+            subtract_from_temp_variable = { lt_spaa_mission_var = num_equipment_in_armies@light_tank_aa_chassis }
+            set_temp_variable = { lt_amph_mission_var = TPMP_USA_light_amph_tank_equipment_mission_var }
+            subtract_from_temp_variable = { lt_amph_mission_var = num_equipment_in_armies@light_tank_amphibious_chassis }
+            set_temp_variable = { mt_mission_var = TPMP_USA_medium_tank_equipment_mission_var }
+            subtract_from_temp_variable = { mt_mission_var = num_equipment_in_armies@medium_tank_chassis }
+            set_temp_variable = { mt_td_mission_var = TPMP_USA_medium_TD_equipment_mission_var }
+            subtract_from_temp_variable = { mt_td_mission_var = num_equipment_in_armies@medium_tank_destroyer_chassis }
+            set_temp_variable = { mt_spg_mission_var = TPMP_USA_medium_SPG_equipment_mission_var }
+            subtract_from_temp_variable = { mt_spg_mission_var = num_equipment_in_armies@medium_tank_artillery_chassis }
+            set_temp_variable = { mt_spaa_mission_var = TPMP_USA_medium_SPAA_equipment_mission_var }
+            subtract_from_temp_variable = { mt_spaa_mission_var = num_equipment_in_armies@medium_tank_aa_chassis }
+            set_temp_variable = { mt_amph_mission_var = TPMP_USA_medium_amph_tank_equipment_mission_var }
+            subtract_from_temp_variable = { mt_amph_mission_var = num_equipment_in_armies@medium_tank_amphibious_chassis }
+            set_temp_variable = { ht_mission_var = TPMP_USA_heavy_tank_equipment_mission_var }
+            subtract_from_temp_variable = { ht_mission_var = num_equipment_in_armies@heavy_tank_chassis }
+            set_temp_variable = { ht_td_mission_var = TPMP_USA_heavy_TD_equipment_mission_var }
+            subtract_from_temp_variable = { ht_td_mission_var = num_equipment_in_armies@heavy_tank_destroyer_chassis }
+            set_temp_variable = { ht_spg_mission_var = TPMP_USA_heavy_SPG_equipment_mission_var }
+            subtract_from_temp_variable = { ht_spg_mission_var = num_equipment_in_armies@heavy_tank_artillery_chassis }
+            set_temp_variable = { ht_spaa_mission_var = TPMP_USA_heavy_SPAA_equipment_mission_var }
+            subtract_from_temp_variable = { ht_spaa_mission_var = num_equipment_in_armies@heavy_tank_aa_chassis }
+            set_temp_variable = { ht_amph_mission_var = TPMP_USA_heavy_amph_tank_equipment_mission_var }
+            subtract_from_temp_variable = { ht_amph_mission_var = num_equipment_in_armies@heavy_tank_amphibious_chassis }
+            OR = {
+                has_equipment = {
+                    light_tank_chassis > lt_mission_var
+                }
+                has_equipment = {
+                    light_tank_destroyer_chassis > lt_td_mission_var
+                }
+                has_equipment = {
+                    light_tank_artillery_chassis > lt_spg_mission_var
+                }
+                has_equipment = {
+                    light_tank_aa_chassis > lt_spaa_mission_var
+                }
+                has_equipment = {
+                    light_tank_amphibious_chassis > lt_amph_mission_var
+                }
+                has_equipment = {
+                    medium_tank_chassis > mt_mission_var
+                }
+                has_equipment = {
+                    medium_tank_destroyer_chassis > mt_td_mission_var
+                }
+                has_equipment = {
+                    medium_tank_artillery_chassis > mt_spg_mission_var
+                }
+                has_equipment = {
+                    medium_tank_aa_chassis > mt_spaa_mission_var
+                }
+                has_equipment = {
+                    medium_tank_amphibious_chassis > mt_amph_mission_var
+                }
+                has_equipment = {
+                    heavy_tank_chassis > ht_mission_var
+                }
+                has_equipment = {
+                    heavy_tank_destroyer_chassis > ht_td_mission_var
+                }
+                has_equipment = {
+                    heavy_tank_artillery_chassis > ht_spg_mission_var
+                }
+                has_equipment = {
+                    heavy_tank_aa_chassis > ht_spaa_mission_var
+                }
+                has_equipment = {
+                    heavy_tank_amphibious_chassis > ht_amph_mission_var
+                }
+            }
+        }
+        days_mission_timeout = 180
+
+        complete_effect = {
+            random_list = {
+                10 = {
+                    IF = {
+                        limit = {
+                            has_idea = TPMP_USA_congress_mission_tank_reward_idea
+                        }
+                        modify_timed_idea = {
+                            idea = TPMP_USA_congress_mission_tank_reward_idea
+                            days = 90
+                        }
+                    }
+                    ELSE = {
+                        add_timed_idea = {
+                            idea = TPMP_USA_congress_mission_tank_reward_idea
+                            days = 90
+                        }
+                    }
+                }
+                10 = {
+                    add_equipment_to_stockpile = {
+                        type = light_tank_chassis
+                        amount = 300
+                        producer = USA
+                    }
+                    add_equipment_to_stockpile = {
+                        type = medium_tank_chassis
+                        amount = 200
+                        producer = USA
+                    }
+                    add_equipment_to_stockpile = {
+                        type = heavy_tank_chassis
+                        amount = 100
+                        producer = USA
+                    }
+                }
+                10 = {
+                    every_military_industrial_organization = {
+                        limit = {
+                            OR = {
+                                has_mio_equipment_type = light_tank_chassis
+                                has_mio_equipment_type = medium_tank_chassis
+                                has_mio_equipment_type = heavy_tank_chassis
+                            }
+                        }
+                        add_mio_size = 1
+                    }
+                }
+                2 = {
+                    modifier = {
+                        factor = 0
+                        has_country_flag = TPMP_USA_congress_mission_1_reward_flag
+                    }
+                    add_equipment_bonus = {
+                        name = TPMP_USA_congress_mission_1_reward_tt
+                        bonus = {
+                            TPMP_cat_eq_all_tank = {
+                                soft_attack = 0.03
+                                hard_attack = 0.03
+                                build_cost_ic = -0.03
+                                instant = yes
+                            }
+                        }
+                    }
+                    set_country_flag = TPMP_USA_congress_mission_1_reward_flag
+                }
+            }
+        }
+        timeout_effect = {
+        }
+    }
+    TPMP_USA_congress_mission_2 = {
+        icon = GFX_decision_generic_allies
+        activation = {
+            always = no
+        }
+        available = {
+            set_temp_variable = { fighter_mission_var = TPMP_USA_fighter_equipment_mission_var }
+            subtract_from_temp_variable = { fighter_mission_var = num_deployed_planes_with_type@fighter }
+            set_temp_variable = { heavy_fighter_mission_var = TPMP_USA_heavy_fighter_equipment_mission_var }
+            subtract_from_temp_variable = { heavy_fighter_mission_var = num_deployed_planes_with_type@heavy_fighter }
+            set_temp_variable = { cas_mission_var = TPMP_USA_cas_equipment_mission_var }
+            subtract_from_temp_variable = { cas_mission_var = num_deployed_planes_with_type@cas }
+            set_temp_variable = { nav_mission_var = TPMP_USA_naval_bomber_equipment_mission_var }
+            subtract_from_temp_variable = { nav_mission_var = num_deployed_planes_with_type@naval_bomber }
+            set_temp_variable = { tac_mission_var = TPMP_USA_tactical_bomber_equipment_mission_var }
+            subtract_from_temp_variable = { tac_mission_var = num_deployed_planes_with_type@tactical_bomber }
+            set_temp_variable = { strat_mission_var = TPMP_USA_strategic_bomber_equipment_mission_var }
+            subtract_from_temp_variable = { strat_mission_var = num_deployed_planes_with_type@strategic_bomber }
+            OR = {
+                has_equipment = {
+                    small_plane_airframe > fighter_mission_var
+                }
+                has_equipment = {
+                    medium_plane_fighter_airframe > heavy_fighter_mission_var
+                }
+            }
+            OR = {
+                has_equipment = {
+                    small_plane_cas_airframe > cas_mission_var
+                }
+                has_equipment = {
+                    small_plane_naval_bomber_airframe > nav_mission_var
+                }
+                has_equipment = {
+                    medium_plane_airframe > tac_mission_var
+                }
+                has_equipment = {
+                    large_plane_airframe > strat_mission_var
+                }
+            }
+        }
+        days_mission_timeout = 180
+
+        complete_effect = {
+            random_list = {
+                10 = {
+                    IF = {
+                        limit = {
+                            has_idea = TPMP_USA_congress_mission_plane_reward_idea
+                        }
+                        modify_timed_idea = {
+                            idea = TPMP_USA_congress_mission_plane_reward_idea
+                            days = 90
+                        }
+                    }
+                    ELSE = {
+                        add_timed_idea = {
+                            idea = TPMP_USA_congress_mission_plane_reward_idea
+                            days = 90
+                        }
+                    }
+                }
+                10 = {
+                    add_equipment_to_stockpile = {
+                        type = small_plane_airframe
+                        amount = 400
+                        producer = USA
+                    }
+                    add_equipment_to_stockpile = {
+                        type = medium_plane_airframe
+                        amount = 200
+                        producer = USA
+                    }
+                    add_equipment_to_stockpile = {
+                        type = large_plane_airframe
+                        amount = 100
+                        producer = USA
+                    }
+                }
+                10 = {
+                    every_military_industrial_organization = {
+                        limit = {
+                            OR = {
+                                has_mio_equipment_type = mio_cat_eq_all_small_plane
+                                has_mio_equipment_type = mio_cat_eq_all_medium_plane
+                                has_mio_equipment_type = mio_cat_eq_only_strategic_bomber
+                                has_mio_equipment_type = mio_cat_eq_only_light_fighter
+                                has_mio_equipment_type = small_plane_cas_airframe
+                                has_mio_equipment_type = cv_small_plane_cas_airframe
+                                has_mio_equipment_type = small_plane_naval_bomber_airframe
+                                has_mio_equipment_type = cv_small_plane_naval_bomber_airframe
+                                has_mio_equipment_type = large_plane_maritime_patrol_plane_airframe
+                                has_mio_equipment_type = transport_plane_equipment
+        
+                            }
+                        }
+                        add_mio_size = 1
+                    }
+                }
+                2 = {
+                    modifier = {
+                        factor = 0
+                        has_country_flag = TPMP_USA_congress_mission_2_reward_flag
+                    }
+                    add_equipment_bonus = {
+                        name = TPMP_USA_congress_mission_2_reward_tt
+                        bonus = {
+                            TPMP_cat_eq_all_plane = {
+                                maximum_speed = 0.03
+                                air_agility = 0.03
+                                build_cost_ic = -0.03
+                                instant = yes
+                            }
+                        }
+                    }
+                    set_country_flag = TPMP_USA_congress_mission_2_reward_flag
+                }
+            }
+        }
+        timeout_effect = {
+        }
+    }
+    TPMP_USA_congress_mission_3 = {
+        icon = GFX_decision_generic_allies
+        activation = {
+            always = no
+        }
+        available = {
+            OR = {
+                has_navy_size = {
+                    type = carrier
+                    size > TPMP_USA_carrier_equipment_mission_var
+                }
+                has_navy_size = {
+                    type = sh_battleship
+                    size > TPMP_USA_sh_battleship_equipment_mission_var
+                }
+                has_navy_size = {
+                    type = battleship
+                    size > TPMP_USA_battleship_equipment_mission_var
+                }
+                has_navy_size = {
+                    type = battle_cruiser
+                    size > TPMP_USA_battle_cruiser_equipment_mission_var
+                }
+                has_navy_size = {
+                    type = heavy_cruiser
+                    size > TPMP_USA_heavy_cruiser_equipment_mission_var
+                }
+            }
+            OR = {
+                has_navy_size = {
+                    type = light_cruiser
+                    size > TPMP_USA_light_cruiser_equipment_mission_var
+                }
+                has_navy_size = {
+                    type = destroyer
+                    size > TPMP_USA_destroyer_equipment_mission_var
+                }
+                has_navy_size = {
+                    type = submarine
+                    size > TPMP_USA_submarine_equipment_mission_var
+                }
+            }
+        }
+        days_mission_timeout = 360
+
+        complete_effect = {
+            random_list = {
+                10 = {
+                    IF = {
+                        limit = {
+                            has_idea = TPMP_USA_congress_mission_ship_reward_idea
+                        }
+                        modify_timed_idea = {
+                            idea = TPMP_USA_congress_mission_ship_reward_idea
+                            days = 90
+                        }
+                    }
+                    ELSE = {
+                        add_timed_idea = {
+                            idea = TPMP_USA_congress_mission_ship_reward_idea
+                            days = 90
+                        }
+                    }
+                }
+                10 = {
+                    create_ship = {
+                        type = ship_hull_carrier
+                        creator = USA
+                    }
+                    create_ship = {
+                        type = ship_hull_heavy
+                        creator = USA
+                    }
+                    create_ship = {
+                        type = ship_hull_light
+                        creator = USA
+                    }
+                    create_ship = {
+                        type = ship_hull_light
+                        creator = USA
+                    }
+                    create_ship = {
+                        type = ship_hull_light
+                        creator = USA
+                    }
+                    create_ship = {
+                        type = ship_hull_light
+                        creator = USA
+                    }
+                }
+                10 = {
+                    every_military_industrial_organization = {
+                        limit = {
+                            OR = {
+                                has_mio_equipment_type = mio_cat_eq_all_battleship
+                                has_mio_equipment_type = mio_cat_eq_all_carrier
+		                        has_mio_equipment_type = mio_cat_eq_all_cruiser
+		                        has_mio_equipment_type = mio_cat_eq_all_destroyer
+                                has_mio_equipment_type = ship_hull_submarine
+                                has_mio_equipment_type = capital_ship
+		                        has_mio_equipment_type = screen_ship
+		                        has_mio_equipment_type = submarine
+                            }
+                        }
+                        add_mio_size = 1
+                    }
+                }
+                2 = {
+                    modifier = {
+                        factor = 0
+                        has_country_flag = TPMP_USA_congress_mission_3_reward_flag
+                    }
+                    add_equipment_bonus = {
+                        name = TPMP_USA_congress_mission_3_reward_tt
+                        bonus = {
+                            TPMP_cat_eq_all_ship = {
+                                naval_speed = 0.05
+                                max_strength = 0.05
+                                build_cost_ic = -0.03
+                                instant = yes
+                            }
+                        }
+                    }
+                    set_country_flag = TPMP_USA_congress_mission_3_reward_flag
+                }
+            }
+        }
+        timeout_effect = {
+        }
+    }
+    TPMP_USA_congress_mission_4 = {
+        icon = GFX_decision_generic_allies
+        activation = {
+            always = no
+        }
+        available = {
+            check_variable = { num_of_military_factories > TPMP_USA_military_factory_mission_var }
+            check_variable = { num_of_naval_factories > TPMP_USA_dockyard_mission_var }
+        }
+        days_mission_timeout = 180
+
+        complete_effect = {
+            random_list = {
+                10 = {
+                    
+                }
+                10 = {
+
+                }
+                10 = {
+
+                }
+                2 = {
+
+                }
+            }
+        }
+        timeout_effect = {
+        }
+    }
+    TPMP_USA_congress_mission_5 = {
+        icon = GFX_decision_generic_allies
+        activation = {
+            always = no
+        }
+        available = {
+            check_variable = { num_of_civilian_factories > TPMP_USA_civilian_factory_mission_var }
+            NOT = {
+                any_state = {
+                    has_state_flag = TPMP_USA_infrastructure_mission_flag
+                    check_variable = { building_level@infrastructure < TPMP_USA_infra_mission_target_var }
+                }
+            }
+        }
+        days_mission_timeout = 180
+
+        complete_effect = {
+            hidden_effect = {
+                every_state = {
+                    limit = {
+                        has_state_flag = TPMP_USA_infrastructure_mission_flag
+                    }
+                    clr_state_flag = TPMP_USA_infrastructure_mission_flag
+                }
+            }
+        }
+        timeout_effect = {
+            hidden_effect = {
+                every_state = {
+                    limit = {
+                        has_state_flag = TPMP_USA_infrastructure_mission_flag
+                    }
+                    clr_state_flag = TPMP_USA_infrastructure_mission_flag
+                }
+            }
+        }
+    }
+    TPMP_USA_congress_mission_6 = {
+        icon = GFX_decision_generic_allies
+        activation = {
+            always = no
+        }
+        available = {
+            has_political_power > TPMP_USA_political_power_mission_var
+        }
+        days_mission_timeout = 90
+
+        complete_effect = {
+        }
+        timeout_effect = {
+        }
+    }
+    TPMP_USA_congress_mission_7 = {
+        icon = GFX_decision_generic_allies
+        activation = {
+            always = no
+        }
+        available = {
+            IF = {
+                limit = {
+                    check_variable = {
+                        TPMP_USA_political_advisor_mission_var = 0
+                    }
+                }
+                amount_taken_ideas = {
+                    amount = 1
+                    slots = { political_advisor }
+                }
+            }
+            ELSE_IF = {
+                limit = {
+                    check_variable = {
+                        TPMP_USA_political_advisor_mission_var = 1
+                    }
+                }
+                amount_taken_ideas = {
+                    amount = 2
+                    slots = { political_advisor }
+                }
+            }
+            ELSE_IF = {
+                limit = {
+                    check_variable = {
+                        TPMP_USA_political_advisor_mission_var = 2
+                    }
+                }
+                amount_taken_ideas = {
+                    amount = 3
+                    slots = { political_advisor }
+                }
+            }
+            ELSE_IF = {
+                limit = {
+                    check_variable = {
+                        TPMP_USA_political_advisor_mission_var = 3
+                    }
+                }
+                amount_taken_ideas = {
+                    amount = 4
+                    slots = { political_advisor }
+                }
+            }
+            ELSE_IF = {
+                limit = {
+                    check_variable = {
+                        TPMP_USA_political_advisor_mission_var = 4
+                    }
+                }
+                amount_taken_ideas = {
+                    amount = 3
+                    slots = { political_advisor }
+                }
+            }
+            ELSE_IF = {
+                limit = {
+                    check_variable = {
+                        TPMP_USA_political_advisor_mission_var = 5
+                    }
+                }
+                amount_taken_ideas = {
+                    amount = 4
+                    slots = { political_advisor }
+                }
+            }
+            ELSE_IF = {
+                limit = {
+                    check_variable = {
+                        TPMP_USA_political_advisor_mission_var = 6
+                    }
+                }
+                amount_taken_ideas = {
+                    amount = 5
+                    slots = { political_advisor }
+                }
+            }
+        }
+        days_mission_timeout = 180
+
+        complete_effect = {
+        }
+        timeout_effect = {
+        }
+    }
+    TPMP_USA_congress_mission_8 = {
+        icon = GFX_decision_generic_allies
+        activation = {
+            always = no
+        }
+        available = {
+            custom_trigger_tooltip = {
+                tooltip = TPMP_USA_congress_mission_8_tt
+                check_variable = {
+                    var = num_researched_technologies
+                    value = TPMP_USA_technology_lobby_mission_var
+                    compare = greater_than_or_equals
+                }
+            }
+        }
+        days_mission_timeout = 180
+
+        complete_effect = {
+        }
+        timeout_effect = {
+        }
+    }
+    TPMP_USA_congress_mission_9 = {
+        icon = GFX_decision_generic_allies
+        activation = {
+            always = no
+        }
+        available = {
+            has_stability > TPMP_USA_stability_lobby_mission_var
+        }
+        days_mission_timeout = 180
+
+        complete_effect = {
+        }
+        timeout_effect = {
+        }
+    }
+    TPMP_USA_congress_mission_10 = {
+        icon = GFX_decision_generic_allies
+        activation = {
+            always = no
+        }
+        available = {
+            set_temp_variable = { output_mission_var = modifier@industrial_capacity_factory }
+            custom_trigger_tooltip = {
+                tooltip = TPMP_USA_congress_mission_10_tt
+                check_variable = {
+                    output_mission_var > TPMP_USA_output_lobby_mission_var
+                }
+            }
+        }
+        days_mission_timeout = 180
+
+        complete_effect = {
+        }
+        timeout_effect = {
+        }
+    }
+    TPMP_USA_congress_mission_11 = {
+        icon = GFX_decision_generic_allies
+        activation = {
+            always = no
+        }
+        available = {
+            has_war_support > TPMP_USA_war_support_lobby_mission_var
+        }
+        days_mission_timeout = 180
+
+        complete_effect = {
+        }
+        timeout_effect = {
+        }
+    }
+    TPMP_USA_congress_mission_12 = {
+        icon = GFX_decision_generic_allies
+        activation = {
+            always = no
+        }
+        available = {
+            custom_trigger_tooltip = {
+                tooltip = TPMP_USA_congress_mission_12_tt
+                check_variable = {
+                    var = new_deal_democrat_support_var
+                    value = TPMP_USA_output_lobby_mission_var
+                    compare = greater_than_or_equals
+                }
+            }
+        }
+        days_mission_timeout = 180
+
+        complete_effect = {
         }
         timeout_effect = {
         }
@@ -383,6 +1129,7 @@ TPMP_USA_alphabet_category = {
             }
         }
         available = {
+            has_completed_focus = TPMP_USA_the_executive_office_of_the_president
             NOT = {
                 has_country_flag = TPMP_USA_coordinate_agencies_flag
             }
@@ -671,6 +1418,7 @@ TPMP_USA_deficit_category = {
             every_core_state = {
 				limit = {
 					industrial_complex > 1
+					is_fully_controlled_by = USA
 				}
 				random_select_amount = 1
 				remove_building = {
@@ -716,6 +1464,7 @@ TPMP_USA_deficit_category = {
             every_core_state = {
 				limit = {
 					arms_factory > 1
+					is_fully_controlled_by = USA
 				}
 				random_select_amount = 1
 				remove_building = {
