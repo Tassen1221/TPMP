@@ -78,6 +78,191 @@ USA_electoral_support_gain_large = {
 	add_to_variable = { TPMP_USA_electoral_support_var = 10 }
 	recalculate_electoral_ui = yes
 }
+USA_complete_new_deal_focus = {
+	IF = {
+		limit = {
+			NOT = {
+				has_completed_focus = TPMP_USA_form_the_alphabet_agencies
+			}
+			NOT = {
+				has_country_flag = TPMP_USA_form_the_alphabet_agencies_discount_flag
+			}
+		}
+		set_country_flag = TPMP_USA_form_the_alphabet_agencies_discount_flag
+		reduce_focus_completion_cost = {
+			focus = TPMP_USA_form_the_alphabet_agencies
+			cost = 35
+		}
+	}
+	ELSE_IF = {
+		limit = {
+			NOT = {
+				has_completed_focus = TPMP_USA_federal_security_agency
+			}
+			NOT = {
+				has_country_flag = TPMP_USA_federal_security_agency_discount_flag
+			}
+		}
+		set_country_flag = TPMP_USA_federal_security_agency_discount_flag
+		reduce_focus_completion_cost = {
+			focus = TPMP_USA_federal_security_agency
+			cost = 35
+		}
+	}
+	ELSE_IF = {
+		limit = {
+			NOT = {
+				has_completed_focus = TPMP_USA_the_executive_office_of_the_president
+			}
+			NOT = {
+				has_country_flag = TPMP_USA_the_executive_office_of_the_president_discount_flag
+			}
+		}
+		set_country_flag = TPMP_USA_the_executive_office_of_the_president_discount_flag
+		reduce_focus_completion_cost = {
+			focus = TPMP_USA_the_executive_office_of_the_president
+			cost = 35
+		}
+	}
+	ELSE_IF = {
+		limit = {
+			NOT = {
+				has_completed_focus = TPMP_USA_works_progress_administration
+			}
+			NOT = {
+				has_country_flag = TPMP_USA_works_progress_administration_discount_flag
+			}
+		}
+		set_country_flag = TPMP_USA_works_progress_administration_discount_flag
+		reduce_focus_completion_cost = {
+			focus = TPMP_USA_works_progress_administration
+			cost = 35
+		}
+	}
+	ELSE_IF = {
+		limit = {
+			NOT = {
+				has_completed_focus = TPMP_USA_public_works_administration
+			}
+			NOT = {
+				has_country_flag = TPMP_USA_public_works_administration_discount_flag
+			}
+		}
+		set_country_flag = TPMP_USA_public_works_administration_discount_flag
+		reduce_focus_completion_cost = {
+			focus = TPMP_USA_public_works_administration
+			cost = 35
+		}
+	}
+	ELSE_IF = {
+		limit = {
+			NOT = {
+				has_completed_focus = TPMP_USA_national_healthcare_program
+			}
+			NOT = {
+				has_country_flag = TPMP_USA_national_healthcare_program_discount_flag
+			}
+		}
+		set_country_flag = TPMP_USA_national_healthcare_program_discount_flag
+		reduce_focus_completion_cost = {
+			focus = TPMP_USA_national_healthcare_program
+			cost = 35
+		}
+	}
+	ELSE_IF = {
+		limit = {
+			NOT = {
+				has_completed_focus = TPMP_USA_embrace_executive_powers
+			}
+			NOT = {
+				has_country_flag = TPMP_USA_embrace_executive_powers_discount_flag
+			}
+		}
+		set_country_flag = TPMP_USA_embrace_executive_powers_discount_flag
+		reduce_focus_completion_cost = {
+			focus = TPMP_USA_embrace_executive_powers
+			cost = 35
+		}
+	}
+	ELSE_IF = {
+		limit = {
+			NOT = {
+				has_completed_focus = TPMP_USA_federal_project_number_one
+			}
+			NOT = {
+				has_country_flag = TPMP_USA_federal_project_number_one_discount_flag
+			}
+		}
+		set_country_flag = TPMP_USA_federal_project_number_one_discount_flag
+		reduce_focus_completion_cost = {
+			focus = TPMP_USA_federal_project_number_one
+			cost = 35
+		}
+	}
+	ELSE_IF = {
+		limit = {
+			NOT = {
+				has_completed_focus = TPMP_USA_the_second_new_deal
+			}
+			NOT = {
+				has_country_flag = TPMP_USA_the_second_new_deal_discount_flag
+			}
+		}
+		set_country_flag = TPMP_USA_the_second_new_deal_discount_flag
+		reduce_focus_completion_cost = {
+			focus = TPMP_USA_the_second_new_deal
+			cost = 35
+		}
+	}
+	ELSE_IF = {
+		limit = {
+			NOT = {
+				has_completed_focus = TPMP_USA_fair_labour_standards_act
+			}
+			NOT = {
+				has_country_flag = TPMP_USA_fair_labour_standards_act_discount_flag
+			}
+		}
+		set_country_flag = TPMP_USA_fair_labour_standards_act_discount_flag
+		reduce_focus_completion_cost = {
+			focus = TPMP_USA_fair_labour_standards_act
+			cost = 35
+		}
+	}
+	ELSE_IF = {
+		limit = {
+			NOT = {
+				has_completed_focus = TPMP_USA_federal_housing_act
+			}
+			NOT = {
+				has_country_flag = TPMP_USA_federal_housing_act_discount_flag
+			}
+		}
+		set_country_flag = TPMP_USA_federal_housing_act_discount_flag
+		reduce_focus_completion_cost = {
+			focus = TPMP_USA_federal_housing_act
+			cost = 35
+		}
+	}
+	ELSE_IF = {
+		limit = {
+			NOT = {
+				has_completed_focus = TPMP_USA_agricultural_adjustment_act
+			}
+			NOT = {
+				has_country_flag = TPMP_USA_agricultural_adjustment_act_discount_flag
+			}
+		}
+		set_country_flag = TPMP_USA_agricultural_adjustment_act_discount_flag
+		reduce_focus_completion_cost = {
+			focus = TPMP_USA_agricultural_adjustment_act
+			cost = 35
+		}
+	}
+	ELSE = {
+		add_political_power = 100
+	}
+}
 USA_decrease_great_depression = {
 	IF = {
 		limit = {

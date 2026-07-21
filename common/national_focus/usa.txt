@@ -249,6 +249,10 @@ focus_tree = {
 		relative_position_id = TPMP_USA_a_conservative_coalition
 		cost = 5
 		completion_reward = {
+			add_power_balance_value = {
+				id = TPMP_USA_power_balance
+				value = -0.5
+			}
 		}
 	}
 
@@ -274,6 +278,7 @@ focus_tree = {
 		relative_position_id = TPMP_USA_a_narrow_victory
 		cost = 5
 		completion_reward = {
+			custom_effect_tooltip = TPMP_USA_encourage_lobbyists_tt
 		}
 	}
 
@@ -492,7 +497,60 @@ focus_tree = {
 		y = 1
 		relative_position_id = TPMP_USA_a_strong_mandate
 		cost = 5
+		available = {
+			date > 1937.03.01
+		}
 		completion_reward = {
+			custom_effect_tooltip = ndd_gain_support_small_tt
+			custom_effect_tooltip = cd_lose_support_tiny_tt
+			custom_effect_tooltip = br_lose_support_tiny_tt
+			custom_effect_tooltip = ir_lose_support_tiny_tt
+			IF = {
+				limit = {
+					check_variable = {
+						conservative_democrat_support_var > 0
+					}
+				}
+				add_to_variable = {
+					new_deal_democrat_support_var = 1
+				}
+				add_to_variable = {
+					conservative_democrat_support_var = -1
+				}
+			}
+			IF = {
+				limit = {
+					check_variable = {
+						business_republican_support_var > 0
+					}
+				}
+				add_to_variable = {
+					new_deal_democrat_support_var = 1
+				}
+				add_to_variable = {
+					business_republican_support_var = -1
+				}
+			}
+			IF = {
+				limit = {
+					check_variable = {
+						isolationist_republican_support_var > 0
+					}
+				}
+				add_to_variable = {
+					new_deal_democrat_support_var = 1
+				}
+				add_to_variable = {
+					isolationist_republican_support_var = -1
+				}
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			reduce_focus_completion_cost = {
+				focus = TPMP_USA_fair_labour_standards_act
+				focus = TPMP_USA_federal_housing_act
+				focus = TPMP_USA_agricultural_adjustment_act
+				cost = -14
+			}
 		}
 	}
 
@@ -559,7 +617,7 @@ focus_tree = {
 				}
 			}
 			custom_effect_tooltip = generic_skip_one_line_tt
-			unlock_decision_tooltip = TPMP_USA_economic_royalism_propaganda_decision
+			USA_decrease_great_depression = yes
 		}
 	}
 
@@ -1610,6 +1668,10 @@ focus_tree = {
 		relative_position_id = TPMP_USA_the_second_new_deal
 		cost = 5
 		available = {
+			OR = {
+				has_completed_focus = TPMP_USA_court_packing_plan
+				has_completed_focus = TPMP_USA_a_switch_in_time
+			}
 		}
 		completion_reward = {
 			add_ideas = TPMP_USA_fair_labour_standards_act_idea_0
@@ -1839,6 +1901,8 @@ focus_tree = {
 		cost = 5
 		completion_reward = {
 			add_command_power = 50
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = TPMP_USA_embrace_executive_powers_tt
 		}
 	}
 
@@ -2042,6 +2106,8 @@ focus_tree = {
 				ideology = democratic
 				popularity = -0.05
 			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = TPMP_USA_executive_order_9066_tt
 		}
 	}
 

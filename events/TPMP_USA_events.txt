@@ -6,6 +6,7 @@ add_namespace = TPMP_USA_military
 country_event = {
     id = TPMP_USA.1
     
+	is_triggered_only = yes
     fire_only_once = yes
     hidden = yes
     
@@ -334,6 +335,7 @@ country_event = {
 country_event = { #Which Type of Event for Congress
     id = TPMP_USA_congress.1
     
+	is_triggered_only = yes
     hidden = yes
     
     immediate = {
@@ -356,6 +358,7 @@ country_event = { #Which Type of Event for Congress
 country_event = { #Which Generic Event for Congress
     id = TPMP_USA_congress.2
     
+	is_triggered_only = yes
     hidden = yes
     
     immediate = {
@@ -422,6 +425,7 @@ country_event = { #Which Generic Event for Congress
 country_event = { #Which Lobbyist Event for Congress
     id = TPMP_USA_congress.3
     
+	is_triggered_only = yes
     hidden = yes
     
     immediate = {
@@ -520,7 +524,11 @@ country_event = { #Infantry Event
 		trigger = {
 			has_completed_focus = TPMP_USA_embrace_executive_powers
 		}
-		add_political_power = -25
+		add_political_power = -15
+		custom_effect_tooltip = TPMP_USA_congress_event_mission_tt
+		hidden_effect = {
+			country_event = TPMP_USA_congress.1
+		}
 	}
 }
 country_event = { #Armour Event
@@ -644,7 +652,11 @@ country_event = { #Armour Event
 		trigger = {
 			has_completed_focus = TPMP_USA_embrace_executive_powers
 		}
-		add_political_power = -25
+		add_political_power = -15
+		custom_effect_tooltip = TPMP_USA_congress_event_mission_tt
+		hidden_effect = {
+			country_event = TPMP_USA_congress.1
+		}
 	}
 }
 country_event = { #Plane Event
@@ -706,7 +718,11 @@ country_event = { #Plane Event
 		trigger = {
 			has_completed_focus = TPMP_USA_embrace_executive_powers
 		}
-		add_political_power = -25
+		add_political_power = -15
+		custom_effect_tooltip = TPMP_USA_congress_event_mission_tt
+		hidden_effect = {
+			country_event = TPMP_USA_congress.1
+		}
 	}
 }
 country_event = { #Ships Event
@@ -719,49 +735,30 @@ country_event = { #Ships Event
     
     option = {
 		name = TPMP_USA_congress.7.a
-		set_variable = { TPMP_USA_carrier_equipment_mission_var = num_ships_with_type@carrier }
-		set_variable = { TPMP_USA_sh_battleship_equipment_mission_var = num_ships_with_type@sh_battleship }
-		set_variable = { TPMP_USA_battleship_equipment_mission_var = num_ships_with_type@battleship }
-		set_variable = { TPMP_USA_battle_cruiser_equipment_mission_var = num_ships_with_type@battle_cruiser }
-		set_variable = { TPMP_USA_heavy_cruiser_equipment_mission_var = num_ships_with_type@heavy_cruiser }
-		set_variable = { TPMP_USA_light_cruiser_equipment_mission_var = num_ships_with_type@light_cruiser }
-		set_variable = { TPMP_USA_destroyer_equipment_mission_var = num_ships_with_type@destroyer }
-		set_variable = { TPMP_USA_submarine_equipment_mission_var = num_ships_with_type@submarine }
+		set_variable = { TPMP_USA_capital_ship_mission_var = num_ships_with_type@carrier }
+		add_to_variable = { TPMP_USA_capital_ship_mission_var = num_ships_with_type@sh_battleship }
+		add_to_variable = { TPMP_USA_capital_ship_mission_var = num_ships_with_type@battleship }
+		add_to_variable = { TPMP_USA_capital_ship_mission_var = num_ships_with_type@battle_cruiser }
+		add_to_variable = { TPMP_USA_capital_ship_mission_var = num_ships_with_type@heavy_cruiser }
+		set_variable = { TPMP_USA_screen_ship_mission_var = num_ships_with_type@light_cruiser }
+		add_to_variable = { TPMP_USA_screen_ship_mission_var = num_ships_with_type@destroyer }
 		IF = {
 			limit = {
 				date < 1938.01.01
 			}
-			add_to_variable = { TPMP_USA_carrier_equipment_mission_var = 1 }
-			add_to_variable = { TPMP_USA_sh_battleship_equipment_mission_var = 1 }
-			add_to_variable = { TPMP_USA_battleship_equipment_mission_var = 1 }
-			add_to_variable = { TPMP_USA_battle_cruiser_equipment_mission_var = 1 }
-			add_to_variable = { TPMP_USA_heavy_cruiser_equipment_mission_var = 2 }
-			add_to_variable = { TPMP_USA_light_cruiser_equipment_mission_var = 3 }
-			add_to_variable = { TPMP_USA_destroyer_equipment_mission_var = 10 }
-			add_to_variable = { TPMP_USA_submarine_equipment_mission_var = 10 }
+			add_to_variable = { TPMP_USA_capital_ship_mission_var = 1 }
+			add_to_variable = { TPMP_USA_screen_ship_mission_var = 4 }
 		}
 		ELSE_if = {
 			limit = {
 				date < 1940.01.01
 			}
-			add_to_variable = { TPMP_USA_carrier_equipment_mission_var = 2 }
-			add_to_variable = { TPMP_USA_sh_battleship_equipment_mission_var = 2 }
-			add_to_variable = { TPMP_USA_battleship_equipment_mission_var = 2 }
-			add_to_variable = { TPMP_USA_battle_cruiser_equipment_mission_var = 2 }
-			add_to_variable = { TPMP_USA_heavy_cruiser_equipment_mission_var = 4 }
-			add_to_variable = { TPMP_USA_light_cruiser_equipment_mission_var = 6 }
-			add_to_variable = { TPMP_USA_destroyer_equipment_mission_var = 20 }
-			add_to_variable = { TPMP_USA_submarine_equipment_mission_var = 20 }
+			add_to_variable = { TPMP_USA_capital_ship_mission_var = 2 }
+			add_to_variable = { TPMP_USA_screen_ship_mission_var = 9 }
 		}
 		ELSE = {
-			add_to_variable = { TPMP_USA_carrier_equipment_mission_var = 3 }
-			add_to_variable = { TPMP_USA_sh_battleship_equipment_mission_var = 3 }
-			add_to_variable = { TPMP_USA_battleship_equipment_mission_var = 3 }
-			add_to_variable = { TPMP_USA_battle_cruiser_equipment_mission_var = 3 }
-			add_to_variable = { TPMP_USA_heavy_cruiser_equipment_mission_var = 6 }
-			add_to_variable = { TPMP_USA_light_cruiser_equipment_mission_var = 9 }
-			add_to_variable = { TPMP_USA_destroyer_equipment_mission_var = 30 }
-			add_to_variable = { TPMP_USA_submarine_equipment_mission_var = 30 }
+			add_to_variable = { TPMP_USA_capital_ship_mission_var = 3 }
+			add_to_variable = { TPMP_USA_screen_ship_mission_var = 19 }
 		}
 		activate_mission = TPMP_USA_congress_mission_3
 	}
@@ -770,7 +767,11 @@ country_event = { #Ships Event
 		trigger = {
 			has_completed_focus = TPMP_USA_embrace_executive_powers
 		}
-		add_political_power = -25
+		add_political_power = -15
+		custom_effect_tooltip = TPMP_USA_congress_event_mission_tt
+		hidden_effect = {
+			country_event = TPMP_USA_congress.1
+		}
 	}
 }
 country_event = { #Military Event
@@ -810,7 +811,11 @@ country_event = { #Military Event
 		trigger = {
 			has_completed_focus = TPMP_USA_embrace_executive_powers
 		}
-		add_political_power = -25
+		add_political_power = -15
+		custom_effect_tooltip = TPMP_USA_congress_event_mission_tt
+		hidden_effect = {
+			country_event = TPMP_USA_congress.1
+		}
 	}
 }
 country_event = { #Civilian Event
@@ -876,7 +881,11 @@ country_event = { #Civilian Event
 		trigger = {
 			has_completed_focus = TPMP_USA_embrace_executive_powers
 		}
-		add_political_power = -25
+		add_political_power = -15
+		custom_effect_tooltip = TPMP_USA_congress_event_mission_tt
+		hidden_effect = {
+			country_event = TPMP_USA_congress.1
+		}
 	}
 }
 country_event = { #First Political Event
@@ -912,7 +921,11 @@ country_event = { #First Political Event
 		trigger = {
 			has_completed_focus = TPMP_USA_embrace_executive_powers
 		}
-		add_political_power = -25
+		add_political_power = -15
+		custom_effect_tooltip = TPMP_USA_congress_event_mission_tt
+		hidden_effect = {
+			country_event = TPMP_USA_congress.1
+		}
 	}
 }
 country_event = { #Second Political Event
@@ -995,7 +1008,11 @@ country_event = { #Second Political Event
 		trigger = {
 			has_completed_focus = TPMP_USA_embrace_executive_powers
 		}
-		add_political_power = -25
+		add_political_power = -15
+		custom_effect_tooltip = TPMP_USA_congress_event_mission_tt
+		hidden_effect = {
+			country_event = TPMP_USA_congress.1
+		}
 	}
 }
 country_event = { #Technocrat Lobbyist Event
@@ -1031,7 +1048,11 @@ country_event = { #Technocrat Lobbyist Event
 		trigger = {
 			has_completed_focus = TPMP_USA_embrace_executive_powers
 		}
-		add_political_power = -25
+		add_political_power = -15
+		custom_effect_tooltip = TPMP_USA_congress_event_mission_tt
+		hidden_effect = {
+			country_event = TPMP_USA_congress.1
+		}
 	}
 }
 country_event = { #Labour Lobbyist Event
@@ -1053,7 +1074,11 @@ country_event = { #Labour Lobbyist Event
 		trigger = {
 			has_completed_focus = TPMP_USA_embrace_executive_powers
 		}
-		add_political_power = -25
+		add_political_power = -15
+		custom_effect_tooltip = TPMP_USA_congress_event_mission_tt
+		hidden_effect = {
+			country_event = TPMP_USA_congress.1
+		}
 	}
 }
 country_event = { #Corporate Lobbyist Event
@@ -1075,7 +1100,11 @@ country_event = { #Corporate Lobbyist Event
 		trigger = {
 			has_completed_focus = TPMP_USA_embrace_executive_powers
 		}
-		add_political_power = -25
+		add_political_power = -15
+		custom_effect_tooltip = TPMP_USA_congress_event_mission_tt
+		hidden_effect = {
+			country_event = TPMP_USA_congress.1
+		}
 	}
 }
 country_event = { #War Hawk Lobbyist Event
@@ -1097,7 +1126,11 @@ country_event = { #War Hawk Lobbyist Event
 		trigger = {
 			has_completed_focus = TPMP_USA_embrace_executive_powers
 		}
-		add_political_power = -25
+		add_political_power = -15
+		custom_effect_tooltip = TPMP_USA_congress_event_mission_tt
+		hidden_effect = {
+			country_event = TPMP_USA_congress.1
+		}
 	}
 }
 country_event = { #Political Lobbyist Event
@@ -1119,7 +1152,11 @@ country_event = { #Political Lobbyist Event
 		trigger = {
 			has_completed_focus = TPMP_USA_embrace_executive_powers
 		}
-		add_political_power = -25
+		add_political_power = -15
+		custom_effect_tooltip = TPMP_USA_congress_event_mission_tt
+		hidden_effect = {
+			country_event = TPMP_USA_congress.1
+		}
 	}
 }
 

@@ -16,6 +16,7 @@ TPMP_USA_power_balance = {
 		min = -0.2
 		max = 0.2
 		modifier = {
+			custom_modifier_tooltip = TPMP_USA_power_balance_neutral_range_tt
 		}
 		on_activate = {
 			IF = {
@@ -46,9 +47,10 @@ TPMP_USA_power_balance = {
 			min = -0.6
 			max = -0.2
 			modifier = {
-				political_advisor_cost_factor = 0.1
+				political_advisor_cost_factor = 0.05
 				political_power_gain = -0.05
 				party_popularity_stability_factor = 0.05
+				custom_modifier_tooltip = TPMP_USA_congress_low_range_tt
 			}
 			on_activate = {
 				IF = {
@@ -74,9 +76,10 @@ TPMP_USA_power_balance = {
 			min = -1
 			max = -0.6
 			modifier = {
-				political_advisor_cost_factor = 0.2
+				political_advisor_cost_factor = 0.1
 				political_power_gain = -0.1
 				party_popularity_stability_factor = 0.1
+				custom_modifier_tooltip = TPMP_USA_congress_high_range_tt
 			}
 			on_activate = {
 				IF = {
@@ -108,9 +111,10 @@ TPMP_USA_power_balance = {
 			min = 0.2
 			max = 0.6
 			modifier = {
-				political_advisor_cost_factor = -0.1
+				political_advisor_cost_factor = -0.05
 				political_power_gain = 0.05
 				party_popularity_stability_factor = -0.05
+				custom_modifier_tooltip = TPMP_USA_president_low_range_tt
 			}
 			on_activate = {
 				IF = {
@@ -136,9 +140,10 @@ TPMP_USA_power_balance = {
 			min = 0.6
 			max = 1
 			modifier = {
-				political_advisor_cost_factor = -0.2
+				political_advisor_cost_factor = -0.1
 				political_power_gain = 0.1
 				party_popularity_stability_factor = -0.1
+				custom_modifier_tooltip = TPMP_USA_president_high_range_tt
 			}
 			on_activate = {
 				IF = {
