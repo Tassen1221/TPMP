@@ -329,6 +329,44 @@ on_actions = {
 			}
 		}
 	}
+	on_monthly_USA = {
+		effect = {
+			#Flint Sit-Down Strike
+			IF = {
+				limit = {
+					date > 1936.12.1
+					NOT = {
+						has_country_flag = TPMP_USA_flint_strike_flag
+					}
+				}
+				country_event = TPMP_USA.1
+			}
+			#Miners' Strike
+			IF = {
+				limit = {
+					date > 1943.4.1
+					NOT = {
+						has_country_flag = TPMP_USA_mine_strike_flag
+					}
+				}
+				country_event = TPMP_USA.2
+			}
+		}
+	}
+	on_monthly_USA = {
+		effect = {
+			#Einstein-Szilard Letter
+			IF = {
+				limit = {
+					date > 1939.07.1
+					NOT = {
+						has_country_flag = TPMP_USA_einstein_szilard_flag
+					}
+				}
+				country_event = TPMP_USA.5
+			}
+		}
+	}
 	on_new_term_election = {
 		random_events = {
 			100 = TPMP_USA_election.2

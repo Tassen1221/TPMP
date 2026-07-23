@@ -3,55 +3,91 @@ add_namespace = TPMP_USA_election
 add_namespace = TPMP_USA_congress
 add_namespace = TPMP_USA_military
 
-country_event = {
-    id = TPMP_USA.1
-    
+country_event = { #Flint Sit-Down Strike
+	id = TPMP_USA.1
+	title = TPMP_USA.1.t
+	desc = TPMP_USA.1.d
+	picture = GFX_report_event_fall_blau
+
 	is_triggered_only = yes
-    fire_only_once = yes
-    hidden = yes
-    
-    immediate = {
-        IF = {
-			limit = {
-				NOT = {
-					has_completed_focus = TPMP_USA_enforce_the_wagner_act
-				}
-			}
-			country_event = TPMP_USA.2
-		}
+
+	immediate = {
+        set_country_flag = TPMP_USA_flint_strike_flag
     }
+	option = { #Weather the strike
+		name = TPMP_USA.1.a
+		add_timed_idea = {
+			idea = TPMP_USA_strikes_idea_0
+			days = 365
+		}
+	}
+	option = { #Enforce the Wagner Act - longer but milder (requires Union Relations)
+		name = TPMP_USA.1.b
+		trigger = {
+			has_completed_focus = TPMP_USA_union_relations
+		}
+		add_timed_idea = {
+			idea = TPMP_USA_strikes_idea_1
+			days = 540
+		}
+	}
 }
-country_event = {
+country_event = { #Miners' Strike
 	id = TPMP_USA.2
 	title = TPMP_USA.2.t
 	desc = TPMP_USA.2.d
 	picture = GFX_report_event_fall_blau
 
 	is_triggered_only = yes
-	
+
 	immediate = {
-        set_country_flag = TPMP_USA_flint_strike_flag
+        set_country_flag = TPMP_USA_mine_strike_flag
     }
-	option = {
+	option = { #Weather the strike
 		name = TPMP_USA.2.a
-		trigger = {
-			NOT = {
-				has_completed_focus = TPMP_USA_enforce_the_wagner_act
-			}
-		}
 		add_timed_idea = {
 			idea = TPMP_USA_strikes_idea_0
 			days = 365
 		}
 	}
-	option = {
+	option = { #Enforce the Wagner Act - longer but milder (requires Union Relations)
 		name = TPMP_USA.2.b
 		trigger = {
-			has_completed_focus = TPMP_USA_enforce_the_wagner_act
+			has_completed_focus = TPMP_USA_union_relations
 		}
 		add_timed_idea = {
-			idea = TPMP_USA_strikes_idea_0
-			days = 120
+			idea = TPMP_USA_strikes_idea_1
+			days = 540
+		}
+	}
+	option = { #Invoke the Smith-Connally Act - no debuff, permanent stability and popularity hit (requires Union Relations)
+		name = TPMP_USA.2.c
+		trigger = {
+			has_completed_focus = TPMP_USA_union_relations
+		}
+		custom_effect_tooltip = ndd_lose_support_tt
+		custom_effect_tooltip = br_gain_support_tt
+		for_loop_effect = {
+			end = 5
+			IF = {
+				limit = {
+					check_variable = {
+						new_deal_democrat_support_var > 0
+					}
+				}
+				add_to_variable = {
+					business_republican_support_var = 1
+				}
+				add_to_variable = {
+					new_deal_democrat_support_var = -1
+				}
+			}
+		}
+		custom_effect_tooltip = generic_skip_one_line_tt
+		add_stability = -0.05
+		add_popularity = {
+			ideology = democratic
+			popularity = -0.05
 		}
 	}
 }
@@ -68,22 +104,6 @@ country_event = {
     }
 	option = {
 		name = TPMP_USA.3.a
-		add_ideas = TPMP_USA_strikes_idea_0
-	}
-}
-country_event = {
-	id = TPMP_USA.4
-	title = TPMP_USA.4.t
-	desc = TPMP_USA.4.d
-	picture = GFX_report_event_fall_blau
-
-	is_triggered_only = yes
-	
-	immediate = {
-        set_country_flag = TPMP_USA_mine_strike_flag
-    }
-	option = {
-		name = TPMP_USA.4.a
 		effect_tooltip = {
 			add_timed_idea = {
 				idea = TPMP_USA_neutrality_act_idea_0
@@ -93,15 +113,15 @@ country_event = {
 	}
 }
 country_event = {
-	id = TPMP_USA.5
-	title = TPMP_USA.5.t
-	desc = TPMP_USA.5.d
+	id = TPMP_USA.4
+	title = TPMP_USA.4.t
+	desc = TPMP_USA.4.d
 	picture = GFX_report_event_cash_carry
 
 	is_triggered_only = yes
 	
 	option = {
-		name = TPMP_USA.5.a
+		name = TPMP_USA.4.a
 		add_equipment_subsidy = {
 			cic = 10000
 			equipment_type = small_plane_airframe
@@ -119,7 +139,7 @@ country_event = {
 		}
 	}
 	option = {
-		name = TPMP_USA.5.b
+		name = TPMP_USA.4.b
 		add_equipment_subsidy = {
 			cic = 10000
 			equipment_type = infantry_equipment
@@ -137,7 +157,7 @@ country_event = {
 		}
 	}
 	option = {
-		name = TPMP_USA.5.c
+		name = TPMP_USA.4.c
 		add_equipment_subsidy = {
 			cic = 10000
 			equipment_type = light_tank_chassis
@@ -153,6 +173,19 @@ country_event = {
 			equipment_type = heavy_tank_chassis
 			seller_tags = { USA }
 		}
+	}
+}
+country_event = { #Einstein–Szilard Letter
+	id = TPMP_USA.5
+	title = TPMP_USA.5.t
+	desc = TPMP_USA.5.d
+	picture = GFX_report_event_cash_carry
+
+	is_triggered_only = yes
+	
+	option = {
+		name = TPMP_USA.5.a
+		set_country_flag = TPMP_USA_einstein_szilard_flag
 	}
 }
 
@@ -172,10 +205,10 @@ country_event = {
 		round_temp_variable = new_support
 		set_variable = { TPMP_USA_electoral_support_var = new_support}
 		recalculate_electoral_ui = yes
-		set_variable = { TPMP_USA_west_campaign_cost_var = 20 }
-		set_variable = { TPMP_USA_midwest_campaign_cost_var = 20 }
-		set_variable = { TPMP_USA_south_campaign_cost_var = 20}
-		set_variable = { TPMP_USA_northeast_campaign_cost_var = 20 }
+		set_variable = { TPMP_USA_west_campaign_cost_var = 10 }
+		set_variable = { TPMP_USA_midwest_campaign_cost_var = 10 }
+		set_variable = { TPMP_USA_south_campaign_cost_var = 10}
+		set_variable = { TPMP_USA_northeast_campaign_cost_var = 10 }
 		clr_country_flag = TPMP_USA_elections_decision_flag
 	}
 }
@@ -255,6 +288,7 @@ country_event = {
 		trigger = {
 			check_variable = { USA.TPMP_USA_electoral_support_var > 74}
 		}
+		complete_national_focus = TPMP_USA_the_1940_election
 		clr_country_flag = TPMP_USA_elections_flag
 	}
 	option = {
@@ -264,6 +298,8 @@ country_event = {
 			check_variable = { USA.TPMP_USA_electoral_support_var > 49}
 		}
 		add_political_power = -100
+		custom_effect_tooltip = generic_skip_one_line_tt
+		complete_national_focus = TPMP_USA_the_1940_election
 		clr_country_flag = TPMP_USA_elections_flag
 	}
 	option = {
@@ -273,6 +309,8 @@ country_event = {
 			check_variable = { USA.TPMP_USA_electoral_support_var > 24}
 		}
 		add_political_power = -200
+		custom_effect_tooltip = generic_skip_one_line_tt
+		complete_national_focus = TPMP_USA_the_1940_election
 		clr_country_flag = TPMP_USA_elections_flag
 	}
 	option = {
@@ -281,6 +319,8 @@ country_event = {
 			check_variable = { USA.TPMP_USA_electoral_support_var < 25}
 		}
 		add_political_power = -300
+		custom_effect_tooltip = generic_skip_one_line_tt
+		complete_national_focus = TPMP_USA_the_1940_election
 		clr_country_flag = TPMP_USA_elections_flag
 	}
 }
@@ -302,6 +342,7 @@ country_event = {
 		trigger = {
 			check_variable = { USA.TPMP_USA_electoral_support_var > 74}
 		}
+		complete_national_focus = TPMP_USA_the_1944_election
 		clr_country_flag = TPMP_USA_elections_flag
 	}
 	option = {
@@ -311,6 +352,8 @@ country_event = {
 			check_variable = { USA.TPMP_USA_electoral_support_var > 49}
 		}
 		add_political_power = -100
+		custom_effect_tooltip = generic_skip_one_line_tt
+		complete_national_focus = TPMP_USA_the_1944_election
 		clr_country_flag = TPMP_USA_elections_flag
 	}
 	option = {
@@ -320,6 +363,8 @@ country_event = {
 			check_variable = { USA.TPMP_USA_electoral_support_var > 24}
 		}
 		add_political_power = -200
+		custom_effect_tooltip = generic_skip_one_line_tt
+		complete_national_focus = TPMP_USA_the_1944_election
 		clr_country_flag = TPMP_USA_elections_flag
 	}
 	option = {
@@ -328,6 +373,8 @@ country_event = {
 			check_variable = { USA.TPMP_USA_electoral_support_var < 25}
 		}
 		add_political_power = -300
+		custom_effect_tooltip = generic_skip_one_line_tt
+		complete_national_focus = TPMP_USA_the_1944_election
 		clr_country_flag = TPMP_USA_elections_flag
 	}
 }

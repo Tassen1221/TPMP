@@ -311,7 +311,18 @@ focus_tree = {
 		available = {
 			has_country_flag = TPMP_USA_elections_flag
 		}
+		bypass = {
+			has_completed_focus = TPMP_USA_the_1940_election
+		}
 		completion_reward = {
+			add_trait = {
+				character = USA_franklin_delano_roosevelt
+				ideology = liberalism
+				trait = TPMP_squire_of_hyde_park
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			USA_electoral_support_gain_large = yes
+			custom_effect_tooltip = generic_skip_one_line_tt
 		}
 	}
 
@@ -344,7 +355,13 @@ focus_tree = {
 		available = {
 			has_country_flag = TPMP_USA_elections_flag
 		}
+		bypass = {
+			has_completed_focus = TPMP_USA_the_1944_election
+		}
 		completion_reward = {
+			unlock_decision_tooltip = TPMP_USA_elections_rally_africa_decision
+			unlock_decision_tooltip = TPMP_USA_elections_rally_asia_decision
+			unlock_decision_tooltip = TPMP_USA_elections_rally_dday_decision
 		}
 	}
 
@@ -360,7 +377,13 @@ focus_tree = {
 		available = {
 			has_country_flag = TPMP_USA_elections_flag
 		}
+		bypass = {
+			has_completed_focus = TPMP_USA_the_1944_election
+		}
 		completion_reward = {
+			unlock_decision_tooltip = TPMP_USA_elections_glorify_africa_decision
+			unlock_decision_tooltip = TPMP_USA_elections_glorify_asia_decision
+			unlock_decision_tooltip = TPMP_USA_elections_glorify_dday_decision
 		}
 	}
 
@@ -496,9 +519,8 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = TPMP_USA_a_strong_mandate
-		cost = 5
+		cost = 10
 		available = {
-			date > 1937.03.01
 		}
 		completion_reward = {
 			custom_effect_tooltip = ndd_gain_support_small_tt
@@ -545,12 +567,8 @@ focus_tree = {
 				}
 			}
 			custom_effect_tooltip = generic_skip_one_line_tt
-			reduce_focus_completion_cost = {
-				focus = TPMP_USA_fair_labour_standards_act
-				focus = TPMP_USA_federal_housing_act
-				focus = TPMP_USA_agricultural_adjustment_act
-				cost = -14
-			}
+			add_political_power = 50
+			add_stability = 0.05
 		}
 	}
 
@@ -617,7 +635,11 @@ focus_tree = {
 				}
 			}
 			custom_effect_tooltip = generic_skip_one_line_tt
-			USA_decrease_great_depression = yes
+			add_trait = {
+				character = USA_franklin_delano_roosevelt
+				ideology = liberalism
+				trait = TPMP_champion_of_the_forgotten_man
+			}
 		}
 	}
 
@@ -1019,10 +1041,10 @@ focus_tree = {
 			recalculate_congressional_ui = yes
 			custom_effect_tooltip = generic_skip_one_line_tt
 			ENG = {
-				country_event = TPMP_USA.5
+				country_event = TPMP_USA.4
 			}
 			FRA = {
-				country_event = TPMP_USA.5
+				country_event = TPMP_USA.4
 			}
 			custom_effect_tooltip = generic_skip_one_line_tt
 			effect_tooltip = {
@@ -1668,15 +1690,63 @@ focus_tree = {
 		relative_position_id = TPMP_USA_the_second_new_deal
 		cost = 5
 		available = {
-			OR = {
-				has_completed_focus = TPMP_USA_court_packing_plan
-				has_completed_focus = TPMP_USA_a_switch_in_time
-			}
 		}
 		completion_reward = {
 			add_ideas = TPMP_USA_fair_labour_standards_act_idea_0
 			custom_effect_tooltip = generic_skip_one_line_tt
-			USA_decrease_great_depression = yes
+			IF = {
+				limit = {
+					has_dynamic_modifier = {
+						modifier = TPMP_USA_great_depression_modifier
+					}
+				}
+				custom_effect_tooltip = USA_decrease_great_depression_tt
+				add_to_variable = {
+					TPMP_USA_great_depression_cg_var = -0.1
+					tooltip = consumer_goods_factor_tt
+				}
+				add_to_variable = {
+					TPMP_USA_great_depression_stab_var = 0.05
+					tooltip = stability_factor_tt
+				}
+				add_to_variable = {
+					TPMP_USA_great_depression_cons_var = 0.02
+					tooltip = production_speed_buildings_factor_tt
+				}
+				add_to_variable = {
+					TPMP_USA_great_depression_eff_cap_var = 0.02
+					tooltip = production_factory_max_efficiency_factor_tt
+				}
+				add_to_variable = {
+					TPMP_USA_great_depression_eff_gain_var = 0.02
+					tooltip = production_factory_efficiency_gain_factor_tt
+				}
+				add_to_variable = {
+					TPMP_USA_great_depression_factory_var = 0.02
+					tooltip = industrial_capacity_factory_tt
+				}
+				add_to_variable = {
+					TPMP_USA_great_depression_dock_var = 0.04
+					tooltip = industrial_capacity_dockyard_tt
+				}
+			}
+			ELSE = {
+				custom_effect_tooltip = USA_decrease_great_depression_fail_tt
+			}
+			hidden_effect = {
+				IF = {
+					limit = {
+						check_variable = {
+							var = TPMP_USA_great_depression_cg_var
+							value = 0
+							compare = less_than_or_equals
+						}
+					}
+					remove_dynamic_modifier = {
+						modifier = TPMP_USA_great_depression_modifier
+					}
+				}
+			}
 		}
 	}
 
@@ -1718,17 +1788,12 @@ focus_tree = {
 		relative_position_id = TPMP_USA_fair_labour_standards_act
 		cost = 5
 		available = {
-			NOT = {
-				has_idea = TPMP_USA_strikes_idea_0
-			}
 		}
 		bypass = {
-			has_country_flag = TPMP_USA_flint_strike_flag
+			has_country_flag = TPMP_USA_mine_strike_flag
 		}
 		completion_reward = {
-			country_event = TPMP_USA.2
-			custom_effect_tooltip = generic_skip_one_line_tt
-			USA_decrease_great_depression = yes
+			custom_effect_tooltip = TPMP_USA_union_relations_tt
 		}
 	}
 
@@ -1901,6 +1966,12 @@ focus_tree = {
 		cost = 5
 		completion_reward = {
 			add_command_power = 50
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_trait = {
+				character = USA_franklin_delano_roosevelt
+				ideology = liberalism
+				trait = TPMP_chief_executive
+			}
 			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = TPMP_USA_embrace_executive_powers_tt
 		}
@@ -2290,27 +2361,29 @@ focus_tree = {
 		y = 2
 		relative_position_id = TPMP_USA_megaprojects
 		cost = 5
+		available = {
+			has_country_flag = TPMP_USA_einstein_szilard_flag
+		}
 		completion_reward = {
-			every_country = {
-				limit = {
-					OR = {
-						original_tag = CUB
-						original_tag = HAI
-						original_tag = DOM
-						original_tag = GUA
-						original_tag = MEX
-						original_tag = CAN
-						original_tag = HON
-						original_tag = NIC
-						original_tag = PAN
-						original_tag = COS
-						original_tag = ELS
-					}
-					not = { has_war_with = ROOT }
-					not = { is_subject_of = ROOT }
-					exists = yes
+			custom_effect_tooltip = USA_increase_megaprojects_tt
+			add_to_variable = {
+				TPMP_USA_megaproject_nuclear_cons_var = 0.2
+				tooltip = production_speed_nuclear_reactor_factor_tt
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_tech_bonus = {
+				bonus = 1
+				uses = 1
+				category = nuclear
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			376 = {
+				add_building_construction = {
+					type = nuclear_facility
+					level = 1
+					instant_build = yes
+					province = 12552
 				}
-				country_event = mtg_usa_north_american_dominion.1
 			}
 		}
 	}

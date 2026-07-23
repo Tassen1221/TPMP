@@ -30,6 +30,205 @@ TPMP_USA_elections_category = {
             custom_effect_tooltip = generic_skip_zero_line_tt
         }
     }
+    TPMP_USA_elections_rally_africa_decision = {
+        icon = GFX_decision_generic_allies
+        visible = {
+            has_country_flag = TPMP_USA_elections_flag
+            has_completed_focus = TPMP_USA_rally_our_defeats
+        }
+        available = {
+            NOT = {
+                907 = { controller = { is_in_faction_with = USA }}
+            }
+        }
+        fire_only_once = yes
+        cost = 50
+        days_remove = 180
+        modifier = {
+            political_power_gain = -0.5
+            stability_weekly_factor = -0.003
+            custom_modifier_tooltip = generic_skip_zero_line_tt
+        }
+        targeted_modifier = {
+            tag = ITA
+            attack_bonus_against = 0.05
+        }
+        complete_effect = {
+            USA_electoral_support_gain_small = yes
+            custom_effect_tooltip = generic_skip_zero_line_tt
+        }
+    }
+    TPMP_USA_elections_rally_asia_decision = {
+        icon = GFX_decision_generic_allies
+        visible = {
+            has_country_flag = TPMP_USA_elections_flag
+            has_completed_focus = TPMP_USA_rally_our_defeats
+        }
+        available = {
+            NOT = {
+                1082 = { controller = { is_in_faction_with = USA } }
+                650 = { controller = { is_in_faction_with = USA } }
+                632 = { controller = { is_in_faction_with = USA } }
+                631 = { controller = { is_in_faction_with = USA } }
+                638 = { controller = { is_in_faction_with = USA } }
+                630 = { controller = { is_in_faction_with = USA } }
+                737 = { controller = { is_in_faction_with = USA } }
+                634 = { controller = { is_in_faction_with = USA } }
+                642 = { controller = { is_in_faction_with = USA } }
+                727 = { controller = { is_in_faction_with = USA } }
+            }
+        }
+        fire_only_once = yes
+        cost = 50
+        days_remove = 180
+        modifier = {
+            political_power_gain = -0.5
+            stability_weekly_factor = -0.003
+            custom_modifier_tooltip = generic_skip_zero_line_tt
+        }
+        targeted_modifier = {
+            tag = JAP
+            attack_bonus_against = 0.05
+        }
+        complete_effect = {
+            USA_electoral_support_gain_small = yes
+            custom_effect_tooltip = generic_skip_zero_line_tt
+        }
+    }
+    TPMP_USA_elections_rally_dday_decision = {
+        icon = GFX_decision_generic_allies
+        visible = {
+            has_country_flag = TPMP_USA_elections_flag
+            has_completed_focus = TPMP_USA_rally_our_defeats
+        }
+        available = {
+            NOT = {
+                any_state = {
+                    limit = {
+                        is_core_of = GER
+                        is_core_of = FRA
+                        is_core_of = HOL
+                        is_core_of = BEL
+                        is_core_of = DEN
+                    }
+                    controller = { is_in_faction_with = USA }
+                }
+            }
+        }
+        fire_only_once = yes
+        cost = 50
+        days_remove = 180
+        modifier = {
+            political_power_gain = -0.5
+            stability_weekly_factor = -0.003
+            custom_modifier_tooltip = generic_skip_zero_line_tt
+        }
+        targeted_modifier = {
+            tag = GER
+            attack_bonus_against = 0.05
+        }
+        complete_effect = {
+            USA_electoral_support_gain_small = yes
+            custom_effect_tooltip = generic_skip_zero_line_tt
+        }
+    }
+    TPMP_USA_elections_glorify_africa_decision = {
+        icon = GFX_decision_generic_allies
+        visible = {
+            has_country_flag = TPMP_USA_elections_flag
+            has_completed_focus = TPMP_USA_glorify_our_victories
+        }
+        available = {
+            448 = { controller = { is_in_faction_with = USA }}
+            450 = { controller = { is_in_faction_with = USA }}
+            451 = { controller = { is_in_faction_with = USA }}
+            447 = { controller = { is_in_faction_with = USA }}
+            907 = { controller = { is_in_faction_with = USA }}
+        }
+        fire_only_once = yes
+        cost = 10
+        days_remove = 180
+        targeted_modifier = {
+            tag = ITA
+            defense_bonus_against = 0.15
+        }
+        complete_effect = {
+            USA_electoral_support_gain_large = yes
+            custom_effect_tooltip = generic_skip_one_line_tt
+            add_war_support = 0.05
+            custom_effect_tooltip = generic_skip_zero_line_tt
+        }
+    }
+    TPMP_USA_elections_glorify_asia_decision = {
+        icon = GFX_decision_generic_allies
+        visible = {
+            has_country_flag = TPMP_USA_elections_flag
+            has_completed_focus = TPMP_USA_glorify_our_victories
+        }
+        available = {
+            1082 = { controller = { is_in_faction_with = USA }}
+            650 = { controller = { is_in_faction_with = USA }}
+            645 = { controller = { is_in_faction_with = USA }}
+            648 = { controller = { is_in_faction_with = USA }}
+            632 = { controller = { is_in_faction_with = USA }}
+            631 = { controller = { is_in_faction_with = USA }}
+            647 = { controller = { is_in_faction_with = USA }}
+            684 = { controller = { is_in_faction_with = USA }}
+            638 = { controller = { is_in_faction_with = USA }}
+            646 = { controller = { is_in_faction_with = USA }}
+            633 = { controller = { is_in_faction_with = USA }}
+            630 = { controller = { is_in_faction_with = USA }}
+            737 = { controller = { is_in_faction_with = USA }}
+            634 = { controller = { is_in_faction_with = USA }}
+            642 = { controller = { is_in_faction_with = USA }}
+            727 = { controller = { is_in_faction_with = USA }}
+        }
+        fire_only_once = yes
+        cost = 10
+        days_remove = 180
+        targeted_modifier = {
+            tag = JAP
+            defense_bonus_against = 0.15
+        }
+        complete_effect = {
+            USA_electoral_support_gain_large = yes
+            custom_effect_tooltip = generic_skip_one_line_tt
+            add_war_support = 0.05
+            custom_effect_tooltip = generic_skip_zero_line_tt
+        }
+    }
+    TPMP_USA_elections_glorify_dday_decision = {
+        icon = GFX_decision_generic_allies
+        visible = {
+            has_country_flag = TPMP_USA_elections_flag
+            has_completed_focus = TPMP_USA_glorify_our_victories
+        }
+        available = {
+            any_state = {
+                limit = {
+                    is_core_of = GER
+                    is_core_of = FRA
+                    is_core_of = HOL
+                    is_core_of = BEL
+                    is_core_of = DEN
+                }
+                controller = { is_in_faction_with = USA }
+            }
+        }
+        fire_only_once = yes
+        cost = 10
+        days_remove = 180
+        targeted_modifier = {
+            tag = GER
+            defense_bonus_against = 0.15
+        }
+        complete_effect = {
+            USA_electoral_support_gain_large = yes
+            custom_effect_tooltip = generic_skip_one_line_tt
+            add_war_support = 0.05
+            custom_effect_tooltip = generic_skip_zero_line_tt
+        }
+    }
     TPMP_USA_west_campaigning_decision = {
         icon = GFX_decision_generic_allies
         visible = {
@@ -963,7 +1162,7 @@ TPMP_USA_congress_category = {
                     }
                 }
                 amount_taken_ideas = {
-                    amount = 1
+                    amount > 0
                     slots = { political_advisor }
                 }
             }
@@ -974,7 +1173,7 @@ TPMP_USA_congress_category = {
                     }
                 }
                 amount_taken_ideas = {
-                    amount = 2
+                    amount > 1
                     slots = { political_advisor }
                 }
             }
@@ -985,7 +1184,7 @@ TPMP_USA_congress_category = {
                     }
                 }
                 amount_taken_ideas = {
-                    amount = 3
+                    amount > 2
                     slots = { political_advisor }
                 }
             }
@@ -996,7 +1195,7 @@ TPMP_USA_congress_category = {
                     }
                 }
                 amount_taken_ideas = {
-                    amount = 4
+                    amount > 3
                     slots = { political_advisor }
                 }
             }
@@ -1007,7 +1206,7 @@ TPMP_USA_congress_category = {
                     }
                 }
                 amount_taken_ideas = {
-                    amount = 3
+                    amount < 4
                     slots = { political_advisor }
                 }
             }
@@ -1018,7 +1217,7 @@ TPMP_USA_congress_category = {
                     }
                 }
                 amount_taken_ideas = {
-                    amount = 4
+                    amount < 5
                     slots = { political_advisor }
                 }
             }
@@ -1029,7 +1228,7 @@ TPMP_USA_congress_category = {
                     }
                 }
                 amount_taken_ideas = {
-                    amount = 5
+                    amount < 6
                     slots = { political_advisor }
                 }
             }
