@@ -1598,29 +1598,6 @@ focus_tree = {
 				add_claim_by = ROOT
 			}
 			custom_effect_tooltip = generic_skip_one_line_tt
-			if = {
-				limit = {
-					RUT = {
-						exists = no
-					}
-					UKR = {
-						exists = yes
-						NOT = {
-							is_subject_of = ROOT
-						}
-					}
-				}
-				91 = {
-					add_core_of = RUT
-				}
-				89 = {
-					add_core_of = RUT
-				}
-				93 = {
-					add_core_of = RUT
-				}
-				custom_effect_tooltip = generic_skip_one_line_tt
-			}
 			88 = {
 				add_core_of = GAL
 			}
@@ -1638,29 +1615,6 @@ focus_tree = {
 				add_claim_by = ROOT
 			}
 			custom_effect_tooltip = generic_skip_one_line_tt
-			if = {
-				limit = {
-					RUT = {
-						exists = no
-					}
-					UKR = {
-						exists = yes
-						NOT = {
-							is_subject_of = ROOT
-						}
-					}
-				}
-				91 = {
-					add_core_of = RUT
-				}
-				89 = {
-					add_core_of = RUT
-				}
-				93 = {
-					add_core_of = RUT
-				}
-				custom_effect_tooltip = generic_skip_one_line_tt
-			}
 			88 = {
 				add_core_of = GAL
 			}
@@ -5486,52 +5440,6 @@ focus_tree = {
 					}
 				}
 			}
-			hidden_effect = {
-				73 = {
-					add_core_of = RUT
-				}
-			}
-			release_autonomy = {
-    			target = RUT
-    			autonomy_state = autonomy_integrated_puppet
-    			freedom_level = 0.5
-			}
-			hidden_effect = {
-				if = {
-					limit = {
-						73 = {
-							NOT = {
-								is_core_of = ROOT
-							}
-						}
-					}
-					73 = {
-						add_core_of = ROOT
-					}
-				}
-			}
-			if = {
-				limit = {
-					NOT = {
-						has_completed_focus = CZE_form_a_federation
-					}
-				}
-				RUT ={
-					set_cosmetic_tag = CZE_puppet
-				}
-			}
-			else_if = {
-				limit = {
-					has_completed_focus = CZE_form_a_federation
-				}
-				RUT = {
-					set_cosmetic_tag = CZE_CEF_puppet
-				}
-			}
-			RUT = {
-				add_ideas = CZE_federalization_agreement_puppets
-			}
-
 			if = {
 				limit = {
 					has_power_balance = {
@@ -9323,24 +9231,6 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			hidden_effect = {
-				73 = {
-					add_core_of = RUT
-				}
-			}
-			release_autonomy = {
-				target = RUT
-				autonomy_state = autonomy_integrated_puppet
-				freedom_level = 0.5
-			}
-			hidden_effect = {	#necessary or theyll keep elections
-				RUT = {
-					set_politics = {
-						ruling_party = communism
-						elections_allowed = no
-					}
-				}
-			}
 			release_autonomy = {
 				target = SLO
 				autonomy_state = autonomy_integrated_puppet
@@ -9355,11 +9245,6 @@ focus_tree = {
 			}
 			hidden_effect = {				#readd cores so it could be diplo-annexed back
 				SLO = {
-					every_core_state = {
-						add_core_of = ROOT
-					}
-				}
-				RUT = {
 					every_core_state = {
 						add_core_of = ROOT
 					}
