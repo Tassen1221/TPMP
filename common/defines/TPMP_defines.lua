@@ -243,6 +243,8 @@ NDefines.NCharacter.SPECIALIST_ADVISOR_MIN_RANK = 3
 NDefines.NCharacter.EXPERT_ADVISOR_MIN_RANK = 5
 NDefines.NCharacter.GENIUS_ADVISOR_MIN_RANK = 7
 
+NDefines.NProduction.MAX_MIL_FACTORIES_PER_LINE = 50
+
 NDefines.NProduction.RESOURCE_TO_ENERGY_COEFFICIENT = 1.0	-- How much energy per coal produces
 
 NDefines.NProduction.BASE_FACTORY_MAX_EFFICIENCY_FACTOR = 50	-- Base max efficiency for factories expressed in %.
