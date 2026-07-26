@@ -866,7 +866,6 @@ focus_tree = {
 				}
 				add_ideas = civilian_economy
 			}
-			activate_mission = TPMP_USA_congress_mission_7
 		}
 	}
 
@@ -1554,23 +1553,9 @@ focus_tree = {
 			has_war = yes
 		}
 		completion_reward = {
-			unlock_decision_tooltip = TPMP_USA_wartime_revenue_decision_0
-			unlock_decision_tooltip = TPMP_USA_wartime_revenue_decision_1
-			unlock_decision_tooltip = TPMP_USA_wartime_revenue_decision_2
+			unlock_decision_tooltip = TPMP_USA_wartime_revenue_decision
 			custom_effect_tooltip = generic_skip_one_line_tt
-			custom_effect_tooltip = USA_increase_deficit_tt
-			add_to_variable = {
-				TPMP_USA_deficit_cg_var = -0.03
-				tooltip = consumer_goods_factor_tt
-			}
-			add_to_variable = {
-				TPMP_USA_deficit_stab_var = 0.02
-				tooltip = stability_factor_tt
-			}
-			add_to_variable = {
-				TPMP_USA_deficit_pp_var = -0.03
-				tooltip = political_power_cost_tt
-			}
+			USA_decrease_deficit = yes
 		}
 	}
 
@@ -1583,6 +1568,7 @@ focus_tree = {
 		relative_position_id = TPMP_USA_manage_the_budget
 		cost = 5
 		completion_reward = {
+			USA_decrease_deficit = yes
 		}
 	}
 
@@ -2191,7 +2177,28 @@ focus_tree = {
 		y = 1
 		relative_position_id = TPMP_USA_embrace_executive_powers
 		cost = 5
+		available = {
+			has_support_lwd_ndd = yes
+		}
 		completion_reward = {
+			custom_effect_tooltip = ndd_lose_support_tt
+			custom_effect_tooltip = ir_gain_support_tt
+			for_loop_effect = {
+				end = 5
+				IF = {
+					limit = {
+						check_variable = {
+							new_deal_democrat_support_var > 0
+						}
+					}
+					add_to_variable = {
+						new_deal_democrat_support_var = -1
+					}
+					add_to_variable = {
+						isolationist_republican_support_var = 1
+					}
+				}
+			}
 		}
 	}
 

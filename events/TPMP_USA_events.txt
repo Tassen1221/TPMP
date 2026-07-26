@@ -240,7 +240,26 @@ country_event = {
 			check_variable = { USA.TPMP_USA_electoral_support_var < 75}
 			check_variable = { USA.TPMP_USA_electoral_support_var > 49}
 		}
-		add_political_power = -100
+		custom_effect_tooltip = ndd_lose_support_small_tt
+		custom_effect_tooltip = br_gain_support_small_tt
+		for_loop_effect = {
+			end = 3
+			IF = {
+				limit = {
+					check_variable = {
+						new_deal_democrat_support_var > 0
+					}
+				}
+				add_to_variable = {
+					business_republican_support_var = 1
+				}
+				add_to_variable = {
+					new_deal_democrat_support_var = -1
+				}
+			}
+		}
+		custom_effect_tooltip = generic_skip_one_line_tt
+		add_political_power = -50
 		custom_effect_tooltip = generic_skip_one_line_tt
 		complete_national_focus = TPMP_USA_the_1936_election
 		complete_national_focus = TPMP_USA_a_narrow_victory
@@ -252,7 +271,54 @@ country_event = {
 			check_variable = { USA.TPMP_USA_electoral_support_var < 50}
 			check_variable = { USA.TPMP_USA_electoral_support_var > 24}
 		}
-		add_political_power = -200
+		custom_effect_tooltip = ndd_lose_support_tt
+		custom_effect_tooltip = pr_gain_support_tiny_tt
+		custom_effect_tooltip = br_gain_support_small_tt
+		custom_effect_tooltip = ir_gain_support_tiny_tt
+		IF = {
+			limit = {
+				check_variable = {
+					new_deal_democrat_support_var > 0
+				}
+			}
+			add_to_variable = {
+				isolationist_republican_support_var = 1
+			}
+			add_to_variable = {
+				new_deal_democrat_support_var = -1
+			}
+		}
+		for_loop_effect = {
+			end = 3
+			IF = {
+				limit = {
+					check_variable = {
+						new_deal_democrat_support_var > 0
+					}
+				}
+				add_to_variable = {
+					business_republican_support_var = 1
+				}
+				add_to_variable = {
+					new_deal_democrat_support_var = -1
+				}
+			}
+		}
+		IF = {
+			limit = {
+				check_variable = {
+					new_deal_democrat_support_var > 0
+				}
+			}
+			add_to_variable = {
+				progressive_republican_support_var = 1
+			}
+			add_to_variable = {
+				new_deal_democrat_support_var = -1
+			}
+		}
+		custom_effect_tooltip = generic_skip_one_line_tt
+		add_political_power = -100
 		custom_effect_tooltip = generic_skip_one_line_tt
 		complete_national_focus = TPMP_USA_the_1936_election
 		complete_national_focus = TPMP_USA_a_narrow_victory
@@ -263,7 +329,42 @@ country_event = {
 		trigger = {
 			check_variable = { USA.TPMP_USA_electoral_support_var < 25}
 		}
-		add_political_power = -300
+		custom_effect_tooltip = ndd_lose_support_large_tt
+		custom_effect_tooltip = br_gain_support_tt
+		custom_effect_tooltip = ir_gain_support_tt
+		for_loop_effect = {
+			end = 5
+			IF = {
+				limit = {
+					check_variable = {
+						new_deal_democrat_support_var > 0
+					}
+				}
+				add_to_variable = {
+					isolationist_republican_support_var = 1
+				}
+				add_to_variable = {
+					new_deal_democrat_support_var = -1
+				}
+			}
+		}
+		for_loop_effect = {
+			end = 5
+			IF = {
+				limit = {
+					check_variable = {
+						new_deal_democrat_support_var > 0
+					}
+				}
+				add_to_variable = {
+					business_republican_support_var = 1
+				}
+				add_to_variable = {
+					new_deal_democrat_support_var = -1
+				}
+			}
+		}
+		add_political_power = -150
 		custom_effect_tooltip = generic_skip_one_line_tt
 		complete_national_focus = TPMP_USA_the_1936_election
 		complete_national_focus = TPMP_USA_a_narrow_victory
@@ -297,7 +398,26 @@ country_event = {
 			check_variable = { USA.TPMP_USA_electoral_support_var < 75}
 			check_variable = { USA.TPMP_USA_electoral_support_var > 49}
 		}
-		add_political_power = -100
+		custom_effect_tooltip = ndd_lose_support_small_tt
+		custom_effect_tooltip = br_gain_support_small_tt
+		for_loop_effect = {
+			end = 3
+			IF = {
+				limit = {
+					check_variable = {
+						new_deal_democrat_support_var > 0
+					}
+				}
+				add_to_variable = {
+					business_republican_support_var = 1
+				}
+				add_to_variable = {
+					new_deal_democrat_support_var = -1
+				}
+			}
+		}
+		custom_effect_tooltip = generic_skip_one_line_tt
+		add_political_power = -50
 		custom_effect_tooltip = generic_skip_one_line_tt
 		complete_national_focus = TPMP_USA_the_1940_election
 		clr_country_flag = TPMP_USA_elections_flag
@@ -308,7 +428,54 @@ country_event = {
 			check_variable = { USA.TPMP_USA_electoral_support_var < 50}
 			check_variable = { USA.TPMP_USA_electoral_support_var > 24}
 		}
-		add_political_power = -200
+		custom_effect_tooltip = ndd_lose_support_tt
+		custom_effect_tooltip = pr_gain_support_tiny_tt
+		custom_effect_tooltip = br_gain_support_small_tt
+		custom_effect_tooltip = ir_gain_support_tiny_tt
+		IF = {
+			limit = {
+				check_variable = {
+					new_deal_democrat_support_var > 0
+				}
+			}
+			add_to_variable = {
+				isolationist_republican_support_var = 1
+			}
+			add_to_variable = {
+				new_deal_democrat_support_var = -1
+			}
+		}
+		for_loop_effect = {
+			end = 3
+			IF = {
+				limit = {
+					check_variable = {
+						new_deal_democrat_support_var > 0
+					}
+				}
+				add_to_variable = {
+					business_republican_support_var = 1
+				}
+				add_to_variable = {
+					new_deal_democrat_support_var = -1
+				}
+			}
+		}
+		IF = {
+			limit = {
+				check_variable = {
+					new_deal_democrat_support_var > 0
+				}
+			}
+			add_to_variable = {
+				progressive_republican_support_var = 1
+			}
+			add_to_variable = {
+				new_deal_democrat_support_var = -1
+			}
+		}
+		custom_effect_tooltip = generic_skip_one_line_tt
+		add_political_power = -100
 		custom_effect_tooltip = generic_skip_one_line_tt
 		complete_national_focus = TPMP_USA_the_1940_election
 		clr_country_flag = TPMP_USA_elections_flag
@@ -318,7 +485,43 @@ country_event = {
 		trigger = {
 			check_variable = { USA.TPMP_USA_electoral_support_var < 25}
 		}
-		add_political_power = -300
+		custom_effect_tooltip = ndd_lose_support_large_tt
+		custom_effect_tooltip = br_gain_support_tt
+		custom_effect_tooltip = ir_gain_support_tt
+		for_loop_effect = {
+			end = 5
+			IF = {
+				limit = {
+					check_variable = {
+						new_deal_democrat_support_var > 0
+					}
+				}
+				add_to_variable = {
+					isolationist_republican_support_var = 1
+				}
+				add_to_variable = {
+					new_deal_democrat_support_var = -1
+				}
+			}
+		}
+		for_loop_effect = {
+			end = 5
+			IF = {
+				limit = {
+					check_variable = {
+						new_deal_democrat_support_var > 0
+					}
+				}
+				add_to_variable = {
+					business_republican_support_var = 1
+				}
+				add_to_variable = {
+					new_deal_democrat_support_var = -1
+				}
+			}
+		}
+		custom_effect_tooltip = generic_skip_one_line_tt
+		add_political_power = -150
 		custom_effect_tooltip = generic_skip_one_line_tt
 		complete_national_focus = TPMP_USA_the_1940_election
 		clr_country_flag = TPMP_USA_elections_flag
