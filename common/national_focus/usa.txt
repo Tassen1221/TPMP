@@ -1811,7 +1811,9 @@ focus_tree = {
 		relative_position_id = TPMP_USA_the_second_new_deal
 		cost = 5
 		completion_reward = {
-			add_ideas = TPMP_USA_alphabet_agencies_idea_0
+			add_dynamic_modifier = {
+				modifier = TPMP_USA_alphabet_agencies_modifier
+			}
 			custom_effect_tooltip = generic_skip_one_line_tt
 			unlock_decision_category_tooltip = TPMP_USA_alphabet_category
 		}
@@ -1933,10 +1935,16 @@ focus_tree = {
 		relative_position_id = TPMP_USA_form_the_alphabet_agencies
 		cost = 5
 		completion_reward = {
-			swap_ideas = {
-				remove_idea = TPMP_USA_alphabet_agencies_idea_0
-				add_idea = TPMP_USA_alphabet_agencies_idea_1
+			custom_effect_tooltip = USA_modify_alphabet_agencies_tt
+			add_to_variable = {
+				TPMP_USA_alphabet_pp_var = 0.1
+				tooltip = political_power_gain_tt
 			}
+			add_to_variable = {
+				TPMP_USA_alphabet_cp_var = 0.1
+				tooltip = command_power_gain_tt
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
 			add_political_power = 150
 			add_command_power = 50
 		}
@@ -2176,7 +2184,7 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = TPMP_USA_embrace_executive_powers
-		cost = 5
+		cost = 10
 		available = {
 			has_support_lwd_ndd = yes
 		}
@@ -2199,6 +2207,8 @@ focus_tree = {
 					}
 				}
 			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_ideas = TPMP_USA_refugees_idea
 		}
 	}
 
@@ -2217,10 +2227,29 @@ focus_tree = {
 		completion_reward = {
 			add_command_power = 100
 			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = USA_modify_alphabet_agencies_tt
+			add_to_variable = {
+				TPMP_USA_alphabet_weekly_stab_var = -0.001
+				tooltip = stability_weekly_tt
+			}
+			add_to_variable = {
+				TPMP_USA_alphabet_rec_var = 0.1
+				tooltip = army_morale_factor_tt
+			}
+			add_to_variable = {
+				TPMP_USA_alphabet_mil_cost_var = -0.02
+				tooltip = production_cost_arms_factory_factor_tt
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = TPMP_USA_war_powers_act_tt
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = TPMP_USA_war_powers_act_2_tt
 			hidden_effect = {
 				set_variable = {
 					TPMP_USA_wartime_agency_cost_var = 50
+				}
+				set_variable = {
+					TPMP_USA_congress_decision_time_var = 30
 				}
 			}
 		}
@@ -2924,6 +2953,8 @@ focus_tree = {
 			has_war_support > 0.5
 		}
 		completion_reward = {
+			add_research_slot = 1
+			custom_effect_tooltip = generic_skip_one_line_tt
 			add_timed_idea = {
 				idea = TPMP_USA_giant_wakes_idea
 				days = 180

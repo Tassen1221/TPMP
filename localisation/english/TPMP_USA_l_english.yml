@@ -1,9 +1,23 @@
 ﻿l_english:
  TPMP_USA_great_depression_modifier: "The Great Depression"
  TPMP_USA_great_depression_modifier_desc: ""
+ USA_decrease_great_depression_tt: "Modify §Y$TPMP_USA_great_depression_modifier$§! by:"
+ USA_decrease_great_depression_fail_tt: "Modifies §Y$TPMP_USA_great_depression_modifier$§! if it exists."
  
  TPMP_USA_deficit_modifier: "Growing Government Deficit"
  TPMP_USA_deficit_modifier_desc: ""
+ USA_increase_deficit_tt: "Modify §Y$TPMP_USA_deficit_modifier$§! by:"
+
+ TPMP_USA_alphabet_agencies_modifier: "The Alphabet Agencies"
+ TPMP_USA_alphabet_agencies_modifier_desc: ""
+ USA_modify_alphabet_agencies_tt: "Modify §Y$TPMP_USA_alphabet_agencies_modifier$§! by:"
+ stability_weekly_tt: " $MODIFIER_STABILITY_WEEKLY$: $RIGHT|+=%2$"
+
+ TPMP_USA_alphabet_agencies_tt: "[TPMP_USA_FSA_loc][TPMP_USA_NHP_loc][TPMP_USA_WPA_loc][TPMP_USA_NYA_loc][TPMP_USA_PWA_loc][TPMP_USA_OWI_loc][TPMP_USA_WPB_loc][TPMP_USA_OWM_loc][TPMP_USA_OES_loc]\n"
+
+ TPMP_USA_megaprojects_modifier: "Mega-Engineering"
+ TPMP_USA_megaprojects_modifier_desc: ""
+ USA_increase_megaprojects_tt: "Modify §Y$TPMP_USA_megaprojects_modifier$§! by:"
 
  TPMP_USA_congress_category: "United States Congress"
  TPMP_USA_congress_category_desc: "The United States Congress is the legislative body of the United States government, maintaining its support is necessary for any president who wishes to implement their policies and agenda. Two parties, the Democrats and Republicans hold power within congress, however, each party is divided into various factions with their own unique priorities."
@@ -156,26 +170,31 @@
  has_support_lwd_ndd_cd_pr_br_tt: "Requires over §Y50 Support§! of §lLeft-Wing Democrats§!, §nNew-Deal Democrats§!, §cConservative Democrats§!, §pProgressive Republicans§!, and §rBusiness Republicans§!."
  has_support_cd_pr_br_ir_tt: "Requires over §Y50 Support§! of §cConservative Democrats§!, §pProgressive Republicans§!, §rBusiness Republicans§!, and §iIsolationist Republicans§!."
  has_support_ndd_cd_pr_br_ir_tt: "Requires over §Y50 Support§! of §nNew-Deal Democrats§!, §cConservative Democrats§!, §pProgressive Republicans§!, §rBusiness Republicans§!, and §iIsolationist Republicans§!."
-
- USA_decrease_great_depression_tt: "Modify §Y$TPMP_USA_great_depression_modifier$§! by:"
- USA_decrease_great_depression_fail_tt: "Modifies §Y$TPMP_USA_great_depression_modifier$§! if it exists."
- USA_increase_deficit_tt: "Modify §Y$TPMP_USA_deficit_modifier$§! by:"
- USA_increase_megaprojects_tt: "Modify §Y$TPMP_USA_megaprojects_modifier$§! by:"
-
- TPMP_USA_alphabet_agencies_tt: "[TPMP_USA_FSA_loc][TPMP_USA_NHP_loc][TPMP_USA_WPA_loc][TPMP_USA_NYA_loc][TPMP_USA_PWA_loc][TPMP_USA_OWI_loc][TPMP_USA_WPB_loc][TPMP_USA_OWM_loc][TPMP_USA_OES_loc]"
  
  TPMP_USA_FSA_idea_0: "Federal Security Agency"
  TPMP_USA_FSA_idea_1: "Federal Security Agency"
- TPMP_USA_NHP_idea: "\nNational Healthcare Program"
- TPMP_USA_WPA_idea_0: "\nWorks Progress Administration"
- TPMP_USA_WPA_idea_1: "\nWorks Progress Administration"
- TPMP_USA_NYA_idea: "\nNational Youth Administration"
- TPMP_USA_PWA_idea: "\nPublic Works Administration"
+ TPMP_USA_NHP_idea: "National Healthcare Program"
+ TPMP_USA_WPA_idea_0: "Works Progress Administration"
+ TPMP_USA_WPA_idea_1: "Works Progress Administration"
+ TPMP_USA_NYA_idea: "National Youth Administration"
+ TPMP_USA_PWA_idea: "Public Works Administration"
 
- TPMP_USA_OWI_idea: "\nOffice of War Information"
- TPMP_USA_WPB_idea: "\nWar Production Board"
- TPMP_USA_OWM_idea: "\nOffice of War Mobilization"
- TPMP_USA_OES_idea: "\nOffice of Economic Stabilization"
+ TPMP_USA_OWI_idea: "Office of War Information"
+ TPMP_USA_WPB_idea: "War Production Board"
+ TPMP_USA_OWM_idea: "Office of War Mobilization"
+ TPMP_USA_OES_idea: "Office of Economic Stabilization"
+
+ TPMP_USA_FSA_idea_0_key: "\n$TPMP_USA_FSA_idea_0$\n"
+ TPMP_USA_FSA_idea_1_key: "\n$TPMP_USA_FSA_idea_1$\n"
+ TPMP_USA_NHP_idea_key: "\n$TPMP_USA_NHP_idea$\n"
+ TPMP_USA_WPA_idea_0_key: "\n$TPMP_USA_WPA_idea_0$\n"
+ TPMP_USA_WPA_idea_1_key: "\n$TPMP_USA_WPA_idea_1$\n"
+ TPMP_USA_NYA_idea_key: "\n$TPMP_USA_NYA_idea$\n"
+ TPMP_USA_PWA_idea_key: "\n$TPMP_USA_PWA_idea$\n"
+ TPMP_USA_OWI_idea_key: "\n$TPMP_USA_OWI_idea$\n"
+ TPMP_USA_WPB_idea_key: "\n$TPMP_USA_WPB_idea$\n"
+ TPMP_USA_OWM_idea_key: "\n$TPMP_USA_OWM_idea$\n"
+ TPMP_USA_OES_idea_key: "\n$TPMP_USA_OES_idea$\n"
 
  TPMP_USA_JAP_NEUTRALITY: "§RWe cannot join wars unless attacked.§!"
 
@@ -227,6 +246,7 @@
  TPMP_USA_embrace_executive_powers_tt: "Allows rerolling §Y$TPMP_USA_congress_event_mission$§! at the cost of 15 £political_power_texticon §YPolitical Power§!."
  TPMP_USA_executive_order_9066_tt: "Enemies can §Rno longer§! use the §Y$raid_type_proxy_forces_raid$§! raid against us."
  TPMP_USA_war_powers_act_tt: "Reduces £political_power_texticon §YPolitical Power§! cost of establishing the §YWartime Agencies§! from §Y100§! to §Y50§!."
+ TPMP_USA_war_powers_act_2_tt: "Reduces the time required for §Y$TPMP_USA_congress_category$§! decisions to convert §YSupport§! from §Y90§! to §Y30§! days."
  # Military Focuses
 
  TPMP_USA_90_division_plan_idea_tt: "Maintain §Y90 divisions§! or less to gain army bonuses"
