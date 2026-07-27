@@ -1448,6 +1448,11 @@ focus_tree = {
 				}
 			}
 			custom_effect_tooltip = generic_skip_one_line_tt
+			add_power_balance_value = {
+				id = TPMP_USA_power_balance
+				value = 0.1
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
 			add_popularity = {
 				ideology = communism
 				popularity = 0.03
@@ -1482,47 +1487,7 @@ focus_tree = {
 			has_support_ndd_cd_pr_br_ir = yes
 		}
 		completion_reward = {
-			IF = {
-				limit = {
-					NOT = {
-						has_dynamic_modifier = {
-							modifier = TPMP_USA_great_depression_modifier
-						}
-					}
-				}
-				add_dynamic_modifier = {
-					modifier = TPMP_USA_great_depression_modifier
-				}
-			}
-			custom_effect_tooltip = USA_decrease_great_depression_tt
-			add_to_variable = {
-				TPMP_USA_great_depression_cg_var = 0.15
-				tooltip = consumer_goods_factor_tt
-			}
-			add_to_variable = {
-				TPMP_USA_great_depression_stab_var = -0.075
-				tooltip = stability_factor_tt
-			}
-			add_to_variable = {
-				TPMP_USA_great_depression_cons_var = -0.03
-				tooltip = production_speed_buildings_factor_tt
-			}
-			add_to_variable = {
-				TPMP_USA_great_depression_eff_cap_var = -0.03
-				tooltip = production_factory_max_efficiency_factor_tt
-			}
-			add_to_variable = {
-				TPMP_USA_great_depression_eff_gain_var = -0.03
-				tooltip = production_factory_efficiency_gain_factor_tt
-			}
-			add_to_variable = {
-				TPMP_USA_great_depression_factory_var = -0.03
-				tooltip = industrial_capacity_factory_tt
-			}
-			add_to_variable = {
-				TPMP_USA_great_depression_dock_var = -0.06
-				tooltip = industrial_capacity_dockyard_tt
-			}
+			country_event = TPMP_USA.6
 			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = USA_increase_deficit_tt
 			add_to_variable = {
@@ -1935,6 +1900,11 @@ focus_tree = {
 		relative_position_id = TPMP_USA_form_the_alphabet_agencies
 		cost = 5
 		completion_reward = {
+			add_power_balance_value = {
+				id = TPMP_USA_power_balance
+				value = 0.05
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = USA_modify_alphabet_agencies_tt
 			add_to_variable = {
 				TPMP_USA_alphabet_pp_var = 0.1
@@ -1959,6 +1929,12 @@ focus_tree = {
 		relative_position_id = TPMP_USA_the_executive_office_of_the_president
 		cost = 5
 		completion_reward = {
+			add_power_balance_value = {
+				id = TPMP_USA_power_balance
+				value = 0.05
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_war_support = 0.05
 			add_command_power = 50
 			custom_effect_tooltip = generic_skip_one_line_tt
 			add_trait = {
@@ -2225,6 +2201,11 @@ focus_tree = {
 			has_support_ndd_cd = yes
 		}
 		completion_reward = {
+			add_power_balance_value = {
+				id = TPMP_USA_power_balance
+				value = 0.1
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
 			add_command_power = 100
 			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = USA_modify_alphabet_agencies_tt

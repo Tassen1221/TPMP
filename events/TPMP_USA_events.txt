@@ -182,10 +182,101 @@ country_event = { #Einstein–Szilard Letter
 	picture = GFX_report_event_cash_carry
 
 	is_triggered_only = yes
-	
+
 	option = {
 		name = TPMP_USA.5.a
 		set_country_flag = TPMP_USA_einstein_szilard_flag
+	}
+}
+country_event = { #The Roosevelt Recession
+	id = TPMP_USA.6
+	title = TPMP_USA.6.t
+	desc = TPMP_USA.6.d
+	picture = GFX_report_event_fall_blau
+
+	is_triggered_only = yes
+
+	option = {
+		name = TPMP_USA.6.a
+		IF = {
+			limit = {
+				NOT = {
+					has_dynamic_modifier = {
+						modifier = TPMP_USA_great_depression_modifier
+					}
+				}
+			}
+			add_dynamic_modifier = {
+				modifier = TPMP_USA_great_depression_modifier
+			}
+		}
+		custom_effect_tooltip = USA_decrease_great_depression_tt
+		add_to_variable = {
+			TPMP_USA_great_depression_cg_var = 0.15
+			tooltip = consumer_goods_factor_tt
+		}
+		add_to_variable = {
+			TPMP_USA_great_depression_stab_var = -0.075
+			tooltip = stability_factor_tt
+		}
+		add_to_variable = {
+			TPMP_USA_great_depression_cons_var = -0.03
+			tooltip = production_speed_buildings_factor_tt
+		}
+		add_to_variable = {
+			TPMP_USA_great_depression_eff_cap_var = -0.03
+			tooltip = production_factory_max_efficiency_factor_tt
+		}
+		add_to_variable = {
+			TPMP_USA_great_depression_eff_gain_var = -0.03
+			tooltip = production_factory_efficiency_gain_factor_tt
+		}
+		add_to_variable = {
+			TPMP_USA_great_depression_factory_var = -0.03
+			tooltip = industrial_capacity_factory_tt
+		}
+		add_to_variable = {
+			TPMP_USA_great_depression_dock_var = -0.06
+			tooltip = industrial_capacity_dockyard_tt
+		}
+		hidden_effect = {
+			set_variable = {
+				TPMP_USA_roosevelt_recession_count_var = 3
+			}
+			country_event = {
+				id = TPMP_USA.7
+				days = 120
+			}
+		}
+	}
+}
+country_event = { #Roosevelt Recession Recovery
+	id = TPMP_USA.7
+	title = TPMP_USA.7.t
+	desc = TPMP_USA.7.d
+	picture = GFX_report_event_cash_carry
+
+	is_triggered_only = yes
+
+	option = {
+		name = TPMP_USA.7.a
+		USA_decrease_great_depression = yes
+		hidden_effect = {
+			subtract_from_variable = {
+				TPMP_USA_roosevelt_recession_count_var = 1
+			}
+			IF = {
+				limit = {
+					check_variable = {
+						TPMP_USA_roosevelt_recession_count_var > 0
+					}
+				}
+				country_event = {
+					id = TPMP_USA.7
+					days = 120
+				}
+			}
+		}
 	}
 }
 
@@ -579,6 +670,54 @@ country_event = {
 		custom_effect_tooltip = generic_skip_one_line_tt
 		complete_national_focus = TPMP_USA_the_1944_election
 		clr_country_flag = TPMP_USA_elections_flag
+	}
+}
+country_event = { #Midterm Elections
+    id = TPMP_USA_election.5
+	title = TPMP_USA_election.5.t
+	desc = TPMP_USA_election.5.d
+	picture = GFX_report_event_cash_carry
+
+	is_triggered_only = yes
+
+	option = {
+		name = TPMP_USA_election.5.a
+		custom_effect_tooltip = ndd_lose_support_large_tt
+		custom_effect_tooltip = br_gain_support_tt
+		custom_effect_tooltip = ir_gain_support_tt
+		for_loop_effect = {
+			end = 5
+			IF = {
+				limit = {
+					check_variable = {
+						new_deal_democrat_support_var > 0
+					}
+				}
+				add_to_variable = {
+					business_republican_support_var = 1
+				}
+				add_to_variable = {
+					new_deal_democrat_support_var = -1
+				}
+			}
+		}
+		for_loop_effect = {
+			end = 5
+			IF = {
+				limit = {
+					check_variable = {
+						new_deal_democrat_support_var > 0
+					}
+				}
+				add_to_variable = {
+					isolationist_republican_support_var = 1
+				}
+				add_to_variable = {
+					new_deal_democrat_support_var = -1
+				}
+			}
+		}
+		recalculate_congressional_ui = yes
 	}
 }
 

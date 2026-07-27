@@ -8,9 +8,7 @@ set_stability = 0.75
 set_war_support = 0
 add_command_power = 20
 
-
 set_convoys = 700
-
 
 set_politics = {
 	ruling_party = democratic
@@ -25,7 +23,82 @@ set_popularities = {
 	communism = 5
 }
 
-add_ideas = {
+set_technology = {
+	#Infantry
+	infantrymg1_tech = 1
+	infantrygun1_tech = 1
+	infantrygun2_tech = 1
+	infantrycqc1_tech = 1
+	infantrycqc2_tech = 1
+	infantrysupport1_tech = 1
+	infantrysupport2_tech = 1
+	infantryat1_tech = 1
+	tech_trucks = 1
+	special_tech = 1
+	marines = 1
+	rangers1_tech = 1
+	#Support
+	tech_support = 1
+	tech_engineers = 1
+	#Tanks
+	tank0_tech = 1
+	lighttank1_tech = 1
+	#Tank Support
+	lightcannon1_tech = 1
+	tankupgrade1_tech = 1
+	#Artillery
+	antiair0_tech = 1
+	heavyantiair1_tech = 1
+	heavyartillery1_tech = 1
+	heshells_tech = 1
+	shrapshells_tech = 1
+	smokeshells_tech = 1
+	chemshells_tech = 1
+	apshells_tech = 1
+	#Ships
+	early_ship_hull_light = 1
+	basic_ship_hull_light = 1
+	smoke_generator = 1
+	basic_depth_charges = 1
+	sonar = 1
+	early_ship_hull_cruiser = 1
+	basic_ship_hull_cruiser = 1
+	basic_cruiser_armor_scheme = 1
+	basic_heavy_armor_scheme = 1
+	improved_heavy_armor_scheme = 1
+	early_ship_hull_heavy = 1
+	early_ship_hull_carrier = 1
+	basic_ship_hull_carrier = 1
+	early_ship_hull_submarine = 1
+	basic_ship_hull_submarine = 1
+	#Ship Support
+	basic_battery = 1
+	basic_light_battery = 1
+	basic_heavy_battery = 1
+	basic_torpedo = 1
+	damage_control_1 = 1
+	mtg_transport = 1
+	#Planes
+	bba_early_transport_plane = 1
+	bba_improved_transport_plane = 1
+	iw_small_airframe = 1
+	iw_medium_airframe = 1
+	iw_large_airframe = 1
+	early_bombs = 1
+	aa_lmg = 1
+	photo_reconnaisance = 1
+	aircraft_construction = 1
+	engines_1 = 1
+	engines_2 = 1
+	#Electronics
+	radio = 1
+	electronic_mechanical_engineering = 1
+	mechanical_computing = 1
+	basic_fire_control_system = 1
+	coastal_fort_tech_1 = 1
+	#Industry
+	basic_machine_tools = 1
+	fuel_silos = 1
 }
 
 set_variable = { left_wing_democrat_support_var = 8 }
@@ -36,15 +109,11 @@ set_variable = { business_republican_support_var = 16 }
 set_variable = { isolationist_republican_support_var = 11 }
 recalculate_congressional_ui = yes
 
-# Congressional vs Presidential Balance of Power (placeholder - see common/bop/TPMP_USA.txt)
-if = {
-	limit = { has_any_power_balance = no }
-	set_power_balance = {
-		id = TPMP_USA_power_balance
-		left_side = TPMP_USA_congress_side
-		right_side = TPMP_USA_president_side
-		set_value = 0.0
-	}
+set_power_balance = {
+	id = TPMP_USA_power_balance
+	left_side = TPMP_USA_congress_side
+	right_side = TPMP_USA_president_side
+	set_value = 0.0
 }
 
 set_variable = { TPMP_USA_great_depression_cg_var = 1.0 }
@@ -74,7 +143,9 @@ add_dynamic_modifier = {
 	modifier = TPMP_USA_deficit_modifier
 }
 
-add_ideas = TPMP_USA_congress_idea
+add_ideas = {
+	TPMP_USA_congress_idea
+}
 add_timed_idea = {
 	idea = TPMP_USA_neutrality_act_idea_0
 	days = 60
