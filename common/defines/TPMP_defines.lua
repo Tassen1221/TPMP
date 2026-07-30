@@ -289,7 +289,7 @@ NDefines.NDiplomacy.VOLUNTEERS_PER_TARGET_PROVINCE = 0	-- Each province owned by
 NDefines.NDiplomacy.VOLUNTEERS_PER_COUNTRY_ARMY = 0		-- Each army unit owned by the source country contributes this amount of volunteers to the limit.
 NDefines.NDiplomacy.VOLUNTEERS_DIVISIONS_REQUIRED = 0	-- This many divisons are required for the country to be able to send volunteers.
 
-NDefines.NDiplomacy.EMBARGO_THREAT_THRESHOLD = -1
+NDefines.NDiplomacy.EMBARGO_THREAT_THRESHOLD = -1		-- Target-generated threat threshold to allow embargo (affected by modifiers)
 
 NDefines.NBuildings.BASE_FACTORY_REPAIR = 0.5			-- Default repair rate in percentage before factories are taken into account (1.0 equals 1%).
 NDefines.NBuildings.BASE_FACTORY_REPAIR_FACTOR = 1.0		-- Factory speed modifier when repairing.
@@ -456,6 +456,9 @@ NDefines.NSupply.RAILWAY_MIN_FLOW = 10.0			-- minimum railway flow can be reduce
 -- used for calculating "flow" from a naval node to another naval node when it is connected via a convoy route
 NDefines.NSupply.NAVAL_BASE_FLOW = 10.0				-- max output/input of a naval node is limited by this base value + additional ratio for each level
 NDefines.NSupply.NAVAL_FLOW_PER_LEVEL = 3.0			-- max output/input of a naval node is limited by previous base value + this define per its level
+
+NDefines.NSupply.COOLDOWN_DAYS_AFTER_MOVING_SUPPLY_CAPITAL = 0 	-- cooldown for moving supply again after last move
+NDefines.NSupply.DAYS_TO_START_GIVING_SUPPLY_AFTER_MOVING_SUPPLY_CAPITAL = 0 	-- the country will start gaining supply after this many days moving its capital
 
 NDefines.NOperatives.AGENCY_UPGRADE_PER_OPERATIVE_SLOT = 5					-- Number of upgrade needed to unlock an additional operative slot
 NDefines.NOperatives.MAX_OPERATIVE_SLOT_FROM_AGENCY_UPGRADES = 2				-- max operative slots gained from upgrades
