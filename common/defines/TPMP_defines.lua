@@ -289,6 +289,8 @@ NDefines.NDiplomacy.VOLUNTEERS_PER_TARGET_PROVINCE = 0	-- Each province owned by
 NDefines.NDiplomacy.VOLUNTEERS_PER_COUNTRY_ARMY = 0		-- Each army unit owned by the source country contributes this amount of volunteers to the limit.
 NDefines.NDiplomacy.VOLUNTEERS_DIVISIONS_REQUIRED = 0	-- This many divisons are required for the country to be able to send volunteers.
 
+NDefines.NDiplomacy.EMBARGO_THREAT_THRESHOLD = -1
+
 NDefines.NBuildings.BASE_FACTORY_REPAIR = 0.5			-- Default repair rate in percentage before factories are taken into account (1.0 equals 1%).
 NDefines.NBuildings.BASE_FACTORY_REPAIR_FACTOR = 1.0		-- Factory speed modifier when repairing.
 
