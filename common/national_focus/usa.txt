@@ -566,6 +566,7 @@ focus_tree = {
 					isolationist_republican_support_var = -1
 				}
 			}
+			recalculate_congressional_ui = yes
 			custom_effect_tooltip = generic_skip_one_line_tt
 			add_political_power = 50
 			add_stability = 0.05
@@ -602,6 +603,7 @@ focus_tree = {
 			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = TPMP_USA_the_new_deal_coalition_tt
 			set_temp_variable = { pp_gain = new_deal_democrat_support_var }
+			recalculate_congressional_ui = yes
 			multiply_temp_variable = { pp_gain = 5 }
 			add_political_power = pp_gain
 		}
@@ -634,6 +636,7 @@ focus_tree = {
 					}
 				}
 			}
+			recalculate_congressional_ui = yes
 			custom_effect_tooltip = generic_skip_one_line_tt
 			add_trait = {
 				character = USA_franklin_delano_roosevelt
@@ -780,6 +783,9 @@ focus_tree = {
 		y = 1
 		relative_position_id = TPMP_USA_the_solid_south
 		cost = 5
+		available = {
+			has_idea = USA_john_nance_garner
+		}
 		completion_reward = {
 			custom_effect_tooltip = cd_gain_support_small_tt
 			custom_effect_tooltip = ir_lose_support_small_tt
@@ -801,6 +807,17 @@ focus_tree = {
 			}
 			recalculate_congressional_ui = yes
 			custom_effect_tooltip = generic_skip_one_line_tt
+			remove_trait = {
+				character = USA_john_nance_garner
+				slot = political_advisor
+				trait = TPMP_conservative_dealmaker
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_trait = {
+				character = USA_john_nance_garner
+				slot = political_advisor
+				trait = TPMP_conservative_leader
+			}
 		}
 	}
 
@@ -812,7 +829,7 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = TPMP_USA_the_solid_south
-		cost = 5
+		cost = 10
 		completion_reward = {
 			custom_effect_tooltip = ndd_gain_support_large_tt
 			custom_effect_tooltip = cd_lose_support_large_tt
@@ -1364,6 +1381,7 @@ focus_tree = {
 					}
 				}
 			}
+			recalculate_congressional_ui = yes
 			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = USA_increase_deficit_tt
 			add_to_variable = {
@@ -1447,6 +1465,7 @@ focus_tree = {
 					}
 				}
 			}
+			recalculate_congressional_ui = yes
 			custom_effect_tooltip = generic_skip_one_line_tt
 			add_power_balance_value = {
 				id = TPMP_USA_power_balance
@@ -1533,7 +1552,8 @@ focus_tree = {
 		relative_position_id = TPMP_USA_manage_the_budget
 		cost = 5
 		completion_reward = {
-			USA_decrease_deficit = yes
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = USA_simon_kuznets
 		}
 	}
 
@@ -1546,19 +1566,13 @@ focus_tree = {
 		relative_position_id = TPMP_USA_reach_out_to_kuznets
 		cost = 5
 		completion_reward = {
-			custom_effect_tooltip = USA_increase_deficit_tt
-			add_to_variable = {
-				TPMP_USA_deficit_cg_var = -0.03
-				tooltip = consumer_goods_factor_tt
+			add_trait = {
+				character = USA_simon_kuznets
+				slot = political_advisor
+				trait = TPMP_director_of_NBER
 			}
-			add_to_variable = {
-				TPMP_USA_deficit_stab_var = 0.02
-				tooltip = stability_factor_tt
-			}
-			add_to_variable = {
-				TPMP_USA_deficit_pp_var = -0.03
-				tooltip = political_power_cost_tt
-			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			USA_decrease_deficit = yes
 		}
 	}
 
@@ -1590,6 +1604,7 @@ focus_tree = {
 					}
 				}
 			}
+			recalculate_congressional_ui = yes
 			custom_effect_tooltip = generic_skip_one_line_tt
 			USA_decrease_great_depression = yes
 			custom_effect_tooltip = generic_skip_one_line_tt
@@ -1625,6 +1640,7 @@ focus_tree = {
 					}
 				}
 			}
+			recalculate_congressional_ui = yes
 			custom_effect_tooltip = generic_skip_one_line_tt
 			USA_decrease_deficit = yes
 		}
@@ -2010,6 +2026,11 @@ focus_tree = {
 		relative_position_id = TPMP_USA_embrace_executive_powers
 		cost = 5
 		completion_reward = {
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = USA_donald_nelson
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = USA_felix_frankfurter
 		}
 	}
 
@@ -2047,6 +2068,18 @@ focus_tree = {
 					instant_build = yes
 					province = 6984 
 				}
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			remove_trait = {
+				character = USA_vannevar_bush
+				slot = political_advisor
+				trait = TPMP_director_of_NDRC
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_trait = {
+				character = USA_vannevar_bush
+				slot = political_advisor
+				trait = TPMP_director_of_OSRD
 			}
 		}
 	}
@@ -2183,6 +2216,7 @@ focus_tree = {
 					}
 				}
 			}
+			recalculate_congressional_ui = yes
 			custom_effect_tooltip = generic_skip_one_line_tt
 			add_ideas = TPMP_USA_refugees_idea
 		}
@@ -2855,6 +2889,11 @@ focus_tree = {
 		relative_position_id = TPMP_USA_arsenal_of_democracy
 		cost = 5
 		completion_reward = {
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = USA_donald_nelson
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = USA_william_knudsen
 		}
 	}
 

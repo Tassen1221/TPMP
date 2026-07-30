@@ -83,6 +83,7 @@ country_event = { #Miners' Strike
 				}
 			}
 		}
+		recalculate_congressional_ui = yes
 		custom_effect_tooltip = generic_skip_one_line_tt
 		add_stability = -0.05
 		add_popularity = {
@@ -349,6 +350,7 @@ country_event = {
 				}
 			}
 		}
+		recalculate_congressional_ui = yes
 		custom_effect_tooltip = generic_skip_one_line_tt
 		add_political_power = -50
 		custom_effect_tooltip = generic_skip_one_line_tt
@@ -408,6 +410,7 @@ country_event = {
 				new_deal_democrat_support_var = -1
 			}
 		}
+		recalculate_congressional_ui = yes
 		custom_effect_tooltip = generic_skip_one_line_tt
 		add_political_power = -100
 		custom_effect_tooltip = generic_skip_one_line_tt
@@ -455,6 +458,7 @@ country_event = {
 				}
 			}
 		}
+		recalculate_congressional_ui = yes
 		add_political_power = -150
 		custom_effect_tooltip = generic_skip_one_line_tt
 		complete_national_focus = TPMP_USA_the_1936_election
@@ -507,6 +511,7 @@ country_event = {
 				}
 			}
 		}
+		recalculate_congressional_ui = yes
 		custom_effect_tooltip = generic_skip_one_line_tt
 		add_political_power = -50
 		custom_effect_tooltip = generic_skip_one_line_tt
@@ -565,6 +570,7 @@ country_event = {
 				new_deal_democrat_support_var = -1
 			}
 		}
+		recalculate_congressional_ui = yes
 		custom_effect_tooltip = generic_skip_one_line_tt
 		add_political_power = -100
 		custom_effect_tooltip = generic_skip_one_line_tt
@@ -611,6 +617,7 @@ country_event = {
 				}
 			}
 		}
+		recalculate_congressional_ui = yes
 		custom_effect_tooltip = generic_skip_one_line_tt
 		add_political_power = -150
 		custom_effect_tooltip = generic_skip_one_line_tt
@@ -645,7 +652,27 @@ country_event = {
 			check_variable = { USA.TPMP_USA_electoral_support_var < 75}
 			check_variable = { USA.TPMP_USA_electoral_support_var > 49}
 		}
-		add_political_power = -100
+		custom_effect_tooltip = ndd_lose_support_small_tt
+		custom_effect_tooltip = br_gain_support_small_tt
+		for_loop_effect = {
+			end = 3
+			IF = {
+				limit = {
+					check_variable = {
+						new_deal_democrat_support_var > 0
+					}
+				}
+				add_to_variable = {
+					business_republican_support_var = 1
+				}
+				add_to_variable = {
+					new_deal_democrat_support_var = -1
+				}
+			}
+		}
+		recalculate_congressional_ui = yes
+		custom_effect_tooltip = generic_skip_one_line_tt
+		add_political_power = -50
 		custom_effect_tooltip = generic_skip_one_line_tt
 		complete_national_focus = TPMP_USA_the_1944_election
 		clr_country_flag = TPMP_USA_elections_flag
@@ -656,7 +683,55 @@ country_event = {
 			check_variable = { USA.TPMP_USA_electoral_support_var < 50}
 			check_variable = { USA.TPMP_USA_electoral_support_var > 24}
 		}
-		add_political_power = -200
+		custom_effect_tooltip = ndd_lose_support_tt
+		custom_effect_tooltip = pr_gain_support_tiny_tt
+		custom_effect_tooltip = br_gain_support_small_tt
+		custom_effect_tooltip = ir_gain_support_tiny_tt
+		IF = {
+			limit = {
+				check_variable = {
+					new_deal_democrat_support_var > 0
+				}
+			}
+			add_to_variable = {
+				isolationist_republican_support_var = 1
+			}
+			add_to_variable = {
+				new_deal_democrat_support_var = -1
+			}
+		}
+		for_loop_effect = {
+			end = 3
+			IF = {
+				limit = {
+					check_variable = {
+						new_deal_democrat_support_var > 0
+					}
+				}
+				add_to_variable = {
+					business_republican_support_var = 1
+				}
+				add_to_variable = {
+					new_deal_democrat_support_var = -1
+				}
+			}
+		}
+		IF = {
+			limit = {
+				check_variable = {
+					new_deal_democrat_support_var > 0
+				}
+			}
+			add_to_variable = {
+				progressive_republican_support_var = 1
+			}
+			add_to_variable = {
+				new_deal_democrat_support_var = -1
+			}
+		}
+		recalculate_congressional_ui = yes
+		custom_effect_tooltip = generic_skip_one_line_tt
+		add_political_power = -100
 		custom_effect_tooltip = generic_skip_one_line_tt
 		complete_national_focus = TPMP_USA_the_1944_election
 		clr_country_flag = TPMP_USA_elections_flag
@@ -666,7 +741,44 @@ country_event = {
 		trigger = {
 			check_variable = { USA.TPMP_USA_electoral_support_var < 25}
 		}
-		add_political_power = -300
+		custom_effect_tooltip = ndd_lose_support_large_tt
+		custom_effect_tooltip = br_gain_support_tt
+		custom_effect_tooltip = ir_gain_support_tt
+		for_loop_effect = {
+			end = 5
+			IF = {
+				limit = {
+					check_variable = {
+						new_deal_democrat_support_var > 0
+					}
+				}
+				add_to_variable = {
+					isolationist_republican_support_var = 1
+				}
+				add_to_variable = {
+					new_deal_democrat_support_var = -1
+				}
+			}
+		}
+		for_loop_effect = {
+			end = 5
+			IF = {
+				limit = {
+					check_variable = {
+						new_deal_democrat_support_var > 0
+					}
+				}
+				add_to_variable = {
+					business_republican_support_var = 1
+				}
+				add_to_variable = {
+					new_deal_democrat_support_var = -1
+				}
+			}
+		}
+		recalculate_congressional_ui = yes
+		custom_effect_tooltip = generic_skip_one_line_tt
+		add_political_power = -150
 		custom_effect_tooltip = generic_skip_one_line_tt
 		complete_national_focus = TPMP_USA_the_1944_election
 		clr_country_flag = TPMP_USA_elections_flag
@@ -718,6 +830,81 @@ country_event = { #Midterm Elections
 			}
 		}
 		recalculate_congressional_ui = yes
+	}
+}
+country_event = { #1940 Running Mate
+	id = TPMP_USA_election.6
+	title = TPMP_USA_election.6.t
+	desc = TPMP_USA_election.6.d
+	picture = GFX_report_event_cash_carry
+
+	is_triggered_only = yes
+
+	option = { #Keep Garner
+		name = TPMP_USA_election.6.a
+	}
+	option = { #Replace him with Wallace
+		name = TPMP_USA_election.6.b
+		clr_country_flag = TPMP_USA_garner_vp_flag
+		set_country_flag = TPMP_USA_wallace_vp_flag
+		hidden_effect = {
+			IF = {
+				limit = {
+					has_idea = USA_john_nance_garner
+				}
+				swap_ideas = {
+					remove_idea = USA_john_nance_garner
+					add_idea = USA_henry_agard_wallace
+				}
+			}
+		}
+	}
+}
+country_event = { #1944 Running Mate
+	id = TPMP_USA_election.7
+	title = TPMP_USA_election.7.t
+	desc = TPMP_USA_election.7.d
+	picture = GFX_report_event_cash_carry
+
+	is_triggered_only = yes
+
+	option = { #Keep Garner
+		name = TPMP_USA_election.7.a
+		trigger = {
+			has_country_flag = TPMP_USA_garner_vp_flag
+		}
+	}
+	option = { #Keep Wallace
+		name = TPMP_USA_election.7.b
+		trigger = {
+			has_country_flag = TPMP_USA_wallace_vp_flag
+		}
+	}
+	option = { #Nominate Truman
+		name = TPMP_USA_election.7.c
+		clr_country_flag = TPMP_USA_garner_vp_flag
+		clr_country_flag = TPMP_USA_wallace_vp_flag
+		set_country_flag = TPMP_USA_truman_vp_flag
+		hidden_effect = {
+			IF = {
+				limit = {
+					has_idea = USA_john_nance_garner
+				}
+				swap_ideas = {
+					remove_idea = USA_john_nance_garner
+					add_idea = USA_harry_s_truman
+				}
+			}
+			IF = {
+				limit = {
+					has_idea = USA_henry_agard_wallace
+				}
+				swap_ideas = {
+					remove_idea = USA_henry_agard_wallace
+					add_idea = USA_harry_s_truman
+				}
+			}
+		}
 	}
 }
 

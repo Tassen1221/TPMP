@@ -263,6 +263,61 @@ USA_complete_new_deal_focus = {
 		add_political_power = 100
 	}
 }
+USA_increase_great_depression = {
+	IF = {
+		limit = {
+			has_dynamic_modifier = {
+				modifier = TPMP_USA_great_depression_modifier
+			}
+		}
+		custom_effect_tooltip = USA_decrease_great_depression_tt
+		add_to_variable = {
+			TPMP_USA_great_depression_cg_var = 0.05
+			tooltip = consumer_goods_factor_tt
+		}
+		add_to_variable = {
+			TPMP_USA_great_depression_stab_var = -0.025
+			tooltip = stability_factor_tt
+		}
+		add_to_variable = {
+			TPMP_USA_great_depression_cons_var = -0.01
+			tooltip = production_speed_buildings_factor_tt
+		}
+		add_to_variable = {
+			TPMP_USA_great_depression_eff_cap_var = -0.01
+			tooltip = production_factory_max_efficiency_factor_tt
+		}
+		add_to_variable = {
+			TPMP_USA_great_depression_eff_gain_var = -0.01
+			tooltip = production_factory_efficiency_gain_factor_tt
+		}
+		add_to_variable = {
+			TPMP_USA_great_depression_factory_var = -0.01
+			tooltip = industrial_capacity_factory_tt
+		}
+		add_to_variable = {
+			TPMP_USA_great_depression_dock_var = -0.02
+			tooltip = industrial_capacity_dockyard_tt
+		}
+	}
+	ELSE = {
+		custom_effect_tooltip = USA_decrease_great_depression_fail_tt
+	}
+	hidden_effect = {
+		IF = {
+			limit = {
+				check_variable = {
+					var = TPMP_USA_great_depression_cg_var
+					value = 0
+					compare = greater_than_or_equals
+				}
+			}
+			add_dynamic_modifier = {
+				modifier = TPMP_USA_great_depression_modifier
+			}
+		}
+	}
+}
 USA_decrease_great_depression = {
 	IF = {
 		limit = {
