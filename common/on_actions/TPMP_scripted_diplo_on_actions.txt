@@ -188,6 +188,7 @@ on_actions = {
 					731 = { set_state_controller_to = BUL }
 					184 = { set_state_controller_to = BUL }
 				}
+				182 = { set_state_controller_to = ENG }
 			}
 		}
 	}
@@ -215,4 +216,44 @@ on_actions = {
 			}
 		}
 	}
+	# on_capitulation_immediate = { #scripted japan
+	# 	effect = {	
+	# 		if = {
+	# 			limit = {
+	# 				tag = JAP
+	# 			}
+	# 			537 = { transfer_state_to = SOV }
+	# 			555 = { transfer_state_to = SOV }
+	# 			1028 = { transfer_state_to = SOV }
+	# 			527 = { transfer_state_to = SOV }
+
+	# 			526 = { transfer_state_to = USA }
+	# 			645 = { transfer_state_to = USA }
+	# 			646 = { transfer_state_to = USA }
+	# 			648 = { transfer_state_to = USA }
+				
+	# 			SOV = {	
+    #                 puppet = MAN
+    #             }
+	# 			MAN = {
+	# 				set_political_party = {
+	# 					ideology = communism
+	# 					popularity = 30
+	# 				}
+	# 			}
+	# 			USA = {
+	# 				puppet = JAP
+	# 				every_state = {
+    #                     limit = {
+    #                         OR = {
+    #                             is_owned_by = JAP
+    #                         }
+    #                         NOT = { is_core_of = JAP }
+    #                     }
+    #                     transfer_state_to = USA
+    #                 }
+	# 			}
+	# 		}
+	# 	}
+	# }
 }
