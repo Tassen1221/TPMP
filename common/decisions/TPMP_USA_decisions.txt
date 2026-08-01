@@ -3764,3 +3764,106 @@ propaganda_efforts = {
     #     }
     # }
 }
+TPMP_USA_power_balance_category = {
+    TPMP_USA_assert_executive_authority_decision = {
+        icon = GFX_decision_generic_political_discourse
+        fire_only_once = no
+        cost = 50
+        days_remove = 30
+        remove_effect = {
+            add_power_balance_value = {
+                id = TPMP_USA_power_balance
+                value = 0.1
+            }
+        }
+    }
+    TPMP_USA_rule_by_executive_order_decision = {
+        icon = GFX_decision_generic_political_discourse
+        custom_cost_trigger = {
+            command_power > 49
+            has_political_power > 9
+        }
+        custom_cost_text = decision_cost_CP_50_pp_10
+        fire_only_once = no
+        days_remove = 30
+        complete_effect = {
+            hidden_effect = {
+                add_command_power = -50
+                add_political_power = -10
+            }
+        }
+        remove_effect = {
+            add_power_balance_value = {
+                id = TPMP_USA_power_balance
+                value = 0.1
+            }
+        }
+    }
+    TPMP_USA_defer_to_congress_decision = {
+        icon = GFX_decision_generic_political_discourse
+        fire_only_once = no
+        cost = 50
+        days_remove = 30
+        remove_effect = {
+            add_power_balance_value = {
+                id = TPMP_USA_power_balance
+                value = -0.1
+            }
+        }
+    }
+    TPMP_USA_executive_power_grab_decision = {
+        icon = GFX_decision_generic_political_discourse
+        fire_only_once = yes
+        cost = 150
+        complete_effect = {
+            add_power_balance_value = {
+                id = TPMP_USA_power_balance
+                value = 0.25
+            }
+        }
+    }
+    TPMP_USA_restore_congressional_oversight_decision = {
+        icon = GFX_decision_generic_political_discourse
+        fire_only_once = yes
+        cost = 150
+        complete_effect = {
+            add_power_balance_value = {
+                id = TPMP_USA_power_balance
+                value = -0.25
+            }
+        }
+    }
+    TPMP_USA_concessions_to_congress_decision = {
+        icon = GFX_decision_generic_political_discourse
+        fire_only_once = no
+        cost = 10
+        days_remove = 30
+        remove_effect = {
+            custom_effect_tooltip = ndd_lose_support_small_tt
+            custom_effect_tooltip = br_gain_support_small_tt
+            for_loop_effect = {
+                end = 3
+                IF = {
+                    limit = {
+                        check_variable = {
+                            new_deal_democrat_support_var > 0
+                        }
+                    }
+                    add_to_variable = {
+                        business_republican_support_var = 1
+                    }
+                    add_to_variable = {
+                        new_deal_democrat_support_var = -1
+                    }
+                }
+            }
+            recalculate_congressional_ui = yes
+            custom_effect_tooltip = generic_skip_one_line_tt
+            add_power_balance_value = {
+                id = TPMP_USA_power_balance
+                value = -0.1
+            }
+        }
+    }
+}
+
