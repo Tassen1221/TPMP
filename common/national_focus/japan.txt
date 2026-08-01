@@ -8264,7 +8264,7 @@ focus_tree = {
 
 		prerequisite = { focus = JAP_form_the_central_economic_council }
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -8332,7 +8332,7 @@ focus_tree = {
 
 		prerequisite = { focus = JAP_form_the_central_economic_council }
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -11389,7 +11389,7 @@ focus_tree = {
 
 		prerequisite = { focus = JAP_revisit_the_thirteen_demands }
 
-		cost = 10
+		cost = 3
 
 		ai_will_do = {
 			factor = 1
@@ -26377,62 +26377,12 @@ focus_tree = {
 		}
 
 		available = {
-			
-			has_resources_in_collection = {
-				collection = collection:country_and_all_subjects
-				resource = steel
-				amount > 1999
-				extracted = yes
-			}
-		
-		
-			has_resources_in_collection = {
-				collection = collection:country_and_all_subjects
-				resource = aluminium
-				amount > 1999
-				extracted = yes
-			}
-		
-		
-			has_resources_in_collection = {
-				collection = collection:country_and_all_subjects
-				resource = oil
-				amount > 2499
-				extracted = yes
-			}
-		
-		
-			has_resources_in_collection = {
-				collection = collection:country_and_all_subjects
-				resource = tungsten
-				amount > 1999
-				extracted = yes
-			}
-		
-		
-			has_resources_in_collection = {
-				collection = collection:country_and_all_subjects
-				resource = chromium
-				amount > 1499
-				extracted = yes
-			}
-		
-		
 			has_resources_in_collection = {
 				collection = collection:country_and_all_subjects
 				resource = rubber
 				amount > 2999
 				extracted = yes
-			}
-		
-		
-			has_resources_in_collection = {
-				collection = collection:country_and_all_subjects
-				resource = coal
-				amount > 1999
-				extracted = yes
-			}
-			
+			}			
 		}
 
 		bypass = {
@@ -32356,14 +32306,16 @@ focus_tree = {
 	focus = {
 		id = JAP_end_the_interservice_rivalry
 		icon = GFX_focus_JAP_end_the_interservice_rivalry
-		
-		#mutually_exclusive = {
-		#	focus = 
-		#}
 
-		prerequisite = { focus = JAP_combined_nuclear_research_efforts }
+		prerequisite = {
+			focus = JAP_pivot_towards_defensive_measures
+			focus = JAP_strenghten_the_supply_lines
+			focus = JAP_sea_jet_prototypes
+			focus = JAP_secure_the_sea_lanes
+			focus = JAP_fix_flawed_naval_designs
+		}
 
-		relative_position_id = JAP_combined_nuclear_research_efforts
+		relative_position_id = JAP_sea_jet_prototypes
 		x = 0
 		y = 1
 

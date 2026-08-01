@@ -8401,6 +8401,49 @@ focus_tree = {
 		}
 	}
 
+	#TPMP Changes
+	focus = {
+		id = TPMP_ENG_imperial_conference_1941
+		prerequisite = { focus = ENG_imperial_conference }
+		available = {
+			date > 1941.01.01
+		}
+		icon = GFX_focus_eng_imperial_federation
+
+		x = 0
+		y = 1
+		relative_position_id = ENG_imperial_conference
+		cost = 10
+
+		completion_reward = {
+			CAN = {
+				add_timed_idea = {
+					idea = TPMP_ENG_imperial_conference_idea
+					days = 365
+				}
+			}
+			AST = {
+				add_timed_idea = {
+					idea = TPMP_ENG_imperial_conference_idea
+					days = 365
+				}
+			}
+			RAJ = {
+				add_timed_idea = {
+					idea = TPMP_ENG_imperial_conference_idea
+					days = 365
+				}
+			}
+			SAF = {
+				add_timed_idea = {
+					idea = TPMP_ENG_imperial_conference_idea
+					days = 365
+				}
+			}
+		}
+	}
+	#TPMP Changes
+
 	focus = {
 		id = ENG_imperial_federation
 		prerequisite = { focus = ENG_imperial_conference }

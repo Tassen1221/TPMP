@@ -1838,23 +1838,6 @@ focus_tree = {
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
-			GER_modify_industrial_modifier = yes
-			add_to_variable = { 
-				GER_industrial_consumer_goods_factor = 0.1
-				tooltip = consumer_goods_factor_tt
-			}
-			if = {
-				limit = {
-					OR = {
-						has_dynamic_modifier = { modifier = GER_mefo_bills_modifier }
-						has_dynamic_modifier = { modifier = GER_economy_of_conquest_modifier }
-					}
-				}
-				GER_add_mefo_bills_penalty = yes
-			}
-
-			custom_effect_tooltip = generic_skip_one_line_tt
-
 			GER_add_or_modify_wehrwirtschaft = yes
 			add_to_variable = { 
 				GER_wehrwirtschaft_local_resources_factor = 0.05
@@ -2016,30 +1999,12 @@ focus_tree = {
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
-			GER_modify_industrial_modifier = yes
-			add_to_variable = { 
-				GER_industrial_consumer_goods_factor = 0.1
-				tooltip = consumer_goods_factor_tt
-			}
-			if = {
-				limit = {
-					OR = {
-						has_dynamic_modifier = { modifier = GER_mefo_bills_modifier }
-						has_dynamic_modifier = { modifier = GER_economy_of_conquest_modifier }
-					}
-				}
-				GER_add_mefo_bills_penalty = yes
-			}
-
-			custom_effect_tooltip = generic_skip_one_line_tt
-
 			custom_effect_tooltip = GER_modify_wehrwirtschaft_modifier_tt
 			add_to_variable = { 
 				GER_wehrwirtschaft_local_resources_factor = 0.05
 				tooltip = local_resources_factor_tt
 			}
 			custom_effect_tooltip = generic_skip_one_line_tt
-
 		}
 	}
 	
@@ -2089,21 +2054,6 @@ focus_tree = {
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
-			GER_modify_industrial_modifier = yes
-			add_to_variable = { 
-				GER_industrial_consumer_goods_factor = 0.1
-				tooltip = consumer_goods_factor_tt
-			}
-			if = {
-				limit = {
-					OR = {
-						has_dynamic_modifier = { modifier = GER_mefo_bills_modifier }
-						has_dynamic_modifier = { modifier = GER_economy_of_conquest_modifier }
-					}
-				}
-				GER_add_mefo_bills_penalty = yes
-			}
-
 			GER_add_or_modify_wehrwirtschaft = yes
 			add_to_variable = { 
 				GER_wehrwirtschaft_production_speed_synthetic_refinery_factor = 0.1
@@ -2146,7 +2096,6 @@ focus_tree = {
 		relative_position_id = GER_coal_liquefaction
 		cost = 5
 		available = {
-			has_tech = oil_processing
 		}
 
 		continue_if_invalid = yes
@@ -2184,23 +2133,6 @@ focus_tree = {
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
-			GER_modify_industrial_modifier = yes
-			add_to_variable = { 
-				GER_industrial_consumer_goods_factor = 0.1
-				tooltip = consumer_goods_factor_tt
-			}
-			if = {
-				limit = {
-					OR = {
-						has_dynamic_modifier = { modifier = GER_mefo_bills_modifier }
-						has_dynamic_modifier = { modifier = GER_economy_of_conquest_modifier }
-					}
-				}
-				GER_add_mefo_bills_penalty = yes
-			}
-
-			custom_effect_tooltip = generic_skip_one_line_tt
-
 			custom_effect_tooltip = GER_modify_wehrwirtschaft_modifier_tt
 			add_to_variable = { 
 				GER_wehrwirtschaft_production_oil_factor = 0.1
@@ -2229,7 +2161,6 @@ focus_tree = {
 		relative_position_id = GER_coal_liquefaction
 		cost = 5
 		available = {
-			has_tech = rubber_processing
 		}
 
 		continue_if_invalid = yes
@@ -2279,23 +2210,6 @@ focus_tree = {
 				bonus = 1
 				uses = 1
 				category = synth_resources
-			}
-
-			custom_effect_tooltip = generic_skip_one_line_tt
-
-			GER_modify_industrial_modifier = yes
-			add_to_variable = { 
-				GER_industrial_consumer_goods_factor = 0.1
-				tooltip = consumer_goods_factor_tt
-			}
-			if = {
-				limit = {
-					OR = {
-						has_dynamic_modifier = { modifier = GER_mefo_bills_modifier }
-						has_dynamic_modifier = { modifier = GER_economy_of_conquest_modifier }
-					}
-				}
-				GER_add_mefo_bills_penalty = yes
 			}
 		}
 	}
@@ -2374,15 +2288,13 @@ focus_tree = {
 	focus = {
 		id = TPMP_GER_autarky_abandoned
 		icon = GFX_goal_generic_trade
-		prerequisite = { focus = GER_seize_foreign_industries }
-		prerequisite = { focus = GER_subsidize_hoesch_benzin }
-		prerequisite = { focus = GER_establish_buna_werke }
+		prerequisite = { focus = GER_seize_foreign_industries focus = GER_subsidize_hoesch_benzin focus = GER_establish_buna_werke }
 		mutually_exclusive = { focus = GER_autarky_achieved }
 
 		x = 3
 		y = 1
 		relative_position_id = GER_seize_foreign_industries
-		cost = 10
+		cost = 1
 		available = {
 		}
 
