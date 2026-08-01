@@ -259,7 +259,7 @@ focus_tree = {
 		x = -3
 		y = 1
 		relative_position_id = ITA_ministry_of_italian_africa
-		cost = 5
+		cost = 3
 		available = {
 			OR = {
 				any_controlled_state = {
@@ -293,23 +293,287 @@ focus_tree = {
 						}
 					}
 				}
-				custom_effect_tooltip = ITA_develop_ethiopia_tt
+				custom_effect_tooltip = TPMP_ITA_develop_ethiopia_tt
 			}
+			
+			# if = {
+			# 	limit = {
+			# 		271 = { #SHEWA (Addis Ababa)
+			# 			OR = {
+			# 				is_fully_controlled_by = ROOT
+			# 				controller = {
+			# 					is_subject_of = ROOT
+			# 					has_full_control_of_state = PREV
+			# 				}
+			# 			}
+			# 			NOT = { has_state_flag = ITA_improved_infrastructure_in_state_flag }
+			# 		}
+			# 	}
+			# 	271 = { #SHEWA (Addis Ababa)
+			# 		set_state_flag = ITA_improved_infrastructure_in_state_flag
+			# 		add_building_construction = {
+			# 			type = infrastructure
+			# 			level = 1
+			# 			instant_build = yes
+			# 		}
+			# 		add_extra_state_shared_building_slots = 1
+			# 	}
+			# }
+			# else_if = {
+			# 	limit = {
+			# 		ROOT = {
+			# 			any_controlled_state = {
+			# 				is_core_of = ETH
+			# 				is_fully_controlled_by = ROOT
+			# 				NOT = { has_state_flag = ITA_improved_infrastructure_in_state_flag }
+			# 			}
+			# 		}
+			# 	}
+			# 	ROOT = {
+			# 		random_controlled_state = {
+			# 			prioritize = { 835 } #HARARGHE
+			# 			limit = {
+			# 				is_core_of = ETH
+			# 				is_fully_controlled_by = ROOT
+			# 				NOT = { has_state_flag = ITA_improved_infrastructure_in_state_flag }
+			# 			}
+			# 			set_state_flag = ITA_improved_infrastructure_in_state_flag
+			# 			add_building_construction = {
+			# 				type = infrastructure
+			# 				level = 1
+			# 				instant_build = yes
+			# 			}
+			# 			add_extra_state_shared_building_slots = 1
+			# 		}
+			# 	}
+			# }
+			# else_if = {
+			# 	limit = {
+			# 		any_subject_country = { #FOR PUPPETS
+			# 			any_controlled_state = {
+			# 				is_core_of = ETH
+			# 				is_fully_controlled_by = PREV
+			# 			}
+			# 		}
+			# 	}
+			# 	random_other_country = {
+			# 		limit = {
+			# 			is_subject_of = ROOT
+			# 			any_controlled_state = {
+			# 				is_core_of = ETH
+			# 				is_fully_controlled_by = PREV
+			# 			}
+			# 		}
+			# 		random_controlled_state = {
+			# 			prioritize = { 835 } #HARARGHE
+			# 			limit = {
+			# 				is_core_of = ETH
+			# 				is_fully_controlled_by = PREV
+			# 				NOT = { has_state_flag = ITA_improved_infrastructure_in_state_flag }
+			# 			}
+			# 			set_state_flag = ITA_improved_infrastructure_in_state_flag
+			# 			add_building_construction = {
+			# 				type = infrastructure
+			# 				level = 1
+			# 				instant_build = yes
+			# 			}
+			# 			add_extra_state_shared_building_slots = 1
+			# 		}
+			# 	}
+			# }
+			# if = {
+			# 	limit = {
+			# 		843 = { #WELLO
+			# 			OR = {
+			# 				is_fully_controlled_by = ROOT
+			# 				controller = {
+			# 					is_subject_of = ROOT
+			# 					has_full_control_of_state = PREV
+			# 				}
+			# 			}
+			# 			NOT = { has_state_flag = ITA_improved_infrastructure_in_state_flag }
+			# 		}
+			# 	}
+			# 	843 = { #WELLO
+			# 		add_building_construction = {
+			# 			type = infrastructure
+			# 			level = 1
+			# 			instant_build = yes
+			# 		}
+			# 		add_extra_state_shared_building_slots = 1
+			# 	}
+			# }
+			# else_if = {
+			# 	limit = {
+			# 		ROOT = {
+			# 			any_controlled_state = {
+			# 				is_core_of = ETH
+			# 				is_fully_controlled_by = ROOT
+			# 				NOT = { has_state_flag = ITA_improved_infrastructure_in_state_flag }
+			# 			}
+			# 		}
+			# 	}
+			# 	ROOT = {
+			# 		random_controlled_state = {
+			# 			prioritize = { 837 } #SIDAMO
+			# 			limit = {
+			# 				is_core_of = ETH
+			# 				is_fully_controlled_by = ROOT
+			# 				NOT = { has_state_flag = ITA_improved_infrastructure_in_state_flag }
+			# 			}
+			# 			set_state_flag = ITA_improved_infrastructure_in_state_flag
+			# 			add_building_construction = {
+			# 				type = infrastructure
+			# 				level = 1
+			# 				instant_build = yes
+			# 			}
+			# 			add_extra_state_shared_building_slots = 1
+			# 		}
+			# 	}
+			# }
+			# else_if = {
+			# 	limit = {
+			# 		any_subject_country = { #FOR PUPPETS
+			# 			any_controlled_state = {
+			# 				is_core_of = ETH
+			# 				is_fully_controlled_by = PREV
+			# 				NOT = { has_state_flag = ITA_improved_infrastructure_in_state_flag }
+			# 			}
+			# 		}
+			# 	}
+			# 	random_other_country = {
+			# 		limit = {
+			# 			is_subject_of = ROOT
+			# 			any_controlled_state = {
+			# 				is_core_of = ETH
+			# 				is_fully_controlled_by = PREV
+			# 				NOT = { has_state_flag = ITA_improved_infrastructure_in_state_flag }
+			# 			}
+			# 		}
+			# 		random_controlled_state = {
+			# 			prioritize = { 837 } #SIDAMO
+			# 			limit = {
+			# 				is_core_of = ETH
+			# 				is_fully_controlled_by = PREV
+			# 				NOT = { has_state_flag = ITA_improved_infrastructure_in_state_flag }
+			# 			}
+			# 			set_state_flag = ITA_improved_infrastructure_in_state_flag
+			# 			add_building_construction = {
+			# 				type = infrastructure
+			# 				level = 1
+			# 				instant_build = yes
+			# 			}
+			# 			add_extra_state_shared_building_slots = 1
+			# 		}
+			# 	}
+			# }
 
-			if = {
+			# if = {
+			# 	limit = {
+			# 		842 = { #TIGRAY
+			# 			OR = {
+			# 				is_fully_controlled_by = ROOT
+			# 				controller = {
+			# 					is_subject_of = ROOT
+			# 					has_full_control_of_state = PREV
+			# 				}
+			# 			}
+			# 			NOT = { has_state_flag = ITA_improved_infrastructure_in_state_flag }
+			# 		}
+			# 	}
+			# 	842 = { #TIGRAY
+			# 		add_building_construction = {
+			# 			type = infrastructure
+			# 			level = 1
+			# 			instant_build = yes
+			# 		}
+			# 		add_extra_state_shared_building_slots = 1
+			# 	}
+			# }
+			# else_if = {
+			# 	limit = {
+			# 		ROOT = {
+			# 			any_controlled_state = {
+			# 				is_core_of = ETH
+			# 				is_fully_controlled_by = ROOT
+			# 				NOT = { has_state_flag = ITA_improved_infrastructure_in_state_flag }
+			# 			}
+			# 		}
+			# 	}
+			# 	ROOT = {
+			# 		random_controlled_state = {
+			# 			prioritize = { 841 } #BEGEMDER
+			# 			limit = {
+			# 				is_core_of = ETH
+			# 				is_fully_controlled_by = ROOT
+			# 				NOT = { has_state_flag = ITA_improved_infrastructure_in_state_flag }
+			# 			}
+			# 			set_state_flag = ITA_improved_infrastructure_in_state_flag
+			# 			add_building_construction = {
+			# 				type = infrastructure
+			# 				level = 1
+			# 				instant_build = yes
+			# 			}
+			# 			add_extra_state_shared_building_slots = 1
+			# 		}
+			# 	}
+			# }
+			# else_if = {
+			# 	limit = {
+			# 		any_subject_country = { #FOR PUPPETS
+			# 			any_controlled_state = {
+			# 				is_core_of = ETH
+			# 				is_fully_controlled_by = PREV
+			# 				NOT = { has_state_flag = ITA_improved_infrastructure_in_state_flag }
+			# 			}
+			# 		}
+			# 	}
+			# 	random_other_country = {
+			# 		limit = {
+			# 			is_subject_of = ROOT
+			# 			any_controlled_state = {
+			# 				is_core_of = ETH
+			# 				is_fully_controlled_by = PREV
+			# 				NOT = { has_state_flag = ITA_improved_infrastructure_in_state_flag }
+			# 			}
+			# 		}
+			# 		random_controlled_state = {
+			# 			prioritize = { 841 } #BEGEMDER
+			# 			limit = {
+			# 				is_core_of = ETH
+			# 				is_fully_controlled_by = PREV
+			# 				NOT = { has_state_flag = ITA_improved_infrastructure_in_state_flag }
+			# 			}
+			# 			set_state_flag = ITA_improved_infrastructure_in_state_flag
+			# 			add_building_construction = {
+			# 				type = infrastructure
+			# 				level = 1
+			# 				instant_build = yes
+			# 			}
+			# 			add_extra_state_shared_building_slots = 1
+			# 		}
+			# 	}
+			# }
+
+			every_controlled_state = {
 				limit = {
-					271 = { #SHEWA (Addis Ababa)
-						OR = {
-							is_fully_controlled_by = ROOT
-							controller = {
-								is_subject_of = ROOT
-								has_full_control_of_state = PREV
-							}
-						}
-						NOT = { has_state_flag = ITA_improved_infrastructure_in_state_flag }
-					}
+					is_core_of = ETH
+					state_is_fully_controlled_by_ROOT_or_subject = yes
 				}
-				271 = { #SHEWA (Addis Ababa)
+				set_state_flag = ITA_improved_infrastructure_in_state_flag
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+            	add_extra_state_shared_building_slots = 1
+			}
+			every_subject_country = {
+				every_controlled_state = {
+					limit = {
+						is_core_of = ETH
+						is_fully_controlled_by = PREV
+					}
 					set_state_flag = ITA_improved_infrastructure_in_state_flag
 					add_building_construction = {
 						type = infrastructure
@@ -319,247 +583,11 @@ focus_tree = {
 					add_extra_state_shared_building_slots = 1
 				}
 			}
-			else_if = {
-				limit = {
-					ROOT = {
-						any_controlled_state = {
-							is_core_of = ETH
-							is_fully_controlled_by = ROOT
-							NOT = { has_state_flag = ITA_improved_infrastructure_in_state_flag }
-						}
-					}
-				}
-				ROOT = {
-					random_controlled_state = {
-						prioritize = { 835 } #HARARGHE
-						limit = {
-							is_core_of = ETH
-							is_fully_controlled_by = ROOT
-							NOT = { has_state_flag = ITA_improved_infrastructure_in_state_flag }
-						}
-						set_state_flag = ITA_improved_infrastructure_in_state_flag
-						add_building_construction = {
-							type = infrastructure
-							level = 1
-							instant_build = yes
-						}
-						add_extra_state_shared_building_slots = 1
-					}
-				}
-			}
-			else_if = {
-				limit = {
-					any_subject_country = { #FOR PUPPETS
-						any_controlled_state = {
-							is_core_of = ETH
-							is_fully_controlled_by = PREV
-						}
-					}
-				}
-				random_other_country = {
-					limit = {
-						is_subject_of = ROOT
-						any_controlled_state = {
-							is_core_of = ETH
-							is_fully_controlled_by = PREV
-						}
-					}
-					random_controlled_state = {
-						prioritize = { 835 } #HARARGHE
-						limit = {
-							is_core_of = ETH
-							is_fully_controlled_by = PREV
-							NOT = { has_state_flag = ITA_improved_infrastructure_in_state_flag }
-						}
-						set_state_flag = ITA_improved_infrastructure_in_state_flag
-						add_building_construction = {
-							type = infrastructure
-							level = 1
-							instant_build = yes
-						}
-						add_extra_state_shared_building_slots = 1
-					}
-				}
-			}
-			if = {
-				limit = {
-					843 = { #WELLO
-						OR = {
-							is_fully_controlled_by = ROOT
-							controller = {
-								is_subject_of = ROOT
-								has_full_control_of_state = PREV
-							}
-						}
-						NOT = { has_state_flag = ITA_improved_infrastructure_in_state_flag }
-					}
-				}
-				843 = { #WELLO
-					add_building_construction = {
-						type = infrastructure
-						level = 1
-						instant_build = yes
-					}
-					add_extra_state_shared_building_slots = 1
-				}
-			}
-			else_if = {
-				limit = {
-					ROOT = {
-						any_controlled_state = {
-							is_core_of = ETH
-							is_fully_controlled_by = ROOT
-							NOT = { has_state_flag = ITA_improved_infrastructure_in_state_flag }
-						}
-					}
-				}
-				ROOT = {
-					random_controlled_state = {
-						prioritize = { 837 } #SIDAMO
-						limit = {
-							is_core_of = ETH
-							is_fully_controlled_by = ROOT
-							NOT = { has_state_flag = ITA_improved_infrastructure_in_state_flag }
-						}
-						set_state_flag = ITA_improved_infrastructure_in_state_flag
-						add_building_construction = {
-							type = infrastructure
-							level = 1
-							instant_build = yes
-						}
-						add_extra_state_shared_building_slots = 1
-					}
-				}
-			}
-			else_if = {
-				limit = {
-					any_subject_country = { #FOR PUPPETS
-						any_controlled_state = {
-							is_core_of = ETH
-							is_fully_controlled_by = PREV
-							NOT = { has_state_flag = ITA_improved_infrastructure_in_state_flag }
-						}
-					}
-				}
-				random_other_country = {
-					limit = {
-						is_subject_of = ROOT
-						any_controlled_state = {
-							is_core_of = ETH
-							is_fully_controlled_by = PREV
-							NOT = { has_state_flag = ITA_improved_infrastructure_in_state_flag }
-						}
-					}
-					random_controlled_state = {
-						prioritize = { 837 } #SIDAMO
-						limit = {
-							is_core_of = ETH
-							is_fully_controlled_by = PREV
-							NOT = { has_state_flag = ITA_improved_infrastructure_in_state_flag }
-						}
-						set_state_flag = ITA_improved_infrastructure_in_state_flag
-						add_building_construction = {
-							type = infrastructure
-							level = 1
-							instant_build = yes
-						}
-						add_extra_state_shared_building_slots = 1
-					}
-				}
-			}
-
-			if = {
-				limit = {
-					842 = { #TIGRAY
-						OR = {
-							is_fully_controlled_by = ROOT
-							controller = {
-								is_subject_of = ROOT
-								has_full_control_of_state = PREV
-							}
-						}
-						NOT = { has_state_flag = ITA_improved_infrastructure_in_state_flag }
-					}
-				}
-				842 = { #TIGRAY
-					add_building_construction = {
-						type = infrastructure
-						level = 1
-						instant_build = yes
-					}
-					add_extra_state_shared_building_slots = 1
-				}
-			}
-			else_if = {
-				limit = {
-					ROOT = {
-						any_controlled_state = {
-							is_core_of = ETH
-							is_fully_controlled_by = ROOT
-							NOT = { has_state_flag = ITA_improved_infrastructure_in_state_flag }
-						}
-					}
-				}
-				ROOT = {
-					random_controlled_state = {
-						prioritize = { 841 } #BEGEMDER
-						limit = {
-							is_core_of = ETH
-							is_fully_controlled_by = ROOT
-							NOT = { has_state_flag = ITA_improved_infrastructure_in_state_flag }
-						}
-						set_state_flag = ITA_improved_infrastructure_in_state_flag
-						add_building_construction = {
-							type = infrastructure
-							level = 1
-							instant_build = yes
-						}
-						add_extra_state_shared_building_slots = 1
-					}
-				}
-			}
-			else_if = {
-				limit = {
-					any_subject_country = { #FOR PUPPETS
-						any_controlled_state = {
-							is_core_of = ETH
-							is_fully_controlled_by = PREV
-							NOT = { has_state_flag = ITA_improved_infrastructure_in_state_flag }
-						}
-					}
-				}
-				random_other_country = {
-					limit = {
-						is_subject_of = ROOT
-						any_controlled_state = {
-							is_core_of = ETH
-							is_fully_controlled_by = PREV
-							NOT = { has_state_flag = ITA_improved_infrastructure_in_state_flag }
-						}
-					}
-					random_controlled_state = {
-						prioritize = { 841 } #BEGEMDER
-						limit = {
-							is_core_of = ETH
-							is_fully_controlled_by = PREV
-							NOT = { has_state_flag = ITA_improved_infrastructure_in_state_flag }
-						}
-						set_state_flag = ITA_improved_infrastructure_in_state_flag
-						add_building_construction = {
-							type = infrastructure
-							level = 1
-							instant_build = yes
-						}
-						add_extra_state_shared_building_slots = 1
-					}
-				}
-			}
-
 			every_controlled_state = {
 				limit = {
 					state_is_fully_controlled_by_ROOT_or_subject = yes
 					is_core_of = ETH
-					has_resistance = yes
+					# has_resistance = yes
 				}
 				add_compliance = 5
 			}
@@ -574,7 +602,7 @@ focus_tree = {
 		x = -1
 		y = 1
 		relative_position_id = ITA_ministry_of_italian_africa
-		cost = 5
+		cost = 3
 		available = {
 			OR = {
 				448 = {	is_fully_controlled_by = ROOT }
@@ -587,281 +615,301 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_INDUSTRY}
 
 		completion_reward = {
-			if = {
-				limit = {
-					NOT = {
-						any_controlled_state = {
-							is_core_of = LBA
-							is_fully_controlled_by = ROOT
-						}
-						any_subject_country = { #FOR PUPPETS
-							any_controlled_state = {
-								is_core_of = LBA
-								is_fully_controlled_by = PREV
-							}
-						}
-					}
-				}
-				custom_effect_tooltip = ITA_develop_libya_tt
-			}
+			# if = {
+			# 	limit = {
+			# 		NOT = {
+			# 			any_controlled_state = {
+			# 				is_core_of = LBA
+			# 				is_fully_controlled_by = ROOT
+			# 			}
+			# 			any_subject_country = { #FOR PUPPETS
+			# 				any_controlled_state = {
+			# 					is_core_of = LBA
+			# 					is_fully_controlled_by = PREV
+			# 				}
+			# 			}
+			# 		}
+			# 	}
+			# 	custom_effect_tooltip = ITA_develop_libya_tt
+			# }
 
-			if = {
-				limit = {
-					448 = { #TRIPOLI
-						OR = {
-							is_fully_controlled_by = ROOT
-							controller = {
-								is_subject_of = ROOT
-								has_full_control_of_state = PREV
-							}
-						}
-						NOT = { has_state_flag = ITA_improved_infrastructure_in_state_flag }
-					}
-				}
-				448 = { #TRIPOLI
-					add_building_construction = {
-						type = infrastructure
-						level = 1
-						instant_build = yes
-					}
-					add_extra_state_shared_building_slots = 1
-					set_state_flag = ITA_improved_infrastructure_in_state_flag
-				}
-			}
-			else_if = {
-				limit = {
-					ROOT = {
-						any_controlled_state = {
-							is_core_of = LBA
-							is_fully_controlled_by = ROOT
-							NOT = { has_state_flag = ITA_improved_infrastructure_in_state_flag }
-						}
-					}
-				}
-				ROOT = {
-					random_controlled_state = {
-						limit = {
-							is_core_of = LBA
-							is_fully_controlled_by = ROOT
-							NOT = { has_state_flag = ITA_improved_infrastructure_in_state_flag }
-						}
-						set_state_flag = ITA_improved_infrastructure_in_state_flag
-						add_building_construction = {
-							type = infrastructure
-							level = 1
-							instant_build = yes
-						}
-						add_extra_state_shared_building_slots = 1
-					}
-				}
-			}
-			else_if = {
-				limit = {
-					any_subject_country = { #FOR PUPPETS
-						any_controlled_state = {
-							is_core_of = LBA
-							is_fully_controlled_by = PREV
-						}
-					}
-				}
-				random_other_country = {
-					limit = {
-						is_subject_of = ROOT
-						any_controlled_state = {
-							is_core_of = LBA
-							is_fully_controlled_by = PREV
-						}
-					}
-					random_controlled_state = {
-						prioritize = { 841 } #HARARGHE
-						limit = {
-							is_core_of = LBA
-							is_fully_controlled_by = PREV
-							NOT = { has_state_flag = ITA_improved_infrastructure_in_state_flag }
-						}
-						set_state_flag = ITA_improved_infrastructure_in_state_flag
-						add_building_construction = {
-							type = infrastructure
-							level = 1
-							instant_build = yes
-						}
-						add_extra_state_shared_building_slots = 1
-					}
-				}
-			}
+			# if = {
+			# 	limit = {
+			# 		448 = { #TRIPOLI
+			# 			OR = {
+			# 				is_fully_controlled_by = ROOT
+			# 				controller = {
+			# 					is_subject_of = ROOT
+			# 					has_full_control_of_state = PREV
+			# 				}
+			# 			}
+			# 			NOT = { has_state_flag = ITA_improved_infrastructure_in_state_flag }
+			# 		}
+			# 	}
+			# 	448 = { #TRIPOLI
+			# 		add_building_construction = {
+			# 			type = infrastructure
+			# 			level = 1
+			# 			instant_build = yes
+			# 		}
+			# 		add_extra_state_shared_building_slots = 1
+			# 		set_state_flag = ITA_improved_infrastructure_in_state_flag
+			# 	}
+			# }
+			# else_if = {
+			# 	limit = {
+			# 		ROOT = {
+			# 			any_controlled_state = {
+			# 				is_core_of = LBA
+			# 				is_fully_controlled_by = ROOT
+			# 				NOT = { has_state_flag = ITA_improved_infrastructure_in_state_flag }
+			# 			}
+			# 		}
+			# 	}
+			# 	ROOT = {
+			# 		random_controlled_state = {
+			# 			limit = {
+			# 				is_core_of = LBA
+			# 				is_fully_controlled_by = ROOT
+			# 				NOT = { has_state_flag = ITA_improved_infrastructure_in_state_flag }
+			# 			}
+			# 			set_state_flag = ITA_improved_infrastructure_in_state_flag
+			# 			add_building_construction = {
+			# 				type = infrastructure
+			# 				level = 1
+			# 				instant_build = yes
+			# 			}
+			# 			add_extra_state_shared_building_slots = 1
+			# 		}
+			# 	}
+			# }
+			# else_if = {
+			# 	limit = {
+			# 		any_subject_country = { #FOR PUPPETS
+			# 			any_controlled_state = {
+			# 				is_core_of = LBA
+			# 				is_fully_controlled_by = PREV
+			# 			}
+			# 		}
+			# 	}
+			# 	random_other_country = {
+			# 		limit = {
+			# 			is_subject_of = ROOT
+			# 			any_controlled_state = {
+			# 				is_core_of = LBA
+			# 				is_fully_controlled_by = PREV
+			# 			}
+			# 		}
+			# 		random_controlled_state = {
+			# 			prioritize = { 841 } #HARARGHE
+			# 			limit = {
+			# 				is_core_of = LBA
+			# 				is_fully_controlled_by = PREV
+			# 				NOT = { has_state_flag = ITA_improved_infrastructure_in_state_flag }
+			# 			}
+			# 			set_state_flag = ITA_improved_infrastructure_in_state_flag
+			# 			add_building_construction = {
+			# 				type = infrastructure
+			# 				level = 1
+			# 				instant_build = yes
+			# 			}
+			# 			add_extra_state_shared_building_slots = 1
+			# 		}
+			# 	}
+			# }
 
-			if = {
-				limit = {
-					450 = { #BENGHALI
-						OR = {
-							is_fully_controlled_by = ROOT
-							controller = {
-								is_subject_of = ROOT
-								has_full_control_of_state = PREV
-							}
-						}
-						NOT = { has_state_flag = ITA_improved_infrastructure_in_state_flag }
-					}
-				}
-				450 = { #BENGHALI
-					add_building_construction = {
-						type = infrastructure
-						level = 1
-						instant_build = yes
-					}
-					add_extra_state_shared_building_slots = 1
-					set_state_flag = ITA_improved_infrastructure_in_state_flag
-				}
-			}
-			else_if = {
-				limit = {
-					ROOT = {
-						any_controlled_state = {
-							is_core_of = LBA
-							is_fully_controlled_by = ROOT
-							NOT = { has_state_flag = ITA_improved_infrastructure_in_state_flag }
-						}
-					}
-				}
-				ROOT = {
-					random_controlled_state = {
-						limit = {
-							is_core_of = LBA
-							is_fully_controlled_by = ROOT
-							NOT = { has_state_flag = ITA_improved_infrastructure_in_state_flag }
-						}
-						set_state_flag = ITA_improved_infrastructure_in_state_flag
-						add_building_construction = {
-							type = infrastructure
-							level = 1
-							instant_build = yes
-						}
-						add_extra_state_shared_building_slots = 1
-					}
-				}
-			}
-			else_if = {
-				limit = {
-					any_subject_country = { #FOR PUPPETS
-						any_controlled_state = {
-							is_core_of = LBA
-							is_fully_controlled_by = PREV
-							NOT = { has_state_flag = ITA_improved_infrastructure_in_state_flag }
-						}
-					}
-				}
-				random_other_country = {
-					limit = {
-						is_subject_of = ROOT
-						any_controlled_state = {
-							is_core_of = ETH
-							is_fully_controlled_by = PREV
-							NOT = { has_state_flag = ITA_improved_infrastructure_in_state_flag }
-						}
-					}
-					random_controlled_state = {
-						prioritize = { 841 } #HARARGHE
-						limit = {
-							is_core_of = LBA
-							is_fully_controlled_by = PREV
-							NOT = { has_state_flag = ITA_improved_infrastructure_in_state_flag }
-						}
-						set_state_flag = ITA_improved_infrastructure_in_state_flag
-						add_building_construction = {
-							type = infrastructure
-							level = 1
-							instant_build = yes
-						}
-						add_extra_state_shared_building_slots = 1
-					}
-				}
-			}
+			# if = {
+			# 	limit = {
+			# 		450 = { #BENGHALI
+			# 			OR = {
+			# 				is_fully_controlled_by = ROOT
+			# 				controller = {
+			# 					is_subject_of = ROOT
+			# 					has_full_control_of_state = PREV
+			# 				}
+			# 			}
+			# 			NOT = { has_state_flag = ITA_improved_infrastructure_in_state_flag }
+			# 		}
+			# 	}
+			# 	450 = { #BENGHALI
+			# 		add_building_construction = {
+			# 			type = infrastructure
+			# 			level = 1
+			# 			instant_build = yes
+			# 		}
+			# 		add_extra_state_shared_building_slots = 1
+			# 		set_state_flag = ITA_improved_infrastructure_in_state_flag
+			# 	}
+			# }
+			# else_if = {
+			# 	limit = {
+			# 		ROOT = {
+			# 			any_controlled_state = {
+			# 				is_core_of = LBA
+			# 				is_fully_controlled_by = ROOT
+			# 				NOT = { has_state_flag = ITA_improved_infrastructure_in_state_flag }
+			# 			}
+			# 		}
+			# 	}
+			# 	ROOT = {
+			# 		random_controlled_state = {
+			# 			limit = {
+			# 				is_core_of = LBA
+			# 				is_fully_controlled_by = ROOT
+			# 				NOT = { has_state_flag = ITA_improved_infrastructure_in_state_flag }
+			# 			}
+			# 			set_state_flag = ITA_improved_infrastructure_in_state_flag
+			# 			add_building_construction = {
+			# 				type = infrastructure
+			# 				level = 1
+			# 				instant_build = yes
+			# 			}
+			# 			add_extra_state_shared_building_slots = 1
+			# 		}
+			# 	}
+			# }
+			# else_if = {
+			# 	limit = {
+			# 		any_subject_country = { #FOR PUPPETS
+			# 			any_controlled_state = {
+			# 				is_core_of = LBA
+			# 				is_fully_controlled_by = PREV
+			# 				NOT = { has_state_flag = ITA_improved_infrastructure_in_state_flag }
+			# 			}
+			# 		}
+			# 	}
+			# 	random_other_country = {
+			# 		limit = {
+			# 			is_subject_of = ROOT
+			# 			any_controlled_state = {
+			# 				is_core_of = ETH
+			# 				is_fully_controlled_by = PREV
+			# 				NOT = { has_state_flag = ITA_improved_infrastructure_in_state_flag }
+			# 			}
+			# 		}
+			# 		random_controlled_state = {
+			# 			prioritize = { 841 } #HARARGHE
+			# 			limit = {
+			# 				is_core_of = LBA
+			# 				is_fully_controlled_by = PREV
+			# 				NOT = { has_state_flag = ITA_improved_infrastructure_in_state_flag }
+			# 			}
+			# 			set_state_flag = ITA_improved_infrastructure_in_state_flag
+			# 			add_building_construction = {
+			# 				type = infrastructure
+			# 				level = 1
+			# 				instant_build = yes
+			# 			}
+			# 			add_extra_state_shared_building_slots = 1
+			# 		}
+			# 	}
+			# }
 
-			if = {
+			# if = {
+			# 	limit = {
+			# 		451 = { #DERNA
+			# 			OR = {
+			# 				is_fully_controlled_by = ROOT
+			# 				controller = {
+			# 					is_subject_of = ROOT
+			# 					has_full_control_of_state = PREV
+			# 				}
+			# 			}
+			# 			NOT = { has_state_flag = ITA_improved_infrastructure_in_state_flag }
+			# 		}
+			# 	}
+			# 	451 = { #DERNA
+			# 		add_building_construction = {
+			# 			type = infrastructure
+			# 			level = 1
+			# 			instant_build = yes
+			# 		}
+			# 		add_extra_state_shared_building_slots = 1
+			# 		set_state_flag = ITA_improved_infrastructure_in_state_flag
+			# 	}
+			# }
+			# else_if = {
+			# 	limit = {
+			# 		ROOT = {
+			# 			any_controlled_state = {
+			# 				is_core_of = LBA
+			# 				is_fully_controlled_by = ROOT
+			# 				NOT = { has_state_flag = ITA_improved_infrastructure_in_state_flag }
+			# 			}
+			# 		}
+			# 	}
+			# 	ROOT = {
+			# 		random_controlled_state = {
+			# 			limit = {
+			# 				is_core_of = LBA
+			# 				is_fully_controlled_by = ROOT
+			# 				NOT = { has_state_flag = ITA_improved_infrastructure_in_state_flag }
+			# 			}
+			# 			set_state_flag = ITA_improved_infrastructure_in_state_flag
+			# 			add_building_construction = {
+			# 				type = infrastructure
+			# 				level = 1
+			# 				instant_build = yes
+			# 			}
+			# 			add_extra_state_shared_building_slots = 1
+			# 		}
+			# 	}
+			# }
+			# else_if = {
+			# 	limit = {
+			# 		any_subject_country = { #FOR PUPPETS
+			# 			any_controlled_state = {
+			# 				is_core_of = LBA
+			# 				is_fully_controlled_by = PREV
+			# 				NOT = { has_state_flag = ITA_improved_infrastructure_in_state_flag }
+			# 			}
+			# 		}
+			# 	}
+			# 	random_other_country = {
+			# 		limit = {
+			# 			is_subject_of = ROOT
+			# 			any_controlled_state = {
+			# 				is_core_of = LBA
+			# 				is_fully_controlled_by = PREV
+			# 				NOT = { has_state_flag = ITA_improved_infrastructure_in_state_flag }
+			# 			}
+			# 		}
+			# 		random_controlled_state = {
+			# 			prioritize = { 841 } #HARARGHE
+			# 			limit = {
+			# 				is_core_of = LBA
+			# 				is_fully_controlled_by = PREV
+			# 				NOT = { has_state_flag = ITA_improved_infrastructure_in_state_flag }
+			# 			}
+			# 			set_state_flag = ITA_improved_infrastructure_in_state_flag
+			# 			add_building_construction = {
+			# 				type = infrastructure
+			# 				level = 1
+			# 				instant_build = yes
+			# 			}
+			# 			add_extra_state_shared_building_slots = 1
+			# 		}
+			# 	}
+			# }
+			every_controlled_state = {
 				limit = {
-					451 = { #DERNA
-						OR = {
-							is_fully_controlled_by = ROOT
-							controller = {
-								is_subject_of = ROOT
-								has_full_control_of_state = PREV
-							}
-						}
-						NOT = { has_state_flag = ITA_improved_infrastructure_in_state_flag }
+					OR = {
+						state = 451
+						state = 663
+						state = 450
+						state = 662
+						state = 449
+						state = 661
+						state = 448
 					}
 				}
-				451 = { #DERNA
-					add_building_construction = {
-						type = infrastructure
-						level = 1
-						instant_build = yes
-					}
-					add_extra_state_shared_building_slots = 1
-					set_state_flag = ITA_improved_infrastructure_in_state_flag
+				set_state_flag = ITA_improved_infrastructure_in_state_flag
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
 				}
-			}
-			else_if = {
-				limit = {
-					ROOT = {
-						any_controlled_state = {
-							is_core_of = LBA
-							is_fully_controlled_by = ROOT
-							NOT = { has_state_flag = ITA_improved_infrastructure_in_state_flag }
-						}
-					}
-				}
-				ROOT = {
-					random_controlled_state = {
-						limit = {
-							is_core_of = LBA
-							is_fully_controlled_by = ROOT
-							NOT = { has_state_flag = ITA_improved_infrastructure_in_state_flag }
-						}
-						set_state_flag = ITA_improved_infrastructure_in_state_flag
-						add_building_construction = {
-							type = infrastructure
-							level = 1
-							instant_build = yes
-						}
-						add_extra_state_shared_building_slots = 1
-					}
-				}
-			}
-			else_if = {
-				limit = {
-					any_subject_country = { #FOR PUPPETS
-						any_controlled_state = {
-							is_core_of = LBA
-							is_fully_controlled_by = PREV
-							NOT = { has_state_flag = ITA_improved_infrastructure_in_state_flag }
-						}
-					}
-				}
-				random_other_country = {
-					limit = {
-						is_subject_of = ROOT
-						any_controlled_state = {
-							is_core_of = LBA
-							is_fully_controlled_by = PREV
-							NOT = { has_state_flag = ITA_improved_infrastructure_in_state_flag }
-						}
-					}
-					random_controlled_state = {
-						prioritize = { 841 } #HARARGHE
-						limit = {
-							is_core_of = LBA
-							is_fully_controlled_by = PREV
-							NOT = { has_state_flag = ITA_improved_infrastructure_in_state_flag }
-						}
-						set_state_flag = ITA_improved_infrastructure_in_state_flag
-						add_building_construction = {
-							type = infrastructure
-							level = 1
-							instant_build = yes
-						}
-						add_extra_state_shared_building_slots = 1
-					}
-				}
+				add_extra_state_shared_building_slots = 1
 			}
 		}
 	}
@@ -874,7 +922,7 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = ITA_ministry_of_italian_africa
-		cost = 5
+		cost = 1
 		available = {
 			OR = {
 				550 = {	is_fully_controlled_by = ROOT }
@@ -885,6 +933,7 @@ focus_tree = {
 		}
 
 		search_filters = {FOCUS_FILTER_INDUSTRY}
+		
 
 		completion_reward = {
 			550 = { #ERITREA
@@ -907,7 +956,7 @@ focus_tree = {
 		x = 3
 		y = 1
 		relative_position_id = ITA_ministry_of_italian_africa
-		cost = 5
+		cost = 2
 		available = {
 			OR = {
 				559 = { is_fully_controlled_by = ROOT }
@@ -962,7 +1011,7 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = ITA_develop_libya
-		cost = 10
+		cost = 5
 		available = {
 			OR = {
 				any_controlled_state = {
@@ -984,208 +1033,315 @@ focus_tree = {
 			#Makes previous Colonial Police law hidden (Both old and new version need to cohexist so that the previous can fallback to the next one)
 			set_country_flag = ITA_colonial_police_improved_flag
 
-			custom_effect_tooltip = ITA_regional_development_occupation_law_tt
-
-			custom_effect_tooltip = ITA_regional_development_buildings_tt
-
-			#ETHIOPIA
-			if = {
+			every_controlled_state = {
 				limit = {
-					has_completed_focus = ITA_develop_ethiopia
+					has_state_flag = ITA_improved_infrastructure_in_state_flag
+					is_fully_controlled_by = ROOT
 				}
-				if = {
-					limit = {
-						any_controlled_state = {
-							is_fully_controlled_by = ROOT
-							has_state_flag = ITA_improved_infrastructure_in_state_flag
-						}
-					}
-					random_controlled_state = {
-						limit = {
-							has_state_flag = ITA_improved_infrastructure_in_state_flag
-							is_core_of = ETH
-						}
-						add_building_construction = {
-							type = industrial_complex
-							level = 1
-							instant_build = yes
-						}
-						add_extra_state_shared_building_slots = 1
-						clr_state_flag = ITA_improved_infrastructure_in_state_flag
-					}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
 				}
-				else_if = {
-					limit = {
-						any_subject_country = {
-							any_controlled_state = {
-								is_fully_controlled_by = PREV
-								has_state_flag = ITA_improved_infrastructure_in_state_flag
-							}
-						}
-					}
-					random_other_country = {
-						limit = {
-							is_subject_of = ROOT
-							any_controlled_state = {
-								is_core_of = ETH
-								is_fully_controlled_by = PREV
-							}
-						}
-						random_controlled_state = {
-							limit = {
-								has_state_flag = ITA_improved_infrastructure_in_state_flag
-								is_core_of = ETH
-							}
-							add_building_construction = {
-								type = industrial_complex
-								level = 1
-								instant_build = yes
-							}
-							add_extra_state_shared_building_slots = 1
-							clr_state_flag = ITA_improved_infrastructure_in_state_flag
-						}
-					}
-				}
-				random_controlled_state = {
+				clr_state_flag = ITA_improved_infrastructure_in_state_flag
+			}
+
+			every_subject_country = {
+				every_controlled_state = {
 					limit = {
 						has_state_flag = ITA_improved_infrastructure_in_state_flag
-						is_core_of = ETH
+						is_fully_controlled_by = PREV
 					}
+					add_extra_state_shared_building_slots = 1
 					add_building_construction = {
 						type = industrial_complex
 						level = 1
 						instant_build = yes
 					}
-					add_extra_state_shared_building_slots = 1
+					
 					clr_state_flag = ITA_improved_infrastructure_in_state_flag
 				}
 			}
-
-			#LIBYA
 			if = {
 				limit = {
 					has_completed_focus = ITA_develop_libya
 				}
-				random_controlled_state = {
-					limit = {
-						has_state_flag = ITA_improved_infrastructure_in_state_flag
-						is_core_of = LBA
-					}
-					add_building_construction = {
-						type = industrial_complex
-						level = 1
-						instant_build = yes
-					}
-					add_extra_state_shared_building_slots = 1
+				
+				451 = {
 					add_building_construction = {
 						type = naval_base
-						level = 1
+						level = 4
 						instant_build = yes
-						province = {
-							all_provinces = yes
-							limit_to_naval_base = yes
-						}
+						province = 1130
 					}
-					clr_state_flag = ITA_improved_infrastructure_in_state_flag
+					add_building_construction = {
+						type = air_base
+						level = 2                
+						instant_build = yes      
+					}
 				}
-				random_controlled_state = {
-					limit = {
-						has_state_flag = ITA_improved_infrastructure_in_state_flag
-						is_core_of = LBA
-					}
-					add_building_construction = {
-						type = industrial_complex
-						level = 1
-						instant_build = yes
-					}
-					add_extra_state_shared_building_slots = 1
+
+				450 = {
 					add_building_construction = {
 						type = naval_base
-						level = 1
+						level = 9
 						instant_build = yes
-						province = {
-							all_provinces = yes
-							limit_to_naval_base = yes
-						}
+						province = 11954
 					}
-					clr_state_flag = ITA_improved_infrastructure_in_state_flag
+					add_building_construction = {
+						type = air_base
+						level = 3                
+						instant_build = yes      
+					}
+				}
+
+				448 = {
+					add_building_construction = {
+						type = naval_base
+						level = 5
+						instant_build = yes
+						province = 1149
+					}
+					add_building_construction = {
+						type = air_base
+						level = 2                
+						instant_build = yes      
+					}
+				}
+
+				663 = {
+					add_building_construction = {
+						type = air_base
+						level = 2                
+						instant_build = yes      
+					}
+				}
+
+				build_railway = {
+					level = 5
+					path = { 1130 9992 7082 1204 4151 12094 10123 11954 }
+				}
+
+
+			}
+
+			build_railway = {
+				level = 2
+				path = { 9904 13413 }
+			}
+
+			2 = {
+				add_building_construction = {
+					type = naval_base
+					level = 9
+					instant_build = yes
+					province = 13413
 				}
 			}
+
+			custom_effect_tooltip = ITA_regional_development_occupation_law_tt
+
+			custom_effect_tooltip = TPMP_ITA_regional_development_buildings_tt
+
+			 #ETHIOPIA
+			# if = {
+			# 	limit = {
+			# 		has_completed_focus = ITA_develop_ethiopia
+			# 	}
+			# 	if = {
+			# 		limit = {
+			# 			any_controlled_state = {
+			# 				is_fully_controlled_by = ROOT
+			# 				has_state_flag = ITA_improved_infrastructure_in_state_flag
+			# 			}
+			# 		}
+			# 		every_controlled_state = {
+			# 			limit = {
+			# 				has_state_flag = ITA_improved_infrastructure_in_state_flag
+			# 				is_core_of = ETH
+			# 			}
+			# 			add_building_construction = {
+			# 				type = industrial_complex
+			# 				level = 1
+			# 				instant_build = yes
+			# 			}
+			# 			add_extra_state_shared_building_slots = 1
+			# 			clr_state_flag = ITA_improved_infrastructure_in_state_flag
+			# 		}
+			# 	}
+			# 	else_if = {
+			# 		limit = {
+			# 			any_subject_country = {
+			# 				any_controlled_state = {
+			# 					is_fully_controlled_by = PREV
+			# 					has_state_flag = ITA_improved_infrastructure_in_state_flag
+			# 				}
+			# 			}
+			# 		}
+			# 		every_controlled_state = {
+			# 			limit = {
+			# 				is_subject_of = ROOT
+			# 				any_controlled_state = {
+			# 					is_core_of = ETH
+			# 					is_fully_controlled_by = PREV
+			# 				}
+			# 			}
+			# 			every_controlled_state = {
+			# 				limit = {
+			# 					has_state_flag = ITA_improved_infrastructure_in_state_flag
+			# 					is_core_of = ETH
+			# 				}
+			# 				add_building_construction = {
+			# 					type = industrial_complex
+			# 					level = 1
+			# 					instant_build = yes
+			# 				}
+			# 				add_extra_state_shared_building_slots = 1
+			# 				clr_state_flag = ITA_improved_infrastructure_in_state_flag
+			# 			}
+			# 		}
+			# 	}
+			# 	random_controlled_state = {
+			# 		limit = {
+			# 			has_state_flag = ITA_improved_infrastructure_in_state_flag
+			# 			is_core_of = ETH
+			# 		}
+			# 		add_building_construction = {
+			# 			type = industrial_complex
+			# 			level = 1
+			# 			instant_build = yes
+			# 		}
+			# 		add_extra_state_shared_building_slots = 1
+			# 		clr_state_flag = ITA_improved_infrastructure_in_state_flag
+			# 	}
+			# }
+
+			# #LIBYA
+			# if = {
+			# 	limit = {
+			# 		has_completed_focus = ITA_develop_libya
+			# 	}
+			# 	random_controlled_state = {
+			# 		limit = {
+			# 			has_state_flag = ITA_improved_infrastructure_in_state_flag
+			# 			is_core_of = LBA
+			# 		}
+			# 		add_building_construction = {
+			# 			type = industrial_complex
+			# 			level = 1
+			# 			instant_build = yes
+			# 		}
+			# 		add_extra_state_shared_building_slots = 1
+			# 		add_building_construction = {
+			# 			type = naval_base
+			# 			level = 1
+			# 			instant_build = yes
+			# 			province = {
+			# 				all_provinces = yes
+			# 				limit_to_naval_base = yes
+			# 			}
+			# 		}
+			# 		clr_state_flag = ITA_improved_infrastructure_in_state_flag
+			# 	}
+			# 	random_controlled_state = {
+			# 		limit = {
+			# 			has_state_flag = ITA_improved_infrastructure_in_state_flag
+			# 			is_core_of = LBA
+			# 		}
+			# 		add_building_construction = {
+			# 			type = industrial_complex
+			# 			level = 1
+			# 			instant_build = yes
+			# 		}
+			# 		add_extra_state_shared_building_slots = 1
+			# 		add_building_construction = {
+			# 			type = naval_base
+			# 			level = 1
+			# 			instant_build = yes
+			# 			province = {
+			# 				all_provinces = yes
+			# 				limit_to_naval_base = yes
+			# 			}
+			# 		}
+			# 		clr_state_flag = ITA_improved_infrastructure_in_state_flag
+			# 	}
+			# }
 		
-			#ERITREA
-			if = {
-				limit = {
-					has_completed_focus = ITA_develop_eritrea
-				}
-				550 = {
-					add_building_construction = {
-						type = industrial_complex
-						level = 1
-						instant_build = yes
-					}
-					add_extra_state_shared_building_slots = 1
-					add_building_construction = {
-						type = naval_base
-						level = 1
-						instant_build = yes
-						province = 12766
-					}
-					clr_state_flag = ITA_improved_infrastructure_in_state_flag
-				}
-			}
+			# #ERITREA
+			# if = {
+			# 	limit = {
+			# 		has_completed_focus = ITA_develop_eritrea
+			# 	}
+			# 	550 = {
+			# 		add_building_construction = {
+			# 			type = industrial_complex
+			# 			level = 1
+			# 			instant_build = yes
+			# 		}
+			# 		add_extra_state_shared_building_slots = 1
+			# 		add_building_construction = {
+			# 			type = naval_base
+			# 			level = 1
+			# 			instant_build = yes
+			# 			province = 12766
+			# 		}
+			# 		clr_state_flag = ITA_improved_infrastructure_in_state_flag
+			# 	}
+			# }
 			
-			#JUBALAND
-			if = {
-				limit = {
-					has_completed_focus = ITA_develop_somaliland
-				}
-				559 = {
-					add_building_construction = {
-						type = industrial_complex
-						level = 1
-						instant_build = yes
-					}
-					add_extra_state_shared_building_slots = 1
-					add_building_construction = {
-						type = naval_base
-						level = 1
-						instant_build = yes
-						province = 12991
-					}
-					clr_state_flag = ITA_improved_infrastructure_in_state_flag
-				}
-				844 = {
-					add_building_construction = {
-						type = naval_base
-						level = 1
-						instant_build = yes
-						province = 12941
-					}
-				}
-			}
+			# #JUBALAND
+			# if = {
+			# 	limit = {
+			# 		has_completed_focus = ITA_develop_somaliland
+			# 	}
+			# 	559 = {
+			# 		add_building_construction = {
+			# 			type = industrial_complex
+			# 			level = 1
+			# 			instant_build = yes
+			# 		}
+			# 		add_extra_state_shared_building_slots = 1
+			# 		add_building_construction = {
+			# 			type = naval_base
+			# 			level = 1
+			# 			instant_build = yes
+			# 			province = 12991
+			# 		}
+			# 		clr_state_flag = ITA_improved_infrastructure_in_state_flag
+			# 	}
+			# 	844 = {
+			# 		add_building_construction = {
+			# 			type = naval_base
+			# 			level = 1
+			# 			instant_build = yes
+			# 			province = 12941
+			# 		}
+			# 	}
+			# }
 
-			hidden_effect = {
-				every_controlled_state = {
-					limit = {
-						has_state_flag = ITA_improved_infrastructure_in_state_flag
-					}
-					clr_state_flag = ITA_improved_infrastructure_in_state_flag
-				}
-				every_subject_country = {
-					limit = {
-						any_controlled_state = {
-							has_state_flag = ITA_improved_infrastructure_in_state_flag
-						}
-					}
-					every_controlled_state = {
-						limit = {
-							has_state_flag = ITA_improved_infrastructure_in_state_flag
-						}
-						clr_state_flag = ITA_improved_infrastructure_in_state_flag
-					}
-				}
-			}
-
+			# hidden_effect = {
+			# 	every_controlled_state = {
+			# 		limit = {
+			# 			has_state_flag = ITA_improved_infrastructure_in_state_flag
+			# 		}
+			# 		clr_state_flag = ITA_improved_infrastructure_in_state_flag
+			# 	}
+			# 	every_subject_country = {
+			# 		limit = {
+			# 			any_controlled_state = {
+			# 				has_state_flag = ITA_improved_infrastructure_in_state_flag
+			# 			}
+			# 		}
+			# 		every_controlled_state = {
+			# 			limit = {
+			# 				has_state_flag = ITA_improved_infrastructure_in_state_flag
+			# 			}
+			# 			clr_state_flag = ITA_improved_infrastructure_in_state_flag
+			# 		}
+			# 	}
+			# }
+			
 			custom_effect_tooltip = ITA_regional_development_decision_unlocked_tt
 		}
 	}
@@ -4382,6 +4538,12 @@ focus_tree = {
 			# 		}
 			# 	}
 			# }
+
+			add_equipment_to_stockpile = {
+				type = light_tank_chassis
+				amount = 1000
+				producer = ITA
+			}
 		}
 	}
 
@@ -4427,23 +4589,28 @@ focus_tree = {
 					infantry = { x = 1 y = 0 }
 					infantry = { x = 1 y = 1 }
 					infantry = { x = 1 y = 2 }
-					infantry = { x = 1 y = 3 }
+					# infantry = { x = 1 y = 3 }
 
 					infantry = { x = 2 y = 0 }
 					infantry = { x = 2 y = 1 }
 					infantry = { x = 2 y = 2 }
-					infantry = { x = 2 y = 3 }
+					# infantry = { x = 2 y = 3 }
 
 					artillery_brigade = { x = 3 y = 0 }
 					artillery_brigade = { x = 3 y = 1 }
 					artillery_brigade = { x = 3 y = 2 }
+					artillery_brigade = { x = 3 y = 3 }
+					artillery_brigade = { x = 3 y = 4 }
 
 					artillery_brigade = { x = 4 y = 0 }
 					artillery_brigade = { x = 4 y = 1 }
 					artillery_brigade = { x = 4 y = 2 }
+					artillery_brigade = { x = 4 y = 3 }
+					artillery_brigade = { x = 4 y = 4 }
+
 				}
 				support = { 
-					artillery = { x = 0 y = 0 }
+					# artillery = { x = 0 y = 0 }
 					engineer = { x = 0 y = 1 }
 					recon = { x = 0 y = 2 }
 				}
@@ -4452,7 +4619,7 @@ focus_tree = {
 				create_unit = {
 					division = "division_template = \"Reggimento Bersaglieri\" start_experience_factor = 1"
 					owner = ROOT
-					count = 3
+					count = 12
 				}
 			}
 		}
