@@ -88,7 +88,21 @@ focus_tree = {
 
 
 		completion_reward = {
-			add_political_power = 150
+			if = {
+				limit = {
+					OR = {
+						has_idea = partial_economic_mobilisation
+						has_idea = war_economy
+						has_idea = tot_economic_mobilisation
+					}
+				}
+				add_political_power = 150
+			}
+			else = {
+				add_ideas = partial_economic_mobilisation
+			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
 			add_ideas = ROM_preserve_greater_romania
 		}
 	}
@@ -2000,7 +2014,22 @@ focus_tree = {
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		completion_reward = {
-			add_political_power = 120
+			if = {
+				limit = {
+					OR = {
+						has_idea = partial_economic_mobilisation
+						has_idea = war_economy
+						has_idea = tot_economic_mobilisation
+					}
+				}
+				add_political_power = 120
+			}
+			else = {
+				add_ideas = partial_economic_mobilisation
+				add_political_power = -30
+			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
 			create_country_leader = {
 				name = "Carol II"
 				desc = "POLITICS_CAROL_II_DESC"
@@ -3245,7 +3274,10 @@ focus_tree = {
 		}
 
 		available = {
-
+			OR = {
+				has_completed_focus = ROM_institute_royal_dictatorship 
+				has_completed_focus = ROM_preserve_greater_romania 
+			}
 		}
 
 		bypass = {
@@ -3939,7 +3971,10 @@ focus_tree = {
 		}
 
 		available = {
-
+			OR = {
+				has_completed_focus = ROM_institute_royal_dictatorship 
+				has_completed_focus = ROM_preserve_greater_romania 
+			}
 		}
 
 		bypass = {
@@ -4640,7 +4675,10 @@ focus_tree = {
 		}
 
 		available = {
-
+			OR = {
+				has_completed_focus = ROM_institute_royal_dictatorship 
+				has_completed_focus = ROM_preserve_greater_romania 
+			}
 		}
 
 		bypass = {
@@ -4717,16 +4755,16 @@ focus_tree = {
 
 		completion_reward = {
 
-			IF = {
-				limit = {
-					has_dlc = "Arms Against Tyranny"
-				}
-			}
+			# IF = {
+			# 	limit = {
+			# 		has_dlc = "Arms Against Tyranny"
+			# 	}
+			# }
 
-			else = {
+			# else = {
 				custom_effect_tooltip = available_designer
 				show_ideas_tooltip = ROM_coastal_defense_navy_designer
-			}
+			# }
 		}
 	}
 
@@ -4901,16 +4939,16 @@ focus_tree = {
 
 		completion_reward = {			
 
-			IF = {
-				limit = {
-					has_dlc = "Arms Against Tyranny"
-				}
-}
+			# IF = {
+			# 	limit = {
+			# 		has_dlc = "Arms Against Tyranny"
+			# 	}
+			# }
 
-			else = {
+			# else = {
 				custom_effect_tooltip = available_designer
 				show_ideas_tooltip = ROM_black_sea_dominance_designer
-			}
+			# }
 		}
 	}
 
