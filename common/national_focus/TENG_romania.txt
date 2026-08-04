@@ -1,0 +1,528 @@
+focus_tree = {
+	id = TPMP_teng_romanian_focus
+	
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 99
+			tag = ROM
+		}
+	}
+	
+	default = no
+
+	continuous_focus_position = { x = 50 y = 1100 }
+
+	# focus = {
+	# 	id = ROM_
+	# 	icon = GFX_
+	# 	prerequisite = { focus = }
+	# 	mutually_exclusive = { focus =  }
+	# 	x = -3
+	# 	y = 0
+	# 	relative_position_id = 
+
+	# 	cost = 10
+
+	# 	ai_will_do = {
+	# 		factor = 1
+	# 	}
+
+	# 	available = {
+
+	# 	}
+		
+	# 	bypass = {
+
+	# 	}
+
+	# 	cancel_if_invalid = yes
+	# 	continue_if_invalid = no
+	# 	available_if_capitulated = no
+
+	# 	complete_tooltip = {
+
+	# 	}
+
+	# 	completion_reward = {
+
+	# 	}
+	# } 
+
+	############################
+	##### CATEGORY HERE ! ######
+	############################
+
+
+	############################
+	##### PRESERVE G ROM #######
+	############################
+
+	focus = {
+		id = TPMP_ROM_preserve_greater_romania
+		icon = GFX_focus_rom_preserve_romania
+		x = 3
+		y = 0
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 9
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		completion_reward = {
+			if = {
+				limit = {
+					OR = {
+						has_idea = partial_economic_mobilisation
+						has_idea = war_economy
+						has_idea = tot_economic_mobilisation
+					}
+				}
+				add_political_power = 150
+			}
+			else = {
+				add_ideas = partial_economic_mobilisation
+			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_ideas = ROM_preserve_greater_romania
+		}
+	}
+	focus = {
+		id = TPMP_ROM_MALAXA_AND_RESITA
+		icon = GFX_SOV_aristocratic_investments_ccp_2d_sov_compatibility
+		prerequisite = { focus = TPMP_ROM_preserve_greater_romania}
+		x = -3
+		y = 1
+		relative_position_id = TPMP_ROM_preserve_greater_romania
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			#placeholder4stab
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		completion_reward = {
+
+		}
+	} 
+	
+	focus = {
+		id = TPMP_ROM_the_titan_plant
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = TPMP_ROM_MALAXA_AND_RESITA }
+		x = -1
+		y = 1
+		relative_position_id = TPMP_ROM_MALAXA_AND_RESITA
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			#placeholder4stab
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		completion_reward = {
+
+		}
+	} 
+	focus = {
+		id = TPMP_ROM_LOCOMOTIVE_IMPORT_BAN
+		icon = GFX_focus_IRQ_train
+		prerequisite = { focus = TPMP_ROM_MALAXA_AND_RESITA }
+		x = 1
+		y = 1
+		relative_position_id = TPMP_ROM_MALAXA_AND_RESITA
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			#placeholder4stab
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+			completion_reward = {
+
+			}
+		}
+		focus = {
+			id = TPMP_ROM_republica_pipe_factory
+			icon = GFX_focus_RAJ_water_privatization
+			prerequisite = { focus = TPMP_ROM_the_titan_plant focus = TPMP_ROM_LOCOMOTIVE_IMPORT_BAN }
+			x = 0
+			y = 1
+			relative_position_id = TPMP_ROM_the_titan_plant
+
+			cost = 5
+
+			ai_will_do = {
+				factor = 1
+		}
+
+		available = {
+			#placeholder4stab
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		completion_reward = {
+
+		}
+	}
+	focus = {
+		id = TPMP_ROM_german_engineering
+		icon = GFX_focus_GER_wirtschaftswunder
+		prerequisite = { focus = TPMP_ROM_the_titan_plant focus = TPMP_ROM_LOCOMOTIVE_IMPORT_BAN }
+		x = 0
+		y = 1
+		relative_position_id = TPMP_ROM_LOCOMOTIVE_IMPORT_BAN
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			#placeholder4stab
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		completion_reward = {
+
+		}
+	}
+	focus = {
+		id = TPMP_ROM_ploesti_oil_field_development	
+		icon = GFX_goal_generic_oil_refinery
+		prerequisite = { focus = TPMP_ROM_preserve_greater_romania }
+		x = 0
+		y = 1
+		relative_position_id = TPMP_ROM_preserve_greater_romania
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			#placeholder4stab
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		completion_reward = {
+
+		}
+	}
+	focus = {
+		id = TPMP_ROM_civil_works
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = TPMP_ROM_preserve_greater_romania }
+		x = 3
+		y = 1
+		relative_position_id = TPMP_ROM_preserve_greater_romania
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 20
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = ROM_civil_works
+				bonus = 1.0
+				uses = 2
+				category = industry
+			}
+			random_owned_controlled_state = {
+				prioritize = { 79 46 81 }
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = TPMP_ROM_danubian_transport_network
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { focus = TPMP_ROM_civil_works }
+		x = 0
+		y = 1
+		relative_position_id = TPMP_ROM_civil_works
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			81 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				set_state_category = town
+			}
+			82 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				set_state_category = town
+			}
+		}
+	}
+	focus = {
+		id = TPMP_ROM_hunedoara_iron_works
+		icon = GFX_goal_generic_construct_civilian
+		prerequisite = { focus = TPMP_ROM_danubian_transport_network }
+		x = -1
+		y = 1
+		relative_position_id = TPMP_ROM_danubian_transport_network
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		complete_tooltip = {
+			random_state = {
+				limit = {
+					has_state_flag = ROM_hunedoara_steel_works_IC
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				add_resource = {
+					type = steel
+					amount = 80
+				}
+			}
+		}
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				prioritize = { 84 }
+				limit = {
+					ROOT = { has_full_control_of_state = PREV } 
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				add_resource = {
+					type = steel
+					amount = 120
+				}
+			}
+		}
+	}
+	focus = {
+		id = TPMP_ROM_invite_foreign_motor_companies
+		icon = GFX_goal_generic_army_motorized
+		prerequisite = { focus = TPMP_ROM_danubian_transport_network }
+		x = 1
+		y = 1
+		relative_position_id = TPMP_ROM_danubian_transport_network
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 5
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		completion_reward = {
+			add_offsite_building = { type = industrial_complex level = 2 }
+			add_tech_bonus = {
+				bonus = 1.0
+				uses = 2
+				category = cat_motorized_tech
+			}
+		}
+	}
+	focus = {
+		id = TPMP_ROM_trade_treaty_with_germany
+		icon = GFX_goal_generic_trade
+		prerequisite = { focus = TPMP_ROM_ploesti_oil_field_development }
+		prerequisite = { focus = TPMP_ROM_republica_pipe_factory focus = TPMP_ROM_german_engineering  }
+		prerequisite = { focus = TPMP_ROM_hunedoara_iron_works focus = TPMP_ROM_invite_foreign_motor_companies }
+		x = 0
+		y = 3
+		relative_position_id = TPMP_ROM_ploesti_oil_field_development
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 9
+		}
+
+		available = {
+			NOT = { has_war_with = GER }
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		completion_reward = {
+			add_popularity = { ideology = fascism popularity = 0.05 }
+			add_ideas = TPMP_ROM_trade_idea_0
+		}
+	}
+}
