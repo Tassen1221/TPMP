@@ -105,7 +105,7 @@ focus_tree = {
 	}
 	focus = {
 		id = TPMP_ROM_malaxa_and_resita
-		icon = GFX_SOV_aristocratic_investments_ccp_2d_sov_compatibility
+		icon = GFX_focus_NOR_approach_kretsen
 		prerequisite = { focus = TPMP_ROM_preserve_greater_romania}
 		x = -3
 		y = 1
@@ -230,7 +230,7 @@ focus_tree = {
 	}
 	focus = {
 		id = TPMP_ROM_german_engineering
-		icon = GFX_focus_GER_wirtschaftswunder
+		icon = GFX_focus_GER_kdf_wagen
 		prerequisite = { focus = TPMP_ROM_the_titan_plant focus = TPMP_ROM_locomotive_import_ban }
 		x = 0
 		y = 1
@@ -1006,7 +1006,7 @@ focus_tree = {
 	focus = {
 		id = TPMP_ROM_sideline_titulescu
 		icon = GFX_focus_SIA_sideline_disloyal_officers
-		x = 15
+		x = 12
 		y = 0
 
 		cost = 3
@@ -1063,41 +1063,14 @@ focus_tree = {
 	}
 	focus = {
 		id = TPMP_ROM_alliance_with_the_PNC
-		icon = GFX_focus_ETH_re-convene_the_parliament
+		icon = GFX_goal_generic_dangerous_deal
 		prerequisite = { focus = TPMP_ROM_1937_romanian_general_election }
-		x = -3
+		x = -2
 		y = 1
 		relative_position_id = TPMP_ROM_1937_romanian_general_election
 
-		cost = 0
+		mutually_exclusive = { focus = TPMP_ROM_institute_royal_dictatorship }
 
-		ai_will_do = {
-			factor = 0
-		}
-
-		available = {
-			date < 1937.12.2
-		}
-
-		bypass = {
-			
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-
-		completion_reward = {
-			
-		}
-	}
-	focus = {
-		id = TPMP_ROM_alliance_with_the_PNC
-		icon = GFX_goal_generic_military_deal
-		prerequisite = { focus = TPMP_ROM_1937_romanian_general_election }
-		x = -3
-		y = 1
-		relative_position_id = TPMP_ROM_1937_romanian_general_election
 
 		cost = 5
 
@@ -1150,6 +1123,60 @@ focus_tree = {
 		}
 	}
 	focus = {
+		id = TPMP_ROM_romanian_science
+		# icon = 
+		prerequisite = { focus = TPMP_ROM_alliance_with_the_PNC focus = TPMP_ROM_institute_royal_dictatorship }
+		x = 2
+		y = 1
+		relative_position_id = TPMP_ROM_alliance_with_the_PNC
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = TPMP_ROM_nationalize_key_industries
+		# icon = 
+		prerequisite = { focus = TPMP_ROM_the_national_legionary_state }
+		x = 1
+		y = 1
+		relative_position_id = TPMP_ROM_the_national_legionary_state
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+	}
+	focus = {
 		id = TPMP_ROM_night_of_the_green_knives
 		icon = GFX_focus_ITA_moschettieri_del_duce
 		prerequisite = { focus = TPMP_ROM_the_national_legionary_state }
@@ -1179,69 +1206,10 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = TPMP_ROM_confescate_industries
-		icon = GFX_focus_GER_autarky_ambitions
-		prerequisite = { focus = TPMP_ROM_the_national_legionary_state }
-		x = 1
-		y = 1
-		relative_position_id = TPMP_ROM_the_national_legionary_state
-
-		cost = 5
-
-		ai_will_do = {
-			factor = 0
-		}
-
-		available = {
-		}
-
-		bypass = {
-			
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-
-		completion_reward = {
-			
-		}
-	}
-	focus = {
 		id = TPMP_ROM_promise_them_our_victory
 		icon = GFX_focus_ger_strike_at_the_source
 		prerequisite = { focus = TPMP_ROM_night_of_the_green_knives }
-		prerequisite = { focus = TPMP_ROM_confescate_industries }
-		x = 1
-		y = 1
-		relative_position_id = TPMP_ROM_night_of_the_green_knives
-
-		cost = 5
-
-		ai_will_do = {
-			factor = 0
-		}
-
-		available = {
-		}
-
-		bypass = {
-			
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-
-		completion_reward = {
-			
-		}
-	}
-	focus = {
-		id = TPMP_ROM_promise_them_our_victory
-		icon = GFX_focus_ger_strike_at_the_source
-		prerequisite = { focus = TPMP_ROM_night_of_the_green_knives }
-		prerequisite = { focus = TPMP_ROM_confescate_industries }
+		prerequisite = { focus = TPMP_ROM_nationalize_key_industries }
 		x = 1
 		y = 1
 		relative_position_id = TPMP_ROM_night_of_the_green_knives
@@ -1269,7 +1237,7 @@ focus_tree = {
 	}
 	focus = {
 		id = TPMP_ROM_the_iron_guard
-		#icon = 
+		icon = GFX_goal_generic_political_pressure
 		prerequisite = { focus = TPMP_ROM_promise_them_our_victory }
 		x = 0
 		y = 1
@@ -1293,16 +1261,48 @@ focus_tree = {
 		available_if_capitulated = no
 
 		completion_reward = {
-			
+			if = {
+				limit = { has_idea = ROM_the_sentinel_of_the_motherland }
+				swap_ideas = {
+					add_idea = ROM_iron_guard
+					remove_idea = ROM_the_sentinel_of_the_motherland
+				}
+				else = {
+					remove_ideas = ROM_the_sentinel_of_the_motherland
+					add_ideas = ROM_iron_guard
+				}
+			}
+			if = {
+				limit = { has_idea = ROM_securitate }
+				remove_ideas = ROM_securitate
+				else = {
+					if = {
+						limit = { has_idea = ROM_constitutional_guarantees }
+						remove_ideas = ROM_constitutional_guarantees
+						else = {
+							custom_effect_tooltip = ROM_appoint_german_friendly_government_tooltip
+						}
+					}
+				}
+			}
+			hidden_effect = {
+				if = {
+					limit = { has_idea = ROM_national_christian_party_in_power }
+					remove_ideas = ROM_national_christian_party_in_power
+				}
+			}
 		}
 	}
 	focus = {
 		id = TPMP_ROM_institute_royal_dictatorship
 		icon = GFX_focus_rom_royal_dictatorship
 		prerequisite = { focus = TPMP_ROM_1937_romanian_general_election }	
-		x = 2
+		x = 3
 		y = 1
 		relative_position_id = TPMP_ROM_1937_romanian_general_election
+
+		mutually_exclusive = { focus = TPMP_ROM_alliance_with_the_PNC }
+
 
 		cost = 5
 
@@ -1387,4 +1387,1250 @@ focus_tree = {
 			
 		}
 	}
+
+	focus = {
+		id = TPMP_ROM_present_a_scapegoat
+		# icon = 
+		prerequisite = { focus = TPMP_ROM_translyvanian_fiasco }
+		mutually_exclusive = { focus = TPMP_ROM_the_generals_ultimatum }
+		x = -2
+		y = 1
+		relative_position_id = TPMP_ROM_translyvanian_fiasco
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = TPMP_ROM_the_generals_ultimatum
+		# icon = 
+		prerequisite = { focus = TPMP_ROM_translyvanian_fiasco }
+		mutually_exclusive = { focus = TPMP_ROM_present_a_scapegoat }
+		x = 2
+		y = 1
+		relative_position_id = TPMP_ROM_translyvanian_fiasco
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = TPMP_ROM_his_majestys_loyal_government
+		icon = GFX_goal_generic_propaganda
+		prerequisite = { focus = TPMP_ROM_present_a_scapegoat }
+		x = -1
+		y = 1
+		relative_position_id = TPMP_ROM_present_a_scapegoat
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_political_power = 120
+		}
+	}
+
+	focus = {
+		id = TPMP_ROM_camarilla_renewed
+		# icon = 
+		prerequisite = { focus = TPMP_ROM_present_a_scapegoat }
+		x = 1
+		y = 1
+		relative_position_id = TPMP_ROM_present_a_scapegoat
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = TPMP_ROM_crack_down_on_extremism
+		icon = GFX_goal_generic_political_pressure
+		prerequisite = { focus = TPMP_ROM_the_generals_ultimatum }
+		x = -1
+		y = 1
+		relative_position_id = TPMP_ROM_the_generals_ultimatum
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			ROM_ion_antonescu = {
+				add_country_leader_role = {
+					country_leader = {
+						expire = "1965.1.1"
+						ideology = fascism_ideology
+						traits = {
+							ROM_conductor
+						}
+					}
+					promote_leader = yes
+				}
+				remove_advisor_role = { slot = army_chief }
+				remove_unit_leader_role = yes
+			}		}
+	}
+
+	focus = {
+		id = TPMP_ROM_a_king_in_name_only
+		# icon = 
+		prerequisite = { focus = TPMP_ROM_the_generals_ultimatum }
+		x = 1
+		y = 1
+		relative_position_id = TPMP_ROM_the_generals_ultimatum
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = TPMP_ROM_all_parties_must_end
+		icon = GFX_focus_rom_parties_end
+		prerequisite = { focus = TPMP_ROM_his_majestys_loyal_government }
+		prerequisite = { focus = TPMP_ROM_camarilla_renewed }
+		x = 1
+		y = 1
+		relative_position_id = TPMP_ROM_his_majestys_loyal_government
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			swap_ideas = {
+				add_idea = ROM_king_carol_ii_handled
+				remove_idea = ROM_king_carol_ii_hedonist
+			}
+			remove_country_leader_trait = hedonist
+			GER = { country_event = { id = generic.2 hours = 4 random_hours = 2 } }
+		}
+	}
+
+	focus = {
+		id = TPMP_ROM_the_conducator
+		# icon = 
+		prerequisite = { focus = TPMP_ROM_crack_down_on_extremism }
+		prerequisite = { focus = TPMP_ROM_a_king_in_name_only }
+		x = 1
+		y = 1
+		relative_position_id = TPMP_ROM_crack_down_on_extremism
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+	}
+
+
+	#########################
+	# army and navy ####
+	######################
+
+	focus = {
+		id = TPMP_ROM_army_maneuvers
+		icon = GFX_goal_generic_army_doctrines
+		x = 22
+		y = 0
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = TPMP_ROM_form_peasant_militias
+		# icon = 
+		prerequisite = { focus = TPMP_ROM_army_maneuvers }
+		x = -4
+		y = 1
+		relative_position_id = TPMP_ROM_army_maneuvers
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = TPMP_ROM_german_army_integration
+		# icon = 
+		prerequisite = { focus = TPMP_ROM_army_maneuvers }
+		mutually_exclusive = { focus = TPMP_ROM_the_sentinel_of_the_motherland }
+		mutually_exclusive = { focus = TPMP_ROM_legion_of_the_archangel_michael }
+		x = -3
+		y = 2
+		relative_position_id = TPMP_ROM_army_maneuvers
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = TPMP_ROM_beg_for_modern_equipment
+		# icon = 
+		prerequisite = { focus = TPMP_ROM_german_army_integration }
+		mutually_exclusive = { focus = TPMP_ROM_romanians_make_do }
+		x = -1
+		y = 1
+		relative_position_id = TPMP_ROM_german_army_integration
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = TPMP_ROM_romanians_make_do
+		# icon = 
+		prerequisite = { focus = TPMP_ROM_german_army_integration }
+		mutually_exclusive = { focus = TPMP_ROM_beg_for_modern_equipment }
+		x = 1
+		y = 1
+		relative_position_id = TPMP_ROM_german_army_integration
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = TPMP_ROM_the_2nd_wave
+		# icon = 
+		prerequisite = { focus = TPMP_ROM_beg_for_modern_equipment }
+		prerequisite = { focus = TPMP_ROM_romanians_make_do }
+		x = 1
+		y = 1
+		relative_position_id = TPMP_ROM_beg_for_modern_equipment
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = TPMP_ROM_the_final_push
+		# icon = 
+		prerequisite = { focus = TPMP_ROM_the_2nd_wave }
+		x = 0
+		y = 1
+		relative_position_id = TPMP_ROM_the_2nd_wave
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = TPMP_ROM_the_sentinel_of_the_motherland
+		# icon = 
+		prerequisite = { focus = TPMP_ROM_army_maneuvers }
+		mutually_exclusive = { focus = TPMP_ROM_german_army_integration }
+		mutually_exclusive = { focus = TPMP_ROM_legion_of_the_archangel_michael }
+		x = 0
+		y = 2
+		relative_position_id = TPMP_ROM_army_maneuvers
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = TPMP_ROM_national_conscription_reform
+		# icon = 
+		prerequisite = { focus = TPMP_ROM_the_sentinel_of_the_motherland }
+		x = 0
+		y = 1
+		relative_position_id = TPMP_ROM_the_sentinel_of_the_motherland
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = TPMP_ROM_dress_to_impress
+		# icon = 
+		prerequisite = { focus = TPMP_ROM_national_conscription_reform }
+		x = 0
+		y = 1
+		relative_position_id = TPMP_ROM_national_conscription_reform
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = TPMP_ROM_loyal_royal_army
+		# icon = 
+		prerequisite = { focus = TPMP_ROM_dress_to_impress }
+		x = 0
+		y = 1
+		relative_position_id = TPMP_ROM_dress_to_impress
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = TPMP_ROM_legion_of_the_archangel_michael
+		# icon = 
+		prerequisite = { focus = TPMP_ROM_army_maneuvers }
+		mutually_exclusive = { focus = TPMP_ROM_the_sentinel_of_the_motherland }
+		mutually_exclusive = { focus = TPMP_ROM_german_army_integration }
+		x = 3
+		y = 2
+		relative_position_id = TPMP_ROM_army_maneuvers
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = TPMP_ROM_chariots_chariots
+		# icon = 
+		prerequisite = { focus = TPMP_ROM_legion_of_the_archangel_michael }
+		mutually_exclusive = { focus = TPMP_ROM_our_mountain_home }
+		x = -1
+		y = 1
+		relative_position_id = TPMP_ROM_legion_of_the_archangel_michael
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = TPMP_ROM_our_mountain_home
+		# icon = 
+		prerequisite = { focus = TPMP_ROM_legion_of_the_archangel_michael }
+		mutually_exclusive = { focus = TPMP_ROM_chariots_chariots }
+		x = 1
+		y = 1
+		relative_position_id = TPMP_ROM_legion_of_the_archangel_michael
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = TPMP_ROM_shock_battalions
+		# icon = 
+		prerequisite = { focus = TPMP_ROM_chariots_chariots }
+		prerequisite = { focus = TPMP_ROM_our_mountain_home }
+		x = 1
+		y = 1
+		relative_position_id = TPMP_ROM_chariots_chariots
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = TPMP_ROM_blessed_steel
+		# icon = 
+		prerequisite = { focus = TPMP_ROM_shock_battalions }
+		x = 0
+		y = 1
+		relative_position_id = TPMP_ROM_shock_battalions
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = TPMP_ROM_echipa_legionara_din_spania
+		# icon = 
+		prerequisite = { focus = TPMP_ROM_army_maneuvers }
+		x = 4
+		y = 1
+		relative_position_id = TPMP_ROM_army_maneuvers
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = TPMP_ROM_army_modernisation
+		# icon = 
+		prerequisite = { focus = TPMP_ROM_army_maneuvers }
+		x = 6
+		y = 1
+		relative_position_id = TPMP_ROM_army_maneuvers
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = TPMP_ROM_the_orita
+		# icon = 
+		prerequisite = { focus = TPMP_ROM_army_modernisation }
+		x = 0
+		y = 1
+		relative_position_id = TPMP_ROM_army_modernisation
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = TPMP_ROM_artillery_modenisation
+		icon = GFX_goal_generic_army_artillery2
+		prerequisite = { focus = TPMP_ROM_the_orita }
+		x = 0
+		y = 1
+		relative_position_id = TPMP_ROM_the_orita
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = TPMP_ROM_modern_at_guns
+		icon = GFX_goal_generic_army_artillery
+		prerequisite = { focus = TPMP_ROM_artillery_modenisation }
+		mutually_exclusive = { focus = TPMP_ROM_a_mobile_alternative }
+		x = 0
+		y = 1
+		relative_position_id = TPMP_ROM_artillery_modenisation
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = TPMP_ROM_75_mm_resita_model_1943
+		# icon = 
+		prerequisite = { focus = TPMP_ROM_modern_at_guns focus = TPMP_ROM_a_mobile_alternative }
+		x = 0
+		y = 1
+		relative_position_id = TPMP_ROM_modern_at_guns
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = TPMP_ROM_the_marshal
+		# icon = 
+		prerequisite = { focus = TPMP_ROM_a_mobile_alternative focus = TPMP_ROM_modern_at_guns }
+		x = 0
+		y = 1
+		relative_position_id = TPMP_ROM_a_mobile_alternative
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = TPMP_ROM_army_war_college
+		icon = GFX_goal_generic_construct_military
+		prerequisite = { focus = TPMP_ROM_army_maneuvers }
+		x = 2
+		y = 0
+		relative_position_id = TPMP_ROM_army_modernisation
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = TPMP_ROM_venatori_de_munte
+		icon = GFX_goal_generic_special_forces
+		prerequisite = { focus = TPMP_ROM_army_war_college }
+		x = 0
+		y = 1
+		relative_position_id = TPMP_ROM_army_war_college
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = TPMP_ROM_army_reserves
+		icon = GFX_goal_generic_political_pressure
+		prerequisite = { focus = TPMP_ROM_army_war_college }
+		x = 2
+		y = 1
+		relative_position_id = TPMP_ROM_army_war_college
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = TPMP_ROM_aquire_modern_tanks
+		icon = GFX_goal_generic_army_tanks
+		prerequisite = { focus = TPMP_ROM_the_orita }
+		x = 2
+		y = 1
+		relative_position_id = TPMP_ROM_the_orita
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = TPMP_ROM_a_mobile_alternative
+		# icon = 
+		prerequisite = { focus = TPMP_ROM_aquire_modern_tanks }
+		x = 0
+		y = 1
+		relative_position_id = TPMP_ROM_aquire_modern_tanks
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+	}
+
+	######################
+	# naval and air ####
+	######################
+
+	focus = {
+		id = TPMP_ROM_expand_galati_shipyards
+		icon = GFX_goal_generic_construct_naval_dockyard
+		x = 35
+		y = 0
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = TPMP_ROM_black_sea_dominance
+		# icon = 
+		prerequisite = { focus = TPMP_ROM_expand_galati_shipyards }
+		x = 0
+		y = 1
+		relative_position_id = TPMP_ROM_expand_galati_shipyards
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = TPMP_ROM_small_natural_tunnel
+		# icon = 
+		prerequisite = { focus = TPMP_ROM_black_sea_dominance }
+		x = 0
+		y = 1
+		relative_position_id = TPMP_ROM_black_sea_dominance
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = TPMP_ROM_expand_the_airforce
+		icon = GFX_goal_generic_air_production
+		x = 3
+		y = 0
+		relative_position_id = TPMP_ROM_expand_galati_shipyards
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = TPMP_ROM_trust_in_iar
+		# icon =
+		prerequisite = { focus = TPMP_ROM_expand_the_airforce }
+		x = 0
+		y = 1
+		relative_position_id = TPMP_ROM_expand_the_airforce
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = TPMP_ROM_iar_80
+		icon = GFX_goal_generic_air_fighter2
+		prerequisite = { focus = TPMP_ROM_trust_in_iar }
+		x = -1
+		y = 1
+		relative_position_id = TPMP_ROM_trust_in_iar
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = TPMP_ROM_aquire_ju_52s
+		# icon = 
+		prerequisite = { focus = TPMP_ROM_trust_in_iar }
+		x = 1
+		y = 1
+		relative_position_id = TPMP_ROM_trust_in_iar
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+	}
+
 }
