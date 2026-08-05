@@ -3766,7 +3766,7 @@ propaganda_efforts = {
 }
 TPMP_USA_power_balance_category = {
     TPMP_USA_assert_executive_authority_decision = {
-        icon = GFX_decision_generic_political_discourse
+        icon = GFX_decision_generic_political_address
         fire_only_once = no
         cost = 50
         days_remove = 30
@@ -3778,7 +3778,7 @@ TPMP_USA_power_balance_category = {
         }
     }
     TPMP_USA_rule_by_executive_order_decision = {
-        icon = GFX_decision_generic_political_discourse
+        icon = GFX_decision_generic_political_address
         custom_cost_trigger = {
             command_power > 49
             has_political_power > 9
@@ -3799,20 +3799,8 @@ TPMP_USA_power_balance_category = {
             }
         }
     }
-    TPMP_USA_defer_to_congress_decision = {
-        icon = GFX_decision_generic_political_discourse
-        fire_only_once = no
-        cost = 50
-        days_remove = 30
-        remove_effect = {
-            add_power_balance_value = {
-                id = TPMP_USA_power_balance
-                value = -0.1
-            }
-        }
-    }
     TPMP_USA_executive_power_grab_decision = {
-        icon = GFX_decision_generic_political_discourse
+        icon = GFX_decision_generic_political_address
         fire_only_once = yes
         cost = 150
         complete_effect = {
@@ -3822,14 +3810,15 @@ TPMP_USA_power_balance_category = {
             }
         }
     }
-    TPMP_USA_restore_congressional_oversight_decision = {
+    TPMP_USA_defer_to_congress_decision = {
         icon = GFX_decision_generic_political_discourse
-        fire_only_once = yes
-        cost = 150
-        complete_effect = {
+        fire_only_once = no
+        cost = 50
+        days_remove = 30
+        remove_effect = {
             add_power_balance_value = {
                 id = TPMP_USA_power_balance
-                value = -0.25
+                value = -0.1
             }
         }
     }
@@ -3861,7 +3850,18 @@ TPMP_USA_power_balance_category = {
             custom_effect_tooltip = generic_skip_one_line_tt
             add_power_balance_value = {
                 id = TPMP_USA_power_balance
-                value = -0.1
+                value = -0.2
+            }
+        }
+    }
+    TPMP_USA_restore_congressional_oversight_decision = {
+        icon = GFX_decision_generic_political_discourse
+        fire_only_once = yes
+        cost = 150
+        complete_effect = {
+            add_power_balance_value = {
+                id = TPMP_USA_power_balance
+                value = -0.25
             }
         }
     }
