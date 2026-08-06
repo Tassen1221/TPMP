@@ -256,7 +256,12 @@ focus_tree = {
 
 
 		completion_reward = {
-
+			add_offsite_building = { type = industrial_complex level = 2 }
+			add_tech_bonus = {
+				bonus = 1.1
+				uses = 1
+				category = cat_production	
+			}
 		}
 	}
 	focus = {
@@ -287,7 +292,16 @@ focus_tree = {
 
 
 		completion_reward = {
-
+			46 = {
+				add_resource = {
+					type = oil
+					amount = 240
+				}
+			}
+			set_technology = {
+				fuel_silos = 1
+				fuel_refining = 1
+			}
 		}
 	}
 	focus = {
@@ -319,9 +333,9 @@ focus_tree = {
 		completion_reward = {
 			add_tech_bonus = {
 				name = ROM_civil_works
-				bonus = 1.0
-				uses = 2
-				category = industry
+				bonus = 1.1
+				uses = 1
+				category = construction_tech
 			}
 			random_owned_controlled_state = {
 				prioritize = { 79 46 81 }
