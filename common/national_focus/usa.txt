@@ -23,7 +23,7 @@ focus_tree = {
 			original_tag = USA
 		}
 	}
-	continuous_focus_position = { x = 425 y = 1175 }
+	continuous_focus_position = { x = 225 y = 1175 }
 	default = no
 
 	# 1936 ELECTION BRANCH
@@ -868,7 +868,7 @@ focus_tree = {
 	focus = {
 		id = TPMP_USA_the_second_new_deal
 		icon = GFX_focus_generic_self_management
-		x = 35
+		x = 33
 		y = 0
 		cost = 5
 		available = {
@@ -2032,6 +2032,22 @@ focus_tree = {
 		completion_reward = {
 			custom_effect_tooltip = available_political_advisor
 			show_ideas_tooltip = USA_felix_frankfurter
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = USA_eleanor_roosevelt
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = USA_vannevar_bush
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = USA_modify_alphabet_agencies_tt
+			add_to_variable = {
+				TPMP_USA_alphabet_advisor_cost_var = -0.1
+				tooltip = political_advisor_cost_factor_tt
+			}
+			add_to_variable = {
+				TPMP_USA_alphabet_research_var = 0.05
+				tooltip = research_speed_factor_tt
+			}
 		}
 	}
 
@@ -3113,11 +3129,13 @@ focus_tree = {
 	focus = {
 		id = TPMP_USA_department_of_war
 		icon = GFX_goal_generic_army_doctrines
-		x = 24
-		y = 8
+		x = 21
+		y = 7
 		cost = 5
 		completion_reward = {
-			add_ideas = TPMP_USA_department_of_war_idea_0
+			add_dynamic_modifier = {
+				modifier = TPMP_USA_department_of_war_modifier
+			}
 		}
 	}
 
@@ -3279,9 +3297,27 @@ focus_tree = {
 		completion_reward = {
 			custom_effect_tooltip = TPMP_USA_build_the_pentagon_tt
 			custom_effect_tooltip = generic_skip_one_line_tt
-			swap_ideas = {
-				remove_idea = TPMP_USA_department_of_war_idea_0
-				add_idea = TPMP_USA_department_of_war_idea_1
+			custom_effect_tooltip = USA_modify_department_of_defense_tt
+			add_to_variable = {
+				TPMP_USA_department_xp_var = 0.1
+				tooltip = experience_gain_army_tt
+			}
+			add_to_variable = {
+				TPMP_USA_department_mastery_var = 0.1
+				tooltip = land_mastery_gain_factor_tt
+			}
+			add_to_variable = {
+				TPMP_USA_department_planning_var = 0.02
+				tooltip = max_planning_tt
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			hidden_effect = {
+				remove_dynamic_modifier = {
+					modifier = TPMP_USA_department_of_war_modifier
+				}
+				add_dynamic_modifier = {
+					modifier = TPMP_USA_department_of_defense_modifier
+				}
 			}
 			IF = {
 				limit = {
@@ -3625,8 +3661,8 @@ focus_tree = {
 	focus = {
 		id = TPMP_USA_department_of_the_navy
 		icon = GFX_goal_generic_build_navy
-		x = 37
-		y = 8
+		x = 33
+		y = 7
 		cost = 5
 		completion_reward = {
 		}
@@ -3891,8 +3927,8 @@ focus_tree = {
 	focus = {
 		id = TPMP_USA_us_army_air_corps
 		icon = GFX_goal_generic_build_airforce
-		x = 49
-		y = 8
+		x = 44
+		y = 7
 		cost = 5
 		completion_reward = {
 		}
