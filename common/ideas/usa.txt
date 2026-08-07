@@ -14,46 +14,12 @@ ideas = {
 				stability_factor = 0.05
 				war_support_factor = -0.1
 				lend_lease_tension = 0.5
-				custom_modifier_tooltip = TPMP_USA_neutrality_act_tt
 				custom_modifier_tooltip = TPMP_no_volunteers_tt
 			}
 			rule = {
 				can_access_market = no
 				can_join_factions = no
 				can_send_volunteers = no
-			}
-			on_remove = {
-				IF = {
-					limit = {
-						NOT = {
-							OR = {
-								has_completed_focus = TPMP_USA_second_neutrality_act
-								has_war = yes
-							}
-						}
-					}
-					add_timed_idea = {
-						idea = TPMP_USA_neutrality_act_idea_0
-						days = 60
-					}
-					for_loop_effect = {
-						end = 1
-						IF = {
-							limit = {
-								check_variable = {
-									new_deal_democrat_support_var > 0
-								}
-							}
-							add_to_variable = {
-								new_deal_democrat_support_var = -1
-							}
-							add_to_variable = {
-								isolationist_republican_support_var = 1
-							}
-						}
-					}
-					recalculate_congressional_ui = yes
-				}
 			}
 			cancel = {
 				has_war = yes

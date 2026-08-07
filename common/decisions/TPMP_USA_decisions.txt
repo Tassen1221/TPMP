@@ -582,6 +582,47 @@ TPMP_USA_congress_category = {
             }
         }
     }
+    TPMP_USA_neutrality_act_mission = {
+        icon = GFX_decision_generic_political_discourse
+        activation = {
+            has_idea = TPMP_USA_neutrality_act_idea_0
+            NOT = {
+                has_completed_focus = TPMP_USA_limited_intervention
+                has_completed_focus = TPMP_USA_cash_and_carry
+            }
+        }
+        available = {
+            OR = {
+                has_completed_focus = TPMP_USA_limited_intervention
+                has_completed_focus = TPMP_USA_cash_and_carry
+            }
+        }
+        cancel_trigger = {
+            hidden_trigger = { has_war = yes }
+        }
+        is_good = no
+        days_mission_timeout = 60
+
+        timeout_effect = {
+            custom_effect_tooltip = ndd_lose_support_tiny_tt
+            custom_effect_tooltip = ir_gain_support_tiny_tt
+            IF = {
+                limit = {
+                    check_variable = {
+                        new_deal_democrat_support_var > 0
+                    }
+                }
+                add_to_variable = {
+                    new_deal_democrat_support_var = -1
+                }
+                add_to_variable = {
+                    isolationist_republican_support_var = 1
+                }
+            }
+            recalculate_congressional_ui = yes
+            activate_mission = TPMP_USA_neutrality_act_mission
+        }
+    }
     TPMP_USA_congress_mission_0 = {
         icon = GFX_decision_generic_allies
         activation = {
