@@ -1219,50 +1219,50 @@ focus_tree = {
 		available_if_capitulated = no
 	
 		completion_reward = {
-			country_event = { id = AST_diplomatic_events.24 hours = 3 }  
-			hidden_effect = {
-				ENG = { country_event = { id = AST_diplomatic_events.24 hours = 3 } }
-			} 
-			custom_effect_tooltip = effects_of_event_tt
-			effect_tooltip = {
-				ENG = {
-					add_country_leader_role = {
-						character = ENG_robert_menzies
-						promote_leader = yes
-						country_leader = {
-							ideology = socialism
-							expire = "1952.1.1.1"
-						}
-					}
-				}
+			# country_event = { id = AST_diplomatic_events.24 hours = 3 }  
+			# hidden_effect = {
+			# 	ENG = { country_event = { id = AST_diplomatic_events.24 hours = 3 } }
+			# # } 
+			# custom_effect_tooltip = effects_of_event_tt
+			# effect_tooltip = {
+			# 	ENG = {
+			# 		add_country_leader_role = {
+			# 			character = ENG_robert_menzies
+			# 			promote_leader = yes
+			# 			country_leader = {
+			# 				ideology = socialism
+			# 				expire = "1952.1.1.1"
+			# 			}
+			# 		}
+			# 	}
 			
-				custom_effect_tooltip = generic_skip_one_line_tt
-				AST = {
-					IF = {
-						limit = {
-							is_subject = yes
-						}
-						OVERLORD = {
-							set_autonomy = {
-								target = AST
-								autonomy_state = autonomy_associated_dominion
-							}
-						}
-						custom_effect_tooltip = AST_a_change_of_authority_tt 
-					}	
+			# 	custom_effect_tooltip = generic_skip_one_line_tt
+			# 	AST = {
+			# 		IF = {
+			# 			limit = {
+			# 				is_subject = yes
+			# 			}
+			# 			OVERLORD = {
+			# 				set_autonomy = {
+			# 					target = AST
+			# 					autonomy_state = autonomy_associated_dominion
+			# 				}
+			# 			}
+			# 			custom_effect_tooltip = AST_a_change_of_authority_tt 
+			# 		}	
 
-					custom_effect_tooltip = generic_skip_one_line_tt
-					custom_effect_tooltip = generic_skip_one_line_tt
-					add_country_leader_role = {
-						character = AST_billy_hughes
-						promote_leader = yes
-						country_leader = {
-							ideology = socialism
-							expire = "1952.1.1.1"
-						}
-					}
-				}
-			}
+			# 		custom_effect_tooltip = generic_skip_one_line_tt
+			# 		custom_effect_tooltip = generic_skip_one_line_tt
+			# 		add_country_leader_role = {
+			# 			character = AST_billy_hughes
+			# 			promote_leader = yes
+			# 			country_leader = {
+			# 				ideology = socialism
+			# 				expire = "1952.1.1.1"
+			# 			}
+			# 		}
+			# 	}
+			# }
 			#custom_effect_tooltip = AST_the_ultimate_overseas_duty_tt #Remove if don't end up using TODO_AL
 		}
 
@@ -2231,14 +2231,14 @@ focus_tree = {
 				} 
 			}
 
-			IF = {
-				limit = {
-					has_dlc = "No Compromise, No Surrender"
-				}
-				custom_effect_tooltip = generic_skip_one_line_tt
-				set_faction_leader = yes
-				add_faction_influence_ratio = 0.30
-			}
+			# IF = {
+			# 	limit = {
+			# 		has_dlc = "No Compromise, No Surrender"
+			# 	}
+			# 	custom_effect_tooltip = generic_skip_one_line_tt
+			# 	set_faction_leader = yes
+			# 	add_faction_influence_ratio = 0.30
+			# }
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 			set_major = yes
