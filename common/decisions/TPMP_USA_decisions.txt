@@ -576,6 +576,7 @@ TPMP_USA_congress_category = {
 
         timeout_effect = {
             activate_mission = TPMP_USA_congress_event_mission
+            custom_effect_tooltip = generic_skip_one_line_tt
             custom_effect_tooltip = TPMP_USA_congress_event_mission_tt
             hidden_effect = {
                 country_event = TPMP_USA_congress.1
@@ -620,6 +621,7 @@ TPMP_USA_congress_category = {
                 }
             }
             recalculate_congressional_ui = yes
+            custom_effect_tooltip = generic_skip_one_line_tt
             activate_mission = TPMP_USA_neutrality_act_mission
         }
     }
@@ -2532,297 +2534,53 @@ TPMP_USA_foreign_aid_category = {
         days_mission_timeout = 30
         timeout_effect = {
             activate_mission = TPMP_USA_SOV_lend_lease_mission
+            set_temp_variable = { lend_lease_routes_var = 0 }
             IF = {
                 limit = {
-                    count_triggers = {
-                        amount = 3
-                        arctic_lend_lease_clear = yes
-                        persian_lend_lease_clear = yes
-                        far_east_lend_lease_clear = yes
-                    }
+                    arctic_lend_lease_clear = yes
                 }
-                SOV = {
-                    IF = {
-                        limit = {
-                            USA = {
-                                has_country_flag = TPMP_USA_auxiliary_lend_lease_flag
-                            }
-                        }
-                        add_equipment_to_stockpile = {
-                            type = infantry_equipment
-                            amount = 1200
-                            producer = USA
-                        }
-                        add_equipment_to_stockpile = {
-                            type = support_equipment
-                            amount = 150
-                            producer = USA
-                        }
-                    }
-                    add_equipment_to_stockpile = {
-                        type = motorized_equipment
-                        amount = 150
-                        producer = USA
-                    }
-                    add_equipment_to_stockpile = {
-                        type = mechanized_equipment
-                        amount = 90
-                        producer = USA
-                    }
-                    IF = {
-                        limit = {
-                            USA = {
-                                has_country_flag = TPMP_USA_modern_lend_lease_flag
-                                has_tech = lighttank3b_tech
-                            }
-                        }
-                        add_equipment_to_stockpile = {
-                            type = light_tank_chassis_1941
-                            amount = 90
-                            producer = USA
-                        }
-                    }
-                    ELSE_IF = {
-                        limit = {
-                            USA = {
-                                has_country_flag = TPMP_USA_modern_lend_lease_flag
-                                has_tech = lighttank3a_tech
-                            }
-                        }
-                        add_equipment_to_stockpile = {
-                            type = light_tank_chassis_1940
-                            amount = 90
-                        }
-                    }
-                    ELSE = {
-                        add_equipment_to_stockpile = {
-                            type = light_tank_chassis_1938
-                            amount = 90
-                        }
-                    }
-                    IF = {
-                        limit = {
-                            USA = {
-                                has_country_flag = TPMP_USA_modern_lend_lease_flag
-                                has_tech = mediumtank3b_tech
-                            }
-                        }
-                        add_equipment_to_stockpile = {
-                            type = medium_tank_chassis_1941
-                            amount = 90
-                            producer = USA
-                        }
-                    }
-                    ELSE_IF = {
-                        limit = {
-                            USA = {
-                                has_country_flag = TPMP_USA_modern_lend_lease_flag
-                                has_tech = mediumtank3a_tech
-                            }
-                        }
-                        add_equipment_to_stockpile = {
-                            type = medium_tank_chassis_1940
-                            amount = 90
-                        }
-                    }
-                    ELSE = {
-                        add_equipment_to_stockpile = {
-                            type = medium_tank_chassis_1938
-                            amount = 90
-                        }
-                    }
-                    IF = {
-                        limit = {
-                            USA = {
-                                has_country_flag = TPMP_USA_modern_lend_lease_flag
-                                has_tech = improved_small_airframe
-                            }
-                        }
-                        add_equipment_to_stockpile = {
-                            type = small_plane_airframe_2
-                            amount = 120
-                            producer = USA
-                        }
-                    }
-                    ELSE = {
-                        add_equipment_to_stockpile = {
-                            type = small_plane_airframe_1
-                            amount = 120
-                            producer = USA
-                        }
-                    }
-                    IF = {
-                        limit = {
-                            USA = {
-                                has_country_flag = TPMP_USA_modern_lend_lease_flag
-                                has_tech = improved_medium_airframe
-                            }
-                        }
-                        add_equipment_to_stockpile = {
-                            type = medium_plane_airframe_2
-                            amount = 60
-                            producer = USA
-                        }
-                    }
-                    ELSE = {
-                        add_equipment_to_stockpile = {
-                            type = medium_plane_airframe_1
-                            amount = 60
-                            producer = USA
-                        }
-                    }
-                }
+                add_to_temp_variable = { lend_lease_routes_var = 1 }
             }
-            ELSE_IF = {
+            IF = {
                 limit = {
-                    count_triggers = {
-                        amount = 2
-                        arctic_lend_lease_clear = yes
-                        persian_lend_lease_clear = yes
-                        far_east_lend_lease_clear = yes
-                    }
+                    persian_lend_lease_clear = yes
                 }
-                SOV = {
-                    IF = {
-                        limit = {
-                            USA = {
-                                has_country_flag = TPMP_USA_auxiliary_lend_lease_flag
-                            }
-                        }
-                        add_equipment_to_stockpile = {
-                            type = infantry_equipment
-                            amount = 800
-                            producer = USA
-                        }
-                        add_equipment_to_stockpile = {
-                            type = support_equipment
-                            amount = 100
-                            producer = USA
-                        }
-                    }
-                    add_equipment_to_stockpile = {
-                        type = motorized_equipment
-                        amount = 100
-                        producer = USA
-                    }
-                    add_equipment_to_stockpile = {
-                        type = mechanized_equipment
-                        amount = 60
-                        producer = USA
-                    }
-                    IF = {
-                        limit = {
-                            USA = {
-                                has_country_flag = TPMP_USA_modern_lend_lease_flag
-                                has_tech = lighttank3b_tech
-                            }
-                        }
-                        add_equipment_to_stockpile = {
-                            type = light_tank_chassis_1941
-                            amount = 60
-                            producer = USA
-                        }
-                    }
-                    ELSE_IF = {
-                        limit = {
-                            USA = {
-                                has_country_flag = TPMP_USA_modern_lend_lease_flag
-                                has_tech = lighttank3a_tech
-                            }
-                        }
-                        add_equipment_to_stockpile = {
-                            type = light_tank_chassis_1940
-                            amount = 60
-                        }
-                    }
-                    ELSE = {
-                        add_equipment_to_stockpile = {
-                            type = light_tank_chassis_1938
-                            amount = 60
-                        }
-                    }
-                    IF = {
-                        limit = {
-                            USA = {
-                                has_country_flag = TPMP_USA_modern_lend_lease_flag
-                                has_tech = mediumtank3b_tech
-                            }
-                        }
-                        add_equipment_to_stockpile = {
-                            type = medium_tank_chassis_1941
-                            amount = 60
-                            producer = USA
-                        }
-                    }
-                    ELSE_IF = {
-                        limit = {
-                            USA = {
-                                has_country_flag = TPMP_USA_modern_lend_lease_flag
-                                has_tech = mediumtank3a_tech
-                            }
-                        }
-                        add_equipment_to_stockpile = {
-                            type = medium_tank_chassis_1940
-                            amount = 60
-                        }
-                    }
-                    ELSE = {
-                        add_equipment_to_stockpile = {
-                            type = medium_tank_chassis_1938
-                            amount = 60
-                        }
-                    }
-                    IF = {
-                        limit = {
-                            USA = {
-                                has_country_flag = TPMP_USA_modern_lend_lease_flag
-                                has_tech = improved_small_airframe
-                            }
-                        }
-                        add_equipment_to_stockpile = {
-                            type = small_plane_airframe_2
-                            amount = 80
-                            producer = USA
-                        }
-                    }
-                    ELSE = {
-                        add_equipment_to_stockpile = {
-                            type = small_plane_airframe_1
-                            amount = 80
-                            producer = USA
-                        }
-                    }
-                    IF = {
-                        limit = {
-                            USA = {
-                                has_country_flag = TPMP_USA_modern_lend_lease_flag
-                                has_tech = improved_medium_airframe
-                            }
-                        }
-                        add_equipment_to_stockpile = {
-                            type = medium_plane_airframe_2
-                            amount = 40
-                            producer = USA
-                        }
-                    }
-                    ELSE = {
-                        add_equipment_to_stockpile = {
-                            type = medium_plane_airframe_1
-                            amount = 40
-                            producer = USA
-                        }
-                    }
-                }
+                add_to_temp_variable = { lend_lease_routes_var = 1 }
             }
-            ELSE_IF = {
+            IF = {
                 limit = {
-                    count_triggers = {
-                        amount = 1
-                        arctic_lend_lease_clear = yes
-                        persian_lend_lease_clear = yes
-                        far_east_lend_lease_clear = yes
-                    }
+                    far_east_lend_lease_clear = yes
                 }
+                add_to_temp_variable = { lend_lease_routes_var = 1 }
+            }
+            IF = {
+                limit = {
+                    check_variable = { lend_lease_routes_var > 0 }
+                }
+                set_temp_variable = { lend_lease_scale_var = 1 }
+                IF = {
+                    limit = {
+                        has_idea = USA_edward_stettinius_jr
+                    }
+                    add_to_temp_variable = { lend_lease_scale_var = 0.5 }
+                }
+                multiply_temp_variable = { lend_lease_scale_var = lend_lease_routes_var }
+                set_temp_variable = { lend_lease_infantry_var = 400 }
+                set_temp_variable = { lend_lease_support_var = 50 }
+                set_temp_variable = { lend_lease_motorized_var = 50 }
+                set_temp_variable = { lend_lease_mechanized_var = 30 }
+                set_temp_variable = { lend_lease_light_tank_var = 30 }
+                set_temp_variable = { lend_lease_medium_tank_var = 30 }
+                set_temp_variable = { lend_lease_small_plane_var = 40 }
+                set_temp_variable = { lend_lease_medium_plane_var = 20 }
+                multiply_temp_variable = { lend_lease_infantry_var = lend_lease_scale_var }
+                multiply_temp_variable = { lend_lease_support_var = lend_lease_scale_var }
+                multiply_temp_variable = { lend_lease_motorized_var = lend_lease_scale_var }
+                multiply_temp_variable = { lend_lease_mechanized_var = lend_lease_scale_var }
+                multiply_temp_variable = { lend_lease_light_tank_var = lend_lease_scale_var }
+                multiply_temp_variable = { lend_lease_medium_tank_var = lend_lease_scale_var }
+                multiply_temp_variable = { lend_lease_small_plane_var = lend_lease_scale_var }
+                multiply_temp_variable = { lend_lease_medium_plane_var = lend_lease_scale_var }
                 SOV = {
                     IF = {
                         limit = {
@@ -2832,23 +2590,23 @@ TPMP_USA_foreign_aid_category = {
                         }
                         add_equipment_to_stockpile = {
                             type = infantry_equipment
-                            amount = 400
+                            amount = ROOT.lend_lease_infantry_var
                             producer = USA
                         }
                         add_equipment_to_stockpile = {
                             type = support_equipment
-                            amount = 50
+                            amount = ROOT.lend_lease_support_var
                             producer = USA
                         }
                     }
                     add_equipment_to_stockpile = {
                         type = motorized_equipment
-                        amount = 50
+                        amount = ROOT.lend_lease_motorized_var
                         producer = USA
                     }
                     add_equipment_to_stockpile = {
                         type = mechanized_equipment
-                        amount = 30
+                        amount = ROOT.lend_lease_mechanized_var
                         producer = USA
                     }
                     IF = {
@@ -2860,7 +2618,7 @@ TPMP_USA_foreign_aid_category = {
                         }
                         add_equipment_to_stockpile = {
                             type = light_tank_chassis_1941
-                            amount = 30
+                            amount = ROOT.lend_lease_light_tank_var
                             producer = USA
                         }
                     }
@@ -2873,13 +2631,15 @@ TPMP_USA_foreign_aid_category = {
                         }
                         add_equipment_to_stockpile = {
                             type = light_tank_chassis_1940
-                            amount = 30
+                            amount = ROOT.lend_lease_light_tank_var
+                            producer = USA
                         }
                     }
                     ELSE = {
                         add_equipment_to_stockpile = {
                             type = light_tank_chassis_1938
-                            amount = 30
+                            amount = ROOT.lend_lease_light_tank_var
+                            producer = USA
                         }
                     }
                     IF = {
@@ -2891,7 +2651,7 @@ TPMP_USA_foreign_aid_category = {
                         }
                         add_equipment_to_stockpile = {
                             type = medium_tank_chassis_1941
-                            amount = 30
+                            amount = ROOT.lend_lease_medium_tank_var
                             producer = USA
                         }
                     }
@@ -2904,13 +2664,15 @@ TPMP_USA_foreign_aid_category = {
                         }
                         add_equipment_to_stockpile = {
                             type = medium_tank_chassis_1940
-                            amount = 30
+                            amount = ROOT.lend_lease_medium_tank_var
+                            producer = USA
                         }
                     }
                     ELSE = {
                         add_equipment_to_stockpile = {
                             type = medium_tank_chassis_1938
-                            amount = 30
+                            amount = ROOT.lend_lease_medium_tank_var
+                            producer = USA
                         }
                     }
                     IF = {
@@ -2922,14 +2684,14 @@ TPMP_USA_foreign_aid_category = {
                         }
                         add_equipment_to_stockpile = {
                             type = small_plane_airframe_2
-                            amount = 40
+                            amount = ROOT.lend_lease_small_plane_var
                             producer = USA
                         }
                     }
                     ELSE = {
                         add_equipment_to_stockpile = {
                             type = small_plane_airframe_1
-                            amount = 40
+                            amount = ROOT.lend_lease_small_plane_var
                             producer = USA
                         }
                     }
@@ -2942,14 +2704,14 @@ TPMP_USA_foreign_aid_category = {
                         }
                         add_equipment_to_stockpile = {
                             type = medium_plane_airframe_2
-                            amount = 20
+                            amount = ROOT.lend_lease_medium_plane_var
                             producer = USA
                         }
                     }
                     ELSE = {
                         add_equipment_to_stockpile = {
                             type = medium_plane_airframe_1
-                            amount = 20
+                            amount = ROOT.lend_lease_medium_plane_var
                             producer = USA
                         }
                     }
@@ -2972,438 +2734,151 @@ TPMP_USA_foreign_aid_category = {
         days_mission_timeout = 30
         timeout_effect = {
             activate_mission = TPMP_USA_ENG_lend_lease_mission
+            set_temp_variable = { lend_lease_routes_var = 0 }
             IF = {
                 limit = {
-                    count_triggers = {
-                        amount = 2
-                        north_atlantic_lend_lease_clear = yes
-                        central_atlantic_lend_lease_clear = yes
-                    }
+                    north_atlantic_lend_lease_clear = yes
                 }
-                ENG = {
-                    IF = {
-                        limit = {
-                            USA = {
-                                has_completed_focus = TPMP_USA_anglo_american_mutual_aid_agreement
-                            }
-                        }
-                        add_equipment_to_stockpile = {
-                            type = infantry_equipment
-                            amount = 1200
-                            producer = USA
-                        }
-                        add_equipment_to_stockpile = {
-                            type = support_equipment
-                            amount = 150
-                            producer = USA
-                        }
-                        add_equipment_to_stockpile = {
-                            type = motorized_equipment
-                            amount = 150
-                            producer = USA
-                        }
-                        add_equipment_to_stockpile = {
-                            type = mechanized_equipment
-                            amount = 90
-                            producer = USA
-                        }
-                        IF = {
-                            limit = {
-                                USA = {
-                                    has_tech = lighttank3b_tech
-                                }
-                            }
-                            add_equipment_to_stockpile = {
-                                type = light_tank_chassis_1941
-                                amount = 90
-                                producer = USA
-                            }
-                        }
-                        ELSE_IF = {
-                            limit = {
-                                USA = {
-                                    has_tech = lighttank3a_tech
-                                }
-                            }
-                            add_equipment_to_stockpile = {
-                                type = light_tank_chassis_1941
-                                amount = 90
-                                producer = USA
-                            }
-                        }
-                        ELSE = {
-                            add_equipment_to_stockpile = {
-                                type = light_tank_chassis_1938
-                                amount = 90
-                                producer = USA
-                            }
-                        }
-                        IF = {
-                            limit = {
-                                USA = {
-                                    has_tech = mediumtank3b_tech
-                                }
-                            }
-                            add_equipment_to_stockpile = {
-                                type = medium_tank_chassis_1941
-                                amount = 90
-                                producer = USA
-                            }
-                        }
-                        ELSE_IF = {
-                            limit = {
-                                USA = {
-                                    has_tech = mediumtank3a_tech
-                                }
-                            }
-                            add_equipment_to_stockpile = {
-                                type = medium_tank_chassis_1940
-                                amount = 90
-                            }
-                        }
-                        ELSE = {
-                            add_equipment_to_stockpile = {
-                                type = medium_tank_chassis_1938
-                                amount = 90
-                            }
-                        }
-                        IF = {
-                            limit = {
-                                USA = {
-                                    has_tech = improved_large_airframe
-                                }
-                            }
-                            add_equipment_to_stockpile = {
-                                type = large_plane_airframe_2
-                                amount = 60
-                                producer = USA
-                            }
-                        }
-                        ELSE = {
-                            add_equipment_to_stockpile = {
-                                type = large_plane_airframe_1
-                                amount = 60
-                                producer = USA
-                            }
-                        }
-                    }
-                    ELSE = {
-                        add_equipment_to_stockpile = {
-                            type = infantry_equipment
-                            amount = 800
-                            producer = USA
-                        }
-                        add_equipment_to_stockpile = {
-                            type = support_equipment
-                            amount = 100
-                            producer = USA
-                        }
-                        add_equipment_to_stockpile = {
-                            type = motorized_equipment
-                            amount = 100
-                            producer = USA
-                        }
-                        add_equipment_to_stockpile = {
-                            type = mechanized_equipment
-                            amount = 60
-                            producer = USA
-                        }
-                        IF = {
-                            limit = {
-                                USA = {
-                                    has_tech = lighttank3b_tech
-                                }
-                            }
-                            add_equipment_to_stockpile = {
-                                type = light_tank_chassis_1941
-                                amount = 60
-                                producer = USA
-                            }
-                        }
-                        ELSE_IF = {
-                            limit = {
-                                USA = {
-                                    has_tech = lighttank3a_tech
-                                }
-                            }
-                            add_equipment_to_stockpile = {
-                                type = light_tank_chassis_1941
-                                amount = 60
-                                producer = USA
-                            }
-                        }
-                        ELSE = {
-                            add_equipment_to_stockpile = {
-                                type = light_tank_chassis_1938
-                                amount = 60
-                                producer = USA
-                            }
-                        }
-                        IF = {
-                            limit = {
-                                USA = {
-                                    has_tech = mediumtank3b_tech
-                                }
-                            }
-                            add_equipment_to_stockpile = {
-                                type = medium_tank_chassis_1941
-                                amount = 60
-                                producer = USA
-                            }
-                        }
-                        ELSE_IF = {
-                            limit = {
-                                USA = {
-                                    has_tech = mediumtank3a_tech
-                                }
-                            }
-                            add_equipment_to_stockpile = {
-                                type = medium_tank_chassis_1940
-                                amount = 60
-                            }
-                        }
-                        ELSE = {
-                            add_equipment_to_stockpile = {
-                                type = medium_tank_chassis_1938
-                                amount = 60
-                            }
-                        }
-                        IF = {
-                            limit = {
-                                USA = {
-                                    has_tech = improved_large_airframe
-                                }
-                            }
-                            add_equipment_to_stockpile = {
-                                type = large_plane_airframe_2
-                                amount = 40
-                                producer = USA
-                            }
-                        }
-                        ELSE = {
-                            add_equipment_to_stockpile = {
-                                type = large_plane_airframe_1
-                                amount = 40
-                                producer = USA
-                            }
-                        }
-                    }
-                }
+                add_to_temp_variable = { lend_lease_routes_var = 1 }
             }
-            ELSE_IF = {
+            IF = {
                 limit = {
-                    count_triggers = {
-                        amount = 1
-                        north_atlantic_lend_lease_clear = yes
-                        central_atlantic_lend_lease_clear = yes
-                    }
+                    central_atlantic_lend_lease_clear = yes
                 }
+                add_to_temp_variable = { lend_lease_routes_var = 1 }
+            }
+            IF = {
+                limit = {
+                    check_variable = { lend_lease_routes_var > 0 }
+                }
+                set_temp_variable = { lend_lease_scale_var = 1 }
+                IF = {
+                    limit = {
+                        has_idea = USA_edward_stettinius_jr
+                    }
+                    add_to_temp_variable = { lend_lease_scale_var = 0.5 }
+                }
+                IF = {
+                    limit = {
+                        has_completed_focus = TPMP_USA_anglo_american_mutual_aid_agreement
+                    }
+                    add_to_temp_variable = { lend_lease_scale_var = 0.5 }
+                }
+                multiply_temp_variable = { lend_lease_scale_var = lend_lease_routes_var }
+                set_temp_variable = { lend_lease_infantry_var = 400 }
+                set_temp_variable = { lend_lease_support_var = 50 }
+                set_temp_variable = { lend_lease_motorized_var = 50 }
+                set_temp_variable = { lend_lease_mechanized_var = 30 }
+                set_temp_variable = { lend_lease_light_tank_var = 30 }
+                set_temp_variable = { lend_lease_medium_tank_var = 30 }
+                set_temp_variable = { lend_lease_large_plane_var = 20 }
+                multiply_temp_variable = { lend_lease_infantry_var = lend_lease_scale_var }
+                multiply_temp_variable = { lend_lease_support_var = lend_lease_scale_var }
+                multiply_temp_variable = { lend_lease_motorized_var = lend_lease_scale_var }
+                multiply_temp_variable = { lend_lease_mechanized_var = lend_lease_scale_var }
+                multiply_temp_variable = { lend_lease_light_tank_var = lend_lease_scale_var }
+                multiply_temp_variable = { lend_lease_medium_tank_var = lend_lease_scale_var }
+                multiply_temp_variable = { lend_lease_large_plane_var = lend_lease_scale_var }
                 ENG = {
+                    add_equipment_to_stockpile = {
+                        type = infantry_equipment
+                        amount = ROOT.lend_lease_infantry_var
+                        producer = USA
+                    }
+                    add_equipment_to_stockpile = {
+                        type = support_equipment
+                        amount = ROOT.lend_lease_support_var
+                        producer = USA
+                    }
+                    add_equipment_to_stockpile = {
+                        type = motorized_equipment
+                        amount = ROOT.lend_lease_motorized_var
+                        producer = USA
+                    }
+                    add_equipment_to_stockpile = {
+                        type = mechanized_equipment
+                        amount = ROOT.lend_lease_mechanized_var
+                        producer = USA
+                    }
                     IF = {
                         limit = {
                             USA = {
-                                has_completed_focus = TPMP_USA_anglo_american_mutual_aid_agreement
+                                has_tech = lighttank3b_tech
                             }
                         }
                         add_equipment_to_stockpile = {
-                            type = infantry_equipment
-                            amount = 600
+                            type = light_tank_chassis_1941
+                            amount = ROOT.lend_lease_light_tank_var
                             producer = USA
+                        }
+                    }
+                    ELSE_IF = {
+                        limit = {
+                            USA = {
+                                has_tech = lighttank3a_tech
+                            }
                         }
                         add_equipment_to_stockpile = {
-                            type = support_equipment
-                            amount = 75
+                            type = light_tank_chassis_1940
+                            amount = ROOT.lend_lease_light_tank_var
                             producer = USA
-                        }
-                        add_equipment_to_stockpile = {
-                            type = motorized_equipment
-                            amount = 75
-                            producer = USA
-                        }
-                        add_equipment_to_stockpile = {
-                            type = mechanized_equipment
-                            amount = 45
-                            producer = USA
-                        }
-                        IF = {
-                            limit = {
-                                USA = {
-                                    has_tech = lighttank3b_tech
-                                }
-                            }
-                            add_equipment_to_stockpile = {
-                                type = light_tank_chassis_1941
-                                amount = 45
-                                producer = USA
-                            }
-                        }
-                        ELSE_IF = {
-                            limit = {
-                                USA = {
-                                    has_tech = lighttank3a_tech
-                                }
-                            }
-                            add_equipment_to_stockpile = {
-                                type = light_tank_chassis_1941
-                                amount = 45
-                                producer = USA
-                            }
-                        }
-                        ELSE = {
-                            add_equipment_to_stockpile = {
-                                type = light_tank_chassis_1938
-                                amount = 45
-                                producer = USA
-                            }
-                        }
-                        IF = {
-                            limit = {
-                                USA = {
-                                    has_tech = mediumtank3b_tech
-                                }
-                            }
-                            add_equipment_to_stockpile = {
-                                type = medium_tank_chassis_1941
-                                amount = 45
-                                producer = USA
-                            }
-                        }
-                        ELSE_IF = {
-                            limit = {
-                                USA = {
-                                    has_tech = mediumtank3a_tech
-                                }
-                            }
-                            add_equipment_to_stockpile = {
-                                type = medium_tank_chassis_1940
-                                amount = 45
-                            }
-                        }
-                        ELSE = {
-                            add_equipment_to_stockpile = {
-                                type = medium_tank_chassis_1938
-                                amount = 45
-                            }
-                        }
-                        IF = {
-                            limit = {
-                                USA = {
-                                    has_tech = improved_large_airframe
-                                }
-                            }
-                            add_equipment_to_stockpile = {
-                                type = large_plane_airframe_2
-                                amount = 30
-                                producer = USA
-                            }
-                        }
-                        ELSE = {
-                            add_equipment_to_stockpile = {
-                                type = large_plane_airframe_1
-                                amount = 30
-                                producer = USA
-                            }
                         }
                     }
                     ELSE = {
                         add_equipment_to_stockpile = {
-                            type = infantry_equipment
-                            amount = 400
+                            type = light_tank_chassis_1938
+                            amount = ROOT.lend_lease_light_tank_var
                             producer = USA
+                        }
+                    }
+                    IF = {
+                        limit = {
+                            USA = {
+                                has_tech = mediumtank3b_tech
+                            }
                         }
                         add_equipment_to_stockpile = {
-                            type = support_equipment
-                            amount = 50
+                            type = medium_tank_chassis_1941
+                            amount = ROOT.lend_lease_medium_tank_var
                             producer = USA
+                        }
+                    }
+                    ELSE_IF = {
+                        limit = {
+                            USA = {
+                                has_tech = mediumtank3a_tech
+                            }
                         }
                         add_equipment_to_stockpile = {
-                            type = motorized_equipment
-                            amount = 50
+                            type = medium_tank_chassis_1940
+                            amount = ROOT.lend_lease_medium_tank_var
                             producer = USA
+                        }
+                    }
+                    ELSE = {
+                        add_equipment_to_stockpile = {
+                            type = medium_tank_chassis_1938
+                            amount = ROOT.lend_lease_medium_tank_var
+                            producer = USA
+                        }
+                    }
+                    IF = {
+                        limit = {
+                            USA = {
+                                has_tech = improved_large_airframe
+                            }
                         }
                         add_equipment_to_stockpile = {
-                            type = mechanized_equipment
-                            amount = 30
+                            type = large_plane_airframe_2
+                            amount = ROOT.lend_lease_large_plane_var
                             producer = USA
                         }
-                        IF = {
-                            limit = {
-                                USA = {
-                                    has_tech = lighttank3b_tech
-                                }
-                            }
-                            add_equipment_to_stockpile = {
-                                type = light_tank_chassis_1941
-                                amount = 30
-                                producer = USA
-                            }
-                        }
-                        ELSE_IF = {
-                            limit = {
-                                USA = {
-                                    has_tech = lighttank3a_tech
-                                }
-                            }
-                            add_equipment_to_stockpile = {
-                                type = light_tank_chassis_1941
-                                amount = 30
-                                producer = USA
-                            }
-                        }
-                        ELSE = {
-                            add_equipment_to_stockpile = {
-                                type = light_tank_chassis_1938
-                                amount = 30
-                                producer = USA
-                            }
-                        }
-                        IF = {
-                            limit = {
-                                USA = {
-                                    has_tech = mediumtank3b_tech
-                                }
-                            }
-                            add_equipment_to_stockpile = {
-                                type = medium_tank_chassis_1941
-                                amount = 30
-                                producer = USA
-                            }
-                        }
-                        ELSE_IF = {
-                            limit = {
-                                USA = {
-                                    has_tech = mediumtank3a_tech
-                                }
-                            }
-                            add_equipment_to_stockpile = {
-                                type = medium_tank_chassis_1940
-                                amount = 30
-                            }
-                        }
-                        ELSE = {
-                            add_equipment_to_stockpile = {
-                                type = medium_tank_chassis_1938
-                                amount = 30
-                            }
-                        }
-                        IF = {
-                            limit = {
-                                USA = {
-                                    has_tech = improved_large_airframe
-                                }
-                            }
-                            add_equipment_to_stockpile = {
-                                type = large_plane_airframe_2
-                                amount = 20
-                                producer = USA
-                            }
-                        }
-                        ELSE = {
-                            add_equipment_to_stockpile = {
-                                type = large_plane_airframe_1
-                                amount = 20
-                                producer = USA
-                            }
+                    }
+                    ELSE = {
+                        add_equipment_to_stockpile = {
+                            type = large_plane_airframe_1
+                            amount = ROOT.lend_lease_large_plane_var
+                            producer = USA
                         }
                     }
                 }
@@ -3425,124 +2900,62 @@ TPMP_USA_foreign_aid_category = {
         days_mission_timeout = 30
         timeout_effect = {
             activate_mission = TPMP_USA_FRA_lend_lease_mission
+            set_temp_variable = { lend_lease_routes_var = 0 }
             IF = {
                 limit = {
-                    count_triggers = {
-                        amount = 2
-                        central_atlantic_lend_lease_clear = yes
-                        african_coast_lend_lease_clear = yes
-                    }
+                    central_atlantic_lend_lease_clear = yes
                 }
-                FRA = {
-                    add_equipment_to_stockpile = {
-                        type = infantry_equipment
-                        amount = 800
-                        producer = USA
-                    }
-                    add_equipment_to_stockpile = {
-                        type = support_equipment
-                        amount = 100
-                        producer = USA
-                    }
-                    add_equipment_to_stockpile = {
-                        type = motorized_equipment
-                        amount = 100
-                        producer = USA
-                    }
-                    add_equipment_to_stockpile = {
-                        type = mechanized_equipment
-                        amount = 60
-                        producer = USA
-                    }
-                    IF = {
-                        limit = {
-                            USA = {
-                                has_tech = lighttank3b_tech
-                            }
-                        }
-                        add_equipment_to_stockpile = {
-                            type = light_tank_chassis_1941
-                            amount = 60
-                            producer = USA
-                        }
-                    }
-                    ELSE_IF = {
-                        limit = {
-                            USA = {
-                                has_tech = lighttank3a_tech
-                            }
-                        }
-                        add_equipment_to_stockpile = {
-                            type = light_tank_chassis_1941
-                            amount = 60
-                            producer = USA
-                        }
-                    }
-                    ELSE = {
-                        add_equipment_to_stockpile = {
-                            type = light_tank_chassis_1938
-                            amount = 60
-                            producer = USA
-                        }
-                    }
-                    IF = {
-                        limit = {
-                            USA = {
-                                has_tech = mediumtank3b_tech
-                            }
-                        }
-                        add_equipment_to_stockpile = {
-                            type = medium_tank_chassis_1941
-                            amount = 60
-                            producer = USA
-                        }
-                    }
-                    ELSE_IF = {
-                        limit = {
-                            USA = {
-                                has_tech = mediumtank3a_tech
-                            }
-                        }
-                        add_equipment_to_stockpile = {
-                            type = medium_tank_chassis_1940
-                            amount = 60
-                        }
-                    }
-                    ELSE = {
-                        add_equipment_to_stockpile = {
-                            type = medium_tank_chassis_1938
-                            amount = 60
-                        }
-                    }
-                }
+                add_to_temp_variable = { lend_lease_routes_var = 1 }
             }
-            ELSE_IF = {
+            IF = {
                 limit = {
-                    count_triggers = {
-                        amount = 1
-                        central_atlantic_lend_lease_clear = yes
-                        african_coast_lend_lease_clear = yes
-                    }
+                    african_coast_lend_lease_clear = yes
                 }
+                add_to_temp_variable = { lend_lease_routes_var = 1 }
+            }
+            IF = {
+                limit = {
+                    check_variable = { lend_lease_routes_var > 0 }
+                }
+                set_temp_variable = { lend_lease_scale_var = 1 }
+                IF = {
+                    limit = {
+                        has_idea = USA_edward_stettinius_jr
+                    }
+                    add_to_temp_variable = { lend_lease_scale_var = 0.5 }
+                }
+                multiply_temp_variable = { lend_lease_scale_var = lend_lease_routes_var }
+                set_temp_variable = { lend_lease_infantry_var = 400 }
+                set_temp_variable = { lend_lease_support_var = 50 }
+                set_temp_variable = { lend_lease_motorized_var = 50 }
+                set_temp_variable = { lend_lease_mechanized_var = 30 }
+                set_temp_variable = { lend_lease_light_tank_var = 30 }
+                set_temp_variable = { lend_lease_medium_tank_var = 30 }
+                multiply_temp_variable = { lend_lease_infantry_var = lend_lease_scale_var }
+                multiply_temp_variable = { lend_lease_support_var = lend_lease_scale_var }
+                multiply_temp_variable = { lend_lease_motorized_var = lend_lease_scale_var }
+                multiply_temp_variable = { lend_lease_mechanized_var = lend_lease_scale_var }
+                multiply_temp_variable = { lend_lease_light_tank_var = lend_lease_scale_var }
+                multiply_temp_variable = { lend_lease_medium_tank_var = lend_lease_scale_var }
                 FRA = {
                     add_equipment_to_stockpile = {
                         type = infantry_equipment
-                        amount = 400
+                        amount = ROOT.lend_lease_infantry_var
                         producer = USA
                     }
                     add_equipment_to_stockpile = {
                         type = support_equipment
-                        amount = 50
+                        amount = ROOT.lend_lease_support_var
                         producer = USA
                     }
                     add_equipment_to_stockpile = {
                         type = motorized_equipment
-                        amount = 50
+                        amount = ROOT.lend_lease_motorized_var
                         producer = USA
                     }
                     add_equipment_to_stockpile = {
                         type = mechanized_equipment
-                        amount = 30
+                        amount = ROOT.lend_lease_mechanized_var
                         producer = USA
                     }
                     IF = {
@@ -3553,7 +2966,7 @@ TPMP_USA_foreign_aid_category = {
                         }
                         add_equipment_to_stockpile = {
                             type = light_tank_chassis_1941
-                            amount = 30
+                            amount = ROOT.lend_lease_light_tank_var
                             producer = USA
                         }
                     }
@@ -3564,15 +2977,15 @@ TPMP_USA_foreign_aid_category = {
                             }
                         }
                         add_equipment_to_stockpile = {
-                            type = light_tank_chassis_1941
-                            amount = 30
+                            type = light_tank_chassis_1940
+                            amount = ROOT.lend_lease_light_tank_var
                             producer = USA
                         }
                     }
                     ELSE = {
                         add_equipment_to_stockpile = {
                             type = light_tank_chassis_1938
-                            amount = 30
+                            amount = ROOT.lend_lease_light_tank_var
                             producer = USA
                         }
                     }
@@ -3584,7 +2997,7 @@ TPMP_USA_foreign_aid_category = {
                         }
                         add_equipment_to_stockpile = {
                             type = medium_tank_chassis_1941
-                            amount = 30
+                            amount = ROOT.lend_lease_medium_tank_var
                             producer = USA
                         }
                     }
@@ -3596,13 +3009,15 @@ TPMP_USA_foreign_aid_category = {
                         }
                         add_equipment_to_stockpile = {
                             type = medium_tank_chassis_1940
-                            amount = 30
+                            amount = ROOT.lend_lease_medium_tank_var
+                            producer = USA
                         }
                     }
                     ELSE = {
                         add_equipment_to_stockpile = {
                             type = medium_tank_chassis_1938
-                            amount = 30
+                            amount = ROOT.lend_lease_medium_tank_var
+                            producer = USA
                         }
                     }
                 }
