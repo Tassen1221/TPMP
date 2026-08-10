@@ -75,6 +75,33 @@ ideas = {
 				has_war = yes
 			}
 		}
+		TPMP_USA_segregated_armed_forces_idea = {
+			picture = COG_the_invisible_roof
+			modifier = {
+				conscription_factor = -0.1
+				army_org_factor = -0.05
+				stability_factor = -0.05
+			}
+		}
+		TPMP_USA_liberty_ships_idea = {
+			picture = liberty_ships_focus
+			equipment_bonus = {
+				convoy = {
+					build_cost_ic = -0.25
+					instant = yes
+				}
+			}
+		}
+		TPMP_USA_magic_idea = {
+			picture = generic_radio_concern
+			modifier = {
+				decryption_factor = 0.1
+				civilian_intel_decryption_bonus = 5
+				army_intel_decryption_bonus = 5
+				navy_intel_decryption_bonus = 5
+				airforce_intel_decryption_bonus = 5
+			}
+		}
 		TPMP_USA_congress_idea = {
 			picture = ARG_american_allyship
 			modifier = {
@@ -285,6 +312,11 @@ ideas = {
 		}
 	}
 	hidden_ideas = {
+		TPMP_USA_bureau_of_ships_idea = {
+			research_bonus = {
+				naval_equipment = 0.15
+			}
+		}
 		TPMP_USA_congress_mission_infantry_reward_idea = {
 			modifier = {
 				industrial_capacity_factory = 0.1
@@ -386,12 +418,6 @@ ideas = {
 			modifier = {
 				stability_factor = 0.15
 				consumer_goods_factor = -0.1
-			}
-		}
-		TPMP_USA_wagner_act_idea_0 = {
-			modifier = {
-				stability_factor = 0.05
-				industrial_capacity_factory = 0.025
 			}
 		}
 		TPMP_USA_fair_labour_standards_act_idea_0 = {
@@ -501,13 +527,9 @@ ideas = {
 			}
 		}
 
-		TPMP_USA_selective_training_and_service_act_idea = {
-			modifier = {
-				conscription_factor = -0.05
-				war_support_factor = 0.1
-			}
-		}
 		TPMP_USA_willow_run_plant_idea_0 = {
+		}
+		TPMP_USA_willow_run_plant_idea_1 = {
 			equipment_bonus = {
 				TPMP_cat_eq_all_plane = {
 					build_cost_ic = -0.02
@@ -515,7 +537,7 @@ ideas = {
 				}
 			}
 		}
-		TPMP_USA_willow_run_plant_idea_1 = {
+		TPMP_USA_willow_run_plant_idea_2 = {
 			equipment_bonus = {
 				TPMP_cat_eq_all_plane = {
 					build_cost_ic = -0.04
@@ -523,7 +545,7 @@ ideas = {
 				}
 			}
 		}
-		TPMP_USA_willow_run_plant_idea_2 = {
+		TPMP_USA_willow_run_plant_idea_3 = {
 			equipment_bonus = {
 				TPMP_cat_eq_all_plane = {
 					build_cost_ic = -0.06
@@ -531,7 +553,7 @@ ideas = {
 				}
 			}
 		}
-		TPMP_USA_willow_run_plant_idea_3 = {
+		TPMP_USA_willow_run_plant_idea_4 = {
 			equipment_bonus = {
 				TPMP_cat_eq_all_plane = {
 					build_cost_ic = -0.08
@@ -539,7 +561,7 @@ ideas = {
 				}
 			}
 		}
-		TPMP_USA_willow_run_plant_idea_4 = {
+		TPMP_USA_willow_run_plant_idea_5 = {
 			equipment_bonus = {
 				TPMP_cat_eq_all_plane = {
 					build_cost_ic = -0.10
@@ -548,17 +570,11 @@ ideas = {
 			}
 		}
 		TPMP_USA_detroit_arsenal_idea_0 = {
-			equipment_bonus = {
-				TPMP_cat_eq_all_tank = {
-					build_cost_ic = -0.02
-					instant = yes
-				}
-			}
 		}
 		TPMP_USA_detroit_arsenal_idea_1 = {
 			equipment_bonus = {
 				TPMP_cat_eq_all_tank = {
-					build_cost_ic = -0.04
+					build_cost_ic = -0.02
 					instant = yes
 				}
 			}
@@ -566,7 +582,7 @@ ideas = {
 		TPMP_USA_detroit_arsenal_idea_2 = {
 			equipment_bonus = {
 				TPMP_cat_eq_all_tank = {
-					build_cost_ic = -0.06
+					build_cost_ic = -0.04
 					instant = yes
 				}
 			}
@@ -574,7 +590,7 @@ ideas = {
 		TPMP_USA_detroit_arsenal_idea_3 = {
 			equipment_bonus = {
 				TPMP_cat_eq_all_tank = {
-					build_cost_ic = -0.08
+					build_cost_ic = -0.06
 					instant = yes
 				}
 			}
@@ -582,12 +598,22 @@ ideas = {
 		TPMP_USA_detroit_arsenal_idea_4 = {
 			equipment_bonus = {
 				TPMP_cat_eq_all_tank = {
-					build_cost_ic = -0.1
+					build_cost_ic = -0.08
+					instant = yes
+				}
+			}
+		}
+		TPMP_USA_detroit_arsenal_idea_5 = {
+			equipment_bonus = {
+				TPMP_cat_eq_all_tank = {
+					build_cost_ic = -0.10
 					instant = yes
 				}
 			}
 		}
 		TPMP_USA_kaiser_shipyards_idea_0 = {
+		}
+		TPMP_USA_kaiser_shipyards_idea_1 = {
 			equipment_bonus = {
 				TPMP_cat_eq_all_ship = {
 					build_cost_ic = -0.02
@@ -595,7 +621,7 @@ ideas = {
 				}
 			}
 		}
-		TPMP_USA_kaiser_shipyards_idea_1 = {
+		TPMP_USA_kaiser_shipyards_idea_2 = {
 			equipment_bonus = {
 				TPMP_cat_eq_all_ship = {
 					build_cost_ic = -0.04
@@ -603,7 +629,7 @@ ideas = {
 				}
 			}
 		}
-		TPMP_USA_kaiser_shipyards_idea_2 = {
+		TPMP_USA_kaiser_shipyards_idea_3 = {
 			equipment_bonus = {
 				TPMP_cat_eq_all_ship = {
 					build_cost_ic = -0.06
@@ -611,7 +637,7 @@ ideas = {
 				}
 			}
 		}
-		TPMP_USA_kaiser_shipyards_idea_3 = {
+		TPMP_USA_kaiser_shipyards_idea_4 = {
 			equipment_bonus = {
 				TPMP_cat_eq_all_ship = {
 					build_cost_ic = -0.08
@@ -619,10 +645,10 @@ ideas = {
 				}
 			}
 		}
-		TPMP_USA_kaiser_shipyards_idea_4 = {
+		TPMP_USA_kaiser_shipyards_idea_5 = {
 			equipment_bonus = {
 				TPMP_cat_eq_all_ship = {
-					build_cost_ic = -0.1
+					build_cost_ic = -0.10
 					instant = yes
 				}
 			}

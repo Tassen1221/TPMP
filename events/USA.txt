@@ -778,7 +778,7 @@ country_event = {
 	trigger = {
 		tag = USA
 		date > 1945.3.29
-		has_idea = new_deal
+		has_country_flag = TPMP_USA_truman_vp_flag
 		has_government = democratic
 	}
 
@@ -787,19 +787,17 @@ country_event = {
 	mean_time_to_happen = {
 		days = 365
 	}
-	
+
 	option = {
 		name = usa.13.a
 		add_political_power = -40
 		kill_country_leader = yes
-		create_country_leader = {
-			name = "Harry S. Truman"
-			desc = "POLITICS_HARRY_TRUMAN_DESC"
-			picture = GFX_portrait_Harry_S_Truman
-			expire = "1965.1.1"
-			ideology = liberalism
-			traits = {
-				
+		add_country_leader_role = {
+			character = USA_harry_s_truman
+			promote_leader = yes
+			country_leader = {
+				ideology = liberalism
+				expire = "1965.1.1"
 			}
 		}
 	}

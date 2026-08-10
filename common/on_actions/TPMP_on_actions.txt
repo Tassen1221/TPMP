@@ -104,7 +104,6 @@ on_actions = {
 		effect = {
 			if = {
 				limit = {
-					tag = SPR
 					FROM = { tag = SPD }
 				}
 				#Axis Volunteers (14 Total)
@@ -132,7 +131,6 @@ on_actions = {
 				limit = {
 					OR = {
 						tag = SPD
-						tag = SPR
 					}
 					OR = {
 						FROM = { tag = SPD }
@@ -185,6 +183,48 @@ on_actions = {
 				}
 				AST = {
 					country_event = TPMP_AST.1
+				}
+			}
+		}
+	}
+
+	### AXIS CONTROLLED STATE TRACKING - faction goals ###
+	on_startup = {
+		effect = {
+			every_state = {
+				limit = {
+					OR = {
+						is_owned_by = GER
+						is_owned_by = ITA
+						is_owned_by = HUN
+						is_owned_by = ROM
+						is_owned_by = BUL
+						is_owned_by = JAP
+						is_owned_by = MAN
+					}
+				}
+				set_state_flag = has_been_axis_controlled
+			}
+		}
+	}
+	on_state_control_changed = {
+		effect = {
+			IF = {
+				limit = {
+					OR = {
+						tag = GER
+						tag = ITA
+						tag = HUN
+						tag = ROM
+						tag = BUL
+						tag = JAP
+						tag = MAN
+						is_in_faction_with = GER
+						is_in_faction_with = JAP
+					}
+				}
+				FROM.FROM = {
+					set_state_flag = has_been_axis_controlled
 				}
 			}
 		}

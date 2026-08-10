@@ -1,0 +1,34 @@
+### States that have ever been Axis controlled (starting Axis-owned states flagged at startup, occupations via on_state_control_changed)
+TPMP_axis_controlled_states = {
+	input = game:all_states
+	name = COLLECTION_TPMP_AXIS_CONTROLLED_STATES
+	operators = {
+		limit = {
+			has_state_flag = has_been_axis_controlled
+		}
+	}
+}
+### The subset of the above no longer under Axis control
+TPMP_liberated_axis_states = {
+	input = collection:TPMP_axis_controlled_states
+	name = COLLECTION_TPMP_LIBERATED_AXIS_STATES
+	operators = {
+		limit = {
+			NOT = {
+				controller = {
+					OR = {
+						tag = GER
+						tag = ITA
+						tag = HUN
+						tag = ROM
+						tag = BUL
+						tag = JAP
+						tag = MAN
+						is_in_faction_with = GER
+						is_in_faction_with = JAP
+					}
+				}
+			}
+		}
+	}
+}

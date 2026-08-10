@@ -194,6 +194,9 @@ characters={
 	USA_harry_s_truman ={
 		name = USA_harry_s_truman
 		portraits = {
+			civilian = {
+				large = GFX_portrait_Harry_S_Truman
+			}
 			army = {
 				small = GFX_idea_USA_harry_s_truman
 			}
@@ -206,6 +209,12 @@ characters={
 			}
 			visible = {
 				has_country_flag = TPMP_USA_truman_vp_flag
+				NOT = {
+					has_country_leader = {
+						character = USA_harry_s_truman
+						ruling_only = yes
+					}
+				}
 			}
 			available = {
 				NOT = { has_idea = USA_john_nance_garner }

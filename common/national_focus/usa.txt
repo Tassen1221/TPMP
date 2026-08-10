@@ -408,17 +408,33 @@ focus_tree = {
 		id = TPMP_USA_to_bring_about_peace
 		icon = GFX_focus_SWE_refuge_from_war
 		prerequisite = { focus = TPMP_USA_the_1944_election }
-		mutually_exclusive = { focus = TPMP_USA_to_win_the_war }
+		mutually_exclusive = { focus = TPMP_USA_to_bring_about_victory }
 		x = -1
 		y = 1
 		relative_position_id = TPMP_USA_the_1944_election
 		cost = 5
+		available = {
+			is_in_faction = yes
+		}
 		completion_reward = {
+			IF = {
+				limit = {
+					is_in_faction = yes
+				}
+				add_faction_goal = faction_goal_TPMP_to_bring_about_peace
+			}
+			ELSE = {
+				effect_tooltip = {
+					ENG = {
+						add_faction_goal = faction_goal_TPMP_to_bring_about_peace
+					}
+				}
+			}
 		}
 	}
 
 	focus = {
-		id = TPMP_USA_to_win_the_war
+		id = TPMP_USA_to_bring_about_victory
 		icon = GFX_goal_generic_major_war
 		prerequisite = { focus = TPMP_USA_the_1944_election }
 		mutually_exclusive = { focus = TPMP_USA_to_bring_about_peace }
@@ -426,7 +442,23 @@ focus_tree = {
 		y = 1
 		relative_position_id = TPMP_USA_the_1944_election
 		cost = 5
+		available = {
+			is_in_faction = yes
+		}
 		completion_reward = {
+			IF = {
+				limit = {
+					is_in_faction = yes
+				}
+				add_faction_goal = faction_goal_TPMP_to_bring_about_victory
+			}
+			ELSE = {
+				effect_tooltip = {
+					ENG = {
+						add_faction_goal = faction_goal_TPMP_to_bring_about_victory
+					}
+				}
+			}
 		}
 	}
 
@@ -877,12 +909,8 @@ focus_tree = {
 		completion_reward = {
 			add_political_power = 50
 			custom_effect_tooltip = generic_skip_one_line_tt
-			IF = {
-				limit = {
-					has_idea = isolation
-				}
-				add_ideas = civilian_economy
-			}
+			custom_effect_tooltip = available_law_tt
+			show_ideas_tooltip = civilian_economy
 		}
 	}
 
@@ -2112,14 +2140,6 @@ focus_tree = {
 		available = {
 			has_war_support > 0.15
 		}
-		bypass = {
-			NOT = {
-				OR = {
-					has_idea = civilian_economy
-					has_idea = low_economic_mobilisation
-				}
-			}
-		}
 		completion_reward = {
 			every_core_state = {
 				limit = {
@@ -2141,15 +2161,14 @@ focus_tree = {
 			custom_effect_tooltip = generic_skip_one_line_tt
 			IF = {
 				limit = {
-					has_idea = civilian_economy
+					has_completed_focus = TPMP_USA_arsenal_of_democracy
 				}
-				add_ideas = low_economic_mobilisation
+				custom_effect_tooltip = available_law_tt
+				show_ideas_tooltip = partial_economic_mobilisation
 			}
-			ELSE_IF = {
-				limit = {
-					has_idea = low_economic_mobilisation
-				}
-				add_ideas = partial_economic_mobilisation
+			ELSE = {
+				custom_effect_tooltip = available_law_tt
+				show_ideas_tooltip = low_economic_mobilisation
 			}
 		}
 	}
@@ -2789,9 +2808,6 @@ focus_tree = {
 		cost = 5
 		available = {
 			has_war_support > 0.3
-			NOT = {
-				has_idea = isolation
-			}
 		}
 		completion_reward = {
 			every_core_state = {
@@ -2814,15 +2830,14 @@ focus_tree = {
 			custom_effect_tooltip = generic_skip_one_line_tt
 			IF = {
 				limit = {
-					has_idea = civilian_economy
+					has_completed_focus = TPMP_USA_create_the_ndac
 				}
-				add_ideas = low_economic_mobilisation
+				custom_effect_tooltip = available_law_tt
+				show_ideas_tooltip = partial_economic_mobilisation
 			}
-			ELSE_IF = {
-				limit = {
-					has_idea = low_economic_mobilisation
-				}
-				add_ideas = partial_economic_mobilisation
+			ELSE = {
+				custom_effect_tooltip = available_law_tt
+				show_ideas_tooltip = low_economic_mobilisation
 			}
 		}
 	}
@@ -3000,7 +3015,8 @@ focus_tree = {
 				days = 180
 			}
 			custom_effect_tooltip = generic_skip_one_line_tt
-			add_ideas = war_economy
+			custom_effect_tooltip = available_law_tt
+			show_ideas_tooltip = war_economy
 		}
 	}
 
@@ -3121,6 +3137,9 @@ focus_tree = {
 					dispersed_industry = 1
 				}
 			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = available_law_tt
+			show_ideas_tooltip = tot_economic_mobilisation
 		}
 	}
 
@@ -3249,7 +3268,7 @@ focus_tree = {
 	}
 
 	focus = {
-		id = TPMP_USA_magic
+		id = TPMP_USA_signals_intelligence_service
 		icon = GFX_goal_generic_radar
 		prerequisite = { focus = TPMP_USA_found_the_oss }
 		x = 0
@@ -3257,6 +3276,11 @@ focus_tree = {
 		relative_position_id = TPMP_USA_found_the_oss
 		cost = 5
 		completion_reward = {
+			upgrade_intelligence_agency = upgrade_form_department
+			upgrade_intelligence_agency = upgrade_decryption_boost
+			upgrade_intelligence_agency = upgrade_decryption_boost
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_ideas = TPMP_USA_magic_idea
 		}
 	}
 
@@ -3588,6 +3612,7 @@ focus_tree = {
 		relative_position_id = TPMP_USA_265_division_plan
 		cost = 5
 		completion_reward = {
+			remove_ideas = TPMP_USA_segregated_armed_forces_idea
 		}
 	}
 
@@ -3665,6 +3690,9 @@ focus_tree = {
 		y = 7
 		cost = 5
 		completion_reward = {
+			add_dynamic_modifier = {
+				modifier = TPMP_USA_department_of_the_navy_modifier
+			}
 		}
 	}
 
@@ -3677,6 +3705,12 @@ focus_tree = {
 		relative_position_id = TPMP_USA_department_of_the_navy
 		cost = 5
 		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 2
+				category = cat_marine_tech
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
 			add_mastery = {
 				amount = 50
 				track = special_forces
@@ -3709,6 +3743,20 @@ focus_tree = {
 		relative_position_id = TPMP_USA_us_marine_corps
 		cost = 5
 		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1.0
+				uses = 1
+				category = cat_amphibious_mechanized_tech
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_unit_bonus = {
+				amphibious_mechanized = {
+					soft_attack = 0.1
+					hard_attack = 0.1
+					breakthrough = 0.1
+					instant = yes
+				}
+			}
 		}
 	}
 
@@ -3721,6 +3769,22 @@ focus_tree = {
 		relative_position_id = TPMP_USA_department_of_the_navy
 		cost = 5
 		completion_reward = {
+			custom_effect_tooltip = USA_modify_department_of_the_navy_tt
+			custom_effect_tooltip = TPMP_USA_navy_department_research_tt
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_equipment_bonus = {
+				name = TPMP_USA_bureau_of_ships_tt
+				bonus = {
+					TPMP_cat_eq_all_ship = {
+						max_strength = 0.05
+						build_cost_ic = -0.05
+						instant = yes
+					}
+				}
+			}
+			hidden_effect = {
+				add_ideas = TPMP_USA_bureau_of_ships_idea
+			}
 		}
 	}
 
@@ -3732,7 +3796,62 @@ focus_tree = {
 		y = 1
 		relative_position_id = TPMP_USA_bureau_of_ships
 		cost = 5
+		available = {
+			has_tech = basic_ship_hull_heavy
+		}
 		completion_reward = {
+			create_equipment_variant = {
+				name = "Alaska Class"
+				type = ship_hull_heavy_2
+				name_group = USA_BC_HISTORICAL
+				parent_version = 0
+				allow_without_tech = yes #Makes no difference since focus requires appropriate tech (above), but it improves tooltip
+				modules = {
+					fixed_ship_battery_slot = ship_heavy_battery_1
+					fixed_ship_anti_air_slot = ship_anti_air_1
+					fixed_ship_fire_control_system_slot = ship_fire_control_system_1
+					fixed_ship_engine_slot = heavy_ship_engine_2
+					fixed_ship_secondaries_slot = ship_secondaries_2
+					fixed_ship_armor_slot = ship_armor_bc_2
+					front_1_custom_slot = ship_heavy_battery_1
+					mid_1_custom_slot = ship_heavy_battery_1
+					mid_2_custom_slot = ship_anti_air_1
+					rear_1_custom_slot = ship_anti_air_1
+				}
+			}
+			add_equipment_production = {
+				equipment = {
+					type = ship_hull_heavy_2
+					creator = USA 
+					version_name = "Alaska Class"
+				}
+				name = "Alaska" 
+				requested_factories = 5
+				progress = 0.75
+				amount = 1
+			}
+			add_equipment_production = {
+				equipment = {
+					type = ship_hull_heavy_2
+					creator = USA 
+					version_name = "Alaska Class"
+				}
+				name = "Guam" 
+				requested_factories = 5
+				progress = 0.75
+				amount = 1
+			}
+			add_equipment_production = {
+				equipment = {
+					type = ship_hull_heavy_2
+					creator = USA 
+					version_name = "Alaska Class"
+				}
+				name = "Hawaii" 
+				requested_factories = 5
+				progress = 0.75
+				amount = 1
+			}
 		}
 	}
 
@@ -3746,6 +3865,22 @@ focus_tree = {
 		relative_position_id = TPMP_USA_bureau_of_ships
 		cost = 5
 		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1.0
+				ahead_reduction = 1.0
+				uses = 2
+				category = naval_equipment
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_equipment_bonus = {
+				name = TPMP_USA_post_treaty_design_effort_tt
+				bonus = {
+					TPMP_cat_eq_all_ship = {
+						build_cost_ic = 0.05
+						instant = yes
+					}
+				}
+			}
 		}
 	}
 
@@ -3758,6 +3893,21 @@ focus_tree = {
 		relative_position_id = TPMP_USA_bureau_of_ships
 		cost = 5
 		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1.0
+				uses = 2
+				category = bb_tech
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_equipment_bonus = {
+				name = TPMP_USA_new_fast_battleships_tt
+				bonus = {
+					ship_hull_heavy = {
+						naval_speed = 0.1
+						instant = yes
+					}
+				}
+			}
 		}
 	}
 
@@ -3771,7 +3921,40 @@ focus_tree = {
 		y = 1
 		relative_position_id = TPMP_USA_new_fast_battleships
 		cost = 5
+		bypass = {
+			OR = {
+				is_special_project_completed = sp:sp_naval_super_heavy_battleship
+				is_special_project_being_researched = sp:sp_naval_super_heavy_battleship
+			}
+		}
 		completion_reward = {
+			complete_special_project = {
+				project = sp:sp_naval_super_heavy_battleship
+				show_modifiers = yes
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_equipment_bonus = {
+				name = sp_super_heavy_battleship_eq_bonus_speed
+				bonus = {
+					ship_hull_super_heavy_1 = {
+						naval_speed = 0.1
+						surface_detection = 0.15
+						surface_visibility = -0.05
+						instant = yes
+					}
+				}
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_equipment_bonus = {
+				name = sp_super_heavy_battleship_eq_bonus_armor
+				bonus = {
+					ship_hull_super_heavy_1 = {
+						armor_value = 0.1
+						max_strength = 0.1
+						instant = yes
+					}
+				}
+			}
 		}
 	}
 
@@ -3783,7 +3966,30 @@ focus_tree = {
 		y = 1
 		relative_position_id = TPMP_USA_department_of_the_navy
 		cost = 5
+		available = {
+			has_support_lwd_ndd_cd_pr_br = yes
+			has_war_support > 0.25			
+		}
 		completion_reward = {
+			every_core_state = {
+				limit = {
+					free_building_slots = {
+						building = dockyard
+						size > 1
+						include_locked = yes
+					}
+					is_fully_controlled_by = USA
+				}
+				random_select_amount = 5
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			USA_increase_deficit = yes
 		}
 	}
 
@@ -3795,7 +4001,30 @@ focus_tree = {
 		y = 1
 		relative_position_id = TPMP_USA_two_ocean_navy_act
 		cost = 5
+		available = {
+			358 = { is_fully_controlled_by = USA }
+			360 = { is_fully_controlled_by = USA }
+			362 = { is_fully_controlled_by = USA }
+		}
 		completion_reward = {
+			every_core_state = {
+				limit = {
+					OR = {
+						state = 358
+						state = 360
+						state = 362
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}
+				add_dynamic_modifier = {
+					modifier = TPMP_USA_expand_dockyard_modifier
+				}
+			}
 		}
 	}
 
@@ -3807,7 +4036,35 @@ focus_tree = {
 		y = 1
 		relative_position_id = TPMP_USA_east_coast_naval_yards
 		cost = 5
+		available = {
+			357 = { is_fully_controlled_by = USA }
+			358 = { is_fully_controlled_by = USA }
+			360 = { is_fully_controlled_by = USA }
+			361 = { is_fully_controlled_by = USA }
+			378 = { is_fully_controlled_by = USA }
+		}
 		completion_reward = {
+			every_core_state = {
+				limit = {
+					OR = {
+						state = 357
+						state = 358
+						state = 360
+						state = 361
+						state = 378
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}
+				add_resource = {
+					type = steel
+					amount = 400
+				}
+			}
 		}
 	}
 
@@ -3820,6 +4077,11 @@ focus_tree = {
 		relative_position_id = TPMP_USA_department_of_the_navy
 		cost = 5
 		completion_reward = {
+			add_daily_mastery = {
+				amount = 0.5
+				days = 300
+				folder = naval
+			}
 		}
 	}
 
@@ -3832,6 +4094,18 @@ focus_tree = {
 		relative_position_id = TPMP_USA_fleet_problems
 		cost = 5
 		completion_reward = {
+			custom_effect_tooltip = USA_modify_department_of_the_navy_tt
+			add_to_variable = {
+				TPMP_USA_navy_department_raiding_var = 0.1
+				tooltip = convoy_raiding_efficiency_factor_tt
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_unit_bonus = {
+				submarine = {
+					torpedo_attack = 0.15
+					sub_visibility = -0.05
+				}
+			}
 		}
 	}
 
@@ -3843,7 +4117,23 @@ focus_tree = {
 		y = 1
 		relative_position_id = TPMP_USA_forgo_prize_rules
 		cost = 5
+		bypass = {
+			OR = {
+				is_special_project_completed = sp:sp_naval_cruiser_submarine
+				is_special_project_being_researched = sp:sp_naval_cruiser_submarine
+			}
+		}
 		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1.0
+				uses = 2
+				category = ss_tech
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			complete_special_project = {
+				project = sp:sp_naval_cruiser_submarine
+				show_modifiers = yes
+			}
 		}
 	}
 
@@ -3856,6 +4146,26 @@ focus_tree = {
 		relative_position_id = TPMP_USA_fleet_problems
 		cost = 5
 		completion_reward = {
+			add_equipment_production = {
+				equipment = {
+					type = ship_hull_carrier_1
+					creator = "USA"
+					version_name = "Yorktown Class"
+				}
+				requested_factories = 5
+				progress = 0.75
+				amount = 1
+			}
+			add_equipment_production = {
+				equipment = {
+					type = ship_hull_carrier_1
+					creator = "USA"
+					version_name = "Yorktown Class"
+				}
+				requested_factories = 5
+				progress = 0.75
+				amount = 1
+			}
 		}
 	}
 
@@ -3870,6 +4180,22 @@ focus_tree = {
 		relative_position_id = TPMP_USA_utilize_the_carrier_allowance
 		cost = 5
 		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1.0
+				ahead_reduction = 1.0
+				uses = 1
+				technology = improved_ship_hull_carrier
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_equipment_bonus = {
+				name = TPMP_USA_the_essex_class_tt
+				bonus = {
+					ship_hull_carrier_2 = {
+						carrier_size = 1
+						instant = yes
+					}
+				}
+			}
 		}
 	}
 
@@ -3882,6 +4208,25 @@ focus_tree = {
 		relative_position_id = TPMP_USA_utilize_the_carrier_allowance
 		cost = 5
 		completion_reward = {
+			custom_effect_tooltip = USA_modify_department_of_the_navy_tt
+			add_to_variable = {
+				TPMP_USA_navy_department_sortie_var = 0.1
+				tooltip = sortie_efficiency_tt
+			}
+			add_to_variable = {
+				TPMP_USA_navy_department_carrier_targetting_var = 0.1
+				tooltip = navy_carrier_air_targetting_factor_tt
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_equipment_bonus = {
+				name = TPMP_USA_the_sunday_punch_tt
+				bonus = {
+					ship_hull_carrier = {
+						carrier_size = 1
+						instant = yes
+					}
+				}
+			}
 		}
 	}
 
@@ -3894,6 +4239,13 @@ focus_tree = {
 		relative_position_id = TPMP_USA_department_of_the_navy
 		cost = 5
 		completion_reward = {
+			add_equipment_to_stockpile = {
+				type = convoy
+				amount = 500
+				producer = USA
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_ideas = TPMP_USA_liberty_ships_idea
 		}
 	}
 
@@ -3905,7 +4257,153 @@ focus_tree = {
 		y = 1
 		relative_position_id = TPMP_USA_abandon_the_panamax_standard
 		cost = 5
+		available = {
+			has_tech = improved_ship_hull_carrier
+			OR = {
+				has_completed_focus = TPMP_USA_abandon_the_panamax_standard
+				has_tech = improved_ship_hull_heavy
+			}
+			has_tech = advanced_ship_hull_cruiser
+			has_tech = advanced_ship_hull_light
+		}
 		completion_reward = {
+			hidden_effect = {
+				create_equipment_variant = {
+					name = "Essex Class"
+					allow_without_tech = yes
+					type = ship_hull_carrier_2
+					name_group = USA_CV_HISTORICAL
+					parent_version = 0
+					modules = {
+						fixed_ship_deck_slot_1 = ship_deck_space
+						fixed_ship_deck_slot_2 = ship_deck_space
+						fixed_ship_anti_air_slot = ship_anti_air_2
+						fixed_ship_radar_slot = ship_radar_2
+						fixed_ship_engine_slot = carrier_ship_engine_3
+						fixed_ship_secondaries_slot = dp_ship_secondaries_1
+						front_1_custom_slot = ship_deck_space
+						mid_1_custom_slot = ship_deck_space
+						mid_2_custom_slot = ship_deck_space
+					}
+				}
+				create_equipment_variant = {
+					name = "Des Moines Class"
+					allow_without_tech = yes
+					type = ship_hull_cruiser_4
+					name_group = USA_CA_HISTORICAL
+					parent_version = 0
+					modules = {
+						fixed_ship_battery_slot = ship_medium_battery_3
+						fixed_ship_anti_air_slot = ship_anti_air_3
+						fixed_ship_fire_control_system_slot = ship_fire_control_system_3
+						fixed_ship_radar_slot = ship_radar_3
+						fixed_ship_engine_slot = cruiser_ship_engine_4
+						fixed_ship_secondaries_slot = dp_ship_secondaries_2
+						fixed_ship_armor_slot = ship_armor_cruiser_3
+						front_1_custom_slot = ship_medium_battery_3
+						mid_1_custom_slot = ship_anti_air_3
+						mid_2_custom_slot = dp_ship_secondaries_2
+						rear_1_custom_slot = ship_medium_battery_3
+						rear_2_custom_slot = dp_ship_secondaries_2
+					}
+				}
+				create_equipment_variant = {
+					name = "Gearing Class"
+					allow_without_tech = yes
+					type = ship_hull_light_4
+					name_group = USA_DD_HISTORICAL
+					parent_version = 0
+					modules = {
+						fixed_ship_battery_slot = dp_light_battery_2
+						fixed_ship_anti_air_slot = ship_anti_air_3
+						fixed_ship_fire_control_system_slot = ship_fire_control_system_3
+						fixed_ship_radar_slot = ship_radar_3
+						fixed_ship_engine_slot = light_ship_engine_4
+						fixed_ship_torpedo_slot = ship_torpedo_2
+						front_1_custom_slot = dp_light_battery_2
+						mid_1_custom_slot = ship_torpedo_2
+						mid_2_custom_slot = dp_light_battery_2
+						rear_1_custom_slot = ship_depth_charge_2
+					}
+				}
+				IF = {
+					limit = {
+						has_completed_focus = TPMP_USA_abandon_the_panamax_standard
+					}
+					create_equipment_variant = {
+						name = "Montana Class"
+						allow_without_tech = yes
+						type = ship_hull_super_heavy_1
+						name_group = USA_BB_HISTORICAL
+						parent_version = 0
+						modules = {
+							fixed_ship_battery_slot = ship_super_heavy_battery_1
+							fixed_ship_anti_air_slot = ship_anti_air_3
+							fixed_ship_fire_control_system_slot = ship_fire_control_system_3
+							fixed_ship_radar_slot = ship_radar_3
+							fixed_ship_engine_slot = heavy_ship_engine_4
+							fixed_ship_secondaries_slot = dp_ship_secondaries_2
+							fixed_ship_armor_slot = ship_armor_shbb
+							front_1_custom_slot = ship_super_heavy_battery_1
+							front_2_custom_slot = ship_anti_air_3
+							mid_1_custom_slot = dp_ship_secondaries_2
+							mid_2_custom_slot = dp_ship_secondaries_2
+							mid_3_custom_slot = ship_airplane_launcher_1
+							rear_1_custom_slot = ship_super_heavy_battery_1
+							rear_2_custom_slot = ship_super_heavy_battery_1
+						}
+					}
+				}
+				ELSE = {
+					create_equipment_variant = {
+						name = "Iowa Class"
+						allow_without_tech = yes
+						type = ship_hull_heavy_3
+						name_group = USA_BB_HISTORICAL
+						parent_version = 0
+						modules = {
+							fixed_ship_battery_slot = ship_heavy_battery_3
+							fixed_ship_anti_air_slot = ship_anti_air_3
+							fixed_ship_fire_control_system_slot = ship_fire_control_system_3
+							fixed_ship_radar_slot = ship_radar_3
+							fixed_ship_engine_slot = heavy_ship_engine_4
+							fixed_ship_secondaries_slot = dp_ship_secondaries_2
+							fixed_ship_armor_slot = ship_armor_bb_3
+							front_1_custom_slot = ship_heavy_battery_3
+							mid_1_custom_slot = ship_anti_air_3
+							mid_2_custom_slot = ship_airplane_launcher_1
+							mid_2_custom_slot = ship_anti_air_3
+							rear_1_custom_slot = ship_heavy_battery_3
+						}
+					}
+				}
+			}
+			create_ship = { type = ship_hull_carrier_3 equipment_variant = "Essex Class" creator = USA }
+			create_ship = { type = ship_hull_carrier_3 equipment_variant = "Essex Class" creator = USA }
+			IF = {
+				limit = {
+					has_completed_focus = TPMP_USA_abandon_the_panamax_standard
+				}
+				create_ship = { type = ship_hull_super_heavy_1 equipment_variant = "Montana Class" creator = USA }
+				create_ship = { type = ship_hull_super_heavy_1 equipment_variant = "Montana Class" creator = USA }
+			}
+			ELSE = {
+				create_ship = { type = ship_hull_heavy_3 equipment_variant = "Iowa Class" creator = USA }
+				create_ship = { type = ship_hull_heavy_3 equipment_variant = "Iowa Class" creator = USA }
+			}
+			create_ship = { type = ship_hull_cruiser_4 equipment_variant = "Des Moines Class" creator = USA }
+			create_ship = { type = ship_hull_cruiser_4 equipment_variant = "Des Moines Class" creator = USA }
+			create_ship = { type = ship_hull_cruiser_4 equipment_variant = "Des Moines Class" creator = USA }
+			create_ship = { type = ship_hull_light_4 equipment_variant = "Gearing Class" creator = USA }
+			create_ship = { type = ship_hull_light_4 equipment_variant = "Gearing Class" creator = USA }
+			create_ship = { type = ship_hull_light_4 equipment_variant = "Gearing Class" creator = USA }
+			create_ship = { type = ship_hull_light_4 equipment_variant = "Gearing Class" creator = USA }
+			create_ship = { type = ship_hull_light_4 equipment_variant = "Gearing Class" creator = USA }
+			create_ship = { type = ship_hull_light_4 equipment_variant = "Gearing Class" creator = USA }
+			create_ship = { type = ship_hull_light_4 equipment_variant = "Gearing Class" creator = USA }
+			create_ship = { type = ship_hull_light_4 equipment_variant = "Gearing Class" creator = USA }
+			create_ship = { type = ship_hull_light_4 equipment_variant = "Gearing Class" creator = USA }
+			create_ship = { type = ship_hull_light_4 equipment_variant = "Gearing Class" creator = USA }
 		}
 	}
 
@@ -3918,7 +4416,42 @@ focus_tree = {
 		y = 1
 		relative_position_id = TPMP_USA_the_essex_class
 		cost = 5
+		available = {
+			has_tech = advanced_ship_hull_carrier
+		}
+		bypass = {
+			OR = {
+				is_special_project_completed = sp:sp_naval_modern_carrier
+				is_special_project_being_researched = sp:sp_naval_modern_carrier
+			}
+		}
 		completion_reward = {
+			complete_special_project = {
+				project = sp:sp_naval_modern_carrier
+				show_modifiers = yes
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_equipment_bonus = {
+				name = sp_modern_carrier_eq_bonus_speed
+				bonus = {
+					ship_hull_carrier_modern = {
+						naval_speed = 0.1
+						naval_weather_penalty_factor = -0.25
+						instant = yes
+					}
+				}
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_equipment_bonus = {
+				name = sp_modern_carrier_eq_bonus_anti_air
+				bonus = {
+					ship_hull_carrier_modern = {
+						anti_air_attack = 0.25
+						reliability = 0.07
+						instant = yes
+					}
+				}
+			}
 		}
 	}
 
@@ -3931,6 +4464,9 @@ focus_tree = {
 		y = 7
 		cost = 5
 		completion_reward = {
+			add_dynamic_modifier = {
+				modifier = TPMP_USA_us_army_air_corps_modifier
+			}
 		}
 	}
 
@@ -4067,6 +4603,23 @@ focus_tree = {
 		relative_position_id = TPMP_USA_fighter_bombers
 		cost = 5
 		completion_reward = {
+			custom_effect_tooltip = USA_modify_us_army_air_forces_tt
+			add_to_variable = {
+				TPMP_USA_air_department_xp_var = 0.1
+				tooltip = experience_gain_air_tt
+			}
+			add_to_variable = {
+				TPMP_USA_air_department_mastery_var = 0.1
+				tooltip = air_mastery_gain_factor_tt
+			}
+			hidden_effect = {
+				remove_dynamic_modifier = {
+					modifier = TPMP_USA_us_army_air_corps_modifier
+				}
+				add_dynamic_modifier = {
+					modifier = TPMP_USA_us_army_air_forces_modifier
+				}
+			}
 		}
 	}
 
