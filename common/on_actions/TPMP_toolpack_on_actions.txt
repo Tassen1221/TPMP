@@ -1,0 +1,338 @@
+on_actions = {
+	on_startup = {
+		effect = {
+			#TPMP: always enable toolpack gating so the host game rule applies in SP too
+			set_global_flag = tp_is_multiplayer
+			#set_global_flag = tp_is_multiplayer #DEBUG
+			random_country = {
+				set_global_flag = tpt_cw_fascist
+				set_variable = {
+					var = global.mst_variable_C1
+					value = 0
+				}
+				set_variable = {
+					var = global.mst_variable_C2
+					value = 0
+				}
+				set_variable = {
+					var = global.mst_variable_S1
+					value = 0
+				}
+				set_variable = {
+					var = global.mst_variable_S12
+					value = 0
+				}
+				set_variable = {
+					var = global.tpt_op_value
+					value = 10
+				}
+				set_variable = {
+					var = global.tpt_trade_value
+					value = 10
+				}
+				set_variable = {
+					var = global.bst_position_1
+					value = 0
+				}
+				set_variable = {
+					var = global.bst_position_1_2
+					value = 15
+				}
+				set_variable = {
+					var = global.bst_position_1_3
+					value = 5
+				}
+				set_variable = {
+					var = global.bst_position_2
+					value = 33
+				}
+				set_variable = {
+					var = global.bst_position_2_2
+					value = 48
+				}
+				set_variable = {
+					var = global.bst_position_2_3
+					value = 38
+				}
+				set_variable = {
+					var = global.bst_position_3
+					value = 66
+				}
+				set_variable = {
+					var = global.bst_position_3_2
+					value = 81
+				}
+				set_variable = {
+					var = global.bst_position_3_3
+					value = 71
+				}
+				set_variable = {
+					var = global.bst_position_4
+					value = 99
+				}
+				set_variable = {
+					var = global.bst_position_4_2
+					value = 114
+				}
+				set_variable = {
+					var = global.bst_position_4_3
+					value = 104
+				}
+				set_variable = {
+					var = global.bst_position_5
+					value = 132
+				}
+				set_variable = {
+					var = global.bst_position_5_2
+					value = 147
+				}
+				set_variable = {
+					var = global.bst_position_5_3
+					value = 137
+				}
+				set_variable = {
+					var = global.bst_position_6
+					value = 165
+				}
+				set_variable = {
+					var = global.bst_position_6_2
+					value = 180
+				}
+				set_variable = {
+					var = global.bst_position_6_3
+					value = 170
+				}
+				set_variable = {
+					var = global.bst_position_7
+					value = 198
+				}
+				set_variable = {
+					var = global.bst_position_7_2
+					value = 213
+				}
+				set_variable = {
+					var = global.bst_position_7_3
+					value = 203
+				}
+				set_variable = {
+					var = global.bst_position_7_4
+					value = 204
+				}
+				set_variable = {
+					var = global.bst_position_8
+					value = 231
+				}
+				set_variable = {
+					var = global.bst_position_8_2
+					value = 246
+				}
+				set_variable = {
+					var = global.bst_position_8_3
+					value = 236
+				}
+				set_variable = {
+					var = global.bst_position_8_4
+					value = 237
+				}
+				set_variable = {
+					var = global.bst_position_9
+					value = 264
+				}
+				set_variable = {
+					var = global.bst_position_9_2
+					value = 279
+				}
+				set_variable = {
+					var = global.bst_position_9_3
+					value = 269
+				}
+				set_variable = {
+					var = global.bst_position_9_4
+					value = 270
+				}
+				set_variable = {
+					var = global.bst_position_10
+					value = 297
+				}
+				set_variable = {
+					var = global.bst_position_10_2
+					value = 312
+				}
+				set_variable = {
+					var = global.bst_position_10_3
+					value = 302
+				}
+				set_variable = {
+					var = global.bst_position_10_4
+					value = 303
+				}
+				set_variable = {
+					var = global.bst_position_11
+					value = 330
+				}
+				set_variable = {
+					var = global.bst_position_11_2
+					value = 345
+				}
+				set_variable = {
+					var = global.bst_position_11_3
+					value = 335
+				}
+				set_variable = {
+					var = global.bst_position_12
+					value = 363
+				}
+				set_variable = {
+					var = global.bst_position_12_2
+					value = 378
+				}
+				set_variable = {
+					var = global.bst_position_12_3
+					value = 368
+				}
+				set_variable = {
+					var = global.bst_position_13
+					value = 396
+				}
+				set_variable = {
+					var = global.bst_position_13_2
+					value = 411
+				}
+				set_variable = {
+					var = global.bst_position_13_3
+					value = 401
+				}
+				set_variable = {
+					var = global.bst_position_14
+					value = 429
+				}
+				set_variable = {
+					var = global.bst_position_14_2
+					value = 444
+				}
+				set_variable = {
+					var = global.bst_position_14_3
+					value = 434
+				}
+				set_variable = {
+					var = global.bst_position_14_4
+					value = 435
+				}
+				set_variable = {
+					var = global.bst_position_15
+					value = 462
+				}
+				set_variable = {
+					var = global.bst_position_15_2
+					value = 477
+				}
+				set_variable = {
+					var = global.bst_position_15_3
+					value = 467
+				}
+			}
+		
+#TPMP: game-rule-selected toolpack host
+			if = {
+				limit = { has_game_rule = { rule = tp_host_country option = GER } }
+				GER = { set_country_flag = tp_is_host }
+				set_variable = { global.tp_host_tag = GER.id }
+			}
+			else_if = {
+				limit = { has_game_rule = { rule = tp_host_country option = SOV } }
+				SOV = { set_country_flag = tp_is_host }
+				set_variable = { global.tp_host_tag = SOV.id }
+			}
+			else_if = {
+				limit = { has_game_rule = { rule = tp_host_country option = USA } }
+				USA = { set_country_flag = tp_is_host }
+				set_variable = { global.tp_host_tag = USA.id }
+			}
+			else_if = {
+				limit = { has_game_rule = { rule = tp_host_country option = ENG } }
+				ENG = { set_country_flag = tp_is_host }
+				set_variable = { global.tp_host_tag = ENG.id }
+			}
+			else_if = {
+				limit = { has_game_rule = { rule = tp_host_country option = FRA } }
+				FRA = { set_country_flag = tp_is_host }
+				set_variable = { global.tp_host_tag = FRA.id }
+			}
+			else_if = {
+				limit = { has_game_rule = { rule = tp_host_country option = ITA } }
+				ITA = { set_country_flag = tp_is_host }
+				set_variable = { global.tp_host_tag = ITA.id }
+			}
+			else_if = {
+				limit = { has_game_rule = { rule = tp_host_country option = JAP } }
+				JAP = { set_country_flag = tp_is_host }
+				set_variable = { global.tp_host_tag = JAP.id }
+			}
+			else_if = {
+				limit = { has_game_rule = { rule = tp_host_country option = HUN } }
+				HUN = { set_country_flag = tp_is_host }
+				set_variable = { global.tp_host_tag = HUN.id }
+			}
+			else_if = {
+				limit = { has_game_rule = { rule = tp_host_country option = ROM } }
+				ROM = { set_country_flag = tp_is_host }
+				set_variable = { global.tp_host_tag = ROM.id }
+			}
+			else_if = {
+				limit = { has_game_rule = { rule = tp_host_country option = SPR } }
+				SPR = { set_country_flag = tp_is_host }
+				set_variable = { global.tp_host_tag = SPR.id }
+			}
+			else_if = {
+				limit = { has_game_rule = { rule = tp_host_country option = BUL } }
+				BUL = { set_country_flag = tp_is_host }
+				set_variable = { global.tp_host_tag = BUL.id }
+			}
+			else_if = {
+				limit = { has_game_rule = { rule = tp_host_country option = FIN } }
+				FIN = { set_country_flag = tp_is_host }
+				set_variable = { global.tp_host_tag = FIN.id }
+			}
+			else_if = {
+				limit = { has_game_rule = { rule = tp_host_country option = MAN } }
+				MAN = { set_country_flag = tp_is_host }
+				set_variable = { global.tp_host_tag = MAN.id }
+			}
+			else_if = {
+				limit = { has_game_rule = { rule = tp_host_country option = SIA } }
+				SIA = { set_country_flag = tp_is_host }
+				set_variable = { global.tp_host_tag = SIA.id }
+			}
+			else_if = {
+				limit = { has_game_rule = { rule = tp_host_country option = CAN } }
+				CAN = { set_country_flag = tp_is_host }
+				set_variable = { global.tp_host_tag = CAN.id }
+			}
+			else_if = {
+				limit = { has_game_rule = { rule = tp_host_country option = RAJ } }
+				RAJ = { set_country_flag = tp_is_host }
+				set_variable = { global.tp_host_tag = RAJ.id }
+			}
+			else_if = {
+				limit = { has_game_rule = { rule = tp_host_country option = AST } }
+				AST = { set_country_flag = tp_is_host }
+				set_variable = { global.tp_host_tag = AST.id }
+			}
+			else_if = {
+				limit = { has_game_rule = { rule = tp_host_country option = SAF } }
+				SAF = { set_country_flag = tp_is_host }
+				set_variable = { global.tp_host_tag = SAF.id }
+			}
+			else_if = {
+				limit = { has_game_rule = { rule = tp_host_country option = UKR } }
+				UKR = { set_country_flag = tp_is_host }
+				set_variable = { global.tp_host_tag = UKR.id }
+			}
+			else_if = {
+				limit = { has_game_rule = { rule = tp_host_country option = MON } }
+				MON = { set_country_flag = tp_is_host }
+				set_variable = { global.tp_host_tag = MON.id }
+			}
+		}
+	}
+}
