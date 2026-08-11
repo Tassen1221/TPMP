@@ -1251,7 +1251,7 @@ focus_tree = {
 	}
 	focus = {
 		id = TPMP_ROM_the_iron_guard
-		# icon = 
+		icon = GFX_focus_TENG_ROM_iron_guard
 		prerequisite = { focus = TPMP_ROM_promise_them_our_victory }
 		x = 0
 		y = 1
@@ -1344,7 +1344,8 @@ focus_tree = {
 		id = TPMP_ROM_revise_the_constitution
 		icon = GFX_goal_generic_forceful_treaty
 		prerequisite = { focus = TPMP_ROM_institute_royal_dictatorship }
-		x = 0
+		mutually_exclusive = { focus = TPMP_ROM_combat_favoritism }
+		x = -1
 		y = 1
 		relative_position_id = TPMP_ROM_institute_royal_dictatorship
 
@@ -1366,18 +1367,49 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = yes
 
-		completion_reward = {			
+		completion_reward = {
 			add_country_leader_trait = camarilla_leader
 			add_ideas = ROM_the_sentinel_of_the_motherland
 		}
 	}
 	focus = {
+		id = TPMP_ROM_combat_favoritism
+		icon = GFX_focus_ARG_crackdown_on_corruption
+		prerequisite = { focus = TPMP_ROM_institute_royal_dictatorship }
+		mutually_exclusive = { focus = TPMP_ROM_revise_the_constitution }
+		x = 1
+		y = 1
+		relative_position_id = TPMP_ROM_institute_royal_dictatorship
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+
+		}
+	}
+	focus = {
 		id = TPMP_ROM_translyvanian_fiasco
 		icon = GFX_focus_YUG_autonomous_transylvania
-		prerequisite = { focus = TPMP_ROM_revise_the_constitution }
+		prerequisite = { focus = TPMP_ROM_revise_the_constitution focus = TPMP_ROM_combat_favoritism }
 		x = 0
-		y = 1
-		relative_position_id = TPMP_ROM_revise_the_constitution
+		y = 2
+		relative_position_id = TPMP_ROM_institute_royal_dictatorship
 
 		cost = 0
 
@@ -1406,6 +1438,7 @@ focus_tree = {
 		id = TPMP_ROM_present_a_scapegoat
 		icon = GFX_focus_PER_assassinate_reza_shah
 		prerequisite = { focus = TPMP_ROM_translyvanian_fiasco }
+		prerequisite = { focus = TPMP_ROM_revise_the_constitution }
 		mutually_exclusive = { focus = TPMP_ROM_the_generals_ultimatum }
 		x = -2
 		y = 1
@@ -1435,6 +1468,7 @@ focus_tree = {
 		id = TPMP_ROM_the_generals_ultimatum
 		icon = GFX_focus_CHI_decisive_battles
 		prerequisite = { focus = TPMP_ROM_translyvanian_fiasco }
+		prerequisite = { focus = TPMP_ROM_combat_favoritism }
 		mutually_exclusive = { focus = TPMP_ROM_present_a_scapegoat }
 		x = 2
 		y = 1
@@ -1462,7 +1496,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_ROM_his_majestys_loyal_government
-		# icon = 
+		icon = GFX_focus_TENG_ROM_carol_II
 		prerequisite = { focus = TPMP_ROM_present_a_scapegoat }
 		x = -1
 		y = 1
@@ -1623,7 +1657,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_ROM_the_conducator
-		# icon = 
+		icon = GFX_focus_TENG_ROM_Conductor
 		prerequisite = { focus = TPMP_ROM_crack_down_on_extremism }
 		prerequisite = { focus = TPMP_ROM_a_king_in_name_only }
 		x = 1
@@ -1942,7 +1976,7 @@ focus_tree = {
 
 	focus = {
 		id = TPMP_ROM_loyal_royal_army
-		# icon = 
+		icon = GFX_focus_TENG_ROM_guy_pushup_flag
 		prerequisite = { focus = TPMP_ROM_dress_to_impress }
 		x = 0
 		y = 1
@@ -2226,6 +2260,63 @@ focus_tree = {
 	}
 
 	focus = {
+		id = TPMP_ROM_aquire_modern_tanks
+		icon = GFX_goal_generic_army_tanks
+		prerequisite = { focus = TPMP_ROM_the_orita }
+		x = 2
+		y = 1
+		relative_position_id = TPMP_ROM_the_orita
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = TPMP_ROM_a_mobile_alternative
+		icon = GFX_focus_generic_self_propelled_gun
+		prerequisite = { focus = TPMP_ROM_aquire_modern_tanks }
+		mutually_exclusive = { focus = TPMP_ROM_modern_at_guns }
+		x = 0
+		y = 1
+		relative_position_id = TPMP_ROM_aquire_modern_tanks
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+	}
+
+	focus = {
 		id = TPMP_ROM_modern_at_guns
 		icon = GFX_goal_generic_army_artillery
 		prerequisite = { focus = TPMP_ROM_artillery_modenisation }
@@ -2421,63 +2512,6 @@ focus_tree = {
 		completion_reward = {
 		}
 	}
-
-	focus = {
-		id = TPMP_ROM_aquire_modern_tanks
-		icon = GFX_goal_generic_army_tanks
-		prerequisite = { focus = TPMP_ROM_the_orita }
-		x = 2
-		y = 1
-		relative_position_id = TPMP_ROM_the_orita
-
-		cost = 5
-
-		ai_will_do = {
-			factor = 1
-		}
-
-		available = {
-		}
-
-		bypass = {
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-
-		completion_reward = {
-		}
-	}
-
-	focus = {
-		id = TPMP_ROM_a_mobile_alternative
-		icon = GFX_focus_generic_self_propelled_gun
-		prerequisite = { focus = TPMP_ROM_aquire_modern_tanks }
-		x = 0
-		y = 1
-		relative_position_id = TPMP_ROM_aquire_modern_tanks
-
-		cost = 5
-
-		ai_will_do = {
-			factor = 1
-		}
-
-		available = {
-		}
-
-		bypass = {
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-
-		completion_reward = {
-		}
-	}
-	
 
 	######################
 	# naval and air ####
