@@ -1512,7 +1512,7 @@ country_event = { #Second Political Event
 			IF = {
                 limit = {
                     amount_taken_ideas = {
-                        amount = 0
+                        amount < 1
                         slots = { political_advisor }
                     }
                 }
@@ -1521,7 +1521,7 @@ country_event = { #Second Political Event
             ELSE_IF = {
                 limit = {
                     amount_taken_ideas = {
-                        amount = 1
+                        amount < 2
                         slots = { political_advisor }
                     }
                 }
@@ -1530,7 +1530,7 @@ country_event = { #Second Political Event
             ELSE_IF = {
                 limit = {
                     amount_taken_ideas = {
-                        amount = 2
+                        amount < 3
                         slots = { political_advisor }
                     }
                 }
@@ -1539,7 +1539,7 @@ country_event = { #Second Political Event
             ELSE_IF = {
                 limit = {
                     amount_taken_ideas = {
-                        amount = 3
+                        amount < 4
                         slots = { political_advisor }
                     }
                 }
@@ -1548,7 +1548,7 @@ country_event = { #Second Political Event
             ELSE_IF = {
                 limit = {
                     amount_taken_ideas = {
-                        amount = 4
+                        amount < 5
                         slots = { political_advisor }
                     }
                 }
@@ -1557,7 +1557,7 @@ country_event = { #Second Political Event
             ELSE_IF = {
                 limit = {
                     amount_taken_ideas = {
-                        amount = 5
+                        amount < 6
                         slots = { political_advisor }
                     }
                 }
@@ -1566,7 +1566,7 @@ country_event = { #Second Political Event
             ELSE_IF = {
                 limit = {
                     amount_taken_ideas = {
-                        amount = 6
+                        amount < 7
                         slots = { political_advisor }
                     }
                 }
@@ -1735,6 +1735,8 @@ country_event = {
     id = TPMP_USA_military.1
 
     hidden = yes
+
+    is_triggered_only = yes
     
     immediate = {
         IF = {

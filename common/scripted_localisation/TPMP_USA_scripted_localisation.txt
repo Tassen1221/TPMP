@@ -982,6 +982,32 @@ defined_text = {
 	}
 }
 defined_text = {
+	name = TPMP_USA_us_army_air_research_loc
+	text = {
+		trigger = {
+			NOT = {
+				has_idea = TPMP_USA_naca_idea
+			}
+			NOT = {
+				has_idea = TPMP_USA_naca_funding_idea
+			}
+		}
+		localization_key = empty_key
+	}
+	text = {
+		trigger = {
+			has_idea = TPMP_USA_naca_funding_idea
+		}
+		localization_key = TPMP_USA_us_army_air_research_key_2
+	}
+	text = {
+		trigger = {
+			has_idea = TPMP_USA_naca_idea
+		}
+		localization_key = TPMP_USA_us_army_air_research_key
+	}
+}
+defined_text = {
 	name = TPMP_USA_lend_lease_arctic_loc
 	text = {
 		trigger = {
