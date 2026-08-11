@@ -133,6 +133,10 @@ focus_tree = {
 
 		available_if_capitulated = no
 
+		allow_branch = {
+			always = no
+		}
+
 		completion_reward = {
 
 			add_political_power = 50
@@ -243,6 +247,7 @@ focus_tree = {
 		}
 
 		available_if_capitulated = no
+		
 
 		completion_reward = {
 
@@ -370,22 +375,23 @@ focus_tree = {
 		}
 
 		allow_branch = {
-			if = {
-				limit = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-				}
-				NOT = {
-					OR = {
-						has_completed_focus = AUS_hold_elections
-						has_completed_focus = AUS_reinstate_the_imperial_council
-						has_completed_focus = AUS_totalitarian_safety
-					}
-				}
+			# if = {
+			# 	limit = {
+			# 		has_game_rule = {
+			# 			rule = obsolete_focus_branches_visibility
+			# 			option = HIDE
+			# 		}
+			# 	}
+			# 	NOT = {
+			# 		OR = {
+			# 			has_completed_focus = AUS_hold_elections
+			# 			has_completed_focus = AUS_reinstate_the_imperial_council
+			# 			has_completed_focus = AUS_totalitarian_safety
+			# 		}
+			# 	}
 				
-			}
+			# }
+			always = no
 		}
 
 		offset = {
@@ -2731,22 +2737,23 @@ focus_tree = {
 		}
 
 		allow_branch = {
-			if = {
-				limit = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-				}
-				NOT = {
-					OR = {
-						has_completed_focus = AUS_austromarxism_focus
-						has_completed_focus = AUS_reinstate_the_imperial_council
-						has_completed_focus = AUS_totalitarian_safety
-					}
-				}
+			# if = {
+			# 	limit = {
+			# 		has_game_rule = {
+			# 			rule = obsolete_focus_branches_visibility
+			# 			option = HIDE
+			# 		}
+			# 	}
+			# 	NOT = {
+			# 		OR = {
+			# 			has_completed_focus = AUS_austromarxism_focus
+			# 			has_completed_focus = AUS_reinstate_the_imperial_council
+			# 			has_completed_focus = AUS_totalitarian_safety
+			# 		}
+			# 	}
 				
-			}
+			# }
+			always = no
 		}
 
 		offset = {
@@ -2936,18 +2943,18 @@ focus_tree = {
 		}
 
 		allow_branch = {
-			if = {
-				limit = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-				}
-				NOT = { has_completed_focus = AUS_the_danubian_federation}
-				NOT = { has_completed_focus = AUS_reinstate_the_imperial_council }
-				NOT = { has_completed_focus = AUS_totalitarian_safety }
-				NOT = { has_completed_focus = AUS_austromarxism_focus }
-			}
+			# if = {
+			# 	limit = {
+			# 		has_game_rule = {
+			# 			rule = obsolete_focus_branches_visibility
+			# 			option = HIDE
+			# 		}
+			# 	}
+			# 	NOT = { has_completed_focus = AUS_the_danubian_federation}
+			# 	NOT = { has_completed_focus = AUS_reinstate_the_imperial_council }
+			# 	NOT = { has_completed_focus = AUS_totalitarian_safety }
+			# 	NOT = { has_completed_focus = AUS_austromarxism_focus }
+			# }
 		}
 
 		available_if_capitulated = no
@@ -4621,19 +4628,19 @@ focus_tree = {
 		}
 
 		allow_branch = {
-			if = {
-				limit = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-				}
-				NOT = { has_completed_focus = AUS_seek_support_from_guarantors }
-				NOT = { has_completed_focus = AUS_legacy_of_the_empire }
-				NOT = { has_completed_focus = AUS_totalitarian_safety }
-				NOT = { has_completed_focus = AUS_austromarxism_focus }
+			# if = {
+			# 	limit = {
+			# 		has_game_rule = {
+			# 			rule = obsolete_focus_branches_visibility
+			# 			option = HIDE
+			# 		}
+			# 	}
+			# 	NOT = { has_completed_focus = AUS_seek_support_from_guarantors }
+			# 	NOT = { has_completed_focus = AUS_legacy_of_the_empire }
+			# 	NOT = { has_completed_focus = AUS_totalitarian_safety }
+			# 	NOT = { has_completed_focus = AUS_austromarxism_focus }
 				
-			}
+			# }
 		}
 		offset = {
 			x = -11
@@ -5090,22 +5097,23 @@ focus_tree = {
 		}
 
 		allow_branch = {
-			if = {
-				limit = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-				}
-				NOT = {
-					OR = {
-						has_completed_focus = AUS_hold_elections
-						has_completed_focus = AUS_austromarxism_focus
-						has_completed_focus = AUS_totalitarian_safety
-					}
-				}
+			# if = {
+			# 	limit = {
+			# 		has_game_rule = {
+			# 			rule = obsolete_focus_branches_visibility
+			# 			option = HIDE
+			# 		}
+			# 	}
+			# 	NOT = {
+			# 		OR = {
+			# 			has_completed_focus = AUS_hold_elections
+			# 			has_completed_focus = AUS_austromarxism_focus
+			# 			has_completed_focus = AUS_totalitarian_safety
+			# 		}
+			# 	}
 				
-			}
+			# }
+			always = no
 		}
 
 		offset = {
@@ -5239,19 +5247,19 @@ focus_tree = {
 		}
 
 		allow_branch = {
-			if = {
-				limit = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-				}
-				NOT = { has_completed_focus = AUS_hold_elections }
-				NOT = { has_completed_focus = AUS_totalitarian_safety }
-				NOT = { has_completed_focus = AUS_austromarxism_focus }
-				NOT = { has_completed_focus = AUS_the_danubian_federation }
+			# if = {
+			# 	limit = {
+			# 		has_game_rule = {
+			# 			rule = obsolete_focus_branches_visibility
+			# 			option = HIDE
+			# 		}
+			# 	}
+			# 	NOT = { has_completed_focus = AUS_hold_elections }
+			# 	NOT = { has_completed_focus = AUS_totalitarian_safety }
+			# 	NOT = { has_completed_focus = AUS_austromarxism_focus }
+			# 	NOT = { has_completed_focus = AUS_the_danubian_federation }
 				
-			}
+			# }
 		}
 
 
@@ -6274,24 +6282,24 @@ focus_tree = {
 		}
 
 		allow_branch = {
-			if = {
-				limit = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-				}
-				NOT = { 
-					OR = {
-						has_completed_focus = AUS_austromarxism_focus
-						has_completed_focus = AUS_hold_elections
-						has_completed_focus = AUS_totalitarian_safety
-						has_completed_focus = AUS_bring_hungary_back_into_the_fold
-						has_completed_focus = AUS_the_danubian_federation
-					} 
-				}
+			# if = {
+			# 	limit = {
+			# 		has_game_rule = {
+			# 			rule = obsolete_focus_branches_visibility
+			# 			option = HIDE
+			# 		}
+			# 	}
+			# 	NOT = { 
+			# 		OR = {
+			# 			has_completed_focus = AUS_austromarxism_focus
+			# 			has_completed_focus = AUS_hold_elections
+			# 			has_completed_focus = AUS_totalitarian_safety
+			# 			has_completed_focus = AUS_bring_hungary_back_into_the_fold
+			# 			has_completed_focus = AUS_the_danubian_federation
+			# 		} 
+			# 	}
 				
-			}
+			# }
 		}
 
 		available_if_capitulated = no
@@ -6583,23 +6591,23 @@ focus_tree = {
 		}
 
 		allow_branch = {
-			if = {
-				limit = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-				}
-				NOT = {
-					OR = { 
-						has_completed_focus = AUS_hold_elections
-						has_completed_focus = AUS_austromarxism_focus
-						has_completed_focus = AUS_totalitarian_safety
-						has_completed_focus = AUS_the_danubian_federation
-					}
-				}
+			# if = {
+			# 	limit = {
+			# 		has_game_rule = {
+			# 			rule = obsolete_focus_branches_visibility
+			# 			option = HIDE
+			# 		}
+			# 	}
+			# 	NOT = {
+			# 		OR = { 
+			# 			has_completed_focus = AUS_hold_elections
+			# 			has_completed_focus = AUS_austromarxism_focus
+			# 			has_completed_focus = AUS_totalitarian_safety
+			# 			has_completed_focus = AUS_the_danubian_federation
+			# 		}
+			# 	}
 				
-			}
+			# }
 		}
 
 		available_if_capitulated = no
@@ -7284,22 +7292,22 @@ focus_tree = {
 		relative_position_id = AUS_tighten_control_of_subjects
 
 		allow_branch = {
-			if = {
-				limit = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-				}
-				NOT = {
-					OR = {
-						has_completed_focus = AUS_totalitarian_safety 
-						has_completed_focus = AUS_the_danubian_federation 
-						has_completed_focus = AUS_hold_elections
-						has_completed_focus = AUS_austromarxism_focus
-					}
-				}
-			}
+			# if = {
+			# 	limit = {
+			# 		has_game_rule = {
+			# 			rule = obsolete_focus_branches_visibility
+			# 			option = HIDE
+			# 		}
+			# 	}
+			# 	NOT = {
+			# 		OR = {
+			# 			has_completed_focus = AUS_totalitarian_safety 
+			# 			has_completed_focus = AUS_the_danubian_federation 
+			# 			has_completed_focus = AUS_hold_elections
+			# 			has_completed_focus = AUS_austromarxism_focus
+			# 		}
+			# 	}
+			# }
 		}
 
 		
@@ -7404,21 +7412,21 @@ focus_tree = {
 		relative_position_id = AUS_reclaim_habsburg
 
 		allow_branch = {
-			if = {
-				limit = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-				}
-				NOT = {
-					OR = {
-						has_completed_focus = AUS_the_danubian_federation 
-						has_completed_focus = AUS_hold_elections
-						has_completed_focus = AUS_austromarxism_focus
-					}
-				}
-			}
+			# if = {
+			# 	limit = {
+			# 		has_game_rule = {
+			# 			rule = obsolete_focus_branches_visibility
+			# 			option = HIDE
+			# 		}
+			# 	}
+			# 	NOT = {
+			# 		OR = {
+			# 			has_completed_focus = AUS_the_danubian_federation 
+			# 			has_completed_focus = AUS_hold_elections
+			# 			has_completed_focus = AUS_austromarxism_focus
+			# 		}
+			# 	}
+			# }
 		}
 
 		offset = {
@@ -7910,23 +7918,23 @@ focus_tree = {
 		}
 
 		allow_branch = {
-			if = {
-				limit = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-				}
-				NOT = { 
-					OR = {
-						has_completed_focus = AUS_austromarxism_focus
-						has_completed_focus = AUS_hold_elections
-						has_completed_focus = AUS_demand_hungarian_submission
-						has_completed_focus = AUS_the_danubian_federation
-					} 
-				}
+			# if = {
+			# 	limit = {
+			# 		has_game_rule = {
+			# 			rule = obsolete_focus_branches_visibility
+			# 			option = HIDE
+			# 		}
+			# 	}
+			# 	NOT = { 
+			# 		OR = {
+			# 			has_completed_focus = AUS_austromarxism_focus
+			# 			has_completed_focus = AUS_hold_elections
+			# 			has_completed_focus = AUS_demand_hungarian_submission
+			# 			has_completed_focus = AUS_the_danubian_federation
+			# 		} 
+			# 	}
 				
-			}
+			# }
 		}
 
 		offset = {
@@ -9590,6 +9598,10 @@ focus_tree = {
 
 		available_if_capitulated = no
 
+		allow_branch = {
+			always = no
+		}
+
 		completion_reward = {
 			add_stability = 0.05
 
@@ -9736,6 +9748,10 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_HISTORICAL FOCUS_FILTER_STABILITY }#I mean technically... it just went really badly...
 
 		available_if_capitulated = no
+
+		allow_branch = {
+			always = no
+		}
 
 		completion_reward = {
 

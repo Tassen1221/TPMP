@@ -2718,7 +2718,7 @@ focus_tree = {
 		prerequisite = { focus = SPA_the_national_and_popular_army_of_spain }
 		
 		icon = GFX_goal_generic_army_artillery
-		x = 1
+		x = 0
 		y = 1
 		relative_position_id = SPA_the_national_and_popular_army_of_spain
 		cost = 10
@@ -2727,11 +2727,10 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_RESEARCH}
 		completion_reward = {
 			army_experience = 25
-			add_doctrine_cost_reduction = {
-				name = SPA_the_army_of_africa_model
-				cost_reduction = 0.5
-				uses = 2
-				category = land_doctrine
+			add_tech_bonus = {
+				bonus = 1.0
+				uses = 1
+				category = cat_armour_tech
 			}
 		}
 	}
@@ -2745,7 +2744,7 @@ focus_tree = {
 		prerequisite = { focus = SPA_the_army_of_africa_model }
 		
 		icon = GFX_goal_generic_small_arms
-		x = -1
+		x = 0
 		y = 2
 		relative_position_id = SPA_the_army_of_africa_model
 		cost = 10
@@ -2863,7 +2862,7 @@ focus_tree = {
 		prerequisite = { focus = SPA_the_army_of_africa_model }
 		
 		icon = GFX_goal_generic_army_motorized
-		x = 0
+		x = 1
 		y = 1
 		relative_position_id = SPA_the_army_of_africa_model
 		cost = 10
@@ -2942,6 +2941,7 @@ focus_tree = {
 		}
 		prerequisite = { focus = SPA_the_national_syndicalist_state focus = SPA_fuse_the_parties }
 
+		allow_branch = {always = no}
 		ai_will_do = {
 			factor = 1
 			modifier = {
@@ -3127,7 +3127,7 @@ focus_tree = {
 		prerequisite = { focus = SPA_fascist_economic_aid focus = SPA_spanish_austerity }
 		
 		icon = GFX_goal_generic_construct_infrastructure
-		x = 1
+		x = 0
 		y = 2
 		relative_position_id = SPA_fascist_economic_aid
 		cost = 10
@@ -3148,6 +3148,20 @@ focus_tree = {
 			build_railway = { #Madrid - Murcia - Valencia
 				path = {
 					3938 6914 9757 942 832 9903 1093 10024 4098 9889 6959 6906
+				}
+			}
+			every_core_state = {
+				limit = {
+					is_fully_controlled_by = ROOT
+					free_building_slots = {
+						building = infrastructure
+						size > 0
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
 				}
 			}
 		}
@@ -3314,56 +3328,29 @@ focus_tree = {
 		prerequisite = { focus = SPA_support_the_war_industry focus = SPA_expand_the_axis_gold_trade }
 		
 		icon = GFX_goal_generic_construct_mil_factory
-		x = 1
+		x = 0
 		y = 1
 		relative_position_id = SPA_support_the_war_industry
 		cost = 10
 
 		available_if_capitulated = yes
 
-		complete_tooltip = {
-			every_state = {
-				limit	= {	has_state_flag = SPA_expand_the_war_industry_2mil }
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = arms_factory
-					level = 2
-					instant_build = yes
-				}
-			}
-		}
 		search_filters = {FOCUS_FILTER_INDUSTRY}
 		completion_reward = {
-			random_owned_controlled_state = {
+			every_core_state = {
 				limit = {
+					is_fully_controlled_by = ROOT
 					free_building_slots = {
 						building = arms_factory
-						size > 1
+						size > 2
+						include_locked = yes
 					}
-					is_core_of = ROOT
 				}
-				set_state_flag = SPA_expand_the_war_industry_2mil
-				add_extra_state_shared_building_slots = 2
+				random_select_amount = 3
+				add_extra_state_shared_building_slots = 3
 				add_building_construction = {
 					type = arms_factory
-					level = 2
-					instant_build = yes
-				}
-			}
-			random_owned_controlled_state = {
-				limit = {
-					free_building_slots = {
-						building = arms_factory
-						size > 1
-					}
-					is_core_of = ROOT
-					NOT = { has_state_flag = SPA_expand_the_war_industry_2mil }
-				}
-				set_state_flag = SPA_expand_the_war_industry_2mil
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = arms_factory
-					level = 2
+					level = 3
 					instant_build = yes
 				}
 			}
@@ -3399,7 +3386,7 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
-			add_timed_idea = { idea = SPA_national_recovery_1 days = 1825 }
+			add_ideas = { idea = SPA_national_recovery_1 }
 			random_owned_controlled_state = {
 				limit = {
 					free_building_slots = {
@@ -3429,7 +3416,7 @@ focus_tree = {
 		mutually_exclusive = { focus = SPA_fascist_economic_aid }
 		
 		icon = GFX_goal_generic_oil_refinery
-		x = 1
+		x = 0
 		y = 1
 		relative_position_id = SPA_national_recovery
 		cost = 10
@@ -3437,12 +3424,6 @@ focus_tree = {
 		available_if_capitulated = yes
 		search_filters = {FOCUS_FILTER_RESEARCH}
 		completion_reward = {
-			if = {
-				limit = {
-					NOT = { has_idea = closed_economy }
-				}
-				add_ideas = closed_economy
-			}
 			swap_ideas = {
 				remove_idea = SPA_national_recovery_1
 				add_idea = SPA_national_recovery_2
@@ -4906,7 +4887,7 @@ focus_tree = {
 		prerequisite = { focus = SPA_fuse_the_parties }
 		
 		icon = GFX_focus_generic_treaty
-		x = 4
+		x = 3
 		y = 1
 		relative_position_id = SPA_fuse_the_parties
 		cost = 10

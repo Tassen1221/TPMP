@@ -8,16 +8,28 @@
 		infantry = { x = 0 y = 0 }
 		infantry = { x = 0 y = 1 }
 		infantry = { x = 0 y = 2 }
+		infantry = { x = 0 y = 3 }
+
 		infantry = { x = 1 y = 0 }
 		infantry = { x = 1 y = 1 }
 		infantry = { x = 1 y = 2 }
+		infantry = { x = 1 y = 3 }
+
 		infantry = { x = 2 y = 0 }
 		infantry = { x = 2 y = 1 }
 		infantry = { x = 2 y = 2 }
+		infantry = { x = 2 y = 3 }
+
+		artillery_brigade = { x = 3 y = 0 }
+		artillery_brigade = { x = 3 y = 1 }
+		artillery_brigade = { x = 3 y = 2 }
+		
+		artillery_brigade = { x = 4 y = 0 }
+		artillery_brigade = { x = 4 y = 1 }
+		artillery_brigade = { x = 4 y = 2 }
 	}
 	support = {
-		artillery = { x = 0 y = 0 }  # 2x 100mm howitzer bns, on average
-		engineer = { x = 0 y = 1 }   
+		engineer = { x = 0 y = 0 }   
 	}
 }
 division_template = {
@@ -29,9 +41,25 @@ division_template = {
 		mountaineers = { x = 0 y = 0 }
 		mountaineers = { x = 0 y = 1 }
 		mountaineers = { x = 0 y = 2 }
+		mountaineers = { x = 0 y = 3 }
+
 		mountaineers = { x = 1 y = 0 }
 		mountaineers = { x = 1 y = 1 }
 		mountaineers = { x = 1 y = 2 }
+		mountaineers = { x = 1 y = 3 }
+
+		mountaineers = { x = 2 y = 0 }
+		mountaineers = { x = 2 y = 1 }
+		mountaineers = { x = 2 y = 2 }
+		mountaineers = { x = 2 y = 3 }
+
+		artillery_brigade = { x = 3 y = 0 }
+		artillery_brigade = { x = 3 y = 1 }
+		artillery_brigade = { x = 3 y = 2 }
+		
+		artillery_brigade = { x = 4 y = 0 }
+		artillery_brigade = { x = 4 y = 1 }
+		artillery_brigade = { x = 4 y = 2 }
 	}
 	support = {
 		engineer = { x = 0 y = 0 }   
@@ -47,7 +75,28 @@ division_template = {
 		cavalry = { x = 0 y = 0 }
 		cavalry = { x = 0 y = 1 }
 		cavalry = { x = 0 y = 2 }
+
+		cavalry = { x = 1 y = 0 }
+		cavalry = { x = 1 y = 1 }
+		cavalry = { x = 1 y = 2 }
+
+		cavalry = { x = 2 y = 0 }
+		cavalry = { x = 2 y = 1 }
+		cavalry = { x = 2 y = 2 }
+
+		cavalry = { x = 3 y = 0 }
+		cavalry = { x = 3 y = 1 }
+		cavalry = { x = 3 y = 2 }
+
+		cavalry = { x = 4 y = 0 }
+		cavalry = { x = 4 y = 1 }
+		cavalry = { x = 4 y = 2 }
+
+		cavalry = { x = 5 y = 0 }
+		cavalry = { x = 5 y = 1 }
+		cavalry = { x = 5 y = 2 }
 	}
+	
 }
 division_template = {
 	name = "Regimentul de Blindate" 				# Armor Regiment
@@ -75,7 +124,7 @@ units = {
 		location = 818
 		division_template = "Divizia de Infanterie"
 		start_experience_factor = 0.2
-		start_equipment_factor = 0.3
+		start_equipment_factor = 1
 
 	}
 	division = {
@@ -87,7 +136,7 @@ units = {
 		location = 818
 		division_template = "Divizia de Infanterie"
 		start_experience_factor = 0.2
-		start_equipment_factor = 0.3
+		start_equipment_factor = 1
 
 	}
 	division = {
@@ -99,7 +148,7 @@ units = {
 		location = 818
 		division_template = "Divizia de Infanterie"
 		start_experience_factor = 0.2
-		start_equipment_factor = 0.3
+		start_equipment_factor = 1
 
 	}
 	division = {
@@ -111,7 +160,7 @@ units = {
 		location = 818
 		division_template = "Brigada de Cavalerie"
 		start_experience_factor = 0.2
-		start_equipment_factor = 0.3
+		start_equipment_factor = 1
 
 	}
 
@@ -135,7 +184,7 @@ units = {
 		location = 9617
 		division_template = "Divizia de Infanterie"
 		start_experience_factor = 0.2
-		start_equipment_factor = 0.3
+		start_equipment_factor = 1
 
 	}
 	division = {
@@ -147,7 +196,7 @@ units = {
 		location = 9617
 		division_template = "Divizia de Infanterie"
 		start_experience_factor = 0.2
-		start_equipment_factor = 0.3
+		start_equipment_factor = 1
 
 	}
 	division = {
@@ -159,7 +208,7 @@ units = {
 		location = 9617
 		division_template = "Brigada de Cavalerie"
 		start_experience_factor = 0.2
-		start_equipment_factor = 0.3
+		start_equipment_factor = 1
 
 	}
 	division = {
@@ -172,7 +221,7 @@ units = {
 	}
 
 
-	# Corp 3 Armata
+	#Corp 3 Armata
 	division = {
 		#name = "Divizia 12 Infanterie"
 		division_name = {    # New syntax for compatibility with name lists
@@ -182,33 +231,33 @@ units = {
 		location = 6706
 		division_template = "Divizia de Infanterie"
 		start_experience_factor = 0.2
-		start_equipment_factor = 0.3
+		start_equipment_factor = 1
 
 	}
-	division = {
-		#name = "Divizia 15 Infanterie"
-		division_name = {    # New syntax for compatibility with name lists
-			is_name_ordered = yes
-			name_order = 15
-		}
-		location = 6706
-		division_template = "Divizia de Infanterie"
-		start_experience_factor = 0.2
-		start_equipment_factor = 0.3
+	# division = {
+	# 	#name = "Divizia 15 Infanterie"
+	# 	division_name = {    # New syntax for compatibility with name lists
+	# 		is_name_ordered = yes
+	# 		name_order = 15
+	# 	}
+	# 	location = 6706
+	# 	division_template = "Divizia de Infanterie"
+	# 	start_experience_factor = 0.2
+	# 	start_equipment_factor = 0.3
 
-	}
-	division = {
-		#name = "Divizia 21 Infanterie"
-		division_name = {    # New syntax for compatibility with name lists
-			is_name_ordered = yes
-			name_order = 21
-		}
-		location = 6706
-		division_template = "Divizia de Infanterie"
-		start_experience_factor = 0.2
-		start_equipment_factor = 0.3
+	# }
+	# division = {
+	# 	#name = "Divizia 21 Infanterie"
+	# 	division_name = {    # New syntax for compatibility with name lists
+	# 		is_name_ordered = yes
+	# 		name_order = 21
+	# 	}
+	# 	location = 6706
+	# 	division_template = "Divizia de Infanterie"
+	# 	start_experience_factor = 0.2
+	# 	start_equipment_factor = 0.3
 
-	}
+	# }
 
 	# Corp 4 Armata
 	division = {
@@ -220,7 +269,7 @@ units = {
 		location = 9716
 		division_template = "Divizia de Infanterie"
 		start_experience_factor = 0.2
-		start_equipment_factor = 0.3
+		start_equipment_factor = 1
 
 	}
 	division = {
@@ -232,133 +281,133 @@ units = {
 		location = 9716
 		division_template = "Divizia de Infanterie"
 		start_experience_factor = 0.2
-		start_equipment_factor = 0.3
+		start_equipment_factor = 1
 
 	}
-	division = {
-		#name = "Divizia 14 Infanterie"
-		division_name = {    # New syntax for compatibility with name lists
-			is_name_ordered = yes
-			name_order = 14
-		}		
-		location = 9716
-		division_template = "Divizia de Infanterie"
-		start_experience_factor = 0.2
-		start_equipment_factor = 0.3
+	# division = {
+	# 	#name = "Divizia 14 Infanterie"
+	# 	division_name = {    # New syntax for compatibility with name lists
+	# 		is_name_ordered = yes
+	# 		name_order = 14
+	# 	}		
+	# 	location = 9716
+	# 	division_template = "Divizia de Infanterie"
+	# 	start_experience_factor = 0.2
+	# 	start_equipment_factor = 0.3
 
-	}
-	division = {
-		#name = "Brigada 6 Cavalerie"
-		division_name = {    # New syntax for compatibility with name lists
-			is_name_ordered = yes
-			name_order = 6
-		}		
-		location = 9716
-		division_template = "Brigada de Cavalerie"
-		start_experience_factor = 0.2
-		start_equipment_factor = 0.3
+	# }
+	# division = {
+	# 	#name = "Brigada 6 Cavalerie"
+	# 	division_name = {    # New syntax for compatibility with name lists
+	# 		is_name_ordered = yes
+	# 		name_order = 6
+	# 	}		
+	# 	location = 9716
+	# 	division_template = "Brigada de Cavalerie"
+	# 	start_experience_factor = 0.2
+	# 	start_equipment_factor = 0.3
 
-	}
+	# }
 
 	# Corp 5 Armata
-	division = {
-		#name = "Divizia 5 Infanterie"
-		division_name = {    # New syntax for compatibility with name lists
-			is_name_ordered = yes
-			name_order = 5
-		}
-		location = 3663
-		division_template = "Divizia de Infanterie"
-		start_experience_factor = 0.2
-		start_equipment_factor = 0.3
+	# division = {
+	# 	#name = "Divizia 5 Infanterie"
+	# 	division_name = {    # New syntax for compatibility with name lists
+	# 		is_name_ordered = yes
+	# 		name_order = 5
+	# 	}
+	# 	location = 3663
+	# 	division_template = "Divizia de Infanterie"
+	# 	start_experience_factor = 0.2
+	# 	start_equipment_factor = 1
 
-	}
-	division = {
-		#name = "Divizia 6 Infanterie"
-		division_name = {    # New syntax for compatibility with name lists
-			is_name_ordered = yes
-			name_order = 6
-		}		
-		location = 3663
-		division_template = "Divizia de Infanterie"
-		start_experience_factor = 0.2
-		start_equipment_factor = 0.3
+	# }
+	# division = {
+	# 	#name = "Divizia 6 Infanterie"
+	# 	division_name = {    # New syntax for compatibility with name lists
+	# 		is_name_ordered = yes
+	# 		name_order = 6
+	# 	}		
+	# 	location = 3663
+	# 	division_template = "Divizia de Infanterie"
+	# 	start_experience_factor = 0.2
+	# 	start_equipment_factor = 1
 
-	}
-	division = {
-		#name = "Divizia 13 Infanterie"
-		division_name = {    # New syntax for compatibility with name lists
-			is_name_ordered = yes
-			name_order = 13
-		}
-		location = 3663
-		division_template = "Divizia de Infanterie"
-		start_experience_factor = 0.2
-		start_equipment_factor = 0.3
+	# }
+	# division = {
+	# 	#name = "Divizia 13 Infanterie"
+	# 	division_name = {    # New syntax for compatibility with name lists
+	# 		is_name_ordered = yes
+	# 		name_order = 13
+	# 	}
+	# 	location = 3663
+	# 	division_template = "Divizia de Infanterie"
+	# 	start_experience_factor = 0.2
+	# 	start_equipment_factor = 0.3
 
-	}
+	# }
 
-	# Corp 6 Armata
-	division = {
-		#name = "Divizia 16 Infanterie"
-		division_name = {    # New syntax for compatibility with name lists
-			is_name_ordered = yes
-			name_order = 16
-		}
-		location = 6682
-		division_template = "Divizia de Infanterie"
-		start_experience_factor = 0.2
-		start_equipment_factor = 0.3
+	# # Corp 6 Armata
+	# division = {
+	# 	#name = "Divizia 16 Infanterie"
+	# 	division_name = {    # New syntax for compatibility with name lists
+	# 		is_name_ordered = yes
+	# 		name_order = 16
+	# 	}
+	# 	location = 6682
+	# 	division_template = "Divizia de Infanterie"
+	# 	start_experience_factor = 0.2
+	# 	start_equipment_factor = 0.3
 
-	}
-	division = {
-		#name = "Divizia 17 Infanterie"
-		division_name = {    # New syntax for compatibility with name lists
-			is_name_ordered = yes
-			name_order = 17
-		}
-		location = 6697
-		division_template = "Divizia de Infanterie"
-		start_experience_factor = 0.2
-		start_equipment_factor = 0.3
+	# }
+	# division = {
+	# 	#name = "Divizia 17 Infanterie"
+	# 	division_name = {    # New syntax for compatibility with name lists
+	# 		is_name_ordered = yes
+	# 		name_order = 17
+	# 	}
+	# 	location = 6697
+	# 	division_template = "Divizia de Infanterie"
+	# 	start_experience_factor = 0.2
+	# 	start_equipment_factor = 0.3
 
-	}
-	division = {
-		#name = "Divizia 18 Infanterie"
-		division_name = {    # New syntax for compatibility with name lists
-			is_name_ordered = yes
-			name_order = 18
-		}
-		location = 3696
-		division_template = "Divizia de Infanterie"
-		start_experience_factor = 0.2
-		start_equipment_factor = 0.3
+	# }
+	# division = {
+	# 	#name = "Divizia 18 Infanterie"
+	# 	division_name = {    # New syntax for compatibility with name lists
+	# 		is_name_ordered = yes
+	# 		name_order = 18
+	# 	}
+	# 	location = 3696
+	# 	division_template = "Divizia de Infanterie"
+	# 	start_experience_factor = 0.2
+	# 	start_equipment_factor = 0.3
 
-	}
-	division = {
-		#name = "Divizia 20 Infanterie"
-		division_name = {    # New syntax for compatibility with name lists
-			is_name_ordered = yes
-			name_order = 20
-		}
-		location = 713
-		division_template = "Divizia de Infanterie"
-		start_experience_factor = 0.2
-		start_equipment_factor = 0.3
+	# }
+	# division = {
+	# 	#name = "Divizia 20 Infanterie"
+	# 	division_name = {    # New syntax for compatibility with name lists
+	# 		is_name_ordered = yes
+	# 		name_order = 20
+	# 	}
+	# 	location = 713
+	# 	division_template = "Divizia de Infanterie"
+	# 	start_experience_factor = 0.2
+	# 	start_equipment_factor = 0.3
 
-	}
-	division = {
-		#name = "Brigada 8 Cavalerie"
-		division_name = {    # New syntax for compatibility with name lists
-			is_name_ordered = yes
-			name_order = 8
-		}
-		location = 6682
-		division_template = "Brigada de Cavalerie"
-		start_experience_factor = 0.2
-		start_equipment_factor = 0.3
+	# }
+	# division = {
+	# 	#name = "Brigada 8 Cavalerie"
+	# 	division_name = {    # New syntax for compatibility with name lists
+	# 		is_name_ordered = yes
+	# 		name_order = 8
+	# 	}
+	# 	location = 6682
+	# 	division_template = "Brigada de Cavalerie"
+	# 	start_experience_factor = 0.2
+	# 	start_equipment_factor = 0.3
 
-	}
+	# }
 
 	# Corp 7 Armata
 	division = {
@@ -370,7 +419,7 @@ units = {
 		location = 690
 		division_template = "Divizia de Infanterie"
 		start_experience_factor = 0.2
-		start_equipment_factor = 0.3
+		start_equipment_factor = 1
 
 	}
 	division = {
@@ -382,21 +431,21 @@ units = {
 		location = 690
 		division_template = "Divizia de Infanterie"
 		start_experience_factor = 0.2
-		start_equipment_factor = 0.3
+		start_equipment_factor = 1
 
 	}
-	division = {
-		#name = "Divizia 19 Infanterie"
-		division_name = {    # New syntax for compatibility with name lists
-			is_name_ordered = yes
-			name_order = 19
-		}
-		location = 690
-		division_template = "Divizia de Infanterie"
-		start_experience_factor = 0.2
-		start_equipment_factor = 0.3
+	# division = {
+	# 	#name = "Divizia 19 Infanterie"
+	# 	division_name = {    # New syntax for compatibility with name lists
+	# 		is_name_ordered = yes
+	# 		name_order = 19
+	# 	}
+	# 	location = 690
+	# 	division_template = "Divizia de Infanterie"
+	# 	start_experience_factor = 0.2
+	# 	start_equipment_factor = 0.3
 
-	}
+	# }
 
 	# Corp Alpinisti
 	division = {
@@ -408,7 +457,7 @@ units = {
 		location = 6711
 		division_template = "Brigada de Munte"
 		start_experience_factor = 0.3
-		start_equipment_factor = 0.7
+		start_equipment_factor = 1
 
 	}
 	division = {
@@ -420,33 +469,33 @@ units = {
 		location = 6711
 		division_template = "Brigada de Munte"
 		start_experience_factor = 0.3
-		start_equipment_factor = 0.7
+		start_equipment_factor = 1
 
 	}
-	division = {
-		#name = "Brigada 3 de Munte Mixtă"
-		division_name = {    # New syntax for compatibility with name lists
-			is_name_ordered = yes
-			name_order = 3
-		}
-		location = 6711
-		division_template = "Brigada de Munte"
-		start_experience_factor = 0.3
-		start_equipment_factor = 0.7
+	# division = {
+	# 	#name = "Brigada 3 de Munte Mixtă"
+	# 	division_name = {    # New syntax for compatibility with name lists
+	# 		is_name_ordered = yes
+	# 		name_order = 3
+	# 	}
+	# 	location = 6711
+	# 	division_template = "Brigada de Munte"
+	# 	start_experience_factor = 0.3
+	# 	start_equipment_factor = 0.7
 
-	}
-	division = {
-		#name = "Brigada 4 de Munte Mixtă"
-		division_name = {    # New syntax for compatibility with name lists
-			is_name_ordered = yes
-			name_order = 4
-		}
-		location = 6711
-		division_template = "Brigada de Munte"
-		start_experience_factor = 0.3
-		start_equipment_factor = 0.7
+	# }
+	# division = {
+	# 	#name = "Brigada 4 de Munte Mixtă"
+	# 	division_name = {    # New syntax for compatibility with name lists
+	# 		is_name_ordered = yes
+	# 		name_order = 4
+	# 	}
+	# 	location = 6711
+	# 	division_template = "Brigada de Munte"
+	# 	start_experience_factor = 0.3
+	# 	start_equipment_factor = 0.7
 
-	}
+	# }
 }
 
 ### Starting Production ###

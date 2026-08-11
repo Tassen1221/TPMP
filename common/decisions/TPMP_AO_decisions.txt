@@ -2,20 +2,18 @@ TPMP_game_decisions_category = {
 	
 	TPMP_NA_rom_annex_bul_decision = {	
         visible = {
-			
-				has_game_rule = {
-					rule = no_asia_setting
-					option = NO
+            tag = ROM
+			AND = {
+				BUL = {
+					is_ai = yes
 				}
+			}
 
         }
         available = {
             tag = ROM
 			AND = {
 				BUL = {
-					is_ai = yes
-				}
-				JAP = {
 					is_ai = yes
 				}
 			}
@@ -38,6 +36,64 @@ TPMP_game_decisions_category = {
 			}
         }
 	}
+
+	
+	TPMP_no_spain_germany_resources_decision = {
+
+		icon = generic_prepare_civil_war
+        visible = {
+            tag = GER
+			SPR = {
+				is_ai = yes
+			}
+			
+				has_game_rule = {
+					rule = no_asia_setting
+					option = YES
+				}
+        }
+        available = {
+            tag = GER
+			SPR = {
+				is_ai = yes
+			}
+			
+				has_game_rule = {
+					rule = no_asia_setting
+					option = YES
+				}
+        }
+
+		fire_only_once = yes
+
+		modifier = {
+			
+		}
+
+		complete_effect = {
+			65 = {
+				add_resource = {
+					type = steel
+					amount = 100
+				}
+				add_resource = {
+					type = tungsten
+					amount = 500
+				}
+
+			}
+			158 = {
+				add_resource = {
+					type = steel
+					amount = 800
+				}
+
+			}
+
+		}
+	}
+
+
 
 	TPMP_NA_ENDSIEG_decision = {
 
@@ -133,9 +189,6 @@ TPMP_game_decisions_category = {
         }
         available = {
             tag = GER
-				SPR = {
-					is_ai = yes
-				}
         }
 
 		fire_only_once = yes
@@ -211,7 +264,7 @@ TPMP_game_decisions_category = {
 					option = NO
 				}
         }
-				available = {
+			available = {
 			date > 1942.7.1
 			OR = {
 				tag = AST
@@ -249,9 +302,13 @@ TPMP_game_decisions_category = {
 				}
         }
 		available = {
-			date > 1939.1.1
-			OR = {
+			AND = {
 				tag = SPR
+				date > 1939.1.1
+				RAJ = {
+					is_ai = no
+				}
+				
 			}
 		}
 
@@ -273,6 +330,13 @@ TPMP_game_decisions_category = {
 
 		}
 	}
+
+
+
+
+
+
+
 
 
 

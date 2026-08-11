@@ -1153,9 +1153,6 @@ focus_tree = {
 		available_if_capitulated = no
 	
 		completion_reward = {
-			AST_add_or_modify_AST_australian_military_forces_spirit = yes
-			add_to_variable = { AST_australian_military_forces_spirit_army_non_core_attack_factor = 0.05 tooltip = army_non_core_attack_factor_tt }
-			add_to_variable = { AST_australian_military_forces_spirit_army_non_core_defence_factor = 0.10 tooltip = army_non_core_defence_factor_tt }
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 			show_unit_leaders_tooltip = AST_horace_robertson
@@ -1222,50 +1219,50 @@ focus_tree = {
 		available_if_capitulated = no
 	
 		completion_reward = {
-			country_event = { id = AST_diplomatic_events.24 hours = 3 }  
-			hidden_effect = {
-				ENG = { country_event = { id = AST_diplomatic_events.24 hours = 3 } }
-			} 
-			custom_effect_tooltip = effects_of_event_tt
-			effect_tooltip = {
-				ENG = {
-					add_country_leader_role = {
-						character = ENG_robert_menzies
-						promote_leader = yes
-						country_leader = {
-							ideology = socialism
-							expire = "1952.1.1.1"
-						}
-					}
-				}
+			# country_event = { id = AST_diplomatic_events.24 hours = 3 }  
+			# hidden_effect = {
+			# 	ENG = { country_event = { id = AST_diplomatic_events.24 hours = 3 } }
+			# # } 
+			# custom_effect_tooltip = effects_of_event_tt
+			# effect_tooltip = {
+			# 	ENG = {
+			# 		add_country_leader_role = {
+			# 			character = ENG_robert_menzies
+			# 			promote_leader = yes
+			# 			country_leader = {
+			# 				ideology = socialism
+			# 				expire = "1952.1.1.1"
+			# 			}
+			# 		}
+			# 	}
 			
-				custom_effect_tooltip = generic_skip_one_line_tt
-				AST = {
-					IF = {
-						limit = {
-							is_subject = yes
-						}
-						OVERLORD = {
-							set_autonomy = {
-								target = AST
-								autonomy_state = autonomy_associated_dominion
-							}
-						}
-						custom_effect_tooltip = AST_a_change_of_authority_tt 
-					}	
+			# 	custom_effect_tooltip = generic_skip_one_line_tt
+			# 	AST = {
+			# 		IF = {
+			# 			limit = {
+			# 				is_subject = yes
+			# 			}
+			# 			OVERLORD = {
+			# 				set_autonomy = {
+			# 					target = AST
+			# 					autonomy_state = autonomy_associated_dominion
+			# 				}
+			# 			}
+			# 			custom_effect_tooltip = AST_a_change_of_authority_tt 
+			# 		}	
 
-					custom_effect_tooltip = generic_skip_one_line_tt
-					custom_effect_tooltip = generic_skip_one_line_tt
-					add_country_leader_role = {
-						character = AST_billy_hughes
-						promote_leader = yes
-						country_leader = {
-							ideology = socialism
-							expire = "1952.1.1.1"
-						}
-					}
-				}
-			}
+			# 		custom_effect_tooltip = generic_skip_one_line_tt
+			# 		custom_effect_tooltip = generic_skip_one_line_tt
+			# 		add_country_leader_role = {
+			# 			character = AST_billy_hughes
+			# 			promote_leader = yes
+			# 			country_leader = {
+			# 				ideology = socialism
+			# 				expire = "1952.1.1.1"
+			# 			}
+			# 		}
+			# 	}
+			# }
 			#custom_effect_tooltip = AST_the_ultimate_overseas_duty_tt #Remove if don't end up using TODO_AL
 		}
 
@@ -1555,8 +1552,6 @@ focus_tree = {
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 			AST_add_or_modify_AST_australian_military_forces_spirit = yes
-			add_to_variable = { AST_australian_military_forces_spirit_army_non_core_attack_factor = 0.05 tooltip = army_non_core_attack_factor_tt }
-			add_to_variable = { AST_australian_military_forces_spirit_army_non_core_defence_factor = 0.05 tooltip = army_non_core_defence_factor_tt }
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = AST_conscription_law_so_far
@@ -1859,11 +1854,7 @@ focus_tree = {
 						has_completed_focus = AST_ending_overseas_conscription
 					}
 				}
-				custom_effect_tooltip = AST_seven_million_britishers_conscription_tt
-				AST_add_or_modify_AST_australian_military_forces_spirit = yes
-				add_to_variable = { AST_australian_military_forces_spirit_army_non_core_attack_factor = 0.05 tooltip = army_non_core_attack_factor_tt }
-				add_to_variable = { AST_australian_military_forces_spirit_army_non_core_defence_factor = 0.05 tooltip = army_non_core_defence_factor_tt }
-				}
+			}
 
 			IF = {
 				limit = {
@@ -2240,14 +2231,14 @@ focus_tree = {
 				} 
 			}
 
-			IF = {
-				limit = {
-					has_dlc = "No Compromise, No Surrender"
-				}
-				custom_effect_tooltip = generic_skip_one_line_tt
-				set_faction_leader = yes
-				add_faction_influence_ratio = 0.30
-			}
+			# IF = {
+			# 	limit = {
+			# 		has_dlc = "No Compromise, No Surrender"
+			# 	}
+			# 	custom_effect_tooltip = generic_skip_one_line_tt
+			# 	set_faction_leader = yes
+			# 	add_faction_influence_ratio = 0.30
+			# }
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 			set_major = yes
@@ -3462,18 +3453,19 @@ focus_tree = {
 		cost = 10
 
 		allow_branch = {
-			if = {
-				limit = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-				}
-				AND = {
-					NOT = { has_completed_focus = AST_war_is_coming }
-					NOT = { has_completed_focus = AST_against_war_and_fascism }
-				}
-			}
+			always = no
+			# if = {
+			# 	limit = {
+			# 		has_game_rule = {
+			# 			rule = obsolete_focus_branches_visibility
+			# 			option = HIDE
+			# 		}
+			# 	}
+			# 	AND = {
+			# 		NOT = { has_completed_focus = AST_war_is_coming }
+			# 		NOT = { has_completed_focus = AST_against_war_and_fascism }
+			# 	}
+			# }
 		}
 
 		available = {
@@ -5661,18 +5653,19 @@ focus_tree = {
 		cost = 5
 
 		allow_branch = {
-			if = {
-				limit = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-				}
-				AND = {
-					NOT = { has_completed_focus = AST_australia_first }
-					NOT = { has_completed_focus = AST_war_is_coming }
-				}
-			}
+			always = no
+			# if = {
+			# 	limit = {
+			# 		has_game_rule = {
+			# 			rule = obsolete_focus_branches_visibility
+			# 			option = HIDE
+			# 		}
+			# 	}
+			# 	AND = {
+			# 		NOT = { has_completed_focus = AST_australia_first }
+			# 		NOT = { has_completed_focus = AST_war_is_coming }
+			# 	}
+			# }
 		}
 
 		offset = {
@@ -9430,7 +9423,7 @@ focus = {
 		x = 1
 		y = 1
 	
-		cost = 10
+		cost = 5
 
 		available = {
 		}
@@ -9446,9 +9439,6 @@ focus = {
 			add_to_variable = { AST_australian_military_forces_spirit_army_core_defence_factor = 0.05 tooltip = army_core_defence_factor_tt }
 
 			custom_effect_tooltip = generic_skip_one_line_tt
-			custom_effect_tooltip = AST_citizen_army_spirit_tt
-			add_to_variable = { AST_citizen_army_spirit_army_non_core_attack_factor = 0.10 tooltip = army_non_core_attack_factor_tt }
-			add_to_variable = { AST_citizen_army_spirit_army_non_core_defence_factor = 0.10 tooltip = army_non_core_defence_factor_tt }
 		}
 
 		search_filters = {  }
@@ -9481,7 +9471,7 @@ focus = {
 			add_tech_bonus = {
 				name = AST_war_carriers
 			    bonus = 0.5
-			    ahead_reduction = 2
+			    ahead_reduction = 2w
 			    uses = 2
 				category = logistics_tech
 			}
@@ -9506,7 +9496,7 @@ focus = {
 		x = 5
 		y = 1
 	
-		cost = 10
+		cost = 5
 
 		available = {
 		}
@@ -9518,9 +9508,8 @@ focus = {
 	
 		completion_reward = {
 			custom_effect_tooltip = AST_australian_military_forces_spirit_tt
-			add_to_variable = { AST_australian_military_forces_spirit_army_org_factor = 0.05 tooltip = army_org_factor_tt }
-			add_to_variable = { AST_australian_military_forces_spirit_army_non_core_attack_factor = 0.05 tooltip = army_non_core_attack_factor_tt }
-			add_to_variable = { AST_australian_military_forces_spirit_army_non_core_defence_factor = 0.05 tooltip = army_non_core_defence_factor_tt }
+			add_to_variable = { AST_australian_military_forces_spirit_army_non_core_attack_factor = 0.025 tooltip = army_non_core_attack_factor_tt }
+			add_to_variable = { AST_australian_military_forces_spirit_army_non_core_defence_factor = 0.025 tooltip = army_non_core_defence_factor_tt }
 		}
 
 		search_filters = {  }
@@ -9650,8 +9639,7 @@ focus = {
 	
 		completion_reward = {
 			custom_effect_tooltip = AST_australian_military_forces_spirit_tt
-			add_to_variable = { AST_australian_military_forces_spirit_army_non_core_attack_factor = 0.05 tooltip = army_non_core_attack_factor_tt }
-			add_to_variable = { AST_australian_military_forces_spirit_army_non_core_defence_factor = 0.10 tooltip = army_non_core_defence_factor_tt }
+			add_to_variable = { AST_australian_military_forces_spirit_army_non_core_defence_factor = 0.05 tooltip = army_non_core_defence_factor_tt }
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 			show_unit_leaders_tooltip = AST_alan_vasey
@@ -9693,7 +9681,7 @@ focus = {
 	
 		completion_reward = {
 		custom_effect_tooltip = AST_australian_military_forces_spirit_tt
-		add_to_variable = { AST_australian_military_forces_spirit_army_org = 3 tooltip = army_org_tt }
+		add_to_variable = { AST_australian_military_forces_spirit_army_org = 1.5 tooltip = army_org_tt }
 		}
 
 		search_filters = {  }
@@ -9721,8 +9709,7 @@ focus = {
 	
 		completion_reward = {
 			custom_effect_tooltip = AST_australian_military_forces_spirit_tt
-			add_to_variable = { AST_australian_military_forces_spirit_max_dig_in = 2 tooltip = max_dig_in_tt }
-			add_to_variable = { AST_australian_military_forces_spirit_army_defence_factor = 0.05 tooltip = army_defence_factor_tt }
+			add_to_variable = { AST_australian_military_forces_spirit_max_dig_in = 3 tooltip = max_dig_in_tt }
 		}
 
 		search_filters = {  }
@@ -10005,8 +9992,7 @@ focus = {
 	
 		completion_reward = {
 			custom_effect_tooltip = AST_australian_military_forces_spirit_tt
-			add_to_variable = { AST_australian_military_forces_spirit_army_org_factor = 0.10 tooltip = army_org_factor_tt }
-			add_to_variable = { AST_australian_military_forces_spirit_army_attack_factor = 0.05 tooltip = army_attack_factor_tt }
+			add_to_variable = { AST_australian_military_forces_spirit_army_org_factor = 0.05 tooltip = army_org_factor_tt }
 		}
 
 		search_filters = {  }
@@ -10188,8 +10174,7 @@ focus = {
 			custom_effect_tooltip = AST_australian_military_forces_spirit_tt
 			add_to_variable = { AST_australian_military_forces_spirit_army_org = 2.5 tooltip = army_org_tt }
 			add_to_variable = { AST_australian_military_forces_spirit_army_non_core_attack_factor = 0.05 tooltip = army_non_core_attack_factor_tt }
-			add_to_variable = { AST_australian_military_forces_spirit_army_non_core_defence_factor = 0.05 tooltip = army_non_core_defence_factor_tt }
-			add_to_variable = { AST_australian_military_forces_spirit_acclimatization_hot_climate_gain_factor = 0.20 tooltip = acclimatization_hot_climate_gain_factor_tt }
+			add_to_variable = { AST_australian_military_forces_spirit_acclimatization_hot_climate_gain_factor = 1.0 tooltip = acclimatization_hot_climate_gain_factor_tt }
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = AST_conscription_law_so_far
@@ -10388,7 +10373,7 @@ focus = {
 			custom_effect_tooltip = AST_royal_australian_air_force_spirit_tt
 			add_to_variable = { AST_royal_australian_air_force_spirit_production_speed_air_base_factor = 0.20 tooltip = production_speed_air_base_factor_tt }
 			add_to_variable = { AST_royal_australian_air_force_spirit_air_accidents_factor = -0.10 tooltip = air_accidents_factor_tt }
-			add_to_variable = { AST_royal_australian_air_force_spirit_air_mission_efficiency = 0.05 tooltip = air_mission_efficiency_tt }
+			#add_to_variable = { AST_royal_australian_air_force_spirit_air_mission_efficiency = 0.05 tooltip = air_mission_efficiency_tt }
 		}
 
 		search_filters = { }
@@ -10416,7 +10401,7 @@ focus = {
 	
 		completion_reward = {
 			custom_effect_tooltip = AST_royal_australian_air_force_spirit_tt
-			add_to_variable = { AST_royal_australian_air_force_spirit_air_mission_efficiency = 0.10 tooltip = air_mission_efficiency_tt }
+			#add_to_variable = { AST_royal_australian_air_force_spirit_air_mission_efficiency = 0.10 tooltip = air_mission_efficiency_tt }
 			add_to_variable = { AST_royal_australian_air_force_spirit_experience_gain_air_factor = 0.10 tooltip = experience_gain_air_factor_tt }
 		}
 
@@ -10578,7 +10563,7 @@ focus = {
 	
 		completion_reward = {
 			custom_effect_tooltip = AST_royal_australian_air_force_spirit_tt
-			add_to_variable = { AST_royal_australian_air_force_spirit_air_interception_detect_factor = 0.10 tooltip = air_interception_detect_factor_tt }
+			#add_to_variable = { AST_royal_australian_air_force_spirit_air_interception_detect_factor = 0.10 tooltip = air_interception_detect_factor_tt }
 			add_to_variable = { AST_royal_australian_air_force_spirit_airforce_intel_factor = 0.10 tooltip = airforce_intel_factor_tt }
 		}
 
@@ -10608,7 +10593,7 @@ focus = {
 		completion_reward = {
 			custom_effect_tooltip = AST_royal_australian_air_force_spirit_tt
 			add_to_variable = { AST_royal_australian_air_force_spirit_air_ace_generation_chance_factor = 0.10 tooltip = air_ace_generation_chance_factor_tt }
-			add_to_variable = { AST_royal_australian_air_force_spirit_ace_effectiveness_factor = 0.25 tooltip = ace_effectiveness_factor_tt }
+			#add_to_variable = { AST_royal_australian_air_force_spirit_ace_effectiveness_factor = 0.25 tooltip = ace_effectiveness_factor_tt }
 		}
 
 		search_filters = {  }
@@ -10759,7 +10744,7 @@ focus = {
 		x = 1
 		y = 1
 	
-		cost = 10
+		cost = 5
 
 		available = {
 		}
@@ -10770,10 +10755,10 @@ focus = {
 		available_if_capitulated = no
 	
 		completion_reward = {
-			custom_effect_tooltip = AST_royal_australian_air_force_spirit_tt
-			add_to_variable = { AST_royal_australian_air_force_spirit_air_attack_factor = 0.10 tooltip = air_attack_factor_tt }
-			add_to_variable = { AST_royal_australian_air_force_spirit_air_defence_factor = 0.10 tooltip = air_defence_factor_tt }
-			add_to_variable = { AST_royal_australian_air_force_spirit_air_close_air_support_org_damage_factor = 0.10 tooltip = air_close_air_support_org_damage_factor_tt }
+			#custom_effect_tooltip = AST_royal_australian_air_force_spirit_tt
+			#add_to_variable = { AST_royal_australian_air_force_spirit_air_attack_factor = 0.10 tooltip = air_attack_factor_tt }
+			#add_to_variable = { AST_royal_australian_air_force_spirit_air_defence_factor = 0.10 tooltip = air_defence_factor_tt }
+			#add_to_variable = { AST_royal_australian_air_force_spirit_air_close_air_support_org_damage_factor = 0.10 tooltip = air_close_air_support_org_damage_factor_tt }
 		}
 
 		search_filters = {  }
@@ -10789,7 +10774,7 @@ focus = {
 		x = 0
 		y = 1
 	
-		cost = 10
+		cost = 5
 
 		available = {
 
@@ -10801,7 +10786,7 @@ focus = {
 		available_if_capitulated = no
 	
 		completion_reward = {
-			add_ideas = AUS_domestic_air_production_small
+			#add_ideas = AUS_domestic_air_production_small
 		}
 
 		search_filters = { FOCUS_FILTER_RESEARCH }
@@ -10831,10 +10816,10 @@ focus = {
 		available_if_capitulated = no
 	
 		completion_reward = {
-			custom_effect_tooltip = AST_royal_australian_air_force_spirit_tt
-			add_to_variable = { AST_royal_australian_air_force_spirit_air_cas_efficiency = 0.15 tooltip = air_cas_efficiency_tt }
-			add_to_variable = { AST_royal_australian_air_force_spirit_air_mission_efficiency = 0.15 tooltip = air_mission_efficiency_tt }
-			add_to_variable = { AST_royal_australian_air_force_spirit_air_superiority_efficiency = 0.15 tooltip = air_superiority_efficiency_tt }
+			#custom_effect_tooltip = AST_royal_australian_air_force_spirit_tt
+			#add_to_variable = { AST_royal_australian_air_force_spirit_air_cas_efficiency = 0.15 tooltip = air_cas_efficiency_tt }
+			#add_to_variable = { AST_royal_australian_air_force_spirit_air_mission_efficiency = 0.15 tooltip = air_mission_efficiency_tt }
+			#add_to_variable = { AST_royal_australian_air_force_spirit_air_superiority_efficiency = 0.15 tooltip = air_superiority_efficiency_tt }
 		}
 
 		search_filters = {  }
