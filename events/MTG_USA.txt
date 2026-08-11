@@ -64,8 +64,8 @@ country_event = {
 			if = {
 				limit = {
 					OR = {
-						has_completed_focus = USA_union_representation_act
-						has_completed_focus = USA_democratic_socialism
+						always = no
+						always = no
 					}
 				}
 				country_event = { id = mtg_usa_civil_war_fascists.4 days = 15 }
@@ -171,7 +171,6 @@ country_event = {
 
 	option = {
 		name = mtg_usa_civil_war_fascists.11.a
-		add_timed_idea = { idea = USA_state_funds_refused days = 30 }
 		hidden_effect = {
 			country_event = {
 				id = mtg_usa_civil_war_fascists.3
@@ -398,7 +397,7 @@ country_event = {
 			if = {
 				limit = {
 					not = {
-						has_completed_focus = USA_guarantee_the_american_dream
+						always = no
 					}
 				}
 				country_event = mtg_usa_civil_war_fascists.22 #forms neutral bloc
@@ -462,7 +461,6 @@ country_event = {
 					partial_economic_mobilisation 
 				}
 				add_manpower = USA.usa_fascists_recruits
-				add_timed_idea = { idea = CSA_spirit_of_rebellion days = 360 }
 				add_manpower = 175000
 				add_offsite_building = { type = industrial_complex level = USA.usa_fascists_funds }
 				add_offsite_building = { type = arms_factory level = 5 }
@@ -1096,8 +1094,8 @@ country_event = {
 			if = {
 				limit = {
 					NOT = {
-						has_completed_focus = USA_voter_registration_act
-						has_completed_focus = USA_ally_with_the_silver_shirts
+						always = no
+						always = no
 					}
 				}
 				country_event = { id = mtg_usa_civil_war_democrats.20 days = 280 }
@@ -1110,7 +1108,7 @@ country_event = {
 			country_event = { id = mtg_usa_civil_war_democrats.3 days = 15 random_days = 6 }
 			if = {
 				limit = {
-					has_completed_focus = USA_national_prosperity_program
+					always = no
 				}
 				country_event = { id = mtg_usa_civil_war_democrats.4 days = 15 random_days = 12 }
 			}
@@ -1468,7 +1466,7 @@ country_event = {
 			}
 			if = {
 				limit = {
-					has_completed_focus = USA_recruit_the_free_corps
+					always = no
 				}
 				set_country_flag = USA_free_corps_raised
 				division_template = {
@@ -1756,7 +1754,7 @@ country_event = {
 			}
 			if = {
 				limit = {
-					has_completed_focus = USA_work_with_the_bund
+					always = no
 				}
 				country_event = mtg_usa_civil_war_democrats.22
 				every_owned_state = {
@@ -1793,7 +1791,7 @@ country_event = {
 		}
 		if = {
 			limit = {
-				has_completed_focus = USA_work_with_the_bund
+				always = no
 			}
 			create_corps_commander = {
 				name = "Fritz Kuhn"
@@ -2449,7 +2447,7 @@ country_event = {
 	}
 	option = {
 		trigger = {
-			has_completed_focus = USA_send_lindbergh_to_germany
+			always = no
 		}
 		ai_chance = {
 			factor = 30
@@ -2577,13 +2575,11 @@ country_event = {
 				not = { has_global_flag = mtg_usa_north_american_dominion_refused_faction }
 				is_in_faction = no
 			}
-			unlock_decision_tooltip = { decision = USA_form_defensive_alliance_north_american_dominion show_effect_tooltip = yes}
 		}
 		else_if = {
 			limit = {
 				is_in_faction = no
 			}
-			unlock_decision_tooltip = { decision = USA_join_defensive_alliance_north_american_dominion show_effect_tooltip = yes}	
 		}
 		FROM = {
 			country_event = mtg_usa_canadian_corridor.3
@@ -2699,13 +2695,11 @@ country_event = {
 				not = { has_global_flag = mtg_usa_north_american_dominion_refused_faction }
 				is_in_faction = no
 			}
-			unlock_decision_tooltip = { decision = USA_form_defensive_alliance_north_american_dominion show_effect_tooltip = yes}
 		}
 		else_if = {
 			limit = {
 				is_in_faction = no
 			}
-			unlock_decision_tooltip = { decision = USA_join_defensive_alliance_north_american_dominion show_effect_tooltip = yes}	
 		}
 		FROM = {
 			country_event = mtg_usa_southern_threat.3
@@ -2815,13 +2809,11 @@ country_event = {
 				not = { has_global_flag = mtg_usa_north_american_dominion_refused_faction }
 				is_in_faction = no
 			}
-			unlock_decision_tooltip = { decision = USA_form_defensive_alliance_north_american_dominion show_effect_tooltip = yes}
 		}
 		else_if = {
 			limit = {
 				is_in_faction = no
 			}
-			unlock_decision_tooltip = { decision = USA_join_defensive_alliance_north_american_dominion show_effect_tooltip = yes}	
 		}
 		effect_tooltip = {
 			FROM = {
@@ -2973,13 +2965,11 @@ country_event = {
 				not = { has_global_flag = mtg_usa_north_american_dominion_refused_faction }
 				is_in_faction = no
 			}
-			unlock_decision_tooltip = { decision = USA_form_defensive_alliance_north_american_dominion show_effect_tooltip = yes}
 		}
 		else_if = {
 			limit = {
 				is_in_faction = no
 			}
-			unlock_decision_tooltip = { decision = USA_join_defensive_alliance_north_american_dominion show_effect_tooltip = yes}	
 		}
 		effect_tooltip = {
 			FROM = {
@@ -3165,13 +3155,11 @@ country_event = {
 				not = { has_global_flag = mtg_usa_north_american_dominion_refused_faction }
 				is_in_faction = no
 			}
-			unlock_decision_tooltip = { decision = USA_form_defensive_alliance_north_american_dominion show_effect_tooltip = yes}
 		}
 		else_if = {
 			limit = {
 				is_in_faction = no
 			}
-			unlock_decision_tooltip = { decision = USA_join_defensive_alliance_north_american_dominion show_effect_tooltip = yes}	
 		}
 		effect_tooltip = {
 			FROM = {
@@ -3306,13 +3294,11 @@ country_event = {
 				not = { has_global_flag = mtg_usa_north_american_dominion_refused_faction }
 				is_in_faction = no
 			}
-			unlock_decision_tooltip = { decision = USA_form_defensive_alliance_north_american_dominion show_effect_tooltip = yes}
 		}
 		else_if = {
 			limit = {
 				is_in_faction = no
 			}
-			unlock_decision_tooltip = { decision = USA_join_defensive_alliance_north_american_dominion show_effect_tooltip = yes}	
 		}
 		effect_tooltip = {
 			FROM = {
@@ -3411,13 +3397,11 @@ country_event = {
 				not = { has_global_flag = mtg_usa_north_american_dominion_refused_faction }
 				is_in_faction = no
 			}
-			unlock_decision_tooltip = { decision = USA_form_defensive_alliance_north_american_dominion show_effect_tooltip = yes}
 		}
 		else_if = {
 			limit = {
 				is_in_faction = no
 			}
-			unlock_decision_tooltip = { decision = USA_join_defensive_alliance_north_american_dominion show_effect_tooltip = yes}	
 		}
 		FROM = {
 			country_event = mtg_usa_secure_asia.6
@@ -3527,13 +3511,11 @@ country_event = {
 				not = { has_global_flag = mtg_usa_north_american_dominion_refused_faction }
 				is_in_faction = no
 			}
-			unlock_decision_tooltip = { decision = USA_form_defensive_alliance_north_american_dominion show_effect_tooltip = yes}
 		}
 		else_if = {
 			limit = {
 				is_in_faction = no
 			}
-			unlock_decision_tooltip = { decision = USA_join_defensive_alliance_north_american_dominion show_effect_tooltip = yes}	
 		}
 		FROM = {
 			country_event = mtg_usa_secure_asia.9
@@ -3668,13 +3650,11 @@ country_event = {
 				not = { has_global_flag = mtg_usa_north_american_dominion_refused_faction }
 				is_in_faction = no
 			}
-			unlock_decision_tooltip = { decision = USA_form_defensive_alliance_north_american_dominion show_effect_tooltip = yes}
 		}
 		else_if = {
 			limit = {
 				is_in_faction = no
 			}
-			unlock_decision_tooltip = { decision = USA_join_defensive_alliance_north_american_dominion show_effect_tooltip = yes}	
 		}
 		effect_tooltip = {
 			FROM = {
@@ -4441,7 +4421,7 @@ country_event = {
 	# 	add_stability = 0.05
 	# 	if = {
 	# 		limit = {
-	# 			has_completed_focus = USA_neutrality_act
+	# 			always = no
 	# 		}
 	# 		add_political_power = 50
 	# 	}
@@ -4484,7 +4464,7 @@ country_event = {
 	# 	}
 	# 	if = {
 	# 		limit = {
-	# 			has_completed_focus = USA_neutrality_act
+	# 			always = no
 	# 		}
 	# 		add_war_support = -0.1
 	# 		add_stability = -0.3
@@ -4573,7 +4553,7 @@ country_event = {
 	# 	if = {
 	# 		limit = {
 	# 			not = {
-	# 				has_completed_focus = USA_limited_intervention
+	# 				always = no
 	# 			}
 	# 		}
 	# 		add_war_support = -0.05
