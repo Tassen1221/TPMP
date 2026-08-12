@@ -652,6 +652,7 @@ TPMP_USA_congress_category = {
                 special_equipment > spec_mission_var
             }
         }
+        is_good = no
         days_mission_timeout = 180
 
         complete_effect = {
@@ -813,6 +814,7 @@ TPMP_USA_congress_category = {
                 }
             }
         }
+        is_good = no
         days_mission_timeout = 180
 
         complete_effect = {
@@ -930,6 +932,7 @@ TPMP_USA_congress_category = {
                 }
             }
         }
+        is_good = no
         days_mission_timeout = 180
 
         complete_effect = {
@@ -1029,6 +1032,7 @@ TPMP_USA_congress_category = {
                 size > TPMP_USA_screen_ship_mission_var
             }
         }
+        is_good = no
         days_mission_timeout = 360
 
         complete_effect = {
@@ -1125,9 +1129,10 @@ TPMP_USA_congress_category = {
             always = no
         }
         available = {
-            check_variable = { num_of_military_factories > TPMP_USA_military_factory_mission_var }
-            check_variable = { num_of_naval_factories > TPMP_USA_dockyard_mission_var }
+            num_of_military_factories > TPMP_USA_military_factory_mission_var
+            num_of_naval_factories > TPMP_USA_dockyard_mission_var
         }
+        is_good = no
         days_mission_timeout = 180
 
         complete_effect = {
@@ -1214,14 +1219,9 @@ TPMP_USA_congress_category = {
             always = no
         }
         available = {
-            check_variable = { num_of_civilian_factories > TPMP_USA_civilian_factory_mission_var }
-            NOT = {
-                any_state = {
-                    has_state_flag = TPMP_USA_infrastructure_mission_flag
-                    check_variable = { building_level@infrastructure < TPMP_USA_infra_mission_target_var }
-                }
-            }
+            num_of_civilian_factories > TPMP_USA_civilian_factory_mission_var
         }
+        is_good = no
         days_mission_timeout = 180
 
         complete_effect = {
@@ -1322,6 +1322,7 @@ TPMP_USA_congress_category = {
         available = {
             has_political_power > TPMP_USA_political_power_mission_var
         }
+        is_good = no
         days_mission_timeout = 90
 
         complete_effect = {
@@ -1449,6 +1450,7 @@ TPMP_USA_congress_category = {
                 }
             }
         }
+        is_good = no
         days_mission_timeout = 180
 
         complete_effect = {
@@ -1580,15 +1582,9 @@ TPMP_USA_congress_category = {
             always = no
         }
         available = {
-            custom_trigger_tooltip = {
-                tooltip = TPMP_USA_congress_mission_8_tt
-                check_variable = {
-                    var = num_researched_technologies
-                    value = TPMP_USA_technology_lobby_mission_var
-                    compare = greater_than_or_equals
-                }
-            }
+            num_researched_technologies > TPMP_USA_technology_lobby_mission_var
         }
+        is_good = no
         days_mission_timeout = 180
 
         complete_effect = {
@@ -1660,6 +1656,7 @@ TPMP_USA_congress_category = {
         available = {
             has_stability > TPMP_USA_stability_lobby_mission_var
         }
+        is_good = no
         days_mission_timeout = 180
 
         complete_effect = {
@@ -1742,6 +1739,7 @@ TPMP_USA_congress_category = {
                 }
             }
         }
+        is_good = no
         days_mission_timeout = 180
 
         complete_effect = {
@@ -1801,6 +1799,7 @@ TPMP_USA_congress_category = {
         available = {
             has_war_support > TPMP_USA_war_support_lobby_mission_var
         }
+        is_good = no
         days_mission_timeout = 180
 
         complete_effect = {
@@ -1875,6 +1874,7 @@ TPMP_USA_congress_category = {
                 }
             }
         }
+        is_good = no
         days_mission_timeout = 180
 
         complete_effect = {

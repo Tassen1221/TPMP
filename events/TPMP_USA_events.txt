@@ -1361,19 +1361,18 @@ country_event = { #Military Event
 			limit = {
 				date < 1938.01.01
 			}
-			add_to_variable = { TPMP_USA_military_factory_mission_var = 3 }
-			add_to_variable = { TPMP_USA_dockyard_mission_var = 1 }
+			add_to_variable = { TPMP_USA_military_factory_mission_var = 2 }
 		}
 		ELSE_if = {
 			limit = {
 				date < 1940.01.01
 			}
-			add_to_variable = { TPMP_USA_military_factory_mission_var = 9 }
-			add_to_variable = { TPMP_USA_dockyard_mission_var = 3 }
+			add_to_variable = { TPMP_USA_military_factory_mission_var = 8 }
+			add_to_variable = { TPMP_USA_dockyard_mission_var = 2 }
 		}
 		ELSE = {
-			add_to_variable = { TPMP_USA_military_factory_mission_var = 15 }
-			add_to_variable = { TPMP_USA_dockyard_mission_var = 5 }
+			add_to_variable = { TPMP_USA_military_factory_mission_var = 14 }
+			add_to_variable = { TPMP_USA_dockyard_mission_var = 4 }
 		}
 		activate_mission = TPMP_USA_congress_mission_4
 	}
@@ -1399,51 +1398,21 @@ country_event = { #Civilian Event
     
     option = {
 		name = TPMP_USA_congress.9.a
-		set_variable = { TPMP_USA_civilian_factory_mission_var = num_of_military_factories }
+		set_variable = { TPMP_USA_civilian_factory_mission_var = num_of_civilian_factories }
 		IF = {
 			limit = {
 				date < 1938.01.01
 			}
-			add_to_variable = { TPMP_USA_civilian_factory_mission_var = 10 }
-			every_core_state = {
-				limit = {
-					infrastructure < 5
-					is_fully_controlled_by = USA
-				}
-				random_select_amount = 5
-				set_state_flag = TPMP_USA_infrastructure_mission_flag
-				set_variable = { TPMP_USA_infra_mission_target_var = building_level@infrastructure }
-				add_to_variable = { TPMP_USA_infra_mission_target_var = 1 }
-			}
+			add_to_variable = { TPMP_USA_civilian_factory_mission_var = 9 }
 		}
 		ELSE_if = {
 			limit = {
 				date < 1940.01.01
 			}
-			add_to_variable = { TPMP_USA_civilian_factory_mission_var = 3 }
-			every_core_state = {
-				limit = {
-					infrastructure < 5
-					is_fully_controlled_by = USA
-				}
-				random_select_amount = 5
-				set_state_flag = TPMP_USA_infrastructure_mission_flag
-				set_variable = { TPMP_USA_infra_mission_target_var = building_level@infrastructure }
-				add_to_variable = { TPMP_USA_infra_mission_target_var = 1 }
-			}
+			add_to_variable = { TPMP_USA_civilian_factory_mission_var = 2 }
 		}
 		ELSE = {
-			add_to_variable = { TPMP_USA_civilian_factory_mission_var = 3 }
-			every_core_state = {
-				limit = {
-					infrastructure < 5
-					is_fully_controlled_by = USA
-				}
-				random_select_amount = 3
-				set_state_flag = TPMP_USA_infrastructure_mission_flag
-				set_variable = { TPMP_USA_infra_mission_target_var = building_level@infrastructure }
-				add_to_variable = { TPMP_USA_infra_mission_target_var = 1 }
-			}
+			add_to_variable = { TPMP_USA_civilian_factory_mission_var = 2 }
 		}
 		activate_mission = TPMP_USA_congress_mission_5
 	}
@@ -1601,16 +1570,16 @@ country_event = { #Technocrat Lobbyist Event
 			limit = {
 				date < 1938.01.01
 			}
-			add_to_variable = { TPMP_USA_technology_lobby_mission_var = 4 }
+			add_to_variable = { TPMP_USA_technology_lobby_mission_var = 3 }
 		}
 		ELSE_IF = {
 			limit = {
 				date < 1940.01.01
 			}
-			add_to_variable = { TPMP_USA_technology_lobby_mission_var = 5 }
+			add_to_variable = { TPMP_USA_technology_lobby_mission_var = 4 }
 		}
 		ELSE = {
-			add_to_variable = { TPMP_USA_technology_lobby_mission_var = 6 }
+			add_to_variable = { TPMP_USA_technology_lobby_mission_var = 5 }
 		}
 		activate_mission = TPMP_USA_congress_mission_8
 	}

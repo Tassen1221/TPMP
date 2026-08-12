@@ -3720,6 +3720,20 @@ focus_tree = {
 				amount = 50
 				sub_doctrine = special_forces_doctrine_1
 			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_unit_bonus = {
+				marine = {
+					breakthrough = 0.1
+					soft_attack = 0.1
+					hard_attack = 0.1
+				}
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = USA_modify_department_of_the_navy_tt
+			add_to_variable = {
+				TPMP_USA_navy_department_sf_cap_var = 0.1
+				tooltip = special_forces_cap_tt
+			}
 		}
 	}
 
@@ -3732,6 +3746,21 @@ focus_tree = {
 		relative_position_id = TPMP_USA_us_marine_corps
 		cost = 5
 		completion_reward = {
+			add_unit_bonus = {
+				marine = {
+					recon = 0.1
+				}
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = USA_modify_department_of_the_navy_tt
+			add_to_variable = {
+				TPMP_USA_navy_department_army_intel_var = -5
+				tooltip = army_intel_to_others_tt
+			}
+			add_to_variable = {
+				TPMP_USA_navy_department_navy_intel_var = -5
+				tooltip = navy_intel_to_others_tt
+			}
 		}
 	}
 
