@@ -127,10 +127,7 @@ ideas = {
 					limit = {
 						original_tag = USA
 					}
-					OR = {
-						has_completed_focus = TPMP_USA_create_the_ndac
-						has_completed_focus = TPMP_USA_arsenal_of_democracy
-					}
+					has_completed_focus = TPMP_USA_arsenal_of_democracy
 				}
 
 				IF = {
@@ -280,8 +277,7 @@ ideas = {
 					limit = {
 						original_tag = USA
 					}
-					has_completed_focus = TPMP_USA_create_the_ndac
-					has_completed_focus = TPMP_USA_arsenal_of_democracy
+					has_completed_focus = TPMP_USA_the_giant_wakes
 				}
 
 				IF = {
@@ -442,55 +438,43 @@ ideas = {
 
 			available = {
 				has_war_support > 0.5
-				IF = {
-					limit = {
-						original_tag = USA
-					}
-					has_completed_focus = TPMP_USA_the_giant_wakes
-				}
-				IF = {
-					limit = {
-						NOT = { original_tag = USA }
-					}
-					OR = {
-						has_government = fascism
-						has_government = communism
+				OR = {
+					has_government = fascism
+					has_government = communism
+					if = {
+						limit = {
+							PHI_SEA = yes
+						}
 						if = {
 							limit = {
-								PHI_SEA = yes
-							}
-							if = {
-								limit = {
-									has_idea = PHI_ties_with_nationalist_spain
-								}
 								has_idea = PHI_ties_with_nationalist_spain
 							}
-							else_if = {
-								limit = {
-									has_idea = PHI_ties_with_nationalist_spain_2
-								}
+							has_idea = PHI_ties_with_nationalist_spain
+						}
+						else_if = {
+							limit = {
 								has_idea = PHI_ties_with_nationalist_spain_2
 							}
-							else = {
-								hidden_trigger = { always = no } #NEED TO HAVE AN ALWAYS AS AN END STATEMENT IF URE USING AN IF ELSE IN AN OR STATEMENT OTHERWISE THE EVALUATION BREAKS!!
-							}
+							has_idea = PHI_ties_with_nationalist_spain_2
 						}
 						else = {
 							hidden_trigger = { always = no } #NEED TO HAVE AN ALWAYS AS AN END STATEMENT IF URE USING AN IF ELSE IN AN OR STATEMENT OTHERWISE THE EVALUATION BREAKS!!
 						}
-						custom_trigger_tooltip = { tooltip = or_clarification_tooltip always = no }
-						AND = {
-							has_war = yes
-							any_enemy_country = {
-								ic_ratio = {
-									tag = ROOT
-									ratio > 0.4
-								}
+					}
+					else = {
+						hidden_trigger = { always = no } #NEED TO HAVE AN ALWAYS AS AN END STATEMENT IF URE USING AN IF ELSE IN AN OR STATEMENT OTHERWISE THE EVALUATION BREAKS!!
+					}
+					custom_trigger_tooltip = { tooltip = or_clarification_tooltip always = no }
+					AND = {
+						has_war = yes
+						any_enemy_country = {
+							ic_ratio = {
+								tag = ROOT
+								ratio > 0.4
 							}
 						}
 					}
 				}
-
 				IF = {
 					limit = {
 						original_tag = HUN

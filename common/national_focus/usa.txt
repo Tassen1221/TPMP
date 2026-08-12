@@ -1417,8 +1417,8 @@ focus_tree = {
 			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = USA_increase_deficit_tt
 			add_to_variable = {
-				TPMP_USA_deficit_cg_var = -0.09
-				tooltip = consumer_goods_factor_tt
+				TPMP_USA_deficit_cg_var = -0.03
+				tooltip = consumer_goods_expected_value_tt
 			}
 			add_to_variable = {
 				TPMP_USA_deficit_stab_var = 0.06
@@ -1511,8 +1511,8 @@ focus_tree = {
 			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = USA_increase_deficit_tt
 			add_to_variable = {
-				TPMP_USA_deficit_cg_var = -0.09
-				tooltip = consumer_goods_factor_tt
+				TPMP_USA_deficit_cg_var = -0.03
+				tooltip = consumer_goods_expected_value_tt
 			}
 			add_to_variable = {
 				TPMP_USA_deficit_stab_var = 0.06
@@ -1542,8 +1542,8 @@ focus_tree = {
 			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = USA_increase_deficit_tt
 			add_to_variable = {
-				TPMP_USA_deficit_cg_var = -0.09
-				tooltip = consumer_goods_factor_tt
+				TPMP_USA_deficit_cg_var = -0.03
+				tooltip = consumer_goods_expected_value_tt
 			}
 			add_to_variable = {
 				TPMP_USA_deficit_stab_var = 0.06
@@ -2159,16 +2159,10 @@ focus_tree = {
 				}
 			}
 			custom_effect_tooltip = generic_skip_one_line_tt
-			IF = {
-				limit = {
-					has_completed_focus = TPMP_USA_arsenal_of_democracy
-				}
-				custom_effect_tooltip = available_law_tt
-				show_ideas_tooltip = partial_economic_mobilisation
-			}
-			ELSE = {
-				custom_effect_tooltip = available_law_tt
-				show_ideas_tooltip = low_economic_mobilisation
+			custom_effect_tooltip = USA_modify_alphabet_agencies_tt
+			add_to_variable = {
+				TPMP_USA_alphabet_eco_law_cost_var = -0.1
+				tooltip = economy_cost_factor_tt
 			}
 		}
 	}
@@ -2807,6 +2801,7 @@ focus_tree = {
 		relative_position_id = TPMP_USA_subassembly_techniques
 		cost = 5
 		available = {
+			has_support_ndd_cd_pr_br = yes
 			has_war_support > 0.3
 		}
 		completion_reward = {
@@ -2828,17 +2823,10 @@ focus_tree = {
 				}
 			}
 			custom_effect_tooltip = generic_skip_one_line_tt
-			IF = {
-				limit = {
-					has_completed_focus = TPMP_USA_create_the_ndac
-				}
-				custom_effect_tooltip = available_law_tt
-				show_ideas_tooltip = partial_economic_mobilisation
-			}
-			ELSE = {
-				custom_effect_tooltip = available_law_tt
-				show_ideas_tooltip = low_economic_mobilisation
-			}
+			custom_effect_tooltip = available_law_tt
+			show_ideas_tooltip = low_economic_mobilisation
+			custom_effect_tooltip = generic_skip_one_line_tt
+			USA_increase_deficit = yes
 		}
 	}
 
@@ -3005,6 +2993,7 @@ focus_tree = {
 		relative_position_id = TPMP_USA_construct_megaplants
 		cost = 5
 		available = {
+			has_support_ndd_cd = yes
 			has_war_support > 0.5
 		}
 		completion_reward = {
@@ -3016,7 +3005,9 @@ focus_tree = {
 			}
 			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = available_law_tt
-			show_ideas_tooltip = war_economy
+			show_ideas_tooltip = partial_economic_mobilisation
+			custom_effect_tooltip = generic_skip_one_line_tt
+			USA_increase_deficit = yes
 		}
 	}
 
