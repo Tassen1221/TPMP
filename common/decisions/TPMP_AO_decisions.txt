@@ -1,4 +1,50 @@
 TPMP_game_decisions_category = {
+
+
+	TPMP_NA_planes_and_tanks_expensivo_decision = {
+
+		icon = generic_prepare_civil_war
+
+		visible = {
+			
+				has_game_rule = {
+					rule = no_asia_setting
+					option = NO
+				}
+		}
+
+		available = {
+			OR = {
+				tag = GER
+				tag = ENG
+				tag = SOV
+			}
+		}
+
+		fire_only_once = no
+
+
+		modifier = {
+		}
+
+		complete_effect = {
+			every_faction_member = {
+				remove_ideas = {
+					TPMP_NA_planes_and_tanks_expensivo_idea
+				}
+
+
+				add_timed_idea = {
+					idea = TPMP_NA_planes_and_tanks_expensivo_idea
+					days = 9999
+				}
+			}
+		}
+	}
+
+
+
+
 	
 	TPMP_NA_rom_annex_bul_decision = {	
         visible = {
