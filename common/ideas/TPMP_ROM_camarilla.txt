@@ -1,0 +1,163 @@
+ideas = {
+	country = {
+
+		# One-time historical package: 3000 rifles for ROM, -2 offmap civs (industrial capacity
+		# spent on alliance-building rather than kept at home). Guarded by a flag so re-adding
+		# this idea (e.g. via the Prolong decision) doesn't re-fire it.
+		TPMP_ROM_camarilla_titulescu = {
+			picture = TPMP_ROM_Nicolae_Titulescu
+
+			removal_cost = -1
+
+			allowed = {
+				original_tag = ROM
+			}
+
+			allowed_civil_war = {
+			}
+
+			on_add = {
+				if = {
+					limit = {
+						NOT = { has_country_flag = TPMP_ROM_titulescu_shipment_received }
+					}
+					add_equipment_to_stockpile = {
+						type = infantry_equipment
+						amount = 1500
+					}
+					add_equipment_to_stockpile = {
+						type = infantry_equipment
+						amount = 1500
+					}
+					add_offsite_building = { type = industrial_complex level = -2 }
+					set_country_flag = TPMP_ROM_titulescu_shipment_received
+				}
+			}
+
+			modifier = {
+				guarantee_tension = -1.0
+				guarantee_cost = -0.5
+			}
+		}
+
+		TPMP_ROM_camarilla_malaxa = {
+			picture = ROM_nicolae_malaxa
+
+			removal_cost = -1
+
+			allowed = {
+				original_tag = ROM
+			}
+
+			allowed_civil_war = {
+			}
+
+			modifier = {
+				production_speed_infrastructure_factor = 0.15
+				production_speed_industrial_complex_factor = 0.15
+				industrial_capacity_factory = -0.05
+				political_power_gain = -0.1
+			}
+		}
+
+		TPMP_ROM_camarilla_auschnitt = {
+			picture = TPMP_ROM_Max_Auschnitt
+
+			removal_cost = -1
+
+			allowed = {
+				original_tag = ROM
+			}
+
+			allowed_civil_war = {
+			}
+
+			modifier = {
+				consumer_goods_factor = -0.05
+				production_speed_industrial_complex_factor = 0.1
+				stability_factor = -0.05
+			}
+		}
+
+		TPMP_ROM_camarilla_calinescu = {
+			picture = ROM_armand_calinescu
+
+			removal_cost = -1
+
+			allowed = {
+				original_tag = ROM
+			}
+
+			allowed_civil_war = {
+			}
+
+			modifier = {
+				weekly_manpower = -0.1
+				army_defence_factor = 0.05
+				fascism_drift = -0.02
+			}
+		}
+
+		TPMP_ROM_camarilla_lupescu = {
+			picture = TPMP_ROM_Elena_Lupescu
+
+			removal_cost = -1
+
+			allowed = {
+				original_tag = ROM
+			}
+
+			allowed_civil_war = {
+			}
+
+			modifier = {
+				political_power_gain = 0.3
+				stability_factor = -0.1
+				fascism_drift = 0.02
+			}
+		}
+
+		TPMP_ROM_camarilla_marinescu = {
+			picture = TPMP_ROM_Gabriel_Marinescu
+
+			removal_cost = -1
+
+			allowed = {
+				original_tag = ROM
+			}
+
+			allowed_civil_war = {
+			}
+
+			modifier = {
+				resistance_target = -0.05
+				resistance_damage_to_garrison = -0.1
+				stability_factor = 0.05
+				political_power_gain = -0.05
+			}
+		}
+
+		# pure buff, no debuffs, per design
+		TPMP_ROM_camarilla_urdareanu = {
+			picture = TPMP_ROM_Ernest_Urdareanu
+
+			removal_cost = -1
+
+			allowed = {
+				original_tag = ROM
+			}
+
+			allowed_civil_war = {
+			}
+
+			modifier = {
+				political_advisor_cost_factor = -0.25
+				economy_cost_factor = -0.25
+				mobilization_laws_cost_factor = -0.25
+				industrial_concern_cost_factor = -0.25
+				procurement_cost_factor = -0.25
+				army_professionalism_cost_factor = -0.25
+			}
+		}
+	}
+}
