@@ -54,6 +54,13 @@ TPMP_ROM_camarilla_advance_6_to_0 = {
 	activate_mission = TPMP_ROM_camarilla_mission_0
 }
 
+TPMP_ROM_camarilla_advance_6_to_1_skip_titulescu = {
+	remove_ideas = TPMP_ROM_camarilla_marinescu
+	add_ideas = TPMP_ROM_camarilla_lupescu
+	set_variable = { TPMP_ROM_camarilla_index = 1 }
+	activate_mission = TPMP_ROM_camarilla_mission_1
+}
+
 TPMP_ROM_camarilla_prolong_effect = {
 	if = {
 		limit = { check_variable = { TPMP_ROM_camarilla_index = 0 } }

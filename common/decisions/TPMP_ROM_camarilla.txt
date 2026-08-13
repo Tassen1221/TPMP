@@ -65,6 +65,7 @@ TPMP_ROM_camarilla_decisions = {
 		visible = {
 			has_country_flag = TPMP_ROM_camarilla_active
 			check_variable = { TPMP_ROM_camarilla_index = 0 }
+			NOT = { has_country_flag = TPMP_ROM_titulescu_sidelined }
 		}
 		available = { hidden_trigger = { always = no } }
 		activation = { always = no }
@@ -179,7 +180,14 @@ TPMP_ROM_camarilla_decisions = {
 		days_mission_timeout = 91
 		fire_only_once = no
 		timeout_effect = {
-			TPMP_ROM_camarilla_advance_6_to_0 = yes
+			if = {
+				limit = { has_country_flag = TPMP_ROM_titulescu_sidelined }
+				TPMP_ROM_camarilla_advance_6_to_1_skip_titulescu = yes
+			}
+			if = {
+				limit = { NOT = { has_country_flag = TPMP_ROM_titulescu_sidelined } }
+				TPMP_ROM_camarilla_advance_6_to_0 = yes
+			}
 		}
 	}
 
@@ -190,6 +198,7 @@ TPMP_ROM_camarilla_decisions = {
 		visible = {
 			has_country_flag = TPMP_ROM_camarilla_active
 			NOT = { check_variable = { TPMP_ROM_camarilla_index = 0 } }
+			NOT = { has_country_flag = TPMP_ROM_titulescu_sidelined }
 		}
 		available = { hidden_trigger = { always = no } }
 		modifier = {
