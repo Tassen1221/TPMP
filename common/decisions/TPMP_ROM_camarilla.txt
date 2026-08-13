@@ -58,8 +58,6 @@ TPMP_ROM_camarilla_decisions = {
 		}
 	}
 
-	# --- missions: one per rotation index, the native ticking countdown while it's their turn ---
-	# Order: 0 Titulescu, 1 Lupescu, 2 Urdareanu, 3 Malaxa, 4 Calinescu, 5 Auschnitt, 6 Marinescu
 	TPMP_ROM_camarilla_mission_0 = {
 		icon = GFX_idea_TPMP_ROM_Nicolae_Titulescu
 		priority = 70
@@ -77,10 +75,9 @@ TPMP_ROM_camarilla_decisions = {
 			add_equipment_to_stockpile = { type = infantry_equipment amount = 1500 }
 			add_equipment_to_stockpile = { type = infantry_equipment amount = 1500 }
 			add_offsite_building = { type = industrial_complex level = -2 }
-			custom_effect_tooltip = TPMP_ROM_camarilla_base_term_tt
 		}
 		timeout_effect = {
-			TPMP_ROM_camarilla_advance_effect = yes
+			TPMP_ROM_camarilla_advance_0_to_1 = yes
 		}
 	}
 	TPMP_ROM_camarilla_mission_1 = {
@@ -96,11 +93,8 @@ TPMP_ROM_camarilla_decisions = {
 		selectable_mission = no
 		days_mission_timeout = 91
 		fire_only_once = no
-		complete_effect = {
-			custom_effect_tooltip = TPMP_ROM_camarilla_base_term_tt
-		}
 		timeout_effect = {
-			TPMP_ROM_camarilla_advance_effect = yes
+			TPMP_ROM_camarilla_advance_1_to_2 = yes
 		}
 	}
 	TPMP_ROM_camarilla_mission_2 = {
@@ -116,11 +110,8 @@ TPMP_ROM_camarilla_decisions = {
 		selectable_mission = no
 		days_mission_timeout = 91
 		fire_only_once = no
-		complete_effect = {
-			custom_effect_tooltip = TPMP_ROM_camarilla_base_term_tt
-		}
 		timeout_effect = {
-			TPMP_ROM_camarilla_advance_effect = yes
+			TPMP_ROM_camarilla_advance_2_to_3 = yes
 		}
 	}
 	TPMP_ROM_camarilla_mission_3 = {
@@ -136,11 +127,8 @@ TPMP_ROM_camarilla_decisions = {
 		selectable_mission = no
 		days_mission_timeout = 91
 		fire_only_once = no
-		complete_effect = {
-			custom_effect_tooltip = TPMP_ROM_camarilla_base_term_tt
-		}
 		timeout_effect = {
-			TPMP_ROM_camarilla_advance_effect = yes
+			TPMP_ROM_camarilla_advance_3_to_4 = yes
 		}
 	}
 	TPMP_ROM_camarilla_mission_4 = {
@@ -156,11 +144,8 @@ TPMP_ROM_camarilla_decisions = {
 		selectable_mission = no
 		days_mission_timeout = 91
 		fire_only_once = no
-		complete_effect = {
-			custom_effect_tooltip = TPMP_ROM_camarilla_base_term_tt
-		}
 		timeout_effect = {
-			TPMP_ROM_camarilla_advance_effect = yes
+			TPMP_ROM_camarilla_advance_4_to_5 = yes
 		}
 	}
 	TPMP_ROM_camarilla_mission_5 = {
@@ -176,11 +161,8 @@ TPMP_ROM_camarilla_decisions = {
 		selectable_mission = no
 		days_mission_timeout = 91
 		fire_only_once = no
-		complete_effect = {
-			custom_effect_tooltip = TPMP_ROM_camarilla_base_term_tt
-		}
 		timeout_effect = {
-			TPMP_ROM_camarilla_advance_effect = yes
+			TPMP_ROM_camarilla_advance_5_to_6 = yes
 		}
 	}
 	TPMP_ROM_camarilla_mission_6 = {
@@ -196,17 +178,11 @@ TPMP_ROM_camarilla_decisions = {
 		selectable_mission = no
 		days_mission_timeout = 91
 		fire_only_once = no
-		complete_effect = {
-			custom_effect_tooltip = TPMP_ROM_camarilla_base_term_tt
-		}
 		timeout_effect = {
-			TPMP_ROM_camarilla_advance_effect = yes
+			TPMP_ROM_camarilla_advance_6_to_0 = yes
 		}
 	}
 
-	# --- roster schedule, always visible in fixed order, EXCEPT for whoever's turn it
-	# currently is - that slot is covered by the ticking mission card above instead. ---
-	# Add member #7 here (see header comment in TPMP_ROM_camarilla_effects.txt).
 	TPMP_ROM_camarilla_upcoming_0 = {
 		icon = GFX_idea_TPMP_ROM_Nicolae_Titulescu
 		priority = 70
@@ -224,7 +200,6 @@ TPMP_ROM_camarilla_decisions = {
 			add_equipment_to_stockpile = { type = infantry_equipment amount = 1500 }
 			add_equipment_to_stockpile = { type = infantry_equipment amount = 1500 }
 			add_offsite_building = { type = industrial_complex level = -2 }
-			custom_effect_tooltip = TPMP_ROM_camarilla_base_term_tt
 		}
 	}
 	TPMP_ROM_camarilla_upcoming_1 = {
@@ -240,9 +215,6 @@ TPMP_ROM_camarilla_decisions = {
 			political_power_gain = 0.3
 			stability_factor = -0.1
 			fascism_drift = 0.02
-		}
-		complete_effect = {
-			custom_effect_tooltip = TPMP_ROM_camarilla_base_term_tt
 		}
 	}
 	TPMP_ROM_camarilla_upcoming_2 = {
@@ -262,9 +234,6 @@ TPMP_ROM_camarilla_decisions = {
 			procurement_cost_factor = -0.25
 			army_professionalism_cost_factor = -0.25
 		}
-		complete_effect = {
-			custom_effect_tooltip = TPMP_ROM_camarilla_base_term_tt
-		}
 	}
 	TPMP_ROM_camarilla_upcoming_3 = {
 		icon = GFX_idea_ROM_nicolae_malaxa
@@ -281,9 +250,6 @@ TPMP_ROM_camarilla_decisions = {
 			industrial_capacity_factory = -0.05
 			political_power_gain = -0.1
 		}
-		complete_effect = {
-			custom_effect_tooltip = TPMP_ROM_camarilla_base_term_tt
-		}
 	}
 	TPMP_ROM_camarilla_upcoming_4 = {
 		icon = GFX_idea_ROM_armand_calinescu
@@ -298,9 +264,6 @@ TPMP_ROM_camarilla_decisions = {
 			weekly_manpower = -0.1
 			army_defence_factor = 0.05
 			fascism_drift = -0.02
-		}
-		complete_effect = {
-			custom_effect_tooltip = TPMP_ROM_camarilla_base_term_tt
 		}
 	}
 	TPMP_ROM_camarilla_upcoming_5 = {
@@ -317,9 +280,6 @@ TPMP_ROM_camarilla_decisions = {
 			production_speed_industrial_complex_factor = 0.1
 			stability_factor = -0.05
 		}
-		complete_effect = {
-			custom_effect_tooltip = TPMP_ROM_camarilla_base_term_tt
-		}
 	}
 	TPMP_ROM_camarilla_upcoming_6 = {
 		icon = GFX_idea_TPMP_ROM_Gabriel_Marinescu
@@ -335,9 +295,6 @@ TPMP_ROM_camarilla_decisions = {
 			resistance_damage_to_garrison = -0.1
 			stability_factor = 0.05
 			political_power_gain = -0.05
-		}
-		complete_effect = {
-			custom_effect_tooltip = TPMP_ROM_camarilla_base_term_tt
 		}
 	}
 }

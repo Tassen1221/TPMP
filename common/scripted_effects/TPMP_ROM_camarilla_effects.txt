@@ -1,17 +1,3 @@
-# ============================================================================
-# CAMARILLA ROSTER - currently 7 members (index 0-6).
-# Order: 0 Titulescu, 1 Lupescu, 2 Urdareanu, 3 Malaxa, 4 Calinescu, 5 Auschnitt, 6 Marinescu
-#
-# To add member #8 (index 7):
-#   1. common/ideas/TPMP_ROM_camarilla.txt          - add the idea
-#   2. common/decisions/TPMP_ROM_camarilla.txt       - add TPMP_ROM_camarilla_mission_7
-#                                                       and TPMP_ROM_camarilla_upcoming_7
-#   3. Below: add an index=7 branch to advance_effect and prolong_effect,
-#      following the exact pattern of the existing branches.
-#   4. Below: change every "index > 6" check to "index > 7".
-#   5. localisation - add name + mission + upcoming loc keys for the new member.
-# ============================================================================
-
 TPMP_ROM_camarilla_start_effect = {
 	set_variable = { TPMP_ROM_camarilla_index = 0 }
 	set_country_flag = TPMP_ROM_camarilla_active
@@ -19,105 +5,55 @@ TPMP_ROM_camarilla_start_effect = {
 	activate_mission = TPMP_ROM_camarilla_mission_0
 }
 
-# Called when the current member's mission times out naturally. Removes whoever's
-# currently active, explicitly stops their mission (in case it's still running -
-# don't rely on "visible" alone to end it), advances the index, and starts the
-# next member's idea + mission.
-#
-# Guarded against re-entrancy even though nothing currently calls back into this
-# effect (the missions have no cancel_effect/remove_effect defined) - kept as a
-# safeguard in case one gets added later and would otherwise double-advance.
-TPMP_ROM_camarilla_advance_effect = {
-	if = {
-		limit = {
-			NOT = { has_country_flag = TPMP_ROM_camarilla_advancing }
-		}
-		set_country_flag = TPMP_ROM_camarilla_advancing
-
-		if = {
-			limit = { has_idea = TPMP_ROM_camarilla_titulescu }
-			remove_ideas = TPMP_ROM_camarilla_titulescu
-			remove_mission = TPMP_ROM_camarilla_mission_0
-		}
-		if = {
-			limit = { has_idea = TPMP_ROM_camarilla_lupescu }
-			remove_ideas = TPMP_ROM_camarilla_lupescu
-			remove_mission = TPMP_ROM_camarilla_mission_1
-		}
-		if = {
-			limit = { has_idea = TPMP_ROM_camarilla_urdareanu }
-			remove_ideas = TPMP_ROM_camarilla_urdareanu
-			remove_mission = TPMP_ROM_camarilla_mission_2
-		}
-		if = {
-			limit = { has_idea = TPMP_ROM_camarilla_malaxa }
-			remove_ideas = TPMP_ROM_camarilla_malaxa
-			remove_mission = TPMP_ROM_camarilla_mission_3
-		}
-		if = {
-			limit = { has_idea = TPMP_ROM_camarilla_calinescu }
-			remove_ideas = TPMP_ROM_camarilla_calinescu
-			remove_mission = TPMP_ROM_camarilla_mission_4
-		}
-		if = {
-			limit = { has_idea = TPMP_ROM_camarilla_auschnitt }
-			remove_ideas = TPMP_ROM_camarilla_auschnitt
-			remove_mission = TPMP_ROM_camarilla_mission_5
-		}
-		if = {
-			limit = { has_idea = TPMP_ROM_camarilla_marinescu }
-			remove_ideas = TPMP_ROM_camarilla_marinescu
-			remove_mission = TPMP_ROM_camarilla_mission_6
-		}
-
-		add_to_variable = { TPMP_ROM_camarilla_index = 1 }
-		if = {
-			limit = { check_variable = { TPMP_ROM_camarilla_index > 6 } }
-			set_variable = { TPMP_ROM_camarilla_index = 0 }
-		}
-
-		if = {
-			limit = { check_variable = { TPMP_ROM_camarilla_index = 0 } }
-			add_ideas = TPMP_ROM_camarilla_titulescu
-			activate_mission = TPMP_ROM_camarilla_mission_0
-		}
-		if = {
-			limit = { check_variable = { TPMP_ROM_camarilla_index = 1 } }
-			add_ideas = TPMP_ROM_camarilla_lupescu
-			activate_mission = TPMP_ROM_camarilla_mission_1
-		}
-		if = {
-			limit = { check_variable = { TPMP_ROM_camarilla_index = 2 } }
-			add_ideas = TPMP_ROM_camarilla_urdareanu
-			activate_mission = TPMP_ROM_camarilla_mission_2
-		}
-		if = {
-			limit = { check_variable = { TPMP_ROM_camarilla_index = 3 } }
-			add_ideas = TPMP_ROM_camarilla_malaxa
-			activate_mission = TPMP_ROM_camarilla_mission_3
-		}
-		if = {
-			limit = { check_variable = { TPMP_ROM_camarilla_index = 4 } }
-			add_ideas = TPMP_ROM_camarilla_calinescu
-			activate_mission = TPMP_ROM_camarilla_mission_4
-		}
-		if = {
-			limit = { check_variable = { TPMP_ROM_camarilla_index = 5 } }
-			add_ideas = TPMP_ROM_camarilla_auschnitt
-			activate_mission = TPMP_ROM_camarilla_mission_5
-		}
-		if = {
-			limit = { check_variable = { TPMP_ROM_camarilla_index = 6 } }
-			add_ideas = TPMP_ROM_camarilla_marinescu
-			activate_mission = TPMP_ROM_camarilla_mission_6
-		}
-
-		clr_country_flag = TPMP_ROM_camarilla_advancing
-	}
+TPMP_ROM_camarilla_advance_0_to_1 = {
+	remove_ideas = TPMP_ROM_camarilla_titulescu
+	add_ideas = TPMP_ROM_camarilla_lupescu
+	set_variable = { TPMP_ROM_camarilla_index = 1 }
+	activate_mission = TPMP_ROM_camarilla_mission_1
 }
 
-# Prolong: adds 28 days to the current member's running mission timeout.
-# (Ideas have no expiry of their own to refresh, so there's nothing to touch there.)
+TPMP_ROM_camarilla_advance_1_to_2 = {
+	remove_ideas = TPMP_ROM_camarilla_lupescu
+	add_ideas = TPMP_ROM_camarilla_urdareanu
+	set_variable = { TPMP_ROM_camarilla_index = 2 }
+	activate_mission = TPMP_ROM_camarilla_mission_2
+}
+
+TPMP_ROM_camarilla_advance_2_to_3 = {
+	remove_ideas = TPMP_ROM_camarilla_urdareanu
+	add_ideas = TPMP_ROM_camarilla_malaxa
+	set_variable = { TPMP_ROM_camarilla_index = 3 }
+	activate_mission = TPMP_ROM_camarilla_mission_3
+}
+
+TPMP_ROM_camarilla_advance_3_to_4 = {
+	remove_ideas = TPMP_ROM_camarilla_malaxa
+	add_ideas = TPMP_ROM_camarilla_calinescu
+	set_variable = { TPMP_ROM_camarilla_index = 4 }
+	activate_mission = TPMP_ROM_camarilla_mission_4
+}
+
+TPMP_ROM_camarilla_advance_4_to_5 = {
+	remove_ideas = TPMP_ROM_camarilla_calinescu
+	add_ideas = TPMP_ROM_camarilla_auschnitt
+	set_variable = { TPMP_ROM_camarilla_index = 5 }
+	activate_mission = TPMP_ROM_camarilla_mission_5
+}
+
+TPMP_ROM_camarilla_advance_5_to_6 = {
+	remove_ideas = TPMP_ROM_camarilla_auschnitt
+	add_ideas = TPMP_ROM_camarilla_marinescu
+	set_variable = { TPMP_ROM_camarilla_index = 6 }
+	activate_mission = TPMP_ROM_camarilla_mission_6
+}
+
+TPMP_ROM_camarilla_advance_6_to_0 = {
+	remove_ideas = TPMP_ROM_camarilla_marinescu
+	add_ideas = TPMP_ROM_camarilla_titulescu
+	set_variable = { TPMP_ROM_camarilla_index = 0 }
+	activate_mission = TPMP_ROM_camarilla_mission_0
+}
+
 TPMP_ROM_camarilla_prolong_effect = {
 	if = {
 		limit = { check_variable = { TPMP_ROM_camarilla_index = 0 } }
@@ -149,9 +85,6 @@ TPMP_ROM_camarilla_prolong_effect = {
 	}
 }
 
-# Curtail: shortens the current member's running mission timeout by 28 days
-# instead of cancelling it outright. If that pushes it to (or past) zero, the
-# mission's own timeout_effect fires as normal and the rotation advances.
 TPMP_ROM_camarilla_curtail_effect = {
 	if = {
 		limit = { check_variable = { TPMP_ROM_camarilla_index = 0 } }
