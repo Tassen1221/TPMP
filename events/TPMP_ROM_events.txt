@@ -1,0 +1,51 @@
+﻿add_namespace = TPMP_ROM
+
+country_event = {
+	id = TPMP_ROM.1
+	title = TPMP_ROM.1.t
+	desc = TPMP_ROM.1.d
+	picture = GFX_report_event_election_vote
+
+	is_triggered_only = yes
+
+	option = {
+		name = TPMP_ROM.1.a
+		complete_national_focus = TPMP_ROM_1937_romanian_general_election
+	}
+}
+
+country_event = {
+	id = TPMP_ROM.2
+	title = TPMP_ROM.2.t
+	desc = TPMP_ROM.2.d
+
+	is_triggered_only = yes
+
+	option = {
+		name = TPMP_ROM.2.a
+		add_popularity = { ideology = democratic popularity = -0.30 }
+		add_popularity = { ideology = fascism popularity = 0.15 }
+		add_popularity = { ideology = neutrality popularity = 0.15 }
+		set_politics = {
+			ruling_party = democratic
+			elections_allowed = no
+		}
+		set_party_name = {
+			ideology = democratic
+			long_name = TPMP_ROM_national_christian_party_long
+			name = TPMP_ROM_national_christian_party
+		}
+		retire_character = ROM_gheorghe_tatarescu
+		create_country_leader = {
+			name = "Octavian Goga"
+			desc = "TPMP_ROM_OCTAVIAN_GOGA_DESC"
+			picture = GFX_Portrait_romania_octavian_goga
+			expire = "1965.1.1"
+			ideology = conservatism
+			traits = {
+				anti_democrat
+			}
+			id = 8801
+		}
+	}
+}
