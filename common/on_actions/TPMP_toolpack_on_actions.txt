@@ -328,11 +328,6 @@ on_actions = {
 				UKR = { set_country_flag = tp_is_host }
 				set_variable = { global.tp_host_tag = UKR.id }
 			}
-			else_if = {
-				limit = { has_game_rule = { rule = tp_host_country option = MON } }
-				MON = { set_country_flag = tp_is_host }
-				set_variable = { global.tp_host_tag = MON.id }
-			}
 		}
 	}
 }

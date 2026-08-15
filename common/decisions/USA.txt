@@ -391,9 +391,15 @@ TPMP_USA_congress_category = {
             NOT = {
                 has_country_flag = TPMP_USA_congress_decision_flag
             }
+            custom_trigger_tooltip = {
+                tooltip = TPMP_USA_congress_decision_0_tt
+                check_variable = {
+                    left_wing_democrat_support_var > 0
+                }
+            }
         }
         fire_only_once = no
-        cost = 30
+        cost = 50
         days_remove = TPMP_USA_congress_decision_time_var?60
         complete_effect = {
             set_country_flag = TPMP_USA_congress_decision_flag
@@ -427,9 +433,15 @@ TPMP_USA_congress_category = {
             NOT = {
                 has_country_flag = TPMP_USA_congress_decision_flag
             }
+            custom_trigger_tooltip = {
+                tooltip = TPMP_USA_congress_decision_1_tt
+                check_variable = {
+                    conservative_democrat_support_var > 0
+                }
+            }
         }
         fire_only_once = no
-        cost = 30
+        cost = 50
         days_remove = TPMP_USA_congress_decision_time_var?60
         complete_effect = {
             set_country_flag = TPMP_USA_congress_decision_flag
@@ -463,9 +475,15 @@ TPMP_USA_congress_category = {
             NOT = {
                 has_country_flag = TPMP_USA_congress_decision_flag
             }
+            custom_trigger_tooltip = {
+                tooltip = TPMP_USA_congress_decision_2_tt
+                check_variable = {
+                    progressive_republican_support_var > 0
+                }
+            }
         }
         fire_only_once = no
-        cost = 30
+        cost = 50
         days_remove = TPMP_USA_congress_decision_time_var?60
         complete_effect = {
             set_country_flag = TPMP_USA_congress_decision_flag
@@ -499,9 +517,15 @@ TPMP_USA_congress_category = {
             NOT = {
                 has_country_flag = TPMP_USA_congress_decision_flag
             }
+            custom_trigger_tooltip = {
+                tooltip = TPMP_USA_congress_decision_3_tt
+                check_variable = {
+                    business_republican_support_var > 0
+                }
+            }
         }
         fire_only_once = no
-        cost = 30
+        cost = 50
         days_remove = TPMP_USA_congress_decision_time_var?60
         complete_effect = {
             set_country_flag = TPMP_USA_congress_decision_flag
@@ -535,9 +559,15 @@ TPMP_USA_congress_category = {
             NOT = {
                 has_country_flag = TPMP_USA_congress_decision_flag
             }
+            custom_trigger_tooltip = {
+                tooltip = TPMP_USA_congress_decision_4_tt
+                check_variable = {
+                    isolationist_republican_support_var > 0
+                }
+            }
         }
         fire_only_once = no
-        cost = 30
+        cost = 50
         days_remove = TPMP_USA_congress_decision_time_var?60
         complete_effect = {
             set_country_flag = TPMP_USA_congress_decision_flag
@@ -1057,27 +1087,27 @@ TPMP_USA_congress_category = {
                 }
                 30 = {
                     create_ship = {
-                        type = carrier
+                        type = ship_hull_carrier_1
                         creator = USA
                     }
                     create_ship = {
-                        type = battleship
+                        type = ship_hull_heavy_2
                         creator = USA
                     }
                     create_ship = {
-                        type = destroyer
+                        type = ship_hull_light_2
                         creator = USA
                     }
                     create_ship = {
-                        type = destroyer
+                        type = ship_hull_light_2
                         creator = USA
                     }
                     create_ship = {
-                        type = destroyer
+                        type = ship_hull_light_2
                         creator = USA
                     }
                     create_ship = {
-                        type = destroyer
+                        type = ship_hull_light_2
                         creator = USA
                     }
                     custom_effect_tooltip = generic_skip_one_line_tt
@@ -2540,14 +2570,14 @@ TPMP_USA_deficit_category = {
     TPMP_USA_deficit_decision_1 = {
         icon = GFX_decision_generic_factory
         days_remove = 180
-        cost = 10
+        cost = 20
         visible = {
             has_completed_focus = TPMP_USA_manage_the_budget
         }
         available = {
         }
         modifier = {
-            consumer_goods_factor = -0.15
+            consumer_goods_factor = -0.2
 		}
         remove_effect = {
             USA_increase_deficit = yes
@@ -3149,6 +3179,7 @@ TPMP_USA_foreign_aid_category = {
     TPMP_USA_auxiliary_lend_lease_decision = {
         icon = GFX_decision_generic_prepare_civil_war
         cost = 50
+        fire_only_once = yes
         visible = {
             has_completed_focus = TPMP_USA_the_moscow_protocols
             NOT = {
@@ -3169,6 +3200,7 @@ TPMP_USA_foreign_aid_category = {
     TPMP_USA_modern_lend_lease_decision = {
         icon = GFX_decision_generic_tank
         cost = 50
+        fire_only_once = yes
         visible = {
             has_completed_focus = TPMP_USA_the_moscow_protocols
             NOT = {
