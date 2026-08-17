@@ -574,6 +574,14 @@ ideas = {
 			on_add = {
 				if = {
 					limit = {
+						original_tag = USA
+						NOT = { has_active_mission = TPMP_USA_wartime_deficit_mission }
+					}
+					set_variable = { TPMP_USA_deficit_mission_days_var = 180 }
+					activate_mission = TPMP_USA_wartime_deficit_mission
+				}
+				if = {
+					limit = {
 						has_dlc = "Thunder at Our Gates"
 						original_tag = SIA
 						NOT = { has_idea = war_economy }
@@ -684,6 +692,14 @@ ideas = {
 			}
 
 			on_add = {
+				if = {
+					limit = {
+						original_tag = USA
+						NOT = { has_active_mission = TPMP_USA_wartime_deficit_mission }
+					}
+					set_variable = { TPMP_USA_deficit_mission_days_var = 120 }
+					activate_mission = TPMP_USA_wartime_deficit_mission
+				}
 				if = {
 					limit = {
 						has_dlc = "Thunder at Our Gates"

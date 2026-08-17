@@ -2310,7 +2310,7 @@ focus_tree = {
 		x = 4
 		y = 1
 		relative_position_id = TPMP_USA_public_works_administration
-		cost = 5
+		cost = 10
 		completion_reward = {
 			add_dynamic_modifier = {
 				modifier = TPMP_USA_megaprojects_modifier
@@ -2328,6 +2328,10 @@ focus_tree = {
 		cost = 5
 		completion_reward = {
 			custom_effect_tooltip = USA_increase_megaprojects_tt
+			add_to_variable = {
+				TPMP_USA_megaproject_cg_var = 0.02
+				tooltip = consumer_goods_factor_tt
+			}
 			add_to_variable = {
 				TPMP_USA_megaproject_cons_var = 0.025
 				tooltip = production_speed_buildings_factor_tt
@@ -2367,6 +2371,10 @@ focus_tree = {
 		completion_reward = {
 			custom_effect_tooltip = USA_increase_megaprojects_tt
 			add_to_variable = {
+				TPMP_USA_megaproject_cg_var = 0.02
+				tooltip = consumer_goods_factor_tt
+			}
+			add_to_variable = {
 				TPMP_USA_megaproject_cons_var = 0.025
 				tooltip = production_speed_buildings_factor_tt
 			}
@@ -2405,6 +2413,10 @@ focus_tree = {
 		cost = 5
 		completion_reward = {
 			custom_effect_tooltip = USA_increase_megaprojects_tt
+			add_to_variable = {
+				TPMP_USA_megaproject_cg_var = 0.02
+				tooltip = consumer_goods_factor_tt
+			}
 			add_to_variable = {
 				TPMP_USA_megaproject_cons_var = 0.025
 				tooltip = production_speed_buildings_factor_tt
@@ -2448,6 +2460,10 @@ focus_tree = {
 		completion_reward = {
 			custom_effect_tooltip = USA_increase_megaprojects_tt
 			add_to_variable = {
+				TPMP_USA_megaproject_cg_var = 0.02
+				tooltip = consumer_goods_factor_tt
+			}
+			add_to_variable = {
 				TPMP_USA_megaproject_nuclear_cons_var = 0.2
 				tooltip = production_speed_nuclear_reactor_factor_tt
 			}
@@ -2478,6 +2494,10 @@ focus_tree = {
 		cost = 5
 		completion_reward = {
 			custom_effect_tooltip = USA_increase_megaprojects_tt
+			add_to_variable = {
+				TPMP_USA_megaproject_cg_var = 0.02
+				tooltip = consumer_goods_factor_tt
+			}
 			add_to_variable = {
 				TPMP_USA_megaproject_cons_var = 0.025
 				tooltip = production_speed_buildings_factor_tt
@@ -2953,7 +2973,6 @@ focus_tree = {
 				tooltip = {
 					localization_key = SP_UNLOCK_BUILDING_ICON_DESC
 					BUILDING = arms_megaplant
-					BUILDING_DESCRIPTION = arms_megaplant_desc
 					ICON_FRAME = 2
 				}
 				set_technology = {
@@ -2991,7 +3010,7 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = TPMP_USA_construct_megaplants
-		cost = 5
+		cost = 10
 		available = {
 			has_support_ndd_cd = yes
 			has_war_support > 0.7
@@ -3044,7 +3063,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = TPMP_USA_the_giant_wakes
-		cost = 5
+		cost = 10
 		available ={
 			controls_state = 393
 		}
@@ -3096,7 +3115,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = TPMP_USA_detroit_arsenal
-		cost = 5
+		cost = 15
 		available = {
 			OR = {
 				has_tech = concentrated_industry5
