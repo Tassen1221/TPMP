@@ -10,6 +10,10 @@ country_event = {
 
 	option = {
 		name = TPMP_ROM.1.a
+		if = {
+			limit = { NOT = { has_completed_focus = TPMP_ROM_sideline_titulescu } }
+			complete_national_focus = TPMP_ROM_sideline_titulescu
+		}
 		complete_national_focus = TPMP_ROM_1937_romanian_general_election
 	}
 }
@@ -40,12 +44,57 @@ country_event = {
 			name = "Octavian Goga"
 			desc = "TPMP_ROM_OCTAVIAN_GOGA_DESC"
 			picture = GFX_Portrait_romania_octavian_goga
-			expire = "1965.1.1"
+			expire = "1938.5.7"
 			ideology = conservatism
 			traits = {
 				anti_democrat
 			}
 			id = 8801
+		}
+		if = {
+			limit = {
+				NOT = {
+					OR = {
+						has_idea = partial_economic_mobilisation
+						has_idea = war_economy
+						has_idea = tot_economic_mobilisation
+					}
+				}
+			}
+			country_event = { id = TPMP_ROM.3 hours = 1 }
+		}
+	}
+}
+
+country_event = {
+	id = TPMP_ROM.3
+	title = TPMP_ROM.3.t
+	desc = TPMP_ROM.3.d
+
+	is_triggered_only = yes
+
+	option = {
+		name = TPMP_ROM.3.a
+		set_country_flag = TPMP_ROM_army_discontent
+	}
+}
+
+country_event = {
+	id = TPMP_ROM.4
+	title = TPMP_ROM.4.t
+	desc = TPMP_ROM.4.d
+
+	is_triggered_only = yes
+
+	option = {
+		name = TPMP_ROM.4.a
+		set_country_flag = TPMP_ROM_instability
+		add_ideas = TPMP_ROM_instability
+		if = {
+			limit = { 76 = { is_owned_by = ROOT } }
+			76 = {
+				transfer_state_to = HUN
+			}
 		}
 	}
 }

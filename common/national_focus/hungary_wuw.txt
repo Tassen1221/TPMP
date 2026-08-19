@@ -9836,6 +9836,14 @@ focus_tree = {
 			is_subject = no
 			# has_army_manpower = { size > 200000 }
 
+			ROM = {
+				OR = {
+					has_completed_focus = TPMP_ROM_revise_the_constitution
+					has_completed_focus = TPMP_ROM_combat_favoritism
+					has_completed_focus = TPMP_ROM_night_of_the_green_knives
+				}
+			}
+
 			NOT = {
 				OR = {
 					76 = {
@@ -9902,17 +9910,22 @@ focus_tree = {
 						is_owned_by = ROM
 					}
 				}
-				# custom_effect_tooltip = HUN_demands_tt
-				ROM = { 
-					country_event = { 
-						id = TPMP_GEN.2 
-						hours = 6
-						random_hours = 12
-					} 
+				ROM = {
+					if = {
+						limit = {
+							has_completed_focus = TPMP_ROM_institute_royal_dictatorship
+							NOT = { has_completed_focus = TPMP_ROM_translyvanian_fiasco }
+						}
+						complete_national_focus = TPMP_ROM_translyvanian_fiasco
+					}
+					else_if = {
+						limit = { NOT = { has_completed_focus = TPMP_ROM_institute_royal_dictatorship } }
+						country_event = { id = TPMP_ROM.4 hours = 1 }
+					}
 				}
 				hidden_effect = {
-					news_event = { 
-						id = news.300 
+					news_event = {
+						id = news.300
 						hours = 4
 					}
 				}

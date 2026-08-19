@@ -201,7 +201,24 @@ set_convoys = 10
 1937.12.20 = {
 	if = {
 		limit = { NOT = { has_completed_focus = TPMP_ROM_1937_romanian_general_election } }
-		country_event = { id = TPMP_ROM.1 hours = 6 }
+		country_event = { id = TPMP_ROM.1 hours = 1 }
+	}
+}
+
+1940.8.30 = {
+	if = {
+		limit = { 76 = { is_owned_by = ROOT } }
+		if = {
+			limit = {
+				has_completed_focus = TPMP_ROM_institute_royal_dictatorship
+				NOT = { has_completed_focus = TPMP_ROM_translyvanian_fiasco }
+			}
+			complete_national_focus = TPMP_ROM_translyvanian_fiasco
+		}
+		else_if = {
+			limit = { NOT = { has_completed_focus = TPMP_ROM_institute_royal_dictatorship } }
+			country_event = { id = TPMP_ROM.4 hours = 1 }
+		}
 	}
 }
 
