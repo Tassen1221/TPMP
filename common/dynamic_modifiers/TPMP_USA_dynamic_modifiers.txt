@@ -1,0 +1,137 @@
+TPMP_USA_dust_bowl_modifier = { 
+	icon = GFX_modifiers_RAJ_famine_state
+
+	attrition_for_controller = 0.1
+	state_production_speed_buildings_factor = -0.2
+	local_factories = -0.2
+	local_resources = -0.2
+	recruitable_population_factor = -0.5
+}
+TPMP_USA_great_depression_modifier = { 
+	icon = GFX_idea_great_depression
+
+	consumer_goods_factor = TPMP_USA_great_depression_cg_var
+	stability_factor = TPMP_USA_great_depression_stab_var
+	production_factory_max_efficiency_factor = TPMP_USA_great_depression_eff_cap_var
+	production_factory_efficiency_gain_factor = TPMP_USA_great_depression_eff_gain_var
+	industrial_capacity_factory =  TPMP_USA_great_depression_factory_var
+	industrial_capacity_dockyard = TPMP_USA_great_depression_dock_var
+	production_speed_buildings_factor = TPMP_USA_great_depression_cons_var
+}
+TPMP_USA_deficit_modifier = { 
+	icon = GFX_idea_generic_economic_crisis
+
+	consumer_goods_expected_value = TPMP_USA_deficit_cg_var
+	stability_factor = TPMP_USA_deficit_stab_var
+	political_power_cost = TPMP_USA_deficit_pp_var
+}
+TPMP_USA_megaprojects_modifier = {
+	icon = GFX_idea_PER_feat_of_engineering_idea
+
+	consumer_goods_factor = TPMP_USA_megaproject_cg_var
+	production_speed_buildings_factor = TPMP_USA_megaproject_cons_var
+
+	production_speed_air_base_factor = TPMP_USA_megaproject_airbase_cons_var
+	production_speed_radar_station_factor = TPMP_USA_megaproject_radar_cons_var
+
+	production_speed_infrastructure_factor = TPMP_USA_megaproject_infra_cons_var
+
+	production_speed_supply_node_factor = TPMP_USA_megaproject_supply_cons_var
+	production_speed_rail_way_factor = TPMP_USA_megaproject_rail_cons_var
+
+	production_speed_nuclear_reactor_factor = TPMP_USA_megaproject_nuclear_cons_var
+}
+TPMP_USA_alphabet_agencies_modifier = {
+	icon = GFX_idea_generic_political_support
+
+	political_power_gain = TPMP_USA_alphabet_pp_var
+	command_power_gain = TPMP_USA_alphabet_cp_var
+	stability_weekly = TPMP_USA_alphabet_weekly_stab_var
+	army_morale_factor = TPMP_USA_alphabet_rec_var
+	production_cost_arms_factory_factor = TPMP_USA_alphabet_mil_cost_var
+	political_advisor_cost_factor = TPMP_USA_alphabet_advisor_cost_var
+	research_speed_factor = TPMP_USA_alphabet_research_var
+	economy_cost_factor = TPMP_USA_alphabet_eco_law_cost_var
+
+	custom_modifier_tooltip = TPMP_USA_alphabet_agencies_tt
+}
+TPMP_USA_department_of_war_modifier = {
+	icon = GFX_idea_usa_war_department
+
+	experience_gain_army = TPMP_USA_department_xp_var
+	land_mastery_gain_factor = TPMP_USA_department_mastery_var
+	max_planning = TPMP_USA_department_planning_var
+}
+TPMP_USA_department_of_defense_modifier = {
+	icon = GFX_idea_usa_department_of_defense
+
+	experience_gain_army = TPMP_USA_department_xp_var
+	land_mastery_gain_factor = TPMP_USA_department_mastery_var
+	max_planning = TPMP_USA_department_planning_var
+}
+TPMP_USA_department_of_the_navy_modifier = {
+	icon = GFX_idea_USA_us_navy
+
+	experience_gain_navy = TPMP_USA_navy_department_xp_var
+	naval_mastery_gain_factor = TPMP_USA_navy_department_mastery_var
+	navy_org_factor = TPMP_USA_navy_department_org_var
+	convoy_raiding_efficiency_factor = TPMP_USA_navy_department_raiding_var
+	sortie_efficiency = TPMP_USA_navy_department_sortie_var
+	navy_carrier_air_targetting_factor = TPMP_USA_navy_department_carrier_targetting_var
+	special_forces_cap = TPMP_USA_navy_department_sf_cap_var
+	army_intel_to_others = TPMP_USA_navy_department_army_intel_var
+	navy_intel_to_others = TPMP_USA_navy_department_navy_intel_var
+
+	custom_modifier_tooltip = TPMP_USA_navy_department_tt
+}
+TPMP_USA_us_army_air_corps_modifier = {
+	icon = GFX_idea_usa_us_air_force
+
+	experience_gain_air = TPMP_USA_air_department_xp_var
+	air_mastery_gain_factor = TPMP_USA_air_department_mastery_var
+	air_mission_efficiency = TPMP_USA_air_department_mission_var
+	air_superiority_bonus_in_combat = TPMP_USA_air_department_superiority_combat_var
+	air_escort_efficiency = TPMP_USA_air_department_escort_efficiency_var
+	ground_attack_factor = TPMP_USA_air_department_ground_attack_var
+	air_cas_present_factor = TPMP_USA_air_department_cas_present_var
+
+	custom_modifier_tooltip = TPMP_USA_us_army_air_corps_tt
+}
+TPMP_USA_us_army_air_forces_modifier = {
+	icon = GFX_idea_usa_us_air_force
+
+	experience_gain_air = TPMP_USA_air_department_xp_var
+	air_mastery_gain_factor = TPMP_USA_air_department_mastery_var
+	air_mission_efficiency = TPMP_USA_air_department_mission_var
+	air_superiority_bonus_in_combat = TPMP_USA_air_department_superiority_combat_var
+	air_escort_efficiency = TPMP_USA_air_department_escort_efficiency_var
+	ground_attack_factor = TPMP_USA_air_department_ground_attack_var
+	air_cas_present_factor = TPMP_USA_air_department_cas_present_var
+	air_superiority_efficiency = TPMP_USA_air_department_superiority_efficiency_var
+	air_strategic_bomber_bombing_factor = TPMP_USA_air_department_strat_bombing_var
+	naval_strike_targetting_factor = TPMP_USA_air_department_naval_strike_var
+
+	custom_modifier_tooltip = TPMP_USA_us_army_air_forces_tt
+}
+TPMP_USA_new_industry_modifier = {
+	icon = GFX_modifiers_generic_industry
+
+	state_production_speed_buildings_factor = 0.2
+	local_building_slots = 2
+}
+TPMP_USA_expand_industry_modifier = { 
+	icon = GFX_modifiers_generic_industry
+
+	local_factories = 0.1
+	local_factory_energy_consumption = -0.2
+}
+TPMP_USA_mines_modifier = { 
+	icon = GFX_decision_category_generic_prospect_for_resources
+
+	state_resources_factor = 0.1
+}
+TPMP_USA_expand_dockyard_modifier = { 
+	icon = GFX_modifiers_generic_construction
+
+	state_production_speed_dockyard_factor = 0.2
+}

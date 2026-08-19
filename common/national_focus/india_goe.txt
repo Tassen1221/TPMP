@@ -14980,6 +14980,15 @@ focus_tree = {
         completion_reward = {
             if = {
                 limit = {
+                    has_idea = RAJ_marginalized_muslim_community_very_happy
+                }
+                swap_ideas = {
+                    add_idea = RAJ_marginalized_muslim_community_very_happy_alt
+                    remove_idea = RAJ_marginalized_muslim_community_very_happy
+                }
+            }
+            else_if = {
+                limit = {
                     has_idea = RAJ_marginalized_muslim_community_angry
                 }
                 swap_ideas = {
@@ -14987,7 +14996,19 @@ focus_tree = {
                     remove_idea = RAJ_marginalized_muslim_community_angry
                 }
             }
-            else = {
+            else_if = {
+                limit = {
+                    has_idea = RAJ_marginalized_muslim_community_happy
+                }
+                swap_ideas = {
+                    add_idea = RAJ_marginalized_muslim_community_happy_alt
+                    remove_idea = RAJ_marginalized_muslim_community_happy
+                }
+            }
+            else_if = {
+                limit = {
+                    has_idea = RAJ_marginalized_muslim_community
+                }
                 swap_ideas = {
                     add_idea = RAJ_marginalized_muslim_community_happy_alt
                     remove_idea = RAJ_marginalized_muslim_community
@@ -15105,9 +15126,33 @@ focus_tree = {
         }
 
         completion_reward = {
-           swap_ideas = {
-               remove_idea = RAJ_marginalized_muslim_community_happy
-               add_idea = RAJ_marginalized_muslim_community_very_happy
+           if = {
+               limit = { has_idea = RAJ_marginalized_muslim_community_happy_alt }
+               swap_ideas = {
+                   remove_idea = RAJ_marginalized_muslim_community_happy_alt
+                   add_idea = RAJ_marginalized_muslim_community_very_happy_alt
+               }
+           }
+           else_if = {
+               limit = { has_idea = RAJ_marginalized_muslim_community_happy }
+               swap_ideas = {
+                   remove_idea = RAJ_marginalized_muslim_community_happy
+                   add_idea = RAJ_marginalized_muslim_community_very_happy
+               }
+           }
+           else_if = {
+               limit = { has_idea = RAJ_marginalized_muslim_community_angry }
+               swap_ideas = {
+                   remove_idea = RAJ_marginalized_muslim_community_angry
+                   add_idea = RAJ_marginalized_muslim_community_very_happy
+               }
+           }
+           else_if = {
+               limit = { has_idea = RAJ_marginalized_muslim_community }
+               swap_ideas = {
+                   remove_idea = RAJ_marginalized_muslim_community
+                   add_idea = RAJ_marginalized_muslim_community_very_happy
+               }
            }
         }
     }

@@ -3,15 +3,19 @@ state={
 	id=383
 	name="STATE_383"
 	manpower = 1880998
+
 	resources = {
-		oil = 300 # was: 42
-		coal = 40 #initial distribution = with infra 5.6 / 1280 total
+		oil = 180
+		coal = 40
 	}
 	
 	state_category = city
 
 	history={
 		owner = USA
+		add_dynamic_modifier = {
+			modifier = TPMP_USA_dust_bowl_modifier
+		}
 		buildings = {
 			infrastructure = 2
 			arms_factory = 1

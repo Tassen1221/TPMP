@@ -1,3213 +1,3486 @@
-war_measures = {
+TPMP_USA_elections_category = {
+    TPMP_USA_elections_decision = {
+        icon = GFX_decision_generic_allies
+        visible = {
+            has_country_flag = TPMP_USA_elections_flag
+            NOT = {
+                has_country_flag = TPMP_USA_elections_decision_flag
+            }
+        }
+        available = {
+            has_tech = radio
+        }
+        fire_only_once = no
+        cost = 30
+        complete_effect = {
+            IF = {
+                limit = { has_tech = advanced_radio }
+                USA_electoral_support_gain_large = yes
+            }
+            ELSE_IF = {
+                limit = { has_tech = improved_radio }
+                USA_electoral_support_gain = yes
+            }
+            ELSE = {
+                USA_electoral_support_gain_small = yes
+            }
+            custom_effect_tooltip = generic_skip_one_line_tt
+            custom_effect_tooltip = TPMP_USA_elections_decision_tt
+            set_country_flag = TPMP_USA_elections_decision_flag
+            custom_effect_tooltip = generic_skip_zero_line_tt
+        }
+    }
+    TPMP_USA_elections_rally_africa_decision = {
+        icon = GFX_decision_generic_allies
+        visible = {
+            has_country_flag = TPMP_USA_elections_flag
+            has_completed_focus = TPMP_USA_rally_our_defeats
+        }
+        available = {
+            NOT = {
+                907 = { controller = { is_in_faction_with = USA }}
+            }
+        }
+        fire_only_once = yes
+        cost = 50
+        days_remove = 180
+        modifier = {
+            political_power_gain = -0.5
+            stability_weekly_factor = -0.003
+            custom_modifier_tooltip = generic_skip_zero_line_tt
+        }
+        targeted_modifier = {
+            tag = ITA
+            attack_bonus_against = 0.05
+        }
+        complete_effect = {
+            USA_electoral_support_gain_small = yes
+            custom_effect_tooltip = generic_skip_zero_line_tt
+        }
+    }
+    TPMP_USA_elections_rally_asia_decision = {
+        icon = GFX_decision_generic_allies
+        visible = {
+            has_country_flag = TPMP_USA_elections_flag
+            has_completed_focus = TPMP_USA_rally_our_defeats
+        }
+        available = {
+            NOT = {
+                1082 = { controller = { is_in_faction_with = USA } }
+                650 = { controller = { is_in_faction_with = USA } }
+                632 = { controller = { is_in_faction_with = USA } }
+                631 = { controller = { is_in_faction_with = USA } }
+                638 = { controller = { is_in_faction_with = USA } }
+                630 = { controller = { is_in_faction_with = USA } }
+                737 = { controller = { is_in_faction_with = USA } }
+                634 = { controller = { is_in_faction_with = USA } }
+                642 = { controller = { is_in_faction_with = USA } }
+                727 = { controller = { is_in_faction_with = USA } }
+            }
+        }
+        fire_only_once = yes
+        cost = 50
+        days_remove = 180
+        modifier = {
+            political_power_gain = -0.5
+            stability_weekly_factor = -0.003
+            custom_modifier_tooltip = generic_skip_zero_line_tt
+        }
+        targeted_modifier = {
+            tag = JAP
+            attack_bonus_against = 0.05
+        }
+        complete_effect = {
+            USA_electoral_support_gain_small = yes
+            custom_effect_tooltip = generic_skip_zero_line_tt
+        }
+    }
+    TPMP_USA_elections_rally_dday_decision = {
+        icon = GFX_decision_generic_allies
+        visible = {
+            has_country_flag = TPMP_USA_elections_flag
+            has_completed_focus = TPMP_USA_rally_our_defeats
+        }
+        available = {
+            NOT = {
+                any_state = {
+                    OR = {
+                        is_core_of = GER
+                        is_core_of = FRA
+                        is_core_of = HOL
+                        is_core_of = BEL
+                        is_core_of = DEN
+                    }
+                    controller = { is_in_faction_with = USA }
+                }
+            }
+        }
+        fire_only_once = yes
+        cost = 50
+        days_remove = 180
+        modifier = {
+            political_power_gain = -0.5
+            stability_weekly_factor = -0.003
+            custom_modifier_tooltip = generic_skip_zero_line_tt
+        }
+        targeted_modifier = {
+            tag = GER
+            attack_bonus_against = 0.05
+        }
+        complete_effect = {
+            USA_electoral_support_gain_small = yes
+            custom_effect_tooltip = generic_skip_zero_line_tt
+        }
+    }
+    TPMP_USA_elections_glorify_africa_decision = {
+        icon = GFX_decision_generic_allies
+        visible = {
+            has_country_flag = TPMP_USA_elections_flag
+            has_completed_focus = TPMP_USA_glorify_our_victories
+        }
+        available = {
+            448 = { controller = { is_in_faction_with = USA }}
+            450 = { controller = { is_in_faction_with = USA }}
+            451 = { controller = { is_in_faction_with = USA }}
+            447 = { controller = { is_in_faction_with = USA }}
+            907 = { controller = { is_in_faction_with = USA }}
+        }
+        fire_only_once = yes
+        cost = 10
+        days_remove = 180
+        targeted_modifier = {
+            tag = ITA
+            defense_bonus_against = 0.15
+        }
+        complete_effect = {
+            USA_electoral_support_gain_large = yes
+            custom_effect_tooltip = generic_skip_one_line_tt
+            add_war_support = 0.05
+            custom_effect_tooltip = generic_skip_zero_line_tt
+        }
+    }
+    TPMP_USA_elections_glorify_asia_decision = {
+        icon = GFX_decision_generic_allies
+        visible = {
+            has_country_flag = TPMP_USA_elections_flag
+            has_completed_focus = TPMP_USA_glorify_our_victories
+        }
+        available = {
+            1082 = { controller = { is_in_faction_with = USA }}
+            650 = { controller = { is_in_faction_with = USA }}
+            645 = { controller = { is_in_faction_with = USA }}
+            648 = { controller = { is_in_faction_with = USA }}
+            632 = { controller = { is_in_faction_with = USA }}
+            631 = { controller = { is_in_faction_with = USA }}
+            647 = { controller = { is_in_faction_with = USA }}
+            684 = { controller = { is_in_faction_with = USA }}
+            638 = { controller = { is_in_faction_with = USA }}
+            646 = { controller = { is_in_faction_with = USA }}
+            633 = { controller = { is_in_faction_with = USA }}
+            630 = { controller = { is_in_faction_with = USA }}
+            737 = { controller = { is_in_faction_with = USA }}
+            634 = { controller = { is_in_faction_with = USA }}
+            642 = { controller = { is_in_faction_with = USA }}
+            727 = { controller = { is_in_faction_with = USA }}
+        }
+        fire_only_once = yes
+        cost = 10
+        days_remove = 180
+        targeted_modifier = {
+            tag = JAP
+            defense_bonus_against = 0.15
+        }
+        complete_effect = {
+            USA_electoral_support_gain_large = yes
+            custom_effect_tooltip = generic_skip_one_line_tt
+            add_war_support = 0.05
+            custom_effect_tooltip = generic_skip_zero_line_tt
+        }
+    }
+    TPMP_USA_elections_glorify_dday_decision = {
+        icon = GFX_decision_generic_allies
+        visible = {
+            has_country_flag = TPMP_USA_elections_flag
+            has_completed_focus = TPMP_USA_glorify_our_victories
+        }
+        available = {
+            any_state = {
+                OR = {
+                    is_core_of = GER
+                    is_core_of = FRA
+                    is_core_of = HOL
+                    is_core_of = BEL
+                    is_core_of = DEN
+                }
+                controller = { is_in_faction_with = USA }
+            }
+        }
+        fire_only_once = yes
+        cost = 10
+        days_remove = 180
+        targeted_modifier = {
+            tag = GER
+            defense_bonus_against = 0.15
+        }
+        complete_effect = {
+            USA_electoral_support_gain_large = yes
+            custom_effect_tooltip = generic_skip_one_line_tt
+            add_war_support = 0.05
+            custom_effect_tooltip = generic_skip_zero_line_tt
+        }
+    }
+    TPMP_USA_west_campaigning_decision = {
+        icon = GFX_decision_generic_allies
+        visible = {
+            has_country_flag = TPMP_USA_elections_flag
+        }
+        highlight_states = {
+            highlight_state_targets = {
+                state = 388
+                state = 387
+                state = 386
+                state = 385
+                state = 382
+                state = 381
+                state = 380
+                state = 379
+                state = 378
+                state = 377
+                state = 376
+            }
+        }
+        fire_only_once = no
+        days_remove = 30
+        cost = TPMP_USA_west_campaign_cost_var?10
+        complete_effect = {
+            multiply_variable = {
+                TPMP_USA_west_campaign_cost_var = 2
+            }
+        }
+        remove_effect = {
+            set_temp_variable = { new_support = left_wing_democrat_support_var }
+            divide_temp_variable = { new_support = 3 }
+            round_temp_variable = new_support
+            add_to_variable = { TPMP_USA_electoral_support_var = new_support }
+            recalculate_electoral_ui = yes
+            custom_effect_tooltip = TPMP_USA_west_campaigning_decision_tt
+            custom_effect_tooltip = generic_skip_zero_line_tt
+        }
+    }
+    TPMP_USA_midwest_campaigning_decision = {
+        icon = GFX_decision_generic_allies
+        visible = {
+            has_country_flag = TPMP_USA_elections_flag
+        }
+        highlight_states = {
+            highlight_state_targets = {
+                state = 396
+                state = 395
+                state = 394
+                state = 393
+                state = 392
+                state = 391
+                state = 390
+                state = 389
+                state = 384
+                state = 383
+                state = 373
+                state = 261
+            }
+        }
+        fire_only_once = no
+        days_remove = 30
+        cost = TPMP_USA_midwest_campaign_cost_var?10
+        complete_effect = {
+            multiply_variable = {
+                TPMP_USA_midwest_campaign_cost_var = 2
+            }
+        }
+        remove_effect = {
+            set_temp_variable = { new_support = progressive_republican_support_var }
+            add_to_temp_variable = { new_support = isolationist_republican_support_var }
+            divide_temp_variable = { new_support = 3 }
+            round_temp_variable = new_support
+            add_to_variable = { TPMP_USA_electoral_support_var = new_support }
+            recalculate_electoral_ui = yes
+            custom_effect_tooltip = TPMP_USA_midwest_campaigning_decision_tt
+            custom_effect_tooltip = generic_skip_zero_line_tt
+        }
+    }
+    TPMP_USA_south_campaigning_decision = {
+        icon = GFX_decision_generic_allies
+        visible = {
+            has_country_flag = TPMP_USA_elections_flag
+        }
+        highlight_states = {
+            highlight_state_targets = {
+                state = 816
+                state = 375
+                state = 374
+                state = 372
+                state = 371
+                state = 370
+                state = 369
+                state = 368
+                state = 367
+                state = 366
+                state = 365
+                state = 364
+                state = 363
+                state = 362
+            }
+        }
+        fire_only_once = no
+        days_remove = 30
+        cost = TPMP_USA_south_campaign_cost_var?10
+        complete_effect = {
+            multiply_variable = {
+                TPMP_USA_south_campaign_cost_var = 2
+            }
+        }
+        remove_effect = {
+            set_temp_variable = { new_support = conservative_democrat_support_var }
+            divide_temp_variable = { new_support = 3 }
+            round_temp_variable = new_support
+            add_to_variable = { TPMP_USA_electoral_support_var = new_support }
+            recalculate_electoral_ui = yes
+            custom_effect_tooltip = TPMP_USA_south_campaigning_decision_tt
+            custom_effect_tooltip = generic_skip_zero_line_tt
+        }
+    }
+    TPMP_USA_northeast_campaigning_decision = {
+        icon = GFX_decision_generic_allies
+        visible = {
+            has_country_flag = TPMP_USA_elections_flag
+        }
+        highlight_states = {
+            highlight_state_targets = {
+                state = 361
+                state = 360
+                state = 358
+                state = 357
 
-	USA_homeland_defense = {
+            }
+        }
+        fire_only_once = no
+        days_remove = 30
+        cost = TPMP_USA_northeast_campaign_cost_var?10
+        complete_effect = {
+            multiply_variable = {
+                TPMP_USA_northeast_campaign_cost_var = 2
+            }
+        }
+        remove_effect = {
+            set_temp_variable = { new_support = business_republican_support_var }
+            divide_temp_variable = { new_support = 3 }
+            round_temp_variable = new_support
+            add_to_variable = { TPMP_USA_electoral_support_var = new_support }
+            recalculate_electoral_ui = yes
+            custom_effect_tooltip = TPMP_USA_northeast_campaigning_decision_tt
+            custom_effect_tooltip = generic_skip_zero_line_tt
+        }
+    }
+}
 
-		icon = generic_prepare_civil_war
+TPMP_USA_congress_category = {
+    TPMP_USA_congress_decision_0 = {
+        icon = GFX_decision_generic_allies
+        visible = {
+        }
+        available = {
+            NOT = {
+                has_decision = TPMP_USA_congress_decision_1
+                has_decision = TPMP_USA_congress_decision_2
+                has_decision = TPMP_USA_congress_decision_3
+                has_decision = TPMP_USA_congress_decision_4
+            }
+            custom_trigger_tooltip = {
+                tooltip = TPMP_USA_congress_decision_0_tt
+                check_variable = {
+                    left_wing_democrat_support_var > 0
+                }
+            }
+        }
+        fire_only_once = no
+        cost = 50
+        days_remove = TPMP_USA_congress_decision_time_var?60
+        remove_effect = {
+            custom_effect_tooltip = lwd_lose_support_tiny_tt
+            custom_effect_tooltip = ndd_gain_support_tiny_tt
+            IF = {
+                limit = {
+                    check_variable = {
+                        left_wing_democrat_support_var > 0
+                    }
+                }
+                add_to_variable = {
+                    new_deal_democrat_support_var = 1
+                }
+                add_to_variable = {
+                    left_wing_democrat_support_var = -1
+                }
+            }
+            recalculate_congressional_ui = yes
+            custom_effect_tooltip = generic_skip_zero_line_tt
+        }
+    }
+    TPMP_USA_congress_decision_1 = {
+        icon = GFX_decision_generic_allies
+        visible = {
+        }
+        available = {
+            NOT = {
+                has_decision = TPMP_USA_congress_decision_0
+                has_decision = TPMP_USA_congress_decision_2
+                has_decision = TPMP_USA_congress_decision_3
+                has_decision = TPMP_USA_congress_decision_4
+            }
+            custom_trigger_tooltip = {
+                tooltip = TPMP_USA_congress_decision_1_tt
+                check_variable = {
+                    conservative_democrat_support_var > 0
+                }
+            }
+        }
+        fire_only_once = no
+        cost = 50
+        days_remove = TPMP_USA_congress_decision_time_var?60
+        remove_effect = {
+            custom_effect_tooltip = cd_lose_support_tiny_tt
+            custom_effect_tooltip = ndd_gain_support_tiny_tt
+            IF = {
+                limit = {
+                    check_variable = {
+                        conservative_democrat_support_var > 0
+                    }
+                }
+                add_to_variable = {
+                    new_deal_democrat_support_var = 1
+                }
+                add_to_variable = {
+                    conservative_democrat_support_var = -1
+                }
+            }
+            recalculate_congressional_ui = yes
+            custom_effect_tooltip = generic_skip_zero_line_tt
+        }
+    }
+    TPMP_USA_congress_decision_2 = {
+        icon = GFX_decision_generic_allies
+        visible = {
+        }
+        available = {
+            NOT = {
+                has_decision = TPMP_USA_congress_decision_0
+                has_decision = TPMP_USA_congress_decision_1
+                has_decision = TPMP_USA_congress_decision_3
+                has_decision = TPMP_USA_congress_decision_4
+            }
+            custom_trigger_tooltip = {
+                tooltip = TPMP_USA_congress_decision_2_tt
+                check_variable = {
+                    progressive_republican_support_var > 0
+                }
+            }
+        }
+        fire_only_once = no
+        cost = 50
+        days_remove = TPMP_USA_congress_decision_time_var?60
+        remove_effect = {
+            custom_effect_tooltip = pr_lose_support_tiny_tt
+            custom_effect_tooltip = ndd_gain_support_tiny_tt
+            IF = {
+                limit = {
+                    check_variable = {
+                        progressive_republican_support_var > 0
+                    }
+                }
+                add_to_variable = {
+                    new_deal_democrat_support_var = 1
+                }
+                add_to_variable = {
+                    progressive_republican_support_var = -1
+                }
+            }
+            recalculate_congressional_ui = yes
+            custom_effect_tooltip = generic_skip_zero_line_tt
+        }
+    }
+    TPMP_USA_congress_decision_3 = {
+        icon = GFX_decision_generic_allies
+        visible = {
+        }
+        available = {
+            NOT = {
+                has_decision = TPMP_USA_congress_decision_0
+                has_decision = TPMP_USA_congress_decision_1
+                has_decision = TPMP_USA_congress_decision_2
+                has_decision = TPMP_USA_congress_decision_4
+            }
+            custom_trigger_tooltip = {
+                tooltip = TPMP_USA_congress_decision_3_tt
+                check_variable = {
+                    business_republican_support_var > 0
+                }
+            }
+        }
+        fire_only_once = no
+        cost = 50
+        days_remove = TPMP_USA_congress_decision_time_var?60
+        remove_effect = {
+            custom_effect_tooltip = br_lose_support_tiny_tt
+            custom_effect_tooltip = ndd_gain_support_tiny_tt
+            IF = {
+                limit = {
+                    check_variable = {
+                        business_republican_support_var > 0
+                    }
+                }
+                add_to_variable = {
+                    new_deal_democrat_support_var = 1
+                }
+                add_to_variable = {
+                    business_republican_support_var = -1
+                }
+            }
+            recalculate_congressional_ui = yes
+            custom_effect_tooltip = generic_skip_zero_line_tt
+        }
+    }
+    TPMP_USA_congress_decision_4 = {
+        icon = GFX_decision_generic_allies
+        visible = {
+        }
+        available = {
+            NOT = {
+                has_decision = TPMP_USA_congress_decision_0
+                has_decision = TPMP_USA_congress_decision_1
+                has_decision = TPMP_USA_congress_decision_2
+                has_decision = TPMP_USA_congress_decision_3
+            }
+            custom_trigger_tooltip = {
+                tooltip = TPMP_USA_congress_decision_4_tt
+                check_variable = {
+                    isolationist_republican_support_var > 0
+                }
+            }
+        }
+        fire_only_once = no
+        cost = 50
+        days_remove = TPMP_USA_congress_decision_time_var?60
+        remove_effect = {
+            custom_effect_tooltip = ir_lose_support_tiny_tt
+            custom_effect_tooltip = ndd_gain_support_tiny_tt
+            IF = {
+                limit = {
+                    check_variable = {
+                        isolationist_republican_support_var > 0
+                    }
+                }
+                add_to_variable = {
+                    new_deal_democrat_support_var = 1
+                }
+                add_to_variable = {
+                    isolationist_republican_support_var = -1
+                }
+            }
+            recalculate_congressional_ui = yes
+            custom_effect_tooltip = generic_skip_zero_line_tt
+        }
+    }
+    TPMP_USA_congress_event_mission = {
+        icon = GFX_decision_generic_allies
+        activation = {
+            always = yes
+        }
+        available = {
+            hidden_trigger = { always = no }
+        }
+        is_good = yes
+        days_mission_timeout = TPMP_USA_congress_event_mission_length_var?180
 
-		allowed = {
-			original_tag = USA
-		}
+        timeout_effect = {
+            activate_mission = TPMP_USA_congress_event_mission
+            custom_effect_tooltip = generic_skip_one_line_tt
+            custom_effect_tooltip = TPMP_USA_congress_event_mission_tt
+            hidden_effect = {
+                country_event = TPMP_USA_congress.1
+            }
+        }
+    }
+    TPMP_USA_neutrality_act_mission = {
+        icon = GFX_decision_generic_political_discourse
+        activation = {
+            has_idea = TPMP_USA_neutrality_act_idea_0
+            NOT = {
+                has_completed_focus = TPMP_USA_limited_intervention
+                has_completed_focus = TPMP_USA_cash_and_carry
+            }
+        }
+        available = {
+            OR = {
+                has_completed_focus = TPMP_USA_limited_intervention
+                has_completed_focus = TPMP_USA_cash_and_carry
+            }
+        }
+        cancel_trigger = {
+            hidden_trigger = { has_war = yes }
+        }
+        is_good = no
+        days_mission_timeout = 60
 
-		available = {
-			any_core_state = {
-				NOT = {
-					is_controlled_by = USA
-				}
-			}
-			has_civil_war = no
+        timeout_effect = {
+            custom_effect_tooltip = ndd_lose_support_tiny_tt
+            custom_effect_tooltip = ir_gain_support_tiny_tt
+            IF = {
+                limit = {
+                    check_variable = {
+                        new_deal_democrat_support_var > 0
+                    }
+                }
+                add_to_variable = {
+                    new_deal_democrat_support_var = -1
+                }
+                add_to_variable = {
+                    isolationist_republican_support_var = 1
+                }
+            }
+            recalculate_congressional_ui = yes
+            custom_effect_tooltip = generic_skip_one_line_tt
+            activate_mission = TPMP_USA_neutrality_act_mission
+        }
+    }
+    TPMP_USA_congress_mission_0 = {
+        icon = GFX_decision_generic_allies
+        activation = {
+            always = no
+        }
+        available = {
+            set_temp_variable = { inf_mission_var =  TPMP_USA_infantry_equipment_mission_var }
+            subtract_from_temp_variable = { inf_mission_var = num_equipment_in_armies@infantry_equipment }
+            set_temp_variable = { spec_inf_mission_var =  TPMP_USA_special_infantry_equipment_mission_var }
+            subtract_from_temp_variable = { spec_inf_mission_var = num_equipment_in_armies@special_infantry_equipment }
+            set_temp_variable = { support_mission_var =  TPMP_USA_support_equipment_mission_var }
+            subtract_from_temp_variable = { support_mission_var = num_equipment_in_armies@support_equipment }
+            set_temp_variable = { spec_mission_var =  TPMP_USA_special_equipment_mission_var }
+            subtract_from_temp_variable = { spec_mission_var = num_equipment_in_armies@special_equipment }
+            has_equipment = {
+                infantry_equipment > inf_mission_var
+            }
+            has_equipment = {
+                special_infantry_equipment > spec_inf_mission_var
+            }
+            has_equipment = {
+                support_equipment > support_mission_var
+            }
+            has_equipment = {
+                special_equipment > spec_mission_var
+            }
+        }
+        is_good = no
+        days_mission_timeout = 180
 
-		}
+        complete_effect = {
+            random_list = {
+                30 = {
+                    IF = {
+                        limit = {
+                            has_idea = TPMP_USA_congress_mission_infantry_reward_idea
+                        }
+                        modify_timed_idea = {
+                            idea = TPMP_USA_congress_mission_infantry_reward_idea
+                            days = 90
+                        }
+                    }
+                    ELSE = {
+                        add_timed_idea = {
+                            idea = TPMP_USA_congress_mission_infantry_reward_idea
+                            days = 90
+                        }
+                    }
+                }
+                30 = {
+                    add_equipment_to_stockpile = {
+                        type = infantry_equipment
+                        amount = 5000
+                        producer = USA
+                    }
+                    add_equipment_to_stockpile = {
+                        type = special_infantry_equipment
+                        amount = 1000
+                        producer = USA
+                    }
+                    add_equipment_to_stockpile = {
+                        type = support_equipment
+                        amount = 500
+                        producer = USA
+                    }
+                    add_equipment_to_stockpile = {
+                        type = special_equipment
+                        amount = 500
+                        producer = USA
+                    }
+                }
+                30 = {
+                    every_military_industrial_organization = {
+                        limit = {
+                            has_mio_equipment_type = TPMP_cat_eq_all_inf
+                        }
+                        add_mio_size = 1
+                    }
+                }
+                10 = {
+                    modifier = {
+                        factor = 0
+                        has_country_flag = TPMP_USA_congress_mission_0_reward_flag
+                    }
+                    add_equipment_bonus = {
+                        name = TPMP_USA_congress_mission_0_reward_tt
+                        bonus = {
+                            TPMP_cat_eq_all_inf = {
+                                defense = 0.05
+                                breakthrough = 0.1
+                                build_cost_ic = -0.03
+                                instant = yes
+                            }
+                        }
+                    }
+                    set_country_flag = TPMP_USA_congress_mission_0_reward_flag
+                }
+            }
+        }
+        timeout_effect = {
+        }
+    }
+    TPMP_USA_congress_mission_1 = {
+        icon = GFX_decision_generic_allies
+        activation = {
+            always = no
+        }
+        available = {
+            set_temp_variable = { lt_mission_var = TPMP_USA_light_tank_equipment_mission_var }
+            subtract_from_temp_variable = { lt_mission_var = num_equipment_in_armies@light_tank_chassis }
+            set_temp_variable = { lt_td_mission_var = TPMP_USA_light_TD_equipment_mission_var }
+            subtract_from_temp_variable = { lt_td_mission_var = num_equipment_in_armies@light_tank_destroyer_chassis }
+            set_temp_variable = { lt_spg_mission_var = TPMP_USA_light_SPG_equipment_mission_var }
+            subtract_from_temp_variable = { lt_spg_mission_var = num_equipment_in_armies@light_tank_artillery_chassis }
+            set_temp_variable = { lt_spaa_mission_var = TPMP_USA_light_SPAA_equipment_mission_var }
+            subtract_from_temp_variable = { lt_spaa_mission_var = num_equipment_in_armies@light_tank_aa_chassis }
+            set_temp_variable = { lt_amph_mission_var = TPMP_USA_light_amph_tank_equipment_mission_var }
+            subtract_from_temp_variable = { lt_amph_mission_var = num_equipment_in_armies@light_tank_amphibious_chassis }
+            set_temp_variable = { mt_mission_var = TPMP_USA_medium_tank_equipment_mission_var }
+            subtract_from_temp_variable = { mt_mission_var = num_equipment_in_armies@medium_tank_chassis }
+            set_temp_variable = { mt_td_mission_var = TPMP_USA_medium_TD_equipment_mission_var }
+            subtract_from_temp_variable = { mt_td_mission_var = num_equipment_in_armies@medium_tank_destroyer_chassis }
+            set_temp_variable = { mt_spg_mission_var = TPMP_USA_medium_SPG_equipment_mission_var }
+            subtract_from_temp_variable = { mt_spg_mission_var = num_equipment_in_armies@medium_tank_artillery_chassis }
+            set_temp_variable = { mt_spaa_mission_var = TPMP_USA_medium_SPAA_equipment_mission_var }
+            subtract_from_temp_variable = { mt_spaa_mission_var = num_equipment_in_armies@medium_tank_aa_chassis }
+            set_temp_variable = { mt_amph_mission_var = TPMP_USA_medium_amph_tank_equipment_mission_var }
+            subtract_from_temp_variable = { mt_amph_mission_var = num_equipment_in_armies@medium_tank_amphibious_chassis }
+            set_temp_variable = { ht_mission_var = TPMP_USA_heavy_tank_equipment_mission_var }
+            subtract_from_temp_variable = { ht_mission_var = num_equipment_in_armies@heavy_tank_chassis }
+            set_temp_variable = { ht_td_mission_var = TPMP_USA_heavy_TD_equipment_mission_var }
+            subtract_from_temp_variable = { ht_td_mission_var = num_equipment_in_armies@heavy_tank_destroyer_chassis }
+            set_temp_variable = { ht_spg_mission_var = TPMP_USA_heavy_SPG_equipment_mission_var }
+            subtract_from_temp_variable = { ht_spg_mission_var = num_equipment_in_armies@heavy_tank_artillery_chassis }
+            set_temp_variable = { ht_spaa_mission_var = TPMP_USA_heavy_SPAA_equipment_mission_var }
+            subtract_from_temp_variable = { ht_spaa_mission_var = num_equipment_in_armies@heavy_tank_aa_chassis }
+            set_temp_variable = { ht_amph_mission_var = TPMP_USA_heavy_amph_tank_equipment_mission_var }
+            subtract_from_temp_variable = { ht_amph_mission_var = num_equipment_in_armies@heavy_tank_amphibious_chassis }
+            OR = {
+                has_equipment = {
+                    light_tank_chassis > lt_mission_var
+                }
+                has_equipment = {
+                    light_tank_destroyer_chassis > lt_td_mission_var
+                }
+                has_equipment = {
+                    light_tank_artillery_chassis > lt_spg_mission_var
+                }
+                has_equipment = {
+                    light_tank_aa_chassis > lt_spaa_mission_var
+                }
+                has_equipment = {
+                    light_tank_amphibious_chassis > lt_amph_mission_var
+                }
+                has_equipment = {
+                    medium_tank_chassis > mt_mission_var
+                }
+                has_equipment = {
+                    medium_tank_destroyer_chassis > mt_td_mission_var
+                }
+                has_equipment = {
+                    medium_tank_artillery_chassis > mt_spg_mission_var
+                }
+                has_equipment = {
+                    medium_tank_aa_chassis > mt_spaa_mission_var
+                }
+                has_equipment = {
+                    medium_tank_amphibious_chassis > mt_amph_mission_var
+                }
+                has_equipment = {
+                    heavy_tank_chassis > ht_mission_var
+                }
+                has_equipment = {
+                    heavy_tank_destroyer_chassis > ht_td_mission_var
+                }
+                has_equipment = {
+                    heavy_tank_artillery_chassis > ht_spg_mission_var
+                }
+                has_equipment = {
+                    heavy_tank_aa_chassis > ht_spaa_mission_var
+                }
+                has_equipment = {
+                    heavy_tank_amphibious_chassis > ht_amph_mission_var
+                }
+            }
+        }
+        is_good = no
+        days_mission_timeout = 180
 
-		cost = 50
-		fire_only_once = yes
-		ai_will_do = {
-			factor = 200
-		}
+        complete_effect = {
+            random_list = {
+                30 = {
+                    IF = {
+                        limit = {
+                            has_idea = TPMP_USA_congress_mission_tank_reward_idea
+                        }
+                        modify_timed_idea = {
+                            idea = TPMP_USA_congress_mission_tank_reward_idea
+                            days = 90
+                        }
+                    }
+                    ELSE = {
+                        add_timed_idea = {
+                            idea = TPMP_USA_congress_mission_tank_reward_idea
+                            days = 90
+                        }
+                    }
+                }
+                30 = {
+                    add_equipment_to_stockpile = {
+                        type = light_tank_chassis
+                        amount = 300
+                        producer = USA
+                    }
+                    add_equipment_to_stockpile = {
+                        type = medium_tank_chassis
+                        amount = 200
+                        producer = USA
+                    }
+                    add_equipment_to_stockpile = {
+                        type = heavy_tank_chassis
+                        amount = 100
+                        producer = USA
+                    }
+                }
+                30 = {
+                    every_military_industrial_organization = {
+                        limit = {
+                            OR = {
+                                has_mio_equipment_type = light_tank_chassis
+                                has_mio_equipment_type = medium_tank_chassis
+                                has_mio_equipment_type = heavy_tank_chassis
+                            }
+                        }
+                        add_mio_size = 1
+                    }
+                }
+                10 = {
+                    modifier = {
+                        factor = 0
+                        has_country_flag = TPMP_USA_congress_mission_1_reward_flag
+                    }
+                    add_equipment_bonus = {
+                        name = TPMP_USA_congress_mission_1_reward_tt
+                        bonus = {
+                            TPMP_cat_eq_all_tank = {
+                                soft_attack = 0.03
+                                hard_attack = 0.03
+                                build_cost_ic = -0.03
+                                instant = yes
+                            }
+                        }
+                    }
+                    set_country_flag = TPMP_USA_congress_mission_1_reward_flag
+                }
+            }
+        }
+        timeout_effect = {
+        }
+    }
+    TPMP_USA_congress_mission_2 = {
+        icon = GFX_decision_generic_allies
+        activation = {
+            always = no
+        }
+        available = {
+            set_temp_variable = { fighter_mission_var = TPMP_USA_fighter_equipment_mission_var }
+            subtract_from_temp_variable = { fighter_mission_var = num_deployed_planes_with_type@small_plane_airframe }
+            set_temp_variable = { heavy_fighter_mission_var = TPMP_USA_heavy_fighter_equipment_mission_var }
+            subtract_from_temp_variable = { heavy_fighter_mission_var = num_deployed_planes_with_type@medium_plane_fighter_airframe }
+            set_temp_variable = { cas_mission_var = TPMP_USA_cas_equipment_mission_var }
+            subtract_from_temp_variable = { cas_mission_var = num_deployed_planes_with_type@small_plane_cas_airframe }
+            set_temp_variable = { nav_mission_var = TPMP_USA_naval_bomber_equipment_mission_var }
+            subtract_from_temp_variable = { nav_mission_var = num_deployed_planes_with_type@small_plane_naval_bomber_airframe }
+            set_temp_variable = { tac_mission_var = TPMP_USA_tactical_bomber_equipment_mission_var }
+            subtract_from_temp_variable = { tac_mission_var = num_deployed_planes_with_type@medium_plane_airframe }
+            set_temp_variable = { strat_mission_var = TPMP_USA_strategic_bomber_equipment_mission_var }
+            subtract_from_temp_variable = { strat_mission_var = num_deployed_planes_with_type@large_plane_airframe }
+            OR = {
+                has_equipment = {
+                    small_plane_airframe > fighter_mission_var
+                }
+                has_equipment = {
+                    medium_plane_fighter_airframe > heavy_fighter_mission_var
+                }
+            }
+            OR = {
+                has_equipment = {
+                    small_plane_cas_airframe > cas_mission_var
+                }
+                has_equipment = {
+                    small_plane_naval_bomber_airframe > nav_mission_var
+                }
+                has_equipment = {
+                    medium_plane_airframe > tac_mission_var
+                }
+                has_equipment = {
+                    large_plane_airframe > strat_mission_var
+                }
+            }
+        }
+        is_good = no
+        days_mission_timeout = 180
 
-		visible = {
-			has_defensive_war = yes
-			CSA = {
-				exists = no
-			}
-		}
+        complete_effect = {
+            random_list = {
+                30 = {
+                    IF = {
+                        limit = {
+                            has_idea = TPMP_USA_congress_mission_plane_reward_idea
+                        }
+                        modify_timed_idea = {
+                            idea = TPMP_USA_congress_mission_plane_reward_idea
+                            days = 90
+                        }
+                    }
+                    ELSE = {
+                        add_timed_idea = {
+                            idea = TPMP_USA_congress_mission_plane_reward_idea
+                            days = 90
+                        }
+                    }
+                }
+                30 = {
+                    add_equipment_to_stockpile = {
+                        type = small_plane_airframe
+                        amount = 400
+                        producer = USA
+                    }
+                    add_equipment_to_stockpile = {
+                        type = medium_plane_airframe
+                        amount = 200
+                        producer = USA
+                    }
+                    add_equipment_to_stockpile = {
+                        type = large_plane_airframe
+                        amount = 100
+                        producer = USA
+                    }
+                }
+                30 = {
+                    every_military_industrial_organization = {
+                        limit = {
+                            OR = {
+                                has_mio_equipment_type = mio_cat_eq_all_small_plane
+                                has_mio_equipment_type = mio_cat_eq_all_medium_plane
+                                has_mio_equipment_type = mio_cat_eq_only_strategic_bomber
+                                has_mio_equipment_type = mio_cat_eq_only_light_fighter
+                                has_mio_equipment_type = small_plane_cas_airframe
+                                has_mio_equipment_type = cv_small_plane_cas_airframe
+                                has_mio_equipment_type = small_plane_naval_bomber_airframe
+                                has_mio_equipment_type = cv_small_plane_naval_bomber_airframe
+                                has_mio_equipment_type = large_plane_maritime_patrol_plane_airframe
+                                has_mio_equipment_type = transport_plane_equipment
+        
+                            }
+                        }
+                        add_mio_size = 1
+                    }
+                }
+                10 = {
+                    modifier = {
+                        factor = 0
+                        has_country_flag = TPMP_USA_congress_mission_2_reward_flag
+                    }
+                    add_equipment_bonus = {
+                        name = TPMP_USA_congress_mission_2_reward_tt
+                        bonus = {
+                            TPMP_cat_eq_all_plane = {
+                                maximum_speed = 0.03
+                                air_agility = 0.03
+                                build_cost_ic = -0.03
+                                instant = yes
+                            }
+                        }
+                    }
+                    set_country_flag = TPMP_USA_congress_mission_2_reward_flag
+                }
+            }
+        }
+        timeout_effect = {
+        }
+    }
+    TPMP_USA_congress_mission_3 = {
+        icon = GFX_decision_generic_allies
+        activation = {
+            always = no
+        }
+        available = {
+            has_navy_size = {
+                type = capital_ship
+                size > TPMP_USA_capital_ship_mission_var
+            }
+            has_navy_size = {
+                type = screen_ship
+                size > TPMP_USA_screen_ship_mission_var
+            }
+        }
+        is_good = no
+        days_mission_timeout = 360
 
-		complete_effect = {
-			if = {
-				limit = {
-					has_war_support < 0.9
-				}
-				set_war_support = 0.9
-			}
-			if = {
-				limit = {
-					has_idea = great_depression
-				}
-				remove_ideas = great_depression
-			}
-			if = {
-				limit = {
-					NOT = {
-						OR = {
-							has_idea = extensive_conscription
-							has_idea = scraping_the_barrel
-							has_idea = service_by_requirement
-							has_idea = all_adults_serve
-						}
-					}
-				}
-				add_ideas = extensive_conscription
-			}
-			if = {
-				limit = {
-					OR = {
-						has_idea = undisturbed_isolation
-						has_idea = isolation
-						has_idea = civilian_economy
-						has_idea = low_economic_mobilisation
-					}
-				}
-				add_ideas = war_economy
-			}
-			add_ideas = USA_homeland_defense
-		}
-	}
-	USA_raise_silver_legions = {
-		icon = generic_prepare_civil_war
-		
-		allowed = {
-			original_tag = USA
-		}
+        complete_effect = {
+            random_list = {
+                30 = {
+                    IF = {
+                        limit = {
+                            has_idea = TPMP_USA_congress_mission_ship_reward_idea
+                        }
+                        modify_timed_idea = {
+                            idea = TPMP_USA_congress_mission_ship_reward_idea
+                            days = 90
+                        }
+                    }
+                    ELSE = {
+                        add_timed_idea = {
+                            idea = TPMP_USA_congress_mission_ship_reward_idea
+                            days = 90
+                        }
+                    }
+                }
+                30 = {
+                    create_ship = {
+                        type = ship_hull_carrier_1
+                        equipment_variant = "Basic Carrier"
+                        creator = USA
+                    }
+                    create_ship = {
+                        type = ship_hull_heavy_2
+                        equipment_variant = "Early Heavy Ship"
+                        creator = USA
+                    }
+                    create_ship = {
+                        type = ship_hull_light_2
+                        equipment_variant = "Basic Destroyer"
+                        creator = USA
+                    }
+                    create_ship = {
+                        type = ship_hull_light_2
+                        equipment_variant = "Basic Destroyer"
+                        creator = USA
+                    }
+                    create_ship = {
+                        type = ship_hull_light_2
+                        equipment_variant = "Basic Destroyer"
+                        creator = USA
+                    }
+                    create_ship = {
+                        type = ship_hull_light_2
+                        equipment_variant = "Basic Destroyer"
+                        creator = USA
+                    }
+                }
+                30 = {
+                    every_military_industrial_organization = {
+                        limit = {
+                            OR = {
+                                has_mio_equipment_type = mio_cat_eq_all_battleship
+                                has_mio_equipment_type = mio_cat_eq_all_carrier
+		                        has_mio_equipment_type = mio_cat_eq_all_cruiser
+		                        has_mio_equipment_type = mio_cat_eq_all_destroyer
+                                has_mio_equipment_type = ship_hull_submarine
+                                has_mio_equipment_type = capital_ship
+		                        has_mio_equipment_type = screen_ship
+		                        has_mio_equipment_type = submarine
+                            }
+                        }
+                        add_mio_size = 1
+                    }
+                }
+                10 = {
+                    modifier = {
+                        factor = 0
+                        has_country_flag = TPMP_USA_congress_mission_3_reward_flag
+                    }
+                    add_equipment_bonus = {
+                        name = TPMP_USA_congress_mission_3_reward_tt
+                        bonus = {
+                            TPMP_cat_eq_all_ship = {
+                                naval_speed = 0.05
+                                max_strength = 0.05
+                                build_cost_ic = -0.03
+                                instant = yes
+                            }
+                        }
+                    }
+                    set_country_flag = TPMP_USA_congress_mission_3_reward_flag
+                }
+            }
+        }
+        timeout_effect = {
+        }
+    }
+    TPMP_USA_congress_mission_4 = {
+        icon = GFX_decision_generic_allies
+        activation = {
+            always = no
+        }
+        available = {
+            num_of_military_factories > TPMP_USA_military_factory_mission_var
+            num_of_naval_factories > TPMP_USA_dockyard_mission_var
+        }
+        is_good = no
+        days_mission_timeout = 180
 
-		available = {
-			has_completed_focus = USA_ally_with_the_silver_shirts
-		}
-		visible = {
-			has_civil_war = yes
-		}
-		cost = 10
-		days_re_enable = 30
+        complete_effect = {
+            random_list = {
+                30 = {
+                    IF = {
+                        limit = {
+                            has_idea = TPMP_USA_congress_mission_military_reward_idea
+                        }
+                        modify_timed_idea = {
+                            idea = TPMP_USA_congress_mission_military_reward_idea
+                            days = 90
+                        }
+                    }
+                    ELSE = {
+                        add_timed_idea = {
+                            idea = TPMP_USA_congress_mission_military_reward_idea
+                            days = 90
+                        }
+                    }
+                }
+                30 = {
+                    IF = {
+                        limit = {
+                            has_idea = TPMP_USA_congress_mission_industry_reward_idea
+                        }
+                        modify_timed_idea = {
+                            idea = TPMP_USA_congress_mission_industry_reward_idea
+                            days = 90
+                        }
+                    }
+                    ELSE = {
+                        add_timed_idea = {
+                            idea = TPMP_USA_congress_mission_industry_reward_idea
+                            days = 90
+                        }
+                    }
+                }
+                30 = {
+                    every_core_state = {
+                        limit = {
+                            free_building_slots = {
+                                building = arms_factory
+                                size > 0
+                                include_locked = yes
+                            }
+                            is_fully_controlled_by = USA
+                        }
+                        random_select_amount = 4
+                        add_extra_state_shared_building_slots = 1
+                        add_building_construction = {
+                            type = arms_factory
+                            level = 1
+                            instant_build = yes
+                        }
+                    }
+                }
+                10 = {
+                    modifier = {
+                        factor = 0
+                        has_country_flag = TPMP_USA_congress_mission_4_reward_flag
+                    }
+                    add_offsite_building = {
+                        type = arms_factory
+                        level = 8
+                    }
+                    add_offsite_building = {
+                        type = dockyard
+                        level = 4
+                    }
+                    set_country_flag = TPMP_USA_congress_mission_4_reward_flag
+                }
+            }
+        }
+        timeout_effect = {
+        }
+    }
+    TPMP_USA_congress_mission_5 = {
+        icon = GFX_decision_generic_allies
+        activation = {
+            always = no
+        }
+        available = {
+            num_of_civilian_factories > TPMP_USA_civilian_factory_mission_var
+        }
+        is_good = no
+        days_mission_timeout = 180
 
-		complete_effect = {
-			if = {
-				limit = {
-					not = { has_template = "Silver Legion" }
-				}
-				division_template = {
-					name = "Silver Legion"
-					priority = 0
-					division_names_group = USA_INF_01
-					
-					regiments = {
-						infantry = { x = 0 y = 0 }
-						infantry = { x = 0 y = 1 }
-						infantry = { x = 0 y = 2 }
+        complete_effect = {
+            random_list = {
+                30 = {
+                    IF = {
+                        limit = {
+                            has_idea = TPMP_USA_congress_mission_civilian_reward_idea
+                        }
+                        modify_timed_idea = {
+                            idea = TPMP_USA_congress_mission_civilian_reward_idea
+                            days = 90
+                        }
+                    }
+                    ELSE = {
+                        add_timed_idea = {
+                            idea = TPMP_USA_congress_mission_civilian_reward_idea
+                            days = 90
+                        }
+                    }
+                }
+                30 = {
+                    IF = {
+                        limit = {
+                            has_idea = TPMP_USA_congress_mission_industry_reward_idea
+                        }
+                        modify_timed_idea = {
+                            idea = TPMP_USA_congress_mission_industry_reward_idea
+                            days = 90
+                        }
+                    }
+                    ELSE = {
+                        add_timed_idea = {
+                            idea = TPMP_USA_congress_mission_industry_reward_idea
+                            days = 90
+                        }
+                    }
+                }
+                30 = {
+                    every_core_state = {
+                        limit = {
+                            free_building_slots = {
+                                building = industrial_complex
+                                size > 0
+                                include_locked = yes
+                            }
+                            is_fully_controlled_by = USA
+                        }
+                        random_select_amount = 3
+                        add_extra_state_shared_building_slots = 1
+                        add_building_construction = {
+                            type = industrial_complex
+                            level = 1
+                            instant_build = yes
+                        }
+                    }
+                }
+                10 = {
+                    modifier = {
+                        factor = 0
+                        has_country_flag = TPMP_USA_congress_mission_5_reward_flag
+                    }
+                    add_offsite_building = {
+                        type = industrial_complex
+                        level = 8
+                    }
+                    set_country_flag = TPMP_USA_congress_mission_5_reward_flag
+                }
+            }
+            hidden_effect = {
+                every_state = {
+                    limit = {
+                        has_state_flag = TPMP_USA_infrastructure_mission_flag
+                    }
+                    clr_state_flag = TPMP_USA_infrastructure_mission_flag
+                }
+            }
+        }
+        timeout_effect = {
+            hidden_effect = {
+                every_state = {
+                    limit = {
+                        has_state_flag = TPMP_USA_infrastructure_mission_flag
+                    }
+                    clr_state_flag = TPMP_USA_infrastructure_mission_flag
+                }
+            }
+        }
+    }
+    TPMP_USA_congress_mission_6 = {
+        icon = GFX_decision_generic_allies
+        activation = {
+            always = no
+        }
+        available = {
+            has_political_power > TPMP_USA_political_power_mission_var
+        }
+        is_good = no
+        days_mission_timeout = 90
 
-						infantry = { x = 1 y = 0 }
-						infantry = { x = 1 y = 1 }
-						infantry = { x = 1 y = 2 }
-					}
-				}
-			}
-			capital_scope = {
-				create_unit = {
-					division = "name = \"1. Silver Legion\" division_template = \"Silver Legion\" start_experience_factor = 0.7" 
-					owner = ROOT
-				}
-				create_unit = {
-					division = "name = \"2. Silver Legion\" division_template = \"Silver Legion\" start_experience_factor = 0.7" 
-					owner = ROOT
-				}
-				create_unit = {
-					division = "name = \"3. Silver Legion\" division_template = \"Silver Legion\" start_experience_factor = 0.7" 
-					owner = ROOT
-				}
+        complete_effect = {
+            random_list = {
+                30 = {
+                    IF = {
+                        limit = {
+                            has_idea = TPMP_USA_congress_mission_stability_reward_idea
+                        }
+                        modify_timed_idea = {
+                            idea = TPMP_USA_congress_mission_stability_reward_idea
+                            days = 90
+                        }
+                    }
+                    ELSE = {
+                        add_timed_idea = {
+                            idea = TPMP_USA_congress_mission_stability_reward_idea
+                            days = 90
+                        }
+                    }
+                }
+                30 = {
+                    add_political_power = 100
+                }
+                30 = {
+                    add_stability = 0.05
+                }
+                10 = {
+                    modifier = {
+                        factor = 0
+                        has_country_flag = TPMP_USA_congress_mission_6_reward_flag
+                    }
+                    add_war_support = 0.05
+                    set_country_flag = TPMP_USA_congress_mission_6_reward_flag
+                }
+            }
+        }
+        timeout_effect = {
+        }
+    }
+    TPMP_USA_congress_mission_7 = {
+        icon = GFX_decision_generic_allies
+        activation = {
+            always = no
+        }
+        available = {
+            IF = {
+                limit = {
+                    check_variable = {
+                        TPMP_USA_political_advisor_mission_var = 0
+                    }
+                }
+                amount_taken_ideas = {
+                    amount > 0
+                    slots = { political_advisor }
+                }
+            }
+            ELSE_IF = {
+                limit = {
+                    check_variable = {
+                        TPMP_USA_political_advisor_mission_var = 1
+                    }
+                }
+                amount_taken_ideas = {
+                    amount > 1
+                    slots = { political_advisor }
+                }
+            }
+            ELSE_IF = {
+                limit = {
+                    check_variable = {
+                        TPMP_USA_political_advisor_mission_var = 2
+                    }
+                }
+                amount_taken_ideas = {
+                    amount > 2
+                    slots = { political_advisor }
+                }
+            }
+            ELSE_IF = {
+                limit = {
+                    check_variable = {
+                        TPMP_USA_political_advisor_mission_var = 3
+                    }
+                }
+                amount_taken_ideas = {
+                    amount > 3
+                    slots = { political_advisor }
+                }
+            }
+            ELSE_IF = {
+                limit = {
+                    check_variable = {
+                        TPMP_USA_political_advisor_mission_var = 4
+                    }
+                }
+                amount_taken_ideas = {
+                    amount < 4
+                    slots = { political_advisor }
+                }
+            }
+            ELSE_IF = {
+                limit = {
+                    check_variable = {
+                        TPMP_USA_political_advisor_mission_var = 5
+                    }
+                }
+                amount_taken_ideas = {
+                    amount < 5
+                    slots = { political_advisor }
+                }
+            }
+            ELSE_IF = {
+                limit = {
+                    check_variable = {
+                        TPMP_USA_political_advisor_mission_var = 6
+                    }
+                }
+                amount_taken_ideas = {
+                    amount < 6
+                    slots = { political_advisor }
+                }
+            }
+        }
+        is_good = no
+        days_mission_timeout = 180
 
-				create_unit = {
-					division = "name = \"4. Silver Legion\" division_template = \"Silver Legion\" start_experience_factor = 0.7"  
-					owner = ROOT
-				}
-				create_unit = {
-					division = "name = \"5. Silver Legion\" division_template = \"Silver Legion\" start_experience_factor = 0.7"  
-					owner = ROOT
-				}
-				create_unit = {
-					division = "name = \"6. Silver Legion\" division_template = \"Silver Legion\" start_experience_factor = 0.7" 
-					owner = ROOT
-				}
-			}
-		}
-	}
+        complete_effect = {
+            random_list = {
+                30 = {
+                    IF = {
+                        limit = {
+                            has_idea = TPMP_USA_congress_mission_political_reward_idea
+                        }
+                        modify_timed_idea = {
+                            idea = TPMP_USA_congress_mission_political_reward_idea
+                            days = 90
+                        }
+                    }
+                    ELSE = {
+                        add_timed_idea = {
+                            idea = TPMP_USA_congress_mission_political_reward_idea
+                            days = 90
+                        }
+                    }
+                }
+                30 = {
+                    USA_complete_new_deal_focus = yes
+                }
+                30 = {
+                    add_tech_bonus = {
+                        name = TPMP_USA_congress_mission_7_reward_tt
+                        ahead_reduction = 0.5
+                        uses = 1
+                        category = infantry_weapons
+                        category = armor
+                        category = artillery
+                        category = air_equipment
+                        category = naval_equipment
+                    }
+                }
+                10 = {
+                    modifier = {
+                        factor = 0
+                        has_country_flag = TPMP_USA_congress_mission_7_reward_flag
+                    }
+                    custom_effect_tooltip = ndd_gain_support_tt
+                    custom_effect_tooltip = lwd_lose_support_tiny_tt
+                    custom_effect_tooltip = cd_lose_support_tiny_tt
+                    custom_effect_tooltip = pr_lose_support_tiny_tt
+                    custom_effect_tooltip = br_lose_support_tiny_tt
+                    custom_effect_tooltip = ir_lose_support_tiny_tt
+                    IF = {
+                        limit = {
+                            check_variable = {
+                                left_wing_democrat_support_var > 0
+                            }
+                        }
+                        add_to_variable = {
+                            new_deal_democrat_support_var = 1
+                        }
+                        add_to_variable = {
+                            left_wing_democrat_support_var = -1
+                        }
+                    }
+                    IF = {
+                        limit = {
+                            check_variable = {
+                                conservative_democrat_support_var > 0
+                            }
+                        }
+                        add_to_variable = {
+                            new_deal_democrat_support_var = 1
+                        }
+                        add_to_variable = {
+                            conservative_democrat_support_var = -1
+                        }
+                    }
+                    IF = {
+                        limit = {
+                            check_variable = {
+                                progressive_republican_support_var > 0
+                            }
+                        }
+                        add_to_variable = {
+                            new_deal_democrat_support_var = 1
+                        }
+                        add_to_variable = {
+                            progressive_republican_support_var = -1
+                        }
+                    }
+                    IF = {
+                        limit = {
+                            check_variable = {
+                                business_republican_support_var > 0
+                            }
+                        }
+                        add_to_variable = {
+                            new_deal_democrat_support_var = 1
+                        }
+                        add_to_variable = {
+                            business_republican_support_var = -1
+                        }
+                    }
+                    IF = {
+                        limit = {
+                            check_variable = {
+                                isolationist_republican_support_var > 0
+                            }
+                        }
+                        add_to_variable = {
+                            new_deal_democrat_support_var = 1
+                        }
+                        add_to_variable = {
+                            isolationist_republican_support_var = -1
+                        }
+                    }
+                    recalculate_congressional_ui = yes
+                    add_political_power = 150
+                    set_country_flag = TPMP_USA_congress_mission_7_reward_flag
+                }
+            }
+        }
+        timeout_effect = {
+        }
+    }
+    TPMP_USA_congress_mission_8 = {
+        icon = GFX_decision_generic_allies
+        activation = {
+            always = no
+        }
+        available = {
+            num_researched_technologies > TPMP_USA_technology_lobby_mission_var
+        }
+        is_good = no
+        days_mission_timeout = 180
 
-	USA_raise_the_free_corps = {
-		icon = generic_prepare_civil_war
+        complete_effect = {
+            random_list = {
+                90 = {
+                    IF = {
+                        limit = {
+                            has_idea = TPMP_USA_congress_mission_technocrat_reward_idea
+                        }
+                        modify_timed_idea = {
+                            idea = TPMP_USA_congress_mission_technocrat_reward_idea
+                            days = 90
+                        }
+                    }
+                    ELSE = {
+                        add_timed_idea = {
+                            idea = TPMP_USA_congress_mission_technocrat_reward_idea
+                            days = 90
+                        }
+                    }
+                    add_tech_bonus = {
+                        name = TPMP_USA_congress_mission_8_reward_tt
+                        ahead_reduction = 0.5
+                        uses = 1
+                        category = infantry_weapons
+                        category = armor
+                        category = artillery
+                        category = air_equipment
+                        category = naval_equipment
+                    }
+                    add_breakthrough_points = {
+                        specialization = specialization_land
+                        value = 1
+                    }
+                    add_breakthrough_points = {
+                        specialization = specialization_air
+                        value = 1
+                    }
+                    add_breakthrough_points = {
+                        specialization = specialization_naval
+                        value = 1
+                    }
+                    add_breakthrough_points = {
+                        specialization = specialization_nuclear
+                        value = 1
+                    }
+                }
+                10 = {
+                    modifier = {
+                        factor = 0
+                        has_country_flag = TPMP_USA_congress_mission_8_reward_flag
+                    }
+                    add_research_slot = 1
+                    set_country_flag = TPMP_USA_congress_mission_8_reward_flag
+                }
+            }
+        }
+        timeout_effect = {
+        }
+    }
+    TPMP_USA_congress_mission_9 = {
+        icon = GFX_decision_generic_allies
+        activation = {
+            always = no
+        }
+        available = {
+            has_stability > TPMP_USA_stability_lobby_mission_var
+        }
+        is_good = no
+        days_mission_timeout = 180
 
-		allowed = { original_tag = USA }
-		available = {
-			OR = {
-				AND = {
-					has_war = yes
-					has_cosmetic_tag = USA_CSA
-				}
-				has_civil_war = yes
-			}
-		}
-		visible = {
-			has_completed_focus = USA_recruit_the_free_corps
-			not = { has_country_flag = USA_free_corps_raised }
-			not = { has_government = democratic }
-		}
-		cost = 0
-		fire_only_once = yes
-		ai_will_do = {
-			factor = 200
-		}
-		complete_effect = {
-			division_template = {
-				name = "Free Corps"
-					priority = 1
-					division_names_group = USA_INF_01
-					regiments = {
-					infantry = { x = 0 y = 0 }
-					infantry = { x = 0 y = 1 }
-					infantry = { x = 0 y = 2 }
+        complete_effect = {
+            random_list = {
+                90 = {
+                    every_core_state = {
+                        limit = {
+                            free_building_slots = {
+                                building = industrial_complex
+                                size > 1
+                                include_locked = yes
+                            }
+                            is_fully_controlled_by = USA
+                        }
+                        random_select_amount = 1
+                        set_state_flag = TPMP_USA_labour_reward_state_flag
+                        add_extra_state_shared_building_slots = 2
+                        add_building_construction = {
+                            type = industrial_complex
+                            level = 2
+                            instant_build = yes
+                        }
+                    }
+                    every_core_state = {
+                        limit = {
+                            free_building_slots = {
+                                building = arms_factory
+                                size > 1
+                                include_locked = yes
+                            }
+                            is_fully_controlled_by = USA
+                            NOT = {
+                                has_state_flag = TPMP_USA_labour_reward_state_flag
+                            }
+                        }
+                        random_select_amount = 1
+                        add_extra_state_shared_building_slots = 2
+                        add_building_construction = {
+                            type = arms_factory
+                            level = 2
+                            instant_build = yes
+                        }
+                    }
+                    hidden_effect = {
+                        every_state = {
+                            limit = {
+                                has_state_flag = TPMP_USA_labour_reward_state_flag
+                            }
+                            clr_state_flag = TPMP_USA_labour_reward_state_flag
+                        }
+                    }
+                    USA_decrease_great_depression = yes
+                }
+                10 = {
+                    modifier = {
+                        factor = 0
+                        has_country_flag = TPMP_USA_congress_mission_9_reward_flag
+                    }
+                    add_ideas = TPMP_USA_congress_mission_labour_reward_idea
+                    set_country_flag = TPMP_USA_congress_mission_9_reward_flag
+                }
+            }
+        }
+        timeout_effect = {
+        }
+    }
+    TPMP_USA_congress_mission_10 = {
+        icon = GFX_decision_generic_allies
+        activation = {
+            always = no
+        }
+        available = {
+            set_temp_variable = { output_mission_var = modifier@industrial_capacity_factory }
+            custom_trigger_tooltip = {
+                tooltip = TPMP_USA_congress_mission_10_tt
+                check_variable = {
+                    output_mission_var > TPMP_USA_output_lobby_mission_var
+                }
+            }
+        }
+        is_good = no
+        days_mission_timeout = 180
 
-					infantry = { x = 1 y = 0 }
-					infantry = { x = 1 y = 1 }
-					infantry = { x = 1 y = 2 }
+        complete_effect = {
+            random_list = {
+                90 = {
+                    IF = {
+                        limit = {
+                            has_idea = TPMP_USA_congress_mission_corporate_reward_idea
+                        }
+                        modify_timed_idea = {
+                            idea = TPMP_USA_congress_mission_corporate_reward_idea
+                            days = 90
+                        }
+                    }
+                    ELSE = {
+                        add_timed_idea = {
+                            idea = TPMP_USA_congress_mission_corporate_reward_idea
+                            days = 90
+                        }
+                    }
+                    USA_decrease_deficit = yes
+                }
+                10 = {
+                    modifier = {
+                        factor = 0
+                        has_country_flag = TPMP_USA_congress_mission_10_reward_flag
+                    }
+                    IF = {
+                        limit = {
+                            has_idea = TPMP_USA_congress_mission_efficiency_reward_idea
+                        }
+                        modify_timed_idea = {
+                            idea = TPMP_USA_congress_mission_efficiency_reward_idea
+                            days = 60
+                        }
+                    }
+                    ELSE = {
+                        add_timed_idea = {
+                            idea = TPMP_USA_congress_mission_efficiency_reward_idea
+                            days = 60
+                        }
+                    }
+                    set_country_flag = TPMP_USA_congress_mission_10_reward_flag
+                }
+            }
+        }
+        timeout_effect = {
+        }
+    }
+    TPMP_USA_congress_mission_11 = {
+        icon = GFX_decision_generic_allies
+        activation = {
+            always = no
+        }
+        available = {
+            has_war_support > TPMP_USA_war_support_lobby_mission_var
+        }
+        is_good = no
+        days_mission_timeout = 180
 
-					infantry = { x = 2 y = 0 }
-					infantry = { x = 2 y = 1 }
-					infantry = { x = 2 y = 2 }
-				}
-			}
-			366 = {
-					create_unit = {
-						division = "name = \"I/Free Corps Florida\" division_template = \"Free Corps\" start_experience_factor = 0.7" 
-						owner = ROOT
-					}
-					create_unit = {
-						division = "name = \"II/Free Corps Florida\" division_template = \"Free Corps\" start_experience_factor = 0.7" 
-						owner = ROOT
-					}
-					create_unit = {
-						division = "name = \"III/Free Corps Florida\" division_template = \"Free Corps\" start_experience_factor = 0.7" 
-						owner = ROOT
-					}
-			}
-			365 = {
-					create_unit = {
-						division = "name = \"I/Free Corps Georgia\" division_template = \"Free Corps\" start_experience_factor = 0.7" 
-						owner = ROOT
-					}
-					create_unit = {
-						division = "name = \"II/Free Corps Georgia\" division_template = \"Free Corps\" start_experience_factor = 0.7" 
-						owner = ROOT
-					}
-					create_unit = {
-						division = "name = \"III/Free Corps Georgia\" division_template = \"Free Corps\" start_experience_factor = 0.7" 
-						owner = ROOT
-					}
-			}
-			367 = {
-					create_unit = {
-						division = "name = \"I/Free Corps Alabama\" division_template = \"Free Corps\" start_experience_factor = 0.7" 
-						owner = ROOT
-					}
-					create_unit = {
-						division = "name = \"II/Free Corps Alabama\" division_template = \"Free Corps\" start_experience_factor = 0.7" 
-						owner = ROOT
-					}
-					create_unit = {
-						division = "name = \"III/Free Corps Alabama\" division_template = \"Free Corps\" start_experience_factor = 0.7" 
-						owner = ROOT
-					}
-			}
-			370 = {
-					create_unit = {
-						division = "name = \"I/Free Corps Mississippi\" division_template = \"Free Corps\" start_experience_factor = 0.7" 
-						owner = ROOT
-					}
-					create_unit = {
-						division = "name = \"II/Free Corps Mississippi\" division_template = \"Free Corps\" start_experience_factor = 0.7" 
-						owner = ROOT
-					}
-					create_unit = {
-						division = "name = \"III/Free Corps Mississippi\" division_template = \"Free Corps\" start_experience_factor = 0.7" 
-						owner = ROOT
-					}
-			}
-			362 = {
-					create_unit = {
-						division = "name = \"I/Free Corps Virginia\" division_template = \"Free Corps\" start_experience_factor = 0.7" 
-						owner = ROOT
-					}
-					create_unit = {
-						division = "name = \"II/Free Corps Virginia\" division_template = \"Free Corps\" start_experience_factor = 0.7" 
-						owner = ROOT
-					}
-					create_unit = {
-						division = "name = \"III/Free Corps Virginia\" division_template = \"Free Corps\" start_experience_factor = 0.7" 
-						owner = ROOT
-					}
-			}
-			363 = {
-					create_unit = {
-						division = "name = \"I/Free Corps North Carolina\" division_template = \"Free Corps\" start_experience_factor = 0.7" 
-						owner = ROOT
-					}
-					create_unit = {
-						division = "name = \"II/Free Corps North Carolina\" division_template = \"Free Corps\" start_experience_factor = 0.7" 
-						owner = ROOT
-					}
-					create_unit = {
-						division = "name = \"III/Free Corps North Carolina\" division_template = \"Free Corps\" start_experience_factor = 0.7" 
-						owner = ROOT
-					}
-			}
-			364 = {
-					create_unit = {
-						division = "name = \"I/Free Corps South Carolina\" division_template = \"Free Corps\" start_experience_factor = 0.7" 
-						owner = ROOT
-					}
-					create_unit = {
-						division = "name = \"II/Free Corps South Carolina\" division_template = \"Free Corps\" start_experience_factor = 0.7" 
-						owner = ROOT
-					}
-					create_unit = {
-						division = "name = \"III/Free Corps South Carolina\" division_template = \"Free Corps\" start_experience_factor = 0.7" 
-						owner = ROOT
-					}
-			}
-			371 = {
-					create_unit = {
-						division = "name = \"I/Free Corps Louisiana\" division_template = \"Free Corps\" start_experience_factor = 0.7" 
-						owner = ROOT
-					}
-					create_unit = {
-						division = "name = \"II/Free Corps Louisiana\" division_template = \"Free Corps\" start_experience_factor = 0.7" 
-						owner = ROOT
-					}
-					create_unit = {
-						division = "name = \"III/Free Corps Louisiana\" division_template = \"Free Corps\" start_experience_factor = 0.7" 
-						owner = ROOT
-					}
-			}
-			375 = {
-					create_unit = {
-						division = "name = \"I/Free Corps Texas\" division_template = \"Free Corps\" start_experience_factor = 0.7" 
-						owner = ROOT
-					}
-					create_unit = {
-						division = "name = \"II/Free Corps Texas\" division_template = \"Free Corps\" start_experience_factor = 0.7" 
-						owner = ROOT
-					}
-					create_unit = {
-						division = "name = \"III/Free Corps Texas\" division_template = \"Free Corps\" start_experience_factor = 0.7" 
-						owner = ROOT
-					}
-			}
-			372 = {
-					create_unit = {
-						division = "name = \"I/Free Corps Arkansas\" division_template = \"Free Corps\" start_experience_factor = 0.7" 
-						owner = ROOT
-					}
-					create_unit = {
-						division = "name = \"II/Free Corps Arkansas\" division_template = \"Free Corps\" start_experience_factor = 0.7" 
-						owner = ROOT
-					}
-					create_unit = {
-						division = "name = \"III/Free Corps Arkansas\" division_template = \"Free Corps\" start_experience_factor = 0.7" 
-						owner = ROOT
-					}
-			}
-			if = {
+        complete_effect = {
+            random_list = {
+                90 = {
+                    add_daily_mastery = {
+                        amount = 0.5
+                        days = 100
+                        name = TPMP_USA_congress_mission_11_reward
+                        folder = land
+                    }
+                    add_daily_mastery = {
+                        amount = 0.5
+                        days = 100
+                        name = TPMP_USA_congress_mission_11_reward
+                        folder = air
+                    }
+                    add_daily_mastery = {
+                        amount = 0.5
+                        days = 100
+                        name = TPMP_USA_congress_mission_11_reward
+                        folder = naval
+                    }
+                    IF = {
+                        limit = {
+                            has_idea = TPMP_USA_congress_mission_war_hawk_reward_idea
+                        }
+                        modify_timed_idea = {
+                            idea = TPMP_USA_congress_mission_war_hawk_reward_idea
+                            days = 90
+                        }
+                    }
+                    ELSE = {
+                        add_timed_idea = {
+                            idea = TPMP_USA_congress_mission_war_hawk_reward_idea
+                            days = 90
+                        }
+                    }
+                }
+                10 = {
+                    modifier = {
+                        factor = 0
+                        has_country_flag = TPMP_USA_congress_mission_11_reward_flag
+                    }
+                    add_unit_bonus = {
+                        category_army = {
+                            max_organisation = 3
+		                    default_morale = 0.03
+                        }
+                    }
+                    set_country_flag = TPMP_USA_congress_mission_11_reward_flag
+                }
+            }
+        }
+        timeout_effect = {
+        }
+    }
+    TPMP_USA_congress_mission_12 = {
+        icon = GFX_decision_generic_allies
+        activation = {
+            always = no
+        }
+        available = {
+            custom_trigger_tooltip = {
+                tooltip = TPMP_USA_congress_mission_12_tt
+                check_variable = {
+                    var = new_deal_democrat_support_var
+                    value = TPMP_USA_ndd_support_lobby_mission_var
+                    compare = greater_than_or_equals
+                }
+            }
+        }
+        is_good = no
+        days_mission_timeout = 180
+
+        complete_effect = {
+            random_list = {
+                90 = {
+                    USA_complete_new_deal_focus = yes
+                    IF = {
+                        limit = {
+                            NOT = {
+                                has_country_flag = TPMP_USA_congress_mission_12_reward_flag
+                            }
+                        }
+                        custom_effect_tooltip = ndd_gain_support_tt
+                        custom_effect_tooltip = lwd_lose_support_tiny_tt
+                        custom_effect_tooltip = cd_lose_support_tiny_tt
+                        custom_effect_tooltip = pr_lose_support_tiny_tt
+                        custom_effect_tooltip = br_lose_support_tiny_tt
+                        custom_effect_tooltip = ir_lose_support_tiny_tt
+                        IF = {
+                            limit = {
+                                check_variable = {
+                                    left_wing_democrat_support_var > 0
+                                }
+                            }
+                            add_to_variable = {
+                                new_deal_democrat_support_var = 1
+                            }
+                            add_to_variable = {
+                                left_wing_democrat_support_var = -1
+                            }
+                        }
+                        IF = {
+                            limit = {
+                                check_variable = {
+                                    conservative_democrat_support_var > 0
+                                }
+                            }
+                            add_to_variable = {
+                                new_deal_democrat_support_var = 1
+                            }
+                            add_to_variable = {
+                                conservative_democrat_support_var = -1
+                            }
+                        }
+                        IF = {
+                            limit = {
+                                check_variable = {
+                                    progressive_republican_support_var > 0
+                                }
+                            }
+                            add_to_variable = {
+                                new_deal_democrat_support_var = 1
+                            }
+                            add_to_variable = {
+                                progressive_republican_support_var = -1
+                            }
+                        }
+                        IF = {
+                            limit = {
+                                check_variable = {
+                                    business_republican_support_var > 0
+                                }
+                            }
+                            add_to_variable = {
+                                new_deal_democrat_support_var = 1
+                            }
+                            add_to_variable = {
+                                business_republican_support_var = -1
+                            }
+                        }
+                        IF = {
+                            limit = {
+                                check_variable = {
+                                    isolationist_republican_support_var > 0
+                                }
+                            }
+                            add_to_variable = {
+                                new_deal_democrat_support_var = 1
+                            }
+                            add_to_variable = {
+                                isolationist_republican_support_var = -1
+                            }
+                        }
+                        recalculate_congressional_ui = yes
+                        set_country_flag = TPMP_USA_congress_mission_12_reward_flag
+                    }
+                }
+                10 = {
+                    modifier = {
+                        factor = 0
+                        has_country_flag = TPMP_USA_congress_mission_12_ally_reward_flag
+                    }
+                    ENG = {
+                        add_political_power = 100
+                        add_timed_idea = {
+                            idea = TPMP_USA_congress_mission_allied_reward_idea
+                            days = 180
+                        }
+                    }
+                    FRA = {
+                        add_political_power = 100
+                        add_timed_idea = {
+                            idea = TPMP_USA_congress_mission_allied_reward_idea
+                            days = 180
+                        }
+                    }
+                    CAN = {
+                        add_political_power = 100
+                        add_timed_idea = {
+                            idea = TPMP_USA_congress_mission_allied_reward_idea
+                            days = 180
+                        }
+                    }
+                    AST = {
+                        add_political_power = 100
+                        add_timed_idea = {
+                            idea = TPMP_USA_congress_mission_allied_reward_idea
+                            days = 180
+                        }
+                    }
+                    RAJ = {
+                        add_political_power = 100
+                        add_timed_idea = {
+                            idea = TPMP_USA_congress_mission_allied_reward_idea
+                            days = 180
+                        }
+                    }
+                    SAF = {
+                        add_political_power = 100
+                        add_timed_idea = {
+                            idea = TPMP_USA_congress_mission_allied_reward_idea
+                            days = 180
+                        }
+                    }
+                    set_country_flag = TPMP_USA_congress_mission_12_ally_reward_flag
+                }
+            }
+        }
+        timeout_effect = {
+        }
+    }
+    TPMP_USA_debug_congress_decision_0 = {
+        icon = GFX_decision_generic_allies
+        visible = {
+            is_debug = yes
+        }
+        cost = 0
+        fire_only_once = no
+        complete_effect = {
+            custom_effect_tooltip = lwd_lose_support_tiny_tt
+            custom_effect_tooltip = ndd_gain_support_tiny_tt
+            IF = {
+                limit = {
+                    check_variable = {
+                        left_wing_democrat_support_var > 0
+                    }
+                }
+                add_to_variable = {
+                    new_deal_democrat_support_var = 1
+                }
+                add_to_variable = {
+                    left_wing_democrat_support_var = -1
+                }
+            }
+            recalculate_congressional_ui = yes
+            custom_effect_tooltip = generic_skip_zero_line_tt
+        }
+    }
+    TPMP_USA_debug_congress_decision_1 = {
+        icon = GFX_decision_generic_allies
+        visible = {
+            is_debug = yes
+        }
+        cost = 0
+        fire_only_once = no
+        complete_effect = {
+            custom_effect_tooltip = cd_lose_support_tiny_tt
+            custom_effect_tooltip = ndd_gain_support_tiny_tt
+            IF = {
+                limit = {
+                    check_variable = {
+                        conservative_democrat_support_var > 0
+                    }
+                }
+                add_to_variable = {
+                    new_deal_democrat_support_var = 1
+                }
+                add_to_variable = {
+                    conservative_democrat_support_var = -1
+                }
+            }
+            recalculate_congressional_ui = yes
+            custom_effect_tooltip = generic_skip_zero_line_tt
+        }
+    }
+    TPMP_USA_debug_congress_decision_2 = {
+        icon = GFX_decision_generic_allies
+        visible = {
+            is_debug = yes
+        }
+        cost = 0
+        fire_only_once = no
+        complete_effect = {
+            custom_effect_tooltip = pr_lose_support_tiny_tt
+            custom_effect_tooltip = ndd_gain_support_tiny_tt
+            IF = {
+                limit = {
+                    check_variable = {
+                        progressive_republican_support_var > 0
+                    }
+                }
+                add_to_variable = {
+                    new_deal_democrat_support_var = 1
+                }
+                add_to_variable = {
+                    progressive_republican_support_var = -1
+                }
+            }
+            recalculate_congressional_ui = yes
+            custom_effect_tooltip = generic_skip_zero_line_tt
+        }
+    }
+    TPMP_USA_debug_congress_decision_3 = {
+        icon = GFX_decision_generic_allies
+        visible = {
+            is_debug = yes
+        }
+        cost = 0
+        fire_only_once = no
+        complete_effect = {
+            custom_effect_tooltip = br_lose_support_tiny_tt
+            custom_effect_tooltip = ndd_gain_support_tiny_tt
+            IF = {
+                limit = {
+                    check_variable = {
+                        business_republican_support_var > 0
+                    }
+                }
+                add_to_variable = {
+                    new_deal_democrat_support_var = 1
+                }
+                add_to_variable = {
+                    business_republican_support_var = -1
+                }
+            }
+            recalculate_congressional_ui = yes
+            custom_effect_tooltip = generic_skip_zero_line_tt
+        }
+    }
+    TPMP_USA_debug_congress_decision_4 = {
+        icon = GFX_decision_generic_allies
+        visible = {
+            is_debug = yes
+        }
+        cost = 0
+        fire_only_once = no
+        complete_effect = {
+            custom_effect_tooltip = ir_lose_support_tiny_tt
+            custom_effect_tooltip = ndd_gain_support_tiny_tt
+            IF = {
+                limit = {
+                    check_variable = {
+                        isolationist_republican_support_var > 0
+                    }
+                }
+                add_to_variable = {
+                    new_deal_democrat_support_var = 1
+                }
+                add_to_variable = {
+                    isolationist_republican_support_var = -1
+                }
+            }
+            recalculate_congressional_ui = yes
+            custom_effect_tooltip = generic_skip_zero_line_tt
+        }
+    }
+}
+TPMP_USA_alphabet_category = {
+    # TPMP_USA_expediate_FSA_decision = {
+    #     icon = GFX_decision_ger_mefo_bills
+    #     custom_cost_trigger = {
+    #         command_power > 49
+    #         has_political_power > 49
+    #     }
+    #     custom_cost_text = decision_cost_CP_50_pp_50
+    #     fire_only_once = yes
+    #     visible = {
+    #         has_completed_focus = TPMP_USA_form_the_alphabet_agencies
+    #         NOT = {
+    #             has_completed_focus = TPMP_USA_federal_security_agency
+    #         }
+    #     }
+    #     complete_effect = {
+    #         reduce_focus_completion_cost = {
+    #             focus = TPMP_USA_federal_security_agency
+    #             cost = 35
+    #         }
+    #         hidden_effect = {
+    #             add_command_power = -50
+    #             add_political_power = -50
+    #         }
+    #     }
+    # }
+    # TPMP_USA_expediate_EOP_decision = {
+    #     icon = GFX_decision_ger_mefo_bills
+    #     custom_cost_trigger = {
+    #         command_power > 49
+    #         has_political_power > 49
+    #     }
+    #     custom_cost_text = decision_cost_CP_50_pp_50
+    #     fire_only_once = yes
+    #     visible = {
+    #         has_completed_focus = TPMP_USA_form_the_alphabet_agencies
+    #         NOT = {
+    #             has_completed_focus = TPMP_USA_the_executive_office_of_the_president
+    #         }
+    #     }
+    #     complete_effect = {
+    #         reduce_focus_completion_cost = {
+    #             focus = TPMP_USA_the_executive_office_of_the_president
+    #             cost = 35
+    #         }
+    #         hidden_effect = {
+    #             add_command_power = -50
+    #             add_political_power = -50
+    #         }
+    #     }
+    # }
+    # TPMP_USA_expediate_WPA_decision = {
+    #     icon = GFX_decision_ger_mefo_bills
+    #     custom_cost_trigger = {
+    #         command_power > 49
+    #         has_political_power > 49
+    #     }
+    #     custom_cost_text = decision_cost_CP_50_pp_50
+    #     fire_only_once = yes
+    #     visible = {
+    #         has_completed_focus = TPMP_USA_form_the_alphabet_agencies
+    #         NOT = {
+    #             has_completed_focus = TPMP_USA_works_progress_administration
+    #         }
+    #     }
+    #     complete_effect = {
+    #         reduce_focus_completion_cost = {
+    #             focus = TPMP_USA_works_progress_administration
+    #             cost = 35
+    #         }
+    #         hidden_effect = {
+    #             add_command_power = -50
+    #             add_political_power = -50
+    #         }
+    #     }
+    # }
+    # TPMP_USA_expediate_PWA_decision = {
+    #     icon = GFX_decision_ger_mefo_bills
+    #     custom_cost_trigger = {
+    #         command_power > 49
+    #         has_political_power > 49
+    #     }
+    #     custom_cost_text = decision_cost_CP_50_pp_50
+    #     fire_only_once = yes
+    #     visible = {
+    #         has_completed_focus = TPMP_USA_form_the_alphabet_agencies
+    #         NOT = {
+    #             has_completed_focus = TPMP_USA_public_works_administration
+    #         }
+    #     }
+    #     complete_effect = {
+    #         reduce_focus_completion_cost = {
+    #             focus = TPMP_USA_public_works_administration
+    #             cost = 35
+    #         }
+    #         hidden_effect = {
+    #             add_command_power = -50
+    #             add_political_power = -50
+    #         }
+    #     }
+    # }
+    TPMP_USA_coordinate_agencies_decision = {
+        icon = GFX_decision_eng_trade_unions_support
+        custom_cost_trigger = {
+            command_power > 49
+            has_political_power > 49
+        }
+        custom_cost_text = decision_cost_CP_50_pp_50
+        fire_only_once = yes
+        visible = {
+            has_completed_focus = TPMP_USA_form_the_alphabet_agencies
+            NOT = {
+                has_country_flag = TPMP_USA_subordinate_agencies_flag
+            }
+        }
+        available = {
+        }
+        complete_effect = {
+            custom_effect_tooltip = USA_modify_alphabet_agencies_tt
+            add_to_variable = {
+                TPMP_USA_alphabet_pp_var = -0.15
+                tooltip = political_power_gain_tt
+            }
+            add_to_variable = {
+                TPMP_USA_alphabet_cp_var = -0.15
+                tooltip = command_power_gain_tt
+            }
+            custom_effect_tooltip = generic_skip_one_line_tt
+			USA_decrease_great_depression = yes
+            custom_effect_tooltip = generic_skip_one_line_tt
+			USA_increase_deficit = yes
+            hidden_effect = {
+                add_command_power = -50
+                add_political_power = -50
+                set_country_flag = TPMP_USA_coordinate_agencies_flag
+            }
+        }
+    }
+    TPMP_USA_subordinate_agencies_decision = {
+        icon = GFX_decision_eng_trade_unions_demand
+        custom_cost_trigger = {
+            command_power > 49
+            has_political_power > 49
+        }
+        custom_cost_text = decision_cost_CP_50_pp_50
+        fire_only_once = yes
+        visible = {
+            has_completed_focus = TPMP_USA_form_the_alphabet_agencies
+            NOT = {
+                has_country_flag = TPMP_USA_coordinate_agencies_flag
+            }
+        }
+        available = {
+        }
+        complete_effect = {
+            custom_effect_tooltip = ndd_gain_support_tt
+            custom_effect_tooltip = br_lose_support_tt
+            for_loop_effect = {
+				end = 5
+				IF = {
 					limit = {
-						has_country_flag = MTG_work_with_the_bund
-					}
-					373 = {
-						create_unit = {
-							division = "name = \"I/Freikorps Missouri\" division_template = \"Free Corps\" start_experience_factor = 0.7" 
-							owner = ROOT
-						}
-						create_unit = {
-							division = "name = \"II/Freikorps Missouri\" division_template = \"Free Corps\" start_experience_factor = 0.7" 
-							owner = ROOT
-						}
-						create_unit = {
-							division = "name = \"III/Freikorps Missouri\" division_template = \"Free Corps\" start_experience_factor = 0.7" 
-							owner = ROOT
+						check_variable = {
+							business_republican_support_var > 0
 						}
 					}
-					394 = {
-						create_unit = {
-							division = "name = \"I/Freikorps Wisconsin\" division_template = \"Free Corps\" start_experience_factor = 0.7" 
-							owner = ROOT
-						}
-						create_unit = {
-							division = "name = \"II/Freikorps Wisconsin\" division_template = \"Free Corps\" start_experience_factor = 0.7" 
-							owner = ROOT
-						}
-						create_unit = {
-							division = "name = \"III/Freikorps Wisconsin\" division_template = \"Free Corps\" start_experience_factor = 0.7" 
-							owner = ROOT
-						}
+					add_to_variable = {
+						new_deal_democrat_support_var = 1
 					}
-					395 = {
-						create_unit = {
-							division = "name = \"I/Freikorps Illinois\" division_template = \"Free Corps\" start_experience_factor = 0.7" 
-							owner = ROOT
-						}
-						create_unit = {
-							division = "name = \"II/Freikorps Illinois\" division_template = \"Free Corps\" start_experience_factor = 0.7" 
-							owner = ROOT
-						}
-						create_unit = {
-							division = "name = \"III/Freikorps Illinois\" division_template = \"Free Corps\" start_experience_factor = 0.7" 
-							owner = ROOT
-						}
-					}
-					261 = {
-						create_unit = {
-							division = "name = \"I/Freikorps Ohio\" division_template = \"Free Corps\" start_experience_factor = 0.7" 
-							owner = ROOT
-						}
-						create_unit = {
-							division = "name = \"II/Freikorps Ohio\" division_template = \"Free Corps\" start_experience_factor = 0.7" 
-							owner = ROOT
-						}
-						create_unit = {
-							division = "name = \"III/Freikorps Ohio\" division_template = \"Free Corps\" start_experience_factor = 0.7" 
-							owner = ROOT
-						}
-					}
-					396 = {
-						create_unit = {
-							division = "name = \"I/Freikorps Indiana\" division_template = \"Free Corps\" start_experience_factor = 0.7" 
-							owner = ROOT
-						}
-						create_unit = {
-							division = "name = \"II/Freikorps Indiana\" division_template = \"Free Corps\" start_experience_factor = 0.7" 
-							owner = ROOT
-						}
-						create_unit = {
-							division = "name = \"III/Freikorps Indiana\" division_template = \"Free Corps\" start_experience_factor = 0.7" 
-							owner = ROOT
-						}
-					}
-					393 = {
-						create_unit = {
-							division = "name = \"I/Freikorps Michigan\" division_template = \"Free Corps\" start_experience_factor = 0.7" 
-							owner = ROOT
-						}
-						create_unit = {
-							division = "name = \"II/Freikorps Michigan\" division_template = \"Free Corps\" start_experience_factor = 0.7" 
-							owner = ROOT
-						}
-						create_unit = {
-							division = "name = \"III/Freikorps Michigan\" division_template = \"Free Corps\" start_experience_factor = 0.7" 
-							owner = ROOT
-						}
-					}
-			}
-		}
-	}
-	USA_CSA_set_up_provisional_government = { 
-
-		allowed = {
-			original_tag = CSA
-		}
-		available = {
-			any_controlled_state = {
-				is_core_of = USA
-				is_fully_controlled_by = ROOT
-				hidden_trigger = { NOT = { has_state_flag = CSA_is_coring_this_state } }
-				hidden_trigger = { NOT = { has_state_flag = CSA_is_coring_this_state1 } }
-			}
-		}
-		visible = {
-			has_war_with = USA
-		}
-		cost = 0
-		days_remove = 100
-		fixed_random_seed = yes
-		ai_will_do = {
-			factor = 1
-		}
-		modifier = {
-			political_power_gain = -0.25
-		}
-		complete_effect = {
-			random_controlled_state = {
-				limit = {
-					not = { is_core_of = ROOT }
-					is_core_of = USA
-					is_fully_controlled_by = ROOT
-					NOT = { has_state_flag = CSA_is_coring_this_state }
-					NOT = { has_state_flag = CSA_is_coring_this_state1 }
-				}
-			set_state_flag = CSA_is_coring_this_state1
-			}
-		}
-		remove_effect = {
-			random_controlled_state = {
-				limit = {
-					not = { is_core_of = ROOT }
-					is_core_of = USA
-					is_fully_controlled_by = ROOT
-					has_state_flag = CSA_is_coring_this_state
-					has_state_flag = CSA_is_coring_this_state1
-				}
-				remove_core_of = USA
-				add_claim_by = USA
-				add_core_of = CSA
-				save_event_target_as = USA_state_government_created
-			}
-			USA = {
-				country_event = mtg_usa_civil_war_fascists.203
-			}
-		}
-	}
-	USA_CSA_set_up_provisional_government2 = { 
-		allowed = { original_tag = CSA }
-		available = {
-			any_controlled_state = {
-				is_core_of = USA
-				is_fully_controlled_by = ROOT
-				NOT = { has_state_flag = CSA_is_coring_this_state }
-				NOT = { has_state_flag = CSA_is_coring_this_state2 }
-			}
-		}
-		visible = {
-			original_tag = CSA
-			has_war_with = USA
-		}
-		cost = 0
-		days_remove = 100
-		fixed_random_seed = yes
-		ai_will_do = {
-			factor = 1
-		}
-		modifier = {
-			political_power_gain = -0.25
-		}
-		complete_effect = {
-			random_controlled_state = {
-				limit = {
-					not = { is_core_of = ROOT }
-					is_core_of = USA
-					is_fully_controlled_by = ROOT
-					hidden_trigger = { NOT = { has_state_flag = CSA_is_coring_this_state } }
-					hidden_trigger = { NOT = { has_state_flag = CSA_is_coring_this_state2 } }
-				}
-			set_state_flag = CSA_is_coring_this_state
-			set_state_flag = CSA_is_coring_this_state2
-			}
-		}
-		remove_effect = {
-			random_controlled_state = {
-				limit = {
-					not = { is_core_of = ROOT }
-					is_core_of = USA
-					is_fully_controlled_by = ROOT
-					has_state_flag = CSA_is_coring_this_state2
-				}
-				remove_core_of = USA
-				add_claim_by = USA
-				add_core_of = CSA
-				save_event_target_as = USA_state_government_created
-			}
-			USA = {
-				country_event = mtg_usa_civil_war_fascists.203
-			}
-		}
-	}
-	USA_CSA_set_up_provisional_government3 = { 
-		allowed = { original_tag = CSA }
-		available = {
-			any_controlled_state = {
-				is_core_of = USA
-				is_fully_controlled_by = ROOT
-				hidden_trigger = { NOT = { has_state_flag = CSA_is_coring_this_state } }
-				hidden_trigger = { NOT = { has_state_flag = CSA_is_coring_this_state3 } }
-			}
-		}
-		visible = {
-			original_tag = CSA
-			has_war_with = USA
-		}
-		cost = 0
-		days_remove = 100
-		fixed_random_seed = yes
-		ai_will_do = {
-			factor = 1
-		}
-		modifier = {
-			political_power_gain = -0.25
-		}
-		complete_effect = {
-			random_controlled_state = {
-				limit = {
-					not = { is_core_of = ROOT }
-					is_core_of = USA
-					is_fully_controlled_by = ROOT
-					NOT = { has_state_flag = CSA_is_coring_this_state }
-					NOT = { has_state_flag = CSA_is_coring_this_state3 }
-				}
-			set_state_flag = CSA_is_coring_this_state
-			set_state_flag = CSA_is_coring_this_state3
-			}
-		}
-		remove_effect = {
-			random_controlled_state = {
-				limit = {
-					not = { is_core_of = ROOT }
-					is_core_of = USA
-					is_fully_controlled_by = ROOT
-					has_state_flag = CSA_is_coring_this_state3
-				}
-				remove_core_of = USA
-				add_claim_by = USA
-				add_core_of = CSA
-				save_event_target_as = USA_state_government_created
-			}
-			USA = {
-				country_event = mtg_usa_civil_war_fascists.203
-			}
-		}
-	}
-	USA_order_weapons_in_USB = {
-		icon = generic_prepare_civil_war
-		allowed = {
-			OR = {
-				original_tag = CSA
-				original_tag = USA
-			}
-		}
-		available = {
-			custom_trigger_tooltip = {
-				tooltip = USB_available_factories_tt
-				check_variable = { USB.USB_factories_available > 5 }
-			}
-			any_neighbor_country = {
-				tag = USB
-			}
-		}
-		visible = {
-			country_exists = USB
-			not = { has_war_with = USB }
-			USB = { is_in_faction = no }
-		}
-		days_remove = 45
-		cost = 25
-		ai_will_do = {
-			factor = 10
-			modifier = {
-				has_equipment = {
-					infantry_equipment < 1
-				}
-				factor = 50
-			}
-			modifier = {
-				has_manpower < 10000 
-				factor = 0 #need to up conscription laws
-			}
-		}
-		modifier = {
-			civilian_factory_use = 2
-		}
-		complete_effect = {
-			add_to_variable = { USB.USB_factories_available = -3 }
-			USB = {
-				add_offsite_building = { type = industrial_complex level = 2 }
-			}
-		}
-		remove_effect = {
-			add_equipment_to_stockpile = {
-				type = infantry_equipment
-				amount = 2500
-			}
-			USB = {
-				add_offsite_building = { type = industrial_complex level = -2 }
-			}
-			add_to_variable = { USB.USB_factories_available = 3 }
-		}
-	}
-	USA_order_artillery_in_USB = {
-		icon = ger_military_buildup
-		allowed = {
-			OR = {
-				original_tag = CSA
-				original_tag = USA
-			}
-		}
-		available = {
-			custom_trigger_tooltip = {
-				tooltip = USB_available_factories_tt
-				check_variable = { USB.USB_factories_available > 5 }
-			}
-			any_neighbor_country = {
-				tag = USB
-			}
-		}
-		visible = {
-			country_exists = USB
-			not = { has_war_with = USB }
-			USB = { is_in_faction = no }
-		}
-		days_remove = 60
-		cost = 50
-		ai_will_do = {
-			factor = 5
-			modifier = {
-				has_equipment = {
-					artillery_equipment < 1
-				}
-				factor = 50
-			}
-			modifier = {
-				has_manpower < 10000 
-				factor = 0 #need to up conscription laws
-			}
-		}
-		modifier = {
-			civilian_factory_use = 5
-		}
-		complete_effect = {
-			add_to_variable = { USB.USB_factories_available = -6 }
-			USB = {
-				add_offsite_building = { type = industrial_complex level = 5 }
-			}
-		}
-		remove_effect = {
-			add_equipment_to_stockpile = {
-				type = artillery_equipment
-				amount = 75
-			}
-			USB = {
-				add_offsite_building = { type = industrial_complex level = -5 }
-			}
-			add_to_variable = { USB.USB_factories_available = 6 }
-		}
-	}
-	USA_order_fighters_in_USB = {
-		icon = generic_air
-		allowed = {
-			OR = {
-				original_tag = CSA
-				original_tag = USA
-			}
-		}
-		available = {
-			custom_trigger_tooltip = {
-				tooltip = USB_available_factories_tt
-				check_variable = { USB.USB_factories_available > 5 }
-			}
-			any_neighbor_country = {
-				tag = USB
-			}
-		}
-		visible = {
-			country_exists = USB
-			not = { has_war_with = USB }
-			USB = { is_in_faction = no }
-		}
-		days_remove = 60
-		cost = 50
-		ai_will_do = {
-			factor = 1
-			modifier = {
-				has_equipment = {
-					small_plane_airframe < 1
-				}
-				factor = 5
-			}
-			modifier = {
-				has_manpower < 10000 
-				factor = 0 #need to up conscription laws
-			}
-		}
-		modifier = {
-			civilian_factory_use = 5
-		}
-		complete_effect = {
-			add_to_variable = { USB.USB_factories_available = -6 }
-			USB = {
-				add_offsite_building = { type = industrial_complex level = 5 }
-				if = {
-					limit = {
-						has_dlc = "By Blood Alone"
-						NOT = { has_country_flag = USB_fighter_template_active }
-					}
-					create_equipment_variant = {
-						name = "P-44 Bald Eagle" #
-						type = small_plane_airframe_1
-						allow_without_tech = yes
-						modules = {
-							fixed_main_weapon_slot = heavy_mg_4x
-							fixed_auxiliary_weapon_slot_1 = bomb_locks
-							engine_type_slot = engine_2_1x
-						}
-					}
-					set_country_flag = USB_fighter_template_active
-				}
-			}
-		}
-		remove_effect = {
-			if = {
-				limit = {
-					NOT = {
-						has_dlc = "By Blood Alone"
+					add_to_variable = {
+						business_republican_support_var = -1
 					}
 				}
-				add_equipment_to_stockpile = {
-					type = fighter_equipment_1
-					amount = 50
-					producer = USB
-				}
 			}
-			else = {
-				add_equipment_to_stockpile = {
-					type = small_plane_airframe_1
-					amount = 50
-					producer = "USB"
-					variant_name = "P-44 Bald Eagle"
-				}
-			}
-			USB = {
-				add_offsite_building = { type = industrial_complex level = -5 }
-			}
-			add_to_variable = { USB.USB_factories_available = 6 }
-		}
-	}
-	USA_order_bombers_in_USB = {
-		icon = generic_air
-		allowed = {
-			OR = {
-				original_tag = CSA
-				original_tag = USA
-			}
-		}
-		available = {
-			custom_trigger_tooltip = {
-				tooltip = USB_available_factories_tt
-				check_variable = { USB.USB_factories_available > 5 }
-			}
-			any_neighbor_country = {
-				tag = USB
-			}
-		}
-		visible = {
-			country_exists = USB
-			not = { has_war_with = USB }
-			USB = { is_in_faction = no }
-		}
-		days_remove = 60
-		cost = 50
-		ai_will_do = {
-			factor = 1
-			modifier = {
-				has_equipment = {
-					medium_plane_airframe < 1
-				}
-				factor = 5
-			}
-			modifier = {
-				has_manpower < 10000 
-				factor = 0 #need to up conscription laws
-			}
-		}
-		modifier = {
-			civilian_factory_use = 5
-		}
-		complete_effect = {
-			add_to_variable = { USB.USB_factories_available = -6 }
-			USB = {
-				add_offsite_building = { type = industrial_complex level = 5 }
-				if = {
-					limit = {
-						has_dlc = "By Blood Alone"
-						NOT = { has_country_flag = USB_bomber_template_active }
-					}
-					create_equipment_variant = {
-						name = "B-13 Raven" #
-						type = medium_plane_airframe_1
-						allow_without_tech = yes
-						modules = {
-							fixed_main_weapon_slot = medium_bomb_bay
-							fixed_auxiliary_weapon_slot_1 = bomb_locks
-							engine_type_slot = engine_2_2x
-							special_type_slot_1 = lmg_defense_turret
-						}
-					}
-					set_country_flag = USB_bomber_template_active
-				}
-			}
-		}
-		remove_effect = {
-			if = {
-				limit = {
-					NOT = { has_dlc = "By Blood Alone" }
-				}
-				add_equipment_to_stockpile = {
-					type = tac_bomber_equipment_1
-					amount = 25
-					producer = USB
-				}
-			}
-			else = {
-				add_equipment_to_stockpile = {
-					type = medium_plane_airframe_1
-					amount = 25
-					producer = "USB"
-					variant_name = "B-13 Raven"
-				}
-			}
-			USB = {
-				add_offsite_building = { type = industrial_complex level = -5 }
-			}
-			add_to_variable = { USB.USB_factories_available = 6 }
-		}
-	}
+			recalculate_congressional_ui = yes
+			custom_effect_tooltip = generic_skip_one_line_tt
+            custom_effect_tooltip = USA_modify_alphabet_agencies_tt
+            add_to_variable = {
+                TPMP_USA_alphabet_pp_var = 0.05
+                tooltip = political_power_gain_tt
+            }
+            add_to_variable = {
+                TPMP_USA_alphabet_cp_var = 0.05
+                tooltip = command_power_gain_tt
+            }
+            hidden_effect = {
+                add_command_power = -50
+                add_political_power = -50
+                set_country_flag = TPMP_USA_subordinate_agencies_flag
+            }
+        }
+    }
+    TPMP_USA_expand_agency_funding_decision = {
+        icon = GFX_decision_generic_consumer_goods
+        custom_cost_trigger = {
+            command_power > 49
+            has_political_power > 49
+        }
+        custom_cost_text = decision_cost_CP_50_pp_50
+        fire_only_once = yes
+        visible = {
+            has_completed_focus = TPMP_USA_form_the_alphabet_agencies
+        }
+        complete_effect = {
+            custom_effect_tooltip = generic_skip_one_line_tt
+			USA_decrease_great_depression = yes
+			custom_effect_tooltip = generic_skip_one_line_tt
+			USA_increase_deficit = yes
+            hidden_effect = {
+                add_command_power = -50
+                add_political_power = -50
+            }
+        }
+    }
+    TPMP_USA_expand_agency_jurisdiction_decision = {
+        icon = GFX_decision_eng_trade_unions_support
+        custom_cost_trigger = {
+            command_power > 49
+            has_political_power > 49
+        }
+        custom_cost_text = decision_cost_CP_50_pp_50
+        fire_only_once = yes
+        visible = {
+            has_completed_focus = TPMP_USA_form_the_alphabet_agencies
+        }
+        available = {
+            has_support_ndd = yes
+        }
+        complete_effect = {
+			USA_decrease_great_depression = yes
+            hidden_effect = {
+                add_command_power = -50
+                add_political_power = -50
+            }
+        }
+    }
+    TPMP_USA_expand_social_security_decision = {
+        icon = GFX_decision_generic_welfare
+        custom_cost_trigger = {
+            command_power > 49
+            has_political_power > 49
+        }
+        custom_cost_text = decision_cost_CP_50_pp_50
+        fire_only_once = yes
+        visible = {
+            has_completed_focus = TPMP_USA_federal_security_agency
+        }
+        complete_effect = {
+            swap_ideas = {
+                remove_idea = TPMP_USA_FSA_idea_0
+                add_idea = TPMP_USA_FSA_idea_1
+            }
+			USA_decrease_great_depression = yes
+			custom_effect_tooltip = generic_skip_one_line_tt
+			USA_increase_deficit = yes
+            hidden_effect = {
+                add_command_power = -50
+                add_political_power = -50
+            }
+        }
+    }
+    TPMP_USA_national_youth_administration_decision = {
+        icon = GFX_decision_generic_political_discourse
+        custom_cost_trigger = {
+            command_power > 49
+            has_political_power > 49
+        }
+        custom_cost_text = decision_cost_CP_50_pp_50
+        fire_only_once = yes
+        visible = {
+            has_completed_focus = TPMP_USA_works_progress_administration
+        }
+        complete_effect = {
+            add_ideas = TPMP_USA_NYA_idea
+            custom_effect_tooltip = generic_skip_one_line_tt
+			USA_decrease_great_depression = yes
+			custom_effect_tooltip = generic_skip_one_line_tt
+			USA_increase_deficit = yes
+            hidden_effect = {
+                add_command_power = -50
+                add_political_power = -50
+            }
+        }
+    }
+    TPMP_USA_empower_CCC_decision = {
+        icon = GFX_decision_generic_construction
+        custom_cost_trigger = {
+            command_power > 49
+            has_political_power > 49
+        }
+        custom_cost_text = decision_cost_CP_50_pp_50
+        fire_only_once = yes
+        visible = {
+            has_completed_focus = TPMP_USA_public_works_administration
+        }
+        complete_effect = {
+            add_tech_bonus = {
+                bonus = 0.5
+                uses = 1
+                category = construction_tech
+            }
+            custom_effect_tooltip = generic_skip_one_line_tt
+			USA_decrease_great_depression = yes
+			custom_effect_tooltip = generic_skip_one_line_tt
+			USA_increase_deficit = yes
+            hidden_effect = {
+                add_command_power = -50
+                add_political_power = -50
+            }
+        }
+    }
+    TPMP_USA_OWI_decision = {
+        icon = GFX_decision_eng_trade_unions_support
+        visible = {
+            has_completed_focus = TPMP_USA_the_wartime_agencies
+        }
+        fire_only_once = yes
+        cost = TPMP_USA_wartime_agency_cost_var?100
+        days_remove = 90
+        remove_effect = {
+			add_ideas = TPMP_USA_OWI_idea
+        }
+    }
+    TPMP_USA_WPB_decision = {
+        icon = GFX_decision_eng_trade_unions_support
+        visible = {
+            has_completed_focus = TPMP_USA_the_wartime_agencies
+        }
+        fire_only_once = yes
+        cost = TPMP_USA_wartime_agency_cost_var?100
+        days_remove = 90
+        remove_effect = {
+			add_ideas = TPMP_USA_WPB_idea
+        }
+    }
+    TPMP_USA_OWM_decision = {
+        icon = GFX_decision_eng_trade_unions_support
+        visible = {
+            has_completed_focus = TPMP_USA_the_wartime_agencies
+        }
+        fire_only_once = yes
+        cost = TPMP_USA_wartime_agency_cost_var?100
+        days_remove = 90
+        remove_effect = {
+			add_ideas = TPMP_USA_OWM_idea
+        }
+    }
+    TPMP_USA_OES_decision = {
+        icon = GFX_decision_eng_trade_unions_support
+        visible = {
+            has_completed_focus = TPMP_USA_the_wartime_agencies
+        }
+        fire_only_once = yes
+        cost = TPMP_USA_wartime_agency_cost_var?100
+        days_remove = 90
+        remove_effect = {
+			add_ideas = TPMP_USA_OES_idea
+        }
+    }
 }
-USA_aid_britain = {
-	USA_establish_personal_communication_with_former_naval_person = {
-
-		icon = generic_political_discourse
-
-		allowed = {
-			original_tag = USA
+TPMP_USA_deficit_category = {
+    TPMP_USA_deficit_decision_0 = {
+        icon = GFX_decision_generic_factory
+        days_remove = 180
+        cost = 10
+        visible = {
+            has_completed_focus = TPMP_USA_manage_the_budget
+        }
+        available = {
+            NOT = {
+                has_decision = TPMP_USA_deficit_decision_1
+            }
+            custom_trigger_tooltip = {
+                tooltip = TPMP_USA_deficit_trigger_tt
+                check_variable = {
+                    TPMP_USA_deficit_cg_var > 0
+                }
+            }
+        }
+        modifier = {
+            civilian_factory_use = 15
 		}
-
-		available = {
-			has_country_leader = { ruling_only = yes character = USA_franklin_delano_roosevelt }
-			has_country_flag = blood_toil_tears_sweat_speech
-			ENG = { has_defensive_war = yes }
+        remove_effect = {
+            USA_decrease_deficit = yes
+            custom_effect_tooltip = generic_skip_zero_line_tt
+        }
+    }
+    TPMP_USA_deficit_decision_1 = {
+        icon = GFX_decision_generic_factory
+        days_remove = 180
+        cost = 20
+        visible = {
+            has_completed_focus = TPMP_USA_manage_the_budget
+        }
+        available = {
+            NOT = {
+                has_decision = TPMP_USA_deficit_decision_0
+            }
+        }
+        modifier = {
+            consumer_goods_factor = -0.2
 		}
-
-		cost = 50
-		fire_only_once = yes
-		ai_will_do = {
-			factor = 1
-			modifier = {
-				factor = 10
-				has_opinion = { target = ENG value > 60 }
-			}
-			modifier = {
-				factor = 10
-				has_opinion = { target = ENG value > 99 }
-			}
-		}
-
-		visible = {
-			has_war = no
-		}
-
-		complete_effect = {
-			add_war_support = 0.05
-			add_opinion_modifier = { target = ENG modifier = USA_special_relationship }
-			reverse_add_opinion_modifier = { target = ENG modifier = USA_special_relationship }
-		}
-	}
-
-	USA_battle_domestic_isolationism = {
-
-		icon = generic_civil_support
-
-		allowed = {
-			original_tag = USA
-		}
-
-		available = {
-			has_country_leader = { ruling_only = yes character = USA_franklin_delano_roosevelt }
-			has_country_flag = fight_on_the_beaches_speech
-			ENG = { has_defensive_war = yes }
-		}
-
-		cost = 50
-		fire_only_once = yes
-		ai_will_do = {
-			factor = 1
-			modifier = {
-				factor = 10
-				has_opinion = { target = ENG value > 60 }
-			}
-			modifier = {
-				factor = 10
-				has_opinion = { target = ENG value > 99 }
-			}
-		}
-
+        remove_effect = {
+            USA_increase_deficit = yes
+            custom_effect_tooltip = generic_skip_zero_line_tt
+        }
+    }
+    TPMP_USA_victory_bonds_decision = {
+    	icon = generic_industry
+        available = {
+            has_war = yes
+        }
+        visible = {
+            has_war = yes
+            has_completed_focus = TPMP_USA_patriotic_investment
+        }
+		days_remove = 180
+		cost = GER_war_bonds_var?50
 		modifier = {
-			war_support_weekly = 0.002		
-		}
-
-		days_remove = 180
-
-		visible = {
-			has_war = no
-		}
-
-		complete_effect = {
-			add_war_support = 0.05
-		}
-	}
-
-	USA_emergency_arms_deliveries = {
-
-		icon = generic_prepare_civil_war
-
-		allowed = {
-			original_tag = USA
-		}
-
-		available = {
-			has_country_leader = { ruling_only = yes character = USA_franklin_delano_roosevelt }
-			has_country_flag = this_was_their_finest_hour_speech
-			ENG = { has_defensive_war = yes }
-		}
-
-		cost = 50
-		fire_only_once = yes
-		ai_will_do = {
-			factor = 1
-			modifier = {
-				factor = 10
-				has_opinion = { target = ENG value > 60 }
-			}
-			modifier = {
-				factor = 10
-				has_opinion = { target = ENG value > 99 }
-			}
-		}
-
-		modifier = {
-			war_support_weekly = 0.005		
-		}
-
-		days_remove = 30
-
-		visible = {
-			has_war = no
-		}
-
-		complete_effect = {
-			ENG = {
-				add_equipment_to_stockpile = { type = line_infantry_equipment_1 amount = 20000 producer = USA }
-				add_equipment_to_stockpile = { type = artillery_equipment_0 amount = 300 producer = USA }
-				add_equipment_to_stockpile = { type = support_equipment_1 amount = 300 producer = USA }
-				country_event = { id = wtt_britain.30 }
-			}
-		}
-	}
-
-	USA_arsenal_of_democracy_decision = {
-
-		icon = generic_industry
-
-		allowed = {
-			original_tag = USA
-		}
-
-		available = {
-			has_country_leader = { ruling_only = yes character = USA_franklin_delano_roosevelt }
-			has_country_flag = mers_el_kebir_raid
-			ENG = { has_defensive_war = yes }
-		}
-
-		cost = 50
-		fire_only_once = yes
-		ai_will_do = {
-			factor = 10
-		}
-
-		visible = {
-			has_war = no
-		}
-
-		modifier = {
-			war_support_weekly = 0.001		
-			industrial_capacity_factory = 0.02
-			industrial_capacity_dockyard = 0.02
-			consumer_goods_factor = -0.15
-		}
-
-		days_remove = 360
-
-		complete_effect = {
-		}
-	}
-}
-
-foreign_support = {
-	USA_support_the_anti_fascist_war = {
-
-		icon = generic_industry
-
-		allowed = {
-			original_tag = USA
-		}
-
-		available = {
-			NOT = {
-				has_global_flag = USA_support_the_anti_fascist_war_flag
-			}
-			FROM = {
-				has_completed_focus = CHI_mission_to_the_us
-				has_war_with = JAP
-			}
-		}
-
-		targets = { CHI PRC GXC YUN SHX XSM SIK }
-		targets_dynamic = yes
-
-		target_root_trigger = {
-			OR = {
-				has_completed_focus = USA_limited_intervention
-				has_completed_focus = USA_lend_lease_act
-			}
-		}
-
-		target_trigger = {
-			FROM = {
-				has_completed_focus = CHI_mission_to_the_us
-				has_war_with = JAP
-			}
-		}
-
-		visible = {
-			has_government = democratic
-			FROM = {
-				has_completed_focus = CHI_mission_to_the_us
-				has_war_with = JAP
-			}
-		}
-
-		cost = 25
-		ai_will_do = {
-			factor = 50
-			modifier = {
-				factor = 3
-				any_other_country = {
-					has_completed_focus = CHI_mission_to_the_us
-					has_idea = CHI_soong_mei_ling
-					surrender_progress > 0.2
-					has_defensive_war = yes
-				}
-			}
-
-			modifier = {
-				factor = 0.5
-				has_war_support > 0.6
-			}
-
-			modifier = {
-				factor = 2
-				has_war_with = JAP
-			}
-		}
-
-		fire_only_once = no
-
-		modifier = {
-			civilian_factory_use = 5			
-		}
-
-		days_remove = 180
-
-		complete_effect = {
-			FROM = {
-				add_offsite_building = { type = arms_factory level = 3 }
-				set_global_flag = USA_support_the_anti_fascist_war_flag
-			}
-		}
-
-		remove_effect = {
-			add_war_support = 0.05
-			FROM = {
-				add_offsite_building = { type = arms_factory level = -3 }
-				hidden_effect = {
-					clr_global_flag = USA_support_the_anti_fascist_war_flag
-				}
-			}
-		}
-	}
-
-	USA_guns_for_the_anti_fascist_war = {
-
-		icon = generic_prepare_civil_war
-
-		allowed = {
-			original_tag = USA
-		}
-
-		available = {
-			has_equipment = { infantry_equipment > 999 }
-			FROM = {
-				has_completed_focus = CHI_mission_to_the_us
-				has_idea = CHI_soong_mei_ling
-				has_war_with = JAP
-			}
-		}
-
-		targets = { CHI PRC GXC YUN SHX XSM SIK }
-		targets_dynamic = yes
-
-		target_trigger = {
-			FROM = {
-				has_completed_focus = CHI_mission_to_the_us
-				has_idea = CHI_soong_mei_ling
-				has_war_with = JAP
-			}
-		}
-
-		visible = {
-			has_government = democratic
-			FROM = {
-				has_completed_focus = CHI_mission_to_the_us
-				has_idea = CHI_soong_mei_ling
-				has_war_with = JAP
-			}
-		}
-
-		cost = 25
-		ai_will_do = {
-			factor = 25
-			modifier = {
-				factor = 3
-				FROM = {
-					has_completed_focus = CHI_mission_to_the_us
-					has_idea = CHI_soong_mei_ling
-					surrender_progress > 0.2
-					has_defensive_war = yes
-				}
-			}
-
-			modifier = {
-				factor = 0.5
-				has_war_support < 0.6
-			}
-
-			modifier = {
-				factor = 2
-				has_war_with = JAP
-			}
-		}
-
-		fire_only_once = no	
-
-		days_re_enable = 180
-
-		complete_effect = {
-			ROOT = {
-				send_equipment = {
-					target = FROM
-					type = infantry_equipment
-					amount = 1000
-					old_prioritised = yes
-				}
-			}
-		}
-	}
-}
-USA_foreign_support = {
-	USA_invite_donations_FROM = {
-		icon = ger_mefo_bills
-		available = {
-			has_war = no
-		}
-		visible = {
-			has_completed_focus = USA_invite_foreign_support
-			has_war = no
-		}
-		target_trigger = {
-			FROM = {
-				is_major = yes
-				exists = yes
-				has_war = no
-				has_government = fascism
-			}
-		}
-		cost = 25
-		ai_will_do = {
-			factor = 1
-		}
-		days_re_enable = 45
-		complete_effect = {
-			FROM = {
-				country_event = mtg_usa_foreign_support.1
-			}
-		}
-	}
-	
-	USA_smuggle_weapons_FROM = {
-		icon = generic_prepare_civil_war
-		available = {
-			has_war = no
-		}
-		visible = {
-			has_completed_focus = USA_invite_foreign_support
-			has_war = no
-
-		}
-		target_trigger = {
-			FROM = {
-				exists = yes
-				is_major = yes
-				has_government = fascism
-				has_war = no
-				has_country_flag = USA_foreign_support_donations_approved
-			}
-		}
-		cost = 50
-		ai_will_do = {
-			factor = 1
-		}
-		days_re_enable = 45
-		complete_effect = {
-			FROM = {
-				country_event = mtg_usa_foreign_support.4
-			}
-		}
-	}
-	USA_training_camps_in_FROM = {
-		icon = generic_prepare_civil_war
-		available = {
-			has_war = no
-		}
-		visible = {
-			has_completed_focus = USA_invite_foreign_support
-			has_war = no
-		}
-		target_trigger = {
-			FROM = {
-				is_major = yes
-				exists = yes
-				has_war = no
-				has_government = fascism
-				not = { has_country_flag = USA_training_camps_approved }
-				has_country_flag = USA_foreign_support_donations_approved
-			}
-		}
-		cost = 75
-		ai_will_do = {
-			factor = 1
-		}
-		days_re_enable = 45
-		complete_effect = {
-			FROM = {	
-				country_event = mtg_usa_foreign_support.9
-			}
-		}
-	}
-	USA_pilot_training_in_FROM = {
-		icon = generic_air
-		available = {
-			has_war = no
-		}
-		visible = {
-			has_completed_focus = USA_invite_foreign_support
-			has_war = no
-		}
-		target_trigger = {
-			FROM = {
-				exists = yes
-				is_major = yes
-				has_war = no
-				has_government = fascism
-				has_tech = fighter1
-				not = { has_country_flag = usa_pilot_training }
-				has_country_flag = USA_foreign_support_donations_approved
-			}
-		}
-		cost = 75
-		ai_will_do = {
-			factor = 1
-		}
-		days_re_enable = 45
-		complete_effect = {
-			FROM = {
-				set_country_flag = usa_pilot_training
-				country_event = mtg_usa_foreign_support.12
-			}
-		}
-	}
-	USA_fund_shipyards_FROM = {
-		icon = generic_construction
-		available = {
-			has_war = no
-		}
-		visible = {
-			has_completed_focus = USA_invite_foreign_support
-			has_war = no
-		}
-		target_trigger = {
-			FROM = {
-				exists = yes
-				is_major = yes
-				has_war = no
-				has_government = fascism
-				has_country_flag = USA_foreign_support_donations_approved
-			}
-		}
-		cost = 125
-		ai_will_do = {
-			factor = 1
-		}
-		days_re_enable = 90
-		complete_effect = {
-			FROM = {
-				country_event = mtg_usa_foreign_support.15
-			}
-		}
-	}
-}
-
-USA_honor_the_confederacy = {
-	USA_celebrate_montgomery_convention_day = {
-		icon = generic_nationalism
-		available = {
-			
-		}
-		cost = 25
-		ai_will_do = {
-			factor = 1
-		}
-		fire_only_once = yes
-		complete_effect = {
-			add_stability = 0.05
-			add_popularity = { ideology = fascism popularity = 0.05 }
-			set_cosmetic_tag = USA_CSA
-			if = {
-				limit = {
-					not = {
-						has_country_flag = USA_CSA_legitimacy
-					}
-				}
-				set_country_flag = {
-					flag = USA_CSA_legitimacy
-					value = 1
-				}
-			}
-			else = {
-				modify_country_flag = {
-					flag = USA_CSA_legitimacy
-					value = 1
-				}
-			}
-		}
-	}
-	USA_move_government_to_richmond = {
-		icon = generic_nationalism
-		available = {
-			362 = {
-				is_controlled_by = ROOT
-			}
-		}
-		visible = {
-			NOT = { has_country_flag = USA_did_move_government_to_richmond }
-		}
-		cost = 25
-		ai_will_do = {
-			factor = 1
-		}
-		fire_only_once = yes
-		complete_effect = {
-			set_country_flag = USA_did_move_government_to_richmond
-			add_stability = 0.1
-			set_capital = { state = 362 }
-			add_popularity = { ideology = fascism popularity = 0.05 }
-			if = {
-				limit = {
-					not = {
-						has_country_flag = USA_CSA_legitimacy
-					}
-				}
-				set_country_flag = {
-					flag = USA_CSA_legitimacy
-					value = 1
-				}
-			}
-			else = {
-				modify_country_flag = {
-					flag = USA_CSA_legitimacy
-					value = 1
-				}
-			}
-		}
-	}
-	USA_secure_state_rights = {
-		icon = generic_nationalism
-		available = {
-			has_cosmetic_tag = USA_CSA 
-		}
-		visible = {
-			
-		}
-		cost = 75
-		fire_only_once = yes
-		ai_will_do = {
-			factor = 1
+			consumer_goods_factor = -0.1
 		}
 		complete_effect = {
-			add_stability = 0.1
-			add_popularity = { ideology = fascism popularity = 0.05 }
-			if = {
-				limit = {
-					not = {
-						has_country_flag = USA_CSA_legitimacy
-					}
-				}
-				set_country_flag = {
-					flag = USA_CSA_legitimacy
-					value = 1
-				}
-			}
-			else = {
-				modify_country_flag = {
-					flag = USA_CSA_legitimacy
-					value = 1
-				}
-			}
-		}
-	}
-	USA_permit_confederate_flags = {
-		icon = generic_nationalism
-		available = {
-			has_cosmetic_tag = USA_CSA
-		}
-		visible = {
-			has_country_flag = {
-				flag = USA_CSA_legitimacy
-				value > 2
-			}
-		}
-		cost = 75
-		fire_only_once = yes
-		ai_will_do = {
-			factor = 1
-		}
-		complete_effect = {
-			add_stability = 0.1
-			add_war_support = 0.1
-			add_popularity = { ideology = fascism popularity = 0.05 }
-			if = {
-				limit = {
-					not = {
-						has_country_flag = USA_CSA_legitimacy
-					}
-				}
-				set_country_flag = {
-					flag = USA_CSA_legitimacy
-					value = 1
-				}
-			}
-			else = {
-				modify_country_flag = {
-					flag = USA_CSA_legitimacy
-					value = 1
-				}
-			}
-		}
-	}
-	USA_constitutional_convention = {
-		icon = eng_trade_unions_support
-		available = {
-			fascism > 0.35
-		}
-		visible = {
-			has_country_flag = {
-				flag = USA_CSA_legitimacy
-				value > 2
-			}
-			has_cosmetic_tag = USA_CSA
-		}
-		cost = 100
-		fire_only_once = yes
-		ai_will_do = {
-			factor = 1
-		}
-		complete_effect = {
-			add_stability = 0.1
-			add_war_support = 0.05
-			add_popularity = { ideology = fascism popularity = 0.05 }
-			set_politics = { ruling_party = fascism }
-		}
-	}
-
-}
-economy_decisions = {
-	USA_communal_domain = {
-		icon = generic_operation
-		available = {
-			any_controlled_state = {
-				is_core_of = ROOT
-				free_building_slots = {
-					building = industrial_complex
-					size > 1
-					include_locked = yes
-				}
-			}
-		}
-		visible = {
-			has_completed_focus = USA_communal_property_act
-		}
-		cost = 50
-		ai_will_do = {
-			factor = 1
-		}
-		days_re_enable = 90
-
-		complete_effect = {
-			random_owned_controlled_state = {
-				limit = {
-					free_building_slots = {
-						building = industrial_complex
-						size > 1
-						include_locked = yes
-					}
-				}
-				add_extra_state_shared_building_slots = 1
-			}
-		}
-	}
-}
-
-foreign_politics = {
-	USA_guns_for_the_anti_bolshevist_war = {
-
-		icon = generic_prepare_civil_war
-
-		allowed = {
-			original_tag = USA
-		}
-
-		available = {
-			OR = {
-				not = { has_government = SOV }
-				has_war_with = SOV #commie on commie violence
-			}			
-			has_equipment = { infantry_equipment > 999 }
-			FROM = {
-				has_war_with = SOV
-				not = {
-					has_war_with = ROOT
-				}
-			}
-		}
-
-		target_root_trigger = {
-			has_completed_focus = USA_anti_bolshevist_aid
-		}
-
-		target_trigger = {
-			FROM = {
-				not = { has_war_with = ROOT }
-				has_war_with = SOV
-			}
-		}
-
-		visible = {
-			has_completed_focus = USA_anti_bolshevist_aid
-			
-			FROM = {
-				has_war_with = SOV
-			}
-			SOV = { has_civil_war = no }
-		}
-
-		cost = 25
-		ai_will_do = {
-			factor = 25
-			modifier = {
-				surrender_progress > 0
-			}
-			modifier = {
-				factor = 0.5
-				has_war_support < 0.6
-			}
-
-			modifier = {
-				factor = 2
-				has_war_with = SOV
-			}
-		}
-
-		fire_only_once = no	
-
-		days_re_enable = 180
-
-		complete_effect = {
-			ROOT = {
-				send_equipment = {
-					target = FROM
-					type = infantry_equipment
-					amount = 1000
-					old_prioritised = yes
-				}
-			}
-		}
-	}
-	USA_form_defensive_alliance_north_american_dominion = {
-
-		icon = generic
-
-		available = {
-			not = { has_global_flag = mtg_usa_north_american_dominion_refused_faction }
-		}
-
-		cost = 25
-		fire_only_once = yes
-		ai_will_do = {
-			factor = 10
-			modifier = {
-				has_war_with = USA
-				factor = 20
-			}
-		}
-
-		visible = {
-			has_country_flag = north_american_dominion_refused
-			is_in_faction = no
-			not = { has_global_flag = mtg_usa_north_american_dominion_refused_faction }
-		}
-
-		complete_effect = {
-			set_global_flag = mtg_usa_north_american_dominion_refused_faction
-			set_rule = {
-				can_create_factions = yes
-			}
-			create_faction = MTG_USA_NORTH_AMERICAN_DOMINION_FACTION
-			hidden_effect = {
-				#news_event = { id = xxx days = 3 } MTG_TODO_GABRIEL
-			}
-		}
-	}
-	USA_join_defensive_alliance_north_american_dominion = {
-
-		icon = generic
-
-		available = {
-			has_global_flag = mtg_usa_north_american_dominion_refused_faction
-		}
-
-		cost = 25
-		fire_only_once = yes
-		ai_will_do = {
-			factor = 10
-			modifier = {
-				has_war_with = USA
-				factor = 20
-			}
-		}
-
-		visible = {
-			has_country_flag = north_american_dominion_refused
-			is_in_faction = no
-		}
-
-		complete_effect = {
-			random_other_country = {
-				limit = {
-					has_country_flag = north_american_dominion_refused
-					is_faction_leader = yes
-				}
-				country_event = generic.2
-			}
-		}
-	}
-	USA_join_the_unions = {
-		icon = infiltrate_state
-		visible = {
-			SOV = {
-				has_war = yes
-				is_in_faction_with = USA
-			}
-			has_completed_focus = USA_unholy_alliance
-		}
-		available = {
-			SOV = {
-				surrender_progress > 0.8
-			}
-		}
-		fire_only_once = yes
-		ai_will_do = {
-			factor = 0
-		}
-		complete_effect = {
-			if = {
-				limit = {
-					NOT = { ROOT = { has_war_together_with = SOV } }
-				}
-
-				SOV = {	
-					every_enemy_country = {
-						ROOT = {
-							declare_war_on = {	
-								target = PREV
-								type = annex_everything
-							}
-						}
-					}
-				}
-			}
-			annex_country = { target = SOV transfer_troops = yes}
-
-				 
-			
-		}
-	}
-}
-USA_war_plans = {
-	USA_execute_war_plan_green = {
-		icon = generic_operation
-		available = {
-			has_war_with = MEX
-		}
-		visible = {
-			has_completed_focus = USA_war_plan_green
-		}
-		ai_will_do = {
-			factor = 1
-		}
-		fire_only_once = yes
-		days_remove = 180
-		modifier = {
-			production_speed_infrastructure_factor = 0.1
-		}
-		targeted_modifier = {
-			tag = MEX
-			attack_bonus_against = 0.1
-			defense_bonus_against = 0.1
-		}
-	}
-	USA_execute_war_plan_red = {
-		icon = generic_operation
-		available = {
-			has_war_with = ENG
-		}
-		visible = {
-			has_completed_focus = USA_war_plan_red
-		}
-		ai_will_do = {
-			factor = 1
-		}
-		fire_only_once = yes
-		days_remove = 180
-		modifier = {
-			spotting_chance = 0.1
-		}
-		targeted_modifier = {
-			tag = ENG
-			attack_bonus_against = 0.1
-			defense_bonus_against = 0.1
-		}
-	}
-	USA_execute_war_plan_silver = {
-		icon = generic_operation
-		available = {
-			has_war_with = ITA
-		}
-		visible = {
-			has_completed_focus = USA_war_plan_silver
-		}
-		ai_will_do = {
-			factor = 1
-		}
-		fire_only_once = yes
-		days_remove = 180
-		targeted_modifier = {
-			tag = ITA
-			attack_bonus_against = 0.1
-			defense_bonus_against = 0.1
-		}
-	}
-	USA_execute_war_plan_ruby = {
-		icon = generic_operation
-		available = {
-			has_war_with = RAJ
-		}
-		visible = {
-			has_completed_focus = USA_war_plan_ruby
-		}
-		ai_will_do = {
-			factor = 1
-		}
-		fire_only_once = yes
-		days_remove = 180
-		targeted_modifier = {
-			tag = RAJ
-			attack_bonus_against = 0.1
-			defense_bonus_against = 0.1
-		}
-	}
-	USA_execute_war_plan_scarlet_garnet = {
-		icon = generic_operation
-		available = {
-			has_war_with = AST
-			has_war_with = NZL
-		}
-		visible = {
-			has_completed_focus = USA_war_plan_scarlet_garnet
-		}
-		ai_will_do = {
-			factor = 1
-		}
-		fire_only_once = yes
-		days_remove = 180
-		targeted_modifier = {
-			tag = AST
-			attack_bonus_against = 0.1
-			defense_bonus_against = 0.1
-		}
-		targeted_modifier = {
-			tag = NZL
-			attack_bonus_against = 0.1
-			defense_bonus_against = 0.1
-		}
-	}
-	USA_execute_war_plan_orange = {
-		icon = generic_operation
-		available = {
-			has_war_with = JAP
-		}
-		visible = {
-			has_completed_focus = USA_war_plan_orange
-		}
-		ai_will_do = {
-			factor = 1
-		}
-		fire_only_once = yes
-		days_remove = 180
-		complete_effect = {
-			if = {
-				limit = {
-					has_dlc = "No Compromise, No Surrender"
-				}
-				set_country_flag = USA_unlock_contain_japanese_goal
-				if = {
-					limit = {
-						is_faction_leader = yes
-						JAP = {
-							IF = {
-								limit = {
-									is_in_faction = no
-								}
-								collection_size = {
-									input = {
-										input = collection:country_and_all_subjects_controlled_non_core_states
-										name = COLLECTION_OCCUPIED_STATES_BY_JAPAN_OR_FACTION_MEMBERS
-									}
-									value > 19
-								}
-							}
-							ELSE = {
-								collection_size = {
-									input = {
-										input = collection:faction_controlled_non_core_states
-										name = COLLECTION_OCCUPIED_STATES_BY_JAPAN_OR_FACTION_MEMBERS
-									}
-									value > 19
-								}
-							}
-						}
-					}
-					hidden_effect = {
-						add_faction_goal_slot = {
-							category  = long_term 
-							value = 1 
-						}
-					}
-					add_faction_goal = faction_goal_contain_japanese_expansion_asia
-					custom_effect_tooltip = generic_skip_one_line_tt
-				}
-				else = {
-					custom_effect_tooltip = USA_unlock_contain_japan_tt
-					effect_tooltip = {
-						add_faction_goal = faction_goal_contain_japanese_expansion_asia
-					}
-					custom_effect_tooltip = generic_skip_one_line_tt
-				}
-			}
-		}
-		modifier = {
-			amphibious_invasion = 0.1
-			invasion_preparation = -0.25
-		}
-		targeted_modifier = {
-			tag = JAP
-			attack_bonus_against = 0.1
-			defense_bonus_against = 0.1
-		}
-		targeted_modifier = {
-			tag = MAN
-			attack_bonus_against = 0.1
-			defense_bonus_against = 0.1
-		}
-		targeted_modifier = {
-			tag = MEN
-			attack_bonus_against = 0.1
-			defense_bonus_against = 0.1
-		}
-	}
-	USA_execute_war_plan_yellow = {
-		icon = generic_operation
-		available = {
-			OR = {
-				has_war_with = CHI
-				has_war_with = PRC
-				has_war_with = SHX
-				has_war_with = YUN
-				has_war_with = GXC
-				has_war_with = XSM
-				has_war_with = SIK
-
-			}
-		}
-		visible = {
-			has_completed_focus = USA_war_plan_yellow
-		}
-		ai_will_do = {
-			factor = 1
-		}
-		fire_only_once = yes
-		days_remove = 180
-		targeted_modifier = {
-			tag = CHI
-			attack_bonus_against = 0.1
-			defense_bonus_against = 0.1
-		}
-		targeted_modifier = {
-			tag = PRC
-			attack_bonus_against = 0.1
-			defense_bonus_against = 0.1
-		}
-		targeted_modifier = {
-			tag = SHX
-			attack_bonus_against = 0.1
-			defense_bonus_against = 0.1
-		}
-		targeted_modifier = {
-			tag = YUN
-			attack_bonus_against = 0.1
-			defense_bonus_against = 0.1
-		}
-		targeted_modifier = {
-			tag = XSM
-			attack_bonus_against = 0.1
-			defense_bonus_against = 0.1
-		}
-		targeted_modifier = {
-			tag = GXC
-			attack_bonus_against = 0.1
-			defense_bonus_against = 0.1
-		}
-		targeted_modifier = {
-			tag = SIK
-			attack_bonus_against = 0.1
-			defense_bonus_against = 0.1
-		}
-	}
-	USA_execute_war_plan_crimson = {
-		icon = generic_operation
-		available = {
-			has_war_with = CAN
-		}
-		visible = {
-			has_completed_focus = USA_war_plan_crimson
-		}
-		ai_will_do = {
-			factor = 1
-		}
-		fire_only_once = yes
-		days_remove = 180
-		modifier = {
-			production_speed_bunker_factor = 0.1
-		}
-		targeted_modifier = {
-			tag = CAN
-			attack_bonus_against = 0.1
-			defense_bonus_against = 0.1
-		}
-	}
-	USA_execute_war_plan_gray = {
-		icon = generic_operation
-		available = {
-			any_enemy_country = {
-				capital_scope = {
-					OR = {
-						is_on_continent = south_america
-						is_on_continent = north_america
-					}
-				}
-			}
-		}
-		visible = {
-			has_completed_focus = USA_war_plan_gray
-		}
-		ai_will_do = {
-			factor = 1
-		}
-		fire_only_once = yes
-		days_remove = 180
-		modifier = {
-			amphibious_invasion = 0.1
-			invasion_preparation = -0.5
-		}
-	
-	}
-	USA_execute_war_plan_gold = {
-		icon = generic_operation
-		available = {
-			has_war_with = FRA
-		}
-		visible = {
-			has_completed_focus = USA_war_plan_gold
-		}
-		ai_will_do = {
-			factor = 1
-		}
-		fire_only_once = yes
-		days_remove = 180
-		targeted_modifier = {
-			tag = FRA
-			attack_bonus_against = 0.1
-			defense_bonus_against = 0.1
-		}
-	}
-	USA_execute_war_plan_black = {
-		icon = generic_operation
-		available = {
-			has_war_with = GER
-		}
-		visible = {
-			has_completed_focus = USA_war_plan_black
-		}
-		ai_will_do = {
-			factor = 1
-		}
-		fire_only_once = yes
-		days_remove = 180
-		targeted_modifier = {
-			tag = GER
-			attack_bonus_against = 0.1
-			defense_bonus_against = 0.1
-		}
-	}
-	USA_execute_war_plan_white = {
-		icon = generic_operation
-		available = {
-			has_war_with = SOU
-		}
-		visible = {
-			has_completed_focus = USA_war_plan_white
-		}
-		ai_will_do = {
-			factor = 1
-		}
-		fire_only_once = yes
-		days_remove = 180
-		targeted_modifier = {
-			tag = SOU
-			attack_bonus_against = 0.1
-			defense_bonus_against = 0.1
-		}
-	}
-}
-USA_intervention_mandate = {
-	USA_request_mandate_against_FROM = {
-		available = {
-			has_war_support > 0.4
-			if = {
-				limit = {
-					FROM = {
-						has_offensive_war = yes
-					}
-					congress_low_support_trigger = yes
-				}
-			}
-			else_if = {
-				limit = {
-					FROM = {
-						has_war = yes
-					}
-				}
-				congress_medium_support_trigger = yes
-			}
-			else = {
-				congress_high_support_trigger = yes
-			}
-			not = { has_war_with = FROM }
-		}
-		visible = {
-			not = { has_wargoal_against = FROM }
-		}
-		target_trigger = {
-			FROM = {
-				exists = yes
-				not = {
-					has_war_with = ROOT
-					is_in_faction_with = ROOT
-					is_subject_of = ROOT
-				}
-				has_country_flag = {
-					flag = USA_intervention_strikes
-					value > 2
-				}
-			}
-		}
-		war_with_target_on_remove = yes
-		days_remove = 60
-		cost = 50
-		ai_will_do = {
-			factor = 1
-			modifier = {
-				has_war = yes
-				factor = 0
-			}
-			modifier = {
-				OR = {
-					GER = { has_completed_focus = GER_danzig_or_war }
-					JAP = { has_completed_focus = JAP_reinforce_the_beijing_garrison }
-				}
-				factor = 10
-			}
-		}
-		remove_effect = {
-			create_wargoal = {
-				type = topple_government
-				target = FROM
-			}
-		}
-	}
-	USA_prepare_intervention_in_europe_against_FROM = {
-
-		icon = generic_prepare_civil_war
-
-		available = {
-
-		}
-
-		visible = {
-			not = {
-				has_war_with = FROM
-			}
-			has_completed_focus = USA_focus_on_europe
-		}
-		target_trigger = {
-			FROM = {
-				is_major = yes
-				capital_scope = {
-					is_on_continent = europe
-				}
-				has_added_tension_amount > 10
-				not = { has_government = democratic }
-			}
-		}
-
-		cost = 75
-		days_remove = 90
-		complete_effect = {
-			add_war_support = 0.05
-			if = {
-				limit = {
-					has_war_support < 0.4
-				}
-				USA_congress_small_opposition = yes
-			}
-			if = {
-				limit = {
-					FROM = {
-						not = { has_country_flag = USA_intervention_strikes }
-					}
-				}
-				FROM = {
-					set_country_flag = {
-						flag = USA_intervention_strikes
-						value = 1
-					}
-				}
-			}
-			else = {
-				FROM = {
-					modify_country_flag = {
-						flag = USA_intervention_strikes
-						value = 1
-					}
-				}
-			}
-		}
-		ai_will_do = {
-			factor = 1
-		}
-	}
-	USA_prepare_intervention_in_asia_against_FROM = {
-
-		icon = generic_prepare_civil_war
-
-		available = {
-
-		}
-
-		visible = {
-			not = {
-				has_war_with = FROM
-			}
-			has_completed_focus = USA_focus_on_asia
-		}
-
-		target_trigger = {
-			FROM = {
-				is_major = yes
-				capital_scope = {
-					is_on_continent = asia
-				}
-				has_added_tension_amount > 10
-				not = { has_government = democratic }
-			}
-		}
-		cost = 75
-		days_remove = 90
-		complete_effect = {
-			add_war_support = 0.05
-			if = {
-				limit = {
-					has_war_support < 0.4
-				}
-				USA_congress_small_opposition = yes
-			}
-			if = {
-				limit = {
-					FROM = {
-						not = { has_country_flag = USA_intervention_strikes }
-					}
-				}
-				FROM = {
-					set_country_flag = {
-						flag = USA_intervention_strikes
-						value = 1
-					}
-				}
-			}
-			else = {
-				FROM = {
-					modify_country_flag = {
-						flag = USA_intervention_strikes
-						value = 1
-					}
-				}
-			}
-		}
-		ai_will_do = {
-			factor = 1
-		}
-	}
-	USA_protest_anschluss = {
-		icon = eng_propaganda_campaigns
-		available = {
-			
-		}
-		visible = {
-			has_country_flag = USA_anschluss_window
-			has_completed_focus = USA_focus_on_europe
-			not = {
-				has_war_with = GER
-			}
-		}
-		fire_only_once = yes
-		cost = 25
-		ai_will_do = {
-			factor = 1
-			modifier = {
-				has_war = yes
-				factor = 0
-			}
-		}
-		complete_effect = {
-			add_war_support = 0.05
-			GER = { country_event = mtg_usa_diplomatic_protest.1 } 
-			if = {
-				limit = {
-					GER = {
-						not = { has_country_flag = USA_intervention_strikes }
-					}
-				}
-				GER = {
-					set_country_flag = {
-						flag = USA_intervention_strikes
-						value = 1
-					}
-				}
-			}
-			else = {
-				GER = { 
-					modify_country_flag = {
-						flag = USA_intervention_strikes
-						value = 1
-					}
-				}
-			}
-		}
-	}
-	USA_protest_munich = {
-		icon = eng_propaganda_campaigns
-		available = {
-			
-		}
-		visible = {
-			has_country_flag = USA_munich_window
-			has_completed_focus = USA_focus_on_europe
-			not = {
-				has_war_with = GER
-			}
-		}
-		fire_only_once = yes
-		cost = 25
-		ai_will_do = {
-			factor = 1
-			modifier = {
-				has_war = yes
-				factor = 0
-			}
-		}
-		complete_effect = {
-			add_war_support = 0.05
-			GER = { country_event = mtg_usa_diplomatic_protest.1 } 
-			if = {
-				limit = {
-					GER = {
-						not = { has_country_flag = USA_intervention_strikes }
-					}
-				}
-				GER = {
-					set_country_flag = {
-						flag = USA_intervention_strikes
-						value = 1
-					}
-				}
-			}
-			else = {
-				GER = {
-					modify_country_flag = {
-						flag = USA_intervention_strikes
-						value = 1
-					}
-				}
-			}
-		}
-	}
-	USA_protest_molotov_ribbentrop = {
-		icon = eng_propaganda_campaigns
-		available = {
-			
-		}
-		visible = {
-			has_country_flag = USA_MR_window
-			has_completed_focus = USA_focus_on_europe
-			not = {
-				has_war_with = GER
-			}
-		}
-		fire_only_once = yes
-		cost = 25
-		ai_will_do = {
-			factor = 1
-			modifier = {
-				has_war = yes
-				factor = 0
-			}
-		}
-		complete_effect = {
-			add_war_support = 0.05
-			GER = { country_event = mtg_usa_diplomatic_protest.1 } 
-			if = {
-				limit = {
-					GER = {
-						not = { has_country_flag = USA_intervention_strikes }
-					}
-				}
-				GER = {
-					set_country_flag = {
-						flag = USA_intervention_strikes
-						value = 1
-					}
-				}
-			}
-			else = {
-				GER = {
-					modify_country_flag = {
-						flag = USA_intervention_strikes
-						value = 1
-					}
-				}
-			}
-			if = {
-				limit = {
-					SOV = {
-						not = { has_country_flag = USA_intervention_strikes }
-					}
-				}
-				SOV = {
-					set_country_flag = {
-						flag = USA_intervention_strikes
-						value = 1
-					}
-				}
-			}
-			else = {
-				SOV = {
-					modify_country_flag = {
-						flag = USA_intervention_strikes
-						value = 1
-					}
-				}
-			}
-		}
-	}
-	USA_protest_baltic_annexation = {
-		icon = eng_propaganda_campaigns
-		available = {
-			
-		}
-		visible = {
-			has_country_flag = USA_baltic_window
-			has_completed_focus = USA_focus_on_europe
-			not = {
-				has_war_with = SOV
-			}
-		}
-		fire_only_once = yes
-		cost = 25
-		ai_will_do = {
-			factor = 1
-			modifier = {
-				has_war = yes
-				factor = 0
-			}
-			modifier = {
-				GER = {
-					has_country_flag = USA_intervention_strikes
-				}
-				factor = 0
-			}
-		}
-		complete_effect = {
-			add_war_support = 0.05
-			SOV = { country_event = mtg_usa_diplomatic_protest.1 } 
-			if = {
-				limit = {
-					SOV = {
-						not = { has_country_flag = USA_intervention_strikes }
-					}
-				}
-				SOV = {
-					set_country_flag = {
-						flag = USA_intervention_strikes
-						value = 1
-					}
-				}
-			}
-			else = {
-				SOV = {
-					modify_country_flag = {
-						flag = USA_intervention_strikes
-						value = 1
-					}
-				}
-			}
-		}
-	}
-	USA_protest_army_of_aggression = {
-		icon = eng_propaganda_campaigns
-		available = {
-			
-		}
-		visible = {
-			has_country_flag = USA_army_of_aggression_window
-			has_completed_focus = USA_focus_on_europe
-			not = {
-				has_war_with = FRA
-			}
-		}
-		fire_only_once = yes
-		cost = 25
-		ai_will_do = {
-			factor = 1
-			modifier = {
-				has_war = yes
-				factor = 0
-			}
-			modifier = {
-				GER = {
-					has_country_flag = USA_intervention_strikes
-				}
-				factor = 0
-			}
-		}
-		complete_effect = {
-			add_war_support = 0.05
-			FRA = { country_event = mtg_usa_diplomatic_protest.1 } 
-			if = {
-				limit = {
-					FRA = {
-						not = { has_country_flag = USA_intervention_strikes }
-					}
-				}
-				FRA = {
-					set_country_flag = {
-						flag = USA_intervention_strikes
-						value = 1
-					}
-				}
-			}
-			else = {
-				FRA = {
-					modify_country_flag = {
-						flag = USA_intervention_strikes
-						value = 1
-					}
-				}
-			}
-		}
-	}
-	USA_protest_albania = {
-		icon = eng_propaganda_campaigns
-		available = {
-			
-		}
-		visible = {
-			has_country_flag = USA_albania_window
-			has_completed_focus = USA_focus_on_europe
-			not = {
-				has_war_with = ITA
-			}
-		}
-		fire_only_once = yes
-		cost = 25
-		ai_will_do = {
-			factor = 1
-			modifier = {
-				has_war = yes
-				factor = 0
-			}
-			modifier = {
-				GER = {
-					has_country_flag = USA_intervention_strikes
-				}
-				factor = 0
-			}
-		}
-		complete_effect = {
-			add_war_support = 0.05
-			ITA = { country_event = mtg_usa_diplomatic_protest.1 } 
-			if = {
-				limit = {
-					ITA = {
-						not = { has_country_flag = USA_intervention_strikes }
-					}
-				}
-				ITA = {
-					set_country_flag = {
-						flag = USA_intervention_strikes
-						value = 1
-					}
-				}
-			}
-			else = {
-				ITA = {
-					modify_country_flag = {
-						flag = USA_intervention_strikes
-						value = 1
-					}
-				}
-			}
-		}
-	}
-	USA_protest_yugoslavia = {
-		icon = eng_propaganda_campaigns
-		available = {
-			
-		}
-		visible = {
-			has_country_flag = USA_yugoslavia_window
-			has_completed_focus = USA_focus_on_europe
-			not = {
-				has_war_with = ITA
-			}
-		}
-		fire_only_once = yes
-		cost = 25
-		ai_will_do = {
-			factor = 1
-			modifier = {
-				has_war = yes
-				factor = 0
-			}
-			modifier = {
-				GER = {
-					has_country_flag = USA_intervention_strikes
-				}
-				factor = 0
-			}
-		}
-		complete_effect = {
-			add_war_support = 0.05
-			ITA = { country_event = mtg_usa_diplomatic_protest.1 } 
-			if = {
-				limit = {
-					ITA = {
-						not = { has_country_flag = USA_intervention_strikes }
-					}
-				}
-				ITA = {
-					set_country_flag = {
-						flag = USA_intervention_strikes
-						value = 1
-					}
-				}
-			}
-			else = {
-				ITA = {
-					modify_country_flag = {
-						flag = USA_intervention_strikes
-						value = 1
-					}
-				}
-			}
-		}
-	}
-	USA_protest_china = {
-		icon = eng_propaganda_campaigns
-		available = {
-			
-		}
-		visible = {
-			OR = {
-				has_country_flag = USA_china_window
-				OR = {
-					613 = {
-						CONTROLLER = {
-							OR = {
-								original_tag = JAP
-								is_subject_of = JAP
-							}
-						}
-					}
-					event_target:WTT_current_china_leader = {
-						surrender_progress > 0.5
-					}
-				}
-			}
-			has_completed_focus = USA_focus_on_asia
-			not = {
-				has_war_with = JAP
-			}
-		}
-		fire_only_once = yes
-		cost = 25
-		ai_will_do = {
-			factor = 1
-			modifier = {
-				has_war = yes
-				factor = 0
-			}
-		}
-		complete_effect = {
-			add_war_support = 0.05
-			JAP = { country_event = mtg_usa_diplomatic_protest.1 } 
-			if = {
-				limit = {
-					JAP = {
-						not = { has_country_flag = USA_intervention_strikes }
-					}
-				}
-				JAP = {
-					set_country_flag = {
-						flag = USA_intervention_strikes
-						value = 1
-					}
-				}
-			}
-			else = {
-				JAP = {
-					modify_country_flag = {
-						flag = USA_intervention_strikes
-						value = 1
-					}
-				}
-			}
-		}
-	}
-	USA_protest_indochina = {
-		icon = eng_propaganda_campaigns
-		available = {
-			
-		}
-		visible = {
-			has_country_flag = USA_indochina_window
-			has_completed_focus = USA_focus_on_asia
-			not = {
-				has_war_with = JAP
-			}
-		}
-		fire_only_once = yes
-		cost = 25
-		ai_will_do = {
-			factor = 1
-			modifier = {
-				has_war = yes
-				factor = 0
-			}
-		}
-		complete_effect = {
-			add_war_support = 0.05
-			JAP = { country_event = mtg_usa_diplomatic_protest.1 } 
-			if = {
-				limit = {
-					JAP = {
-						not = { has_country_flag = USA_intervention_strikes }
-					}
-				}
-				JAP = {
-					set_country_flag = {
-						flag = USA_intervention_strikes
-						value = 1
-					}
-				}
-			}
-			else = {
-				JAP = {
-					modify_country_flag = {
-						flag = USA_intervention_strikes
-						value = 1
-					}
-				}
-			}
-		}
-	}
-	USA_protest_panay = {
-		icon = eng_propaganda_campaigns
-		available = {
-			
-		}
-		visible = {
-			has_country_flag = USA_panay_window
-			has_completed_focus = USA_focus_on_asia
-			not = {
-				has_war_with = JAP
-			}
-			not = { has_wargoal_against = JAP }
-		}
-		fire_only_once = yes
-		cost = 25
-		ai_will_do = {
-			factor = 1
-			modifier = {
-				has_war = yes
-				factor = 0
-			}
-		}
-		complete_effect = {
-			add_war_support = 0.05
-			JAP = { country_event = mtg_usa_diplomatic_protest.1 } 
-			if = {
-				limit = {
-					JAP = {
-						not = { has_country_flag = USA_intervention_strikes }
-					}
-				}
-				JAP = {
-					set_country_flag = {
-						flag = USA_intervention_strikes
-						value = 1
-					}
-				}
-			}
-			else = {
-				JAP = {
-					modify_country_flag = {
-						flag = USA_intervention_strikes
-						value = 1
-					}
-				}
-			}
-		}
-	}
-	USA_request_monroe_mandate_against_FROM = {
-		available = {
-			has_war_support > 0.25
-			if = {
-				limit = {
-					has_war_support > 0.6
-				}
-				congress_low_support_trigger = yes
-			}
-			else_if = {
-				limit = {
-					has_war_support > 0.4
-				}
-				congress_medium_support_trigger = yes
-			}
-			else = {
-				congress_high_support_trigger = yes
-			}
-		}
-		visible = {
-			has_completed_focus = USA_reinforce_monroe_doctrine
-			not = { has_wargoal_against = FROM }
-			not = { has_war_with = FROM }
-			FROM = {
-				exists = yes
-				not = { is_subject_of = ROOT }
-			}
-		}
-		target_trigger = {
-			FROM = {
-				exists = yes
-				not = { has_war_with = ROOT }
-				NOT = { 
-					has_government = ROOT
-					is_subject_of = ROOT
-				}
-				capital_scope = {
-					OR = {
-						is_on_continent = north_america
-						is_on_continent = south_america
-					}
-				}
-				OR = {
-					has_civil_war = no
-					AND = {
-						is_subject = yes
-						NOT = { tag = CAN }
-						OVERLORD = {
-							NOT = { 
-								capital_scope = {
-									OR = {
-										is_on_continent = north_america
-										is_on_continent = south_america
-									}
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-		cost = 50
-		days_remove = 35
-		war_with_target_on_remove = yes
-
-		ai_will_do = {
-			factor = 1
-			modifier = {
-				has_war = yes
-				factor = 0
-			}
-			modifier = {
-				FROM = {
-					has_added_tension_amount < 8
-				}
-				factor = 0
-			}
-
-			modifier = {
-				FROM = {
-					OR = {
-						has_added_tension_amount > 30
-						has_government = fascism
-						has_government = communism
-					}
-					NOT = { is_in_faction_with = USA }
-				}
-				factor = 2
-
-			}
-
-		}
-		remove_effect = {
-			create_wargoal = {
-				type = puppet_wargoal_focus
-				target = FROM
-			}
-		}
-	}
-	USA_demand_liberation = {
-		available = {
-			has_war_support > 0.2
-			if = {
-				limit = {
-					has_war_support > 0.6
-				}
-				congress_low_support_trigger = yes
-			}
-			else_if = {
-				limit = {
-					has_war_support > 0.4
-				}
-				congress_medium_support_trigger = yes
-			}
-			else = {
-				congress_high_support_trigger = yes
-			}
-		}
-		visible = {
-			has_completed_focus = USA_reinforce_monroe_doctrine
-			NOT = { has_wargoal_against = FROM }
-			FROM = {
-				NOT = { has_country_flag = USA_monroe_backed_down } #set when US player backs down in reply event
-				any_owned_state = {
-					is_controlled_by = PREV
-					OR = {
-						is_on_continent = north_america
-						is_on_continent = south_america
-					}
-				}
-			} 
-		}
-		target_trigger = {
-			FROM = {
-				NOT = { 
-					OR = {
-						has_government = ROOT
-						has_government = neutrality
-					}
-				}
-				NOT = { 
-					capital_scope = {
-						OR = {
-							is_on_continent = north_america
-							is_on_continent = south_america
-						}
-					}
-				}
-				any_owned_state = {
-					is_controlled_by = PREV
-					OR = {
-						is_on_continent = north_america
-						is_on_continent = south_america
-					}
-				}
-			}
-		}
-		cost = 50
-		ai_will_do = {
-			factor = 1
-			modifier = {
-				has_war = yes
-				factor = 0
-			}
-		}
-		complete_effect = {
-			FROM = { 
-				country_event = mtg_usa_diplomatic_protest.2 
-			}
-		}
-	}
-}
-USA_decolonisation = {
-	USA_freedom_for_Papua = {
-		available = {
-			PNG = {
-				exists = no
-			}
-			controls_state = 523
-			controls_state = 737
-		}
-		cost = 25
-		ai_will_do = {
-			factor = 1
-		}
-		fire_only_once = yes
-		days_remove = 180
-		remove_effect = {
-			PNG = {
-				transfer_state = 523
-				transfer_state = 737 
-			}
-		}
-	}
-	USA_indonesian_liberation = {
-		available = {
-			OR = {
-				controls_state = 669
-				controls_state = 668
-				controls_state = 673
-				controls_state = 334
-				controls_state = 672
-				controls_state = 335
-				controls_state = 667
-				controls_state = 738
-			}
-		}
-		cost = 25
-		ai_will_do = {
-			factor = 1
-		}
-		fire_only_once = yes
-		days_remove = 180
-		remove_effect = {
-			if = {
-				limit = {
-					not = { country_exists = INS }
-				}
-				every_state = {
-					limit = {
-						is_core_of = INS
-						is_controlled_by = ROOT
-					}
-					"INS" = {
-						transfer_state = PREV
-					}
-				}
-			}
-			else_if = {
-				limit = {
-					has_war_with = INS
-				}
-				"INS" = {
-					start_civil_war = {
-						ideology = ROOT
-						size = 1
-					}
-				}
-				random_country = {
-					limit = {
-						original_tag = INS
-						has_government = ROOT
-					}
-					ROOT = {
-						add_to_faction = PREV
-					}
-					every_state = {
-						limit = {
-							OR = {
-								state = 669
-								state = 668
-								state = 673
-								state = 334
-								state = 672
-								state = 335
-								state = 667
-								state = 738
-							}
-							is_controlled_by = ROOT
-						}
-						random_country = {
-							limit = {
-								original_tag = INS
-								has_government = ROOT
-							}
-							transfer_state = PREV
-						}
-					}
-				}
-			}
-		}
-	}
-}
-
-operations = {
-
-	USA_initiate_the_greenland_patrol = {
-
-		icon = generic_operation
-	
-		allowed = {
-			tag = USA
-		}
-		
-		available = {
-			OR = {
-				has_government = democratic
-				has_government = neutrality
-			}
-			101 = {
-				is_owned_and_controlled_by = DEN
-			}
-			DEN = {
-				is_subject = yes
-			}
+            IF = {
+                limit = {
+                    check_variable = {
+                        TPMP_USA_deficit_cg_var > 0
+                    }
+                }
+                USA_decrease_deficit = yes
+            }
 			IF = {
-				limit = {	
-					DEN = {
-						is_subject = yes
-					}
-				}
-				DEN = {
-					overlord = {
-						NOT = {
-							has_government = democratic
-							has_war_with = USA #Unfair to just grab a piece of land from your enemy like this
-							is_in_faction_with = ROOT
-						}
-					}
-				}
-			}
-		}
-
-		cost = 50
-
-		fire_only_once = yes
-
-		ai_will_do = {
-			base = 1
-			modifier = {
-				factor = 50 
-				DEN = {
-					overlord = {
-						OR = {
-							has_government = fascism
-							has_government = communism
-						}
-					}
-				}
-			}
-			modifier = {
-				factor = 2
-				is_historical_focus_on = yes
-				ENG = {
-					has_war_with = GER
-					has_subject = CAN
-				}	
-				GER = {
-					has_government = fascism
-					has_subject = DEN
-				}
-			}
-		} 
-		
-		visible = {
-			tag = USA
-			OR = {
-				has_government = democratic
-				has_government = neutrality
-			}
-			101 = {
-				is_owned_and_controlled_by = DEN
-			}
-			DEN = {
-				is_subject = yes
-				overlord = {
-					is_major = yes
+				limit = {
 					NOT = {
-						has_government = democratic
-						has_war_with = USA #Unfair to just grab a piece of land from your enemy like this
-						is_in_faction_with = ROOT
+						has_variable = GER_war_bonds_var
 					}
 				}
+				set_variable = {
+					var = GER_war_bonds_var
+					value = 50
+				}
 			}
-			has_dlc = "Arms Against Tyranny"
+            IF = {
+				limit = {
+				    has_variable = GER_war_bonds_war_support_var
+				}
+				add_war_support = GER_war_bonds_war_support_var
+			}
+			add_to_variable = {
+				var = GER_war_bonds_war_support_var
+				value = -0.025
+			}
+			add_to_variable = {
+				var = GER_war_bonds_var
+				value = 25
+			}
 		}
-		
-		complete_effect = {
-			DEN = { country_event = { id = AAT_USA_events.01 days = 2 } }
-			add_ideas = USA_greenland_patrol_idea
-			ROOT = {
-				transfer_state = 101
-			}
-			hidden_effect = {
-				set_global_flag = USA_occupied_DEN_greenland
-			}
+    }
+    TPMP_USA_wartime_revenue_decision = {
+        icon = GFX_decision_generic_factory
+        days_remove = 180
+        cost = TPMP_USA_wartime_revenue_0_cost_var?20
+        visible = {
+            has_completed_focus = TPMP_USA_wartime_revenue_act
+        }
+        available = {
+            has_war = yes
+        }
+        modifier = {
+            production_factory_max_efficiency_factor = 0.1
+            industrial_capacity_factory = 0.1
+            industrial_capacity_dockyard = 0.2
 		}
-	}
+        complete_effect = {
+            IF = {
+                limit = {
+                    has_variable = TPMP_USA_wartime_revenue_0_cost_var
+                }
+                multiply_variable = {
+                    TPMP_USA_wartime_revenue_0_cost_var = 2
+                }
+            }
+            ELSE = {
+                set_variable = {
+                    TPMP_USA_wartime_revenue_0_cost_var = 40
+                }
+            }
+            USA_increase_deficit = yes
+            custom_effect_tooltip = generic_skip_zero_line_tt
+        }
+    }
+    TPMP_USA_wartime_deficit_mission = {
+        icon = GFX_decision_generic_factory
+        activation = {
+            always = no
+        }
+        available = {
+            hidden_trigger = {
+                always = no
+            }
+        }
+        cancel_trigger = {
+            hidden_trigger = {
+                NOT = {
+                    has_idea = war_economy
+                    has_idea = tot_economic_mobilisation
+                }
+            }
+        }
+        is_good = no
+        days_mission_timeout = TPMP_USA_deficit_mission_days_var?180
+
+        timeout_effect = {
+            USA_increase_deficit = yes
+            custom_effect_tooltip = generic_skip_one_line_tt
+            hidden_effect = {
+                IF = {
+                    limit = {
+                        has_idea = tot_economic_mobilisation
+                    }
+                    set_variable = { TPMP_USA_deficit_mission_days_var = 120 }
+                }
+                ELSE = {
+                    set_variable = { TPMP_USA_deficit_mission_days_var = 180 }
+                }
+            }
+            activate_mission = TPMP_USA_wartime_deficit_mission
+        }
+    }
+}
+TPMP_USA_foreign_aid_category = {
+    #Make sure to change localization tooltips for any changes in the amount/effects of these lend-lease decisions
+    TPMP_USA_SOV_lend_lease_mission = {
+        activation = {
+            always = no
+        }
+        available = {
+            hidden_trigger = {
+                always = no
+            }
+        }
+        icon = GFX_decision_ger_military_buildup
+        priority = 3
+        is_good = yes
+        days_mission_timeout = 30
+        timeout_effect = {
+            activate_mission = TPMP_USA_SOV_lend_lease_mission
+            set_temp_variable = { lend_lease_routes_var = 0 }
+            IF = {
+                limit = {
+                    arctic_lend_lease_clear = yes
+                }
+                add_to_temp_variable = { lend_lease_routes_var = 1 }
+            }
+            IF = {
+                limit = {
+                    persian_lend_lease_clear = yes
+                }
+                add_to_temp_variable = { lend_lease_routes_var = 1 }
+            }
+            IF = {
+                limit = {
+                    far_east_lend_lease_clear = yes
+                }
+                add_to_temp_variable = { lend_lease_routes_var = 1 }
+            }
+            IF = {
+                limit = {
+                    check_variable = { lend_lease_routes_var > 0 }
+                }
+                set_temp_variable = { lend_lease_scale_var = 1 }
+                IF = {
+                    limit = {
+                        has_idea = USA_edward_stettinius_jr
+                    }
+                    add_to_temp_variable = { lend_lease_scale_var = 0.5 }
+                }
+                multiply_temp_variable = { lend_lease_scale_var = lend_lease_routes_var }
+                set_temp_variable = { lend_lease_infantry_var = 400 }
+                set_temp_variable = { lend_lease_support_var = 50 }
+                set_temp_variable = { lend_lease_motorized_var = 50 }
+                set_temp_variable = { lend_lease_mechanized_var = 30 }
+                set_temp_variable = { lend_lease_light_tank_var = 30 }
+                set_temp_variable = { lend_lease_medium_tank_var = 30 }
+                set_temp_variable = { lend_lease_small_plane_var = 40 }
+                set_temp_variable = { lend_lease_medium_plane_var = 20 }
+                multiply_temp_variable = { lend_lease_infantry_var = lend_lease_scale_var }
+                multiply_temp_variable = { lend_lease_support_var = lend_lease_scale_var }
+                multiply_temp_variable = { lend_lease_motorized_var = lend_lease_scale_var }
+                multiply_temp_variable = { lend_lease_mechanized_var = lend_lease_scale_var }
+                multiply_temp_variable = { lend_lease_light_tank_var = lend_lease_scale_var }
+                multiply_temp_variable = { lend_lease_medium_tank_var = lend_lease_scale_var }
+                multiply_temp_variable = { lend_lease_small_plane_var = lend_lease_scale_var }
+                multiply_temp_variable = { lend_lease_medium_plane_var = lend_lease_scale_var }
+                SOV = {
+                    IF = {
+                        limit = {
+                            USA = {
+                                has_country_flag = TPMP_USA_auxiliary_lend_lease_flag
+                            }
+                        }
+                        add_equipment_to_stockpile = {
+                            type = infantry_equipment
+                            amount = USA.lend_lease_infantry_var
+                            producer = USA
+                        }
+                        add_equipment_to_stockpile = {
+                            type = support_equipment
+                            amount = USA.lend_lease_support_var
+                            producer = USA
+                        }
+                    }
+                    add_equipment_to_stockpile = {
+                        type = motorized_equipment
+                        amount = USA.lend_lease_motorized_var
+                        producer = USA
+                    }
+                    add_equipment_to_stockpile = {
+                        type = mechanized_equipment
+                        amount = USA.lend_lease_mechanized_var
+                        producer = USA
+                    }
+                    IF = {
+                        limit = {
+                            USA = {
+                                has_country_flag = TPMP_USA_modern_lend_lease_flag
+                                has_tech = lighttank3b_tech
+                            }
+                        }
+                        add_equipment_to_stockpile = {
+                            type = light_tank_chassis_1941
+                            amount = USA.lend_lease_light_tank_var
+                            producer = USA
+                        }
+                    }
+                    ELSE_IF = {
+                        limit = {
+                            USA = {
+                                has_country_flag = TPMP_USA_modern_lend_lease_flag
+                                has_tech = lighttank3a_tech
+                            }
+                        }
+                        add_equipment_to_stockpile = {
+                            type = light_tank_chassis_1940
+                            amount = USA.lend_lease_light_tank_var
+                            producer = USA
+                        }
+                    }
+                    ELSE = {
+                        add_equipment_to_stockpile = {
+                            type = light_tank_chassis_1938
+                            amount = USA.lend_lease_light_tank_var
+                            producer = USA
+                        }
+                    }
+                    IF = {
+                        limit = {
+                            USA = {
+                                has_country_flag = TPMP_USA_modern_lend_lease_flag
+                                has_tech = mediumtank3b_tech
+                            }
+                        }
+                        add_equipment_to_stockpile = {
+                            type = medium_tank_chassis_1941
+                            amount = USA.lend_lease_medium_tank_var
+                            producer = USA
+                        }
+                    }
+                    ELSE_IF = {
+                        limit = {
+                            USA = {
+                                has_country_flag = TPMP_USA_modern_lend_lease_flag
+                                has_tech = mediumtank3a_tech
+                            }
+                        }
+                        add_equipment_to_stockpile = {
+                            type = medium_tank_chassis_1940
+                            amount = USA.lend_lease_medium_tank_var
+                            producer = USA
+                        }
+                    }
+                    ELSE = {
+                        add_equipment_to_stockpile = {
+                            type = medium_tank_chassis_1938
+                            amount = USA.lend_lease_medium_tank_var
+                            producer = USA
+                        }
+                    }
+                    IF = {
+                        limit = {
+                            USA = {
+                                has_country_flag = TPMP_USA_modern_lend_lease_flag
+                                has_tech = improved_small_airframe
+                            }
+                        }
+                        add_equipment_to_stockpile = {
+                            type = small_plane_airframe_2
+                            amount = USA.lend_lease_small_plane_var
+                            producer = USA
+                        }
+                    }
+                    ELSE = {
+                        add_equipment_to_stockpile = {
+                            type = small_plane_airframe_1
+                            amount = USA.lend_lease_small_plane_var
+                            producer = USA
+                        }
+                    }
+                    IF = {
+                        limit = {
+                            USA = {
+                                has_country_flag = TPMP_USA_modern_lend_lease_flag
+                                has_tech = improved_medium_airframe
+                            }
+                        }
+                        add_equipment_to_stockpile = {
+                            type = medium_plane_airframe_2
+                            amount = USA.lend_lease_medium_plane_var
+                            producer = USA
+                        }
+                    }
+                    ELSE = {
+                        add_equipment_to_stockpile = {
+                            type = medium_plane_airframe_1
+                            amount = USA.lend_lease_medium_plane_var
+                            producer = USA
+                        }
+                    }
+                }
+            }
+        }
+    }
+    TPMP_USA_ENG_lend_lease_mission = {
+        activation = {
+            always = no
+        }
+        available = {
+            hidden_trigger = {
+                always = no
+            }
+        }
+        icon = GFX_decision_ger_military_buildup
+        priority = 2
+        is_good = yes
+        days_mission_timeout = 30
+        timeout_effect = {
+            activate_mission = TPMP_USA_ENG_lend_lease_mission
+            set_temp_variable = { lend_lease_routes_var = 0 }
+            IF = {
+                limit = {
+                    north_atlantic_lend_lease_clear = yes
+                }
+                add_to_temp_variable = { lend_lease_routes_var = 1 }
+            }
+            IF = {
+                limit = {
+                    central_atlantic_lend_lease_clear = yes
+                }
+                add_to_temp_variable = { lend_lease_routes_var = 1 }
+            }
+            IF = {
+                limit = {
+                    check_variable = { lend_lease_routes_var > 0 }
+                }
+                set_temp_variable = { lend_lease_scale_var = 1 }
+                IF = {
+                    limit = {
+                        has_idea = USA_edward_stettinius_jr
+                    }
+                    add_to_temp_variable = { lend_lease_scale_var = 0.5 }
+                }
+                IF = {
+                    limit = {
+                        has_completed_focus = TPMP_USA_anglo_american_mutual_aid_agreement
+                    }
+                    add_to_temp_variable = { lend_lease_scale_var = 0.5 }
+                }
+                multiply_temp_variable = { lend_lease_scale_var = lend_lease_routes_var }
+                set_temp_variable = { lend_lease_infantry_var = 400 }
+                set_temp_variable = { lend_lease_support_var = 50 }
+                set_temp_variable = { lend_lease_motorized_var = 50 }
+                set_temp_variable = { lend_lease_mechanized_var = 30 }
+                set_temp_variable = { lend_lease_light_tank_var = 30 }
+                set_temp_variable = { lend_lease_medium_tank_var = 30 }
+                set_temp_variable = { lend_lease_large_plane_var = 20 }
+                multiply_temp_variable = { lend_lease_infantry_var = lend_lease_scale_var }
+                multiply_temp_variable = { lend_lease_support_var = lend_lease_scale_var }
+                multiply_temp_variable = { lend_lease_motorized_var = lend_lease_scale_var }
+                multiply_temp_variable = { lend_lease_mechanized_var = lend_lease_scale_var }
+                multiply_temp_variable = { lend_lease_light_tank_var = lend_lease_scale_var }
+                multiply_temp_variable = { lend_lease_medium_tank_var = lend_lease_scale_var }
+                multiply_temp_variable = { lend_lease_large_plane_var = lend_lease_scale_var }
+                ENG = {
+                    add_equipment_to_stockpile = {
+                        type = infantry_equipment
+                        amount = USA.lend_lease_infantry_var
+                        producer = USA
+                    }
+                    add_equipment_to_stockpile = {
+                        type = support_equipment
+                        amount = USA.lend_lease_support_var
+                        producer = USA
+                    }
+                    add_equipment_to_stockpile = {
+                        type = motorized_equipment
+                        amount = USA.lend_lease_motorized_var
+                        producer = USA
+                    }
+                    add_equipment_to_stockpile = {
+                        type = mechanized_equipment
+                        amount = USA.lend_lease_mechanized_var
+                        producer = USA
+                    }
+                    IF = {
+                        limit = {
+                            USA = {
+                                has_tech = lighttank3b_tech
+                            }
+                        }
+                        add_equipment_to_stockpile = {
+                            type = light_tank_chassis_1941
+                            amount = USA.lend_lease_light_tank_var
+                            producer = USA
+                        }
+                    }
+                    ELSE_IF = {
+                        limit = {
+                            USA = {
+                                has_tech = lighttank3a_tech
+                            }
+                        }
+                        add_equipment_to_stockpile = {
+                            type = light_tank_chassis_1940
+                            amount = USA.lend_lease_light_tank_var
+                            producer = USA
+                        }
+                    }
+                    ELSE = {
+                        add_equipment_to_stockpile = {
+                            type = light_tank_chassis_1938
+                            amount = USA.lend_lease_light_tank_var
+                            producer = USA
+                        }
+                    }
+                    IF = {
+                        limit = {
+                            USA = {
+                                has_tech = mediumtank3b_tech
+                            }
+                        }
+                        add_equipment_to_stockpile = {
+                            type = medium_tank_chassis_1941
+                            amount = USA.lend_lease_medium_tank_var
+                            producer = USA
+                        }
+                    }
+                    ELSE_IF = {
+                        limit = {
+                            USA = {
+                                has_tech = mediumtank3a_tech
+                            }
+                        }
+                        add_equipment_to_stockpile = {
+                            type = medium_tank_chassis_1940
+                            amount = USA.lend_lease_medium_tank_var
+                            producer = USA
+                        }
+                    }
+                    ELSE = {
+                        add_equipment_to_stockpile = {
+                            type = medium_tank_chassis_1938
+                            amount = USA.lend_lease_medium_tank_var
+                            producer = USA
+                        }
+                    }
+                    IF = {
+                        limit = {
+                            USA = {
+                                has_tech = improved_large_airframe
+                            }
+                        }
+                        add_equipment_to_stockpile = {
+                            type = large_plane_airframe_2
+                            amount = USA.lend_lease_large_plane_var
+                            producer = USA
+                        }
+                    }
+                    ELSE = {
+                        add_equipment_to_stockpile = {
+                            type = large_plane_airframe_1
+                            amount = USA.lend_lease_large_plane_var
+                            producer = USA
+                        }
+                    }
+                }
+            }
+        }
+    }
+    TPMP_USA_FRA_lend_lease_mission = {
+        activation = {
+            always = no
+        }
+        available = {
+            hidden_trigger = {
+                always = no
+            }
+        }
+        icon = GFX_decision_ger_military_buildup
+        priority = 1
+        is_good = yes
+        days_mission_timeout = 30
+        timeout_effect = {
+            activate_mission = TPMP_USA_FRA_lend_lease_mission
+            set_temp_variable = { lend_lease_routes_var = 0 }
+            IF = {
+                limit = {
+                    central_atlantic_lend_lease_clear = yes
+                }
+                add_to_temp_variable = { lend_lease_routes_var = 1 }
+            }
+            IF = {
+                limit = {
+                    african_coast_lend_lease_clear = yes
+                }
+                add_to_temp_variable = { lend_lease_routes_var = 1 }
+            }
+            IF = {
+                limit = {
+                    check_variable = { lend_lease_routes_var > 0 }
+                }
+                set_temp_variable = { lend_lease_scale_var = 1 }
+                IF = {
+                    limit = {
+                        has_idea = USA_edward_stettinius_jr
+                    }
+                    add_to_temp_variable = { lend_lease_scale_var = 0.5 }
+                }
+                multiply_temp_variable = { lend_lease_scale_var = lend_lease_routes_var }
+                set_temp_variable = { lend_lease_infantry_var = 400 }
+                set_temp_variable = { lend_lease_support_var = 50 }
+                set_temp_variable = { lend_lease_motorized_var = 50 }
+                set_temp_variable = { lend_lease_mechanized_var = 30 }
+                set_temp_variable = { lend_lease_light_tank_var = 30 }
+                set_temp_variable = { lend_lease_medium_tank_var = 30 }
+                multiply_temp_variable = { lend_lease_infantry_var = lend_lease_scale_var }
+                multiply_temp_variable = { lend_lease_support_var = lend_lease_scale_var }
+                multiply_temp_variable = { lend_lease_motorized_var = lend_lease_scale_var }
+                multiply_temp_variable = { lend_lease_mechanized_var = lend_lease_scale_var }
+                multiply_temp_variable = { lend_lease_light_tank_var = lend_lease_scale_var }
+                multiply_temp_variable = { lend_lease_medium_tank_var = lend_lease_scale_var }
+                FRA = {
+                    add_equipment_to_stockpile = {
+                        type = infantry_equipment
+                        amount = USA.lend_lease_infantry_var
+                        producer = USA
+                    }
+                    add_equipment_to_stockpile = {
+                        type = support_equipment
+                        amount = USA.lend_lease_support_var
+                        producer = USA
+                    }
+                    add_equipment_to_stockpile = {
+                        type = motorized_equipment
+                        amount = USA.lend_lease_motorized_var
+                        producer = USA
+                    }
+                    add_equipment_to_stockpile = {
+                        type = mechanized_equipment
+                        amount = USA.lend_lease_mechanized_var
+                        producer = USA
+                    }
+                    IF = {
+                        limit = {
+                            USA = {
+                                has_tech = lighttank3b_tech
+                            }
+                        }
+                        add_equipment_to_stockpile = {
+                            type = light_tank_chassis_1941
+                            amount = USA.lend_lease_light_tank_var
+                            producer = USA
+                        }
+                    }
+                    ELSE_IF = {
+                        limit = {
+                            USA = {
+                                has_tech = lighttank3a_tech
+                            }
+                        }
+                        add_equipment_to_stockpile = {
+                            type = light_tank_chassis_1940
+                            amount = USA.lend_lease_light_tank_var
+                            producer = USA
+                        }
+                    }
+                    ELSE = {
+                        add_equipment_to_stockpile = {
+                            type = light_tank_chassis_1938
+                            amount = USA.lend_lease_light_tank_var
+                            producer = USA
+                        }
+                    }
+                    IF = {
+                        limit = {
+                            USA = {
+                                has_tech = mediumtank3b_tech
+                            }
+                        }
+                        add_equipment_to_stockpile = {
+                            type = medium_tank_chassis_1941
+                            amount = USA.lend_lease_medium_tank_var
+                            producer = USA
+                        }
+                    }
+                    ELSE_IF = {
+                        limit = {
+                            USA = {
+                                has_tech = mediumtank3a_tech
+                            }
+                        }
+                        add_equipment_to_stockpile = {
+                            type = medium_tank_chassis_1940
+                            amount = USA.lend_lease_medium_tank_var
+                            producer = USA
+                        }
+                    }
+                    ELSE = {
+                        add_equipment_to_stockpile = {
+                            type = medium_tank_chassis_1938
+                            amount = USA.lend_lease_medium_tank_var
+                            producer = USA
+                        }
+                    }
+                }
+            }
+        }
+    }
+    TPMP_USA_auxiliary_lend_lease_decision = {
+        icon = GFX_decision_generic_prepare_civil_war
+        cost = 50
+        fire_only_once = yes
+        visible = {
+            has_completed_focus = TPMP_USA_the_moscow_protocols
+            NOT = {
+                has_country_flag = TPMP_USA_modern_lend_lease_flag
+            }
+        }
+        available = {
+            has_support_lwd_ndd_pr = yes
+            NOT = {
+                has_country_flag = TPMP_USA_modern_lend_lease_flag
+            }
+        }
+        complete_effect = {
+            custom_effect_tooltip = TPMP_USA_auxiliary_lend_lease_tt
+            set_country_flag = TPMP_USA_auxiliary_lend_lease_flag
+        }
+    }
+    TPMP_USA_modern_lend_lease_decision = {
+        icon = GFX_decision_generic_tank
+        cost = 50
+        fire_only_once = yes
+        visible = {
+            has_completed_focus = TPMP_USA_the_moscow_protocols
+            NOT = {
+                has_country_flag = TPMP_USA_auxiliary_lend_lease_flag
+            }
+        }
+        available = {
+            has_support_lwd_ndd = yes
+            NOT = {
+                has_country_flag = TPMP_USA_auxiliary_lend_lease_flag
+            }
+        }
+        complete_effect = {
+            custom_effect_tooltip = TPMP_USA_modern_lend_lease_tt
+            set_country_flag = TPMP_USA_modern_lend_lease_flag
+        }
+    }
+    TPMP_USA_arctic_lend_lease_requirements_decision = {
+        icon = GFX_decision_generic_decision
+        visible = {
+            has_completed_focus = TPMP_USA_lend_lease
+        }
+        available = {
+            arctic_lend_lease_clear = yes
+            hidden_trigger = {
+                always = no
+            }
+        }
+    }
+    TPMP_USA_persian_lend_lease_requirements_decision = {
+        icon = GFX_decision_generic_decision
+        visible = {
+            has_completed_focus = TPMP_USA_lend_lease
+        }
+        available = {
+            persian_lend_lease_clear = yes
+            hidden_trigger = {
+                always = no
+            }
+        }
+    }
+    TPMP_USA_far_east_lend_lease_requirements_decision = {
+        icon = GFX_decision_generic_decision
+        visible = {
+            has_completed_focus = TPMP_USA_lend_lease
+        }
+        available = {
+            far_east_lend_lease_clear = yes
+            hidden_trigger = {
+                always = no
+            }
+        }
+    }
+    TPMP_USA_north_atlantic_lend_lease_requirements_decision = {
+        icon = GFX_decision_generic_decision
+        visible = {
+            has_completed_focus = TPMP_USA_lend_lease
+        }
+        available = {
+            north_atlantic_lend_lease_clear = yes
+            hidden_trigger = {
+                always = no
+            }
+        }
+    }
+    TPMP_USA_central_atlantic_lend_lease_requirements_decision = {
+        icon = GFX_decision_generic_decision
+        visible = {
+            has_completed_focus = TPMP_USA_lend_lease
+        }
+        available = {
+            central_atlantic_lend_lease_clear = yes
+            hidden_trigger = {
+                always = no
+            }
+        }
+    }
+    TPMP_USA_african_coast_lend_lease_requirements_decision = {
+        icon = GFX_decision_generic_decision
+        visible = {
+            has_completed_focus = TPMP_USA_lend_lease
+        }
+        available = {
+            african_coast_lend_lease_clear = yes
+            hidden_trigger = {
+                always = no
+            }
+        }
+    }
+}
+TPMP_USA_sanctions_category = {
+    TPMP_USA_GER_sanction_decision = {
+        icon = GFX_decision_generic_consumer_goods
+        cost = 50
+        fire_only_once = yes
+        visible = {
+            has_completed_focus = TPMP_USA_limited_intervention
+        }
+        complete_effect = {
+            GER = {
+                add_timed_idea = {
+                    idea = TPMP_USA_sanctions_idea
+                    days = 365
+                }
+            }
+        }
+    }
+    TPMP_USA_ITA_sanction_decision = {
+        icon = GFX_decision_generic_consumer_goods
+        cost = 50
+        fire_only_once = yes
+        visible = {
+            has_completed_focus = TPMP_USA_limited_intervention
+        }
+        complete_effect = {
+            ITA = {
+                add_timed_idea = {
+                    idea = TPMP_USA_sanctions_idea
+                    days = 365
+                }
+            }
+        }
+    }
+    TPMP_USA_JAP_sanction_decision = {
+        icon = GFX_decision_generic_consumer_goods
+        cost = 50
+        fire_only_once = yes
+        visible = {
+            has_completed_focus = TPMP_USA_limited_intervention
+        }
+        complete_effect = {
+            JAP = {
+                add_timed_idea = {
+                    idea = TPMP_USA_sanctions_idea
+                    days = 365
+                }
+            }
+        }
+    }
+}
+propaganda_efforts = {
+    # TPMP_USA_economic_royalism_propaganda_decision = {
+    #     icon = GFX_decision_eng_propaganda_campaigns
+    #     cost = 75
+    #     fire_only_once = yes
+    #     visible = {
+    #         has_completed_focus = TPMP_USA_denounce_economic_royalism
+    #     }
+    #     complete_effect = {
+    #         custom_effect_tooltip = ndd_lose_support_small_tt
+	# 		custom_effect_tooltip = br_gain_support_small_tt
+	# 		for_loop_effect = {
+	# 			end = 3
+	# 			IF = {
+	# 				limit = {
+	# 					check_variable = {
+	# 						new_deal_democrat_support_var > 0
+	# 					}
+	# 				}
+	# 				add_to_variable = {
+	# 					business_republican_support_var = 1
+	# 				}
+	# 				add_to_variable = {
+	# 					new_deal_democrat_support_var = -1
+	# 				}
+	# 			}
+	# 		}
+	# 		custom_effect_tooltip = generic_skip_one_line_tt
+    #         USA_decrease_great_depression = yes
+    #         custom_effect_tooltip = generic_skip_zero_line_tt
+    #     }
+    # }
+}
+TPMP_USA_power_balance_category = {
+    TPMP_USA_assert_executive_authority_decision = {
+        icon = GFX_decision_generic_political_address
+        fire_only_once = no
+        cost = 50
+        days_remove = 30
+        remove_effect = {
+            add_power_balance_value = {
+                id = TPMP_USA_power_balance
+                value = 0.1
+            }
+        }
+    }
+    TPMP_USA_rule_by_executive_order_decision = {
+        icon = GFX_decision_generic_political_address
+        custom_cost_trigger = {
+            command_power > 49
+            has_political_power > 9
+        }
+        custom_cost_text = decision_cost_CP_50_pp_10
+        fire_only_once = no
+        days_remove = 30
+        complete_effect = {
+            hidden_effect = {
+                add_command_power = -50
+                add_political_power = -10
+            }
+        }
+        remove_effect = {
+            add_power_balance_value = {
+                id = TPMP_USA_power_balance
+                value = 0.1
+            }
+        }
+    }
+    TPMP_USA_executive_power_grab_decision = {
+        icon = GFX_decision_generic_political_address
+        fire_only_once = yes
+        cost = 150
+        complete_effect = {
+            add_power_balance_value = {
+                id = TPMP_USA_power_balance
+                value = 0.25
+            }
+        }
+    }
+    TPMP_USA_defer_to_congress_decision = {
+        icon = GFX_decision_generic_political_discourse
+        fire_only_once = no
+        cost = 50
+        days_remove = 30
+        remove_effect = {
+            add_power_balance_value = {
+                id = TPMP_USA_power_balance
+                value = -0.1
+            }
+        }
+    }
+    TPMP_USA_concessions_to_congress_decision = {
+        icon = GFX_decision_generic_political_discourse
+        fire_only_once = no
+        cost = 10
+        days_remove = 30
+        remove_effect = {
+            custom_effect_tooltip = ndd_lose_support_small_tt
+            custom_effect_tooltip = br_gain_support_small_tt
+            for_loop_effect = {
+                end = 3
+                IF = {
+                    limit = {
+                        check_variable = {
+                            new_deal_democrat_support_var > 0
+                        }
+                    }
+                    add_to_variable = {
+                        business_republican_support_var = 1
+                    }
+                    add_to_variable = {
+                        new_deal_democrat_support_var = -1
+                    }
+                }
+            }
+            recalculate_congressional_ui = yes
+            custom_effect_tooltip = generic_skip_one_line_tt
+            add_power_balance_value = {
+                id = TPMP_USA_power_balance
+                value = -0.2
+            }
+        }
+    }
+    TPMP_USA_restore_congressional_oversight_decision = {
+        icon = GFX_decision_generic_political_discourse
+        fire_only_once = yes
+        cost = 150
+        complete_effect = {
+            add_power_balance_value = {
+                id = TPMP_USA_power_balance
+                value = -0.25
+            }
+        }
+    }
 }

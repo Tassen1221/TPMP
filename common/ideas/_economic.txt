@@ -31,20 +31,6 @@ ideas = {
 			}
 
 			allowed_to_remove = {
-				IF = {
-					limit = {
-						original_tag = USA
-					}
-					hidden_trigger = {
-						always = no
-					}
-				}
-				ELSE = {
-					OR = {
-						has_war_support > 0.5
-						has_war = yes
-					}
-				}
 			}
 
 			cancel_if_invalid = no
@@ -75,20 +61,6 @@ ideas = {
 				factory_energy_consumption = -0.3
 			}
 			allowed_to_remove = {
-				IF = {
-					limit = {
-						original_tag = USA
-					}
-					hidden_trigger = {
-						always = no
-					}
-				}
-				ELSE = {
-					OR = {
-						has_war_support > 0.75
-						has_war = yes
-					}
-				}
 			}
 
 			cancel_if_invalid = no
@@ -99,6 +71,15 @@ ideas = {
 
 			cost = 150
 			removal_cost = -1
+
+			available = {
+				IF = {
+					limit = {
+						original_tag = USA
+					}
+					has_completed_focus = TPMP_USA_the_second_new_deal
+				}
+			}
 
 			modifier = {
 				consumer_goods_expected_value = 0.35
@@ -142,7 +123,13 @@ ideas = {
 
 			available = {
 				has_war_support > 0.15
-				
+				IF = {
+					limit = {
+						original_tag = USA
+					}
+					has_completed_focus = TPMP_USA_arsenal_of_democracy
+				}
+
 				IF = {
 					limit = {
 						original_tag = HUN
@@ -197,16 +184,6 @@ ideas = {
 						}
 					}
 				}
-
-				if = {
-					limit = {
-						original_tag = USA
-					}
-					OR = {
-						has_war_support > 0.55
-						has_war = yes
-					}
-				}
 				if = {
 					limit = {
 						original_tag = TUR
@@ -237,15 +214,6 @@ ideas = {
 				}
 			}
 			on_add = {
-				if = {
-					limit = {
-						tag = USA
-						has_completed_focus = USA_limited_intervention
-						has_defensive_war = no
-					}
-					USA_congress_large_opposition = yes
-				}
-
 				if = {
 					limit = {
 						has_dlc = "Thunder at Our Gates"
@@ -305,6 +273,12 @@ ideas = {
 
 			available = {
 				has_war_support > 0.25
+				IF = {
+					limit = {
+						original_tag = USA
+					}
+					has_completed_focus = TPMP_USA_the_giant_wakes
+				}
 
 				IF = {
 					limit = {
@@ -353,15 +327,6 @@ ideas = {
 				}
 				if = {
 					limit = {
-						original_tag = USA
-					}
-					OR = {
-						has_war_support > 0.60
-						has_war = yes
-					}
-				}
-				if = {
-					limit = {
 						original_tag = TUR
 						has_dlc = "Battle for the Bosporus"
 					}
@@ -403,15 +368,6 @@ ideas = {
 
 			cancel_if_invalid = no
 			on_add = {
-				if = {
-					limit = {
-						tag = USA
-						has_completed_focus = USA_limited_intervention
-						has_defensive_war = no
-					}
-					USA_congress_large_opposition = yes
-				}
-
 				if = {
 					limit = {
 						has_dlc = "Thunder at Our Gates"
@@ -519,7 +475,6 @@ ideas = {
 						}
 					}
 				}
-
 				IF = {
 					limit = {
 						original_tag = HUN
@@ -574,15 +529,6 @@ ideas = {
 						}
 					}
 				}
-
-				if = {
-					limit = {
-						has_completed_focus = USA_limited_intervention
-						has_defensive_war = no
-					}
-					has_war_support > 0.75
-					congress_high_support_trigger = yes
-				}
 				if = {
 					limit = {
 						original_tag = TUR
@@ -628,13 +574,12 @@ ideas = {
 			on_add = {
 				if = {
 					limit = {
-						tag = USA
-						has_completed_focus = USA_limited_intervention
-						has_defensive_war = no
+						original_tag = USA
+						NOT = { has_active_mission = TPMP_USA_wartime_deficit_mission }
 					}
-					USA_congress_large_opposition = yes
+					set_variable = { TPMP_USA_deficit_mission_days_var = 180 }
+					activate_mission = TPMP_USA_wartime_deficit_mission
 				}
-
 				if = {
 					limit = {
 						has_dlc = "Thunder at Our Gates"
@@ -729,8 +674,14 @@ ideas = {
 			}
 
 			available = {
-				has_war = yes
 				has_war_support > 0.8
+				IF = {
+					limit = {
+						original_tag = USA
+					}
+					has_completed_focus = TPMP_USA_limitless_potential
+				}
+				has_war = yes
 				any_enemy_country = {
 					ic_ratio = {
 						tag = ROOT
@@ -741,6 +692,14 @@ ideas = {
 			}
 
 			on_add = {
+				if = {
+					limit = {
+						original_tag = USA
+						NOT = { has_active_mission = TPMP_USA_wartime_deficit_mission }
+					}
+					set_variable = { TPMP_USA_deficit_mission_days_var = 120 }
+					activate_mission = TPMP_USA_wartime_deficit_mission
+				}
 				if = {
 					limit = {
 						has_dlc = "Thunder at Our Gates"
