@@ -403,7 +403,7 @@ TPMP_USA_congress_category = {
         }
         fire_only_once = no
         cost = 50
-        days_remove = TPMP_USA_congress_decision_time_var?60
+        days_remove = TPMP_USA_congress_decision_time_short_var?40
         remove_effect = {
             custom_effect_tooltip = lwd_lose_support_tiny_tt
             custom_effect_tooltip = ndd_gain_support_tiny_tt
@@ -444,7 +444,7 @@ TPMP_USA_congress_category = {
         }
         fire_only_once = no
         cost = 50
-        days_remove = TPMP_USA_congress_decision_time_var?60
+        days_remove = TPMP_USA_congress_decision_time_short_var?40
         remove_effect = {
             custom_effect_tooltip = cd_lose_support_tiny_tt
             custom_effect_tooltip = ndd_gain_support_tiny_tt
@@ -485,7 +485,7 @@ TPMP_USA_congress_category = {
         }
         fire_only_once = no
         cost = 50
-        days_remove = TPMP_USA_congress_decision_time_var?60
+        days_remove = TPMP_USA_congress_decision_time_short_var?40
         remove_effect = {
             custom_effect_tooltip = pr_lose_support_tiny_tt
             custom_effect_tooltip = ndd_gain_support_tiny_tt
@@ -627,7 +627,7 @@ TPMP_USA_congress_category = {
             hidden_trigger = { has_war = yes }
         }
         is_good = no
-        days_mission_timeout = 60
+        days_mission_timeout = 90
 
         timeout_effect = {
             custom_effect_tooltip = ndd_lose_support_tiny_tt
@@ -750,6 +750,8 @@ TPMP_USA_congress_category = {
             }
         }
         timeout_effect = {
+            add_political_power = -30
+            add_stability = -0.02
         }
     }
     TPMP_USA_congress_mission_1 = {
@@ -908,6 +910,8 @@ TPMP_USA_congress_category = {
             }
         }
         timeout_effect = {
+            add_political_power = -30
+            add_stability = -0.02
         }
     }
     TPMP_USA_congress_mission_2 = {
@@ -1031,6 +1035,8 @@ TPMP_USA_congress_category = {
             }
         }
         timeout_effect = {
+            add_political_power = -30
+            add_stability = -0.02
         }
     }
     TPMP_USA_congress_mission_3 = {
@@ -1077,7 +1083,7 @@ TPMP_USA_congress_category = {
                         creator = USA
                     }
                     create_ship = {
-                        type = ship_hull_heavy_2
+                        type = ship_hull_heavy_1
                         equipment_variant = "Early Heavy Ship"
                         creator = USA
                     }
@@ -1140,6 +1146,8 @@ TPMP_USA_congress_category = {
             }
         }
         timeout_effect = {
+            add_political_power = -30
+            add_stability = -0.02
         }
     }
     TPMP_USA_congress_mission_4 = {
@@ -1227,6 +1235,8 @@ TPMP_USA_congress_category = {
             }
         }
         timeout_effect = {
+            add_political_power = -30
+            add_stability = -0.02
         }
     }
     TPMP_USA_congress_mission_5 = {
@@ -1307,24 +1317,10 @@ TPMP_USA_congress_category = {
                     set_country_flag = TPMP_USA_congress_mission_5_reward_flag
                 }
             }
-            hidden_effect = {
-                every_state = {
-                    limit = {
-                        has_state_flag = TPMP_USA_infrastructure_mission_flag
-                    }
-                    clr_state_flag = TPMP_USA_infrastructure_mission_flag
-                }
-            }
         }
         timeout_effect = {
-            hidden_effect = {
-                every_state = {
-                    limit = {
-                        has_state_flag = TPMP_USA_infrastructure_mission_flag
-                    }
-                    clr_state_flag = TPMP_USA_infrastructure_mission_flag
-                }
-            }
+            add_political_power = -30
+            add_stability = -0.02
         }
     }
     TPMP_USA_congress_mission_6 = {
@@ -1374,6 +1370,8 @@ TPMP_USA_congress_category = {
             }
         }
         timeout_effect = {
+            add_political_power = -30
+            add_stability = -0.02
         }
     }
     TPMP_USA_congress_mission_7 = {
@@ -1580,6 +1578,8 @@ TPMP_USA_congress_category = {
             }
         }
         timeout_effect = {
+            add_political_power = -30
+            add_stability = -0.02
         }
     }
     TPMP_USA_congress_mission_8 = {
@@ -1649,6 +1649,8 @@ TPMP_USA_congress_category = {
             }
         }
         timeout_effect = {
+            add_political_power = -30
+            add_stability = -0.02
         }
     }
     TPMP_USA_congress_mission_9 = {
@@ -1724,6 +1726,8 @@ TPMP_USA_congress_category = {
             }
         }
         timeout_effect = {
+            add_political_power = -30
+            add_stability = -0.02
         }
     }
     TPMP_USA_congress_mission_10 = {
@@ -1788,6 +1792,8 @@ TPMP_USA_congress_category = {
             }
         }
         timeout_effect = {
+            add_political_power = -30
+            add_stability = -0.02
         }
     }
     TPMP_USA_congress_mission_11 = {
@@ -1854,6 +1860,8 @@ TPMP_USA_congress_category = {
             }
         }
         timeout_effect = {
+            add_political_power = -30
+            add_stability = -0.02
         }
     }
     TPMP_USA_congress_mission_12 = {
@@ -1884,8 +1892,8 @@ TPMP_USA_congress_category = {
                                 has_country_flag = TPMP_USA_congress_mission_12_reward_flag
                             }
                         }
-                        custom_effect_tooltip = ndd_gain_support_tt
                         custom_effect_tooltip = lwd_lose_support_tiny_tt
+                        custom_effect_tooltip = ndd_gain_support_tt
                         custom_effect_tooltip = cd_lose_support_tiny_tt
                         custom_effect_tooltip = pr_lose_support_tiny_tt
                         custom_effect_tooltip = br_lose_support_tiny_tt
@@ -2011,6 +2019,8 @@ TPMP_USA_congress_category = {
             }
         }
         timeout_effect = {
+            add_political_power = -30
+            add_stability = -0.02
         }
     }
     TPMP_USA_debug_congress_decision_0 = {
@@ -2528,7 +2538,7 @@ TPMP_USA_deficit_category = {
             }
         }
         modifier = {
-            civilian_factory_use = 15
+            civilian_factory_use = 10
 		}
         remove_effect = {
             USA_decrease_deficit = yes
@@ -2931,7 +2941,7 @@ TPMP_USA_foreign_aid_category = {
                 set_temp_variable = { lend_lease_mechanized_var = 30 }
                 set_temp_variable = { lend_lease_light_tank_var = 30 }
                 set_temp_variable = { lend_lease_medium_tank_var = 30 }
-                set_temp_variable = { lend_lease_large_plane_var = 20 }
+                set_temp_variable = { lend_lease_large_plane_var = 10 }
                 multiply_temp_variable = { lend_lease_infantry_var = lend_lease_scale_var }
                 multiply_temp_variable = { lend_lease_support_var = lend_lease_scale_var }
                 multiply_temp_variable = { lend_lease_motorized_var = lend_lease_scale_var }
@@ -3386,7 +3396,7 @@ TPMP_USA_power_balance_category = {
     TPMP_USA_assert_executive_authority_decision = {
         icon = GFX_decision_generic_political_address
         fire_only_once = no
-        cost = 50
+        cost = 20
         days_remove = 30
         remove_effect = {
             add_power_balance_value = {
@@ -3413,14 +3423,14 @@ TPMP_USA_power_balance_category = {
         remove_effect = {
             add_power_balance_value = {
                 id = TPMP_USA_power_balance
-                value = 0.1
+                value = 0.2
             }
         }
     }
     TPMP_USA_executive_power_grab_decision = {
         icon = GFX_decision_generic_political_address
         fire_only_once = yes
-        cost = 150
+        cost = 50
         complete_effect = {
             add_power_balance_value = {
                 id = TPMP_USA_power_balance
@@ -3431,7 +3441,7 @@ TPMP_USA_power_balance_category = {
     TPMP_USA_defer_to_congress_decision = {
         icon = GFX_decision_generic_political_discourse
         fire_only_once = no
-        cost = 50
+        cost = 20
         days_remove = 30
         remove_effect = {
             add_power_balance_value = {
@@ -3443,7 +3453,7 @@ TPMP_USA_power_balance_category = {
     TPMP_USA_concessions_to_congress_decision = {
         icon = GFX_decision_generic_political_discourse
         fire_only_once = no
-        cost = 10
+        cost = 0
         days_remove = 30
         remove_effect = {
             custom_effect_tooltip = ndd_lose_support_small_tt
@@ -3475,7 +3485,7 @@ TPMP_USA_power_balance_category = {
     TPMP_USA_restore_congressional_oversight_decision = {
         icon = GFX_decision_generic_political_discourse
         fire_only_once = yes
-        cost = 150
+        cost = 50
         complete_effect = {
             add_power_balance_value = {
                 id = TPMP_USA_power_balance
