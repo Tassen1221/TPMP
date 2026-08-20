@@ -1494,6 +1494,14 @@
 			custom_effect_tooltip = remove_political_advisor
 			show_ideas_tooltip = ROM_iuliu_maniu
 			show_ideas_tooltip = ROM_armand_calinescu
+			show_ideas_tooltip = ROM_gheorghe_argeseanu
+			show_ideas_tooltip = TPMP_ROM_max_auschnitt
+			show_ideas_tooltip = TPMP_ROM_elena_lupescu
+			show_ideas_tooltip = TPMP_ROM_ernest_urdareanu
+			show_ideas_tooltip = TPMP_ROM_gabriel_marinescu
+
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = ROM_mihail_sturdza
 
 			clr_country_flag = TPMP_ROM_instability
 			remove_ideas = TPMP_ROM_instability
@@ -1556,36 +1564,10 @@
 		available_if_capitulated = no
 
 		completion_reward = {
-			if = {
-				limit = { has_idea = ROM_the_sentinel_of_the_motherland }
-				swap_ideas = {
-					add_idea = ROM_iron_guard
-					remove_idea = ROM_the_sentinel_of_the_motherland
-				}
-				else = {
-					remove_ideas = ROM_the_sentinel_of_the_motherland
-					add_ideas = ROM_iron_guard
-				}
-			}
-			if = {
-				limit = { has_idea = ROM_securitate }
-				remove_ideas = ROM_securitate
-				else = {
-					if = {
-						limit = { has_idea = ROM_constitutional_guarantees }
-						remove_ideas = ROM_constitutional_guarantees
-						else = {
-							custom_effect_tooltip = ROM_appoint_german_friendly_government_tooltip
-						}
-					}
-				}
-			}
-			hidden_effect = {
-				if = {
-					limit = { has_idea = ROM_national_christian_party_in_power }
-					remove_ideas = ROM_national_christian_party_in_power
-				}
-			}
+			add_ideas = ROM_iron_guard
+
+			clr_country_flag = TPMP_ROM_instability
+			remove_ideas = TPMP_ROM_instability
 		}
 	}
 	focus = {
@@ -1792,6 +1774,13 @@
 		available_if_capitulated = no
 
 		completion_reward = {
+			custom_effect_tooltip = TPMP_ROM_present_a_scapegoat_tooltip
+			set_country_flag = TPMP_ROM_auschnitt_purged
+			if = {
+				limit = { has_idea = TPMP_ROM_camarilla_auschnitt }
+				remove_mission = TPMP_ROM_camarilla_mission_5
+				TPMP_ROM_camarilla_advance_5_to_6 = yes
+			}
 		}
 	}
 
@@ -1879,6 +1868,41 @@
 		available_if_capitulated = no
 
 		completion_reward = {
+			if = {
+				limit = { check_variable = { TPMP_ROM_camarilla_index = 1 } }
+				swap_ideas = {
+					remove_idea = TPMP_ROM_camarilla_lupescu
+					add_idea = TPMP_ROM_camarilla_lupescu_renewed
+				}
+			}
+			if = {
+				limit = { check_variable = { TPMP_ROM_camarilla_index = 2 } }
+				swap_ideas = {
+					remove_idea = TPMP_ROM_camarilla_urdareanu
+					add_idea = TPMP_ROM_camarilla_urdareanu_renewed
+				}
+			}
+			if = {
+				limit = { check_variable = { TPMP_ROM_camarilla_index = 3 } }
+				swap_ideas = {
+					remove_idea = TPMP_ROM_camarilla_malaxa
+					add_idea = TPMP_ROM_camarilla_malaxa_renewed
+				}
+			}
+			if = {
+				limit = { check_variable = { TPMP_ROM_camarilla_index = 4 } }
+				swap_ideas = {
+					remove_idea = TPMP_ROM_camarilla_calinescu
+					add_idea = TPMP_ROM_camarilla_calinescu_renewed
+				}
+			}
+			if = {
+				limit = { check_variable = { TPMP_ROM_camarilla_index = 6 } }
+				swap_ideas = {
+					remove_idea = TPMP_ROM_camarilla_marinescu
+					add_idea = TPMP_ROM_camarilla_marinescu_renewed
+				}
+			}
 		}
 	}
 
