@@ -81,6 +81,39 @@ ideas = {
 			}
 		}
 
+		TPMP_ROM_auschnitt_purged_spirit = {
+
+			allowed = {
+				original_tag = ROM
+			}
+
+			allowed_civil_war = {
+
+			}
+
+			removal_cost = -1
+
+			picture = generic_nationalization
+
+			modifier = {
+				production_speed_arms_factory_factor = 0.1
+			}
+
+			on_add = {
+				add_offsite_building = {
+					type = arms_factory
+					level = 3
+				}
+			}
+
+			on_remove = {
+				add_offsite_building = {
+					type = arms_factory
+					level = -3
+				}
+			}
+		}
+
 		TPMP_ROM_anti_corruption_efforts = {
 
 			allowed = {

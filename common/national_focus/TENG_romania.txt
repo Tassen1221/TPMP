@@ -1350,6 +1350,16 @@
 		available_if_capitulated = no
 
 		completion_reward = {
+			remove_ideas = ROM_king_carol_ii_hedonist
+			if = {
+				limit = { has_idea = ROM_the_sentinel_of_the_motherland }
+				remove_ideas = ROM_the_sentinel_of_the_motherland
+			}
+			add_timed_idea = { idea = ROM_king_carol_emptied_accounts days = 360 }
+			hidden_effect = {
+				news_event = { id = news.323 days = 1 }
+			}
+
 			set_politics = {
 				ruling_party = fascism
 				elections_allowed = no
@@ -1461,6 +1471,11 @@
 					level = 1
 					instant_build = yes
 				}
+			}
+
+			add_timed_idea = {
+				idea = TPMP_ROM_auschnitt_purged_spirit
+				days = 182
 			}
 		}
 	}
@@ -1781,6 +1796,15 @@
 				remove_mission = TPMP_ROM_camarilla_mission_5
 				TPMP_ROM_camarilla_advance_5_to_6 = yes
 			}
+
+			custom_effect_tooltip = remove_political_advisor
+			show_ideas_tooltip = TPMP_ROM_max_auschnitt
+
+			add_stability = -0.05
+			add_timed_idea = {
+				idea = TPMP_ROM_auschnitt_purged_spirit
+				days = 182
+			}
 		}
 	}
 
@@ -1840,6 +1864,10 @@
 
 		completion_reward = {
 			add_political_power = 120
+			swap_ideas = {
+				add_idea = ROM_the_sentinel_of_the_motherland_2
+				remove_idea = ROM_the_sentinel_of_the_motherland
+			}
 		}
 	}
 
@@ -1868,6 +1896,7 @@
 		available_if_capitulated = no
 
 		completion_reward = {
+			custom_effect_tooltip = TPMP_ROM_camarilla_renewed_tooltip
 			if = {
 				limit = { check_variable = { TPMP_ROM_camarilla_index = 1 } }
 				swap_ideas = {
@@ -2006,7 +2035,9 @@
 				remove_idea = ROM_king_carol_ii_hedonist
 			}
 			remove_country_leader_trait = hedonist
-			GER = { country_event = { id = generic.2 hours = 4 random_hours = 2 } }
+
+			clr_country_flag = TPMP_ROM_instability
+			remove_ideas = TPMP_ROM_instability
 		}
 	}
 
