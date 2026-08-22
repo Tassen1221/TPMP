@@ -212,18 +212,20 @@ focus_tree = {
 		relative_position_id = TPMP_USA_a_narrow_victory
 		cost = 5
 		completion_reward = {
-			random_list = {
-				10 = { #Good Inf + Bad Tanks
-
-				}
-				10 = { #Good Tanks + Bad Navy
-					
-				}
-				10 = { #Good Navy + Bad Air
-					
-				}
-				10 = { #Good Air + Bad Inf
-					
+			country_event = {
+				id = TPMP_USA.8
+			}
+			hidden_effect = {
+				random_list = {
+					10 = { #Good Inf + Bad Tanks
+						set_country_flag = TPMP_USA_good_inf_bad_tanks_flag
+					}
+					10 = { #Good Tanks + Bad Navy/Air
+						set_country_flag = TPMP_USA_good_tanks_bad_navy_air_flag
+					}
+					10 = { #Good Navy/Air + Bad Inf
+						set_country_flag = TPMP_USA_good_navy_air_bad_inf_flag
+					}
 				}
 			}
 		}
