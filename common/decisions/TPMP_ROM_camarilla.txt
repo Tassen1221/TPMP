@@ -72,11 +72,6 @@ TPMP_ROM_camarilla_decisions = {
 		selectable_mission = no
 		days_mission_timeout = 91
 		fire_only_once = no
-		complete_effect = {
-			add_equipment_to_stockpile = { type = infantry_equipment amount = 1500 }
-			add_equipment_to_stockpile = { type = infantry_equipment amount = 1500 }
-			add_offsite_building = { type = industrial_complex level = -2 }
-		}
 		timeout_effect = {
 			TPMP_ROM_camarilla_advance_0_to_1 = yes
 		}
@@ -214,11 +209,6 @@ TPMP_ROM_camarilla_decisions = {
 			guarantee_tension = -1.0
 			guarantee_cost = -0.5
 		}
-		complete_effect = {
-			add_equipment_to_stockpile = { type = infantry_equipment amount = 1500 }
-			add_equipment_to_stockpile = { type = infantry_equipment amount = 1500 }
-			add_offsite_building = { type = industrial_complex level = -2 }
-		}
 	}
 	TPMP_ROM_camarilla_upcoming_1 = {
 		icon = GFX_idea_TPMP_ROM_Elena_Lupescu
@@ -342,7 +332,7 @@ TPMP_ROM_camarilla_decisions = {
 		available = { hidden_trigger = { always = no } }
 		days_remove = 91
 		modifier = {
-			weekly_manpower = -0.1
+			weekly_manpower = -300
 			army_defence_factor = 0.05
 			fascism_drift = -0.02
 		}

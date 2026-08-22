@@ -13,24 +13,6 @@ ideas = {
 			allowed_civil_war = {
 			}
 
-			on_add = {
-				if = {
-					limit = {
-						NOT = { has_country_flag = TPMP_ROM_titulescu_shipment_received }
-					}
-					add_equipment_to_stockpile = {
-						type = infantry_equipment
-						amount = 1500
-					}
-					add_equipment_to_stockpile = {
-						type = infantry_equipment
-						amount = 1500
-					}
-					add_offsite_building = { type = industrial_complex level = -2 }
-					set_country_flag = TPMP_ROM_titulescu_shipment_received
-				}
-			}
-
 			modifier = {
 				guarantee_tension = -1.0
 				guarantee_cost = -0.5
@@ -110,7 +92,7 @@ ideas = {
 			}
 
 			modifier = {
-				weekly_manpower = -0.1
+				weekly_manpower = -300
 				army_defence_factor = 0.05
 				fascism_drift = -0.02
 			}
