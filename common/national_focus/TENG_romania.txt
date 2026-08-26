@@ -3420,8 +3420,22 @@ focus_tree = {
 				amount = 40
 				producer = ROM
 			}
+			if = {
+				limit = { has_tech = air_torpedoe_2 }
+				hidden_effect = {
+					create_equipment_variant = {
+						name = "IAR 14D"
+						type = cv_small_plane_naval_bomber_airframe_0
+						modules = {
+							fixed_main_weapon_slot = torpedo_mounting_2
+							engine_type_slot = engine_1_1x
+							special_type_slot_1 = empty
+						}
+					}
+				}
+			}
 			add_equipment_to_stockpile = {
-				type = cv_small_plane_naval_bomber_airframe
+				type = cv_small_plane_naval_bomber_airframe_0
 				amount = 40
 				producer = ROM
 			}
@@ -3653,6 +3667,10 @@ focus_tree = {
 
 		available = {
 			NOT = { has_country_flag = TPMP_ROM_instability }
+			OR = {
+				has_war_with = SOV
+				NOT = { 448 = { is_owned_by = ITA } }
+			}
 		}
 
 		bypass = {
