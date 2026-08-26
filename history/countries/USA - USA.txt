@@ -5,7 +5,7 @@ starting_truck_buffer = 1.0
 
 set_research_slots = 6
 
-set_stability = 0.75
+set_stability = 0.65
 set_war_support = 0
 add_command_power = 20
 
@@ -578,13 +578,14 @@ set_variable = { TPMP_USA_alphabet_eco_law_cost_var = 0 }
 set_variable = { TPMP_USA_department_xp_var = 0.05 }
 set_variable = { TPMP_USA_department_mastery_var = 0.05 }
 set_variable = { TPMP_USA_department_planning_var = 0.03 }
+set_variable = { TPMP_USA_department_para_contribution_var = 0 }
 set_variable = { TPMP_USA_navy_department_xp_var = 0.05 }
 set_variable = { TPMP_USA_navy_department_mastery_var = 0.05 }
 set_variable = { TPMP_USA_navy_department_org_var = 0.05 }
 set_variable = { TPMP_USA_navy_department_raiding_var = 0 }
 set_variable = { TPMP_USA_navy_department_sortie_var = 0 }
 set_variable = { TPMP_USA_navy_department_carrier_targetting_var = 0 }
-set_variable = { TPMP_USA_navy_department_sf_cap_var = 0 }
+set_variable = { TPMP_USA_navy_department_marine_contribution_var = 0 }
 set_variable = { TPMP_USA_navy_department_army_intel_var = 0 }
 set_variable = { TPMP_USA_navy_department_navy_intel_var = 0 }
 set_variable = { TPMP_USA_air_department_xp_var = 0.05 }
@@ -719,7 +720,7 @@ recruit_character = USA_arleigh_burke
 recruit_character = USA_charles_m_cooke_jr
 
 create_equipment_variant = {
-	name = "Basic Infantry Equipment"
+	name = "Inf Eq."
 	type = line_infantry_equipment_1
 	parent_version = 0
 	modules = {
@@ -739,7 +740,7 @@ create_equipment_variant = {
 	}
 }
 create_equipment_variant = {
-	name = "Basic Special Infantry Equipment"
+	name = "SF Eq."
 	type = special_infantry_equipment_1
 	parent_version = 0
 	modules = {
@@ -759,7 +760,7 @@ create_equipment_variant = {
 	}
 }
 create_equipment_variant = {
-	name = "Basic Mobile Infantry Equipment"
+	name = "Mobile Eq."
 	type = mobile_infantry_equipment_1
 	parent_version = 0
 	modules = {

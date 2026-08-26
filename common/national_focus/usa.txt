@@ -212,6 +212,22 @@ focus_tree = {
 		relative_position_id = TPMP_USA_a_narrow_victory
 		cost = 5
 		completion_reward = {
+			country_event = {
+				id = TPMP_USA.8
+			}
+			hidden_effect = {
+				random_list = {
+					10 = { #Good Inf + Bad Tanks
+						set_country_flag = TPMP_USA_good_inf_bad_tanks_flag
+					}
+					10 = { #Good Tanks + Bad Navy/Air
+						set_country_flag = TPMP_USA_good_tanks_bad_navy_air_flag
+					}
+					10 = { #Good Navy/Air + Bad Inf
+						set_country_flag = TPMP_USA_good_navy_air_bad_inf_flag
+					}
+				}
+			}
 		}
 	}
 
@@ -224,6 +240,49 @@ focus_tree = {
 		relative_position_id = TPMP_USA_a_narrow_victory
 		cost = 5
 		completion_reward = {
+			custom_effect_tooltip = ndd_lose_support_small_tt
+			custom_effect_tooltip = cd_gain_support_small_tt
+			custom_effect_tooltip = br_gain_support_tt
+			custom_effect_tooltip = ir_lose_support_tt
+			for_loop_effect = {
+				end = 3
+				IF = {
+					limit = {
+						check_variable = {
+							new_deal_democrat_support_var > 0
+						}
+					}
+					add_to_variable = {
+						conservative_democrat_support_var = 1
+					}
+					add_to_variable = {
+						new_deal_democrat_support_var = -1
+					}
+				}
+			}
+			for_loop_effect = {
+				end = 5
+				IF = {
+					limit = {
+						check_variable = {
+							isolationist_republican_support_var > 0
+						}
+					}
+					add_to_variable = {
+						business_republican_support_var = 1
+					}
+					add_to_variable = {
+						isolationist_republican_support_var = -1
+					}
+				}
+			}
+			recalculate_congressional_ui = yes
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = TPMP_USA_a_conservative_coalition_tt
+			set_temp_variable = { pp_gain = conservative_democrat_support_var }
+			add_to_temp_variable = { pp_gain = business_republican_support_var }
+			multiply_temp_variable = { pp_gain = 3 }
+			add_political_power = pp_gain
 		}
 	}
 
@@ -536,9 +595,11 @@ focus_tree = {
 			}
 			recalculate_congressional_ui = yes
 			custom_effect_tooltip = generic_skip_one_line_tt
+			add_political_power = 200
+			custom_effect_tooltip = generic_skip_one_line_tt
 			add_power_balance_value = {
 				id = TPMP_USA_power_balance
-				value = 0.25
+				value = 0.5
 			}
 		}
 	}
@@ -555,21 +616,24 @@ focus_tree = {
 		available = {
 		}
 		completion_reward = {
-			custom_effect_tooltip = ndd_gain_support_small_tt
-			custom_effect_tooltip = cd_lose_support_tiny_tt
+			custom_effect_tooltip = ndd_gain_support_tt
+			custom_effect_tooltip = cd_lose_support_small_tt
 			custom_effect_tooltip = br_lose_support_tiny_tt
 			custom_effect_tooltip = ir_lose_support_tiny_tt
-			IF = {
-				limit = {
-					check_variable = {
-						conservative_democrat_support_var > 0
+			for_loop_effect = {
+				end = 3
+				IF = {
+					limit = {
+						check_variable = {
+							conservative_democrat_support_var > 0
+						}
 					}
-				}
-				add_to_variable = {
-					new_deal_democrat_support_var = 1
-				}
-				add_to_variable = {
-					conservative_democrat_support_var = -1
+					add_to_variable = {
+						new_deal_democrat_support_var = 1
+					}
+					add_to_variable = {
+						conservative_democrat_support_var = -1
+					}
 				}
 			}
 			IF = {
@@ -650,10 +714,10 @@ focus_tree = {
 		relative_position_id = TPMP_USA_the_new_deal_coalition
 		cost = 5
 		completion_reward = {
-			custom_effect_tooltip = ndd_gain_support_tt
-			custom_effect_tooltip = br_lose_support_tt
+			custom_effect_tooltip = ndd_gain_support_large_tt
+			custom_effect_tooltip = br_lose_support_large_tt
 			for_loop_effect = {
-				end = 5
+				end = 10
 				IF = {
 					limit = {
 						check_variable = {
@@ -688,10 +752,10 @@ focus_tree = {
 		cost = 5
 		completion_reward = {
 			custom_effect_tooltip = lwd_gain_support_small_tt
-			custom_effect_tooltip = ndd_gain_support_small_tt
+			custom_effect_tooltip = ndd_gain_support_tt
 			custom_effect_tooltip = cd_lose_support_small_tt
 			custom_effect_tooltip = pr_gain_support_small_tt
-			custom_effect_tooltip = br_lose_support_small_tt
+			custom_effect_tooltip = br_lose_support_tt
 			custom_effect_tooltip = ir_lose_support_small_tt
 			for_loop_effect = {
 				end = 3
@@ -710,7 +774,7 @@ focus_tree = {
 				}
 			}
 			for_loop_effect = {
-				end = 3
+				end = 5
 				IF = {
 					limit = {
 						check_variable = {
@@ -819,10 +883,10 @@ focus_tree = {
 			has_idea = USA_john_nance_garner
 		}
 		completion_reward = {
-			custom_effect_tooltip = cd_gain_support_small_tt
-			custom_effect_tooltip = ir_lose_support_small_tt
+			custom_effect_tooltip = cd_gain_support_tt
+			custom_effect_tooltip = ir_lose_support_tt
 			for_loop_effect = {
-				end = 3
+				end = 5
 				IF = {
 					limit = {
 						check_variable = {
@@ -890,7 +954,7 @@ focus_tree = {
 			custom_effect_tooltip = generic_skip_one_line_tt
 			add_timed_idea = {
 				idea = TPMP_USA_encourage_primary_challengers_idea
-				days = 180
+				days = 270
 			}
 		}
 	}
@@ -966,7 +1030,7 @@ focus_tree = {
 		x = -1
 		y = 1
 		relative_position_id = TPMP_USA_second_neutrality_act
-		cost = 5
+		cost = 10
 		available = {
 			has_support_ndd = yes
 		}
@@ -1115,7 +1179,7 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = TPMP_USA_limited_intervention
-		cost = 5
+		cost = 10
 		available = {
 			has_support_lwd_ndd_pr = yes
 			ENG = {
@@ -1793,6 +1857,8 @@ focus_tree = {
 		}
 		completion_reward = {
 			custom_effect_tooltip = TPMP_USA_union_relations_tt
+			custom_effect_tooltip = generic_skip_one_line_tt
+			USA_decrease_great_depression = yes
 		}
 	}
 
@@ -2292,6 +2358,9 @@ focus_tree = {
 			hidden_effect = {
 				set_variable = {
 					TPMP_USA_wartime_agency_cost_var = 50
+				}
+				set_variable = {
+					TPMP_USA_congress_decision_time_short_var = 20
 				}
 				set_variable = {
 					TPMP_USA_congress_decision_time_var = 30
@@ -2819,7 +2888,7 @@ focus_tree = {
 		x = 2
 		y = 1
 		relative_position_id = TPMP_USA_subassembly_techniques
-		cost = 5
+		cost = 10
 		available = {
 			has_support_ndd_cd_pr_br = yes
 			has_war_support > 0.5
@@ -2973,7 +3042,7 @@ focus_tree = {
 				tooltip = {
 					localization_key = SP_UNLOCK_BUILDING_ICON_DESC
 					BUILDING = arms_megaplant
-					ICON_FRAME = 2
+					ICON_FRAME = 32
 				}
 				set_technology = {
 					TPMP_arms_megaplant_tech = 1
@@ -3063,7 +3132,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = TPMP_USA_the_giant_wakes
-		cost = 10
+		cost = 5
 		available ={
 			controls_state = 393
 		}
@@ -3274,6 +3343,18 @@ focus_tree = {
 				amount = 50
 				sub_doctrine = special_forces_doctrine_3
 			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_unit_bonus = {
+				commandos = {
+					breakthrough = 0.1
+					soft_attack = 0.1
+					hard_attack = 0.1
+					battalion_mult = {
+						category = category_army
+						soft_attack = 0.05
+					}
+				}
+			}
 		}
 	}
 
@@ -3316,6 +3397,30 @@ focus_tree = {
 			add_mastery = {
 				amount = 50
 				sub_doctrine = special_forces_doctrine_2
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_unit_bonus = {
+				paratrooper = {
+					breakthrough = 0.1
+					soft_attack = 0.1
+					hard_attack = 0.1
+				}
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			if = {
+				limit = {
+					has_dynamic_modifier = {
+						modifier = TPMP_USA_department_of_defense_modifier
+					}
+				}
+				custom_effect_tooltip = USA_modify_department_of_defense_tt
+			}
+			else = {
+				custom_effect_tooltip = USA_modify_department_of_war_tt
+			}
+			add_to_variable = {
+				TPMP_USA_department_para_contribution_var = -0.1
+				tooltip = paratroopers_special_forces_contribution_factor_tt
 			}
 		}
 	}
@@ -3741,8 +3846,8 @@ focus_tree = {
 			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = USA_modify_department_of_the_navy_tt
 			add_to_variable = {
-				TPMP_USA_navy_department_sf_cap_var = 0.1
-				tooltip = special_forces_cap_tt
+				TPMP_USA_navy_department_marine_contribution_var = -0.1
+				tooltip = marines_special_forces_contribution_factor_tt
 			}
 		}
 	}
