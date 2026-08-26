@@ -1835,6 +1835,29 @@ focus_tree = {
 		available_if_capitulated = no
 
 		completion_reward = {
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.15
+			}
+
+			ROM_ion_antonescu = {
+				add_country_leader_role = {
+					country_leader = {
+						expire = "1965.1.1"
+						ideology = despotism
+					}
+					promote_leader = yes
+				}
+				remove_advisor_role = { slot = army_chief }
+				remove_unit_leader_role = yes
+			}
+
+			remove_ideas = ROM_king_carol_ii_hedonist
+			add_timed_idea = { idea = ROM_king_carol_emptied_accounts days = 360 }
+
+			add_stability = -0.05
+
+			add_ideas = TPMP_ROM_iron_guard_cooperation
 		}
 	}
 
@@ -1960,20 +1983,30 @@ focus_tree = {
 		available_if_capitulated = no
 
 		completion_reward = {
-			ROM_ion_antonescu = {
-				add_country_leader_role = {
-					country_leader = {
-						expire = "1965.1.1"
-						ideology = fascism_ideology
-						traits = {
-							ROM_conductor
+			add_popularity = {
+				ideology = fascism
+				popularity = -0.10
+			}
+
+			remove_ideas = TPMP_ROM_iron_guard_cooperation
+
+			add_stability = 0.10
+
+			hidden_effect = {
+				ROM_ion_antonescu = {
+					add_country_leader_role = {
+						country_leader = {
+							expire = "1965.1.1"
+							ideology = fascism_ideology
+							traits = {
+								ROM_conductor
+							}
 						}
+						promote_leader = yes
 					}
-					promote_leader = yes
 				}
-				remove_advisor_role = { slot = army_chief }
-				remove_unit_leader_role = yes
-			}		}
+			}
+		}
 	}
 
 	focus = {
@@ -2001,6 +2034,8 @@ focus_tree = {
 		available_if_capitulated = no
 
 		completion_reward = {
+			add_ideas = ROM_figurehead_king_michael
+			add_ideas = ROM_the_sentinel_of_the_motherland
 		}
 	}
 
@@ -2067,6 +2102,25 @@ focus_tree = {
 		available_if_capitulated = no
 
 		completion_reward = {
+			clr_country_flag = TPMP_ROM_instability
+			remove_ideas = TPMP_ROM_instability
+
+			add_political_power = 150
+
+			add_country_leader_trait = ROM_conductor
+
+			set_party_name = {
+				ideology = neutrality
+				name = TPMP_ROM_conducator_regime
+				long_name = TPMP_ROM_conducator_regime_long
+			}
+			hidden_effect = {
+				set_party_name = {
+					ideology = fascism
+					name = TPMP_ROM_conducator_regime
+					long_name = TPMP_ROM_conducator_regime_long
+				}
+			}
 		}
 	}
 
