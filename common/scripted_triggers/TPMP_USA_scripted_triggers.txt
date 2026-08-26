@@ -144,6 +144,28 @@ has_support_ndd_cd_pr_br_ir = {
 		}
 	}
 }
+has_support_ndd_cd_pr = {
+	set_temp_variable = { total_support_var = new_deal_democrat_support_var }
+	add_to_temp_variable = { total_support_var = conservative_democrat_support_var }
+	add_to_temp_variable = { total_support_var = progressive_republican_support_var }
+	custom_trigger_tooltip = {
+		tooltip = has_support_ndd_cd_pr_tt
+		check_variable = {
+			total_support_var > 50
+		}
+	}
+}
+has_support_cd_br_ir = {
+	set_temp_variable = { total_support_var = conservative_democrat_support_var }
+	add_to_temp_variable = { total_support_var = business_republican_support_var }
+	add_to_temp_variable = { total_support_var = isolationist_republican_support_var }
+	custom_trigger_tooltip = {
+		tooltip = has_support_cd_br_ir_tt
+		check_variable = {
+			total_support_var > 50
+		}
+	}
+}
 arctic_lend_lease_clear = {
 	214 = {
 		is_controlled_by = SOV

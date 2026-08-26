@@ -159,6 +159,74 @@ defined_text = {
 	}
 }
 defined_text = {
+	name = TPMP_USA_specialization_loc
+	text = {
+		trigger = {
+			NOT = {
+				has_idea = TPMP_USA_SF_specialization_idea
+				has_idea = TPMP_USA_mech_specialization_idea
+				has_idea = TPMP_USA_CAS_specialization_idea
+				has_idea = TPMP_USA_strat_specialization_idea
+				has_idea = TPMP_USA_CV_specialization_idea
+				has_idea = TPMP_USA_BB_specialization_idea
+			}
+		}
+		localization_key = empty_key
+	}
+	text = {
+		trigger = {
+			has_idea = TPMP_USA_SF_specialization_idea
+		}
+		localization_key = idea_desc|TPMP_USA_SF_specialization_idea
+	}
+	text = {
+		trigger = {
+			has_idea = TPMP_USA_mech_specialization_idea
+		}
+		localization_key = idea_desc|TPMP_USA_mech_specialization_idea
+	}
+	text = {
+		trigger = {
+			has_idea = TPMP_USA_CAS_specialization_idea
+		}
+		localization_key = idea_desc|TPMP_USA_CAS_specialization_idea
+	}
+	text = {
+		trigger = {
+			has_idea = TPMP_USA_strat_specialization_idea
+		}
+		localization_key = idea_desc|TPMP_USA_strat_specialization_idea
+	}
+	text = {
+		trigger = {
+			has_idea = TPMP_USA_CV_specialization_idea
+		}
+		localization_key = idea_desc|TPMP_USA_CV_specialization_idea
+	}
+	text = {
+		trigger = {
+			has_idea = TPMP_USA_BB_specialization_idea
+		}
+		localization_key = idea_desc|TPMP_USA_BB_specialization_idea
+	}
+}
+defined_text = {
+	name = TPMP_USA_specialization_space
+	text = {
+		trigger = {
+			OR = {
+				has_idea = TPMP_USA_SF_specialization_idea
+				has_idea = TPMP_USA_mech_specialization_idea
+				has_idea = TPMP_USA_CAS_specialization_idea
+				has_idea = TPMP_USA_strat_specialization_idea
+				has_idea = TPMP_USA_CV_specialization_idea
+				has_idea = TPMP_USA_BB_specialization_idea
+			}
+		}
+		localization_key = generic_skip_one_line_tt
+	}
+}
+defined_text = {
 	name = TPMP_USA_congress_mission_infantry_loc
 	text = {
 		trigger = {
