@@ -2623,25 +2623,9 @@ focus_tree = {
 			NOT = { has_country_flag = TPMP_ROM_instability }
 			has_civil_war = no
 			is_subject = no
-			if = {
-				limit = {
-					has_dlc = "La Resistance"
-				}
-				SPR_scw_in_progress = yes
-				country_exists = SPA
-				NOT = { has_war_with = SPA }
-			}
-			else = {
-				any_country = {
-					original_tag = SPR
-					has_civil_war = yes
-					NOT = { has_war_with = ROOT }
-					OR = {
-						has_government = fascism
-						has_government = neutrality
-					}
-				}
-			}
+			SPR_scw_in_progress = yes
+			country_exists = SPA
+			NOT = { has_war_with = SPA }
 		}
 
 		bypass = {
@@ -2652,48 +2636,18 @@ focus_tree = {
 		available_if_capitulated = no
 
 		completion_reward = {
-			if = {
-				limit = {
-					has_dlc = "La Resistance"
-				}
-				SPA = {
-					add_manpower = 3000
-				}
-				add_ai_strategy = {
-					type = befriend
-					id = SPA
-					value = 100
-				}
-				add_ai_strategy = {
-					type = send_volunteers_desire
-					id = SPA
-					value = 100
-				}
+			SPA = {
+				add_manpower = 3000
 			}
-			else = {
-				random_country = {
-					limit = {
-						original_tag = SPR
-						has_civil_war = yes
-						OR = {
-							has_government = neutrality
-							has_government = fascism
-						}
-					}
-					add_manpower = 3000
-					ROOT = {
-						add_ai_strategy = {
-							type = befriend
-							id = PREV
-							value = 100
-						}
-						add_ai_strategy = {
-							type = send_volunteers_desire
-							id = PREV
-							value = 100
-						}
-					}
-				}
+			add_ai_strategy = {
+				type = befriend
+				id = SPA
+				value = 100
+			}
+			add_ai_strategy = {
+				type = send_volunteers_desire
+				id = SPA
+				value = 100
 			}
 			add_manpower = -3000
 			add_ideas = TPMP_ROM_volunteers_in_spain_nationalist
@@ -3066,25 +3020,20 @@ focus_tree = {
 		completion_reward = {
 			if = {
 				limit = {
-					has_dlc = "No Step Back"
+					NOT = { has_tech = armored_train }
 				}
-				if = {
-					limit = {
-						NOT = { has_tech = armored_train }
-					}
-					set_technology = { armored_train = 1 }
+				set_technology = { armored_train = 1 }
+			}
+			if = {
+				limit = {
+					NOT = { has_tech = railway_gun }
 				}
-				if = {
-					limit = {
-						NOT = { has_tech = railway_gun }
-					}
-					set_technology = { railway_gun = 1 }
-				}
+				set_technology = { railway_gun = 1 }
+			}
 
-				create_railway_gun = {
-					equipment = railway_gun_equipment_1
-					name = "BL 9.2-inch Railway Gun"
-				}
+			create_railway_gun = {
+				equipment = railway_gun_equipment_1
+				name = "BL 9.2-inch Railway Gun"
 			}
 		}
 	}
@@ -3253,7 +3202,7 @@ focus_tree = {
 	focus = {
 		id = TPMP_ROM_expand_galati_shipyards
 		icon = GFX_goal_generic_construct_naval_dockyard
-		x = 36
+		x = 34
 		y = 0
 
 		cost = 5
@@ -3274,18 +3223,35 @@ focus_tree = {
 		available_if_capitulated = no
 
 		completion_reward = {
+			navy_experience = 25
+			random_owned_controlled_state = {
+				prioritize = { 971 }
+				limit = {
+					ROOT = { has_full_control_of_state = PREV }
+					free_building_slots = {
+						building = dockyard
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+				set_state_flag = TPMP_ROM_expand_galati_shipyards_AB
+			}
 		}
 	}
 
 	focus = {
-		id = TPMP_ROM_black_sea_dominance
-		icon = GFX_focus_SIA_use_ships_as_generators
-		prerequisite = { focus = TPMP_ROM_expand_galati_shipyards }
-		x = 0
-		y = 1
-		relative_position_id = TPMP_ROM_expand_galati_shipyards
+		id = TPMP_ROM_allied_blueprints
+		icon = GFX_focus_SWE_italian_destroyers
+		x = 36
+		y = 0
 
-		cost = 5
+		cost = 10
 
 		ai_will_do = {
 			factor = 1
@@ -3303,6 +3269,355 @@ focus_tree = {
 		available_if_capitulated = no
 
 		completion_reward = {
+			add_political_power = -50
+			set_technology = {
+				basic_naval_mines = 1
+				submarine_mine_laying = 1
+				early_ship_hull_light = 1
+				basic_ship_hull_light = 1
+				early_ship_hull_cruiser = 1
+				basic_ship_hull_cruiser = 1
+				early_ship_hull_heavy = 1
+				basic_ship_hull_heavy = 1
+				pre_dreadnoughts = 1
+				early_ship_hull_submarine = 1
+				basic_ship_hull_submarine = 1
+				mtg_transport = 1
+				basic_torpedo = 1
+				improved_ship_torpedo_launcher = 1
+				basic_battery = 1
+				basic_light_battery = 1
+				basic_heavy_battery = 1
+				basic_depth_charges = 1
+				sonar = 1
+				basic_cruiser_armor_scheme = 1
+				coastal_defense_ships = 1
+				basic_heavy_armor_scheme = 1
+				early_ship_hull_carrier = 1
+			}
+			add_tech_bonus = {
+				name = TPMP_ROM_allied_blueprints_ca
+				bonus = 1.0
+				uses = 1
+				category = ca_tech
+				category = bb_tech
+			}
+			add_tech_bonus = {
+				name = TPMP_ROM_allied_blueprints_support
+				bonus = 1.0
+				uses = 2
+				category = ship_modules_tech
+			}
+		}
+	}
+
+	focus = {
+		id = TPMP_ROM_plan_maresesti
+		icon = GFX_focus_generic_refit_civilian_ships
+		prerequisite = { focus = TPMP_ROM_expand_galati_shipyards }
+		prerequisite = { focus = TPMP_ROM_allied_blueprints }
+		x = 0
+		y = 1
+		relative_position_id = TPMP_ROM_allied_blueprints
+
+		cost = 14.29
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			NOT = { has_country_flag = TPMP_ROM_instability }
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = no
+		continue_if_invalid = yes
+		available_if_capitulated = no
+
+		completion_reward = {
+			if = {
+				limit = { 971 = { is_owned_by = ROOT } }
+				971 = {
+					add_extra_state_shared_building_slots = 6
+					add_building_construction = {
+						type = dockyard
+						level = 6
+						instant_build = yes
+					}
+				}
+			}
+			if = {
+				limit = { 77 = { is_owned_by = ROOT } }
+				77 = {
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = dockyard
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+			if = {
+				limit = { 78 = { is_owned_by = ROOT } }
+				78 = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = dockyard
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+			add_ideas = TPMP_ROM_plan_maresesti_idea
+			hidden_effect = { news_event = { id = TPMP_ROM.5 days = 1 } }
+		}
+	}
+
+	focus = {
+		id = TPMP_ROM_black_sea_dominance
+		icon = GFX_focus_SIA_use_ships_as_generators
+		prerequisite = { focus = TPMP_ROM_plan_maresesti }
+		x = 0
+		y = 1
+		relative_position_id = TPMP_ROM_plan_maresesti
+
+		cost = 14.29
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			NOT = { has_country_flag = TPMP_ROM_instability }
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = no
+		continue_if_invalid = yes
+		available_if_capitulated = no
+
+		select_effect = {
+			add_ideas = TPMP_ROM_naval_buildup_strain
+		}
+
+		completion_reward = {
+			custom_effect_tooltip = TPMP_ROM_black_sea_dominance_strain_tt
+			remove_ideas = TPMP_ROM_naval_buildup_strain
+			custom_effect_tooltip = TPMP_ROM_black_sea_dominance_fleet_tt
+			hidden_effect = {
+				create_equipment_variant = {
+					name = "Mihai Viteazul Class"
+					type = ship_hull_cruiser_2
+					modules = {
+						fixed_ship_battery_slot = ship_medium_battery_2
+						fixed_ship_anti_air_slot = ship_anti_air_2
+						fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+						fixed_ship_engine_slot = cruiser_ship_engine_2
+						fixed_ship_secondaries_slot = ship_secondaries_2
+						fixed_ship_armor_slot = ship_armor_cruiser_2
+						front_1_custom_slot = ship_medium_battery_2
+						mid_1_custom_slot = ship_anti_air_2
+						mid_2_custom_slot = ship_secondaries_2
+						rear_1_custom_slot = ship_medium_battery_2
+					}
+				}
+				create_ship = {
+					type = ship_hull_cruiser_2
+					equipment_variant = "Mihai Viteazul Class"
+					name = "Mihai Viteazul"
+				}
+				create_ship = {
+					type = ship_hull_cruiser_2
+					equipment_variant = "Mihai Viteazul Class"
+					name = "Ştefan cel Mare"
+				}
+				create_ship = {
+					type = ship_hull_cruiser_2
+					equipment_variant = "Mihai Viteazul Class"
+					name = "Vlad Ţepeş"
+				}
+				create_equipment_variant = {
+					name = "Regina Maria Class"
+					type = ship_hull_carrier_conversion_ca
+					modules = {
+						fixed_ship_deck_slot_1 = ship_deck_space
+						fixed_ship_deck_slot_2 = ship_deck_space
+						fixed_ship_engine_slot = cruiser_ship_engine_1
+					}
+				}
+				create_ship = {
+					type = ship_hull_carrier_conversion_ca
+					equipment_variant = "Regina Maria Class"
+					name = "Regina Maria"
+				}
+				create_equipment_variant = {
+					name = "Regele Carol II Class"
+					type = ship_hull_heavy_2
+					modules = {
+						fixed_ship_battery_slot = ship_heavy_battery_2
+						fixed_ship_anti_air_slot = ship_anti_air_2
+						fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+						fixed_ship_engine_slot = heavy_ship_engine_1
+						fixed_ship_secondaries_slot = ship_secondaries_2
+						fixed_ship_armor_slot = ship_armor_bc_2
+						front_1_custom_slot = ship_anti_air_2
+						mid_1_custom_slot = ship_anti_air_2
+						mid_2_custom_slot = ship_secondaries_2
+						rear_1_custom_slot = ship_heavy_battery_2
+					}
+				}
+				create_ship = {
+					type = ship_hull_heavy_2
+					equipment_variant = "Regele Carol II Class"
+					name = "Regele Carol II"
+				}
+				create_equipment_variant = {
+					name = "Craiova Class"
+					type = ship_hull_cruiser_2
+					modules = {
+						fixed_ship_battery_slot = ship_light_medium_battery_2
+						fixed_ship_anti_air_slot = ship_anti_air_2
+						fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+						fixed_ship_engine_slot = cruiser_ship_engine_2
+						fixed_ship_secondaries_slot = ship_secondaries_2
+						fixed_ship_armor_slot = ship_armor_cruiser_2
+						front_1_custom_slot = ship_light_medium_battery_2
+						mid_1_custom_slot = ship_secondaries_2
+						mid_2_custom_slot = ship_secondaries_2
+						rear_1_custom_slot = ship_light_medium_battery_2
+					}
+				}
+				create_ship = {
+					type = ship_hull_cruiser_2
+					equipment_variant = "Craiova Class"
+					name = "Craiova"
+				}
+				create_ship = {
+					type = ship_hull_cruiser_2
+					equipment_variant = "Craiova Class"
+					name = "Ploieşti"
+				}
+				create_ship = {
+					type = ship_hull_cruiser_2
+					equipment_variant = "Craiova Class"
+					name = "Brăila"
+				}
+				create_ship = {
+					type = ship_hull_cruiser_2
+					equipment_variant = "Craiova Class"
+					name = "Galaţi"
+				}
+				create_equipment_variant = {
+					name = "Iaşi Class"
+					type = ship_hull_cruiser_1
+					modules = {
+						fixed_ship_battery_slot = ship_light_medium_battery_2
+						fixed_ship_anti_air_slot = ship_anti_air_2
+						fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+						fixed_ship_engine_slot = cruiser_ship_engine_2
+						fixed_ship_secondaries_slot = ship_secondaries_2
+						fixed_ship_armor_slot = ship_armor_cruiser_1
+						mid_1_custom_slot = ship_secondaries_2
+						mid_2_custom_slot = ship_secondaries_2
+						rear_1_custom_slot = ship_light_medium_battery_2
+					}
+				}
+				create_ship = {
+					type = ship_hull_cruiser_1
+					equipment_variant = "Iaşi Class"
+					name = "Iaşi"
+				}
+				create_ship = {
+					type = ship_hull_cruiser_1
+					equipment_variant = "Iaşi Class"
+					name = "Cernăuţi"
+				}
+				create_ship = {
+					type = ship_hull_cruiser_1
+					equipment_variant = "Iaşi Class"
+					name = "Chişinău"
+				}
+				create_ship = {
+					type = ship_hull_cruiser_1
+					equipment_variant = "Iaşi Class"
+					name = "Bacău"
+				}
+				create_ship = {
+					type = ship_hull_cruiser_1
+					equipment_variant = "Iaşi Class"
+					name = "Suceava"
+				}
+				create_ship = {
+					type = ship_hull_cruiser_1
+					equipment_variant = "Iaşi Class"
+					name = "Botoşani"
+				}
+				create_ship = {
+					type = ship_hull_light_1
+					equipment_variant = "Regele Ferdinand Class"
+					name = "Siret"
+				}
+				create_ship = {
+					type = ship_hull_light_1
+					equipment_variant = "Regele Ferdinand Class"
+					name = "Prut"
+				}
+				create_ship = {
+					type = ship_hull_light_1
+					equipment_variant = "Regele Ferdinand Class"
+					name = "Mureş"
+				}
+				create_ship = {
+					type = ship_hull_light_1
+					equipment_variant = "Regele Ferdinand Class"
+					name = "Olt"
+				}
+				create_ship = {
+					type = ship_hull_light_1
+					equipment_variant = "Regele Ferdinand Class"
+					name = "Jiu"
+				}
+				create_ship = {
+					type = ship_hull_light_1
+					equipment_variant = "Regele Ferdinand Class"
+					name = "Someş"
+				}
+				create_ship = {
+					type = ship_hull_light_1
+					equipment_variant = "Regele Ferdinand Class"
+					name = "Ialomiţa"
+				}
+				create_ship = {
+					type = ship_hull_light_1
+					equipment_variant = "Regele Ferdinand Class"
+					name = "Buzău"
+				}
+				create_ship = {
+					type = ship_hull_light_1
+					equipment_variant = "Regele Ferdinand Class"
+					name = "Trotuş"
+				}
+				create_ship = {
+					type = ship_hull_light_1
+					equipment_variant = "Regele Ferdinand Class"
+					name = "Bistriţa"
+				}
+				create_ship = {
+					type = ship_hull_light_1
+					equipment_variant = "Regele Ferdinand Class"
+					name = "Dâmboviţa"
+				}
+				create_ship = {
+					type = ship_hull_light_1
+					equipment_variant = "Regele Ferdinand Class"
+					name = "Vedea"
+				}
+			}
 		}
 	}
 
@@ -3332,6 +3647,24 @@ focus_tree = {
 		available_if_capitulated = no
 
 		completion_reward = {
+			add_timed_idea = {
+				idea = TPMP_ROM_world_of_warships_idea
+				days = 180
+			}
+			custom_effect_tooltip = TPMP_ROM_bosphorus_accord_tt
+			add_opinion_modifier = {
+				target = TUR
+				modifier = TPMP_ROM_bosphorus_accord
+			}
+			TUR = {
+				add_opinion_modifier = {
+					target = ROM
+					modifier = TPMP_ROM_bosphorus_accord
+				}
+			}
+			hidden_effect = {
+				TUR = { set_country_flag = TUR_romania_gets_strait_access }
+			}
 		}
 	}
 
@@ -3340,7 +3673,7 @@ focus_tree = {
 		icon = GFX_goal_generic_air_production
 		x = 3
 		y = 0
-		relative_position_id = TPMP_ROM_expand_galati_shipyards
+		relative_position_id = TPMP_ROM_allied_blueprints
 
 		cost = 5
 
@@ -3360,6 +3693,53 @@ focus_tree = {
 		available_if_capitulated = no
 
 		completion_reward = {
+			air_experience = 25
+			add_tech_bonus = {
+				name = TPMP_ROM_expand_the_airforce
+				bonus = 1.0
+				uses = 1
+				technology = basic_small_airframe
+			}
+			if = {
+				limit = { 79 = { is_owned_by = ROOT } }
+				79 = {
+					add_building_construction = {
+						type = air_base
+						level = 6
+						instant_build = yes
+					}
+				}
+			}
+			if = {
+				limit = { 78 = { is_owned_by = ROOT } }
+				78 = {
+					add_building_construction = {
+						type = air_base
+						level = 3
+						instant_build = yes
+					}
+				}
+			}
+			if = {
+				limit = { 766 = { is_owned_by = ROOT } }
+				766 = {
+					add_building_construction = {
+						type = air_base
+						level = 3
+						instant_build = yes
+					}
+				}
+			}
+			if = {
+				limit = { 80 = { is_owned_by = ROOT } }
+				80 = {
+					add_building_construction = {
+						type = air_base
+						level = 3
+						instant_build = yes
+					}
+				}
+			}
 		}
 	}
 
@@ -3391,6 +3771,22 @@ focus_tree = {
 		completion_reward = {
 			custom_effect_tooltip = available_designer
 			show_ideas_tooltip = ROM_iar
+			random_owned_controlled_state = {
+				prioritize = { 79 46 81 }
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 2
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}
+			}
 		}
 	}
 
@@ -3420,6 +3816,50 @@ focus_tree = {
 		available_if_capitulated = no
 
 		completion_reward = {
+			if = {
+				limit = {
+					NOT = { has_tech = improved_small_airframe }
+				}
+				add_tech_bonus = {
+					name = TPMP_ROM_iar_80
+					bonus = 1.0
+					ahead_reduction = 2
+					uses = 1
+					technology = improved_small_airframe
+				}
+				create_equipment_variant = {
+					name = "IAR 80"
+					type = small_plane_airframe_2
+					modules = {
+						fixed_main_weapon_slot = heavy_mg_4x
+						fixed_auxiliary_weapon_slot_1 = heavy_mg_4x
+						fixed_auxiliary_weapon_slot_2 = heavy_mg_4x
+						engine_type_slot = engine_3_1x
+						special_type_slot_1 = fuel_tanks_small
+						special_type_slot_2 = armor_plate_small
+						special_type_slot_3 = self_sealing_fuel_tanks_small
+					}
+					icon = "GFX_ROM_fighter2_medium"
+				}
+			}
+			else = {
+				create_equipment_variant = {
+					name = "IAR 80"
+					type = small_plane_airframe_2
+					allow_without_tech = yes
+					modules = {
+						fixed_main_weapon_slot = heavy_mg_4x
+						fixed_auxiliary_weapon_slot_1 = heavy_mg_4x
+						fixed_auxiliary_weapon_slot_2 = heavy_mg_4x
+						engine_type_slot = engine_3_1x
+						special_type_slot_1 = fuel_tanks_small
+						special_type_slot_2 = armor_plate_small
+						special_type_slot_3 = self_sealing_fuel_tanks_small
+					}
+					icon = "GFX_ROM_fighter2_medium"
+				}
+			}
+			custom_effect_tooltip = TPMP_ROM_iar_80_tt
 		}
 	}
 
@@ -3449,6 +3889,93 @@ focus_tree = {
 		available_if_capitulated = no
 
 		completion_reward = {
+			add_equipment_to_stockpile = {
+				type = transport_plane_equipment
+				amount = 200
+				producer = ROM
+			}
+		}
+	}
+
+	focus = {
+		id = TPMP_ROM_allied_expertise
+		icon = GFX_goal_generic_air_fighter
+		prerequisite = { focus = TPMP_ROM_trust_in_iar }
+		x = 3
+		y = 1
+		relative_position_id = TPMP_ROM_trust_in_iar
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			NOT = { has_country_flag = TPMP_ROM_instability }
+			OR = {
+				GER = { has_tech = iw_small_airframe }
+				ITA = { has_tech = iw_small_airframe }
+			}
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			custom_effect_tooltip = TPMP_ROM_allied_expertise_tt
+			custom_effect_tooltip = generic_skip_one_line_tt
+			if = {
+				limit = { has_tech = advanced_small_airframe }
+				add_equipment_to_stockpile = { type = small_plane_airframe amount = 600 producer = ROM }
+			}
+			else_if = {
+				limit = { GER = { has_tech = advanced_small_airframe } }
+				GER = { add_equipment_to_stockpile = { type = small_plane_airframe amount = 400 producer = GER } }
+			}
+			else_if = {
+				limit = { ITA = { has_tech = advanced_small_airframe } }
+				ITA = { add_equipment_to_stockpile = { type = small_plane_airframe amount = 400 producer = ITA } }
+			}
+			else_if = {
+				limit = { has_tech = improved_small_airframe }
+				add_equipment_to_stockpile = { type = small_plane_airframe amount = 600 producer = ROM }
+			}
+			else_if = {
+				limit = { GER = { has_tech = improved_small_airframe } }
+				GER = { add_equipment_to_stockpile = { type = small_plane_airframe amount = 400 producer = GER } }
+			}
+			else_if = {
+				limit = { ITA = { has_tech = improved_small_airframe } }
+				ITA = { add_equipment_to_stockpile = { type = small_plane_airframe amount = 400 producer = ITA } }
+			}
+			else_if = {
+				limit = { has_tech = basic_small_airframe }
+				add_equipment_to_stockpile = { type = small_plane_airframe amount = 600 producer = ROM }
+			}
+			else_if = {
+				limit = { GER = { has_tech = basic_small_airframe } }
+				GER = { add_equipment_to_stockpile = { type = small_plane_airframe amount = 400 producer = GER } }
+			}
+			else_if = {
+				limit = { ITA = { has_tech = basic_small_airframe } }
+				ITA = { add_equipment_to_stockpile = { type = small_plane_airframe amount = 400 producer = ITA } }
+			}
+			else_if = {
+				limit = { has_tech = iw_small_airframe }
+				add_equipment_to_stockpile = { type = small_plane_airframe amount = 600 producer = ROM }
+			}
+			else_if = {
+				limit = { GER = { has_tech = iw_small_airframe } }
+				GER = { add_equipment_to_stockpile = { type = small_plane_airframe amount = 400 producer = GER } }
+			}
+			else = {
+				ITA = { add_equipment_to_stockpile = { type = small_plane_airframe amount = 400 producer = ITA } }
+			}
 		}
 	}
 

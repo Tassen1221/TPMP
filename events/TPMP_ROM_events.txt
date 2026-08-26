@@ -98,3 +98,28 @@ country_event = {
 		}
 	}
 }
+
+news_event = {
+	id = TPMP_ROM.5
+	title = TPMP_ROM.5.t
+	desc = TPMP_ROM.5.d
+	picture = GFX_news_event_generic_naval_treaty
+
+	major = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = TPMP_ROM.5.a
+		trigger = {
+			original_tag = ROM
+		}
+	}
+
+	option = {
+		name = TPMP_ROM.5.b
+		trigger = {
+			NOT = { original_tag = ROM }
+		}
+	}
+}
