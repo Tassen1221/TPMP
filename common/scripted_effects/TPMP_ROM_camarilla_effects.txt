@@ -7,6 +7,8 @@ TPMP_ROM_camarilla_start_effect = {
 
 TPMP_ROM_camarilla_advance_0_to_1 = {
 	remove_ideas = TPMP_ROM_camarilla_titulescu
+	add_equipment_to_stockpile = { type = line_infantry_equipment_1 amount = 3000 producer = ROM }
+	add_timed_idea = { idea = TPMP_ROM_titulescu_supplementary_budget days = 180 }
 	if = {
 		limit = { has_completed_focus = TPMP_ROM_camarilla_renewed }
 		add_ideas = TPMP_ROM_camarilla_lupescu_renewed
