@@ -7,8 +7,6 @@ TPMP_ROM_camarilla_start_effect = {
 
 TPMP_ROM_camarilla_advance_0_to_1 = {
 	remove_ideas = TPMP_ROM_camarilla_titulescu
-	remove_ideas = TPMP_ROM_camarilla_lupescu
-	remove_ideas = TPMP_ROM_camarilla_lupescu_renewed
 	if = {
 		limit = { has_completed_focus = TPMP_ROM_camarilla_renewed }
 		add_ideas = TPMP_ROM_camarilla_lupescu_renewed
@@ -21,8 +19,13 @@ TPMP_ROM_camarilla_advance_0_to_1 = {
 }
 
 TPMP_ROM_camarilla_advance_1_to_2 = {
-	remove_ideas = TPMP_ROM_camarilla_lupescu
-	remove_ideas = TPMP_ROM_camarilla_lupescu_renewed
+	if = {
+		limit = { has_completed_focus = TPMP_ROM_camarilla_renewed }
+		remove_ideas = TPMP_ROM_camarilla_lupescu_renewed
+	}
+	else = {
+		remove_ideas = TPMP_ROM_camarilla_lupescu
+	}
 	if = {
 		limit = { has_completed_focus = TPMP_ROM_camarilla_renewed }
 		add_ideas = TPMP_ROM_camarilla_urdareanu_renewed
@@ -35,18 +38,26 @@ TPMP_ROM_camarilla_advance_1_to_2 = {
 }
 
 TPMP_ROM_camarilla_advance_2_to_3 = {
-	remove_ideas = TPMP_ROM_camarilla_urdareanu
-	remove_ideas = TPMP_ROM_camarilla_urdareanu_renewed
+	if = {
+		limit = { has_completed_focus = TPMP_ROM_camarilla_renewed }
+		remove_ideas = TPMP_ROM_camarilla_urdareanu_renewed
+	}
+	else = {
+		remove_ideas = TPMP_ROM_camarilla_urdareanu
+	}
 	add_ideas = TPMP_ROM_camarilla_auschnitt
 	set_variable = { TPMP_ROM_camarilla_index = 3 }
 	activate_mission = TPMP_ROM_camarilla_mission_3
 }
 
 TPMP_ROM_camarilla_advance_2_to_4_skip_auschnitt = {
-	remove_ideas = TPMP_ROM_camarilla_urdareanu
-	remove_ideas = TPMP_ROM_camarilla_urdareanu_renewed
-	remove_ideas = TPMP_ROM_camarilla_calinescu
-	remove_ideas = TPMP_ROM_camarilla_calinescu_renewed
+	if = {
+		limit = { has_completed_focus = TPMP_ROM_camarilla_renewed }
+		remove_ideas = TPMP_ROM_camarilla_urdareanu_renewed
+	}
+	else = {
+		remove_ideas = TPMP_ROM_camarilla_urdareanu
+	}
 	if = {
 		limit = { has_completed_focus = TPMP_ROM_camarilla_renewed }
 		add_ideas = TPMP_ROM_camarilla_calinescu_renewed
@@ -60,8 +71,6 @@ TPMP_ROM_camarilla_advance_2_to_4_skip_auschnitt = {
 
 TPMP_ROM_camarilla_advance_3_to_4 = {
 	remove_ideas = TPMP_ROM_camarilla_auschnitt
-	remove_ideas = TPMP_ROM_camarilla_calinescu
-	remove_ideas = TPMP_ROM_camarilla_calinescu_renewed
 	if = {
 		limit = { has_completed_focus = TPMP_ROM_camarilla_renewed }
 		add_ideas = TPMP_ROM_camarilla_calinescu_renewed
@@ -74,10 +83,13 @@ TPMP_ROM_camarilla_advance_3_to_4 = {
 }
 
 TPMP_ROM_camarilla_advance_4_to_5 = {
-	remove_ideas = TPMP_ROM_camarilla_calinescu
-	remove_ideas = TPMP_ROM_camarilla_calinescu_renewed
-	remove_ideas = TPMP_ROM_camarilla_malaxa
-	remove_ideas = TPMP_ROM_camarilla_malaxa_renewed
+	if = {
+		limit = { has_completed_focus = TPMP_ROM_camarilla_renewed }
+		remove_ideas = TPMP_ROM_camarilla_calinescu_renewed
+	}
+	else = {
+		remove_ideas = TPMP_ROM_camarilla_calinescu
+	}
 	if = {
 		limit = { has_completed_focus = TPMP_ROM_camarilla_renewed }
 		add_ideas = TPMP_ROM_camarilla_malaxa_renewed
@@ -90,10 +102,13 @@ TPMP_ROM_camarilla_advance_4_to_5 = {
 }
 
 TPMP_ROM_camarilla_advance_5_to_6 = {
-	remove_ideas = TPMP_ROM_camarilla_malaxa
-	remove_ideas = TPMP_ROM_camarilla_malaxa_renewed
-	remove_ideas = TPMP_ROM_camarilla_marinescu
-	remove_ideas = TPMP_ROM_camarilla_marinescu_renewed
+	if = {
+		limit = { has_completed_focus = TPMP_ROM_camarilla_renewed }
+		remove_ideas = TPMP_ROM_camarilla_malaxa_renewed
+	}
+	else = {
+		remove_ideas = TPMP_ROM_camarilla_malaxa
+	}
 	if = {
 		limit = { has_completed_focus = TPMP_ROM_camarilla_renewed }
 		add_ideas = TPMP_ROM_camarilla_marinescu_renewed
@@ -106,18 +121,26 @@ TPMP_ROM_camarilla_advance_5_to_6 = {
 }
 
 TPMP_ROM_camarilla_advance_6_to_0 = {
-	remove_ideas = TPMP_ROM_camarilla_marinescu
-	remove_ideas = TPMP_ROM_camarilla_marinescu_renewed
+	if = {
+		limit = { has_completed_focus = TPMP_ROM_camarilla_renewed }
+		remove_ideas = TPMP_ROM_camarilla_marinescu_renewed
+	}
+	else = {
+		remove_ideas = TPMP_ROM_camarilla_marinescu
+	}
 	add_ideas = TPMP_ROM_camarilla_titulescu
 	set_variable = { TPMP_ROM_camarilla_index = 0 }
 	activate_mission = TPMP_ROM_camarilla_mission_0
 }
 
 TPMP_ROM_camarilla_advance_6_to_1_skip_titulescu = {
-	remove_ideas = TPMP_ROM_camarilla_marinescu
-	remove_ideas = TPMP_ROM_camarilla_marinescu_renewed
-	remove_ideas = TPMP_ROM_camarilla_lupescu
-	remove_ideas = TPMP_ROM_camarilla_lupescu_renewed
+	if = {
+		limit = { has_completed_focus = TPMP_ROM_camarilla_renewed }
+		remove_ideas = TPMP_ROM_camarilla_marinescu_renewed
+	}
+	else = {
+		remove_ideas = TPMP_ROM_camarilla_marinescu
+	}
 	if = {
 		limit = { has_completed_focus = TPMP_ROM_camarilla_renewed }
 		add_ideas = TPMP_ROM_camarilla_lupescu_renewed
