@@ -381,7 +381,7 @@ focus_tree = {
 		completion_reward = {
 			add_tech_bonus = {
 				name = ROM_civil_works
-				bonus = 1.1
+				bonus = 1.0
 				uses = 1
 				category = construction_tech
 			}
@@ -1288,7 +1288,7 @@ focus_tree = {
 				add_ideas = TPMP_ROM_instability
 			}
 
-			country_event = { id = TPMP_ROM.2 hours = 1 }
+			country_event = { id = TPMP_ROM.2 }
 		}
 	}
 	focus = {
@@ -1357,10 +1357,6 @@ focus_tree = {
 
 		completion_reward = {
 			remove_ideas = ROM_king_carol_ii_hedonist
-			if = {
-				limit = { has_idea = ROM_the_sentinel_of_the_motherland }
-				remove_ideas = ROM_the_sentinel_of_the_motherland
-			}
 			add_timed_idea = { idea = ROM_king_carol_emptied_accounts days = 360 }
 			hidden_effect = {
 				news_event = { id = news.323 days = 1 }
@@ -1412,6 +1408,8 @@ focus_tree = {
 			}
 
 			custom_effect_tooltip = TPMP_ROM_camarilla_disbanded_tooltip
+
+			complete_national_focus = TPMP_ROM_legion_of_the_archangel_michael
 		}
 	}
 	focus = {
@@ -1677,10 +1675,11 @@ focus_tree = {
 
 		completion_reward = {
 			add_country_leader_trait = camarilla_leader
-			add_ideas = ROM_the_sentinel_of_the_motherland
 
 			clr_country_flag = TPMP_ROM_instability
 			remove_ideas = TPMP_ROM_instability
+
+			complete_national_focus = TPMP_ROM_the_sentinel_of_the_motherland
 		}
 	}
 	focus = {
@@ -1745,6 +1744,10 @@ focus_tree = {
 			add_ideas = TPMP_ROM_anti_corruption_efforts
 
 			custom_effect_tooltip = TPMP_ROM_camarilla_disbanded_tooltip
+
+			# complete_national_focus = TPMP_ROM_german_army_integration
+
+			custom_effect_tooltip = TPMP_ROM_the_1st_wave_unfinished_tt
 		}
 	}
 	focus = {
@@ -1775,7 +1778,7 @@ focus_tree = {
 
 		completion_reward = {
 			custom_effect_tooltip = TPMP_ROM_translyvanian_fiasco_instability_tt
-			country_event = { id = TPMP_ROM.4 hours = 1 }
+			country_event = { id = TPMP_ROM.4 }
 		}
 	}
 
@@ -1912,10 +1915,7 @@ focus_tree = {
 
 		completion_reward = {
 			add_political_power = 120
-			swap_ideas = {
-				add_idea = ROM_the_sentinel_of_the_motherland_2
-				remove_idea = ROM_the_sentinel_of_the_motherland
-			}
+			add_stability = 0.05
 		}
 	}
 
@@ -2060,7 +2060,7 @@ focus_tree = {
 
 		completion_reward = {
 			add_ideas = ROM_figurehead_king_michael
-			add_ideas = ROM_the_sentinel_of_the_motherland
+			add_political_power = 75
 		}
 	}
 
@@ -2230,6 +2230,8 @@ focus_tree = {
 
 		available = {
 			NOT = { has_country_flag = TPMP_ROM_instability }
+			has_completed_focus = TPMP_ROM_combat_favoritism
+			always = no
 		}
 
 		bypass = {
@@ -2240,17 +2242,19 @@ focus_tree = {
 		available_if_capitulated = no
 
 		completion_reward = {
+			add_ideas = TPMP_ROM_german_controlled_military_idea
+			custom_effect_tooltip = TPMP_ROM_the_1st_wave_unfinished_tt
 		}
 	}
 
 	focus = {
 		id = TPMP_ROM_beg_for_modern_equipment
 		icon = GFX_focus_generic_heavy_tank
-		prerequisite = { focus = TPMP_ROM_german_army_integration }
+		prerequisite = { focus = TPMP_ROM_the_1st_wave }
 		mutually_exclusive = { focus = TPMP_ROM_romanians_make_do }
 		x = -1
 		y = 1
-		relative_position_id = TPMP_ROM_german_army_integration
+		relative_position_id = TPMP_ROM_the_1st_wave
 
 		cost = 5
 
@@ -2270,15 +2274,46 @@ focus_tree = {
 		available_if_capitulated = no
 
 		completion_reward = {
+			custom_effect_tooltip = TPMP_ROM_the_1st_wave_unfinished_tt
 		}
 	}
 
 	focus = {
 		id = TPMP_ROM_romanians_make_do
 		icon = GFX_focus_ETH_freedom_at_gunpoint
-		prerequisite = { focus = TPMP_ROM_german_army_integration }
+		prerequisite = { focus = TPMP_ROM_the_1st_wave }
 		mutually_exclusive = { focus = TPMP_ROM_beg_for_modern_equipment }
 		x = 1
+		y = 1
+		relative_position_id = TPMP_ROM_the_1st_wave
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			NOT = { has_country_flag = TPMP_ROM_instability }
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			custom_effect_tooltip = TPMP_ROM_the_1st_wave_unfinished_tt
+		}
+	}
+
+	focus = {
+		id = TPMP_ROM_the_1st_wave
+		icon = GFX_focus_generic_fascist_troops
+		prerequisite = { focus = TPMP_ROM_german_army_integration }
+		x = 0
 		y = 1
 		relative_position_id = TPMP_ROM_german_army_integration
 
@@ -2300,14 +2335,14 @@ focus_tree = {
 		available_if_capitulated = no
 
 		completion_reward = {
+			custom_effect_tooltip = TPMP_ROM_the_1st_wave_unfinished_tt
 		}
 	}
 
 	focus = {
-		id = TPMP_ROM_the_2nd_wave
-		icon = GFX_focus_generic_fascist_troops
-		prerequisite = { focus = TPMP_ROM_beg_for_modern_equipment }
-		prerequisite = { focus = TPMP_ROM_romanians_make_do }
+		id = TPMP_ROM_the_final_push
+		icon = GFX_focus_BRA_acquire_german_tanks
+		prerequisite = { focus = TPMP_ROM_beg_for_modern_equipment focus = TPMP_ROM_romanians_make_do }
 		x = 1
 		y = 1
 		relative_position_id = TPMP_ROM_beg_for_modern_equipment
@@ -2330,35 +2365,7 @@ focus_tree = {
 		available_if_capitulated = no
 
 		completion_reward = {
-		}
-	}
-
-	focus = {
-		id = TPMP_ROM_the_final_push
-		icon = GFX_focus_BRA_acquire_german_tanks
-		prerequisite = { focus = TPMP_ROM_the_2nd_wave }
-		x = 0
-		y = 1
-		relative_position_id = TPMP_ROM_the_2nd_wave
-
-		cost = 5
-
-		ai_will_do = {
-			factor = 1
-		}
-
-		available = {
-			NOT = { has_country_flag = TPMP_ROM_instability }
-		}
-
-		bypass = {
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-
-		completion_reward = {
+			custom_effect_tooltip = TPMP_ROM_the_1st_wave_unfinished_tt
 		}
 	}
 
@@ -2380,6 +2387,7 @@ focus_tree = {
 
 		available = {
 			NOT = { has_country_flag = TPMP_ROM_instability }
+			has_completed_focus = TPMP_ROM_revise_the_constitution
 		}
 
 		bypass = {
@@ -2390,6 +2398,10 @@ focus_tree = {
 		available_if_capitulated = no
 
 		completion_reward = {
+			add_dynamic_modifier = {
+				modifier = TPMP_ROM_garda_regala_dm
+			}
+			custom_effect_tooltip = TPMP_ROM_the_sentinel_of_the_motherland_tt
 		}
 	}
 
@@ -2419,6 +2431,9 @@ focus_tree = {
 		available_if_capitulated = no
 
 		completion_reward = {
+			custom_effect_tooltip = TPMP_ROM_modify_garda_regala_modifier_tt
+			add_to_variable = { TPMP_ROM_garda_regala_conscription = 0.02 tooltip = conscription_tt }
+			add_to_variable = { TPMP_ROM_garda_regala_mobilization_laws_cost_factor = -1.0 tooltip = mobilization_laws_cost_factor_tt }
 		}
 	}
 
@@ -2448,6 +2463,8 @@ focus_tree = {
 		available_if_capitulated = no
 
 		completion_reward = {
+			custom_effect_tooltip = TPMP_ROM_modify_garda_regala_modifier_tt
+			add_to_variable = { TPMP_ROM_garda_regala_army_morale_factor = 0.2 tooltip = army_morale_factor_tt }
 		}
 	}
 
@@ -2477,6 +2494,10 @@ focus_tree = {
 		available_if_capitulated = no
 
 		completion_reward = {
+			custom_effect_tooltip = TPMP_ROM_modify_garda_regala_modifier_tt
+			add_to_variable = { TPMP_ROM_garda_regala_army_org_factor = 0.05 tooltip = army_org_factor_tt }
+			add_to_variable = { TPMP_ROM_garda_regala_army_defence_factor = 0.05 tooltip = army_defence_factor_tt }
+			add_to_variable = { TPMP_ROM_garda_regala_recruitable_population_factor = 0.10 tooltip = recruitable_population_factor_tt }
 		}
 	}
 
@@ -2498,6 +2519,7 @@ focus_tree = {
 
 		available = {
 			NOT = { has_country_flag = TPMP_ROM_instability }
+			has_completed_focus = TPMP_ROM_the_national_legionary_state
 		}
 
 		bypass = {
@@ -2542,6 +2564,8 @@ focus_tree = {
 		available_if_capitulated = no
 
 		completion_reward = {
+			custom_effect_tooltip = TPMP_ROM_modify_legionarii_modifier_tt
+			add_to_variable = { TPMP_ROM_legionarii_army_armor_attack_factor = 0.05 tooltip = army_armor_attack_factor_tt }
 		}
 	}
 
@@ -2573,15 +2597,14 @@ focus_tree = {
 
 		completion_reward = {
 			custom_effect_tooltip = TPMP_ROM_modify_legionarii_modifier_tt
-			add_to_variable = { TPMP_ROM_legionarii_special_forces_attack_factor = 0.15 tooltip = special_forces_attack_factor_tt }
+			add_to_variable = { TPMP_ROM_legionarii_special_forces_attack_factor = 0.10 tooltip = special_forces_attack_factor_tt }
 		}
 	}
 
 	focus = {
 		id = TPMP_ROM_shock_battalions
 		icon = GFX_focus_RAJ_mountain_guns
-		prerequisite = { focus = TPMP_ROM_chariots_chariots }
-		prerequisite = { focus = TPMP_ROM_our_mountain_home }
+		prerequisite = { focus = TPMP_ROM_chariots_chariots focus = TPMP_ROM_our_mountain_home }
 		x = 1
 		y = 1
 		relative_position_id = TPMP_ROM_chariots_chariots
@@ -2604,6 +2627,17 @@ focus_tree = {
 		available_if_capitulated = no
 
 		completion_reward = {
+			add_unit_bonus = {
+				infantry = {
+					breakthrough = 0.2
+				}
+				category_special_forces = {
+					breakthrough = 0.2
+				}
+				category_mobile_infantry = {
+					breakthrough = 0.2
+				}
+			}
 		}
 	}
 
@@ -2633,6 +2667,11 @@ focus_tree = {
 		available_if_capitulated = no
 
 		completion_reward = {
+			custom_effect_tooltip = TPMP_ROM_modify_legionarii_modifier_tt
+			add_to_variable = { TPMP_ROM_legionarii_army_org_factor = 0.1 tooltip = army_org_factor_tt }
+			add_to_variable = { TPMP_ROM_legionarii_out_of_supply_factor = -0.10 tooltip = out_of_supply_factor_tt }
+			add_to_variable = { TPMP_ROM_legionarii_pocket_penalty = -0.15 tooltip = pocket_penalty_tt }
+			add_to_variable = { TPMP_ROM_legionarii_special_forces_attack_factor = 0.05 tooltip = special_forces_attack_factor_tt }
 		}
 	}
 
@@ -3064,7 +3103,7 @@ focus_tree = {
 
 			create_railway_gun = {
 				equipment = railway_gun_equipment_1
-				name = "BL 9.2-inch Railway Gun"
+				name = "Big Shot"
 			}
 		}
 	}

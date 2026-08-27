@@ -5,6 +5,16 @@ set_variable = { TPMP_ROM_legionarii_recruitable_population_factor = -0.50 }
 set_variable = { TPMP_ROM_legionarii_army_attack_factor = 0.05 }
 set_variable = { TPMP_ROM_legionarii_army_defence_factor = -0.10 }
 set_variable = { TPMP_ROM_legionarii_special_forces_attack_factor = 0 }
+set_variable = { TPMP_ROM_legionarii_army_armor_attack_factor = 0 }
+set_variable = { TPMP_ROM_legionarii_out_of_supply_factor = 0 }
+set_variable = { TPMP_ROM_legionarii_pocket_penalty = 0 }
+
+set_variable = { TPMP_ROM_garda_regala_army_org_factor = 0 }
+set_variable = { TPMP_ROM_garda_regala_conscription = 0.01 }
+set_variable = { TPMP_ROM_garda_regala_recruitable_population_factor = 0.20 }
+set_variable = { TPMP_ROM_garda_regala_mobilization_laws_cost_factor = 0 }
+set_variable = { TPMP_ROM_garda_regala_army_morale_factor = 0 }
+set_variable = { TPMP_ROM_garda_regala_army_defence_factor = 0 }
 
 if = {
 	limit = {
@@ -211,7 +221,7 @@ set_convoys = 10
 1937.12.20 = {
 	if = {
 		limit = { NOT = { has_completed_focus = TPMP_ROM_1937_romanian_general_election } }
-		country_event = { id = TPMP_ROM.1 hours = 1 }
+		country_event = { id = TPMP_ROM.1 }
 	}
 }
 
@@ -227,7 +237,7 @@ set_convoys = 10
 		}
 		else_if = {
 			limit = { NOT = { has_completed_focus = TPMP_ROM_institute_royal_dictatorship } }
-			country_event = { id = TPMP_ROM.4 hours = 1 }
+			country_event = { id = TPMP_ROM.4 }
 		}
 	}
 }
