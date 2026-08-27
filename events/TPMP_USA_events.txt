@@ -290,57 +290,59 @@ country_event = { #Congressional Mobilization Plan
 	is_triggered_only = yes
 
 	immediate = {
-		IF = {
-			limit = {
-				has_country_flag = TPMP_USA_good_inf_bad_tanks_flag
-			}
-			random_list = {
-				10 = { 
-					set_country_flag = TPMP_USA_inf_specialization
+		hidden_effect = {
+			IF = {
+				limit = {
+					has_country_flag = TPMP_USA_good_inf_bad_tanks_flag
 				}
-				10 = {
-					set_country_flag = TPMP_USA_SF_specialization
-				}
-				10 = {
-					set_country_flag = TPMP_USA_mech_specialization
-				}
-			}
-		}
-		ELSE_IF = {
-			limit = {
-				has_country_flag = TPMP_USA_good_tanks_bad_navy_air_flag
-			}
-			random_list = {
-				10 = { 
-					set_country_flag = TPMP_USA_amph_tank_specialization
-				}
-				10 = {
-					set_country_flag = TPMP_USA_LT_specialization
-				}
-				10 = {
-					set_country_flag = TPMP_USA_MT_specialization
-				}
-				10 = {
-					set_country_flag = TPMP_USA_HT_specialization
+				random_list = {
+					10 = { 
+						set_country_flag = TPMP_USA_inf_specialization
+					}
+					10 = {
+						set_country_flag = TPMP_USA_SF_specialization
+					}
+					10 = {
+						set_country_flag = TPMP_USA_mech_specialization
+					}
 				}
 			}
-		}
-		ELSE_IF = {
-			limit = {
-				has_country_flag = TPMP_USA_good_navy_air_bad_inf_flag
+			ELSE_IF = {
+				limit = {
+					has_country_flag = TPMP_USA_good_tanks_bad_navy_air_flag
+				}
+				random_list = {
+					10 = { 
+						set_country_flag = TPMP_USA_amph_tank_specialization
+					}
+					10 = {
+						set_country_flag = TPMP_USA_LT_specialization
+					}
+					10 = {
+						set_country_flag = TPMP_USA_MT_specialization
+					}
+					10 = {
+						set_country_flag = TPMP_USA_HT_specialization
+					}
+				}
 			}
-			random_list = {
-				10 = { 
-					set_country_flag = TPMP_USA_CAS_specialization
+			ELSE_IF = {
+				limit = {
+					has_country_flag = TPMP_USA_good_navy_air_bad_inf_flag
 				}
-				10 = {
-					set_country_flag = TPMP_USA_strat_specialization
-				}
-				10 = {
-					set_country_flag = TPMP_USA_CV_specialization
-				}
-				10 = {
-					set_country_flag = TPMP_USA_BB_specialization
+				random_list = {
+					10 = { 
+						set_country_flag = TPMP_USA_CAS_specialization
+					}
+					10 = {
+						set_country_flag = TPMP_USA_strat_specialization
+					}
+					10 = {
+						set_country_flag = TPMP_USA_CV_specialization
+					}
+					10 = {
+						set_country_flag = TPMP_USA_BB_specialization
+					}
 				}
 			}
 		}
@@ -380,6 +382,7 @@ country_event = { #Congressional Mobilization Plan
 		}
 		add_ideas = TPMP_USA_congressional_mobilization_plan_idea_0
 		add_ideas = TPMP_USA_congressional_mobilization_plan_idea_3
+		custom_effect_tooltip = generic_skip_one_line_tt
 		country_event = {
 			id = TPMP_USA.9
 		}
@@ -416,6 +419,7 @@ country_event = { #Congressional Mobilization Plan
 		}
 		add_ideas = TPMP_USA_congressional_mobilization_plan_idea_4
 		add_ideas = TPMP_USA_congressional_mobilization_plan_idea_1
+		custom_effect_tooltip = generic_skip_one_line_tt
 		country_event = {
 			id = TPMP_USA.9
 		}
@@ -453,6 +457,7 @@ country_event = { #Congressional Mobilization Plan
 		}
 		add_ideas = TPMP_USA_congressional_mobilization_plan_idea_2
 		add_ideas = TPMP_USA_congressional_mobilization_plan_idea_5
+		custom_effect_tooltip = generic_skip_one_line_tt
 		country_event = {
 			id = TPMP_USA.9
 		}
@@ -468,6 +473,197 @@ country_event = {
 
 	option = {
 		name = TPMP_USA.9.a
+		trigger = {
+			has_country_flag = TPMP_USA_inf_specialization
+		}
+		add_unit_bonus = {
+			category_leg_infantry = {
+				default_morale = 0.1
+				initiative = 0.5
+			}
+		}
+	}
+	option = {
+		name = TPMP_USA.9.b
+		trigger = {
+			has_country_flag = TPMP_USA_SF_specialization
+		}
+		add_ideas = TPMP_USA_SF_specialization_idea
+	}
+	option = {
+		name = TPMP_USA.9.c
+		trigger = {
+			has_country_flag = TPMP_USA_mech_specialization
+		}
+		add_equipment_bonus = {
+			name = TPMP_USA_congressional_mobilization_plan
+			bonus = {
+				TPMP_cat_eq_all_mech = {
+					build_cost_ic = -0.1
+					instant = yes
+				}
+			}
+		}
+		add_ideas = TPMP_USA_mech_specialization_idea
+	}
+	option = {
+		name = TPMP_USA.9.d
+		trigger = {
+			has_country_flag = TPMP_USA_amph_tank_specialization
+		}
+		add_equipment_bonus = {
+			name = TPMP_USA_congressional_mobilization_plan
+			bonus = {
+				TPMP_cat_eq_all_amph = {
+					reliability = 0.1
+					instant = yes
+				}
+			}
+		}
+		add_unit_bonus = {
+			amphibious_light_armor = {
+				amphibious = {
+					attack = 0.05
+				}
+				marsh = {
+					attack = 0.05
+				}
+				river = {
+					attack = 0.05
+				}
+			}
+			amphibious_medium_armor = {
+				amphibious = {
+					attack = 0.05
+				}
+				marsh = {
+					attack = 0.05
+				}
+				river = {
+					attack = 0.05
+				}
+			}
+			amphibious_heavy_armor = {
+				amphibious = {
+					attack = 0.05
+				}
+				marsh = {
+					attack = 0.05
+				}
+				river = {
+					attack = 0.05
+				}
+			}
+		}
+	}
+	option = {
+		name = TPMP_USA.9.e
+		trigger = {
+			has_country_flag = TPMP_USA_LT_specialization
+		}
+		add_equipment_bonus = {
+			name = TPMP_USA_congressional_mobilization_plan
+			bonus = {
+				light_tank_chassis = {
+					ap_attack = 0.1
+					hard_attack = 0.05
+					soft_attack = 0.05
+					instant = yes
+				}
+			}
+		}
+	}
+	option = {
+		name = TPMP_USA.9.f
+		trigger = {
+			has_country_flag = TPMP_USA_MT_specialization
+		}
+		add_equipment_bonus = {
+			name = TPMP_USA_congressional_mobilization_plan
+			bonus = {
+				medium_tank_chassis = {
+					breakthrough = 0.075
+					instant = yes
+				}
+			}
+		}
+	}
+	option = {
+		name = TPMP_USA.9.g
+		trigger = {
+			has_country_flag = TPMP_USA_HT_specialization
+		}
+		add_equipment_bonus = {
+			name = TPMP_USA_congressional_mobilization_plan
+			bonus = {
+				heavy_tank_chassis = {
+					armor_value = 0.05
+					instant = yes
+				}
+				super_heavy_tank_chassis = {
+					armor_value = 0.05
+					instant = yes
+				}
+			}
+		}
+	}
+	option = {
+		name = TPMP_USA.9.h
+		trigger = {
+			has_country_flag = TPMP_USA_CAS_specialization
+		}
+		add_ideas = TPMP_USA_CAS_specialization_idea
+	}
+	option = {
+		name = TPMP_USA.9.i
+		trigger = {
+			has_country_flag = TPMP_USA_strat_specialization
+		}
+		add_equipment_bonus = {
+			name = TPMP_USA_congressional_mobilization_plan
+			bonus = {
+				medium_plane_fighter_airframe = {
+					air_range = 0.1
+					instant = yes
+				}
+				medium_plane_airframe = {
+					air_range = 0.1
+					instant = yes
+				}
+				large_plane_airframe = {
+					air_range = 0.1
+					instant = yes
+				}
+			}
+		}
+		add_ideas = TPMP_USA_strat_specialization_idea
+	}
+	option = {
+		name = TPMP_USA.9.j
+		trigger = {
+			has_country_flag = TPMP_USA_CV_specialization
+		}
+		add_equipment_bonus = {
+			name = TPMP_USA_congressional_mobilization_plan
+			bonus = {
+				small_plane_naval_bomber_airframe = {
+					naval_strike_attack = 0.1
+					instant = yes
+				}
+				cv_small_plane_naval_bomber_airframe = {
+					naval_strike_attack = 0.1
+					instant = yes
+				}
+			}
+		}
+		add_ideas = TPMP_USA_CV_specialization_idea
+	}
+	option = {
+		name = TPMP_USA.9.k
+		trigger = {
+			has_country_flag = TPMP_USA_BB_specialization
+		}
+		add_ideas = TPMP_USA_BB_specialization_idea
 	}
 }
 
@@ -546,8 +742,7 @@ country_event = {
 		add_political_power = -50
 		custom_effect_tooltip = generic_skip_one_line_tt
 		complete_national_focus = TPMP_USA_the_1936_election
-		complete_national_focus = TPMP_USA_a_strong_mandate # TEMP: all outcomes grant the strong mandate branch until the narrow victory path is finished
-		# complete_national_focus = TPMP_USA_a_narrow_victory # TEMP: re-enable when the narrow victory path is finished
+		complete_national_focus = TPMP_USA_a_narrow_victory
 		clr_country_flag = TPMP_USA_elections_flag
 	}
 	option = {
@@ -607,8 +802,7 @@ country_event = {
 		add_political_power = -100
 		custom_effect_tooltip = generic_skip_one_line_tt
 		complete_national_focus = TPMP_USA_the_1936_election
-		complete_national_focus = TPMP_USA_a_strong_mandate # TEMP: all outcomes grant the strong mandate branch until the narrow victory path is finished
-		# complete_national_focus = TPMP_USA_a_narrow_victory # TEMP: re-enable when the narrow victory path is finished
+		complete_national_focus = TPMP_USA_a_narrow_victory
 		clr_country_flag = TPMP_USA_elections_flag
 	}
 	option = {
@@ -655,8 +849,7 @@ country_event = {
 		add_political_power = -150
 		custom_effect_tooltip = generic_skip_one_line_tt
 		complete_national_focus = TPMP_USA_the_1936_election
-		complete_national_focus = TPMP_USA_a_strong_mandate # TEMP: all outcomes grant the strong mandate branch until the narrow victory path is finished
-		# complete_national_focus = TPMP_USA_a_narrow_victory # TEMP: re-enable when the narrow victory path is finished
+		complete_national_focus = TPMP_USA_a_narrow_victory
 		clr_country_flag = TPMP_USA_elections_flag
 	}
 }
