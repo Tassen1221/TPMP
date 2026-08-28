@@ -169,6 +169,7 @@ focus_tree = {
 				}
 			}
 
+			custom_effect_tooltip = generic_skip_one_line_tt
 			if = {
 				limit = {
 					OR = {
@@ -236,7 +237,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = TPMP_ROM_the_titan_plant
 
-		cost = 5
+		cost = 10
 
 		ai_will_do = {
 				factor = 1
@@ -264,10 +265,10 @@ focus_tree = {
 				add_dynamic_modifier = {
 					modifier = TPMP_ROM_muntenia_industrial_modifier_2
 				}
-				add_extra_state_shared_building_slots = 1
+				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = industrial_complex
-					level = 1
+					level = 2
 					instant_build = yes
 				}
 			}
@@ -318,7 +319,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = TPMP_ROM_preserve_greater_romania
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -344,10 +345,23 @@ focus_tree = {
 					type = oil
 					amount = 240
 				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_infrastructure
+					level = 1
+					instant_build = yes
+				}
 			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
 			set_technology = {
 				fuel_silos = 1
 				fuel_refining = 1
+				excavation1 = 1
 			}
 		}
 	}
@@ -526,7 +540,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = TPMP_ROM_danubian_transport_network
 
-		cost = 5
+		cost = 10
 
 		ai_will_do = {
 			factor = 5
@@ -547,7 +561,7 @@ focus_tree = {
 
 
 		completion_reward = {
-			add_offsite_building = { type = industrial_complex level = 1 }
+			add_offsite_building = { type = industrial_complex level = 2 }
 			add_tech_bonus = {
 				bonus = 1.0
 				uses = 2
@@ -587,6 +601,12 @@ focus_tree = {
 		completion_reward = {
 			add_popularity = { ideology = fascism popularity = 0.05 }
 			add_ideas = TPMP_ROM_trade_idea_0
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+			set_technology = {
+				excavation2 = 1
+				fuel_refining2 = 1
+			}
 		}
 	}
 	focus = {
@@ -597,7 +617,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = TPMP_ROM_trade_treaty_with_germany
 
-		cost = 5
+		cost = 10
 
 		ai_will_do = {
 			factor = 9
@@ -622,14 +642,15 @@ focus_tree = {
 				add_dynamic_modifier = {
 					modifier = TPMP_ROM_tohan_complex_modifier
 				}
-				add_extra_state_shared_building_slots = 1
+				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = arms_factory
-					level = 1
+					level = 2
 					instant_build = yes
 				}
 			}
 
+			custom_effect_tooltip = generic_skip_one_line_tt
 			if = {
 				limit = {
 					OR = {
@@ -653,6 +674,7 @@ focus_tree = {
 
 			custom_effect_tooltip = TPMP_ROM_tohran_complex_bonus_tooltip
 
+			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = available_political_advisor
 			show_ideas_tooltip = TPMP_ROM_nicolae_malaxa_2
 		}
@@ -665,7 +687,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = TPMP_ROM_trade_treaty_with_germany
 
-		cost = 5
+		cost = 10
 
 		ai_will_do = {
 			factor = 9
@@ -688,7 +710,7 @@ focus_tree = {
 			46 = {
 				add_resource = {
 					type = steel
-					amount = 30
+					amount = 50
 				}
 				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
@@ -700,7 +722,7 @@ focus_tree = {
 			84 = {
 				add_resource = {
 					type = steel
-					amount = 30
+					amount = 70
 				}
 				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
@@ -715,7 +737,19 @@ focus_tree = {
 			81 = {
 				add_resource = {
 					type = steel
-					amount = 30
+					amount = 50
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			83 = {
+				add_resource = {
+					type = steel
+					amount = 50
 				}
 				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
@@ -851,6 +885,7 @@ focus_tree = {
 
 		completion_reward = {
 			add_ideas = war_economy
+			custom_effect_tooltip = generic_skip_one_line_tt
 			add_ideas = TPMP_ROM_german_dominated_trade
 
 			hidden_effect = {
@@ -865,6 +900,7 @@ focus_tree = {
 				set_variable = { TPMP_ROM_pre_puppet_pop_neutrality = party_popularity_100@neutrality }
 			}
 
+			custom_effect_tooltip = generic_skip_one_line_tt
 			GER = {
 				hidden_effect = {
 					puppet = ROOT
@@ -1111,9 +1147,13 @@ focus_tree = {
 					}
 				}
 			}
+			set_technology = {
+				excavation3 = 1
+				fuel_refining3 = 1
+			}
 		}
 	}
-	
+
 	focus = {
 		id = TPMP_ROM_found_solagra
 		icon = GFX_focus_generic_farmland
@@ -1247,11 +1287,24 @@ focus_tree = {
 
 		completion_reward = {
 			custom_effect_tooltip = TPMP_ROM_sideline_titulescu_tooltip
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = TPMP_ROM_sideline_titulescu_warning_tt
+
+			custom_effect_tooltip = generic_skip_one_line_tt
 			set_country_flag = TPMP_ROM_titulescu_sidelined
 			if = {
 				limit = { has_idea = TPMP_ROM_camarilla_titulescu }
 				remove_mission = TPMP_ROM_camarilla_mission_0
-				TPMP_ROM_camarilla_advance_0_to_1 = yes
+				remove_ideas = TPMP_ROM_camarilla_titulescu
+				if = {
+					limit = { has_completed_focus = TPMP_ROM_camarilla_renewed }
+					add_ideas = TPMP_ROM_camarilla_lupescu_renewed
+				}
+				else = {
+					add_ideas = TPMP_ROM_camarilla_lupescu
+				}
+				set_variable = { TPMP_ROM_camarilla_index = 1 }
+				activate_mission = TPMP_ROM_camarilla_mission_1
 			}
 		}
 	}
@@ -1327,6 +1380,8 @@ focus_tree = {
 			}
 			add_war_support = 0.05
 			add_political_power = 60
+
+			custom_effect_tooltip = generic_skip_one_line_tt
 			remove_ideas = neutrality_idea
 		}
 	}
@@ -1356,32 +1411,20 @@ focus_tree = {
 		available_if_capitulated = no
 
 		completion_reward = {
-			remove_ideas = ROM_king_carol_ii_hedonist
-			add_timed_idea = { idea = ROM_king_carol_emptied_accounts days = 360 }
-			hidden_effect = {
-				news_event = { id = news.323 days = 1 }
-			}
-
 			set_politics = {
 				ruling_party = fascism
 				elections_allowed = no
 			}
-
 			add_popularity = {
 				ideology = fascism
 				popularity = 0.15
 			}
 			add_stability = -0.05
 
-			diplomatic_relation = { country = YUG relation = guarantee active = no }
-			diplomatic_relation = { country = CZE relation = guarantee active = no }
-			diplomatic_relation = { country = GRE relation = guarantee active = no }
-			diplomatic_relation = { country = TUR relation = guarantee active = no }
+			custom_effect_tooltip = generic_skip_one_line_tt
+			complete_national_focus = TPMP_ROM_legion_of_the_archangel_michael
 
-			764 = {
-				add_claim_by = ROOT
-			}
-
+			custom_effect_tooltip = generic_skip_one_line_tt
 			hidden_effect = {
 				clr_country_flag = TPMP_ROM_camarilla_active
 
@@ -1406,10 +1449,22 @@ focus_tree = {
 				remove_ideas = TPMP_ROM_camarilla_marinescu
 				remove_ideas = TPMP_ROM_camarilla_marinescu_renewed
 			}
-
 			custom_effect_tooltip = TPMP_ROM_camarilla_disbanded_tooltip
+			remove_ideas = ROM_king_carol_ii_hedonist
+			add_timed_idea = { idea = ROM_king_carol_emptied_accounts days = 360 }
+			hidden_effect = {
+				news_event = { id = news.323 days = 1 }
+			}
 
-			complete_national_focus = TPMP_ROM_legion_of_the_archangel_michael
+			custom_effect_tooltip = generic_skip_one_line_tt
+			diplomatic_relation = { country = YUG relation = guarantee active = no }
+			diplomatic_relation = { country = CZE relation = guarantee active = no }
+			diplomatic_relation = { country = GRE relation = guarantee active = no }
+			diplomatic_relation = { country = TUR relation = guarantee active = no }
+			custom_effect_tooltip = generic_skip_one_line_tt
+			764 = {
+				add_claim_by = ROOT
+			}
 		}
 	}
 	focus = {
@@ -1427,6 +1482,7 @@ focus_tree = {
 		}
 
 		available = {
+			NOT = { has_country_flag = TPMP_ROM_instability }
 		}
 
 		bypass = {
@@ -1527,6 +1583,7 @@ focus_tree = {
 			custom_effect_tooltip = available_political_advisor
 			show_ideas_tooltip = ROM_mihail_sturdza
 
+			custom_effect_tooltip = generic_skip_one_line_tt
 			clr_country_flag = TPMP_ROM_instability
 			remove_ideas = TPMP_ROM_instability
 		}
@@ -1590,6 +1647,7 @@ focus_tree = {
 		completion_reward = {
 			add_ideas = ROM_iron_guard
 
+			custom_effect_tooltip = generic_skip_one_line_tt
 			clr_country_flag = TPMP_ROM_instability
 			remove_ideas = TPMP_ROM_instability
 		}
@@ -1624,6 +1682,15 @@ focus_tree = {
 		available_if_capitulated = yes
 
 		completion_reward = {
+			set_politics = {
+				ruling_party = neutrality
+				elections_allowed = no
+			}
+			set_political_party = {
+				ideology = neutrality
+				popularity = 65
+			}
+
 			create_country_leader = {
 				name = "Carol II"
 				desc = "POLITICS_CAROL_II_DESC"
@@ -1635,14 +1702,7 @@ focus_tree = {
 				}
 				id = 550
 			}
-			set_politics = {
-				ruling_party = neutrality
-				elections_allowed = no
-			}
-			set_political_party = {
-				ideology = neutrality
-				popularity = 65
-			}
+
 			remove_ideas = neutrality_idea
 		}
 	}
@@ -2248,6 +2308,36 @@ focus_tree = {
 	}
 
 	focus = {
+		id = TPMP_ROM_the_1st_wave
+		icon = GFX_focus_generic_fascist_troops
+		prerequisite = { focus = TPMP_ROM_german_army_integration }
+		x = 0
+		y = 1
+		relative_position_id = TPMP_ROM_german_army_integration
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			NOT = { has_country_flag = TPMP_ROM_instability }
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			custom_effect_tooltip = TPMP_ROM_the_1st_wave_unfinished_tt
+		}
+	}
+
+	focus = {
 		id = TPMP_ROM_beg_for_modern_equipment
 		icon = GFX_focus_generic_heavy_tank
 		prerequisite = { focus = TPMP_ROM_the_1st_wave }
@@ -2286,36 +2376,6 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = TPMP_ROM_the_1st_wave
-
-		cost = 5
-
-		ai_will_do = {
-			factor = 1
-		}
-
-		available = {
-			NOT = { has_country_flag = TPMP_ROM_instability }
-		}
-
-		bypass = {
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-
-		completion_reward = {
-			custom_effect_tooltip = TPMP_ROM_the_1st_wave_unfinished_tt
-		}
-	}
-
-	focus = {
-		id = TPMP_ROM_the_1st_wave
-		icon = GFX_focus_generic_fascist_troops
-		prerequisite = { focus = TPMP_ROM_german_army_integration }
-		x = 0
-		y = 1
-		relative_position_id = TPMP_ROM_german_army_integration
 
 		cost = 5
 
