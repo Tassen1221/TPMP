@@ -86,6 +86,7 @@ country_event = {
 	desc = TPMP_ROM.4.d
 
 	is_triggered_only = yes
+	fire_only_once = yes
 
 	option = {
 		name = TPMP_ROM.4.a
@@ -97,7 +98,10 @@ country_event = {
 			complete_national_focus = TPMP_ROM_translyvanian_fiasco
 		}
 		set_country_flag = TPMP_ROM_instability
-		add_ideas = TPMP_ROM_instability
+		if = {
+			limit = { NOT = { has_idea = TPMP_ROM_instability } }
+			add_ideas = TPMP_ROM_instability
+		}
 		if = {
 			limit = { 76 = { is_owned_by = ROOT } }
 			76 = {

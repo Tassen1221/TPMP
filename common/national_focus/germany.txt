@@ -11496,25 +11496,21 @@ mio:GER_blohm_und_voss_organization = {
 
 			ROM = {
 
-				set_technology = {
-					fuel_refining = 1
-					fuel_refining2 = 1
-					fuel_refining3 = 1
+				if = {
+					limit = { NOT = { has_tech = fuel_refining } }
+					set_technology = { fuel_refining = 1 }
 				}
-
-
+				if = {
+					limit = { NOT = { has_tech = fuel_refining2 } }
+					set_technology = { fuel_refining2 = 1 }
+				}
+				if = {
+					limit = { NOT = { has_tech = fuel_refining3 } }
+					set_technology = { fuel_refining3 = 1 }
+				}
 
 				add_ideas = TPMP_ROM_german_dominated_trade
-				add_research_slot = -1
-
-				
-				country_event = { 
-					id = wuw_GER_diplomacy.111 
-					days = 2 
-				}
-
-
-
+				add_ideas = GER_development_of_economic_relations_ns
 
 
 
