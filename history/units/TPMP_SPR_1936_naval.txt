@@ -17,21 +17,22 @@ units= {
 			ship = { name = "ARE Alsedo" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = SPR version_name = "Alsedo Class" } } }
 			ship = { name = "ARE Velasco" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = SPR version_name = "Alsedo Class" } } }
 			ship = { name = "ARE Lazaga" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = SPR version_name = "Alsedo Class" } } }
+			ship = { name = "ARE Gravina" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = SPR version_name = "Churucca Class" } } }
 		}
 	}
 		
 	fleet = {
 		name = "Base Naval Cádiz"
-		naval_base = 1048  #Cádiz
+		naval_base = 758  # Ferrol/Coruna
 		task_force = {
 			name = "Escuadrón de Cádiz"
-			location = 1048  #Cádiz
+			location = 758  # Ferrol/Coruna
 			ship = { name = "ARE República" definition = light_cruiser equipment = { ship_hull_cruiser_1 = { amount = 1 owner = SPR version_name = "República Class" } } }
 			ship = { name = "ARE Méndez Núñez" definition = light_cruiser equipment = { ship_hull_cruiser_1 = { amount = 1 owner = SPR version_name = "Méndez Núñes Class" } } }
 		}
 		task_force = {
 			name = "Grupo de Cádiz"
-			location = 1048  #Cádiz
+			location = 758  # Ferrol/Coruna
 			# S103 Flotilla
 			ship = { name = "ARE B1" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SPR version_name = "B Class" } } }
 			ship = { name = "ARE B2" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SPR version_name = "B Class" } } }
@@ -42,10 +43,10 @@ units= {
 		
 	fleet = {
 		name = "Base Naval Cartagena"
-		naval_base = 10024  #Cartagena/Murcia
+		naval_base = 758  # Ferrol/Coruna
 		task_force = {
 			name = "Escuadrón de Cartagena"
-			location = 10024  #Cartagena/Murcia
+			location = 758  # Ferrol/Coruna
 			ship = { name = "ARE Almirante Miranda" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = SPR version_name = "Churucca Class" } } }
 			# Flotilla de Destructores n.1
 			ship = { name = "ARE Almirante Ferrándiz" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = SPR version_name = "Churucca Class" } } }
@@ -60,7 +61,7 @@ units= {
 		}
 		task_force = {
 			name = "Grupo de Cartagena"
-			location = 10024  #Cartagena/Murcia
+			location = 758  # Ferrol/Coruna
 			# S101 Flotilla
 			ship = { name = "ARE B5" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SPR version_name = "B Class" } } }
 			ship = { name = "ARE B6" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SPR version_name = "B Class" } } }
@@ -89,20 +90,8 @@ instant_effect = {
 			creator = "SPR"
 			version_name = "Canarias Class"
 		}
-		name = "ARE Canarias" 
-		requested_factories = 1
-		progress = 0.35
-		amount = 1
-	}
-	add_equipment_production = {
-		equipment = {
-			type = ship_hull_cruiser_2
-			creator = "SPR"
-			version_name = "Canarias Class"
-		}
-		name = "ARE Baleares" 
-		requested_factories = 1
-		progress = 0.20
+		requested_factories = 10
+		progress = 0.55
 		amount = 1
 	}
 	# DD: Júpiter class (x2) (minelayers) ("ARE Júpiter" "ARE Vulcano")
@@ -112,20 +101,8 @@ instant_effect = {
 			creator = "SPR"
 			version_name = "Júpiter Class"
 		}
-		name = "ARE Júpiter" 
-		requested_factories = 1
-		progress = 0.15
-		amount = 1
-	}
-	add_equipment_production = {
-		equipment = {
-			type = ship_hull_light_2
-			creator = "SPR"
-			version_name = "Júpiter Class"
-		}
-		name = "ARE Vulcano" 
-		requested_factories = 1
-		progress = 0.15
+		requested_factories = 10
+		progress = 0.30
 		amount = 1
 	}
 	# DD: Churucca class (x6) ("ARE Gravina" "ARE Escaño" "ARE Císcar" "ARE Jorge Juan" "ARE Ulloa")
@@ -135,53 +112,8 @@ instant_effect = {
 			creator = "SPR"
 			version_name = "Churucca Class"
 		}
-		name = "ARE Gravina" 
-		requested_factories = 1
-		progress = 0.50
-		amount = 1
-	}
-	add_equipment_production = {
-		equipment = {
-			type = ship_hull_light_2
-			creator = "SPR"
-			version_name = "Churucca Class"
-		}
-		name = "ARE Escaño" 
-		requested_factories = 1
-		progress = 0.50
-		amount = 1
-	}
-	add_equipment_production = {
-		equipment = {
-			type = ship_hull_light_2
-			creator = "SPR"
-			version_name = "Churucca Class"
-		}
-		name = "ARE Císcar" 
-		requested_factories = 1
-		progress = 0.40
-		amount = 1
-	}
-	add_equipment_production = {
-		equipment = {
-			type = ship_hull_light_2
-			creator = "SPR"
-			version_name = "Churucca Class"
-		}
-		name = "ARE Jorge Juan" 
-		requested_factories = 1
-		progress = 0.20
-		amount = 1
-	}
-	add_equipment_production = {
-		equipment = {
-			type = ship_hull_light_2
-			creator = "SPR"
-			version_name = "Churucca Class"
-		}
-		name = "ARE Ulloa" 
-		requested_factories = 1
-		progress = 0.20
+		requested_factories = 10
+		progress = 0.80
 		amount = 1
 	}
 }

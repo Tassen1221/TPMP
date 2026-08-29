@@ -21,10 +21,11 @@ units= {
 			ship = { name = "Leopard" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = GER version_name = "Type 24" } } }
 			ship = { name = "Luchs" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = GER version_name = "Type 24" } } }
 			ship = { name = "Tiger" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = GER version_name = "Type 24" } } }
+			ship = { name = "Z1" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = GER version_name = "Zerstörer 1934" } } }
 		}
 		task_force = {
 			name = "Ostseeflotte"
-			location = 6332  # Konigsberg
+			location = 241  # Wilhemshaven
 			ship = { name = "Schleswig-Holstein" definition = battleship start_experience_factor = 0.2 equipment = { ship_hull_pre_dreadnought = { amount = 1 owner = GER version_name = "Deutschland" } } }
 			ship = { name = "Schlesien" definition = battleship start_experience_factor = 0.2 equipment = { ship_hull_pre_dreadnought = { amount = 1 owner = GER version_name = "Deutschland" } } }			
 			# 2. Torpedobootflottille
@@ -40,17 +41,17 @@ units= {
 		}
 		task_force = {
 			name = "Marineschule Kiel"
-			location = 6389 	# Kiel
+			location = 241  # Wilhemshaven
 			ship = { name = "Brummer" definition = light_cruiser equipment = { ship_hull_cruiser_1 = { amount = 1 owner = GER version_name = "Bremse" } } }			
 			ship = { name = "Bremse" definition = light_cruiser equipment = { ship_hull_cruiser_1 = { amount = 1 owner = GER version_name = "Bremse" } } }
 		}
 	}
 	fleet = {
-		name = "Unterseeboots-Flotte "			
-		naval_base = 6389  # Kiel
+		name = "Unterseeboots-Flotte "
+		naval_base = 241  # Wilhemshaven
 		task_force = {
 			name = "I. U-Boots Flottille Weddigen"
-			location = 6389  # Kiel
+			location = 241  # Wilhemshaven
 			# 1. Unterseebootsflottille
 			ship = { name = "U-7" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = GER version_name = "Type II" } } }
 			ship = { name = "U-8" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = GER version_name = "Type II" } } }
@@ -61,6 +62,8 @@ units= {
 			ship = { name = "U-12" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = GER version_name = "Type II" } } }
 			ship = { name = "U-13" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = GER version_name = "Type II" } } }
 			ship = { name = "U-17" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = GER version_name = "Type II" } } }
+			ship = { name = "U-25" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = GER version_name = "Type II" } } }
+			ship = { name = "U-26" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = GER version_name = "Type II" } } }
 		}
 		task_force = {
 			name = "II. U-Boots-Ausbildungs-Gruppe"
@@ -90,45 +93,12 @@ instant_effect = {
 	add_equipment_production = {
 		equipment = {
 			type = ship_hull_submarine_1
-			creator = "GER" 
+			creator = "GER"
 			version_name = "Type II"
 		}
-		requested_factories = 1
-		progress = 0.75
-		amount = 2
-
-	}
-	add_equipment_production = {
-		equipment = {
-			type = ship_hull_submarine_1
-			creator = "GER" 
-			version_name = "Type II"
-		}
-		requested_factories = 1
-		progress = 0.65
-		amount = 2
-
-	}
-	add_equipment_production = {
-		equipment = {
-			type = ship_hull_submarine_1
-			creator = "GER" 
-			version_name = "Type II"
-		}
-		requested_factories = 1
-		progress = 0.55
-		amount = 2
-
-	}
-	add_equipment_production = {
-		equipment = {
-			type = ship_hull_submarine_1
-			creator = "GER" 
-			version_name = "Type II"
-		}
-		requested_factories = 1
-		progress = 0.45
-		amount = 2
+		requested_factories = 10
+		progress = 0.40
+		amount = 1
 
 	}
 	# DD: 1934 (x4) ("Z1" "Z2" "Z3" "Z4")
@@ -138,23 +108,12 @@ instant_effect = {
 			creator = "GER"
 			version_name = "Zerstörer 1934"
 		}
-		requested_factories = 1
-		progress = 0.75
-		amount = 2
+		requested_factories = 10
+		progress = 0.40
+		amount = 1
 
 	}
-	add_equipment_production = {
-		equipment = {
-			type = ship_hull_light_2
-			creator = "GER"
-			version_name = "Zerstörer 1934"
-		}
-		requested_factories = 1
-		progress = 0.65
-		amount = 2
 
-	}
-	
 	# CA: "Graf Spee"
 	add_equipment_production = {
 		equipment = {
@@ -162,7 +121,7 @@ instant_effect = {
 			creator = "GER"
 			version_name = "Deutschland"
 		}
-		requested_factories = 1
+		requested_factories = 10
 		progress = 0.95
 		amount = 1
 
@@ -174,7 +133,7 @@ instant_effect = {
 			creator = "GER"
 			version_name = "Admiral Hipper"
 		}
-		requested_factories = 1
+		requested_factories = 10
 		progress = 0.25
 		amount = 1
 
@@ -186,20 +145,8 @@ instant_effect = {
 			creator = "GER"
 			version_name = "Scharnhorst"
 		}
-		requested_factories = 1
-		progress = 0.35
-		amount = 1
-
-	}
-	# Gneisenau
-	add_equipment_production = {
-		equipment = {
-			type = ship_hull_heavy_2
-			creator = "GER"
-			version_name = "Scharnhorst"
-		}
-		requested_factories = 1
-		progress = 0.25
+		requested_factories = 5
+		progress = 0.60
 		amount = 1
 
 	}
@@ -210,33 +157,9 @@ instant_effect = {
 			creator = "GER"
 			version_name = "Zerstörer 1934A"
 		}
-		requested_factories = 1
-		progress = 0.25
-		amount = 4
-
-	}
-	# DD: 1934A (x12) ("Z5"-"Z16")
-	add_equipment_production = {
-		equipment = {
-			type = ship_hull_light_2
-			creator = "GER"
-			version_name = "Zerstörer 1934A"
-		}
-		requested_factories = 1
-		progress = 0.25
-		amount = 4
-
-	}
-	# DD: 1934A (x12) ("Z5"-"Z16")
-	add_equipment_production = {
-		equipment = {
-			type = ship_hull_light_2
-			creator = "GER"
-			version_name = "Zerstörer 1934A"
-		}
-		requested_factories = 1
-		progress = 0.25
-		amount = 4
+		requested_factories = 10
+		progress = 0.75
+		amount = 1
 
 	}
 }
