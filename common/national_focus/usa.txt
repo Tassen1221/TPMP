@@ -206,6 +206,7 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
+			custom_effect_tooltip = TPMP_USA_a_narrow_victory_tt
 		}
 	}
 
@@ -692,6 +693,7 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
+			custom_effect_tooltip = TPMP_USA_a_strong_mandate_tt
 		}
 	}
 
@@ -5445,10 +5447,52 @@ focus_tree = {
 				amount = 500
 				producer = USA
 			}
-			add_equipment_to_stockpile = {
-				type = small_plane_naval_bomber_airframe
-				amount = 200
-				producer = USA
+			IF = {
+				limit = {
+					has_tech = modern_small_airframe
+				}
+				add_equipment_to_stockpile = {
+					type = small_plane_naval_bomber_airframe_4
+					amount = 200
+					producer = USA
+				}
+			}
+			ELSE_IF = {
+				limit = {
+					has_tech = advanced_small_airframe
+				}
+				add_equipment_to_stockpile = {
+					type = small_plane_naval_bomber_airframe_3
+					amount = 200
+					producer = USA
+				}
+			}
+			ELSE_IF = {
+				limit = {
+					has_tech = improved_small_airframe
+				}
+				add_equipment_to_stockpile = {
+					type = small_plane_naval_bomber_airframe_2
+					amount = 200
+					producer = USA
+				}
+			}
+			ELSE_IF = {
+				limit = {
+					has_tech = basic_small_airframe
+				}
+				add_equipment_to_stockpile = {
+					type = small_plane_naval_bomber_airframe_1
+					amount = 200
+					producer = USA
+				}
+			}
+			ELSE = {
+				add_equipment_to_stockpile = {
+					type = small_plane_naval_bomber_airframe_0
+					amount = 200
+					producer = USA
+				}
 			}
 			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = USA_modify_us_army_air_forces_tt

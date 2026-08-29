@@ -4784,10 +4784,52 @@ focus_tree = {
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
-			add_equipment_to_stockpile = {
-				type = small_plane_CAS_airframe
-				amount = 500
-				producer = GER
+			IF = {
+				limit = {
+					has_tech = modern_small_airframe
+				}
+				add_equipment_to_stockpile = {
+					type = small_plane_cas_airframe_4
+					amount = 500
+					producer = GER
+				}
+			}
+			ELSE_IF = {
+				limit = {
+					has_tech = advanced_small_airframe
+				}
+				add_equipment_to_stockpile = {
+					type = small_plane_cas_airframe_3
+					amount = 500
+					producer = GER
+				}
+			}
+			ELSE_IF = {
+				limit = {
+					has_tech = improved_small_airframe
+				}
+				add_equipment_to_stockpile = {
+					type = small_plane_cas_airframe_2
+					amount = 500
+					producer = GER
+				}
+			}
+			ELSE_IF = {
+				limit = {
+					has_tech = basic_small_airframe
+				}
+				add_equipment_to_stockpile = {
+					type = small_plane_cas_airframe_1
+					amount = 500
+					producer = GER
+				}
+			}
+			ELSE = {
+				add_equipment_to_stockpile = {
+					type = small_plane_cas_airframe_0
+					amount = 500
+					producer = GER
+				}
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt

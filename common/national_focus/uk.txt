@@ -1436,10 +1436,52 @@ focus_tree = {
 				category = naval_bomber
 				category = cas_bomber
 			}
-			add_equipment_to_stockpile = {
-				type = small_plane_naval_bomber_airframe
-				amount = 300
-				producer = ENG
+			IF = {
+				limit = {
+					has_tech = modern_small_airframe
+				}
+				add_equipment_to_stockpile = {
+					type = small_plane_naval_bomber_airframe_4
+					amount = 300
+					producer = ENG
+				}
+			}
+			ELSE_IF = {
+				limit = {
+					has_tech = advanced_small_airframe
+				}
+				add_equipment_to_stockpile = {
+					type = small_plane_naval_bomber_airframe_3
+					amount = 300
+					producer = ENG
+				}
+			}
+			ELSE_IF = {
+				limit = {
+					has_tech = improved_small_airframe
+				}
+				add_equipment_to_stockpile = {
+					type = small_plane_naval_bomber_airframe_2
+					amount = 300
+					producer = ENG
+				}
+			}
+			ELSE_IF = {
+				limit = {
+					has_tech = basic_small_airframe
+				}
+				add_equipment_to_stockpile = {
+					type = small_plane_naval_bomber_airframe_1
+					amount = 300
+					producer = ENG
+				}
+			}
+			ELSE = {
+				add_equipment_to_stockpile = {
+					type = small_plane_naval_bomber_airframe_0
+					amount = 300
+					producer = ENG
+				}
 			}
 		}
 	}

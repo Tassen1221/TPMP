@@ -1,6 +1,6 @@
 TPMP_USA_elections_category = {
     TPMP_USA_elections_decision = {
-        icon = GFX_decision_generic_allies
+        icon = GFX_decision_generic_political_address
         visible = {
             has_country_flag = TPMP_USA_elections_flag
             NOT = {
@@ -31,7 +31,7 @@ TPMP_USA_elections_category = {
         }
     }
     TPMP_USA_elections_rally_africa_decision = {
-        icon = GFX_decision_generic_allies
+        icon = GFX_decision_eng_propaganda_campaigns
         visible = {
             has_country_flag = TPMP_USA_elections_flag
             has_completed_focus = TPMP_USA_rally_our_defeats
@@ -59,7 +59,7 @@ TPMP_USA_elections_category = {
         }
     }
     TPMP_USA_elections_rally_asia_decision = {
-        icon = GFX_decision_generic_allies
+        icon = GFX_decision_eng_propaganda_campaigns
         visible = {
             has_country_flag = TPMP_USA_elections_flag
             has_completed_focus = TPMP_USA_rally_our_defeats
@@ -96,7 +96,7 @@ TPMP_USA_elections_category = {
         }
     }
     TPMP_USA_elections_rally_dday_decision = {
-        icon = GFX_decision_generic_allies
+        icon = GFX_decision_eng_propaganda_campaigns
         visible = {
             has_country_flag = TPMP_USA_elections_flag
             has_completed_focus = TPMP_USA_rally_our_defeats
@@ -133,7 +133,7 @@ TPMP_USA_elections_category = {
         }
     }
     TPMP_USA_elections_glorify_africa_decision = {
-        icon = GFX_decision_generic_allies
+        icon = GFX_decision_eng_propaganda_campaigns
         visible = {
             has_country_flag = TPMP_USA_elections_flag
             has_completed_focus = TPMP_USA_glorify_our_victories
@@ -160,7 +160,7 @@ TPMP_USA_elections_category = {
         }
     }
     TPMP_USA_elections_glorify_asia_decision = {
-        icon = GFX_decision_generic_allies
+        icon = GFX_decision_eng_propaganda_campaigns
         visible = {
             has_country_flag = TPMP_USA_elections_flag
             has_completed_focus = TPMP_USA_glorify_our_victories
@@ -198,7 +198,7 @@ TPMP_USA_elections_category = {
         }
     }
     TPMP_USA_elections_glorify_dday_decision = {
-        icon = GFX_decision_generic_allies
+        icon = GFX_decision_eng_propaganda_campaigns
         visible = {
             has_country_flag = TPMP_USA_elections_flag
             has_completed_focus = TPMP_USA_glorify_our_victories
@@ -230,7 +230,7 @@ TPMP_USA_elections_category = {
         }
     }
     TPMP_USA_west_campaigning_decision = {
-        icon = GFX_decision_generic_allies
+        icon = GFX_decision_generic_political_rally
         visible = {
             has_country_flag = TPMP_USA_elections_flag
         }
@@ -268,7 +268,7 @@ TPMP_USA_elections_category = {
         }
     }
     TPMP_USA_midwest_campaigning_decision = {
-        icon = GFX_decision_generic_allies
+        icon = GFX_decision_generic_political_rally
         visible = {
             has_country_flag = TPMP_USA_elections_flag
         }
@@ -308,7 +308,7 @@ TPMP_USA_elections_category = {
         }
     }
     TPMP_USA_south_campaigning_decision = {
-        icon = GFX_decision_generic_allies
+        icon = GFX_decision_generic_political_rally
         visible = {
             has_country_flag = TPMP_USA_elections_flag
         }
@@ -349,7 +349,7 @@ TPMP_USA_elections_category = {
         }
     }
     TPMP_USA_northeast_campaigning_decision = {
-        icon = GFX_decision_generic_allies
+        icon = GFX_decision_generic_political_rally
         visible = {
             has_country_flag = TPMP_USA_elections_flag
         }
@@ -384,7 +384,7 @@ TPMP_USA_elections_category = {
 
 TPMP_USA_congress_category = {
     TPMP_USA_congress_decision_0 = {
-        icon = GFX_decision_generic_allies
+        icon = GFX_decision_generic_political_discourse
         visible = {
         }
         available = {
@@ -425,7 +425,7 @@ TPMP_USA_congress_category = {
         }
     }
     TPMP_USA_congress_decision_1 = {
-        icon = GFX_decision_generic_allies
+        icon = GFX_decision_generic_political_discourse
         visible = {
         }
         available = {
@@ -466,7 +466,7 @@ TPMP_USA_congress_category = {
         }
     }
     TPMP_USA_congress_decision_2 = {
-        icon = GFX_decision_generic_allies
+        icon = GFX_decision_generic_political_discourse
         visible = {
         }
         available = {
@@ -507,7 +507,7 @@ TPMP_USA_congress_category = {
         }
     }
     TPMP_USA_congress_decision_3 = {
-        icon = GFX_decision_generic_allies
+        icon = GFX_decision_generic_political_discourse
         visible = {
         }
         available = {
@@ -548,7 +548,7 @@ TPMP_USA_congress_category = {
         }
     }
     TPMP_USA_congress_decision_4 = {
-        icon = GFX_decision_generic_allies
+        icon = GFX_decision_generic_political_discourse
         visible = {
         }
         available = {
@@ -589,7 +589,7 @@ TPMP_USA_congress_category = {
         }
     }
     TPMP_USA_congress_event_mission = {
-        icon = GFX_decision_generic_allies
+        icon = GFX_decision_generic_decision
         activation = {
             always = yes
         }
@@ -651,7 +651,7 @@ TPMP_USA_congress_category = {
         }
     }
     TPMP_USA_congress_mission_0 = {
-        icon = GFX_decision_generic_allies
+        icon = GFX_decision_SWE_set_army_budget
         activation = {
             always = no
         }
@@ -689,35 +689,35 @@ TPMP_USA_congress_category = {
                         }
                         modify_timed_idea = {
                             idea = TPMP_USA_congress_mission_infantry_reward_idea
-                            days = 90
+                            days = 180
                         }
                     }
                     ELSE = {
                         add_timed_idea = {
                             idea = TPMP_USA_congress_mission_infantry_reward_idea
-                            days = 90
+                            days = 180
                         }
                     }
                 }
                 30 = {
                     add_equipment_to_stockpile = {
                         type = infantry_equipment
-                        amount = 5000
+                        amount = 7500
                         producer = USA
                     }
                     add_equipment_to_stockpile = {
                         type = special_infantry_equipment
-                        amount = 1000
+                        amount = 1500
                         producer = USA
                     }
                     add_equipment_to_stockpile = {
                         type = support_equipment
-                        amount = 500
+                        amount = 750
                         producer = USA
                     }
                     add_equipment_to_stockpile = {
                         type = special_equipment
-                        amount = 500
+                        amount = 750
                         producer = USA
                     }
                 }
@@ -726,7 +726,7 @@ TPMP_USA_congress_category = {
                         limit = {
                             has_mio_equipment_type = TPMP_cat_eq_all_inf
                         }
-                        add_mio_size = 1
+                        add_mio_size = 2
                     }
                 }
                 10 = {
@@ -771,7 +771,7 @@ TPMP_USA_congress_category = {
         }
     }
     TPMP_USA_congress_mission_1 = {
-        icon = GFX_decision_generic_allies
+        icon = GFX_decision_generic_tank
         activation = {
             always = no
         }
@@ -866,30 +866,30 @@ TPMP_USA_congress_category = {
                         }
                         modify_timed_idea = {
                             idea = TPMP_USA_congress_mission_tank_reward_idea
-                            days = 90
+                            days = 180
                         }
                     }
                     ELSE = {
                         add_timed_idea = {
                             idea = TPMP_USA_congress_mission_tank_reward_idea
-                            days = 90
+                            days = 180
                         }
                     }
                 }
                 30 = {
                     add_equipment_to_stockpile = {
                         type = light_tank_chassis
-                        amount = 300
+                        amount = 450
                         producer = USA
                     }
                     add_equipment_to_stockpile = {
                         type = medium_tank_chassis
-                        amount = 200
+                        amount = 300
                         producer = USA
                     }
                     add_equipment_to_stockpile = {
                         type = heavy_tank_chassis
-                        amount = 100
+                        amount = 150
                         producer = USA
                     }
                 }
@@ -902,7 +902,7 @@ TPMP_USA_congress_category = {
                                 has_mio_equipment_type = heavy_tank_chassis
                             }
                         }
-                        add_mio_size = 1
+                        add_mio_size = 2
                     }
                 }
                 10 = {
@@ -947,7 +947,7 @@ TPMP_USA_congress_category = {
         }
     }
     TPMP_USA_congress_mission_2 = {
-        icon = GFX_decision_generic_allies
+        icon = GFX_decision_generic_air
         activation = {
             always = no
         }
@@ -999,13 +999,13 @@ TPMP_USA_congress_category = {
                         }
                         modify_timed_idea = {
                             idea = TPMP_USA_congress_mission_plane_reward_idea
-                            days = 90
+                            days = 180
                         }
                     }
                     ELSE = {
                         add_timed_idea = {
                             idea = TPMP_USA_congress_mission_plane_reward_idea
-                            days = 90
+                            days = 180
                         }
                     }
                 }
@@ -1043,7 +1043,7 @@ TPMP_USA_congress_category = {
         
                             }
                         }
-                        add_mio_size = 1
+                        add_mio_size = 2
                     }
                 }
                 10 = {
@@ -1088,7 +1088,7 @@ TPMP_USA_congress_category = {
         }
     }
     TPMP_USA_congress_mission_3 = {
-        icon = GFX_decision_generic_allies
+        icon = GFX_decision_generic_naval
         activation = {
             always = no
         }
@@ -1114,46 +1114,177 @@ TPMP_USA_congress_category = {
                         }
                         modify_timed_idea = {
                             idea = TPMP_USA_congress_mission_ship_reward_idea
-                            days = 90
+                            days = 180
                         }
                     }
                     ELSE = {
                         add_timed_idea = {
                             idea = TPMP_USA_congress_mission_ship_reward_idea
-                            days = 90
+                            days = 180
                         }
                     }
                 }
                 30 = {
-                    create_ship = {
-                        type = ship_hull_carrier_1
-                        equipment_variant = "Basic Carrier"
-                        creator = USA
+                    IF = {
+                        limit = {
+                            has_tech = advanced_ship_hull_carrier
+                        }
+                        create_ship = {
+                            type = ship_hull_carrier_3
+                            equipment_variant = "Advanced Carrier"
+                            creator = USA
+                        }
                     }
-                    create_ship = {
-                        type = ship_hull_heavy_1
-                        equipment_variant = "Early Heavy Ship"
-                        creator = USA
+                    ELSE_IF = {
+                        limit = {
+                            has_tech = improved_ship_hull_carrier
+                        }
+                        create_ship = {
+                            type = ship_hull_carrier_2
+                            equipment_variant = "Improved Carrier"
+                            creator = USA
+                        }
                     }
-                    create_ship = {
-                        type = ship_hull_light_2
-                        equipment_variant = "Basic Destroyer"
-                        creator = USA
+                    ELSE = {
+                        create_ship = {
+                            type = ship_hull_carrier_1
+                            equipment_variant = "Basic Carrier"
+                            creator = USA
+                        }
                     }
-                    create_ship = {
-                        type = ship_hull_light_2
-                        equipment_variant = "Basic Destroyer"
-                        creator = USA
+                    IF = {
+                        limit = {
+                            has_tech = advanced_ship_hull_heavy
+                        }
+                        create_ship = {
+                            type = ship_hull_heavy_4
+                            equipment_variant = "Advanced Heavy Ship"
+                            creator = USA
+                        }
                     }
-                    create_ship = {
-                        type = ship_hull_light_2
-                        equipment_variant = "Basic Destroyer"
-                        creator = USA
+                    ELSE_IF = {
+                        limit = {
+                            has_tech = improved_ship_hull_heavy
+                        }
+                        create_ship = {
+                            type = ship_hull_heavy_3
+                            equipment_variant = "Improved Heavy Ship"
+                            creator = USA
+                        }
                     }
-                    create_ship = {
-                        type = ship_hull_light_2
-                        equipment_variant = "Basic Destroyer"
-                        creator = USA
+                    ELSE_IF = {
+                        limit = {
+                            has_tech = basic_ship_hull_heavy
+                        }
+                        create_ship = {
+                            type = ship_hull_heavy_2
+                            equipment_variant = "Basic Heavy Ship"
+                            creator = USA
+                        }
+                    }
+                    ELSE = {
+                        create_ship = {
+                            type = ship_hull_heavy_1
+                            equipment_variant = "Early Heavy Ship"
+                            creator = USA
+                        }
+                    }
+                    IF = {
+                        limit = {
+                            has_tech = advanced_ship_hull_light
+                        }
+                        create_ship = {
+                            type = ship_hull_light_4
+                            equipment_variant = "Advanced Destroyer"
+                            creator = USA
+                        }
+                        create_ship = {
+                            type = ship_hull_light_4
+                            equipment_variant = "Advanced Destroyer"
+                            creator = USA
+                        }
+                        create_ship = {
+                            type = ship_hull_light_4
+                            equipment_variant = "Advanced Destroyer"
+                            creator = USA
+                        }
+                        create_ship = {
+                            type = ship_hull_light_4
+                            equipment_variant = "Advanced Destroyer"
+                            creator = USA
+                        }
+                    }
+                    ELSE_IF = {
+                        limit = {
+                            has_tech = improved_ship_hull_light
+                        }
+                        create_ship = {
+                            type = ship_hull_light_3
+                            equipment_variant = "Improved Destroyer"
+                            creator = USA
+                        }
+                        create_ship = {
+                            type = ship_hull_light_3
+                            equipment_variant = "Improved Destroyer"
+                            creator = USA
+                        }
+                        create_ship = {
+                            type = ship_hull_light_3
+                            equipment_variant = "Improved Destroyer"
+                            creator = USA
+                        }
+                        create_ship = {
+                            type = ship_hull_light_3
+                            equipment_variant = "Improved Destroyer"
+                            creator = USA
+                        }
+                    }
+                    ELSE_IF = {
+                        limit = {
+                            has_tech = basic_ship_hull_light
+                        }
+                        create_ship = {
+                            type = ship_hull_light_2
+                            equipment_variant = "Basic Destroyer"
+                            creator = USA
+                        }
+                        create_ship = {
+                            type = ship_hull_light_2
+                            equipment_variant = "Basic Destroyer"
+                            creator = USA
+                        }
+                        create_ship = {
+                            type = ship_hull_light_2
+                            equipment_variant = "Basic Destroyer"
+                            creator = USA
+                        }
+                        create_ship = {
+                            type = ship_hull_light_2
+                            equipment_variant = "Basic Destroyer"
+                            creator = USA
+                        }
+                    }
+                    ELSE = {
+                        create_ship = {
+                            type = ship_hull_light_1
+                            equipment_variant = "Early Destroyer"
+                            creator = USA
+                        }
+                        create_ship = {
+                            type = ship_hull_light_1
+                            equipment_variant = "Early Destroyer"
+                            creator = USA
+                        }
+                        create_ship = {
+                            type = ship_hull_light_1
+                            equipment_variant = "Early Destroyer"
+                            creator = USA
+                        }
+                        create_ship = {
+                            type = ship_hull_light_1
+                            equipment_variant = "Early Destroyer"
+                            creator = USA
+                        }
                     }
                 }
                 30 = {
@@ -1170,7 +1301,7 @@ TPMP_USA_congress_category = {
 		                        has_mio_equipment_type = submarine
                             }
                         }
-                        add_mio_size = 1
+                        add_mio_size = 2
                     }
                 }
                 10 = {
@@ -1215,7 +1346,7 @@ TPMP_USA_congress_category = {
         }
     }
     TPMP_USA_congress_mission_4 = {
-        icon = GFX_decision_generic_allies
+        icon = GFX_decision_ger_military_buildup
         activation = {
             always = no
         }
@@ -1235,13 +1366,13 @@ TPMP_USA_congress_category = {
                         }
                         modify_timed_idea = {
                             idea = TPMP_USA_congress_mission_military_reward_idea
-                            days = 90
+                            days = 180
                         }
                     }
                     ELSE = {
                         add_timed_idea = {
                             idea = TPMP_USA_congress_mission_military_reward_idea
-                            days = 90
+                            days = 180
                         }
                     }
                 }
@@ -1252,13 +1383,13 @@ TPMP_USA_congress_category = {
                         }
                         modify_timed_idea = {
                             idea = TPMP_USA_congress_mission_industry_reward_idea
-                            days = 90
+                            days = 180
                         }
                     }
                     ELSE = {
                         add_timed_idea = {
                             idea = TPMP_USA_congress_mission_industry_reward_idea
-                            days = 90
+                            days = 180
                         }
                     }
                 }
@@ -1320,7 +1451,7 @@ TPMP_USA_congress_category = {
         }
     }
     TPMP_USA_congress_mission_5 = {
-        icon = GFX_decision_generic_allies
+        icon = GFX_decision_generic_factory
         activation = {
             always = no
         }
@@ -1339,13 +1470,13 @@ TPMP_USA_congress_category = {
                         }
                         modify_timed_idea = {
                             idea = TPMP_USA_congress_mission_civilian_reward_idea
-                            days = 90
+                            days = 180
                         }
                     }
                     ELSE = {
                         add_timed_idea = {
                             idea = TPMP_USA_congress_mission_civilian_reward_idea
-                            days = 90
+                            days = 180
                         }
                     }
                 }
@@ -1356,13 +1487,13 @@ TPMP_USA_congress_category = {
                         }
                         modify_timed_idea = {
                             idea = TPMP_USA_congress_mission_industry_reward_idea
-                            days = 90
+                            days = 180
                         }
                     }
                     ELSE = {
                         add_timed_idea = {
                             idea = TPMP_USA_congress_mission_industry_reward_idea
-                            days = 90
+                            days = 180
                         }
                     }
                 }
@@ -1420,7 +1551,7 @@ TPMP_USA_congress_category = {
         }
     }
     TPMP_USA_congress_mission_6 = {
-        icon = GFX_decision_generic_allies
+        icon = GFX_decision_generic_form_nation
         activation = {
             always = no
         }
@@ -1439,13 +1570,13 @@ TPMP_USA_congress_category = {
                         }
                         modify_timed_idea = {
                             idea = TPMP_USA_congress_mission_stability_reward_idea
-                            days = 90
+                            days = 180
                         }
                     }
                     ELSE = {
                         add_timed_idea = {
                             idea = TPMP_USA_congress_mission_stability_reward_idea
-                            days = 90
+                            days = 180
                         }
                     }
                 }
@@ -1487,7 +1618,7 @@ TPMP_USA_congress_category = {
         }
     }
     TPMP_USA_congress_mission_7 = {
-        icon = GFX_decision_generic_allies
+        icon = GFX_decision_generic_political_discourse
         activation = {
             always = no
         }
@@ -1582,13 +1713,13 @@ TPMP_USA_congress_category = {
                         }
                         modify_timed_idea = {
                             idea = TPMP_USA_congress_mission_political_reward_idea
-                            days = 90
+                            days = 180
                         }
                     }
                     ELSE = {
                         add_timed_idea = {
                             idea = TPMP_USA_congress_mission_political_reward_idea
-                            days = 90
+                            days = 180
                         }
                     }
                 }
@@ -1711,7 +1842,7 @@ TPMP_USA_congress_category = {
         }
     }
     TPMP_USA_congress_mission_8 = {
-        icon = GFX_decision_generic_allies
+        icon = GFX_decision_generic_research
         activation = {
             always = no
         }
@@ -1730,13 +1861,13 @@ TPMP_USA_congress_category = {
                         }
                         modify_timed_idea = {
                             idea = TPMP_USA_congress_mission_technocrat_reward_idea
-                            days = 90
+                            days = 180
                         }
                     }
                     ELSE = {
                         add_timed_idea = {
                             idea = TPMP_USA_congress_mission_technocrat_reward_idea
-                            days = 90
+                            days = 180
                         }
                     }
                     add_tech_bonus = {
@@ -1798,7 +1929,7 @@ TPMP_USA_congress_category = {
         }
     }
     TPMP_USA_congress_mission_9 = {
-        icon = GFX_decision_generic_allies
+        icon = GFX_decision_generic_consumer_goods
         activation = {
             always = no
         }
@@ -1891,7 +2022,7 @@ TPMP_USA_congress_category = {
         }
     }
     TPMP_USA_congress_mission_10 = {
-        icon = GFX_decision_generic_allies
+        icon = GFX_decision_generic_industry
         activation = {
             always = no
         }
@@ -1916,13 +2047,13 @@ TPMP_USA_congress_category = {
                         }
                         modify_timed_idea = {
                             idea = TPMP_USA_congress_mission_corporate_reward_idea
-                            days = 90
+                            days = 180
                         }
                     }
                     ELSE = {
                         add_timed_idea = {
                             idea = TPMP_USA_congress_mission_corporate_reward_idea
-                            days = 90
+                            days = 180
                         }
                     }
                     USA_decrease_deficit = yes
@@ -1938,13 +2069,13 @@ TPMP_USA_congress_category = {
                         }
                         modify_timed_idea = {
                             idea = TPMP_USA_congress_mission_efficiency_reward_idea
-                            days = 60
+                            days = 90
                         }
                     }
                     ELSE = {
                         add_timed_idea = {
                             idea = TPMP_USA_congress_mission_efficiency_reward_idea
-                            days = 60
+                            days = 90
                         }
                     }
                     set_country_flag = TPMP_USA_congress_mission_10_reward_flag
@@ -1973,7 +2104,7 @@ TPMP_USA_congress_category = {
         }
     }
     TPMP_USA_congress_mission_11 = {
-        icon = GFX_decision_generic_allies
+        icon = GFX_decision_hol_war_on_pacifism
         activation = {
             always = no
         }
@@ -2010,13 +2141,13 @@ TPMP_USA_congress_category = {
                         }
                         modify_timed_idea = {
                             idea = TPMP_USA_congress_mission_war_hawk_reward_idea
-                            days = 90
+                            days = 180
                         }
                     }
                     ELSE = {
                         add_timed_idea = {
                             idea = TPMP_USA_congress_mission_war_hawk_reward_idea
-                            days = 90
+                            days = 180
                         }
                     }
                 }
@@ -2057,7 +2188,7 @@ TPMP_USA_congress_category = {
         }
     }
     TPMP_USA_congress_mission_12 = {
-        icon = GFX_decision_generic_allies
+        icon = GFX_decision_SWI_swiss_democratic_tradition_campaign
         activation = {
             always = no
         }
@@ -2229,6 +2360,451 @@ TPMP_USA_congress_category = {
                 }
             }
             recalculate_congressional_ui = yes
+        }
+    }
+    TPMP_USA_congress_mobilization_mission_0 = {
+        icon = GFX_decision_generic_merge_plant_materiel
+        activation = {
+            always = no
+        }
+        available = {
+           count_in_collection = {
+                collection = {
+                    input = game:scope
+                    name = USA_democratic
+                }
+                unit = infantry
+                equipment_ratio = 0.9
+                size > 999
+            }
+            OR = {
+                has_tech = infantrymg2_tech
+                has_tech = infantrygun2_tech
+                has_tech = infantrycqc2_tech
+            }
+            OR = {
+                has_tech = paratroopers2
+                has_tech = marines2
+                has_tech = tech_mountaineers2
+                has_tech = rangers2_tech
+                has_tech = commandos2_tech
+            }
+            OR = {
+                has_tech = antiair2_tech
+                has_tech = artillery2_tech
+                has_tech = antitank2_tech
+            }
+        }
+        is_good = no
+        days_mission_timeout = 1825
+
+        complete_effect = {
+            add_equipment_to_stockpile = {
+                type = infantry_equipment
+                amount = 25000
+                producer = USA
+            }
+            add_equipment_to_stockpile = {
+                type = anti_air_equipment
+                amount = 5000
+                producer = USA
+            }
+            add_equipment_to_stockpile = {
+                type = artillery_equipment
+                amount = 5000
+                producer = USA
+            }
+            add_equipment_to_stockpile = {
+                type = anti_tank_equipment
+                amount = 5000
+                producer = USA
+            }
+
+            every_core_state = {
+                limit = {
+                    free_building_slots = {
+                        building = arms_factory
+                        size > 1
+                        include_locked = yes
+                    }
+                    is_fully_controlled_by = USA
+                }
+                random_select_amount = 10
+                add_extra_state_shared_building_slots = 2
+                add_building_construction = {
+                    type = arms_factory
+                    level = 2
+                    instant_build = yes
+                }
+            }
+        }
+    }
+    TPMP_USA_congress_mobilization_mission_1 = {
+        icon = GFX_decision_generic_merge_plant_materiel
+        activation = {
+            always = no
+        }
+        available = {
+           count_in_collection = {
+                collection = {
+                    input = game:scope
+                    name = USA_democratic
+                }
+                unit = armor
+                equipment_ratio = 0.9
+                size > 199
+            }
+            OR = {
+                has_tech = lighttank3a_tech
+                has_tech = lighttank3b_tech
+                has_tech = mediumtank3a_tech
+                has_tech = mediumtank3b_tech
+                has_tech = heavytank3a_tech
+                has_tech = heavytank3b_tech
+                has_tech = superheavytank2_tech
+            }
+            OR = {
+                has_tech = engine3_tech
+                has_tech = armour3_tech
+            }
+        }
+        is_good = no
+        days_mission_timeout = 1825
+
+        complete_effect = {
+            add_equipment_to_stockpile = {
+                type = light_tank_chassis
+                amount = 2400
+                producer = USA
+            }
+            add_equipment_to_stockpile = {
+                type = medium_tank_chassis
+                amount = 1600
+                producer = USA
+            }
+            add_equipment_to_stockpile = {
+                type = heavy_tank_chassis
+                amount = 800
+                producer = USA
+            }
+
+            every_core_state = {
+                limit = {
+                    free_building_slots = {
+                        building = arms_factory
+                        size > 1
+                        include_locked = yes
+                    }
+                    is_fully_controlled_by = USA
+                }
+                random_select_amount = 10
+                add_extra_state_shared_building_slots = 2
+                add_building_construction = {
+                    type = arms_factory
+                    level = 2
+                    instant_build = yes
+                }
+            }
+        }
+    }
+    TPMP_USA_congress_mobilization_mission_2 = {
+        icon = GFX_decision_generic_merge_plant_materiel
+        activation = {
+            always = no
+        }
+        available = {
+            OR = {
+                has_deployed_air_force_size = {
+                    size > 1499
+                    type = fighter
+                }
+                has_deployed_air_force_size = {
+                    size > 749
+                    type = heavy_fighter
+                }
+            }
+            has_navy_size = {
+                type = capital_ship
+                size > 44
+            }
+            has_navy_size = {
+                type = screen_ship
+                size > 174
+            }
+            OR = {
+                has_tech = improved_small_airframe
+                has_tech = improved_medium_airframe
+                has_tech = improved_large_airframe
+            }
+            has_tech = engines_3
+            OR = {
+                has_tech = improved_ship_hull_light
+                has_tech = improved_ship_hull_cruiser
+                has_tech = improved_ship_hull_heavy
+                has_tech = improved_ship_hull_carrier
+                has_tech = improved_ship_hull_submarine
+            }
+        }
+        is_good = no
+        days_mission_timeout = 1825
+
+        complete_effect = {
+            add_equipment_to_stockpile = {
+                type = small_plane_airframe
+                amount = 1500
+                producer = USA
+            }
+            IF = {
+            	limit = {
+            		has_tech = modern_small_airframe
+            	}
+            	add_equipment_to_stockpile = {
+            		type = small_plane_cas_airframe_4
+            		amount = 500
+            		producer = USA
+            	}
+            }
+            ELSE_IF = {
+            	limit = {
+            		has_tech = advanced_small_airframe
+            	}
+            	add_equipment_to_stockpile = {
+            		type = small_plane_cas_airframe_3
+            		amount = 500
+            		producer = USA
+            	}
+            }
+            ELSE_IF = {
+            	limit = {
+            		has_tech = improved_small_airframe
+            	}
+            	add_equipment_to_stockpile = {
+            		type = small_plane_cas_airframe_2
+            		amount = 500
+            		producer = USA
+            	}
+            }
+            ELSE_IF = {
+            	limit = {
+            		has_tech = basic_small_airframe
+            	}
+            	add_equipment_to_stockpile = {
+            		type = small_plane_cas_airframe_1
+            		amount = 500
+            		producer = USA
+            	}
+            }
+            ELSE = {
+            	add_equipment_to_stockpile = {
+            		type = small_plane_cas_airframe_0
+            		amount = 500
+            		producer = USA
+            	}
+            }
+            add_equipment_to_stockpile = {
+                type = large_plane_airframe
+                amount = 200
+                producer = USA
+            }
+            IF = {
+                limit = {
+                    has_tech = improved_ship_hull_heavy
+                }
+                create_ship = {
+                    type = ship_hull_heavy_3
+                    equipment_variant = "Improved Heavy Ship"
+                    creator = USA
+                }
+                create_ship = {
+                    type = ship_hull_heavy_3
+                    equipment_variant = "Improved Heavy Ship"
+                    creator = USA
+                }
+                create_ship = {
+                    type = ship_hull_heavy_3
+                    equipment_variant = "Improved Heavy Ship"
+                    creator = USA
+                }
+            }
+            ELSE_IF = {
+                limit = {
+                    has_tech = basic_ship_hull_heavy
+                }
+                create_ship = {
+                    type = ship_hull_heavy_2
+                    equipment_variant = "Basic Heavy Ship"
+                    creator = USA
+                }
+                create_ship = {
+                    type = ship_hull_heavy_2
+                    equipment_variant = "Basic Heavy Ship"
+                    creator = USA
+                }
+                create_ship = {
+                    type = ship_hull_heavy_2
+                    equipment_variant = "Basic Heavy Ship"
+                    creator = USA
+                }
+            }
+            ELSE = {
+                create_ship = {
+                    type = ship_hull_heavy_1
+                    equipment_variant = "Early Heavy Ship"
+                    creator = USA
+                }
+                create_ship = {
+                    type = ship_hull_heavy_1
+                    equipment_variant = "Early Heavy Ship"
+                    creator = USA
+                }
+                create_ship = {
+                    type = ship_hull_heavy_1
+                    equipment_variant = "Early Heavy Ship"
+                    creator = USA
+                }
+            }
+            IF = {
+                limit = {
+                    has_tech = improved_ship_hull_cruiser
+                }
+                create_ship = {
+                    type = ship_hull_cruiser_3
+                    equipment_variant = "Improved Cruiser"
+                    creator = USA
+                }
+                create_ship = {
+                    type = ship_hull_cruiser_3
+                    equipment_variant = "Improved Cruiser"
+                    creator = USA
+                }
+                create_ship = {
+                    type = ship_hull_cruiser_3
+                    equipment_variant = "Improved Cruiser"
+                    creator = USA
+                }
+                create_ship = {
+                    type = ship_hull_cruiser_3
+                    equipment_variant = "Improved Cruiser"
+                    creator = USA
+                }
+                create_ship = {
+                    type = ship_hull_cruiser_3
+                    equipment_variant = "Improved Cruiser"
+                    creator = USA
+                }
+                create_ship = {
+                    type = ship_hull_cruiser_3
+                    equipment_variant = "Improved Cruiser"
+                    creator = USA
+                }
+                create_ship = {
+                    type = ship_hull_cruiser_3
+                    equipment_variant = "Improved Cruiser"
+                    creator = USA
+                }
+                create_ship = {
+                    type = ship_hull_cruiser_3
+                    equipment_variant = "Improved Cruiser"
+                    creator = USA
+                }
+                create_ship = {
+                    type = ship_hull_cruiser_3
+                    equipment_variant = "Improved Cruiser"
+                    creator = USA
+                }
+                create_ship = {
+                    type = ship_hull_cruiser_3
+                    equipment_variant = "Improved Cruiser"
+                    creator = USA
+                }
+            }
+            ELSE = {
+                create_ship = {
+                    type = ship_hull_cruiser_2
+                    equipment_variant = "Basic Cruiser"
+                    creator = USA
+                }
+                create_ship = {
+                    type = ship_hull_cruiser_2
+                    equipment_variant = "Basic Cruiser"
+                    creator = USA
+                }
+                create_ship = {
+                    type = ship_hull_cruiser_2
+                    equipment_variant = "Basic Cruiser"
+                    creator = USA
+                }
+                create_ship = {
+                    type = ship_hull_cruiser_2
+                    equipment_variant = "Basic Cruiser"
+                    creator = USA
+                }
+                create_ship = {
+                    type = ship_hull_cruiser_2
+                    equipment_variant = "Basic Cruiser"
+                    creator = USA
+                }
+                create_ship = {
+                    type = ship_hull_cruiser_2
+                    equipment_variant = "Basic Cruiser"
+                    creator = USA
+                }
+                create_ship = {
+                    type = ship_hull_cruiser_2
+                    equipment_variant = "Basic Cruiser"
+                    creator = USA
+                }
+                create_ship = {
+                    type = ship_hull_cruiser_2
+                    equipment_variant = "Basic Cruiser"
+                    creator = USA
+                }
+                create_ship = {
+                    type = ship_hull_cruiser_2
+                    equipment_variant = "Basic Cruiser"
+                    creator = USA
+                }
+                create_ship = {
+                    type = ship_hull_cruiser_2
+                    equipment_variant = "Basic Cruiser"
+                    creator = USA
+                }
+            }
+
+            every_core_state = {
+                limit = {
+                    free_building_slots = {
+                        building = arms_factory
+                        size > 1
+                        include_locked = yes
+                    }
+                    is_fully_controlled_by = USA
+                }
+                random_select_amount = 8
+                add_extra_state_shared_building_slots = 2
+                add_building_construction = {
+                    type = arms_factory
+                    level = 2
+                    instant_build = yes
+                }
+            }
+            every_core_state = {
+                limit = {
+                    free_building_slots = {
+                        building = dockyard
+                        size > 1
+                        include_locked = yes
+                    }
+                    is_fully_controlled_by = USA
+                }
+                random_select_amount = 5
+                add_extra_state_shared_building_slots = 2
+                add_building_construction = {
+                    type = dockyard
+                    level = 2
+                    instant_build = yes
+                }
+            }
         }
     }
     TPMP_USA_debug_congress_decision_0 = {
