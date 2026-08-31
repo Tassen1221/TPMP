@@ -2415,7 +2415,11 @@
 		available_if_capitulated = no
 
 		completion_reward = {
-			custom_effect_tooltip = TPMP_ROM_the_1st_wave_unfinished_tt
+			custom_effect_tooltip = TPMP_ROM_the_1st_wave_tt
+			set_variable = { TPMP_ROM_wave_deployments_remaining = 3 }
+			hidden_effect = {
+				activate_mission = TPMP_ROM_wave_deployment_mission
+			}
 		}
 	}
 
@@ -3302,6 +3306,7 @@
 	focus = {
 		id = TPMP_ROM_venatori_de_munte
 		icon = GFX_focus_TPMP_ROM_venatori_de_munte
+		prerequisite = { focus = TPMP_ROM_army_reserves }
 		prerequisite = { focus = TPMP_ROM_army_war_college }
 		x = 0
 		y = 1
