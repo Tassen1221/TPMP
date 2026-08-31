@@ -1,4 +1,4 @@
-TPMP_ROM_german_training_decisions = {
+TPMP_ROM_deployment_decisions = {
 
 	priority = 500
 	icon = GFX_decision_category_generic_fortification
@@ -8,7 +8,21 @@ TPMP_ROM_german_training_decisions = {
 	}
 
 	visible = {
-		has_completed_focus = TPMP_ROM_german_army_integration
+		OR = {
+			has_completed_focus = TPMP_ROM_german_army_integration
+			#AND = {
+			#	has_completed_focus = TPMP_ROM_army_war_college
+			#	has_completed_focus = TPMP_ROM_army_reserves
+			#	NOT = {
+			#		AND = {
+			#			has_completed_focus = TPMP_ROM_venatori_de_munte
+			#			has_completed_focus = TPMP_ROM_corpul_vi_teritorial
+			#			has_completed_focus = TPMP_ROM_1_blindata_romania_mare
+			#			has_completed_focus = TPMP_ROM_div_8_cav_purtata
+			#		}
+			#	}
+			#}
+		}
 	}
 
 	visible_when_empty = no

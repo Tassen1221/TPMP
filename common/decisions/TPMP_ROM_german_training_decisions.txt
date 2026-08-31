@@ -1,4 +1,4 @@
-TPMP_ROM_german_training_decisions = {
+TPMP_ROM_deployment_decisions = {
 
 	TPMP_ROM_wave_deployment_mission = {
 
@@ -12,10 +12,6 @@ TPMP_ROM_german_training_decisions = {
 			hidden_trigger = { always = no }
 		}
 
-		visible = {
-			original_tag = ROM
-		}
-
 		days_mission_timeout = 90
 		is_good = yes
 		fire_only_once = yes
@@ -24,67 +20,6 @@ TPMP_ROM_german_training_decisions = {
 		}
 
 		timeout_effect = {
-
-			division_template = {
-				name = "TPMP_ROM_german_trained_infantry"
-				division_names_group = ROM_INF_01
-				template_counter = 500
-				priority = 2
-
-				regiments = {
-					infantry = { x = 0 y = 0 }
-					infantry = { x = 0 y = 1 }
-					infantry = { x = 0 y = 2 }
-					infantry = { x = 0 y = 3 }
-					infantry = { x = 0 y = 4 }
-					infantry = { x = 1 y = 0 }
-					infantry = { x = 1 y = 1 }
-					infantry = { x = 1 y = 2 }
-					infantry = { x = 1 y = 3 }
-					infantry = { x = 1 y = 4 }
-
-					anti_tank_brigade = { x = 2 y = 0 }
-					anti_tank_brigade = { x = 2 y = 1 }
-					anti_tank_brigade = { x = 2 y = 2 }
-					anti_tank_brigade = { x = 3 y = 0 }
-					anti_tank_brigade = { x = 3 y = 1 }
-					anti_tank_brigade = { x = 3 y = 2 }
-					anti_tank_brigade = { x = 4 y = 0 }
-					anti_tank_brigade = { x = 4 y = 1 }
-					anti_tank_brigade = { x = 4 y = 2 }
-					anti_tank_brigade = { x = 4 y = 3 }
-				}
-
-				regimental_support = {
-					heavy_anti_air = { x = 0 y = 0 }
-					heavy_anti_air = { x = 1 y = 0 }
-					heavy_anti_air = { x = 2 y = 0 }
-					heavy_anti_air = { x = 3 y = 0 }
-					heavy_anti_air = { x = 4 y = 0 }
-				}
-
-				support = {
-					engineer = { x = 0 y = 0 }
-
-					if = {
-						limit = { has_tech = armored_car1 }
-						armored_car_recon = { x = 0 y = 1 }
-					}
-					else = {
-						mot_recon = { x = 0 y = 1 }
-					}
-
-					if = {
-						limit = { has_tech = headquarters1_tech }
-						headquarters = { x = 0 y = 2 }
-					}
-
-					if = {
-						limit = { has_tech = tech_military_police }
-						military_police = { x = 0 y = 3 }
-					}
-				}
-			}
 
 			random_owned_controlled_state = {
 				limit = { ROOT = { has_full_control_of_state = PREV } }
@@ -105,6 +40,56 @@ TPMP_ROM_german_training_decisions = {
 					activate_mission = TPMP_ROM_wave_deployment_mission
 				}
 			}
+		}
+	}
+
+	TPMP_ROM_use_custom_equipment_decision = {
+
+		icon = GFX_decision_generic_industry
+
+		allowed = {
+			original_tag = ROM
+		}
+
+		available = {
+			always = yes
+		}
+
+		visible = {
+			NOT = { has_country_flag = TPMP_ROM_use_custom_equipment }
+		}
+
+		complete_effect = {
+			set_country_flag = TPMP_ROM_use_custom_equipment
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	TPMP_ROM_use_default_equipment_decision = {
+
+		icon = GFX_decision_generic_industry
+
+		allowed = {
+			original_tag = ROM
+		}
+
+		available = {
+			always = yes
+		}
+
+		visible = {
+			has_country_flag = TPMP_ROM_use_custom_equipment
+		}
+
+		complete_effect = {
+			clr_country_flag = TPMP_ROM_use_custom_equipment
+		}
+
+		ai_will_do = {
+			factor = 0
 		}
 	}
 }

@@ -1810,7 +1810,7 @@
 		available_if_capitulated = yes
 
 		completion_reward = {
-			# complete_national_focus = TPMP_ROM_german_army_integration
+			complete_national_focus = TPMP_ROM_german_army_integration
 
 			add_ideas = TPMP_ROM_anti_corruption_efforts
 
@@ -1851,7 +1851,7 @@
 				remove_ideas = TPMP_ROM_camarilla_marinescu_renewed
 			}
 
-			custom_effect_tooltip = TPMP_ROM_the_1st_wave_unfinished_tt
+			custom_effect_tooltip = TPMP_ROM_the_1st_wave_partially_finished_tt
 		}
 	}
 	focus = {
@@ -2370,7 +2370,6 @@
 		available = {
 			NOT = { has_country_flag = TPMP_ROM_instability }
 			has_completed_focus = TPMP_ROM_combat_favoritism
-			always = no
 		}
 
 		bypass = {
@@ -2385,7 +2384,15 @@
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 			add_ideas = TPMP_ROM_german_controlled_military_idea
-			custom_effect_tooltip = TPMP_ROM_the_1st_wave_unfinished_tt
+			set_technology = {
+				antitank0_tech = 1
+				heavyantiair1_tech = 1
+				armored_car1 = 1
+				tech_recon = 1
+				headquarters1_tech = 1
+				tech_military_police = 1
+			}
+			custom_effect_tooltip = TPMP_ROM_the_1st_wave_partially_finished_tt
 		}
 	}
 
@@ -2417,9 +2424,60 @@
 		completion_reward = {
 			custom_effect_tooltip = TPMP_ROM_the_1st_wave_tt
 			set_variable = { TPMP_ROM_wave_deployments_remaining = 3 }
+			if = {
+				limit = {
+					NOT = { has_country_flag = TPMP_ROM_trained_infantry_template_created }
+				}
+				set_country_flag = TPMP_ROM_trained_infantry_template_created
+				division_template = {
+					name = "TPMP_ROM_german_trained_infantry"
+					division_names_group = ROM_INF_01
+					priority = 2
+
+					regiments = {
+						infantry = { x = 0 y = 0 }
+						infantry = { x = 0 y = 1 }
+						infantry = { x = 0 y = 2 }
+						infantry = { x = 0 y = 3 }
+						infantry = { x = 0 y = 4 }
+						infantry = { x = 1 y = 0 }
+						infantry = { x = 1 y = 1 }
+						infantry = { x = 1 y = 2 }
+						infantry = { x = 1 y = 3 }
+						infantry = { x = 1 y = 4 }
+
+						anti_tank_brigade = { x = 2 y = 0 }
+						anti_tank_brigade = { x = 2 y = 1 }
+						anti_tank_brigade = { x = 2 y = 2 }
+						anti_tank_brigade = { x = 3 y = 0 }
+						anti_tank_brigade = { x = 3 y = 1 }
+						anti_tank_brigade = { x = 3 y = 2 }
+						anti_tank_brigade = { x = 4 y = 0 }
+						anti_tank_brigade = { x = 4 y = 1 }
+						anti_tank_brigade = { x = 4 y = 2 }
+						anti_tank_brigade = { x = 4 y = 3 }
+					}
+
+					regimental_support = {
+						heavy_anti_air = { x = 0 y = 0 }
+						heavy_anti_air = { x = 1 y = 0 }
+						heavy_anti_air = { x = 2 y = 0 }
+						heavy_anti_air = { x = 3 y = 0 }
+						heavy_anti_air = { x = 4 y = 0 }
+					}
+
+					support = {
+						engineer = { x = 0 y = 0 }
+						armored_car_recon = { x = 0 y = 1 }
+						headquarters = { x = 0 y = 2 }
+						military_police = { x = 0 y = 3 }
+					}
+				}
+			}
 			hidden_effect = {
 				activate_mission = TPMP_ROM_wave_deployment_mission
 			}
+			custom_effect_tooltip = TPMP_ROM_the_1st_wave_partially_finished_tt
 		}
 	}
 
@@ -2450,7 +2508,7 @@
 		available_if_capitulated = no
 
 		completion_reward = {
-			custom_effect_tooltip = TPMP_ROM_the_1st_wave_unfinished_tt
+			custom_effect_tooltip = TPMP_ROM_the_1st_wave_partially_finished_tt
 		}
 	}
 
@@ -2481,7 +2539,7 @@
 		available_if_capitulated = no
 
 		completion_reward = {
-			custom_effect_tooltip = TPMP_ROM_the_1st_wave_unfinished_tt
+			custom_effect_tooltip = TPMP_ROM_the_1st_wave_partially_finished_tt
 		}
 	}
 
@@ -2511,7 +2569,7 @@
 		available_if_capitulated = no
 
 		completion_reward = {
-			custom_effect_tooltip = TPMP_ROM_the_1st_wave_unfinished_tt
+			custom_effect_tooltip = TPMP_ROM_the_1st_wave_partially_finished_tt
 		}
 	}
 
