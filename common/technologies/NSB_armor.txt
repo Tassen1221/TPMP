@@ -71,7 +71,7 @@ technologies = {
 		}
 
 		path = {
-			leads_to_tech = lighttank2_tech
+			leads_to_tech = lighttankturret1_tech
 			research_cost_coeff = 1
 		}
 
@@ -94,13 +94,47 @@ technologies = {
 		ai_will_do = {
 		}
 	}
+	lighttankturret1_tech = {
+		enable_equipment_modules = {
+			tank_light_turret_2
+			cupola_1
+		}
+
+		path = {
+			leads_to_tech = lighttank2_tech
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = mediumtankturret1_tech
+			research_cost_coeff = 0.1
+		}
+		
+
+		research_cost = 1.5
+		start_year = 1937
+
+		folder = {
+			name = nsb_armour_folder
+			position = { x = -7 y = @1937 }
+		}
+
+		categories = {
+			cat_armour_tech
+			cat_armour_module_tech
+			cat_light_turret_tech
+		}
+		special_project_specialization = { specialization_land }
+
+		ai_will_do = {
+		}
+	}
 	lighttank2_tech = {
 		enable_equipments = {
 			light_tank_chassis_1938
 		}
 
 		path = {
-			leads_to_tech = lighttankturret1_tech
+			leads_to_tech = lighttankturret2_tech
 			research_cost_coeff = 1
 		}
 
@@ -122,10 +156,9 @@ technologies = {
 		ai_will_do = {
 		}
 	}
-	lighttankturret1_tech = {
+	lighttankturret2_tech = {
 		enable_equipment_modules = {
-			tank_simple_light_turret_1
-			tank_light_turret_2
+			tank_light_turret_3
 			cupola_2
 		}
 
@@ -138,10 +171,9 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		path = {
-			leads_to_tech = mediumtankturret1_tech
+			leads_to_tech = mediumtankturret2_tech
 			research_cost_coeff = 0.1
 		}
-		
 
 		research_cost = 1.5
 		start_year = 1939
@@ -154,6 +186,7 @@ technologies = {
 		categories = {
 			cat_armour_tech
 			cat_armour_module_tech
+			cat_light_turret_tech
 		}
 		special_project_specialization = { specialization_land }
 
@@ -166,7 +199,7 @@ technologies = {
 		}
 
 		path = {
-			leads_to_tech = lighttankturret2_tech
+			leads_to_tech = lighttankturret3_tech
 			research_cost_coeff = 1
 		}
 		XOR = {
@@ -202,7 +235,7 @@ technologies = {
 		}
 
 		path = {
-			leads_to_tech = lighttankturret2_tech
+			leads_to_tech = lighttankturret3_tech
 			research_cost_coeff = 1
 		}
 		XOR = {
@@ -232,18 +265,16 @@ technologies = {
 		ai_will_do = {
 		}
 	}
-	lighttankturret2_tech = {
+	lighttankturret3_tech = {
 		enable_equipment_modules = {
-			tank_simple_light_turret_2
-			tank_light_turret_3
-			tank_large_light_turret
+			tank_light_turret_4
 			tank_light_superstructure_2
 			cupola_3
 		}
 
 		path = {
-			leads_to_tech = mediumtankturret2_tech
-			research_cost_coeff = 1
+			leads_to_tech = mediumtankturret3_tech
+			research_cost_coeff = 0.1
 		}
 
 		research_cost = 1.5
@@ -257,6 +288,7 @@ technologies = {
 		categories = {
 			cat_armour_tech
 			cat_armour_module_tech
+			cat_light_turret_tech
 		}
 		special_project_specialization = { specialization_land }
 
@@ -270,7 +302,7 @@ technologies = {
 		}
 
 		path = {
-			leads_to_tech = mediumtank2_tech
+			leads_to_tech = mediumtankturret1_tech
 			research_cost_coeff = 1
 		}
 
@@ -293,13 +325,50 @@ technologies = {
 		ai_will_do = {
 		}
 	}
+	mediumtankturret1_tech = {
+		enable_equipment_modules = {
+			tank_medium_turret_2
+			cupola_1
+		}
+
+		path = {
+			leads_to_tech = mediumtank2_tech
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = lighttankturret1_tech
+			research_cost_coeff = 0.1
+		}
+		path = {
+			leads_to_tech = heavytankturret1_tech
+			research_cost_coeff = 0.1
+		}
+
+		research_cost = 1.5
+		start_year = 1937
+
+		folder = {
+			name = nsb_armour_folder
+			position = { x = 0 y = @1937 }
+		}
+
+		categories = {
+			cat_armour_tech
+			cat_armour_module_tech
+			cat_medium_turret_tech
+		}
+		special_project_specialization = { specialization_land }
+
+		ai_will_do = {
+		}
+	}
 	mediumtank2_tech = {
 		enable_equipments = {
 			medium_tank_chassis_1938
 		}
 
 		path = {
-			leads_to_tech = mediumtankturret1_tech
+			leads_to_tech = mediumtankturret2_tech
 			research_cost_coeff = 1
 		}
 
@@ -321,10 +390,9 @@ technologies = {
 		ai_will_do = {
 		}
 	}
-	mediumtankturret1_tech = {
+	mediumtankturret2_tech = {
 		enable_equipment_modules = {
-			tank_simple_medium_turret_1
-			tank_medium_turret_2
+			tank_medium_turret_3
 			cupola_2
 		}
 
@@ -337,11 +405,11 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		path = {
-			leads_to_tech = lighttankturret1_tech
+			leads_to_tech = lighttankturret2_tech
 			research_cost_coeff = 0.1
 		}
 		path = {
-			leads_to_tech = heavytankturret1_tech
+			leads_to_tech = heavytankturret2_tech
 			research_cost_coeff = 0.1
 		}
 
@@ -356,6 +424,7 @@ technologies = {
 		categories = {
 			cat_armour_tech
 			cat_armour_module_tech
+			cat_medium_turret_tech
 		}
 		special_project_specialization = { specialization_land }
 
@@ -368,7 +437,7 @@ technologies = {
 		}
 
 		path = {
-			leads_to_tech = mediumtankturret2_tech
+			leads_to_tech = mediumtankturret3_tech
 			research_cost_coeff = 1
 		}
 		XOR = {
@@ -404,7 +473,7 @@ technologies = {
 		}
 
 		path = {
-			leads_to_tech = mediumtankturret2_tech
+			leads_to_tech = mediumtankturret3_tech
 			research_cost_coeff = 1
 		}
 		XOR = {
@@ -434,11 +503,9 @@ technologies = {
 		ai_will_do = {
 		}
 	}
-	mediumtankturret2_tech = {
+	mediumtankturret3_tech = {
 		enable_equipment_modules = {
-			tank_simple_medium_turret_2
-			tank_medium_turret_3
-			tank_large_medium_turret
+			tank_medium_turret_4
 			tank_medium_superstructure_2
 			cupola_3
 		}
@@ -452,11 +519,11 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		path = {
-			leads_to_tech = lighttankturret2_tech
+			leads_to_tech = lighttankturret3_tech
 			research_cost_coeff = 0.1
 		}
 		path = {
-			leads_to_tech = heavytankturret2_tech
+			leads_to_tech = heavytankturret3_tech
 			research_cost_coeff = 0.1
 		}
 
@@ -471,6 +538,7 @@ technologies = {
 		categories = {
 			cat_armour_tech
 			cat_armour_module_tech
+			cat_medium_turret_tech
 		}
 		special_project_specialization = { specialization_land }
 
@@ -482,10 +550,6 @@ technologies = {
 			medium_tank_chassis_1943
 		}
 
-		path = {
-			leads_to_tech = mediumtankturret3_tech
-			research_cost_coeff = 1
-		}
 		XOR = {
 			mediumtank4b_tech
 		}
@@ -518,10 +582,6 @@ technologies = {
 			medium_tank_chassis_1944
 		}
 
-		path = {
-			leads_to_tech = mediumtankturret3_tech
-			research_cost_coeff = 1
-		}
 		XOR = {
 			mediumtank4a_tech
 		}
@@ -549,28 +609,6 @@ technologies = {
 		ai_will_do = {
 		}
 	}
-	mediumtankturret3_tech = {
-		enable_equipment_modules = {
-			tank_medium_turret_4
-		}
-
-		research_cost = 1.5
-		start_year = 1945
-
-		folder = {
-			name = nsb_armour_folder
-			position = { x = 0 y = @1945 }
-		}
-
-		categories = {
-			cat_armour_tech
-			cat_armour_module_tech
-		}
-		special_project_specialization = { specialization_land }
-
-		ai_will_do = {
-		}
-	}
 
 	heavytank1_tech = {
 		enable_equipments = {
@@ -578,7 +616,7 @@ technologies = {
 		}
 
 		path = {
-			leads_to_tech = heavytank2_tech
+			leads_to_tech = heavytankturret1_tech
 			research_cost_coeff = 1
 		}
 
@@ -601,13 +639,46 @@ technologies = {
 		ai_will_do = {
 		}
 	}
+	heavytankturret1_tech = {
+		enable_equipment_modules = {
+			tank_heavy_turret_2
+			cupola_1
+		}
+
+		path = {
+			leads_to_tech = heavytank2_tech
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = mediumtankturret1_tech
+			research_cost_coeff = 0.1
+		}
+
+		research_cost = 1.5
+		start_year = 1937
+
+		folder = {
+			name = nsb_armour_folder
+			position = { x = 7 y = @1937 }
+		}
+
+		categories = {
+			cat_armour_tech
+			cat_armour_module_tech
+			cat_heavy_turret_tech
+		}
+		special_project_specialization = { specialization_land }
+
+		ai_will_do = {
+		}
+	}
 	heavytank2_tech = {
 		enable_equipments = {
 			heavy_tank_chassis_1938
 		}
 
 		path = {
-			leads_to_tech = heavytankturret1_tech
+			leads_to_tech = heavytankturret2_tech
 			research_cost_coeff = 1
 		}
 
@@ -629,10 +700,9 @@ technologies = {
 		ai_will_do = {
 		}
 	}
-	heavytankturret1_tech = {
+	heavytankturret2_tech = {
 		enable_equipment_modules = {
-			tank_simple_heavy_turret_1
-			tank_heavy_turret_2
+			tank_heavy_turret_3
 			cupola_2
 		}
 
@@ -645,11 +715,11 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		path = {
-			leads_to_tech = mediumtankturret1_tech
+			leads_to_tech = superheavytankturret1_tech
 			research_cost_coeff = 0.1
 		}
 		path = {
-			leads_to_tech = superheavytankturret1_tech
+			leads_to_tech = mediumtankturret2_tech
 			research_cost_coeff = 0.1
 		}
 
@@ -664,6 +734,7 @@ technologies = {
 		categories = {
 			cat_armour_tech
 			cat_armour_module_tech
+			cat_heavy_turret_tech
 		}
 		special_project_specialization = { specialization_land }
 
@@ -676,7 +747,7 @@ technologies = {
 		}
 
 		path = {
-			leads_to_tech = heavytankturret2_tech
+			leads_to_tech = heavytankturret3_tech
 			research_cost_coeff = 1
 		}
 		XOR = {
@@ -712,7 +783,7 @@ technologies = {
 		}
 
 		path = {
-			leads_to_tech = heavytankturret2_tech
+			leads_to_tech = heavytankturret3_tech
 			research_cost_coeff = 1
 		}
 		XOR = {
@@ -742,11 +813,9 @@ technologies = {
 		ai_will_do = {
 		}
 	}
-	heavytankturret2_tech = {
+	heavytankturret3_tech = {
 		enable_equipment_modules = {
-			tank_simple_heavy_turret_2
-			tank_heavy_turret_3
-			tank_large_heavy_turret
+			tank_heavy_turret_4
 			tank_heavy_superstructure_2
 			cupola_3
 		}
@@ -760,11 +829,11 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		path = {
-			leads_to_tech = superheavytankturret2_tech
+			leads_to_tech = mediumtankturret3_tech
 			research_cost_coeff = 0.1
 		}
 		path = {
-			leads_to_tech = mediumtankturret2_tech
+			leads_to_tech = superheavytankturret2_tech
 			research_cost_coeff = 0.1
 		}
 
@@ -779,6 +848,7 @@ technologies = {
 		categories = {
 			cat_armour_tech
 			cat_armour_module_tech
+			cat_heavy_turret_tech
 		}
 		special_project_specialization = { specialization_land }
 
@@ -790,10 +860,6 @@ technologies = {
 			heavy_tank_chassis_1943
 		}
 
-		path = {
-			leads_to_tech = heavytankturret3_tech
-			research_cost_coeff = 1
-		}
 		XOR = {
 			heavytank4b_tech
 		}
@@ -826,10 +892,6 @@ technologies = {
 			heavy_tank_chassis_1944
 		}
 
-		path = {
-			leads_to_tech = heavytankturret3_tech
-			research_cost_coeff = 1
-		}
 		XOR = {
 			heavytank4a_tech
 		}
@@ -851,28 +913,6 @@ technologies = {
 			cat_armour_tech
 			cat_chassis_tech
 			cat_heavy_chassis_tech
-		}
-		special_project_specialization = { specialization_land }
-
-		ai_will_do = {
-		}
-	}
-	heavytankturret3_tech = {
-		enable_equipment_modules = {
-			tank_heavy_turret_4
-		}
-
-		research_cost = 1.5
-		start_year = 1945
-
-		folder = {
-			name = nsb_armour_folder
-			position = { x = 7 y = @1945 }
-		}
-
-		categories = {
-			cat_armour_tech
-			cat_armour_module_tech
 		}
 		special_project_specialization = { specialization_land }
 
@@ -910,7 +950,6 @@ technologies = {
 	}
 	superheavytankturret1_tech = {
 		enable_equipment_modules = {
-			tank_simple_super_heavy_turret_1
 			tank_super_heavy_turret_2
 			cupola_2
 		}
@@ -920,7 +959,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		path = {
-			leads_to_tech = heavytankturret1_tech
+			leads_to_tech = heavytankturret2_tech
 			research_cost_coeff = 0.1
 		}
 
@@ -935,6 +974,7 @@ technologies = {
 		categories = {
 			cat_armour_tech
 			cat_armour_module_tech
+			cat_super_heavy_turret_tech
 		}
 		special_project_specialization = { specialization_land }
 
@@ -983,7 +1023,6 @@ technologies = {
 	}
 	superheavytankturret2_tech = {
 		enable_equipment_modules = {
-			tank_simple_super_heavy_turret_2
 			tank_super_heavy_turret_3
 			cupola_3
 		}
@@ -993,7 +1032,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		path = {
-			leads_to_tech = heavytankturret2_tech
+			leads_to_tech = heavytankturret3_tech
 			research_cost_coeff = 0.1
 		}
 
@@ -1008,6 +1047,7 @@ technologies = {
 		categories = {
 			cat_armour_tech
 			cat_armour_module_tech
+			cat_super_heavy_turret_tech
 		}
 		special_project_specialization = { specialization_land }
 

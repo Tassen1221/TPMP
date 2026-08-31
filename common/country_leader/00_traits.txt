@@ -3605,13 +3605,14 @@ leader_traits = {
 
 	the_bloody_professor = { #Aleksandar Tsankov (NSM)
 		random = no
-		master_ideology_drift = 0.1
+		#master_ideology_drift = 0.1
+		research_speed_factor = 0.05
 		war_support_factor = 0.05
-		mobilization_speed = 0.1
+		mobilization_speed = 0.3
 		fascism_drift = 0.1
 		foreign_subversive_activites = -0.5
-		stability_weekly = -0.002
-		justify_war_goal_time = -0.35
+		#stability_weekly = -0.002
+		justify_war_goal_time = -0.5
 	}
 
 	hardened_officer = { #Kimon Georgiev and Hristo Lukov
@@ -8184,7 +8185,7 @@ leader_traits = {
 		ai_will_do = {
 			factor = 1
 			modifier = {
-				not = { has_completed_focus = USA_suspend_the_presecution }
+				not = { always = no }
 				factor = 0
 			}
 		}
@@ -8211,7 +8212,7 @@ leader_traits = {
 			factor = 1
 			modifier = {
 				tag = USA
-				NOT = { has_completed_focus = USA_america_first }
+				NOT = { always = no }
 				factor = 0
 			}
 		}

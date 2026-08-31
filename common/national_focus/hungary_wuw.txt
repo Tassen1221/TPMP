@@ -2320,7 +2320,9 @@ focus_tree = {
 					}
 					support = {
 						engineer = { x = 0 y = 0 }
-						artillery = { x = 0 y = 1 }
+					}
+					regimental_support = {
+						artillery = { x = 0 y = 0 }
 					}
 				}
 
@@ -2822,10 +2824,7 @@ focus_tree = {
 			76 = {
 				OWNER = {
 					NOT = {
-						OR = {
-							is_in_faction_with = ROOT
-							has_war_with = ROOT
-						}
+						has_war_with = ROOT
 					}
 				}
 			}
@@ -3961,7 +3960,9 @@ focus_tree = {
 							}
 							support = {
 								engineer = { x = 0 y = 0 }
-								artillery = { x = 0 y = 1 }
+							}
+							regimental_support = {
+								artillery = { x = 0 y = 0 }
 							}
 						}
 
@@ -4072,7 +4073,6 @@ focus_tree = {
 							}
 							support = {
 								engineer = { x = 0 y = 0 }
-								artillery = { x = 0 y = 1 }
 							}
 						}
 
@@ -4142,7 +4142,9 @@ focus_tree = {
 							}
 							support = {
 								engineer = { x = 0 y = 0 }
-								artillery = { x = 0 y = 1 }
+							}
+							regimental_support = {
+								artillery = { x = 0 y = 0 }
 							}
 						}
 
@@ -4225,7 +4227,9 @@ focus_tree = {
 							}
 							support = {
 								engineer = { x = 0 y = 0 }
-								artillery = { x = 0 y = 1 }
+							}
+							regimental_support = {
+								artillery = { x = 0 y = 0 }
 							}
 						}
 
@@ -9829,6 +9833,14 @@ focus_tree = {
 			is_subject = no
 			# has_army_manpower = { size > 200000 }
 
+			ROM = {
+				OR = {
+					has_completed_focus = TPMP_ROM_revise_the_constitution
+					has_completed_focus = TPMP_ROM_combat_favoritism
+					has_completed_focus = TPMP_ROM_night_of_the_green_knives
+				}
+			}
+
 			NOT = {
 				OR = {
 					76 = {
@@ -9895,17 +9907,22 @@ focus_tree = {
 						is_owned_by = ROM
 					}
 				}
-				# custom_effect_tooltip = HUN_demands_tt
-				ROM = { 
-					country_event = { 
-						id = TPMP_GEN.2 
-						hours = 6
-						random_hours = 12
-					} 
+				ROM = {
+					if = {
+						limit = {
+							has_completed_focus = TPMP_ROM_institute_royal_dictatorship
+							NOT = { has_completed_focus = TPMP_ROM_translyvanian_fiasco }
+						}
+						complete_national_focus = TPMP_ROM_translyvanian_fiasco
+					}
+					else_if = {
+						limit = { NOT = { has_completed_focus = TPMP_ROM_institute_royal_dictatorship } }
+						country_event = { id = TPMP_ROM.4 hours = 1 }
+					}
 				}
 				hidden_effect = {
-					news_event = { 
-						id = news.300 
+					news_event = {
+						id = news.300
 						hours = 4
 					}
 				}
@@ -11575,8 +11592,10 @@ focus_tree = {
 				        		    }
 				        		    support = {
 				        		    	engineer = { x = 0 y = 0 }
-				        		    	artillery = { x = 0 y = 1 }
 				        		    }
+									regimental_support = {
+										artillery = { x = 0 y = 0 }
+									}
 				        		}
 				        		random_state = {
 				        			limit = {
@@ -17955,9 +17974,11 @@ focus_tree = {
 						motorized = { x = 2 y = 4 }
 					}
 					support = {
-						artillery = { x = 0 y = 0 } # Represents the 105mm howitzer battalion
-						engineer = { x = 0 y = 1 }
-						light_tank_recon = { x = 0 y = 2 }   # recon bn of tankettes, ACs etc
+						engineer = { x = 0 y = 0 }
+						light_tank_recon = { x = 0 y = 1 }   # recon bn of tankettes, ACs etc
+					}
+					regimental_support = {
+						artillery = { x = 0 y = 0 }
 					}
 				}
 			}
@@ -17993,9 +18014,11 @@ focus_tree = {
 						mechanized = { x = 2 y = 4 }
 					}
 					support = {
-						artillery = { x = 0 y = 0 } # Represents the 105mm howitzer battalion
-						engineer = { x = 0 y = 1 }
-						light_tank_recon = { x = 0 y = 2 }   # recon bn of tankettes, ACs etc
+						engineer = { x = 0 y = 0 }
+						light_tank_recon = { x = 0 y = 1 }   # recon bn of tankettes, ACs etc
+					}
+					regimental_support = {
+						artillery = { x = 0 y = 0 }
 					}
 				}
 			}
@@ -18343,9 +18366,11 @@ focus_tree = {
 					infantry = { x = 2 y = 4 }
 				}
 				support = {
+					engineer = { x = 0 y = 0 }
+					recon = { x = 0 y = 1 }
+				}
+				regimental_support = {
 					artillery = { x = 0 y = 0 }
-					engineer = { x = 0 y = 1 }
-					recon = { x = 0 y = 2 }
 				}
 			}
 			random_owned_controlled_state = {
@@ -18446,9 +18471,11 @@ focus_tree = {
 					artillery_brigade = { x = 3 y = 4 }
 				}
 				support = {
+					engineer = { x = 0 y = 0 }
+					recon = { x = 0 y = 1 }
+				}
+				regimental_support = {
 					artillery = { x = 0 y = 0 }
-					engineer = { x = 0 y = 1 }
-					recon = { x = 0 y = 2 }
 				}
 			}
 
@@ -18677,7 +18704,7 @@ focus_tree = {
 			# 			parent_version = 0
 			# 			modules = {
 			# 				main_armament_slot = tank_medium_cannon_2
-			# 				turret_type_slot = tank_simple_medium_turret_1
+			# 				turret_type_slot = tank_medium_turret_1
 			# 				suspension_type_slot = tank_bogie_suspension
 			# 				armor_type_slot = tank_welded_armor
 			# 				engine_type_slot = tank_gasoline_engine_1
@@ -18701,7 +18728,7 @@ focus_tree = {
 			# 				parent_version = 0
 			# 				modules = {
 			# 					main_armament_slot = tank_medium_cannon_2
-			# 					turret_type_slot = tank_simple_medium_turret_1
+			# 					turret_type_slot = tank_medium_turret_1
 			# 					suspension_type_slot = tank_bogie_suspension
 			# 					armor_type_slot = tank_welded_armor
 			# 					engine_type_slot = tank_gasoline_engine_1
@@ -18875,7 +18902,7 @@ focus_tree = {
 						parent_version = 0
 						modules = {
 							main_armament_slot = tank_medium_howitzer_2
-							turret_type_slot = tank_simple_medium_turret_1
+							turret_type_slot = tank_medium_turret_1
 							suspension_type_slot = tank_torsion_bar_suspension
 							armor_type_slot = tank_riveted_armor
 							engine_type_slot = tank_gasoline_engine_1
@@ -18897,7 +18924,7 @@ focus_tree = {
 							parent_version = 0
 							modules = {
 								main_armament_slot = tank_medium_howitzer_2
-								turret_type_slot = tank_simple_medium_turret_1
+								turret_type_slot = tank_medium_turret_1
 								suspension_type_slot = tank_torsion_bar_suspension
 								armor_type_slot = tank_riveted_armor
 								engine_type_slot = tank_gasoline_engine_1
@@ -18921,7 +18948,7 @@ focus_tree = {
 						parent_version = 0
 						modules = {
 							main_armament_slot = tank_anti_air_cannon_2
-							turret_type_slot = tank_simple_medium_turret_1
+							turret_type_slot = tank_medium_turret_1
 							suspension_type_slot = tank_torsion_bar_suspension
 							armor_type_slot = tank_riveted_armor
 							engine_type_slot = tank_gasoline_engine_1
@@ -18945,7 +18972,7 @@ focus_tree = {
 							parent_version = 0
 							modules = {
 								main_armament_slot = tank_anti_air_cannon_2
-								turret_type_slot = tank_simple_medium_turret_1
+								turret_type_slot = tank_medium_turret_1
 								suspension_type_slot = tank_torsion_bar_suspension
 								armor_type_slot = tank_riveted_armor
 								engine_type_slot = tank_gasoline_engine_1
@@ -19872,9 +19899,11 @@ focus_tree = {
 					artillery_brigade = { x = 4 y = 2 }
 				}
 				support = {
+					engineer = { x = 0 y = 0 }
+					recon = { x = 0 y = 1 }
+				}
+				regimental_support = {
 					artillery = { x = 0 y = 0 }
-					engineer = { x = 0 y = 1 }
-					recon = { x = 0 y = 2 }
 				}
 			}
 			random_owned_controlled_state = {

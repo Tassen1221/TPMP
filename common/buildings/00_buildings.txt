@@ -67,6 +67,27 @@ buildings = {
 		}
 	}
 
+	arms_megaplant = {
+		show_on_map = 6
+		base_cost = 18000
+		military_production = 1
+		disabled_in_dmz = yes
+		icon_frame = 32
+		value = 8
+		infrastructure_construction_effect = yes
+		hide_if_missing_tech = yes
+		level_cap = {
+			shares_slots = yes
+			state_max = 1
+		}
+		show_modifier = yes
+		country_modifiers = {
+			modifiers = {
+				production_factory_max_efficiency_factor = 0.005
+			}
+		}
+	}
+
 	industrial_complex = {
 		show_on_map = 6
 		base_cost = 12000
@@ -97,7 +118,7 @@ buildings = {
 
 	supply_node = {
 		show_on_map = 1
-		base_cost = 20000
+		base_cost = 15000
 		disabled_in_dmz = yes
 		icon_frame = 15
 		centered = yes

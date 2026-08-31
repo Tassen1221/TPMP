@@ -1436,10 +1436,52 @@ focus_tree = {
 				category = naval_bomber
 				category = cas_bomber
 			}
-			add_equipment_to_stockpile = {
-				type = small_plane_naval_bomber_airframe
-				amount = 300
-				producer = ENG
+			IF = {
+				limit = {
+					has_tech = modern_small_airframe
+				}
+				add_equipment_to_stockpile = {
+					type = small_plane_naval_bomber_airframe_4
+					amount = 300
+					producer = ENG
+				}
+			}
+			ELSE_IF = {
+				limit = {
+					has_tech = advanced_small_airframe
+				}
+				add_equipment_to_stockpile = {
+					type = small_plane_naval_bomber_airframe_3
+					amount = 300
+					producer = ENG
+				}
+			}
+			ELSE_IF = {
+				limit = {
+					has_tech = improved_small_airframe
+				}
+				add_equipment_to_stockpile = {
+					type = small_plane_naval_bomber_airframe_2
+					amount = 300
+					producer = ENG
+				}
+			}
+			ELSE_IF = {
+				limit = {
+					has_tech = basic_small_airframe
+				}
+				add_equipment_to_stockpile = {
+					type = small_plane_naval_bomber_airframe_1
+					amount = 300
+					producer = ENG
+				}
+			}
+			ELSE = {
+				add_equipment_to_stockpile = {
+					type = small_plane_naval_bomber_airframe_0
+					amount = 300
+					producer = ENG
+				}
 			}
 		}
 	}
@@ -6439,7 +6481,9 @@ focus_tree = {
 					support = {
 						recon = { x = 0 y = 0 }
 						engineer = { x = 0 y = 1 }
-						artillery = { x = 0 y = 2 }
+					}
+					regimental_support = {
+						artillery = { x = 0 y = 0 }
 					}
 				}
 
@@ -8398,6 +8442,49 @@ focus_tree = {
 			custom_effect_tooltip = ENG_indian_autonomy_tt
 		}
 	}
+
+	#TPMP Changes
+	focus = {
+		id = TPMP_ENG_imperial_conference_1941
+		prerequisite = { focus = ENG_imperial_conference }
+		available = {
+			date > 1941.01.01
+		}
+		icon = GFX_focus_eng_imperial_federation
+
+		x = 0
+		y = 1
+		relative_position_id = ENG_imperial_conference
+		cost = 10
+
+		completion_reward = {
+			CAN = {
+				add_timed_idea = {
+					idea = TPMP_ENG_imperial_conference_idea
+					days = 365
+				}
+			}
+			AST = {
+				add_timed_idea = {
+					idea = TPMP_ENG_imperial_conference_idea
+					days = 365
+				}
+			}
+			RAJ = {
+				add_timed_idea = {
+					idea = TPMP_ENG_imperial_conference_idea
+					days = 365
+				}
+			}
+			SAF = {
+				add_timed_idea = {
+					idea = TPMP_ENG_imperial_conference_idea
+					days = 365
+				}
+			}
+		}
+	}
+	#TPMP Changes
 
 	focus = {
 		id = ENG_imperial_federation
@@ -10470,20 +10557,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_INDUSTRY }	
 
 		completion_reward = {
-			IF = {
-				limit = {
-					NOT = {
-						has_idea = wartime_industry_focus
-					}
-				}
-				add_ideas = ENG_prepare_for_the_inevitable_idea
-			}
-			ELSE = {
-				swap_ideas = {
-					remove_idea = wartime_industry_focus
-					add_idea = ENG_prepare_for_the_inevitable_and_wartime_industry_idea
-				}	
-			}
+			add_ideas = ENG_prepare_for_the_inevitable_idea
 		}
 	}
 

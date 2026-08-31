@@ -1944,7 +1944,7 @@ focus_tree = {
 		x = -1
 		y = 1
 		relative_position_id = SOV_transpolar_flights
-		cost = 10
+		cost = 5
 
 		available = {
 			any_owned_state = {
@@ -2013,7 +2013,7 @@ focus_tree = {
 		x = -1
 		y = 1
 		relative_position_id = SOV_expand_the_aircraft_industry
-		cost = 10
+		cost = 5
 
 		available = {
 
@@ -2098,7 +2098,7 @@ focus_tree = {
 		x = 0
 		y = 2
 		relative_position_id = SOV_merge_aircraft_plants
-		cost = 10
+		cost = 5
 
 		available = {
 
@@ -2131,7 +2131,7 @@ focus_tree = {
 		x = 0
 		y = 2
 		relative_position_id = SOV_expand_the_aircraft_industry
-		cost = 10
+		cost = 5
 
 		mutually_exclusive = { focus = SOV_intensify_pilot_training_program }
 
@@ -2183,7 +2183,7 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = SOV_transpolar_flights
-		cost = 10
+		cost = 5
 
 		available = {
 
@@ -2210,7 +2210,7 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = SOV_foster_flying_clubs
-		cost = 10
+		cost = 5
 
 		available = {
 			OR = {
@@ -2243,7 +2243,7 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = SOV_women_in_aviation
-		cost = 10
+		cost = 5
 
 		available = {
 			any_enemy_country = {
@@ -2330,7 +2330,7 @@ focus_tree = {
 		x = 0
 		y = 2
 		relative_position_id = SOV_foster_flying_clubs
-		cost = 10
+		cost = 5
 
 		mutually_exclusive = { focus = SOV_increase_aircraft_production }
 
@@ -2361,7 +2361,7 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = SOV_expand_the_aircraft_industry
-		cost = 10
+		cost = 5
 
 		available = {
 
@@ -2386,7 +2386,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = SOV_increase_aircraft_production
-		cost = 10
+		cost = 5
 
 		mutually_exclusive = { focus = SOV_long_range_aircraft }
 
@@ -2418,7 +2418,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = SOV_intensify_pilot_training_program
-		cost = 10
+		cost = 5
 
 		mutually_exclusive = { focus = SOV_ground_support }
 
@@ -2451,7 +2451,7 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = SOV_ground_support
-		cost = 10
+		cost = 5
 
 		available = {
 
@@ -4021,7 +4021,7 @@ mio:SOV_sevastopol_marine_plant_organization = {
 		x = -5
 		y = 1
 		relative_position_id = SOV_found_the_pcdi
-		cost = 10
+		cost = 5
 
 		available = {
 			has_full_control_of_state = 219 #MOSCOW
@@ -4084,7 +4084,7 @@ mio:SOV_sevastopol_marine_plant_organization = {
 		x = -1
 		y = 1
 		relative_position_id = SOV_pc_of_mechanical_engineering
-		cost = 10
+		cost = 5
 
 		available = {
 			if = {
@@ -4121,7 +4121,7 @@ mio:SOV_sevastopol_marine_plant_organization = {
 		x = 1
 		y = 1
 		relative_position_id = SOV_pc_of_mechanical_engineering
-		cost = 10
+		cost = 5
 
 		available = {
 
@@ -4150,7 +4150,7 @@ mio:SOV_sevastopol_marine_plant_organization = {
 		x = -1
 		y = 1
 		relative_position_id = SOV_superior_war_machines
-		cost = 10
+		cost = 5
 
 		available = {
 		}
@@ -4236,7 +4236,7 @@ mio:SOV_sevastopol_marine_plant_organization = {
 		x = 0
 		y = 2
 		relative_position_id = SOV_pc_of_mechanical_engineering
-		cost = 10
+		cost = 5
 
 		available = {
 			has_full_control_of_state = 219 #MOSCOW
@@ -4297,7 +4297,7 @@ mio:SOV_sevastopol_marine_plant_organization = {
 		x = 1
 		y = 1
 		relative_position_id = SOV_the_means_to_wage_war
-		cost = 10
+		cost = 5
 
 		available = {
 			custom_trigger_tooltip = {
@@ -4447,7 +4447,7 @@ mio:SOV_sevastopol_marine_plant_organization = {
 		x = 2
 		y = 2
 		relative_position_id = SOV_the_means_to_wage_war
-		cost = 10
+		cost = 5
 		dynamic = yes 
 		available = {
 
@@ -5769,8 +5769,10 @@ mio:SOV_sevastopol_marine_plant_organization = {
 					}
 					support = {
 						engineer = { x = 0 y = 0 }
-						artillery = { x = 0 y = 1 }
-						recon = { x = 0 y = 2 }
+						recon = { x = 0 y = 1 }
+					}
+					regimental_support = {
+						artillery = { x = 0 y = 0 }
 					}
 				}
 
@@ -5947,7 +5949,9 @@ mio:SOV_sevastopol_marine_plant_organization = {
 					}
 					support = {
 						engineer = { x = 0 y = 0 }
-						artillery = { x = 0 y = 1 }
+					}
+					regimental_support = {
+						artillery = { x = 0 y = 0 }
 					}
 				}
 			}
@@ -6133,7 +6137,9 @@ mio:SOV_sevastopol_marine_plant_organization = {
 					}
 					support = {
 						engineer = { x = 0 y = 0 }
-						artillery = { x = 0 y = 1 }
+					}
+					regimental_support = {
+						artillery = { x = 0 y = 0 }
 					}
 				}
 			}
@@ -12386,7 +12392,7 @@ mio:SOV_sevastopol_marine_plant_organization = {
 						allow_without_tech = no
 						modules = {
 							main_armament_slot = tank_light_cannon_1
-							turret_type_slot = tank_simple_medium_turret_1
+							turret_type_slot = tank_medium_turret_1
 							suspension_type_slot = tank_christie_suspension
 							armor_type_slot = tank_welded_armor
 							engine_type_slot = tank_diesel_engine_1

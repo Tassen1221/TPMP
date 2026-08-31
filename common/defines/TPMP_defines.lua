@@ -52,7 +52,10 @@ NDefines.NCountry.SPECIAL_FORCES_CAP_MIN = 120			-- You can have a minimum of th
 
 NDefines.NMilitary.VPS_FOR_HISTORY_ENTRY = 1			-- Minimum VPs required to receive an entry in divisional history
 NDefines.NMilitary.VPS_FOR_HIGH_HISTORY_ENTRY = 5		-- VPs required for high-level history entry
+NDefines.NMilitary.ENTRIES_TO_CHECK_FOR_DUPLICATE = 99		-- Max number of history entries to check back to see if we're being awarded the same entry
 NDefines.NMilitary.COST_INCREASE_PER_ACTIVE_MEDAL = 1		-- Additional cost factor per active medal
+NDefines.NMilitary.MAX_ENTRY_ELISION_COUNT = 1			-- If we do the same type of thing consecutively, each entry will stack locations up to this number
+NDefines.NMilitary.MAX_NUM_AUTOMEDALS = 1			-- You can't get more medals from the automedal system than this.
 NDefines.NMilitary.HISTORY_OPERATION_RANDOM_MAX = 10		-- max random int to roll when determining whether to grant an awardable entry for operations. 1/N chances.
 NDefines.NMilitary.CASUALTY_COUNT_FOR_HISTORY_ENTRY = 25000	-- number of received casualties to receive a history entry (one only)
 
@@ -256,6 +259,8 @@ NDefines.NProduction.INFRA_MAX_CONSTRUCTION_COST_EFFECT = 1	-- Building in a sta
 
 NDefines.NProduction.PRODUCTION_RESOURCE_LACK_PENALTY = -0.005	-- Penalty decrease while lack of resource per factory
 
+NDefines.NProduction.CAPITULATE_STOCKPILES_RATIO = 0.75		-- How much equipment from deployed divisions will be transferred on capitulation
+
 NDefines.NProduction.BASE_FACTORY_EFFICIENCY_VARIANT_CHANGE_FACTOR = 80		-- Base factor for changing production variants in %.
 NDefines.NProduction.BASE_FACTORY_EFFICIENCY_PARENT_CHANGE_FACTOR = 30		-- Base factor for changing production parent<->children in %.
 NDefines.NProduction.BASE_FACTORY_EFFICIENCY_FAMILY_CHANGE_FACTOR = 70		-- Base factor for changing production with same family in %.
@@ -290,6 +295,8 @@ NDefines.NCountry.REINFORCEMENT_MANPOWER_DELIVERY_SPEED = 50.0	-- Modifier for a
 NDefines.NDiplomacy.VOLUNTEERS_PER_TARGET_PROVINCE = 0	-- Each province owned by the target country contributes this amount of volunteers to the limit.
 NDefines.NDiplomacy.VOLUNTEERS_PER_COUNTRY_ARMY = 0		-- Each army unit owned by the source country contributes this amount of volunteers to the limit.
 NDefines.NDiplomacy.VOLUNTEERS_DIVISIONS_REQUIRED = 0	-- This many divisons are required for the country to be able to send volunteers.
+
+NDefines.NDiplomacy.EMBARGO_THREAT_THRESHOLD = -1		-- Target-generated threat threshold to allow embargo (affected by modifiers)
 
 NDefines.NBuildings.BASE_FACTORY_REPAIR = 0.5			-- Default repair rate in percentage before factories are taken into account (1.0 equals 1%).
 NDefines.NBuildings.BASE_FACTORY_REPAIR_FACTOR = 1.0		-- Factory speed modifier when repairing.
@@ -456,6 +463,9 @@ NDefines.NSupply.RAILWAY_MIN_FLOW = 10.0			-- minimum railway flow can be reduce
 -- used for calculating "flow" from a naval node to another naval node when it is connected via a convoy route
 NDefines.NSupply.NAVAL_BASE_FLOW = 10.0				-- max output/input of a naval node is limited by this base value + additional ratio for each level
 NDefines.NSupply.NAVAL_FLOW_PER_LEVEL = 3.0			-- max output/input of a naval node is limited by previous base value + this define per its level
+
+NDefines.NSupply.COOLDOWN_DAYS_AFTER_MOVING_SUPPLY_CAPITAL = 0 	-- cooldown for moving supply again after last move
+NDefines.NSupply.DAYS_TO_START_GIVING_SUPPLY_AFTER_MOVING_SUPPLY_CAPITAL = 0 	-- the country will start gaining supply after this many days moving its capital
 
 NDefines.NOperatives.AGENCY_UPGRADE_PER_OPERATIVE_SLOT = 5					-- Number of upgrade needed to unlock an additional operative slot
 NDefines.NOperatives.MAX_OPERATIVE_SLOT_FROM_AGENCY_UPGRADES = 2				-- max operative slots gained from upgrades

@@ -1838,23 +1838,6 @@ focus_tree = {
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
-			GER_modify_industrial_modifier = yes
-			add_to_variable = { 
-				GER_industrial_consumer_goods_factor = 0.1
-				tooltip = consumer_goods_factor_tt
-			}
-			if = {
-				limit = {
-					OR = {
-						has_dynamic_modifier = { modifier = GER_mefo_bills_modifier }
-						has_dynamic_modifier = { modifier = GER_economy_of_conquest_modifier }
-					}
-				}
-				GER_add_mefo_bills_penalty = yes
-			}
-
-			custom_effect_tooltip = generic_skip_one_line_tt
-
 			GER_add_or_modify_wehrwirtschaft = yes
 			add_to_variable = { 
 				GER_wehrwirtschaft_local_resources_factor = 0.05
@@ -2016,30 +1999,12 @@ focus_tree = {
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
-			GER_modify_industrial_modifier = yes
-			add_to_variable = { 
-				GER_industrial_consumer_goods_factor = 0.1
-				tooltip = consumer_goods_factor_tt
-			}
-			if = {
-				limit = {
-					OR = {
-						has_dynamic_modifier = { modifier = GER_mefo_bills_modifier }
-						has_dynamic_modifier = { modifier = GER_economy_of_conquest_modifier }
-					}
-				}
-				GER_add_mefo_bills_penalty = yes
-			}
-
-			custom_effect_tooltip = generic_skip_one_line_tt
-
 			custom_effect_tooltip = GER_modify_wehrwirtschaft_modifier_tt
 			add_to_variable = { 
 				GER_wehrwirtschaft_local_resources_factor = 0.05
 				tooltip = local_resources_factor_tt
 			}
 			custom_effect_tooltip = generic_skip_one_line_tt
-
 		}
 	}
 	
@@ -2089,21 +2054,6 @@ focus_tree = {
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
-			GER_modify_industrial_modifier = yes
-			add_to_variable = { 
-				GER_industrial_consumer_goods_factor = 0.1
-				tooltip = consumer_goods_factor_tt
-			}
-			if = {
-				limit = {
-					OR = {
-						has_dynamic_modifier = { modifier = GER_mefo_bills_modifier }
-						has_dynamic_modifier = { modifier = GER_economy_of_conquest_modifier }
-					}
-				}
-				GER_add_mefo_bills_penalty = yes
-			}
-
 			GER_add_or_modify_wehrwirtschaft = yes
 			add_to_variable = { 
 				GER_wehrwirtschaft_production_speed_synthetic_refinery_factor = 0.1
@@ -2146,7 +2096,6 @@ focus_tree = {
 		relative_position_id = GER_coal_liquefaction
 		cost = 5
 		available = {
-			has_tech = oil_processing
 		}
 
 		continue_if_invalid = yes
@@ -2184,23 +2133,6 @@ focus_tree = {
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
-			GER_modify_industrial_modifier = yes
-			add_to_variable = { 
-				GER_industrial_consumer_goods_factor = 0.1
-				tooltip = consumer_goods_factor_tt
-			}
-			if = {
-				limit = {
-					OR = {
-						has_dynamic_modifier = { modifier = GER_mefo_bills_modifier }
-						has_dynamic_modifier = { modifier = GER_economy_of_conquest_modifier }
-					}
-				}
-				GER_add_mefo_bills_penalty = yes
-			}
-
-			custom_effect_tooltip = generic_skip_one_line_tt
-
 			custom_effect_tooltip = GER_modify_wehrwirtschaft_modifier_tt
 			add_to_variable = { 
 				GER_wehrwirtschaft_production_oil_factor = 0.1
@@ -2229,7 +2161,6 @@ focus_tree = {
 		relative_position_id = GER_coal_liquefaction
 		cost = 5
 		available = {
-			has_tech = rubber_processing
 		}
 
 		continue_if_invalid = yes
@@ -2279,23 +2210,6 @@ focus_tree = {
 				bonus = 1
 				uses = 1
 				category = synth_resources
-			}
-
-			custom_effect_tooltip = generic_skip_one_line_tt
-
-			GER_modify_industrial_modifier = yes
-			add_to_variable = { 
-				GER_industrial_consumer_goods_factor = 0.1
-				tooltip = consumer_goods_factor_tt
-			}
-			if = {
-				limit = {
-					OR = {
-						has_dynamic_modifier = { modifier = GER_mefo_bills_modifier }
-						has_dynamic_modifier = { modifier = GER_economy_of_conquest_modifier }
-					}
-				}
-				GER_add_mefo_bills_penalty = yes
 			}
 		}
 	}
@@ -2374,15 +2288,13 @@ focus_tree = {
 	focus = {
 		id = TPMP_GER_autarky_abandoned
 		icon = GFX_goal_generic_trade
-		prerequisite = { focus = GER_seize_foreign_industries }
-		prerequisite = { focus = GER_subsidize_hoesch_benzin }
-		prerequisite = { focus = GER_establish_buna_werke }
+		prerequisite = { focus = GER_seize_foreign_industries focus = GER_subsidize_hoesch_benzin focus = GER_establish_buna_werke }
 		mutually_exclusive = { focus = GER_autarky_achieved }
 
 		x = 3
 		y = 1
 		relative_position_id = GER_seize_foreign_industries
-		cost = 10
+		cost = 1
 		available = {
 		}
 
@@ -4872,10 +4784,52 @@ focus_tree = {
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
-			add_equipment_to_stockpile = {
-				type = small_plane_CAS_airframe
-				amount = 500
-				producer = GER
+			IF = {
+				limit = {
+					has_tech = modern_small_airframe
+				}
+				add_equipment_to_stockpile = {
+					type = small_plane_cas_airframe_4
+					amount = 500
+					producer = GER
+				}
+			}
+			ELSE_IF = {
+				limit = {
+					has_tech = advanced_small_airframe
+				}
+				add_equipment_to_stockpile = {
+					type = small_plane_cas_airframe_3
+					amount = 500
+					producer = GER
+				}
+			}
+			ELSE_IF = {
+				limit = {
+					has_tech = improved_small_airframe
+				}
+				add_equipment_to_stockpile = {
+					type = small_plane_cas_airframe_2
+					amount = 500
+					producer = GER
+				}
+			}
+			ELSE_IF = {
+				limit = {
+					has_tech = basic_small_airframe
+				}
+				add_equipment_to_stockpile = {
+					type = small_plane_cas_airframe_1
+					amount = 500
+					producer = GER
+				}
+			}
+			ELSE = {
+				add_equipment_to_stockpile = {
+					type = small_plane_cas_airframe_0
+					amount = 500
+					producer = GER
+				}
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
@@ -9055,7 +9009,7 @@ mio:GER_blohm_und_voss_organization = {
 						militia = { x = 2 y = 1 }
 						militia = { x = 2 y = 2 }
 					}
-					support = {
+					regimental_support = {
 						artillery = { x = 0 y = 0 }
 					}
 				}
@@ -9313,9 +9267,11 @@ mio:GER_blohm_und_voss_organization = {
 						militia = { x = 1 y = 2 }
 					}
 					support = {
+						engineer = { x = 0 y = 0 }
+						mot_recon = { x = 0 y = 1 }
+					}
+					regimental_support = {
 						artillery = { x = 0 y = 0 }
-						engineer = { x = 0 y = 1 }
-						mot_recon = { x = 0 y = 2 }
 					}
 					override_model = GER_militia
 				}
@@ -9374,9 +9330,11 @@ mio:GER_blohm_und_voss_organization = {
 
 					}
 					support = {
+						engineer = { x = 0 y = 0 }
+						mot_recon = { x = 0 y = 1 }
+					}
+					regimental_support = {
 						artillery = { x = 0 y = 0 }
-						engineer = { x = 0 y = 1 }
-						mot_recon = { x = 0 y = 2 }
 					}
 					override_model = GER_infantry_alt_0_entity
 				}
@@ -11567,7 +11525,7 @@ mio:GER_blohm_und_voss_organization = {
 		x = -2
 		y = 1
 		relative_position_id = GER_danzig_or_war
-		cost = 5
+		cost = 3
 		available = {
 
 		}
@@ -11576,31 +11534,25 @@ mio:GER_blohm_und_voss_organization = {
 
 		completion_reward = {
 
-			add_political_power = -150
-
 			custom_effect_tooltip = generic_skip_one_line_tt
 
 			ROM = {
 
-				set_technology = {
-					fuel_refining = 1
-					fuel_refining2 = 1
-					fuel_refining3 = 1
+				if = {
+					limit = { NOT = { has_tech = fuel_refining } }
+					set_technology = { fuel_refining = 1 }
+				}
+				if = {
+					limit = { NOT = { has_tech = fuel_refining2 } }
+					set_technology = { fuel_refining2 = 1 }
+				}
+				if = {
+					limit = { NOT = { has_tech = fuel_refining3 } }
+					set_technology = { fuel_refining3 = 1 }
 				}
 
-
-
-				add_ideas = TPMP_ROM_romanian_closed_economy
-				add_research_slot = -1
-
-				
-				country_event = { 
-					id = wuw_GER_diplomacy.111 
-					days = 2 
-				}
-
-
-
+				add_ideas = TPMP_ROM_german_dominated_trade
+				add_ideas = GER_development_of_economic_relations_ns
 
 
 
@@ -19396,9 +19348,11 @@ mio:GER_blohm_und_voss_organization = {
 						militia = { x = 1 y = 2 }
 					}
 					support = {
+						engineer = { x = 0 y = 0 }
+						mot_recon = { x = 0 y = 1 }
+					}
+					regimental_support = {
 						artillery = { x = 0 y = 0 }
-						engineer = { x = 0 y = 1 }
-						mot_recon = { x = 0 y = 2 }
 					}
 					override_model = GER_militia
 				}
@@ -19463,9 +19417,11 @@ mio:GER_blohm_und_voss_organization = {
 
 					}
 					support = {
+						engineer = { x = 0 y = 0 }
+						mot_recon = { x = 0 y = 1 }
+					}
+					regimental_support = {
 						artillery = { x = 0 y = 0 }
-						engineer = { x = 0 y = 1 }
-						mot_recon = { x = 0 y = 2 }
 					}
 					override_model = GER_infantry_alt_0_entity
 				}
@@ -19531,10 +19487,13 @@ mio:GER_blohm_und_voss_organization = {
 						motorized = { x = 2 y = 0 }
 					}
 					support = {
-						artillery = { x = 0 y = 0 }
-						engineer = { x = 0 y = 1 }
-						mot_recon = { x = 0 y = 2 }
+						engineer = { x = 0 y = 0 }
+						mot_recon = { x = 0 y = 1 }
 					}
+					regimental_support = {
+						artillery = { x = 0 y = 0 }
+					}
+
 					override_model = GER_infantry_alt_0_entity
 				}
 				if = {
@@ -19588,9 +19547,11 @@ mio:GER_blohm_und_voss_organization = {
 						motorized = { x = 2 y = 0 }
 					}
 					support = {
+						engineer = { x = 0 y = 0 }
+						mot_recon = { x = 0 y = 1 }
+					}
+					regimental_support = {
 						artillery = { x = 0 y = 0 }
-						engineer = { x = 0 y = 1 }
-						mot_recon = { x = 0 y = 2 }
 					}
 					override_model = GER_infantry_alt_0_entity
 				}
@@ -26349,8 +26310,8 @@ mio:GER_blohm_und_voss_organization = {
 						militia = { x = 1 y = 1 }
 						militia = { x = 1 y = 2 }
 					}
-					support = {
-						artillery = { x = 0 y = 0 }  
+					regimental_support = {
+						artillery = { x = 0 y = 0 }
 					}
 				}
 
@@ -30136,7 +30097,9 @@ mio:GER_blohm_und_voss_organization = {
 					}
 					support = {
 						recon = { x = 0 y = 0 }  
-						artillery = { x = 0 y = 1 }  
+					}
+					regimental_support = {
+						artillery = { x = 0 y = 0 }
 					}
 				}
 
@@ -30158,8 +30121,10 @@ mio:GER_blohm_und_voss_organization = {
 					}
 					support = {
 						engineer = { x = 0 y = 0 }  
-						artillery = { x = 0 y = 1 }  
-						anti_tank = { x = 0 y = 2 }  
+					}
+					regimental_support = {
+						artillery = { x = 0 y = 0 }
+						anti_tank = { x = 0 y = 1 }  
 					}
 				}
 
@@ -31215,7 +31180,9 @@ mio:GER_blohm_und_voss_organization = {
 					}
 					support = {
 						engineer = { x = 0 y = 0 }  
-						artillery = { x = 0 y = 1 }  
+					}
+					regimental_support = {
+						artillery = { x = 0 y = 0 }
 					}
 				}
 

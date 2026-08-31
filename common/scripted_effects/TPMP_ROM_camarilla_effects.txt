@@ -1,0 +1,285 @@
+TPMP_ROM_camarilla_start_effect = {
+	set_variable = { TPMP_ROM_camarilla_index = 0 }
+	set_country_flag = TPMP_ROM_camarilla_active
+	add_ideas = TPMP_ROM_camarilla_titulescu
+	activate_mission = TPMP_ROM_camarilla_mission_0
+}
+
+TPMP_ROM_camarilla_advance_0_to_1 = {
+	remove_ideas = TPMP_ROM_camarilla_titulescu
+	add_equipment_to_stockpile = { type = line_infantry_equipment_1 amount = 20000 producer = BEL }
+	add_equipment_to_stockpile = { type = anti_air_equipment_0 amount = 1000 producer = CZE }
+	add_equipment_to_stockpile = { type = anti_tank_equipment_0 amount = 3000 producer = FRA }
+	add_equipment_to_stockpile = { type = artillery_equipment_0 amount = 3000 producer = SWE }
+	add_equipment_to_stockpile = { type = motorized_equipment_0 amount = 1500 producer = SWI }
+	add_equipment_to_stockpile = { type = support_equipment_1 amount = 2500 producer = POL }
+	add_timed_idea = { idea = TPMP_ROM_titulescu_supplementary_budget days = 365 }
+	news_event = { id = TPMP_ROM.6 days = 1 }
+	if = {
+		limit = { has_completed_focus = TPMP_ROM_camarilla_renewed }
+		add_ideas = TPMP_ROM_camarilla_lupescu_renewed
+	}
+	else = {
+		add_ideas = TPMP_ROM_camarilla_lupescu
+	}
+	set_variable = { TPMP_ROM_camarilla_index = 1 }
+	activate_mission = TPMP_ROM_camarilla_mission_1
+}
+
+TPMP_ROM_camarilla_advance_1_to_2 = {
+	if = {
+		limit = { has_completed_focus = TPMP_ROM_camarilla_renewed }
+		remove_ideas = TPMP_ROM_camarilla_lupescu_renewed
+	}
+	else = {
+		remove_ideas = TPMP_ROM_camarilla_lupescu
+	}
+	if = {
+		limit = { has_completed_focus = TPMP_ROM_camarilla_renewed }
+		add_ideas = TPMP_ROM_camarilla_urdareanu_renewed
+	}
+	else = {
+		add_ideas = TPMP_ROM_camarilla_urdareanu
+	}
+	set_variable = { TPMP_ROM_camarilla_index = 2 }
+	activate_mission = TPMP_ROM_camarilla_mission_2
+}
+
+TPMP_ROM_camarilla_advance_2_to_3 = {
+	if = {
+		limit = { has_completed_focus = TPMP_ROM_camarilla_renewed }
+		remove_ideas = TPMP_ROM_camarilla_urdareanu_renewed
+	}
+	else = {
+		remove_ideas = TPMP_ROM_camarilla_urdareanu
+	}
+	add_ideas = TPMP_ROM_camarilla_auschnitt
+	set_variable = { TPMP_ROM_camarilla_index = 3 }
+	activate_mission = TPMP_ROM_camarilla_mission_3
+}
+
+TPMP_ROM_camarilla_advance_2_to_4_skip_auschnitt = {
+	if = {
+		limit = { has_completed_focus = TPMP_ROM_camarilla_renewed }
+		remove_ideas = TPMP_ROM_camarilla_urdareanu_renewed
+	}
+	else = {
+		remove_ideas = TPMP_ROM_camarilla_urdareanu
+	}
+	if = {
+		limit = { has_completed_focus = TPMP_ROM_camarilla_renewed }
+		add_ideas = TPMP_ROM_camarilla_calinescu_renewed
+	}
+	else = {
+		add_ideas = TPMP_ROM_camarilla_calinescu
+	}
+	set_variable = { TPMP_ROM_camarilla_index = 4 }
+	activate_mission = TPMP_ROM_camarilla_mission_4
+}
+
+TPMP_ROM_camarilla_advance_3_to_4 = {
+	remove_ideas = TPMP_ROM_camarilla_auschnitt
+	if = {
+		limit = { has_completed_focus = TPMP_ROM_camarilla_renewed }
+		add_ideas = TPMP_ROM_camarilla_calinescu_renewed
+	}
+	else = {
+		add_ideas = TPMP_ROM_camarilla_calinescu
+	}
+	set_variable = { TPMP_ROM_camarilla_index = 4 }
+	activate_mission = TPMP_ROM_camarilla_mission_4
+}
+
+TPMP_ROM_camarilla_advance_4_to_5 = {
+	if = {
+		limit = { has_completed_focus = TPMP_ROM_camarilla_renewed }
+		remove_ideas = TPMP_ROM_camarilla_calinescu_renewed
+	}
+	else = {
+		remove_ideas = TPMP_ROM_camarilla_calinescu
+	}
+	if = {
+		limit = { has_completed_focus = TPMP_ROM_camarilla_renewed }
+		add_ideas = TPMP_ROM_camarilla_malaxa_renewed
+	}
+	else = {
+		add_ideas = TPMP_ROM_camarilla_malaxa
+	}
+	set_variable = { TPMP_ROM_camarilla_index = 5 }
+	activate_mission = TPMP_ROM_camarilla_mission_5
+}
+
+TPMP_ROM_camarilla_advance_5_to_6 = {
+	if = {
+		limit = { has_completed_focus = TPMP_ROM_camarilla_renewed }
+		remove_ideas = TPMP_ROM_camarilla_malaxa_renewed
+	}
+	else = {
+		remove_ideas = TPMP_ROM_camarilla_malaxa
+	}
+	if = {
+		limit = { has_completed_focus = TPMP_ROM_camarilla_renewed }
+		add_ideas = TPMP_ROM_camarilla_marinescu_renewed
+	}
+	else = {
+		add_ideas = TPMP_ROM_camarilla_marinescu
+	}
+	set_variable = { TPMP_ROM_camarilla_index = 6 }
+	activate_mission = TPMP_ROM_camarilla_mission_6
+}
+
+TPMP_ROM_camarilla_advance_6_to_0 = {
+	if = {
+		limit = { has_completed_focus = TPMP_ROM_camarilla_renewed }
+		remove_ideas = TPMP_ROM_camarilla_marinescu_renewed
+	}
+	else = {
+		remove_ideas = TPMP_ROM_camarilla_marinescu
+	}
+	add_ideas = TPMP_ROM_camarilla_titulescu
+	set_variable = { TPMP_ROM_camarilla_index = 0 }
+	activate_mission = TPMP_ROM_camarilla_mission_0
+}
+
+TPMP_ROM_camarilla_advance_6_to_1_skip_titulescu = {
+	if = {
+		limit = { has_completed_focus = TPMP_ROM_camarilla_renewed }
+		remove_ideas = TPMP_ROM_camarilla_marinescu_renewed
+	}
+	else = {
+		remove_ideas = TPMP_ROM_camarilla_marinescu
+	}
+	if = {
+		limit = { has_completed_focus = TPMP_ROM_camarilla_renewed }
+		add_ideas = TPMP_ROM_camarilla_lupescu_renewed
+	}
+	else = {
+		add_ideas = TPMP_ROM_camarilla_lupescu
+	}
+	set_variable = { TPMP_ROM_camarilla_index = 1 }
+	activate_mission = TPMP_ROM_camarilla_mission_1
+}
+
+TPMP_ROM_camarilla_prolong_effect = {
+	if = {
+		limit = { check_variable = { TPMP_ROM_camarilla_index = 0 } }
+		add_days_mission_timeout = { mission = TPMP_ROM_camarilla_mission_0 days = 60 }
+	}
+	if = {
+		limit = { check_variable = { TPMP_ROM_camarilla_index = 1 } }
+		add_days_mission_timeout = { mission = TPMP_ROM_camarilla_mission_1 days = 60 }
+	}
+	if = {
+		limit = { check_variable = { TPMP_ROM_camarilla_index = 2 } }
+		add_days_mission_timeout = { mission = TPMP_ROM_camarilla_mission_2 days = 60 }
+	}
+	if = {
+		limit = { check_variable = { TPMP_ROM_camarilla_index = 3 } }
+		add_days_mission_timeout = { mission = TPMP_ROM_camarilla_mission_3 days = 60 }
+	}
+	if = {
+		limit = { check_variable = { TPMP_ROM_camarilla_index = 4 } }
+		add_days_mission_timeout = { mission = TPMP_ROM_camarilla_mission_4 days = 60 }
+	}
+	if = {
+		limit = { check_variable = { TPMP_ROM_camarilla_index = 5 } }
+		add_days_mission_timeout = { mission = TPMP_ROM_camarilla_mission_5 days = 60 }
+	}
+	if = {
+		limit = { check_variable = { TPMP_ROM_camarilla_index = 6 } }
+		add_days_mission_timeout = { mission = TPMP_ROM_camarilla_mission_6 days = 60 }
+	}
+}
+
+TPMP_ROM_camarilla_prolong_renewed_effect = {
+	if = {
+		limit = { check_variable = { TPMP_ROM_camarilla_index = 0 } }
+		add_days_mission_timeout = { mission = TPMP_ROM_camarilla_mission_0 days = 100 }
+	}
+	if = {
+		limit = { check_variable = { TPMP_ROM_camarilla_index = 1 } }
+		add_days_mission_timeout = { mission = TPMP_ROM_camarilla_mission_1 days = 100 }
+	}
+	if = {
+		limit = { check_variable = { TPMP_ROM_camarilla_index = 2 } }
+		add_days_mission_timeout = { mission = TPMP_ROM_camarilla_mission_2 days = 100 }
+	}
+	if = {
+		limit = { check_variable = { TPMP_ROM_camarilla_index = 3 } }
+		add_days_mission_timeout = { mission = TPMP_ROM_camarilla_mission_3 days = 100 }
+	}
+	if = {
+		limit = { check_variable = { TPMP_ROM_camarilla_index = 4 } }
+		add_days_mission_timeout = { mission = TPMP_ROM_camarilla_mission_4 days = 100 }
+	}
+	if = {
+		limit = { check_variable = { TPMP_ROM_camarilla_index = 5 } }
+		add_days_mission_timeout = { mission = TPMP_ROM_camarilla_mission_5 days = 100 }
+	}
+	if = {
+		limit = { check_variable = { TPMP_ROM_camarilla_index = 6 } }
+		add_days_mission_timeout = { mission = TPMP_ROM_camarilla_mission_6 days = 100 }
+	}
+}
+
+TPMP_ROM_camarilla_dismiss_effect = {
+	if = {
+		limit = { check_variable = { TPMP_ROM_camarilla_index = 0 } }
+		add_days_mission_timeout = { mission = TPMP_ROM_camarilla_mission_0 days = -999 }
+	}
+	if = {
+		limit = { check_variable = { TPMP_ROM_camarilla_index = 1 } }
+		add_days_mission_timeout = { mission = TPMP_ROM_camarilla_mission_1 days = -999 }
+	}
+	if = {
+		limit = { check_variable = { TPMP_ROM_camarilla_index = 2 } }
+		add_days_mission_timeout = { mission = TPMP_ROM_camarilla_mission_2 days = -999 }
+	}
+	if = {
+		limit = { check_variable = { TPMP_ROM_camarilla_index = 3 } }
+		add_days_mission_timeout = { mission = TPMP_ROM_camarilla_mission_3 days = -999 }
+	}
+	if = {
+		limit = { check_variable = { TPMP_ROM_camarilla_index = 4 } }
+		add_days_mission_timeout = { mission = TPMP_ROM_camarilla_mission_4 days = -999 }
+	}
+	if = {
+		limit = { check_variable = { TPMP_ROM_camarilla_index = 5 } }
+		add_days_mission_timeout = { mission = TPMP_ROM_camarilla_mission_5 days = -999 }
+	}
+	if = {
+		limit = { check_variable = { TPMP_ROM_camarilla_index = 6 } }
+		add_days_mission_timeout = { mission = TPMP_ROM_camarilla_mission_6 days = -999 }
+	}
+}
+
+TPMP_ROM_camarilla_curtail_effect = {
+	if = {
+		limit = { check_variable = { TPMP_ROM_camarilla_index = 0 } }
+		add_days_mission_timeout = { mission = TPMP_ROM_camarilla_mission_0 days = -48 }
+	}
+	if = {
+		limit = { check_variable = { TPMP_ROM_camarilla_index = 1 } }
+		add_days_mission_timeout = { mission = TPMP_ROM_camarilla_mission_1 days = -48 }
+	}
+	if = {
+		limit = { check_variable = { TPMP_ROM_camarilla_index = 2 } }
+		add_days_mission_timeout = { mission = TPMP_ROM_camarilla_mission_2 days = -48 }
+	}
+	if = {
+		limit = { check_variable = { TPMP_ROM_camarilla_index = 3 } }
+		add_days_mission_timeout = { mission = TPMP_ROM_camarilla_mission_3 days = -48 }
+	}
+	if = {
+		limit = { check_variable = { TPMP_ROM_camarilla_index = 4 } }
+		add_days_mission_timeout = { mission = TPMP_ROM_camarilla_mission_4 days = -48 }
+	}
+	if = {
+		limit = { check_variable = { TPMP_ROM_camarilla_index = 5 } }
+		add_days_mission_timeout = { mission = TPMP_ROM_camarilla_mission_5 days = -48 }
+	}
+	if = {
+		limit = { check_variable = { TPMP_ROM_camarilla_index = 6 } }
+		add_days_mission_timeout = { mission = TPMP_ROM_camarilla_mission_6 days = -48 }
+	}
+}

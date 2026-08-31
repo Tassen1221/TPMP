@@ -214,15 +214,6 @@ on_actions = {
 	# country
 	on_new_term_election = {
 		random_events = {
-			100 = usa.6
-			100 = usa.7
-			100 = usa.8
-			100 = usa.9
-			100 = usa.10
-			100 = usa.11
-			100 = usa.12
-		}
-		random_events = {
 			100 = spain.9
 			100 = lar_spain.1
 		}
@@ -713,36 +704,6 @@ on_actions = {
 					}
 				}
 			}
-			if = {
-				limit = {
-					FROM = {
-						OR = {
-							has_idea = american_protection_drift_democratic
-							has_idea = american_protection_drift_communism
-							has_idea = american_protection_drift_fascism
-							has_idea = american_protection_defence_democratic
-							has_idea = american_protection_defence_communism
-							has_idea = american_protection_defence_fascism
-						}
-					}
-					NOT = {
-						tag = USA
-						is_in_faction_with = USA # I guess USA will not go to war with someone they are in faction with
-						has_war_with = USA
-						#USA = { has_war_with = FROM } Should USA enforce peace in a nation it is already at war with?
-					}
-					OR = {
-						has_idea = american_protection_drift_democratic
-						has_idea = american_protection_drift_communism
-						has_idea = american_protection_drift_fascism
-						has_idea = american_protection_defence_democratic
-						has_idea = american_protection_defence_communism
-						has_idea = american_protection_defence_fascism
-					}
-				}
-				FROM = { country_event = { id = usa.16 days = 1 } }
-			}
-
 			# Remove pact opinion modifiers if at war with Germany
 			if = {
 				limit = {

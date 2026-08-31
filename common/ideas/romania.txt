@@ -459,19 +459,18 @@ ideas = {
 		ROM_preserve_greater_romania = {
 
 			removal_cost = -1
-			
+
 			allowed = {
 				original_tag = ROM
 			}
 
 			allowed_civil_war = {
-				has_government = democratic 
-			}				
+				has_government = democratic
+			}
 
-			
+
 			modifier = {
-				guarantee_tension = -1.0
-				guarantee_cost = -0.5
+				political_power_factor = 0.1
 			}
 		}
 
@@ -1223,12 +1222,7 @@ ideas = {
 			picture = generic_air_manufacturer_2
 
 			available = {
-				if = {
-					limit = {
-						has_dlc = "Death or Dishonor"
-					}
-					has_completed_focus = ROM_invest_in_the_iar
-				}
+				has_completed_focus = TPMP_ROM_trust_in_iar
 			}
 
 			cost = 50

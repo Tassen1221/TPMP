@@ -1,0 +1,162 @@
+﻿add_namespace = TPMP_ROM
+
+country_event = {
+	id = TPMP_ROM.1
+	title = TPMP_ROM.1.t
+	desc = TPMP_ROM.1.d
+	picture = GFX_report_event_election_vote
+
+	is_triggered_only = yes
+
+	option = {
+		name = TPMP_ROM.1.a
+		if = {
+			limit = { NOT = { has_completed_focus = TPMP_ROM_sideline_titulescu } }
+			complete_national_focus = TPMP_ROM_sideline_titulescu
+		}
+		complete_national_focus = TPMP_ROM_1937_romanian_general_election
+	}
+}
+
+country_event = {
+	id = TPMP_ROM.2
+	title = TPMP_ROM.2.t
+	desc = TPMP_ROM.2.d
+
+	is_triggered_only = yes
+
+	option = {
+		name = TPMP_ROM.2.a
+		add_popularity = { ideology = democratic popularity = -0.30 }
+		add_popularity = { ideology = fascism popularity = 0.15 }
+		add_popularity = { ideology = neutrality popularity = 0.15 }
+		set_politics = {
+			ruling_party = democratic
+			elections_allowed = no
+		}
+		set_party_name = {
+			ideology = democratic
+			long_name = TPMP_ROM_national_christian_party_long
+			name = TPMP_ROM_national_christian_party
+		}
+		retire_character = ROM_gheorghe_tatarescu
+		create_country_leader = {
+			name = "Octavian Goga"
+			desc = ""
+			picture = GFX_Portrait_romania_octavian_goga
+			expire = "1938.5.7"
+			ideology = conservatism
+			traits = {
+				anti_democrat
+			}
+			id = 8801
+		}
+		if = {
+			limit = {
+				NOT = {
+					OR = {
+						has_idea = partial_economic_mobilisation
+						has_idea = war_economy
+						has_idea = tot_economic_mobilisation
+					}
+				}
+			}
+			# country_event = { id = TPMP_ROM.3 }
+		}
+	}
+}
+
+country_event = {
+	id = TPMP_ROM.3
+	title = TPMP_ROM.3.t
+	desc = TPMP_ROM.3.d
+
+	is_triggered_only = yes
+
+	option = {
+		name = TPMP_ROM.3.a
+		set_country_flag = TPMP_ROM_army_discontent
+		custom_effect_tooltip = TPMP_ROM.3.a.tt
+	}
+}
+
+country_event = {
+	id = TPMP_ROM.4
+	title = TPMP_ROM.4.t
+	desc = TPMP_ROM.4.d
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = TPMP_ROM.4.a
+		if = {
+			limit = {
+				has_completed_focus = TPMP_ROM_institute_royal_dictatorship
+				NOT = { has_completed_focus = TPMP_ROM_translyvanian_fiasco }
+			}
+			complete_national_focus = TPMP_ROM_translyvanian_fiasco
+		}
+		set_country_flag = TPMP_ROM_instability
+		if = {
+			limit = { NOT = { has_idea = TPMP_ROM_instability } }
+			add_ideas = TPMP_ROM_instability
+		}
+		if = {
+			limit = { 76 = { is_owned_by = ROOT } }
+			76 = {
+				transfer_state_to = HUN
+			}
+		}
+	}
+}
+
+news_event = {
+	id = TPMP_ROM.5
+	title = TPMP_ROM.5.t
+	desc = TPMP_ROM.5.d
+	picture = GFX_news_event_strasbourg
+
+	major = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = TPMP_ROM.5.a
+		trigger = {
+			original_tag = ROM
+		}
+	}
+
+	option = {
+		name = TPMP_ROM.5.b
+		trigger = {
+			NOT = { original_tag = ROM }
+		}
+	}
+}
+
+news_event = {
+	id = TPMP_ROM.6
+	title = TPMP_ROM.6.t
+	desc = TPMP_ROM.6.d
+	picture = GFX_news_event_german_volunteers
+
+	major = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = TPMP_ROM.6.a
+		trigger = {
+			original_tag = ROM
+		}
+	}
+
+	option = {
+		name = TPMP_ROM.6.b
+		trigger = {
+			NOT = { original_tag = ROM }
+		}
+	}
+}

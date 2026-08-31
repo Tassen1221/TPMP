@@ -62,6 +62,15 @@ ideas = {
 				naval_damage_factor = 0.05
 			}
 		}
+		TPMP_ENG_imperial_conference_idea = {
+			picture = eng_imperial_conscription
+			modifier = {
+				consumer_goods_factor = -0.15
+				production_speed_arms_factory_factor = 0.25
+				industrial_capacity_factory = 0.15
+				industrial_capacity_dockyard = 0.15
+			}
+		}
 		TPMP_USA_tank_destroyer_idea = {
 			removal_cost = -1
 			picture = raj_heavy_vehicles_factory_avadi
@@ -118,8 +127,8 @@ ideas = {
 			}
 			targeted_modifier = {
 				tag = GER
-				license_tech_difference_speed = 0.25
-				license_production_speed = 0.25
+				license_tech_difference_speed = 0.10
+				license_production_speed = 0.10
 			}
 		}
 		TPMP_ROM_expand_factory_idea = {
@@ -329,6 +338,44 @@ ideas = {
 				production_factory_efficiency_gain_factor = 0.1
 				production_factory_max_efficiency_factor = 0.1
 				industrial_capacity_factory = 0.2
+			}
+		}
+		TPMP_ITA_carbone_bianco  = {
+            
+            picture = por_hydroelectric_power
+
+            allowed = {
+                always = yes
+            }
+            
+            removal_cost = -1 
+            
+            modifier = {
+                factory_energy_consumption = -0.25
+            }
+        }
+		TPMP_FRA_resources_idea = {
+			picture = can_wartime_prices_and_trade_board
+
+			removal_cost = -1
+
+			allowed = {
+				always = no # Added via event
+			}
+
+			cancel = {
+			}
+
+			on_remove = {
+			}
+
+			modifier = {
+				consumer_goods_factor = -0.10
+				country_resource_steel = 800
+				country_resource_oil = 300
+				country_resource_chromium = 200
+				country_resource_rubber = 200
+				country_resource_tungsten = 400
 			}
 		}
 	}

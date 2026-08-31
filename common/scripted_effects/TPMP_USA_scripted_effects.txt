@@ -1,0 +1,519 @@
+recalculate_congressional_ui = {
+	for_loop_effect = {
+		start = 0
+		end = USA.left_wing_democrat_support_var
+		set_variable = {
+			USA.congress_frame_array^v = 1
+		}
+	}
+	set_temp_variable = { next_end = USA.left_wing_democrat_support_var }
+	add_to_temp_variable = { next_end = USA.new_deal_democrat_support_var }
+	for_loop_effect = {
+		start = USA.left_wing_democrat_support_var
+		end = next_end
+		set_variable = {
+			USA.congress_frame_array^v = 2
+		}
+	}
+	set_temp_variable = { next_start = next_end }
+	add_to_temp_variable = { next_end = USA.conservative_democrat_support_var }
+	for_loop_effect = {
+		start = next_start
+		end = next_end
+		set_variable = {
+			USA.congress_frame_array^v = 3
+		}
+	}
+	set_temp_variable = { next_start = next_end }
+	add_to_temp_variable = { next_end = USA.progressive_republican_support_var }
+	for_loop_effect = {
+		start = next_start
+		end = next_end
+		set_variable = {
+			USA.congress_frame_array^v = 4
+		}
+	}
+	set_temp_variable = { next_start = next_end }
+	add_to_temp_variable = { next_end = USA.business_republican_support_var }
+	for_loop_effect = {
+		start = next_start
+		end = next_end
+		set_variable = {
+			USA.congress_frame_array^v = 5
+		}
+	}
+	set_temp_variable = { next_start = next_end }
+	add_to_temp_variable = { next_end = USA.isolationist_republican_support_var }
+	for_loop_effect = {
+		start = next_start
+		end = next_end
+		set_variable = {
+			USA.congress_frame_array^v = 6
+		}
+	}
+}
+recalculate_electoral_ui = {
+	set_variable = { USA.TPMP_USA_electoral_bar_frame_var = USA.TPMP_USA_electoral_support_var }
+	divide_variable = { USA.TPMP_USA_electoral_bar_frame_var = 5 }
+	round_variable = USA.TPMP_USA_electoral_bar_frame_var
+	add_to_variable = { USA.TPMP_USA_electoral_bar_frame_var = 1 }
+	clamp_variable = {
+		var = USA.TPMP_USA_electoral_bar_frame_var
+		min = 1
+		max = 21
+	}
+}
+USA_electoral_support_gain_small = {
+	custom_effect_tooltip = electoral_support_gain_small_tt
+	add_to_variable = { TPMP_USA_electoral_support_var = 3 }
+	recalculate_electoral_ui = yes
+}
+USA_electoral_support_gain = {
+	custom_effect_tooltip = electoral_support_gain_tt
+	add_to_variable = { TPMP_USA_electoral_support_var = 5 }
+	recalculate_electoral_ui = yes
+}
+USA_electoral_support_gain_large = {
+	custom_effect_tooltip = electoral_support_gain_large_tt
+	add_to_variable = { TPMP_USA_electoral_support_var = 10 }
+	recalculate_electoral_ui = yes
+}
+USA_complete_new_deal_focus = {
+	IF = {
+		limit = {
+			NOT = {
+				has_completed_focus = TPMP_USA_form_the_alphabet_agencies
+			}
+			NOT = {
+				has_country_flag = TPMP_USA_form_the_alphabet_agencies_discount_flag
+			}
+		}
+		set_country_flag = TPMP_USA_form_the_alphabet_agencies_discount_flag
+		reduce_focus_completion_cost = {
+			focus = TPMP_USA_form_the_alphabet_agencies
+			cost = 35
+		}
+	}
+	ELSE_IF = {
+		limit = {
+			NOT = {
+				has_completed_focus = TPMP_USA_federal_security_agency
+			}
+			NOT = {
+				has_country_flag = TPMP_USA_federal_security_agency_discount_flag
+			}
+		}
+		set_country_flag = TPMP_USA_federal_security_agency_discount_flag
+		reduce_focus_completion_cost = {
+			focus = TPMP_USA_federal_security_agency
+			cost = 35
+		}
+	}
+	ELSE_IF = {
+		limit = {
+			NOT = {
+				has_completed_focus = TPMP_USA_the_executive_office_of_the_president
+			}
+			NOT = {
+				has_country_flag = TPMP_USA_the_executive_office_of_the_president_discount_flag
+			}
+		}
+		set_country_flag = TPMP_USA_the_executive_office_of_the_president_discount_flag
+		reduce_focus_completion_cost = {
+			focus = TPMP_USA_the_executive_office_of_the_president
+			cost = 35
+		}
+	}
+	ELSE_IF = {
+		limit = {
+			NOT = {
+				has_completed_focus = TPMP_USA_works_progress_administration
+			}
+			NOT = {
+				has_country_flag = TPMP_USA_works_progress_administration_discount_flag
+			}
+		}
+		set_country_flag = TPMP_USA_works_progress_administration_discount_flag
+		reduce_focus_completion_cost = {
+			focus = TPMP_USA_works_progress_administration
+			cost = 35
+		}
+	}
+	ELSE_IF = {
+		limit = {
+			NOT = {
+				has_completed_focus = TPMP_USA_public_works_administration
+			}
+			NOT = {
+				has_country_flag = TPMP_USA_public_works_administration_discount_flag
+			}
+		}
+		set_country_flag = TPMP_USA_public_works_administration_discount_flag
+		reduce_focus_completion_cost = {
+			focus = TPMP_USA_public_works_administration
+			cost = 35
+		}
+	}
+	ELSE_IF = {
+		limit = {
+			NOT = {
+				has_completed_focus = TPMP_USA_national_healthcare_program
+			}
+			NOT = {
+				has_country_flag = TPMP_USA_national_healthcare_program_discount_flag
+			}
+		}
+		set_country_flag = TPMP_USA_national_healthcare_program_discount_flag
+		reduce_focus_completion_cost = {
+			focus = TPMP_USA_national_healthcare_program
+			cost = 35
+		}
+	}
+	ELSE_IF = {
+		limit = {
+			NOT = {
+				has_completed_focus = TPMP_USA_embrace_executive_powers
+			}
+			NOT = {
+				has_country_flag = TPMP_USA_embrace_executive_powers_discount_flag
+			}
+		}
+		set_country_flag = TPMP_USA_embrace_executive_powers_discount_flag
+		reduce_focus_completion_cost = {
+			focus = TPMP_USA_embrace_executive_powers
+			cost = 35
+		}
+	}
+	ELSE_IF = {
+		limit = {
+			NOT = {
+				has_completed_focus = TPMP_USA_federal_project_number_one
+			}
+			NOT = {
+				has_country_flag = TPMP_USA_federal_project_number_one_discount_flag
+			}
+		}
+		set_country_flag = TPMP_USA_federal_project_number_one_discount_flag
+		reduce_focus_completion_cost = {
+			focus = TPMP_USA_federal_project_number_one
+			cost = 35
+		}
+	}
+	ELSE_IF = {
+		limit = {
+			NOT = {
+				has_completed_focus = TPMP_USA_the_second_new_deal
+			}
+			NOT = {
+				has_country_flag = TPMP_USA_the_second_new_deal_discount_flag
+			}
+		}
+		set_country_flag = TPMP_USA_the_second_new_deal_discount_flag
+		reduce_focus_completion_cost = {
+			focus = TPMP_USA_the_second_new_deal
+			cost = 35
+		}
+	}
+	ELSE_IF = {
+		limit = {
+			NOT = {
+				has_completed_focus = TPMP_USA_fair_labour_standards_act
+			}
+			NOT = {
+				has_country_flag = TPMP_USA_fair_labour_standards_act_discount_flag
+			}
+		}
+		set_country_flag = TPMP_USA_fair_labour_standards_act_discount_flag
+		reduce_focus_completion_cost = {
+			focus = TPMP_USA_fair_labour_standards_act
+			cost = 35
+		}
+	}
+	ELSE_IF = {
+		limit = {
+			NOT = {
+				has_completed_focus = TPMP_USA_federal_housing_act
+			}
+			NOT = {
+				has_country_flag = TPMP_USA_federal_housing_act_discount_flag
+			}
+		}
+		set_country_flag = TPMP_USA_federal_housing_act_discount_flag
+		reduce_focus_completion_cost = {
+			focus = TPMP_USA_federal_housing_act
+			cost = 35
+		}
+	}
+	ELSE_IF = {
+		limit = {
+			NOT = {
+				has_completed_focus = TPMP_USA_agricultural_adjustment_act
+			}
+			NOT = {
+				has_country_flag = TPMP_USA_agricultural_adjustment_act_discount_flag
+			}
+		}
+		set_country_flag = TPMP_USA_agricultural_adjustment_act_discount_flag
+		reduce_focus_completion_cost = {
+			focus = TPMP_USA_agricultural_adjustment_act
+			cost = 35
+		}
+	}
+	ELSE = {
+		add_political_power = 100
+	}
+}
+USA_increase_great_depression = {
+	IF = {
+		limit = {
+			has_dynamic_modifier = {
+				modifier = TPMP_USA_great_depression_modifier
+			}
+		}
+		custom_effect_tooltip = USA_decrease_great_depression_tt
+		add_to_variable = {
+			TPMP_USA_great_depression_cg_var = 0.05
+			tooltip = consumer_goods_factor_tt
+		}
+		add_to_variable = {
+			TPMP_USA_great_depression_stab_var = -0.025
+			tooltip = stability_factor_tt
+		}
+		add_to_variable = {
+			TPMP_USA_great_depression_cons_var = -0.01
+			tooltip = production_speed_buildings_factor_tt
+		}
+		add_to_variable = {
+			TPMP_USA_great_depression_eff_cap_var = -0.01
+			tooltip = production_factory_max_efficiency_factor_tt
+		}
+		add_to_variable = {
+			TPMP_USA_great_depression_eff_gain_var = -0.01
+			tooltip = production_factory_efficiency_gain_factor_tt
+		}
+		add_to_variable = {
+			TPMP_USA_great_depression_factory_var = -0.01
+			tooltip = industrial_capacity_factory_tt
+		}
+		add_to_variable = {
+			TPMP_USA_great_depression_dock_var = -0.02
+			tooltip = industrial_capacity_dockyard_tt
+		}
+	}
+	ELSE = {
+		custom_effect_tooltip = USA_decrease_great_depression_fail_tt
+	}
+	hidden_effect = {
+		IF = {
+			limit = {
+				check_variable = {
+					var = TPMP_USA_great_depression_cg_var
+					value = 0
+					compare = greater_than_or_equals
+				}
+			}
+			add_dynamic_modifier = {
+				modifier = TPMP_USA_great_depression_modifier
+			}
+		}
+	}
+}
+USA_decrease_great_depression = {
+	IF = {
+		limit = {
+			has_dynamic_modifier = {
+				modifier = TPMP_USA_great_depression_modifier
+			}
+		}
+		custom_effect_tooltip = USA_decrease_great_depression_tt
+		add_to_variable = {
+			TPMP_USA_great_depression_cg_var = -0.05
+			tooltip = consumer_goods_factor_tt
+		}
+		add_to_variable = {
+			TPMP_USA_great_depression_stab_var = 0.025
+			tooltip = stability_factor_tt
+		}
+		add_to_variable = {
+			TPMP_USA_great_depression_cons_var = 0.01
+			tooltip = production_speed_buildings_factor_tt
+		}
+		add_to_variable = {
+			TPMP_USA_great_depression_eff_cap_var = 0.01
+			tooltip = production_factory_max_efficiency_factor_tt
+		}
+		add_to_variable = {
+			TPMP_USA_great_depression_eff_gain_var = 0.01
+			tooltip = production_factory_efficiency_gain_factor_tt
+		}
+		add_to_variable = {
+			TPMP_USA_great_depression_factory_var = 0.01
+			tooltip = industrial_capacity_factory_tt
+		}
+		add_to_variable = {
+			TPMP_USA_great_depression_dock_var = 0.02
+			tooltip = industrial_capacity_dockyard_tt
+		}
+	}
+	ELSE = {
+		custom_effect_tooltip = USA_decrease_great_depression_fail_tt
+	}
+	hidden_effect = {
+		IF = {
+			limit = {
+				check_variable = {
+					var = TPMP_USA_great_depression_cg_var
+					value = 0
+					compare = less_than_or_equals
+				}
+			}
+			remove_dynamic_modifier = {
+				modifier = TPMP_USA_great_depression_modifier
+			}
+		}
+	}
+}
+USA_increase_deficit = {
+	custom_effect_tooltip = USA_increase_deficit_tt
+	add_to_variable = {
+		TPMP_USA_deficit_cg_var = 0.01
+		tooltip = consumer_goods_expected_value_tt
+	}
+	add_to_variable = {
+		TPMP_USA_deficit_stab_var = -0.03
+		tooltip = stability_factor_tt
+	}
+	add_to_variable = {
+		TPMP_USA_deficit_pp_var = 0.05
+		tooltip = political_power_cost_tt
+	}
+}
+USA_decrease_deficit = {
+	custom_effect_tooltip = USA_increase_deficit_tt
+	add_to_variable = {
+		TPMP_USA_deficit_cg_var = -0.01
+		tooltip = consumer_goods_expected_value_tt
+	}
+	add_to_variable = {
+		TPMP_USA_deficit_stab_var = 0.03
+		tooltip = stability_factor_tt
+	}
+	add_to_variable = {
+		TPMP_USA_deficit_pp_var = -0.05
+		tooltip = political_power_cost_tt
+	}
+}
+USA_remove_willow_run_plant = {
+	IF = {
+		limit = {
+			has_idea = TPMP_USA_willow_run_plant_idea_0
+		}
+		remove_ideas = TPMP_USA_willow_run_plant_idea_0
+	}
+	ELSE_IF = {
+		limit = {
+			has_idea = TPMP_USA_willow_run_plant_idea_1
+		}
+		remove_ideas = TPMP_USA_willow_run_plant_idea_1
+	}
+	ELSE_IF = {
+		limit = {
+			has_idea = TPMP_USA_willow_run_plant_idea_2
+		}
+		remove_ideas = TPMP_USA_willow_run_plant_idea_2
+	}
+	ELSE_IF = {
+		limit = {
+			has_idea = TPMP_USA_willow_run_plant_idea_3
+		}
+		remove_ideas = TPMP_USA_willow_run_plant_idea_3
+	}
+	ELSE_IF = {
+		limit = {
+			has_idea = TPMP_USA_willow_run_plant_idea_4
+		}
+		remove_ideas = TPMP_USA_willow_run_plant_idea_4
+	}
+	ELSE_IF = {
+		limit = {
+			has_idea = TPMP_USA_willow_run_plant_idea_5
+		}
+		remove_ideas = TPMP_USA_willow_run_plant_idea_5
+	}
+}
+USA_remove_detroit_arsenal = {
+	IF = {
+		limit = {
+			has_idea = TPMP_USA_detroit_arsenal_idea_0
+		}
+		remove_ideas = TPMP_USA_detroit_arsenal_idea_0
+	}
+	ELSE_IF = {
+		limit = {
+			has_idea = TPMP_USA_detroit_arsenal_idea_1
+		}
+		remove_ideas = TPMP_USA_detroit_arsenal_idea_1
+	}
+	ELSE_IF = {
+		limit = {
+			has_idea = TPMP_USA_detroit_arsenal_idea_2
+		}
+		remove_ideas = TPMP_USA_detroit_arsenal_idea_2
+	}
+	ELSE_IF = {
+		limit = {
+			has_idea = TPMP_USA_detroit_arsenal_idea_3
+		}
+		remove_ideas = TPMP_USA_detroit_arsenal_idea_3
+	}
+	ELSE_IF = {
+		limit = {
+			has_idea = TPMP_USA_detroit_arsenal_idea_4
+		}
+		remove_ideas = TPMP_USA_detroit_arsenal_idea_4
+	}
+	ELSE_IF = {
+		limit = {
+			has_idea = TPMP_USA_detroit_arsenal_idea_5
+		}
+		remove_ideas = TPMP_USA_detroit_arsenal_idea_5
+	}
+}
+USA_remove_kaiser_shipyards = {
+	IF = {
+		limit = {
+			has_idea = TPMP_USA_kaiser_shipyards_idea_0
+		}
+		remove_ideas = TPMP_USA_kaiser_shipyards_idea_0
+	}
+	ELSE_IF = {
+		limit = {
+			has_idea = TPMP_USA_kaiser_shipyards_idea_1
+		}
+		remove_ideas = TPMP_USA_kaiser_shipyards_idea_1
+	}
+	ELSE_IF = {
+		limit = {
+			has_idea = TPMP_USA_kaiser_shipyards_idea_2
+		}
+		remove_ideas = TPMP_USA_kaiser_shipyards_idea_2
+	}
+	ELSE_IF = {
+		limit = {
+			has_idea = TPMP_USA_kaiser_shipyards_idea_3
+		}
+		remove_ideas = TPMP_USA_kaiser_shipyards_idea_3
+	}
+	ELSE_IF = {
+		limit = {
+			has_idea = TPMP_USA_kaiser_shipyards_idea_4
+		}
+		remove_ideas = TPMP_USA_kaiser_shipyards_idea_4
+	}
+	ELSE_IF = {
+		limit = {
+			has_idea = TPMP_USA_kaiser_shipyards_idea_5
+		}
+		remove_ideas = TPMP_USA_kaiser_shipyards_idea_5
+	}
+}

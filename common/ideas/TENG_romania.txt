@@ -1,0 +1,351 @@
+ideas = {
+
+	country = {
+
+		TPMP_ROM_german_controlled_military_idea = {
+
+			allowed = {
+				original_tag = ROM
+			}
+
+			allowed_civil_war = {
+
+			}
+
+			removal_cost = -1
+
+			picture = generic_war_economy
+
+			modifier = {
+				industrial_capacity_factory = -0.50
+				army_defence_factor = 0.10
+				army_attack_factor = -0.05
+			}
+		}
+
+		TPMP_ROM_banned_foreign_locomotive_imports = {
+
+			allowed = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			picture = ARG_invest_in_railways
+
+			modifier = {
+				production_cost_industrial_complex_factor = -0.075
+				trade_opinion_factor = -0.25
+			}
+
+			equipment_bonus = {
+				train_equipment = {
+					build_cost_ic = -0.5 instant = yes
+				}
+			}
+
+		}
+
+		TPMP_ROM_romanian_oil_supply = {
+
+			allowed = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			picture = generic_supply_lines
+
+			modifier = {
+				country_resource_oil = 80
+			}
+		}
+
+		TPMP_ROM_instability = {
+
+			allowed = {
+				original_tag = ROM
+			}
+
+			allowed_civil_war = {
+
+			}
+
+			removal_cost = -1
+
+			picture = generic_disjointed_gov
+
+			modifier = {
+				stability_factor = -0.1
+				political_power_gain = -0.15
+			}
+		}
+
+		TPMP_ROM_to_final_victory = {
+
+			allowed = {
+				original_tag = ROM
+			}
+
+			allowed_civil_war = {
+
+			}
+
+			removal_cost = -1
+
+			picture = generic_morale_bonus
+
+			modifier = {
+				army_core_attack_factor = 0.10
+				army_core_defence_factor = 0.10
+				army_org_factor = 0.05
+			}
+		}
+
+		TPMP_ROM_auschnitt_purged_spirit = {
+
+			allowed = {
+				original_tag = ROM
+			}
+
+			allowed_civil_war = {
+
+			}
+
+			removal_cost = -1
+
+			picture = generic_nationalization
+
+			modifier = {
+				production_speed_arms_factory_factor = 0.1
+			}
+
+			on_add = {
+				add_offsite_building = {
+					type = arms_factory
+					level = 3
+				}
+			}
+
+			on_remove = {
+				add_offsite_building = {
+					type = arms_factory
+					level = -3
+				}
+			}
+		}
+
+		TPMP_ROM_anti_corruption_efforts = {
+
+			allowed = {
+				original_tag = ROM
+			}
+
+			allowed_civil_war = {
+
+			}
+
+			removal_cost = -1
+
+			picture = generic_purge
+
+			modifier = {
+				consumer_goods_factor = -0.15
+				stability_factor = 0.05
+			}
+		}
+
+		TPMP_ROM_titulescu_supplementary_budget = {
+
+			allowed = {
+				original_tag = ROM
+			}
+
+			allowed_civil_war = {
+
+			}
+
+			removal_cost = -1
+
+			picture = ast_volunteer_defence_corps
+
+			modifier = {
+				political_power_gain = -0.05
+				consumer_goods_factor = 0.35
+			}
+		}
+
+		TPMP_ROM_iron_guard_cooperation = {
+
+			allowed = {
+				original_tag = ROM
+			}
+
+			allowed_civil_war = {
+
+			}
+
+			removal_cost = -1
+
+			picture = generic_disjointed_gov
+
+			modifier = {
+				stability_weekly = -0.005
+				fascism_drift = 0.1
+			}
+		}
+
+		TPMP_ROM_volunteers_in_spain_nationalist = {
+
+			picture = FRA_scw_intervention_nationalists_focus
+
+			allowed = {
+				original_tag = ROM
+			}
+
+			allowed_civil_war = {
+				tag = ROM
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				send_volunteer_divisions_required = -0.75
+				send_volunteer_size = 3
+				send_volunteers_tension = -1
+			}
+		}
+
+		TPMP_ROM_army_modernisation_idea = {
+
+			allowed = {
+				original_tag = ROM
+			}
+
+			allowed_civil_war = {
+
+			}
+
+			removal_cost = -1
+
+			picture = generic_army_war_college
+
+			modifier = {
+				land_mastery_gain_factor = 0.1
+			}
+		}
+
+		TPMP_ROM_plan_maresesti_idea = {
+
+			allowed = {
+				original_tag = ROM
+			}
+
+			allowed_civil_war = {
+
+			}
+
+			removal_cost = -1
+
+			picture = generic_coastal_navy
+
+			modifier = {
+				navy_max_range_factor = 0.25
+				industrial_capacity_dockyard = 0.2
+				production_factory_max_efficiency_factor = -0.05
+				consumer_goods_factor = 0.25
+			}
+		}
+
+		TPMP_ROM_naval_buildup_strain = {
+
+			allowed = {
+				original_tag = ROM
+			}
+
+			allowed_civil_war = {
+
+			}
+
+			removal_cost = -1
+
+			picture = generic_disjointed_gov
+
+			modifier = {
+				industrial_capacity_factory = -0.5
+				consumer_goods_factor = 0.5
+			}
+		}
+
+		TPMP_ROM_world_of_warships_idea = {
+
+			allowed = {
+				original_tag = ROM
+			}
+
+			allowed_civil_war = {
+
+			}
+
+			removal_cost = -1
+
+			picture = generic_sea_focused_navy
+
+			modifier = {
+				navy_org_factor = 0.15
+				navy_capital_ship_attack_factor = 0.15
+				navy_screen_attack_factor = 0.15
+			}
+		}
+
+		TPMP_GER_iar_blueprint_obfuscation = {
+			removal_cost = -1
+			picture = SWE_saltsjobaden_agreement
+
+			allowed = {
+				original_tag = GER
+			}
+
+			targeted_modifier = {
+				tag = ROM
+				license_production_speed = -0.20
+				license_purchase_cost = 1.0
+			}
+		}
+	}
+
+	trade_laws = {
+
+		TPMP_ROM_german_dominated_trade = {
+
+			allowed = {
+				always = no
+			}
+
+			allowed_to_remove = {
+				hidden_trigger = {
+					always = no
+				}
+			}
+
+			picture = closed_economy
+
+			cost = 150
+			removal_cost = -1
+
+			modifier = {
+				min_export = 0
+				industrial_capacity_factory = 0.15
+				industrial_capacity_dockyard = 0.15
+				production_speed_buildings_factor = 0.15
+				research_speed_factor = 0.10
+				civilian_intel_to_others = 0
+				navy_intel_to_others = 0
+				cic_construction_boost_factor = 0.05
+			}
+
+			cancel_if_invalid = no
+		}
+
+	}
+}

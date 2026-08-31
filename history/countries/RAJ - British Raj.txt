@@ -653,7 +653,7 @@ if = {
 }
 
 create_equipment_variant = {
-	name = "Basic Infantry Equipment"
+	name = "Inf Eq."
 	type = line_infantry_equipment_1
 	parent_version = 0
 	modules = {
@@ -673,7 +673,7 @@ create_equipment_variant = {
 	}
 }
 create_equipment_variant = {
-	name = "Basic Special Infantry Equipment"
+	name = "SF Eq."
 	type = special_infantry_equipment_1
 	parent_version = 0
 	modules = {
@@ -693,7 +693,7 @@ create_equipment_variant = {
 	}
 }
 create_equipment_variant = {
-	name = "Basic Mobile Infantry Equipment"
+	name = "Mobile Eq."
 	type = mobile_infantry_equipment_1
 	parent_version = 0
 	modules = {
@@ -711,4 +711,13 @@ create_equipment_variant = {
 		sidearm_type_slot = bayonet
 		support_type_slot_0 = improvised_at_grenades
 	}
+}
+
+add_equipment_to_stockpile = {
+	type = artillery_equipment_0
+	amount = 450
+}
+add_equipment_to_stockpile = {
+	type = support_equipment
+	amount = 75
 }

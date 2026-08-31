@@ -250,9 +250,6 @@ faction_goal_unlock_research = {
 	description = faction_goal_unlock_research_desc
 	category = short_term
 	group = FOCUS_FILTER_INTERNAL_AFFAIRS
-	available = {
-		FROM = { num_faction_members > 2 }
-	}
 	visible = {
 		FROM = { has_faction_research_unlocked = no }
 	}
@@ -355,9 +352,6 @@ faction_goal_unlock_military = {
 	description = faction_goal_unlock_military_desc
 	category = short_term
 	group = FOCUS_FILTER_INTERNAL_AFFAIRS
-	available = {
-		FROM = { num_faction_members > 2 }
-	}
 	visible = {
 		FROM = { has_faction_military_unlocked = no }
 	}
@@ -1295,11 +1289,14 @@ faction_goal_a_great_fortress = {
 		custom_effect_tooltip = ALL_FACTION_MEMBERS
 		every_faction_member = {
 			limit = {
-				NOT = { has_idea = deterrence_faction }
+				NOT = { has_idea = deterrence }
 			}
-			add_timed_idea = {
-				idea = deterrence_faction
-				days = 360
+			IF = {
+				limit = { NOT = { has_completed_goal = faction_goal_a_great_fortress } }
+				add_timed_idea = {
+					idea = deterrence
+					days = 360
+				}
 			}
 		}
 	}
@@ -1629,7 +1626,7 @@ faction_goal_develop_mexican_oil = {
 				}
 				add_resource = {
 				    type = oil
-				    amount = 40
+				    amount = 4
 				}
 			}
 		}
@@ -1694,7 +1691,7 @@ faction_goal_develop_curacao_oil = {
 			695 = {
 				add_resource = {
 				    type = oil
-				    amount = 140
+				    amount = 14
 				}
 			}
 		}
@@ -1770,7 +1767,7 @@ faction_goal_develop_venezuelan_oil = {
 				}
 				add_resource = {
 				    type = oil
-				    amount = 80
+				    amount = 8
 				}
 			}
 		}
@@ -1834,7 +1831,7 @@ faction_goal_develop_guyanan_bauxite = {
 			687 = {
 				add_resource = {
 				    type = aluminium
-				    amount = 140
+				    amount = 14
 				}
 			}
 		}
@@ -1854,7 +1851,7 @@ faction_goal_develop_guyanan_bauxite = {
 						name = FACTION
 				}
 				resource = aluminium
-				amount < 300
+				amount < 30
 				extracted = no # (optional, default: no) checks extracted amount instead of country balance
 			}
 		}
@@ -1867,7 +1864,7 @@ faction_goal_develop_guyanan_bauxite = {
 						name = FACTION
 				}
 				resource = aluminium
-				amount < 100
+				amount < 10
 				extracted = no # (optional, default: no) checks extracted amount instead of country balance
 			}
 		}
@@ -1906,7 +1903,7 @@ faction_goal_develop_suriname_bauxite = {
 			309 = {
 				add_resource = {
 				    type = aluminium
-				    amount = 140
+				    amount = 14
 				}
 			}
 		}
@@ -1926,7 +1923,7 @@ faction_goal_develop_suriname_bauxite = {
 						name = FACTION
 				}
 				resource = aluminium
-				amount < 300
+				amount < 30
 				extracted = no # (optional, default: no) checks extracted amount instead of country balance
 			}
 		}
@@ -1939,7 +1936,7 @@ faction_goal_develop_suriname_bauxite = {
 						name = FACTION
 				}
 				resource = aluminium
-				amount < 100
+				amount < 10
 				extracted = no # (optional, default: no) checks extracted amount instead of country balance
 			}
 		}
@@ -1986,29 +1983,29 @@ faction_goal_develop_lappland_metals = {
 			666 = {
 				add_resource = {
 				    type = tungsten
-				    amount = 140
+				    amount = 14
 				}
 				add_resource = {
 				    type = steel
-				    amount = 140
+				    amount = 14
 				}
 				add_resource = {
 				    type = chromium
-				    amount = 80
+				    amount = 8
 				}
 			}
 			918 = {
 				add_resource = {
 				    type = tungsten
-				    amount = 100
+				    amount = 10
 				}
 				add_resource = {
 				    type = steel
-				    amount = 100
+				    amount = 10
 				}
 				add_resource = {
 				    type = chromium
-				    amount = 50
+				    amount = 5
 				}
 			}
 		}
@@ -2032,7 +2029,7 @@ faction_goal_develop_lappland_metals = {
 							name = FACTION
 					}
 					resource = tungsten
-					amount < 450
+					amount < 45
 					extracted = no # (optional, default: no) checks extracted amount instead of country balance
 				}
 				has_resources_in_collection = {
@@ -2042,7 +2039,7 @@ faction_goal_develop_lappland_metals = {
 							name = FACTION
 					}
 					resource = steel
-					amount < 450
+					amount < 45
 					extracted = no # (optional, default: no) checks extracted amount instead of country balance
 				}
 				has_resources_in_collection = {
@@ -2052,7 +2049,7 @@ faction_goal_develop_lappland_metals = {
 							name = FACTION
 					}
 					resource = chromium
-					amount < 240
+					amount < 24
 					extracted = no # (optional, default: no) checks extracted amount instead of country balance
 				}
 			}
@@ -2067,7 +2064,7 @@ faction_goal_develop_lappland_metals = {
 							name = FACTION
 					}
 					resource = tungsten
-					amount < 150
+					amount < 15
 					extracted = no # (optional, default: no) checks extracted amount instead of country balance
 				}
 				has_resources_in_collection = {
@@ -2077,7 +2074,7 @@ faction_goal_develop_lappland_metals = {
 							name = FACTION
 					}
 					resource = steel
-					amount < 150
+					amount < 15
 					extracted = no # (optional, default: no) checks extracted amount instead of country balance
 				}
 				has_resources_in_collection = {
@@ -2087,7 +2084,7 @@ faction_goal_develop_lappland_metals = {
 							name = FACTION
 					}
 					resource = chromium
-					amount < 80
+					amount < 8
 					extracted = no # (optional, default: no) checks extracted amount instead of country balance
 				}
 			}
@@ -2126,7 +2123,7 @@ faction_goal_develop_ploiesti_oil_fields = {
 			46 = {
 				add_resource = {
 				    type = oil
-				    amount = 140
+				    amount = 14
 				}
 			}
 		}
@@ -2208,13 +2205,13 @@ faction_goal_develop_baku_oil_fields = {
 				}
 				add_resource = {
 				    type = oil
-				    amount = 40
+				    amount = 4
 				}
 			}
 			229 = {
 				add_resource = {
 				    type = oil
-				    amount = 140
+				    amount = 14
 				}
 			}
 		}
@@ -2289,19 +2286,19 @@ faction_goal_develop_iraqi_oil = {
 			291 = {
 				add_resource = {
 				    type = oil
-				    amount = 60
+				    amount = 6
 				}
 			}
 			676 = {
 				add_resource = {
 				    type = oil
-				    amount = 40
+				    amount = 4
 				}
 			}
 			1010 = {
 				add_resource = {
 				    type = oil
-				    amount = 20
+				    amount = 2
 				}
 			}
 		}
@@ -2376,19 +2373,19 @@ faction_goal_develop_persian_oil = {
 			411 = {
 				add_resource = {
 				    type = oil
-				    amount = 60
+				    amount = 6
 				}
 			}
 			412 = {
 				add_resource = {
 				    type = oil
-				    amount = 40
+				    amount = 4
 				}
 			}
 			413 = {
 				add_resource = {
 				    type = oil
-				    amount = 80
+				    amount = 8
 				}
 			}
 		}
@@ -2545,7 +2542,7 @@ faction_goal_develop_chinese_metals = {
 							name = FACTION
 					}
 					resource = tungsten
-					amount < 450
+					amount < 45
 					extracted = no # (optional, default: no) checks extracted amount instead of country balance
 				}
 				has_resources_in_collection = {
@@ -2555,7 +2552,7 @@ faction_goal_develop_chinese_metals = {
 							name = FACTION
 					}
 					resource = steel
-					amount < 450
+					amount < 45
 					extracted = no # (optional, default: no) checks extracted amount instead of country balance
 				}
 				has_resources_in_collection = {
@@ -2565,7 +2562,7 @@ faction_goal_develop_chinese_metals = {
 							name = FACTION
 					}
 					resource = chromium
-					amount < 240
+					amount < 24
 					extracted = no # (optional, default: no) checks extracted amount instead of country balance
 				}
 			}
@@ -2580,7 +2577,7 @@ faction_goal_develop_chinese_metals = {
 							name = FACTION
 					}
 					resource = tungsten
-					amount < 150
+					amount < 15
 					extracted = no # (optional, default: no) checks extracted amount instead of country balance
 				}
 				has_resources_in_collection = {
@@ -2590,7 +2587,7 @@ faction_goal_develop_chinese_metals = {
 							name = FACTION
 					}
 					resource = steel
-					amount < 150
+					amount < 15
 					extracted = no # (optional, default: no) checks extracted amount instead of country balance
 				}
 				has_resources_in_collection = {
@@ -2600,7 +2597,7 @@ faction_goal_develop_chinese_metals = {
 							name = FACTION
 					}
 					resource = chromium
-					amount < 80
+					amount < 8
 					extracted = no # (optional, default: no) checks extracted amount instead of country balance
 				}
 			}
@@ -2696,85 +2693,85 @@ faction_goal_develop_malayan_riches = {
 			333 = {
 				add_resource = {
 				    type = oil
-				    amount = 20
+				    amount = 2
 				}
 				add_resource = {
 				    type = rubber
-				    amount = 40
+				    amount = 4
 				}
 				add_resource = {
 				    type = coal
-				    amount = 10
+				    amount = 1
 				}
 			}
 			1059 = {
 				add_resource = {
 				    type = oil
-				    amount = 20
+				    amount = 2
 				}
 				add_resource = {
 				    type = rubber
-				    amount = 60
+				    amount = 6
 				}
 				add_resource = {
 				    type = coal
-				    amount = 10
+				    amount = 1
 				}
 			}
 			336 = {
 				add_resource = {
 				    type = aluminium
-				    amount = 40
+				    amount = 4
 				}
 				add_resource = {
 				    type = rubber
-				    amount = 200
+				    amount = 20
 				}
 				add_resource = {
 				    type = tungsten
-				    amount = 200
+				    amount = 20
 				}
 				add_resource = {
 				    type = steel
-				    amount = 40
+				    amount = 4
 				}
 			}
 			1062 = {
 				add_resource = {
 				    type = aluminium
-				    amount = 40
+				    amount = 4
 				}
 				add_resource = {
 				    type = rubber
-				    amount = 400
+				    amount = 40
 				}
 				add_resource = {
 				    type = tungsten
-				    amount = 80
+				    amount = 8
 				}
 				add_resource = {
 				    type = steel
-				    amount = 40
+				    amount = 4
 				}
 			}
 			1021 = {
 				add_resource = {
 				    type = aluminium
-				    amount = 30
+				    amount = 3
 				}
 				add_resource = {
 				    type = tungsten
-				    amount = 120
+				    amount = 12
 				}
 				add_resource = {
 				    type = steel
-				    amount = 40
+				    amount = 4
 				}
 			}
 			1024 = {
 				add_resource = {
 				    type = rubber
-				    amount = 80
+				    amount = 8
 				}
 			}
 		}
@@ -2800,7 +2797,7 @@ faction_goal_develop_malayan_riches = {
 							name = FACTION
 					}
 					resource = rubber
-					amount < 450
+					amount < 45
 					extracted = no # (optional, default: no) checks extracted amount instead of country balance
 				}
 				has_resources_in_collection = {
@@ -2810,7 +2807,7 @@ faction_goal_develop_malayan_riches = {
 							name = FACTION
 					}
 					resource = tungsten
-					amount < 450
+					amount < 45
 					extracted = no # (optional, default: no) checks extracted amount instead of country balance
 				}
 				has_resources_in_collection = {
@@ -2820,7 +2817,7 @@ faction_goal_develop_malayan_riches = {
 							name = FACTION
 					}
 					resource = steel
-					amount < 240
+					amount < 24
 					extracted = no # (optional, default: no) checks extracted amount instead of country balance
 				}
 				has_resources_in_collection = {
@@ -2830,7 +2827,7 @@ faction_goal_develop_malayan_riches = {
 							name = FACTION
 					}
 					resource = aluminium
-					amount < 120
+					amount < 12
 					extracted = no # (optional, default: no) checks extracted amount instead of country balance
 				}
 				has_resources_in_collection = {
@@ -2840,7 +2837,7 @@ faction_goal_develop_malayan_riches = {
 							name = FACTION
 					}
 					resource = oil
-					amount < 300
+					amount < 30
 					extracted = yes  # (optional, default: no) checks extracted amount instead of country balance
 				}
 			}
@@ -2855,7 +2852,7 @@ faction_goal_develop_malayan_riches = {
 							name = FACTION
 					}
 					resource = rubber
-					amount < 150
+					amount < 15
 					extracted = no # (optional, default: no) checks extracted amount instead of country balance
 				}
 				has_resources_in_collection = {
@@ -2865,7 +2862,7 @@ faction_goal_develop_malayan_riches = {
 							name = FACTION
 					}
 					resource = tungsten
-					amount < 150
+					amount < 15
 					extracted = no # (optional, default: no) checks extracted amount instead of country balance
 				}
 				has_resources_in_collection = {
@@ -2875,7 +2872,7 @@ faction_goal_develop_malayan_riches = {
 							name = FACTION
 					}
 					resource = steel
-					amount < 80
+					amount < 8
 					extracted = no # (optional, default: no) checks extracted amount instead of country balance
 				}
 				has_resources_in_collection = {
@@ -2885,7 +2882,7 @@ faction_goal_develop_malayan_riches = {
 							name = FACTION
 					}
 					resource = aluminium
-					amount < 40
+					amount < 4
 					extracted = no # (optional, default: no) checks extracted amount instead of country balance
 				}
 				has_resources_in_collection = {
@@ -2895,7 +2892,7 @@ faction_goal_develop_malayan_riches = {
 							name = FACTION
 					}
 					resource = oil
-					amount < 100
+					amount < 10
 					extracted = yes  # (optional, default: no) checks extracted amount instead of country balance
 				}
 			}
@@ -2961,55 +2958,55 @@ faction_goal_develop_indonesian_riches = {
 			334 = {
 				add_resource = {
 				    type = oil
-				    amount = 30
+				    amount = 3
 				}
 				add_resource = {
 				    type = rubber
-				    amount = 280
+				    amount = 28
 				}
 				add_resource = {
 				    type = coal
-				    amount = 20
+				    amount = 2
 				}
 			}
 			335 = {
 				add_resource = {
 				    type = oil
-				    amount = 40
+				    amount = 4
 				}
 				add_resource = {
 				    type = rubber
-				    amount = 480
+				    amount = 48
 				}
 			}
 			667 = {
 				add_resource = {
 				    type = rubber
-				    amount = 60
+				    amount = 6
 				}
 			}
 			672 = {
 				add_resource = {
 				    type = oil
-				    amount = 50
+				    amount = 5
 				}
 				add_resource = {
 				    type = aluminium
-				    amount = 80
+				    amount = 8
 				}
 				add_resource = {
 				    type = rubber
-				    amount = 500
+				    amount = 50
 				}
 				add_resource = {
 				    type = coal
-				    amount = 30
+				    amount = 3
 				}
 			}
 			673 = {
 				add_resource = {
 				    type = rubber
-				    amount = 100
+				    amount = 10
 				}
 			}
 		}
@@ -3036,7 +3033,7 @@ faction_goal_develop_indonesian_riches = {
 							name = FACTION
 					}
 					resource = rubber
-					amount < 450
+					amount < 45
 					extracted = no # (optional, default: no) checks extracted amount instead of country balance
 				}
 				has_resources_in_collection = {
@@ -3046,7 +3043,7 @@ faction_goal_develop_indonesian_riches = {
 							name = FACTION
 					}
 					resource = tungsten
-					amount < 450
+					amount < 45
 					extracted = no # (optional, default: no) checks extracted amount instead of country balance
 				}
 				has_resources_in_collection = {
@@ -3056,7 +3053,7 @@ faction_goal_develop_indonesian_riches = {
 							name = FACTION
 					}
 					resource = steel
-					amount < 240
+					amount < 24
 					extracted = no # (optional, default: no) checks extracted amount instead of country balance
 				}
 				has_resources_in_collection = {
@@ -3066,7 +3063,7 @@ faction_goal_develop_indonesian_riches = {
 							name = FACTION
 					}
 					resource = aluminium
-					amount < 120
+					amount < 12
 					extracted = no # (optional, default: no) checks extracted amount instead of country balance
 				}
 				has_resources_in_collection = {
@@ -3076,7 +3073,7 @@ faction_goal_develop_indonesian_riches = {
 							name = FACTION
 					}
 					resource = oil
-					amount < 300
+					amount < 30
 					extracted = yes  # (optional, default: no) checks extracted amount instead of country balance
 				}
 			}
@@ -3091,7 +3088,7 @@ faction_goal_develop_indonesian_riches = {
 							name = FACTION
 					}
 					resource = rubber
-					amount < 150
+					amount < 15
 					extracted = no # (optional, default: no) checks extracted amount instead of country balance
 				}
 				has_resources_in_collection = {
@@ -3101,7 +3098,7 @@ faction_goal_develop_indonesian_riches = {
 							name = FACTION
 					}
 					resource = tungsten
-					amount < 150
+					amount < 15
 					extracted = no # (optional, default: no) checks extracted amount instead of country balance
 				}
 				has_resources_in_collection = {
@@ -3111,7 +3108,7 @@ faction_goal_develop_indonesian_riches = {
 							name = FACTION
 					}
 					resource = steel
-					amount < 80
+					amount < 8
 					extracted = no # (optional, default: no) checks extracted amount instead of country balance
 				}
 				has_resources_in_collection = {
@@ -3121,7 +3118,7 @@ faction_goal_develop_indonesian_riches = {
 							name = FACTION
 					}
 					resource = aluminium
-					amount < 40
+					amount < 4
 					extracted = no # (optional, default: no) checks extracted amount instead of country balance
 				}
 				has_resources_in_collection = {
@@ -3131,7 +3128,7 @@ faction_goal_develop_indonesian_riches = {
 							name = FACTION
 					}
 					resource = oil
-					amount < 100
+					amount < 10
 					extracted = yes  # (optional, default: no) checks extracted amount instead of country balance
 				}
 			}

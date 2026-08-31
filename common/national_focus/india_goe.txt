@@ -516,7 +516,7 @@ focus_tree = {
                     modules={
                         main_armament_slot=tank_light_cannon_1
                         engine_type_slot=tank_gasoline_engine_1
-                        turret_type_slot=tank_simple_light_turret_1
+                        turret_type_slot=tank_light_turret_1
                         suspension_type_slot=tank_christie_suspension
                         armor_type_slot=tank_welded_armor
                     }
@@ -1728,9 +1728,9 @@ focus_tree = {
                     cavalry = { x = 1 y = 2 }
                     cavalry = { x = 1 y = 3 }
                 }
-                #support = {
-                #    artillery = { x = 0 y = 0 }
-                #}
+                regimental_support = {
+                    artillery = { x = 0 y = 0 }
+                }
             }
             capital_scope = {
                 create_unit = {
@@ -14980,6 +14980,15 @@ focus_tree = {
         completion_reward = {
             if = {
                 limit = {
+                    has_idea = RAJ_marginalized_muslim_community_very_happy
+                }
+                swap_ideas = {
+                    add_idea = RAJ_marginalized_muslim_community_very_happy_alt
+                    remove_idea = RAJ_marginalized_muslim_community_very_happy
+                }
+            }
+            else_if = {
+                limit = {
                     has_idea = RAJ_marginalized_muslim_community_angry
                 }
                 swap_ideas = {
@@ -14987,7 +14996,19 @@ focus_tree = {
                     remove_idea = RAJ_marginalized_muslim_community_angry
                 }
             }
-            else = {
+            else_if = {
+                limit = {
+                    has_idea = RAJ_marginalized_muslim_community_happy
+                }
+                swap_ideas = {
+                    add_idea = RAJ_marginalized_muslim_community_happy_alt
+                    remove_idea = RAJ_marginalized_muslim_community_happy
+                }
+            }
+            else_if = {
+                limit = {
+                    has_idea = RAJ_marginalized_muslim_community
+                }
                 swap_ideas = {
                     add_idea = RAJ_marginalized_muslim_community_happy_alt
                     remove_idea = RAJ_marginalized_muslim_community
@@ -15105,9 +15126,33 @@ focus_tree = {
         }
 
         completion_reward = {
-           swap_ideas = {
-               remove_idea = RAJ_marginalized_muslim_community_happy
-               add_idea = RAJ_marginalized_muslim_community_very_happy
+           if = {
+               limit = { has_idea = RAJ_marginalized_muslim_community_happy_alt }
+               swap_ideas = {
+                   remove_idea = RAJ_marginalized_muslim_community_happy_alt
+                   add_idea = RAJ_marginalized_muslim_community_very_happy_alt
+               }
+           }
+           else_if = {
+               limit = { has_idea = RAJ_marginalized_muslim_community_happy }
+               swap_ideas = {
+                   remove_idea = RAJ_marginalized_muslim_community_happy
+                   add_idea = RAJ_marginalized_muslim_community_very_happy
+               }
+           }
+           else_if = {
+               limit = { has_idea = RAJ_marginalized_muslim_community_angry }
+               swap_ideas = {
+                   remove_idea = RAJ_marginalized_muslim_community_angry
+                   add_idea = RAJ_marginalized_muslim_community_very_happy
+               }
+           }
+           else_if = {
+               limit = { has_idea = RAJ_marginalized_muslim_community }
+               swap_ideas = {
+                   remove_idea = RAJ_marginalized_muslim_community
+                   add_idea = RAJ_marginalized_muslim_community_very_happy
+               }
            }
         }
     }
@@ -20756,8 +20801,10 @@ focus = {
 			support = {
 				engineer = { x = 0 y = 0 }
 				recon = { x = 0 y = 1 }
-				artillery = { x = 0 y = 2 }
 			}
+            regimental_support = {
+                artillery = { x = 0 y = 0 }
+            }
 		}
 
 		custom_effect_tooltip = generic_skip_one_line_tt
@@ -23021,9 +23068,11 @@ focus = {
                     
                 }
                 support = {
+                    engineer = { x = 0 y = 0 }
+                }
+                regimental_support = {
                     artillery = { x = 0 y = 0 }
-                    engineer = { x = 0 y = 1 }
-                    anti_air = { x = 0 y = 2 }
+                    anti_air = { x = 0 y = 1}
                 }
             }
 
