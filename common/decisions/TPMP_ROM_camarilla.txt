@@ -16,7 +16,7 @@ TPMP_ROM_camarilla_decisions = {
 			always = yes
 		}
 
-		days_re_enable = 30
+		days_re_enable = 90
 
 		cost = 50
 
@@ -45,12 +45,77 @@ TPMP_ROM_camarilla_decisions = {
 			always = yes
 		}
 
-		days_re_enable = 30
+		days_re_enable = 90
 
 		cost = 50
 
 		complete_effect = {
 			TPMP_ROM_camarilla_curtail_effect = yes
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	TPMP_ROM_camarilla_extend_renewed_decision = {
+		icon = GFX_decision_generic_political_discourse
+		priority = 100
+
+		allowed = {
+			original_tag = ROM
+		}
+
+		visible = {
+			has_country_flag = TPMP_ROM_camarilla_active
+			has_completed_focus = TPMP_ROM_camarilla_renewed
+		}
+
+		available = {
+			always = yes
+		}
+
+		days_re_enable = 150
+
+		cost = 0
+
+		complete_effect = {
+			add_political_power = -100
+			TPMP_ROM_camarilla_prolong_renewed_effect = yes
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	TPMP_ROM_camarilla_curtail_renewed_decision = {
+		icon = GFX_decision_oppression
+		priority = 99
+
+		allowed = {
+			original_tag = ROM
+		}
+
+		visible = {
+			has_country_flag = TPMP_ROM_camarilla_active
+			has_completed_focus = TPMP_ROM_camarilla_renewed
+		}
+
+		available = {
+			always = yes
+		}
+
+		days_re_enable = 90
+
+		cost = 0
+
+		complete_effect = {
+			add_political_power = -100
+			custom_effect_tooltip = TPMP_ROM_camarilla_dismiss_tt
+			hidden_effect = {
+				TPMP_ROM_camarilla_dismiss_effect = yes
+			}
 		}
 
 		ai_will_do = {
@@ -239,7 +304,7 @@ TPMP_ROM_camarilla_decisions = {
 		available = { hidden_trigger = { always = no } }
 		days_remove = 91
 		modifier = {
-			political_power_gain = 0.3
+			political_power_gain = 0.67
 		}
 	}
 	TPMP_ROM_camarilla_upcoming_2 = {
@@ -300,6 +365,7 @@ TPMP_ROM_camarilla_decisions = {
 			production_speed_industrial_complex_factor = 0.1
 			production_speed_infrastructure_factor = 0.15
 			stability_factor = -0.05
+			industrial_factory_donations = 1
 		}
 	}
 	TPMP_ROM_camarilla_upcoming_4 = {
@@ -332,6 +398,7 @@ TPMP_ROM_camarilla_decisions = {
 		days_remove = 91
 		modifier = {
 			army_defence_factor = 0.05
+			army_attack_factor = 0.05
 			fascism_drift = -0.02
 		}
 	}
@@ -351,6 +418,7 @@ TPMP_ROM_camarilla_decisions = {
 			production_speed_rail_way_factor = 0.15
 			industrial_capacity_factory = -0.05
 			political_power_gain = -0.1
+			industrial_factory_donations = 1
 		}
 	}
 	TPMP_ROM_camarilla_upcoming_5_renewed = {
@@ -368,6 +436,7 @@ TPMP_ROM_camarilla_decisions = {
 			production_speed_arms_factory_factor = 0.1
 			production_speed_rail_way_factor = 0.15
 			consumer_goods_factor = -0.05
+			industrial_factory_donations = 3
 		}
 	}
 	TPMP_ROM_camarilla_upcoming_6 = {
@@ -400,9 +469,9 @@ TPMP_ROM_camarilla_decisions = {
 		available = { hidden_trigger = { always = no } }
 		days_remove = 91
 		modifier = {
-			resistance_target = -0.05
-			resistance_damage_to_garrison = -0.1
-			stability_factor = 0.05
+			resistance_target = -0.1
+			resistance_damage_to_garrison = -0.2
+			stability_factor = 0.1
 		}
 	}
 }

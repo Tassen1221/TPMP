@@ -535,7 +535,7 @@
 				}
 				add_resource = {
 					type = steel
-					amount = 120
+					amount = 150
 				}
 			}
 		}
@@ -570,6 +570,22 @@
 
 		completion_reward = {
 			add_offsite_building = { type = industrial_complex level = 2 }
+			if = {
+				limit = {
+					46 = {
+						is_fully_controlled_by = ROOT
+						can_construct_building = land_facility
+					}
+				}
+				46 = {
+					add_building_construction = {
+						type = land_facility
+						level = 1
+						instant_build = yes
+						province = 9617
+					}
+				}
+			}
 			add_tech_bonus = {
 				bonus = 1.0
 				uses = 2
@@ -776,7 +792,7 @@
 		y = 1
 		relative_position_id = TPMP_ROM_trade_treaty_with_germany
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 10
@@ -864,11 +880,15 @@
 	focus = {
 		id = TPMP_ROM_wohlthat_agreement
 		icon = GFX_focus_GER_subjugate_romanian_economy
-		prerequisite = { focus = TPMP_ROM_tohran_complex }
-		prerequisite = { focus = TPMP_ROM_arc_furnance }
+		prerequisite = {
+			focus = TPMP_ROM_tohran_complex
+			focus = TPMP_ROM_arc_furnance
+		}
+		prerequisite = {
+			focus = TPMP_ROM_expand_the_university_of_bucharest
+			focus = TPMP_ROM_license_foreign_equipment
+		}
 		prerequisite = { focus = TPMP_ROM_fortify_the_borders }
-		prerequisite = { focus = TPMP_ROM_license_foreign_equipment }
-		prerequisite = { focus = TPMP_ROM_expand_the_university_of_bucharest }
 		x = 2
 		y = 1
 		relative_position_id = TPMP_ROM_arc_furnance
@@ -983,6 +1003,15 @@
 		available_if_capitulated = no
 
 		completion_reward = {
+			46 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+
 			custom_effect_tooltip = available_political_advisor
 			show_ideas_tooltip = TPMP_ROM_nicolae_malaxa_3
 		}
@@ -1045,7 +1074,7 @@
 		y = 1
 		relative_position_id = TPMP_ROM_expand_resita_works
 
-		cost = 5
+		cost = 10
 
 		ai_will_do = {
 			factor = 10
@@ -1194,7 +1223,7 @@
 				modify_building_resources = {
 					building = synthetic_refinery
 					resource = rubber
-					amount = 15
+					amount = 10
 				}
 			}
 		}
@@ -1899,6 +1928,14 @@
 			custom_effect_tooltip = TPMP_ROM_present_a_scapegoat_tooltip
 
 			custom_effect_tooltip = generic_skip_one_line_tt
+			46 = {
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}
+			}
 			add_timed_idea = {
 				idea = TPMP_ROM_auschnitt_purged_spirit
 				days = 182
@@ -1941,6 +1978,7 @@
 		available_if_capitulated = no
 
 		completion_reward = {
+			custom_effect_tooltip = generic_skip_one_line_tt
 			ROM_ion_antonescu = {
 				add_country_leader_role = {
 					country_leader = {
@@ -1972,6 +2010,14 @@
 			show_ideas_tooltip = TPMP_ROM_max_auschnitt
 
 			custom_effect_tooltip = generic_skip_one_line_tt
+			46 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
 			add_timed_idea = {
 				idea = TPMP_ROM_auschnitt_purged_spirit
 				days = 182
@@ -3255,7 +3301,7 @@
 
 	focus = {
 		id = TPMP_ROM_venatori_de_munte
-		icon = GFX_goal_generic_special_forces
+		icon = GFX_focus_TPMP_ROM_venatori_de_munte
 		prerequisite = { focus = TPMP_ROM_army_war_college }
 		x = 0
 		y = 1
@@ -3334,16 +3380,21 @@
 				uses = 2
 				category = cat_mountaineers_tech
 			}
+
+			custom_effect_tooltip = TPMP_ROM_alexandru_nasta_general_tt
+
+			custom_effect_tooltip = available_military_high_command
+			show_ideas_tooltip = TPMP_ROM_alexandru_nasta
 		}
 	}
 
 	focus = {
 		id = TPMP_ROM_army_reserves
 		icon = GFX_goal_generic_political_pressure
-		prerequisite = { focus = TPMP_ROM_army_war_college }
-		x = 2
+		prerequisite = { focus = TPMP_ROM_army_maneuvers }
+		x = 10
 		y = 1
-		relative_position_id = TPMP_ROM_army_war_college
+		relative_position_id = TPMP_ROM_army_maneuvers
 
 		cost = 5
 
@@ -3367,6 +3418,108 @@
 		}
 	}
 
+	focus = {
+		id = TPMP_ROM_corpul_vi_teritorial
+		icon = GFX_focus_TPMP_ROM_corpul_vi_teritorial
+		prerequisite = { focus = TPMP_ROM_army_reserves }
+		prerequisite = { focus = TPMP_ROM_army_war_college }
+		x = 0
+		y = 1
+		relative_position_id = TPMP_ROM_army_reserves
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			NOT = { has_country_flag = TPMP_ROM_instability }
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			custom_effect_tooltip = TPMP_ROM_gheorghe_stavrescu_general_tt
+
+			custom_effect_tooltip = available_military_high_command
+			show_ideas_tooltip = TPMP_ROM_gheorghe_stavrescu
+		}
+	}
+
+	focus = {
+		id = TPMP_ROM_1_blindata_romania_mare
+		icon = GFX_focus_TPMP_ROM_1_blindata_romania_mare
+		prerequisite = { focus = TPMP_ROM_army_reserves }
+		prerequisite = { focus = TPMP_ROM_army_war_college }
+		x = 1
+		y = 2
+		relative_position_id = TPMP_ROM_army_reserves
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			NOT = { has_country_flag = TPMP_ROM_instability }
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			custom_effect_tooltip = TPMP_ROM_radu_korne_general_tt
+
+			custom_effect_tooltip = available_military_high_command
+			show_ideas_tooltip = TPMP_ROM_radu_korne
+		}
+	}
+
+	focus = {
+		id = TPMP_ROM_div_8_cav_purtata
+		icon = GFX_focus_TPMP_ROM_div_8_cav_purtata
+		prerequisite = { focus = TPMP_ROM_army_reserves }
+		prerequisite = { focus = TPMP_ROM_army_war_college }
+		x = 2
+		y = 1
+		relative_position_id = TPMP_ROM_army_reserves
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			NOT = { has_country_flag = TPMP_ROM_instability }
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			custom_effect_tooltip = TPMP_ROM_corneliu_teodorini_general_tt
+
+			custom_effect_tooltip = available_military_high_command
+			show_ideas_tooltip = TPMP_ROM_corneliu_teodorini
+		}
+	}
+
 	######################
 	# naval and air ####
 	######################
@@ -3374,7 +3527,7 @@
 	focus = {
 		id = TPMP_ROM_expand_galati_shipyards
 		icon = GFX_goal_generic_construct_naval_dockyard
-		x = 34
+		x = 35
 		y = 0
 
 		cost = 5
@@ -3420,7 +3573,7 @@
 	focus = {
 		id = TPMP_ROM_allied_blueprints
 		icon = GFX_focus_SWE_italian_destroyers
-		x = 36
+		x = 37
 		y = 0
 
 		cost = 10
@@ -3847,7 +4000,7 @@
 			NOT = { has_country_flag = TPMP_ROM_instability }
 			OR = {
 				has_war_with = SOV
-				NOT = { 448 = { is_owned_by = ITA } }
+				NOT = { 451 = { is_owned_by = ITA } }
 			}
 		}
 
@@ -3956,7 +4109,7 @@
 		y = 0
 		relative_position_id = TPMP_ROM_allied_blueprints
 
-		cost = 5
+		cost = 10
 
 		ai_will_do = {
 			factor = 1
@@ -3975,11 +4128,14 @@
 
 		completion_reward = {
 			air_experience = 25
+
 			add_tech_bonus = {
 				name = TPMP_ROM_expand_the_airforce
 				bonus = 1.0
 				uses = 1
 				technology = basic_small_airframe
+				technology = basic_medium_airframe
+				technology = basic_large_airframe
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
@@ -4034,7 +4190,7 @@
 		y = 1
 		relative_position_id = TPMP_ROM_expand_the_airforce
 
-		cost = 5
+		cost = 10
 
 		ai_will_do = {
 			factor = 1
@@ -4083,7 +4239,7 @@
 		y = 1
 		relative_position_id = TPMP_ROM_trust_in_iar
 
-		cost = 5
+		cost = 10
 
 		ai_will_do = {
 			factor = 1
@@ -4107,8 +4263,8 @@
 				}
 				add_tech_bonus = {
 					name = TPMP_ROM_iar_80
-					bonus = 1.0
-					ahead_reduction = 2
+					bonus = 0.75
+					ahead_reduction = 0.5
 					uses = 1
 					technology = improved_small_airframe
 				}
@@ -4146,6 +4302,31 @@
 					icon = "GFX_ROM_fighter2_medium"
 				}
 			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+			GER = {
+				if = {
+					limit = { date < 1937.1.1 }
+					add_timed_idea = { idea = TPMP_GER_iar_blueprint_obfuscation days = 913 }
+				}
+				else_if = {
+					limit = { date < 1937.7.1 }
+					add_timed_idea = { idea = TPMP_GER_iar_blueprint_obfuscation days = 730 }
+				}
+				else_if = {
+					limit = { date < 1938.1.1 }
+					add_timed_idea = { idea = TPMP_GER_iar_blueprint_obfuscation days = 548 }
+				}
+				else_if = {
+					limit = { date < 1938.7.1 }
+					add_timed_idea = { idea = TPMP_GER_iar_blueprint_obfuscation days = 365 }
+				}
+				else_if = {
+					limit = { date < 1939.1.1 }
+					add_timed_idea = { idea = TPMP_GER_iar_blueprint_obfuscation days = 183 }
+				}
+			}
+			custom_effect_tooltip = TPMP_ROM_iar_80_spirit_tt
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = TPMP_ROM_iar_80_tt
@@ -4194,7 +4375,7 @@
 		y = 1
 		relative_position_id = TPMP_ROM_trust_in_iar
 
-		cost = 5
+		cost = 10
 
 		ai_will_do = {
 			factor = 1
@@ -4216,50 +4397,50 @@
 			custom_effect_tooltip = generic_skip_one_line_tt
 			if = {
 				limit = { has_tech = advanced_small_airframe }
-				add_equipment_to_stockpile = { type = small_plane_airframe amount = 600 producer = ROM }
+				add_equipment_to_stockpile = { type = small_plane_airframe amount = 500 producer = ROM }
 			}
 			else_if = {
 				limit = { GER = { has_tech = advanced_small_airframe } }
-				GER = { add_equipment_to_stockpile = { type = small_plane_airframe amount = 400 producer = GER } }
+				GER = { add_equipment_to_stockpile = { type = small_plane_airframe amount = 300 producer = GER } }
 			}
 			else_if = {
 				limit = { ITA = { has_tech = advanced_small_airframe } }
-				ITA = { add_equipment_to_stockpile = { type = small_plane_airframe amount = 400 producer = ITA } }
+				ITA = { add_equipment_to_stockpile = { type = small_plane_airframe amount = 300 producer = ITA } }
 			}
 			else_if = {
 				limit = { has_tech = improved_small_airframe }
-				add_equipment_to_stockpile = { type = small_plane_airframe amount = 600 producer = ROM }
+				add_equipment_to_stockpile = { type = small_plane_airframe amount = 500 producer = ROM }
 			}
 			else_if = {
 				limit = { GER = { has_tech = improved_small_airframe } }
-				GER = { add_equipment_to_stockpile = { type = small_plane_airframe amount = 400 producer = GER } }
+				GER = { add_equipment_to_stockpile = { type = small_plane_airframe amount = 300 producer = GER } }
 			}
 			else_if = {
 				limit = { ITA = { has_tech = improved_small_airframe } }
-				ITA = { add_equipment_to_stockpile = { type = small_plane_airframe amount = 400 producer = ITA } }
+				ITA = { add_equipment_to_stockpile = { type = small_plane_airframe amount = 300 producer = ITA } }
 			}
 			else_if = {
 				limit = { has_tech = basic_small_airframe }
-				add_equipment_to_stockpile = { type = small_plane_airframe amount = 600 producer = ROM }
+				add_equipment_to_stockpile = { type = small_plane_airframe amount = 500 producer = ROM }
 			}
 			else_if = {
 				limit = { GER = { has_tech = basic_small_airframe } }
-				GER = { add_equipment_to_stockpile = { type = small_plane_airframe amount = 400 producer = GER } }
+				GER = { add_equipment_to_stockpile = { type = small_plane_airframe amount = 300 producer = GER } }
 			}
 			else_if = {
 				limit = { ITA = { has_tech = basic_small_airframe } }
-				ITA = { add_equipment_to_stockpile = { type = small_plane_airframe amount = 400 producer = ITA } }
+				ITA = { add_equipment_to_stockpile = { type = small_plane_airframe amount = 300 producer = ITA } }
 			}
 			else_if = {
 				limit = { has_tech = iw_small_airframe }
-				add_equipment_to_stockpile = { type = small_plane_airframe amount = 600 producer = ROM }
+				add_equipment_to_stockpile = { type = small_plane_airframe amount = 500 producer = ROM }
 			}
 			else_if = {
 				limit = { GER = { has_tech = iw_small_airframe } }
-				GER = { add_equipment_to_stockpile = { type = small_plane_airframe amount = 400 producer = GER } }
+				GER = { add_equipment_to_stockpile = { type = small_plane_airframe amount = 300 producer = GER } }
 			}
 			else = {
-				ITA = { add_equipment_to_stockpile = { type = small_plane_airframe amount = 400 producer = ITA } }
+				ITA = { add_equipment_to_stockpile = { type = small_plane_airframe amount = 300 producer = ITA } }
 			}
 		}
 	}

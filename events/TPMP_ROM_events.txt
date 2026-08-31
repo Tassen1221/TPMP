@@ -135,3 +135,28 @@ news_event = {
 		}
 	}
 }
+
+news_event = {
+	id = TPMP_ROM.6
+	title = TPMP_ROM.6.t
+	desc = TPMP_ROM.6.d
+	picture = GFX_news_event_german_volunteers
+
+	major = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = TPMP_ROM.6.a
+		trigger = {
+			original_tag = ROM
+		}
+	}
+
+	option = {
+		name = TPMP_ROM.6.b
+		trigger = {
+			NOT = { original_tag = ROM }
+		}
+	}
+}
