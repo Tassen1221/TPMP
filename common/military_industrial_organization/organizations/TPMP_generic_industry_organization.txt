@@ -1,0 +1,785 @@
+TPMP_generic_industry_organization = {
+	icon = GFX_idea_generic_artillery_manufacturer_1
+
+	allowed = {
+		always = yes
+	}
+
+	equipment_type = { TPMP_cat_eq_all_equipment }
+	research_categories = {}
+
+	tree_header_text = {
+		text = mio_header_concentrated
+		x = 1
+	}
+	tree_header_text = {
+		text = mio_header_dispersed
+		x = 3
+	}
+	tree_header_text = {
+		text = mio_header_industry
+		x = 6
+	}
+	tree_header_text = {
+		text = mio_header_administration
+		x = 9
+	}
+	
+	initial_trait = {
+		name = generic_mio_initial_trait_industry
+		
+		equipment_bonus = {
+		}
+	}
+
+	trait = {
+		token = generic_mio_trait_industry_1a
+		name = generic_mio_trait_industry_1a
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+
+		position = { x=1 y=0 }
+		mutually_exclusive = { generic_mio_trait_industry_1b }
+
+		available = {
+			FROM = {
+				has_tech = concentrated_industry
+			}
+		}
+
+		production_bonus = {
+			production_efficiency_cap_factor = 0.03
+		}
+	}
+	trait = {
+		token = generic_mio_trait_industry_2a
+		name = generic_mio_trait_industry_2a
+		icon = GFX_generic_mio_trait_icon_efficiency_gain
+
+		position = { x=1 y=1 }
+		any_parent = { generic_mio_trait_industry_1a }
+
+		production_bonus = {
+			production_efficiency_gain_factor = 0.05
+		}
+	}
+	trait = {
+		token = generic_mio_trait_industry_3a
+		name = generic_mio_trait_industry_3a
+		icon = GFX_generic_mio_department_icon_infantry_production
+
+		position = { x=0 y=2 }
+		any_parent = { generic_mio_trait_industry_2a }
+
+		available = {
+			NOT = {
+				has_mio_flag = TPMP_MIO_concentrated_flag
+			}
+		}
+		on_complete = {
+			set_mio_flag = TPMP_MIO_concentrated_flag
+		}
+
+		production_bonus = {
+			production_efficiency_cap_factor = 0.1
+			production_capacity_factor = 0.15
+		}
+		limit_to_equipment_type = { TPMP_cat_eq_all_inf TPMP_cat_eq_all_support special_equipment }
+	}
+	trait = {
+		token = generic_mio_trait_industry_4a
+		name = generic_mio_trait_industry_4a
+		icon = GFX_generic_mio_department_icon_tank_light_tank_production
+
+		position = { x=0 y=3 }
+		any_parent = { generic_mio_trait_industry_2a }
+
+		available = {
+			NOT = {
+				has_mio_flag = TPMP_MIO_concentrated_flag
+			}
+		}
+		on_complete = {
+			set_mio_flag = TPMP_MIO_concentrated_flag
+		}
+
+		production_bonus = {
+			production_efficiency_cap_factor = 0.1
+			production_capacity_factor = 0.15
+		}
+		limit_to_equipment_type = { light_tank_chassis armored_car_equipment }
+	}
+	trait = {
+		token = generic_mio_trait_industry_5a
+		name = generic_mio_trait_industry_5a
+		icon = GFX_generic_mio_department_icon_plane_fighter_production
+
+		position = { x=0 y=4 }
+		any_parent = { generic_mio_trait_industry_2a }
+
+		available = {
+			NOT = {
+				has_mio_flag = TPMP_MIO_concentrated_flag
+			}
+		}
+		on_complete = {
+			set_mio_flag = TPMP_MIO_concentrated_flag
+		}
+
+		production_bonus = {
+			production_efficiency_cap_factor = 0.1
+			production_capacity_factor = 0.15
+		}
+		limit_to_equipment_type = { small_plane_airframe cv_small_plane_airframe medium_plane_fighter_airframe }
+	}
+	trait = {
+		token = generic_mio_trait_industry_3b
+		name = generic_mio_trait_industry_3b
+		icon = GFX_generic_mio_department_icon_artillery_production
+
+		position = { x=1 y=2 }
+		any_parent = { generic_mio_trait_industry_2a }
+
+		available = {
+			NOT = {
+				has_mio_flag = TPMP_MIO_concentrated_flag
+			}
+		}
+		on_complete = {
+			set_mio_flag = TPMP_MIO_concentrated_flag
+		}
+
+		production_bonus = {
+			production_efficiency_cap_factor = 0.1
+			production_capacity_factor = 0.15
+		}
+		limit_to_equipment_type = { TPMP_cat_eq_all_arty TPMP_cat_eq_all_AT TPMP_cat_eq_all_AA railway_gun_equipment }
+	}
+	trait = {
+		token = generic_mio_trait_industry_4b
+		name = generic_mio_trait_industry_4b
+		icon = GFX_generic_mio_department_icon_tank_medium_tank_production
+
+		position = { x=1 y=3 }
+		any_parent = { generic_mio_trait_industry_2a }
+
+		available = {
+			NOT = {
+				has_mio_flag = TPMP_MIO_concentrated_flag
+			}
+		}
+		on_complete = {
+			set_mio_flag = TPMP_MIO_concentrated_flag
+		}
+
+		production_bonus = {
+			production_efficiency_cap_factor = 0.1
+			production_capacity_factor = 0.15
+		}
+		limit_to_equipment_type = { medium_tank_chassis }
+	}
+	trait = {
+		token = generic_mio_trait_industry_5b
+		name = generic_mio_trait_industry_5b
+		icon = GFX_generic_mio_department_icon_plane_cas_production
+
+		position = { x=1 y=4 }
+		any_parent = { generic_mio_trait_industry_2a }
+
+		available = {
+			NOT = {
+				has_mio_flag = TPMP_MIO_concentrated_flag
+			}
+		}
+		on_complete = {
+			set_mio_flag = TPMP_MIO_concentrated_flag
+		}
+
+		production_bonus = {
+			production_efficiency_cap_factor = 0.1
+			production_capacity_factor = 0.15
+		}
+		limit_to_equipment_type = { small_plane_cas_airframe cv_small_plane_cas_airframe small_plane_naval_bomber_airframe cv_small_plane_naval_bomber_airframe medium_plane_airframe helicopter_equipment }
+	}
+	trait = {
+		token = generic_mio_trait_industry_3c
+		name = generic_mio_trait_industry_3c
+		icon = GFX_generic_mio_department_icon_motorized_mechanized_production
+
+		position = { x=2 y=2 }
+		any_parent = { generic_mio_trait_industry_2a }
+
+		available = {
+			NOT = {
+				has_mio_flag = TPMP_MIO_concentrated_flag
+			}
+		}
+		on_complete = {
+			set_mio_flag = TPMP_MIO_concentrated_flag
+		}
+
+		production_bonus = {
+			production_efficiency_cap_factor = 0.1
+			production_capacity_factor = 0.15
+		}
+		limit_to_equipment_type = { motorized_equipment TPMP_cat_eq_all_mech }
+	}
+	trait = {
+		token = generic_mio_trait_industry_4c
+		name = generic_mio_trait_industry_4c
+		icon = GFX_generic_mio_department_icon_tank_heavy_tank_production
+
+		position = { x=2 y=3 }
+		any_parent = { generic_mio_trait_industry_2a }
+
+		available = {
+			NOT = {
+				has_mio_flag = TPMP_MIO_concentrated_flag
+			}
+		}
+		on_complete = {
+			set_mio_flag = TPMP_MIO_concentrated_flag
+		}
+
+		production_bonus = {
+			production_efficiency_cap_factor = 0.1
+			production_capacity_factor = 0.15
+		}
+		limit_to_equipment_type = { heavy_tank_chassis super_heavy_tank_chassis }
+	}
+	trait = {
+		token = generic_mio_trait_industry_5c
+		name = generic_mio_trait_industry_5c
+		icon = GFX_generic_mio_department_icon_plane_strategic_bomber_production
+
+		position = { x=2 y=4 }
+		any_parent = { generic_mio_trait_industry_2a }
+
+		available = {
+			NOT = {
+				has_mio_flag = TPMP_MIO_concentrated_flag
+			}
+		}
+		on_complete = {
+			set_mio_flag = TPMP_MIO_concentrated_flag
+		}
+
+		production_bonus = {
+			production_efficiency_cap_factor = 0.1
+			production_capacity_factor = 0.15
+		}
+		limit_to_equipment_type = { large_plane_airframe transport_plane_equipment }
+	}
+	trait = {
+		token = generic_mio_trait_industry_1b
+		name = generic_mio_trait_industry_1b
+		icon = GFX_generic_mio_department_icon_facilities
+
+		position = { x=3 y=0 }
+		mutually_exclusive = { generic_mio_trait_industry_1a }
+
+		available = {
+			FROM = {
+				has_tech = dispersed_industry
+			}
+		}
+
+		organization_modifier = {
+			military_industrial_organization_task_capacity = 1
+		}
+	}
+	trait = {
+		token = generic_mio_trait_industry_3d
+		name = generic_mio_trait_industry_3d
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+
+		position = { x=3 y=2 }
+		any_parent = { generic_mio_trait_industry_1b }
+
+		production_bonus = {
+			production_efficiency_cap_factor = 0.03
+		}
+	}
+	trait = {
+		token = generic_mio_trait_industry_5d
+		name = generic_mio_trait_industry_5d
+		icon = GFX_generic_mio_trait_icon_production_capacity
+
+		position = { x=3 y=4 }
+		any_parent = { generic_mio_trait_industry_3d }
+
+		production_bonus = {
+			production_capacity_factor = 0.05
+		}
+	}
+	trait = {
+		token = generic_mio_trait_industry_1c
+		name = generic_mio_trait_industry_1c
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+
+		position = { x=6 y=0 }
+
+		production_bonus = {
+			production_efficiency_cap_factor = 0.03
+		}
+	}
+	trait = {
+		token = generic_mio_trait_industry_2b
+		name = generic_mio_trait_industry_2b
+		icon = GFX_generic_mio_trait_icon_production_capacity
+
+		position = { x=4 y=1 }
+		any_parent = { generic_mio_trait_industry_1c }
+		mutually_exclusive = { generic_mio_trait_industry_2c }
+
+		production_bonus = {
+			production_capacity_factor = 0.1
+			production_resource_penalty_factor = 0.5
+		}
+	}
+	trait = {
+		token = generic_mio_trait_industry_4d
+		name = generic_mio_trait_industry_4d
+		icon = GFX_generic_mio_trait_icon_production_capacity
+
+		position = { x=4 y=3 }
+		any_parent = { generic_mio_trait_industry_2b }
+
+		production_bonus = {
+			production_efficiency_cap_factor = 0.03
+			production_capacity_factor = 0.05
+			production_resource_need_factor = 0.05
+		}
+	}
+	trait = {
+		token = generic_mio_trait_industry_2c
+		name = generic_mio_trait_industry_2c
+		icon = GFX_generic_mio_trait_icon_resources
+
+		position = { x=5 y=1 }
+		any_parent = { generic_mio_trait_industry_1c }
+		mutually_exclusive = { generic_mio_trait_industry_2b }
+
+		production_bonus = {
+			production_resource_need_factor = -0.1
+		}
+	}
+	trait = {
+		token = generic_mio_trait_industry_4e
+		name = generic_mio_trait_industry_4e
+		icon = GFX_generic_mio_trait_icon_resources
+
+		position = { x=5 y=3 }
+		any_parent = { generic_mio_trait_industry_2c }
+
+		production_bonus = {
+			production_resource_need_factor = -0.05
+		}
+	}
+	trait = {
+		token = generic_mio_trait_industry_3e
+		name = generic_mio_trait_industry_3e
+		icon = GFX_generic_mio_department_icon_ship_general_production
+
+		position = { x=6 y=2 }
+		any_parent = { generic_mio_trait_industry_1c }
+
+		production_bonus = {
+			production_capacity_factor = 0.1
+		}
+		limit_to_equipment_type = { TPMP_cat_eq_all_ship }
+	}
+	trait = {
+		token = generic_mio_trait_industry_5e
+		name = generic_mio_trait_industry_5e
+		icon = GFX_generic_mio_department_icon_ship_general_technology
+
+		position = { x=6 y=4 }
+		any_parent = { generic_mio_trait_industry_3e }
+
+		production_bonus = {
+			production_capacity_factor = 0.1
+		}
+		limit_to_equipment_type = { TPMP_cat_eq_all_ship }
+	}
+	trait = {
+		token = generic_mio_trait_industry_2d
+		name = generic_mio_trait_industry_2d
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+
+		position = { x=7 y=1 }
+		any_parent = { generic_mio_trait_industry_1c }
+		mutually_exclusive = { generic_mio_trait_industry_2e }
+
+		production_bonus = {
+			production_efficiency_cap_factor = 0.05
+		}
+	}
+	trait = {
+		token = generic_mio_trait_industry_4f
+		name = generic_mio_trait_industry_4f
+		icon = GFX_generic_mio_trait_icon_production_capacity
+
+		position = { x=7 y=3 }
+		any_parent = { generic_mio_trait_industry_2d }
+
+		production_bonus = {
+			production_capacity_factor = 0.05
+		}
+	}
+	trait = {
+		token = generic_mio_trait_industry_2e
+		name = generic_mio_trait_industry_2e
+		icon = GFX_generic_mio_department_icon_facilities
+
+		position = { x=8 y=1 }
+		any_parent = { generic_mio_trait_industry_1c }
+		mutually_exclusive = { generic_mio_trait_industry_2d }
+
+		organization_modifier = {
+			military_industrial_organization_task_capacity = 2
+		}
+	}
+	trait = {
+		token = generic_mio_trait_industry_4g
+		name = generic_mio_trait_industry_4g
+		icon = GFX_generic_mio_department_icon_facilities
+
+		position = { x=8 y=3 }
+		any_parent = { generic_mio_trait_industry_2e }
+
+		organization_modifier = {
+			military_industrial_organization_task_capacity = 1
+		}
+	}
+	trait = {
+		token = generic_mio_trait_industry_1d
+		name = generic_mio_trait_industry_1d
+		icon = GFX_generic_mio_department_icon_facilities
+
+		position = { x=9 y=0 }
+
+		organization_modifier = {
+			military_industrial_organization_task_capacity = 1
+		}
+	}
+	trait = {
+		token = generic_mio_trait_industry_3f
+		name = generic_mio_trait_industry_3f
+		icon = GFX_generic_mio_trait_icon_unique
+
+		position = { x=9 y=2 }
+		any_parent = { generic_mio_trait_industry_1d }
+
+		organization_modifier = {
+			military_industrial_organization_funds_gain = 0.1
+		}
+	}
+	trait = {
+		token = generic_mio_trait_industry_5f
+		name = generic_mio_trait_industry_5f
+		icon = GFX_generic_mio_department_icon_facilities
+
+		position = { x=9 y=4 }
+		any_parent = { generic_mio_trait_industry_3f }
+
+		organization_modifier = {
+			military_industrial_organization_task_capacity = 1
+		}
+	}
+
+}
+
+
+##       ####  ######  ########     #######  ########     ######  ########    ###    ########  ######
+##        ##  ##    ##    ##       ##     ## ##          ##    ##    ##      ## ##      ##    ##    ##
+##        ##  ##          ##       ##     ## ##          ##          ##     ##   ##     ##    ##
+##        ##   ######     ##       ##     ## ######       ######     ##    ##     ##    ##     ######
+##        ##        ##    ##       ##     ## ##                ##    ##    #########    ##          ##
+##        ##  ##    ##    ##       ##     ## ##          ##    ##    ##    ##     ##    ##    ##    ##
+######## ####  ######     ##        #######  ##           ######     ##    ##     ##    ##     ######
+
+
+### EQUIPMENT STATS ###
+
+
+###  ##  #  # # #  ## 
+ #  #  # ## # # # #   
+ #  #### # ## ##   #  
+ #  #  # #  # # #   # 
+ #  #  # #  # # # ##  
+
+#maximum_speed
+#reliability
+#defense
+#breakthrough
+#armor_value
+#soft_attack
+#hard_attack
+#ap_attack
+#air_attack
+#build_cost_ic
+#fuel_consumption
+#hardness
+#armor_value
+#build_cost_ic
+#entrenchment - only if you have DLC NSB  and module dozer_blade
+#fuel_capacity - only if you have DLC NSB  and module expanded_fuel_tank
+
+
+
+ ## #  # ### ###   ## 
+#   #  #  #  #  # #   
+ #  ####  #  ###   #  
+  # #  #  #  #      # 
+##  #  # ### #    ##  
+
+#lg_armor_piercing (requires modules)
+#lg_attack (requires modules)
+#hg_armor_piercing (requires modules)
+#hg_attack (requires modules)
+#torpedo_attack (requires modules)
+#sub_attack (requires modules)
+#anti_air_attack (requires modules)
+#armor_value (requires modules)
+#surface_detection 
+#sub_detection (requires modules)
+#sub_visibility (sub only)
+#surface_visibility (surface only)
+#naval_speed 
+#reliability
+#naval_range
+#max_strength
+#fuel_consumption
+#build_cost_ic
+#manpower
+#naval_supremacy_factor
+#naval_torpedo_enemy_critical_chance_factor (if you have modules adding it)
+#naval_torpedo_damage_reduction_factor (if you have modules adding it)
+#carrier_size (this will get very bad for you I promise, equipment modifiers are a mistake)
+#mines_sweeping (only MTG and with modules)
+#mines_planting (only with MTG and modules)
+#naval_torpedo_hit_chance_factor (requires modules)
+#naval_light_gun_hit_chance_factor (requires modules)
+#naval_heavy_gun_hit_chance_factor (requires modules)
+
+
+
+###  #    ##  #  # ###  ## 
+#  # #   #  # ## # #   #   
+###  #   #### # ## ##   #  
+#    #   #  # #  # #     # 
+#    ### #  # #  # ### ##  
+
+#air_superiority
+#reliability
+#naval_strike_attack
+#naval_strike_targetting
+#manpower
+#fuel_consumption
+#build_cost_ic
+#resources
+#thrust - only if you have BBA DLC
+#weight - only if you have BBA DLC
+#maximum_speed
+#air_range
+#air_agility
+#air_attack
+#air_defence
+#surface_detection
+#sub_detection
+#air_ground_attack
+#air_bombing
+#mines_planting - if you have MtG and BBA
+#mines_sweeping - if you have MtG and BBA
+#night_penalty - only if you have BBA DLC (you need to have module because base value is 0 - radio navigatio
+
+
+
+#   #  ##  ### ### ###  ### ### #   
+## ## #  #  #  #   #  #  #  #   #   
+# # # ####  #  ##  ###   #  ##  #   
+#   # #  #  #  #   #  #  #  #   #   
+#   # #  #  #  ### #  # ### ### ### 
+
+##############################
+##### INFANTRY EQUIPMENT #####
+##############################
+#reliability
+#maximum_speed
+#defense
+#breakthrough
+#hardness - it is in the script, but the value is set to 0 (in the game, the UI doesn't show this value)
+#armor_value - it is in the script, but the value is set to 0 (in the game, the UI doesn't show this value)
+#soft_attack
+#hard_attack
+#ap_attack
+#air_attack - it is in the script but the value is set to 0 (in the game, the UI doesn't show this value)
+#build_cost_ic
+
+##############################
+##### SUPPORT EQUIPMENT ######
+##############################
+#reliability
+#build_cost_ic
+
+
+#############################
+#### ARTILLERY EQUIPMENT ####
+#############################
+#reliability
+#defense
+#breakthrough
+#hardness
+#armor_value
+#soft_attack
+#hard_attack
+#ap_attack
+#air_attack
+#build_cost_ic
+
+############################
+#### ANTI-AIR EQUIPMENT ####
+############################
+#reliability
+#defense
+#breakthrough
+#hardness
+#armor_value
+#soft_attack
+#hard_attack
+#ap_attack
+#air_attack
+#build_cost_ic
+
+#############################
+#### ANTI-TANK EQUIPMENT ####
+#############################
+#reliability
+#defense
+#breakthrough
+#hardness
+#armor_value
+#soft_attack
+#hard_attack
+#ap_attack
+#air_attack
+#build_cost_ic
+
+####################################
+#### ROCKET ARTILLERY EQUIPMENT ####
+####################################
+#reliability
+#defense
+#breakthrough
+#hardness
+#armor_value
+#soft_attack
+#hard_attack
+#ap_attack
+#air_attack
+#build_cost_ic
+
+
+##############################
+#### MOTORIZED EQUIPMENT #####
+##############################
+#maximum_speed
+#reliability
+#hardness
+#breakthrough
+#build_cost_ic
+#fuel_consumption
+
+####################################
+#### MOTORIZED ROCKET EQUIPMENT ####
+####################################
+#reliability
+#defense
+#breakthrough
+#hardness
+#armor_value
+#soft_attack
+#hard_attack
+#ap_attack
+#air_attack
+#build_cost_ic (edited)
+
+###############################
+#### MECHANIZED EQUIPMENT #####
+###############################
+#maximum_speed
+#reliability
+#defense
+#breakthrough
+#hardness
+#armor_value
+#ap_attack
+#air_attack
+#build_cost_ic
+#fuel_consumption
+
+#########################################
+#### AMPHIBIOUS MECHANIZED EQUIPMENT ####
+#########################################
+#maximum_speed
+#reliability
+#defense
+#breakthrough
+#hardness
+#armor_value
+#ap_attack
+#air_attack
+#build_cost_ic
+#fuel_consumption
+
+
+################################
+#### ARMORED CAR EQUIPMENT #####
+################################
+#maximum_speed
+#reliability
+#defense
+#breakthrough
+#hardness
+#armor_value
+#soft_attack
+#hard_attack
+#ap_attack
+#air_attack
+#build_cost_ic
+#fuel_consumption
+
+
+##########################
+#### TRAIN EQUIPMENT #####
+##########################
+#armor_value
+#build_cost_ic
+#air_attack
+
+################################
+#### RAILWAY GUN EQUIPMENT #####
+################################
+#reliability
+#maximum_speed
+#railway_gun_attack
+#build_cost_ic
+
+
+### PRODUCTION MODIFIERS ###
+#production_cost_factor
+#production_capacity_factor
+#production_efficiency_cap_factor
+#production_efficiency_gain_factor
+#production_resource_need_factor
+#production_resource_penalty_factor
+#production_conversion_speed_factor
+
+### ORGANIZATION MODIFIERS ###
+#military_industrial_organization_research_bonus
+#military_industrial_organization_design_team_assign_cost
+#military_industrial_organization_design_team_change_cost
+#military_industrial_organization_industrial_manufacturer_assign_cost
+#military_industrial_organization_task_capacity
+#military_industrial_organization_size_up_requirement
+#military_industrial_organization_funds_gain
