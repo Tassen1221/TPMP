@@ -61,7 +61,7 @@ country_event = {
 					}
 				}
 			}
-			# country_event = { id = TPMP_ROM.3 }
+			country_event = { id = TPMP_ROM.3 }
 		}
 	}
 }
@@ -157,6 +157,203 @@ news_event = {
 		name = TPMP_ROM.6.b
 		trigger = {
 			NOT = { original_tag = ROM }
+		}
+	}
+}
+
+country_event = {
+	id = TPMP_ROM.7
+	title = TPMP_ROM.7.t
+	desc = TPMP_ROM.7.d
+	picture = GFX_report_event_tank_factory
+
+	is_triggered_only = yes
+
+	immediate = {
+		division_template = {
+			name = "Blindaţi"
+			division_names_group = ROM_ARM_01
+			priority = 2
+			regiments = {
+				mechanized = { x = 0 y = 0 }
+				mechanized = { x = 0 y = 1 }
+				mechanized = { x = 0 y = 2 }
+				mechanized = { x = 1 y = 0 }
+				mechanized = { x = 1 y = 1 }
+				mechanized = { x = 1 y = 2 }
+				medium_armor = { x = 2 y = 0 }
+				medium_armor = { x = 2 y = 1 }
+				medium_armor = { x = 2 y = 2 }
+				medium_armor = { x = 3 y = 0 }
+				medium_armor = { x = 3 y = 1 }
+				medium_armor = { x = 3 y = 2 }
+				medium_armor = { x = 4 y = 0 }
+				medium_armor = { x = 4 y = 1 }
+				medium_armor = { x = 4 y = 2 }
+			}
+			regimental_support = {
+				heavy_anti_air = { x = 0 y = 0 }
+				heavy_anti_air = { x = 1 y = 0 }
+				heavy_anti_air = { x = 2 y = 0 }
+				heavy_anti_air = { x = 3 y = 0 }
+				heavy_anti_air = { x = 4 y = 0 }
+			}
+			support = {
+				engineer = { x = 0 y = 0 }
+				armored_car_recon = { x = 0 y = 1 }
+				headquarters = { x = 0 y = 2 }
+				military_police = { x = 0 y = 3 }
+			}
+		}
+	}
+
+	option = {
+		name = TPMP_ROM.7.a
+		trigger = {
+			has_design_based_on = medium_tank_chassis
+		}
+		capital_scope = {
+			create_unit = {
+				division = "division_template = \"Blindaţi\" start_experience_factor = 0.3"
+				owner = ROOT
+				count = 4
+			}
+		}
+		add_unit_bonus = {
+			medium_armor = {
+				soft_attack = 0.05
+				hard_attack = 0.05
+			}
+		}
+	}
+
+	option = {
+		name = TPMP_ROM.7.b
+		trigger = {
+			GER = { has_design_based_on = medium_tank_chassis }
+		}
+		capital_scope = {
+			create_unit = {
+				division = "division_template = \"Blindaţi\" start_experience_factor = 0.3 start_equipment_factor = 0"
+				owner = ROOT
+				count = 4
+			}
+		}
+		add_equipment_to_stockpile = { type = mechanized_equipment amount = 1200 }
+		add_equipment_to_stockpile = { type = mobile_infantry_equipment_1 amount = 2400 }
+		add_equipment_to_stockpile = { type = heavy_anti_air_equipment amount = 300 }
+		add_equipment_to_stockpile = { type = support_equipment amount = 360 }
+		add_equipment_to_stockpile = { type = line_infantry_equipment_1 amount = 320 }
+		add_equipment_to_stockpile = { type = armored_car_equipment amount = 80 }
+		add_equipment_to_stockpile = { type = motorized_equipment amount = 120 }
+		add_equipment_to_stockpile = { type = medium_tank_chassis amount = 1440 producer = GER }
+		add_unit_bonus = {
+			medium_armor = {
+				soft_attack = 0.05
+				hard_attack = 0.05
+			}
+		}
+	}
+
+	option = {
+		name = TPMP_ROM.7.c
+		trigger = {
+			ITA = { has_design_based_on = medium_tank_chassis }
+		}
+		capital_scope = {
+			create_unit = {
+				division = "division_template = \"Blindaţi\" start_experience_factor = 0.3 start_equipment_factor = 0"
+				owner = ROOT
+				count = 4
+			}
+		}
+		add_equipment_to_stockpile = { type = mechanized_equipment amount = 1200 }
+		add_equipment_to_stockpile = { type = mobile_infantry_equipment_1 amount = 2400 }
+		add_equipment_to_stockpile = { type = heavy_anti_air_equipment amount = 300 }
+		add_equipment_to_stockpile = { type = support_equipment amount = 360 }
+		add_equipment_to_stockpile = { type = line_infantry_equipment_1 amount = 320 }
+		add_equipment_to_stockpile = { type = armored_car_equipment amount = 80 }
+		add_equipment_to_stockpile = { type = motorized_equipment amount = 120 }
+		add_equipment_to_stockpile = { type = medium_tank_chassis amount = 1440 producer = ITA }
+		add_unit_bonus = {
+			medium_armor = {
+				soft_attack = 0.05
+				hard_attack = 0.05
+			}
+		}
+	}
+
+	option = {
+		name = TPMP_ROM.7.e
+		trigger = {
+			HUN = { has_design_based_on = medium_tank_chassis }
+		}
+		capital_scope = {
+			create_unit = {
+				division = "division_template = \"Blindaţi\" start_experience_factor = 0.3 start_equipment_factor = 0"
+				owner = ROOT
+				count = 4
+			}
+		}
+		add_equipment_to_stockpile = { type = mechanized_equipment amount = 1200 }
+		add_equipment_to_stockpile = { type = mobile_infantry_equipment_1 amount = 2400 }
+		add_equipment_to_stockpile = { type = heavy_anti_air_equipment amount = 300 }
+		add_equipment_to_stockpile = { type = support_equipment amount = 360 }
+		add_equipment_to_stockpile = { type = line_infantry_equipment_1 amount = 320 }
+		add_equipment_to_stockpile = { type = armored_car_equipment amount = 80 }
+		add_equipment_to_stockpile = { type = motorized_equipment amount = 120 }
+		add_equipment_to_stockpile = { type = medium_tank_chassis amount = 1440 producer = HUN }
+		add_unit_bonus = {
+			medium_armor = {
+				soft_attack = 0.05
+				hard_attack = 0.05
+			}
+		}
+	}
+
+	option = {
+		name = TPMP_ROM.7.f
+		trigger = {
+			BUL = { has_design_based_on = medium_tank_chassis }
+		}
+		capital_scope = {
+			create_unit = {
+				division = "division_template = \"Blindaţi\" start_experience_factor = 0.3 start_equipment_factor = 0"
+				owner = ROOT
+				count = 4
+			}
+		}
+		add_equipment_to_stockpile = { type = mechanized_equipment amount = 1200 }
+		add_equipment_to_stockpile = { type = mobile_infantry_equipment_1 amount = 2400 }
+		add_equipment_to_stockpile = { type = heavy_anti_air_equipment amount = 300 }
+		add_equipment_to_stockpile = { type = support_equipment amount = 360 }
+		add_equipment_to_stockpile = { type = line_infantry_equipment_1 amount = 320 }
+		add_equipment_to_stockpile = { type = armored_car_equipment amount = 80 }
+		add_equipment_to_stockpile = { type = motorized_equipment amount = 120 }
+		add_equipment_to_stockpile = { type = medium_tank_chassis amount = 1440 producer = BUL }
+		add_unit_bonus = {
+			medium_armor = {
+				soft_attack = 0.05
+				hard_attack = 0.05
+			}
+		}
+	}
+
+	option = {
+		name = TPMP_ROM.7.g
+		if = {
+			limit = {
+				NOT = { has_design_based_on = medium_tank_chassis }
+				GER = { NOT = { has_design_based_on = medium_tank_chassis } }
+				ITA = { NOT = { has_design_based_on = medium_tank_chassis } }
+				HUN = { NOT = { has_design_based_on = medium_tank_chassis } }
+				BUL = { NOT = { has_design_based_on = medium_tank_chassis } }
+			}
+			custom_effect_tooltip = TPMP_ROM.7.g.tt
+		}
+		uncomplete_national_focus = {
+			focus = TPMP_ROM_beg_for_modern_equipment
+			refund_political_power = yes
 		}
 	}
 }
