@@ -3564,7 +3564,8 @@
 		available = {
 			NOT = { has_country_flag = TPMP_ROM_instability }
 			84 = { is_owned_by = ROOT }
-			divisions_in_state = { size = 0 state = 84 }
+			NOT = { has_idea = TPMP_ROM_deployment_costs }
+			divisions_in_state = { size < 1 state = 84 }
 		}
 
 		bypass = {
@@ -3652,14 +3653,16 @@
 						division = "name = \"Vanatori de munte\" division_template = \"Vanatori de munte\" start_experience_factor = 1.0"
 						owner = ROM
 					}
-					every_state_division = {
-						add_history_entry = {
-							key = TPMP_ROM_vanatori_de_munte_history
-							subject = "Vanatori de munte"
-							allow = yes
-						}
-						add_unit_medal_to_latest_entry = {
-							unit_medals = TPMP_ROM_steel_divisions_medal
+					hidden_effect = {
+						every_state_division = {
+							add_history_entry = {
+								key = TPMP_ROM_vanatori_de_munte_history
+								subject = "Vanatori de munte"
+								allow = yes
+							}
+							add_unit_medal_to_latest_entry = {
+								unit_medals = TPMP_ROM_steel_divisions_medal
+							}
 						}
 					}
 				}
@@ -3725,17 +3728,26 @@
 						division = "name = \"Vanatori de munte\" division_template = \"Vanatori de munte\" start_experience_factor = 1.0"
 						owner = ROM
 					}
-					every_state_division = {
-						add_history_entry = {
-							key = TPMP_ROM_vanatori_de_munte_history
-							subject = "Vanatori de munte"
-							allow = yes
-						}
-						add_unit_medal_to_latest_entry = {
-							unit_medals = TPMP_ROM_steel_divisions_medal
+					hidden_effect = {
+						every_state_division = {
+							add_history_entry = {
+								key = TPMP_ROM_vanatori_de_munte_history
+								subject = "Vanatori de munte"
+								allow = yes
+							}
+							add_unit_medal_to_latest_entry = {
+								unit_medals = TPMP_ROM_steel_divisions_medal
+							}
 						}
 					}
 				}
+			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+
+			add_timed_idea = {
+				idea = TPMP_ROM_deployment_costs
+				days = 60
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
@@ -3803,7 +3815,8 @@
 		available = {
 			NOT = { has_country_flag = TPMP_ROM_instability }
 			81 = { is_owned_by = ROOT }
-			divisions_in_state = { size = 0 state = 81 }
+			NOT = { has_idea = TPMP_ROM_deployment_costs }
+			divisions_in_state = { size < 1 state = 81 }
 		}
 
 		bypass = {
@@ -3886,16 +3899,25 @@
 					owner = ROOT
 					count = 8
 				}
-				every_state_division = {
-					add_history_entry = {
-						key = TPMP_ROM_corpul_vi_teritorial_history
-						subject = "Teritoriali"
-						allow = yes
-					}
-					add_unit_medal_to_latest_entry = {
-						unit_medals = TPMP_ROM_steel_divisions_medal
+				hidden_effect = {
+					every_state_division = {
+						add_history_entry = {
+							key = TPMP_ROM_corpul_vi_teritorial_history
+							subject = "Teritoriali"
+							allow = yes
+						}
+						add_unit_medal_to_latest_entry = {
+							unit_medals = TPMP_ROM_steel_divisions_medal
+						}
 					}
 				}
+			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+
+			add_timed_idea = {
+				idea = TPMP_ROM_deployment_costs
+				days = 60
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
@@ -3923,7 +3945,8 @@
 		available = {
 			NOT = { has_country_flag = TPMP_ROM_instability }
 			971 = { is_owned_by = ROOT }
-			divisions_in_state = { size = 0 state = 971 }
+			NOT = { has_idea = TPMP_ROM_deployment_costs }
+			divisions_in_state = { size < 1 state = 971 }
 		}
 
 		bypass = {
@@ -3935,7 +3958,15 @@
 
 		completion_reward = {
 			custom_effect_tooltip = TPMP_ROM_1_blindata_romania_mare_tt
+
 			country_event = { id = TPMP_ROM.8 }
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+
+			add_timed_idea = {
+				idea = TPMP_ROM_deployment_costs
+				days = 60
+			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
@@ -3962,7 +3993,8 @@
 		available = {
 			NOT = { has_country_flag = TPMP_ROM_instability }
 			83 = { is_owned_by = ROOT }
-			divisions_in_state = { size = 0 state = 83 }
+			NOT = { has_idea = TPMP_ROM_deployment_costs }
+			divisions_in_state = { size < 1 state = 83 }
 		}
 
 		bypass = {
@@ -4042,16 +4074,25 @@
 					owner = ROOT
 					count = 8
 				}
-				every_state_division = {
-					add_history_entry = {
-						key = TPMP_ROM_div_8_cav_purtata_history
-						subject = "Călăraşi Moto"
-						allow = yes
-					}
-					add_unit_medal_to_latest_entry = {
-						unit_medals = TPMP_ROM_steel_divisions_medal
+				hidden_effect = {
+					every_state_division = {
+						add_history_entry = {
+							key = TPMP_ROM_div_8_cav_purtata_history
+							subject = "Călăraşi Moto"
+							allow = yes
+						}
+						add_unit_medal_to_latest_entry = {
+							unit_medals = TPMP_ROM_steel_divisions_medal
+						}
 					}
 				}
+			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+
+			add_timed_idea = {
+				idea = TPMP_ROM_deployment_costs
+				days = 60
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
