@@ -2961,6 +2961,8 @@
 		completion_reward = {
 			custom_effect_tooltip = TPMP_ROM_modify_legionarii_modifier_tt
 			add_to_variable = { TPMP_ROM_legionarii_army_armor_attack_factor = 0.05 tooltip = army_armor_attack_factor_tt }
+			add_to_variable = { TPMP_ROM_legionarii_motorized_attack_factor = 0.05 tooltip = motorized_attack_factor_tt }
+			add_to_variable = { TPMP_ROM_legionarii_mechanized_attack_factor = 0.05 tooltip = mechanized_attack_factor_tt }
 		}
 	}
 
@@ -3024,13 +3026,13 @@
 		completion_reward = {
 			add_unit_bonus = {
 				infantry = {
-					breakthrough = 0.2
+					breakthrough = 0.1
 				}
 				category_special_forces = {
-					breakthrough = 0.2
+					breakthrough = 0.1
 				}
 				category_mobile_infantry = {
-					breakthrough = 0.2
+					breakthrough = 0.1
 				}
 			}
 		}
@@ -3835,7 +3837,7 @@
 				}
 				if = {
 					limit = { NOT = { has_tech = armored_car1 } }
-					add_equipment_to_stockpile = { type = gw_armored_car_equipment amount = 192 producer = GER }
+					add_equipment_to_stockpile = { type = gw_armored_car_equipment amount = 160 producer = GER }
 				}
 				if = {
 					limit = { NOT = { has_tech = heavyantiair1_tech } }
@@ -4010,11 +4012,11 @@
 			hidden_effect = {
 				if = {
 					limit = { NOT = { has_tech = armored_car1 } }
-					add_equipment_to_stockpile = { type = gw_armored_car_equipment amount = 192 producer = GER }
+					add_equipment_to_stockpile = { type = gw_armored_car_equipment amount = 160 producer = GER }
 				}
 				if = {
 					limit = { NOT = { has_tech = heavyantiair1_tech } }
-					add_equipment_to_stockpile = { type = heavy_anti_air_equipment_1 amount = 600 producer = GER }
+					add_equipment_to_stockpile = { type = heavy_anti_air_equipment_1 amount = 1080 producer = GER }
 				}
 			}
 
@@ -4027,16 +4029,16 @@
 				priority = 2
 
 				regiments = {
-					infantry = { x = 0 y = 0 }
-					infantry = { x = 0 y = 1 }
-					infantry = { x = 0 y = 2 }
-					infantry = { x = 1 y = 0 }
-					infantry = { x = 1 y = 1 }
-					infantry = { x = 1 y = 2 }
-					infantry = { x = 1 y = 3 }
-					infantry = { x = 2 y = 0 }
-					infantry = { x = 2 y = 1 }
-					infantry = { x = 2 y = 2 }
+					motorized = { x = 0 y = 0 }
+					motorized = { x = 0 y = 1 }
+					motorized = { x = 0 y = 2 }
+					motorized = { x = 1 y = 0 }
+					motorized = { x = 1 y = 1 }
+					motorized = { x = 1 y = 2 }
+					motorized = { x = 1 y = 3 }
+					motorized = { x = 2 y = 0 }
+					motorized = { x = 2 y = 1 }
+					motorized = { x = 2 y = 2 }
 
 					mot_artillery_brigade = { x = 3 y = 0 }
 					mot_artillery_brigade = { x = 3 y = 1 }
@@ -4158,7 +4160,7 @@
 		x = 37
 		y = 0
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 0
@@ -4234,7 +4236,7 @@
 		y = 1
 		relative_position_id = TPMP_ROM_allied_blueprints
 
-		cost = 14.29
+		cost = 10
 
 		ai_will_do = {
 			factor = 0
@@ -4300,7 +4302,7 @@
 		y = 1
 		relative_position_id = TPMP_ROM_plan_maresesti
 
-		cost = 14.29
+		cost = 10
 
 		ai_will_do = {
 			factor = 0
