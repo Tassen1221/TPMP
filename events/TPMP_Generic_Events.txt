@@ -142,6 +142,9 @@ country_event = {
 	
 	option = { #normal
 		name = TPMP_GEN.4.a
+		ai_chance = {
+			factor = 100
+		}
 		trigger = {
 			NOT = {
 				OR = {
@@ -182,6 +185,23 @@ country_event = {
 	}
 	option = { # a little more
 		name = TPMP_GEN.4.b
+		ai_chance = {
+			factor = 0
+			modifier = {
+				add = 1000
+				OR = {
+					MAN = {
+						has_country_leader = {
+							character = MAN_aisin_gioro_puyi
+							ruling_only = yes
+						}
+					}
+					MAN = {
+						has_completed_focus = MAN_tsr_chinese_leadership
+					}
+				}
+			}
+		}
 		621 = {
 			transfer_state_to = MAN
 		}
@@ -210,8 +230,11 @@ country_event = {
 			transfer_state_to = MAN
 		}
 	}
-	option = { # just non coastal 
+	option = { # just non coastal
 		name = TPMP_GEN.4.c
+		ai_chance = {
+			factor = 0
+		}
 		trigger = {
 			OR = {
 				MAN = {
@@ -248,8 +271,11 @@ country_event = {
 			}
 		}
 	}
-	option = { 	#everything 
+	option = { 	#everything
 		name = TPMP_GEN.4.e
+		ai_chance = {
+			factor = 0
+		}
 		trigger = {
 			OR = {
 				MAN = {
@@ -282,8 +308,11 @@ country_event = {
 			}
 		}
 	}
-	option = { 	#fuckall 
+	option = { 	#fuckall
 		name = TPMP_GEN.4.f
+		ai_chance = {
+			factor = 0
+		}
 		if = {
 			limit = {
 				OR = {
@@ -397,5 +426,54 @@ country_event = {
 				set_cosmetic_tag = TPMP_ETH_ita_puppet
 			}
 		}
+	}
+}
+
+country_event = {
+	id = TPMP_GEN.6
+	title = TPMP_GEN.6.t
+	desc = TPMP_GEN.6.d
+	picture = GFX_report_event_chinese_soldiers
+
+	trigger = {
+		tag = JAP
+		date > 1938.1.1
+		CHI = {
+			exists = yes
+			has_capitulated = no
+		}
+		JAP = { is_ai = yes }
+		CHI = { is_ai = yes }
+		NOT = { has_country_flag = TPMP_JAP_forced_china_victory_flag }
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	immediate = {
+		set_country_flag = TPMP_JAP_forced_china_victory_flag
+		annex_country = {
+			target = CHI
+			transfer_troops = yes
+		}
+		add_named_threat = {
+			threat = 3
+			name = TPMP_JAP_chinacap1
+		}
+		add_named_threat = {
+			threat = 38.5
+			name = TPMP_JAP_chinacap2
+		}
+		country_event = TPMP_GEN.4
+		CHI = {
+			every_core_state = {
+				add_compliance = 90
+			}
+		}
+	}
+
+	option = {
+		name = TPMP_GEN.6.a
 	}
 }

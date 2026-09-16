@@ -68,7 +68,7 @@
 		cost = 5
 
 		ai_will_do = {
-			factor = 9
+			factor = 15
 		}
 
 		available = {
@@ -213,7 +213,7 @@
 		cost = 5
 
 		ai_will_do = {
-			factor = 10
+			factor = 2
 		}
 
 		available = {
@@ -290,17 +290,17 @@
 		y = 1
 		relative_position_id = TPMP_ROM_locomotive_import_ban
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
-			factor = 10
+			factor = 2
 		}
 
 		available = {
 			NOT = { has_country_flag = TPMP_ROM_instability }
 
 		}
-		
+
 		bypass = {
 
 		}
@@ -311,7 +311,7 @@
 
 
 		completion_reward = {
-			add_offsite_building = { type = industrial_complex level = 2 }
+			add_offsite_building = { type = industrial_complex level = 1 }
 			add_tech_bonus = {
 				bonus = 1.0
 				uses = 1
@@ -330,7 +330,7 @@
 		cost = 5
 
 		ai_will_do = {
-			factor = 13
+			factor = 15
 		}
 
 		available = {
@@ -349,6 +349,7 @@
 
 		completion_reward = {
 			46 = {
+				add_extra_state_shared_building_slots = 1
 				add_resource = {
 					type = oil
 					amount = 240
@@ -384,7 +385,7 @@
 		cost = 10
 
 		ai_will_do = {
-			factor = 200
+			factor = 15
 		}
 
 		available = {
@@ -498,24 +499,6 @@
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		complete_tooltip = {
-			random_state = {
-				limit = {
-					has_state_flag = ROM_hunedoara_steel_works_IC
-				}
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = industrial_complex
-					level = 2
-					instant_build = yes
-				}
-				add_resource = {
-					type = steel
-					amount = 80
-				}
-			}
-		}
-
 		completion_reward = {
 			random_owned_controlled_state = {
 				prioritize = { 84 }
@@ -551,7 +534,7 @@
 		cost = 10
 
 		ai_will_do = {
-			factor = 50
+			factor = 2s
 		}
 
 		available = {
@@ -569,7 +552,7 @@
 
 
 		completion_reward = {
-			add_offsite_building = { type = industrial_complex level = 2 }
+			add_offsite_building = { type = industrial_complex level = 1 }
 			if = {
 				limit = {
 					46 = {
@@ -644,7 +627,7 @@
 		cost = 10
 
 		ai_will_do = {
-			factor = 90
+			factor = 2
 		}
 
 		available = {
@@ -714,7 +697,7 @@
 		cost = 10
 
 		ai_will_do = {
-			factor = 90
+			factor = 10
 		}
 
 		available = {
@@ -858,7 +841,7 @@
 		cost = 5
 
 		ai_will_do = {
-			factor = 10
+			factor = 2
 		}
 
 		available = {
@@ -896,7 +879,7 @@
 		cost = 10
 
 		ai_will_do = {
-			factor = 10
+			factor = 100
 		}
 
 		available = {
@@ -983,7 +966,7 @@
 		cost = 5
 
 		ai_will_do = {
-			factor = 10
+			factor = 2
 		}
 
 		available = {
@@ -1026,6 +1009,10 @@
 
 		cost = 10
 
+		ai_will_do = {
+			factor = 2
+		}
+
 		available = {
 			NOT = { has_country_flag = TPMP_ROM_instability }
 		}
@@ -1059,6 +1046,10 @@
 
 		cost = 5
 
+		ai_will_do = {
+			factor = 2
+		}
+
 		available = {
 			NOT = { has_country_flag = TPMP_ROM_instability }
 		}
@@ -1077,7 +1068,7 @@
 		cost = 10
 
 		ai_will_do = {
-			factor = 10
+			factor = 2
 		}
 
 		available = {
@@ -1141,7 +1132,7 @@
 		cost = 5
 
 		ai_will_do = {
-			factor = 10
+			factor = 2
 		}
 
 		available = {
@@ -1203,7 +1194,7 @@
 		cost = 10
 
 		ai_will_do = {
-			factor = 10
+			factor = 2
 		}
 
 		available = {
@@ -1240,7 +1231,7 @@
 		cost = 10
 
 		ai_will_do = {
-			factor = 10
+			factor = 2
 		}
 
 		available = {
@@ -1273,7 +1264,7 @@
 		cost = 10
 
 		ai_will_do = {
-			factor = 10
+			factor = 2
 		}
 
 		available = {
@@ -2484,7 +2475,7 @@
 		cost = 5
 
 		ai_will_do = {
-			factor = 1
+			factor = 5
 		}
 
 		available = {
@@ -2606,7 +2597,7 @@
 		cost = 5
 
 		ai_will_do = {
-			factor = 1
+			factor = 5
 		}
 
 		available = {
@@ -2681,11 +2672,12 @@
 		cost = 5
 
 		ai_will_do = {
-			factor = 1
+			factor = 5
 		}
 
 		available = {
 			NOT = { has_country_flag = TPMP_ROM_instability }
+			has_war_with = SOV
 		}
 
 		bypass = {
@@ -4295,6 +4287,50 @@
 	}
 
 	focus = {
+		id = TPMP_ROM_naval_rd_facilities
+		icon = GFX_focus_generic_navy_research_bonus
+		prerequisite = { focus = TPMP_ROM_allied_blueprints }
+		x = 2
+		y = 1
+		relative_position_id = TPMP_ROM_allied_blueprints
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 0
+		}
+
+		available = {
+			NOT = { has_country_flag = TPMP_ROM_instability }
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_breakthrough_progress = {
+				specialization = specialization_naval
+				value = 1
+			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+			random_owned_controlled_state = {
+				prioritize = { 971 }
+				limit = {
+					ROOT = { has_full_control_of_state = PREV }
+				}
+				construct_building_in_random_province = {
+					naval_facility = 1
+				}
+			}
+		}
+	}
+
+	focus = {
 		id = TPMP_ROM_black_sea_dominance
 		icon = GFX_focus_SIA_use_ships_as_generators
 		prerequisite = { focus = TPMP_ROM_plan_maresesti }
@@ -4570,6 +4606,7 @@
 		id = TPMP_ROM_small_natural_tunnel
 		icon = GFX_focus_generic_battleship_guns
 		prerequisite = { focus = TPMP_ROM_black_sea_dominance }
+		mutually_exclusive = { focus = TPMP_ROM_good_enough }
 		x = 0
 		y = 1
 		relative_position_id = TPMP_ROM_black_sea_dominance
@@ -4687,9 +4724,51 @@
 	}
 
 	focus = {
+		id = TPMP_ROM_good_enough
+		icon = GFX_focus_generic_naval_discipline
+		prerequisite = { focus = TPMP_ROM_black_sea_dominance }
+		mutually_exclusive = { focus = TPMP_ROM_small_natural_tunnel }
+		x = 2
+		y = 1
+		relative_position_id = TPMP_ROM_black_sea_dominance
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 0
+		}
+
+		available = {
+			NOT = { has_country_flag = TPMP_ROM_instability }
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = TPMP_ROM_plan_maresesti_idea
+				add_idea = TPMP_ROM_abandoned_naval_expansion_idea
+			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+			971 = {
+				remove_building = {
+					type = dockyard
+					level = 6
+				}
+			}
+		}
+	}
+
+	focus = {
 		id = TPMP_ROM_expand_the_airforce
 		icon = GFX_goal_generic_air_production
-		x = 3
+		x = 4
 		y = 0
 		relative_position_id = TPMP_ROM_allied_blueprints
 
@@ -4819,7 +4898,7 @@
 		id = TPMP_ROM_iar_80
 		icon = GFX_goal_generic_air_fighter2
 		prerequisite = { focus = TPMP_ROM_trust_in_iar }
-		x = -1
+		x = 0
 		y = 1
 		relative_position_id = TPMP_ROM_trust_in_iar
 
@@ -4921,7 +5000,7 @@
 		id = TPMP_ROM_aquire_ju_52s
 		icon = GFX_focus_generic_long_range_aircraft
 		prerequisite = { focus = TPMP_ROM_trust_in_iar }
-		x = 1
+		x = 2
 		y = 1
 		relative_position_id = TPMP_ROM_trust_in_iar
 
@@ -4955,7 +5034,7 @@
 		id = TPMP_ROM_allied_expertise
 		icon = GFX_goal_generic_air_fighter
 		prerequisite = { focus = TPMP_ROM_trust_in_iar }
-		x = 3
+		x = 4
 		y = 1
 		relative_position_id = TPMP_ROM_trust_in_iar
 
