@@ -105,6 +105,167 @@ focus_tree = {
 			USA_electoral_support_gain_small = yes
 			custom_effect_tooltip = generic_skip_one_line_tt
 			add_stability = 0.05
+			IF = {
+				limit = {
+					has_tech = advanced_ship_hull_carrier
+				}
+				create_ship = {
+					type = ship_hull_carrier_3
+					equipment_variant = "Advanced Carrier"
+					creator = USA
+				}
+			}
+			ELSE_IF = {
+				limit = {
+					has_tech = improved_ship_hull_carrier
+				}
+				create_ship = {
+					type = ship_hull_carrier_2
+					equipment_variant = "Improved Carrier"
+					creator = USA
+				}
+			}
+			ELSE = {
+				create_ship = {
+					type = ship_hull_carrier_1
+					equipment_variant = "Basic Carrier 2"
+					creator = USA
+				}
+			}
+			IF = {
+				limit = {
+					has_tech = advanced_ship_hull_heavy
+				}
+				create_ship = {
+					type = ship_hull_heavy_4
+					equipment_variant = "Advanced Heavy Ship"
+					creator = USA
+				}
+			}
+			ELSE_IF = {
+				limit = {
+					has_tech = improved_ship_hull_heavy
+				}
+				create_ship = {
+					type = ship_hull_heavy_3
+					equipment_variant = "Improved Heavy Ship"
+					creator = USA
+				}
+			}
+			ELSE_IF = {
+				limit = {
+					has_tech = basic_ship_hull_heavy
+				}
+				create_ship = {
+					type = ship_hull_heavy_2
+					equipment_variant = "Basic Heavy Ship"
+					creator = USA
+				}
+			}
+			ELSE = {
+				create_ship = {
+					type = ship_hull_heavy_1
+					equipment_variant = "Early Heavy Ship " # trailing space matches vanilla loc ship_hull_heavy_1 exactly; lookup fails without it
+					creator = USA
+				}
+			}
+			IF = {
+				limit = {
+					has_tech = advanced_ship_hull_light
+				}
+				create_ship = {
+					type = ship_hull_light_4
+					equipment_variant = "Advanced Destroyer"
+					creator = USA
+				}
+				create_ship = {
+					type = ship_hull_light_4
+					equipment_variant = "Advanced Destroyer"
+					creator = USA
+				}
+				create_ship = {
+					type = ship_hull_light_4
+					equipment_variant = "Advanced Destroyer"
+					creator = USA
+				}
+				create_ship = {
+					type = ship_hull_light_4
+					equipment_variant = "Advanced Destroyer"
+					creator = USA
+				}
+			}
+			ELSE_IF = {
+				limit = {
+					has_tech = improved_ship_hull_light
+				}
+				create_ship = {
+					type = ship_hull_light_3
+					equipment_variant = "Improved Destroyer"
+					creator = USA
+				}
+				create_ship = {
+					type = ship_hull_light_3
+					equipment_variant = "Improved Destroyer"
+					creator = USA
+				}
+				create_ship = {
+					type = ship_hull_light_3
+					equipment_variant = "Improved Destroyer"
+					creator = USA
+				}
+				create_ship = {
+					type = ship_hull_light_3
+					equipment_variant = "Improved Destroyer"
+					creator = USA
+				}
+			}
+			ELSE_IF = {
+				limit = {
+					has_tech = basic_ship_hull_light
+				}
+				create_ship = {
+					type = ship_hull_light_2
+					equipment_variant = "Basic Destroyer"
+					creator = USA
+				}
+				create_ship = {
+					type = ship_hull_light_2
+					equipment_variant = "Basic Destroyer"
+					creator = USA
+				}
+				create_ship = {
+					type = ship_hull_light_2
+					equipment_variant = "Basic Destroyer"
+					creator = USA
+				}
+				create_ship = {
+					type = ship_hull_light_2
+					equipment_variant = "Basic Destroyer"
+					creator = USA
+				}
+			}
+			ELSE = {
+				create_ship = {
+					type = ship_hull_light_1
+					equipment_variant = "Early Destroyer"
+					creator = USA
+				}
+				create_ship = {
+					type = ship_hull_light_1
+					equipment_variant = "Early Destroyer"
+					creator = USA
+				}
+				create_ship = {
+					type = ship_hull_light_1
+					equipment_variant = "Early Destroyer"
+					creator = USA
+				}
+				create_ship = {
+					type = ship_hull_light_1
+					equipment_variant = "Early Destroyer"
+					creator = USA
+				}
+			}
 		}
 	}
 
