@@ -1681,13 +1681,19 @@ AST_cabinet_trust_cat = {
 			custom_effect_tooltip = AST_castle_crumbling_mission_complete_tt
 			custom_effect_tooltip = generic_skip_one_line_tt
 			JAP = { country_event = { id = AST_canberra_air_disaster_events.5 hours = 3 } }
-			custom_effect_tooltip = AST_make_a_common_enemy_tt
+			# custom_effect_tooltip = AST_make_a_common_enemy_tt
+			# effect_tooltip = {
+			# 	JAP = {
+			# 		create_wargoal = {
+			# 			type = topple_government
+			# 			target = AST
+			# 		}
+			# 	}
+			# }
 			effect_tooltip = {
 				JAP = {
-					create_wargoal = {
-						type = topple_government
-						target = AST
-					}
+					add_stability = 0.05
+					add_political_power = 100
 				}
 			}
 			set_country_flag = AST_cabinet_trust_complete_1_flag #This completes Castle Crumbling mission
@@ -1698,11 +1704,11 @@ AST_cabinet_trust_cat = {
 		}
 
 		ai_will_do = {
-			factor = 2.5
-			modifier = {
-				is_historical_focus_on = yes
-				factor = 0
-			}
+			factor = 999
+			# modifier = {
+			# 	is_historical_focus_on = yes
+			# 	factor = 0
+			# }
 		}
 	}
 
