@@ -4333,7 +4333,174 @@ on_actions = {
 
     }
 
+	# THIS is the admiral, From is owner country, FromFrom is the combatant
+	on_navy_leader_won_combat = {
 
+		### Battle of Midway events ###
+
+		# Japanese version if they win
+		effect = {
+			IF = {
+				limit = {
+					FROM.FROM = {
+						is_fighting_in_strategic_region = 95 # The West Emperor Chain
+						owner = {
+							original_tag = JAP
+							ships_in_area = { area = 95 size > 29 } # Must be a decently big navy on both sides to count (counts all ships incl. convoys/subs)
+						}
+						opponent = {
+							owner = {
+								original_tag = USA
+								ships_in_area = { area = 95 size > 29 }
+							}
+						}
+					}
+					NOT = {
+						has_global_flag = JAP_the_battle_of_midway_already_took_place_flag
+					}
+				}
+
+				THIS = {
+					set_character_flag = was_the_japanese_admiral_in_midway
+				}
+				FROM.FROM = {
+					owner = {
+						# We Won the Battle of Midway
+						country_event = {
+							id = SEA_japan_popup_events.51
+							hours = 4
+						}
+					}
+				}
+				set_global_flag = JAP_the_battle_of_midway_already_took_place_flag
+			}
+
+		}
+
+		# American version if they win
+		effect = {
+			IF = {
+				limit = {
+					FROM.FROM = {
+						is_fighting_in_strategic_region = 95 # The West Emperor Chain
+						owner = {
+							original_tag = USA
+							ships_in_area = { area = 95 size > 29 } # Must be a decently big navy on both sides to count (counts all ships incl. convoys/subs)
+						}
+						opponent = {
+							owner = {
+								original_tag = JAP
+								ships_in_area = { area = 95 size > 29 }
+							}
+						}
+					}
+					NOT = {
+						has_global_flag = USA_the_battle_of_midway_already_took_place_flag
+					}
+				}
+
+				THIS = {
+					set_character_flag = was_the_american_admiral_in_midway
+				}
+				FROM.FROM = {
+					owner = {
+						# We Won the Battle of Midway
+						country_event = {
+							id = SEA_japan_popup_events.52
+							hours = 4
+						}
+					}
+				}
+				set_global_flag = USA_the_battle_of_midway_already_took_place_flag
+			}
+
+		}
+
+	}
+
+
+	# THIS is the admiral, From is owner country, FromFrom is the combatant
+	on_navy_leader_lost_combat = {
+
+		# American version if they lose
+		effect = {
+			IF = {
+				limit = {
+					FROM.FROM = {
+						is_fighting_in_strategic_region = 95 # The West Emperor Chain
+						owner = {
+							original_tag = USA
+							ships_in_area = { area = 95 size > 29 } # Must be a decently big navy on both sides to count (counts all ships incl. convoys/subs)
+						}
+						opponent = {
+							owner = {
+								original_tag = JAP
+								ships_in_area = { area = 95 size > 29 }
+							}
+						}
+					}
+					NOT = {
+						has_global_flag = USA_the_battle_of_midway_already_took_place_flag
+					}
+				}
+
+				THIS = {
+					set_character_flag = was_the_american_admiral_in_midway
+				}
+				FROM.FROM = {
+					owner = {
+						# We Lost the Battle of Midway
+						country_event = {
+							id = SEA_japan_popup_events.54
+							hours = 4
+						}
+					}
+				}
+				set_global_flag = USA_the_battle_of_midway_already_took_place_flag
+			}
+
+		}
+
+		# Japanese version if they lose
+		effect = {
+			IF = {
+				limit = {
+					FROM.FROM = {
+						is_fighting_in_strategic_region = 95 # The West Emperor Chain
+						owner = {
+							original_tag = JAP
+							ships_in_area = { area = 95 size > 29 } # Must be a decently big navy on both sides to count (counts all ships incl. convoys/subs)
+						}
+						opponent = {
+							owner = {
+								original_tag = USA
+								ships_in_area = { area = 95 size > 29 }
+							}
+						}
+					}
+					NOT = {
+						has_global_flag = JAP_the_battle_of_midway_already_took_place_flag
+					}
+				}
+
+				THIS = {
+					set_character_flag = was_the_japanese_admiral_in_midway
+				}
+				FROM.FROM = {
+					owner = {
+						# We Lost the Battle of Midway
+						country_event = {
+							id = SEA_japan_popup_events.53
+							hours = 4
+						}
+					}
+				}
+				set_global_flag = JAP_the_battle_of_midway_already_took_place_flag
+			}
+
+		}
+
+	}
 
 
 

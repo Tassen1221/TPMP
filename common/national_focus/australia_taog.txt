@@ -872,10 +872,13 @@ focus_tree = {
 		cost = 10
 
 		available = {
-			ENG = {
-  				controls_state = 1021 #Singapore
+			OR = {
+				ENG = {
+	  				controls_state = 1021 #Singapore
+	  				is_in_faction_with = AST
+				}
+				AST = { controls_state = 1021 } #Singapore
 			}
-			is_in_faction_with = ENG
 		}
 
 		bypass = {
@@ -1043,6 +1046,10 @@ focus_tree = {
 					legacy_id=-1
 				}  
 			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = available_mio_tt
+			show_mio_tooltip = AST_john_brown_and_company_organization
 
 			IF = {
 				limit = {
@@ -1320,7 +1327,10 @@ focus_tree = {
 					compare = greater_than_or_equals
 				}
 			}
-			has_country_leader = { ruling_only = yes character = AST_john_curtin }
+			OR = {
+				has_country_leader = { ruling_only = yes character = AST_john_curtin }
+				has_country_flag = AST_has_natunity_flag
+			}
 		}
 
 		bypass = {
@@ -2247,12 +2257,9 @@ focus_tree = {
 			random_owned_controlled_state = {
 				limit = {
 					is_fully_controlled_by = ROOT
-					land_facility < 1
-					air_facility < 1
-					nuclear_facility < 1
-					naval_facility < 1
+					can_construct_building = naval_facility
 				}
-				prioritize = { 285 }
+				prioritize = { 285 517 }
 				construct_building_in_random_province = {
 					naval_facility = 1
 				}
@@ -2980,7 +2987,10 @@ focus_tree = {
 				}
 			}
 
-			has_country_leader = { ruling_only = yes character = AST_robert_menzies }
+			OR = {
+				has_country_leader = { ruling_only = yes character = AST_robert_menzies }
+				has_country_flag = AST_has_natunity_flag
+			}
 
 			NOT = {
 				is_subject_of = ENG
@@ -8125,7 +8135,7 @@ focus = {
 			add_to_variable = { AST_forging_australias_future_spirit_consumer_goods_factor = -0.05 tooltip = consumer_goods_factor_tt }
 			add_to_variable = { AST_forging_australias_future_spirit_stability_factor = 0.05 tooltip = stability_factor_tt }
 			add_to_variable = { AST_forging_australias_future_spirit_production_speed_buildings_factor = 0.05 tooltip = production_speed_buildings_factor_tt }
-			add_to_variable = { AST_forging_australias_future_spirit_political_power_cost = -0.05 tooltip = political_power_cost_tt }
+			add_to_variable = { AST_forging_australias_future_spirit_political_power_gain = 0.05 tooltip = political_power_gain_tt }
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 			random_owned_controlled_state = {
@@ -10019,26 +10029,22 @@ focus = {
 		available_if_capitulated = no
 	
 		completion_reward = {
-			if = { ## If don't have a land facility, then grant it, otherwise give tech bonuses 
+			random_owned_controlled_state = {
 				limit = {
-					any_owned_state = {
-						is_core_of = AST
-						is_fully_controlled_by = AST
-						can_construct_building = land_facility
-					}
+					is_core_of = ROOT
+					is_fully_controlled_by = ROOT
+					can_construct_building = land_facility
 				}
-				random_owned_controlled_state = { 	
-					prioritize = { 285 517 519 } #Sydney, Melbourne, Adelaide 
-					construct_building_in_random_province = {
-						land_facility = 1
-					}
-				}		
-			}	
+				prioritize = { 285 517 519 } #Sydney, Melbourne, Adelaide
+				construct_building_in_random_province = {
+					land_facility = 1
+				}
+			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
-			
+
 			add_tech_bonus = {
-				name = AST_army_inventions_directorate_taog 
+				name = AST_army_inventions_directorate_taog
 				bonus = 0.25
 				uses = 1
 				category = air_equipment 
