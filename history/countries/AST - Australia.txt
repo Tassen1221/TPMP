@@ -78,6 +78,13 @@ if = {
 	set_air_oob = "AST_1936_air_bba"
 	set_technology = {
 		bba_early_transport_plane = 1
+		iw_small_airframe = 1
+		iw_medium_airframe = 1
+		iw_large_airframe = 1
+		aa_lmg = 1
+		early_bombs = 1
+		air_torpedoe_1 = 1
+		engines_1 = 1
 	}
 	else = {
 		set_air_oob = "AST_1936_air_legacy"
@@ -804,7 +811,7 @@ set_variable = { AST_forging_australias_future_spirit_research_speed_factor = 0 
 set_variable = { AST_forging_australias_future_spirit_production_lack_of_resource_penalty_factor = 0 }
 set_variable = { AST_forging_australias_future_spirit_industrial_capacity_factory = 0 }
 set_variable = { AST_forging_australias_future_spirit_industrial_capacity_dockyard = 0 }
-set_variable = { AST_forging_australias_future_spirit_political_power_cost = 0 }
+set_variable = { AST_forging_australias_future_spirit_political_power_gain = 0 }
 set_variable = { AST_forging_australias_future_spirit_cic_construction_boost_factor = 0 }
 set_variable = { AST_forging_australias_future_spirit_trade_opinion_factor = 0 }
 set_variable = { AST_forging_australias_future_spirit_overlord_trade_cost_factor = 0 }
@@ -858,8 +865,29 @@ set_variable = { AST_eminent_successors_army_chief_cost_factor = 0 }
 
 # Australia First
 set_variable = { AST_australia_first_fascism_drift = 0 }
+set_variable = { AST_australia_first_neutrality_drift = 0 }
+set_variable = { AST_australia_first_war_stability_factor = 0 }
 set_variable = { AST_australia_first_war_support_factor = 0 }
 set_variable = { AST_australia_first_operative_slot = 0 }
+set_variable = { AST_australia_first_military_industrial_organization_funds_gain = 0 }
+set_variable = { AST_australia_first_military_industrial_organization_research_bonus = 0 }
+
+#For Crown an Country
+set_variable = { AST_for_crown_and_country_war_stability_factor = 0 }
+set_variable = { AST_for_crown_and_country_training_time_factor = 0 }
+set_variable = { AST_for_crown_and_country_mobilization_laws_cost_factor = 0 }
+set_variable = { AST_for_crown_and_country_economy_cost_factor = 0 }
+set_variable = { AST_for_crown_and_country_trade_laws_cost_factor = 0}
+
+# Crown's Council
+set_variable = { AST_crowns_council_stability_factor = 0 }
+set_variable = { AST_crowns_council_production_lack_of_resource_penalty_factor = 0 }
+set_variable = { AST_crowns_council_consumer_goods_factor = 0 }
+set_variable = { AST_crowns_council_surrender_limit = 0 }
+set_variable = { AST_crowns_council_annex_cost_factor = 0 }
+set_variable = { AST_crowns_council_compliance_gain = 0 }
+set_variable = { AST_crowns_council_resistance_decay = 0 }
+set_variable = { AST_crowns_council_drift_defence_factor = 0 }
 
 # Imperial Pressure
 set_variable = { AST_imperial_pressure_democratic_drift = 0 }
@@ -869,8 +897,8 @@ set_variable = { AST_imperial_pressure_stability_factor = 0 }
 ## Army
 
 #Citizen Army
-set_variable = { AST_citizen_army_spirit_army_non_core_attack_factor = -0.25 }
-set_variable = { AST_citizen_army_spirit_army_non_core_defence_factor = -0.25 }
+set_variable = { AST_citizen_army_spirit_army_non_core_attack_factor = -0.15 }
+set_variable = { AST_citizen_army_spirit_army_non_core_defence_factor = -0.15 }
 
 #Australian Military Forces
 set_variable = { AST_australian_military_forces_spirit_army_org_factor = 0.05 }
@@ -924,6 +952,9 @@ set_variable = { AST_royal_australian_navy_spirit_navy_intel_factor = 0 }
 set_variable = { AST_royal_australian_navy_spirit_airforce_intel_factor = 0 }
 set_variable = { AST_royal_australian_navy_spirit_navy_casualty_on_sink = 0 }
 set_variable = { AST_royal_australian_navy_spirit_air_wing_xp_loss_when_killed_factor = 0 }
+set_variable = { AST_royal_australian_navy_spirit_naval_speed_factor = 0 }
+set_variable = { AST_royal_australian_navy_spirit_naval_coordination = 0 }
+set_variable = { AST_royal_australian_navy_spirit_naval_hit_chance = 0 }
 
 #Cabinet Trust
 set_variable = { AST_cabinet_trust_state = 3 }
@@ -933,6 +964,11 @@ set_variable = { AST_vichy_transfer_count = 0 }
 
 #AFM Decision System
 set_variable = { AST_call_on_fascists_cost = 20 }
+
+#New Guard
+set_variable = { AST_ng_members_var = 5000 }
+set_variable = { AST_ng_daily_var = 20 }
+set_variable = { AST_ng_units_var = 0 }
 
 create_equipment_variant = {
 	name = "Inf Eq."

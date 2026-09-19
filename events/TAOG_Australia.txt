@@ -2967,6 +2967,252 @@ country_event = { #Platypus has died
 	}
 }
 
+country_event = { #OVERLORD: NZL becomes part of AST
+    id = AST_diplomatic_events.83
+	title = AST_diplomatic_events.83.t
+	desc = AST_diplomatic_events.83.desc
+	picture = GFX_report_event_ast_parliament_house
+
+	is_triggered_only = yes
+
+    option = { 
+		name = AST_diplomatic_events.83.a
+
+		custom_effect_tooltip = AST_new_zealand_and_clause_6_tt
+	}
+}
+
+country_event = { #OWNER: Give INS/Solomons/Hebrides & Caledonia to AST
+    id = AST_diplomatic_events.84
+	title = AST_diplomatic_events.84.t
+	desc = AST_diplomatic_events.84.desc
+	picture = GFX_report_event_ast_parliament_house
+
+	is_triggered_only = yes
+
+    option = { 
+		name = AST_diplomatic_events.84.a
+
+		IF = { #Solomons
+			limit = {
+				has_country_flag = AST_solomons_to_ast
+			}
+
+			effect_tooltip = {
+				634 = {
+					transfer_state_to = AST
+				}
+
+				734 = {
+					transfer_state_to = AST
+				}
+
+				636 = {
+					transfer_state_to = AST
+				}
+			}
+		}
+
+		ELSE_IF = { #New Hebrides & Caledonia
+			limit = {
+				has_country_flag = AST_hebrides_caledonia_to_ast
+			}
+			effect_tooltip = {
+				1071 = {
+					transfer_state_to = AST
+				}
+
+				635 = {
+					transfer_state_to = AST
+				}
+			}
+		}
+
+		ELSE_IF = { #INS
+			limit = {
+				has_country_flag = AST_indonesia_to_ast
+			}
+			custom_effect_tooltip = AST_protector_of_the_indies_tt
+		}
+
+		hidden_effect = {
+			AST = { country_event = { id = AST_diplomatic_events.85 hours = 3 } }
+		}
+	}
+
+	option = { 
+		name = AST_diplomatic_events.84.b
+
+		IF = {
+			limit = {
+				has_country_flag = AST_solomons_to_ast
+			}
+			clr_country_flag = AST_solomons_to_ast
+			set_country_flag = AST_solomons_to_ast_rejected
+		}
+
+		ELSE_IF = {
+			limit = {
+				has_country_flag = AST_hebrides_caledonia_to_ast
+			}
+			clr_country_flag = AST_hebrides_caledonia_to_ast
+			set_country_flag = AST_hebrides_caledonia_to_ast_rejected
+		}
+
+		ELSE_IF = {
+			limit = {
+				has_country_flag = AST_indonesia_to_ast
+			}
+			clr_country_flag = AST_indonesia_to_ast
+			set_country_flag = AST_indonesia_to_ast_rejected
+		}
+
+		hidden_effect = {
+			AST =  { country_event = { id = AST_diplomatic_events.86 hours = 3 } }
+		}
+	}
+}
+
+country_event = { #INS/Solomons/Hebrides & Caledonia transfers to AST
+    id = AST_diplomatic_events.85
+	title = AST_diplomatic_events.85.t
+	desc = AST_diplomatic_events.85.desc
+	picture = GFX_report_event_ast_parliament_house
+
+	is_triggered_only = yes
+
+    option = { 
+		name = AST_diplomatic_events.85.a
+
+		IF = { #Solomons
+			limit = {
+				FROM = {
+					has_country_flag = AST_solomons_to_ast
+				}
+			}
+
+			FROM = {	
+				634 = {
+					transfer_state_to = AST
+				}
+
+				734 = {
+					transfer_state_to = AST
+				}
+
+				636 = {
+					transfer_state_to = AST
+				}
+
+				clr_country_flag = AST_solomons_to_ast
+			}
+		}
+
+		ELSE_IF = { #New Hebrides & Caledonia
+			limit = {
+				FROM = {
+					has_country_flag = AST_hebrides_caledonia_to_ast
+				}
+			}
+
+			1071 = {
+				transfer_state_to = AST
+			}
+
+			635 = {
+				transfer_state_to = AST
+			}
+
+			clr_country_flag = AST_hebrides_caledonia_to_ast
+		}
+
+		ELSE_IF = { #INS
+			limit = {
+				FROM = {
+					has_country_flag = AST_indonesia_to_ast
+				}
+			}
+
+			custom_override_tooltip = {
+				tooltip = AST_protector_of_the_indies_tt
+				annex_country = { target = INS transfer_troops = yes }
+			}
+		}
+	}
+}
+
+country_event = { #INS/Solomons/Hebrides & Caledonia doesn't transfer to AST
+    id = AST_diplomatic_events.86
+	title = AST_diplomatic_events.86.t
+	desc = AST_diplomatic_events.86.desc
+	picture = GFX_report_event_ast_parliament_house
+
+	is_triggered_only = yes
+
+    option = { 
+		name = AST_diplomatic_events.86.a
+
+		custom_effect_tooltip = AST_rejects_request
+
+		IF = {
+			limit = {
+				FROM = {
+					has_country_flag = AST_solomons_to_ast_rejected
+				}
+			}
+			effect_tooltip = {
+				634 = {
+					transfer_state_to = AST
+				}
+
+				734 = {
+					transfer_state_to = AST
+				}
+
+				636 = {
+					transfer_state_to = AST
+				}
+			}
+		}
+		
+		ELSE_IF = {
+			limit = {
+				FROM = {
+					has_country_flag = AST_hebrides_caledonia_to_ast_rejected
+				}
+			}
+			effect_tooltip = {
+				1071 = {
+					transfer_state_to = AST
+				}
+
+				635 = {
+					transfer_state_to = AST
+				}
+			}
+		}
+
+		ELSE_IF = {
+			limit = {
+				FROM = {
+					has_country_flag = AST_indonesia_to_ast_rejected
+				}
+			}
+
+			effect_tooltip = {
+				INS = {
+					every_owned_state = {
+						limit = { 
+							is_fully_controlled_by = INS
+						}
+						transfer_state_to = AST
+					}
+				}
+			}
+		}
+	}
+}
+
 #### Political Events ####
 
 country_event = { #Choose referendum reform
@@ -2997,8 +3243,8 @@ country_event = { #Choose referendum reform
 	 		base = 1 
 			modifier = {
 				is_historical_focus_on = yes
-			}
-			factor = 0
+				factor = 0
+			}	
 		}
 
 		set_country_flag = AST_referendum_marketing
@@ -3186,6 +3432,238 @@ country_event = { #Dalfram Dispute
 			elections_allowed = no
 		}
 		add_stability = 0.10	
+	}
+}
+
+country_event = { #Battle of Brisbane
+	id = AST_political_events.10
+	title = AST_political_events.10.t
+	desc = AST_political_events.10.desc
+	picture = GFX_report_event_AST_battle_of_brisbane
+
+	is_triggered_only = yes
+
+	option = { 
+		name = AST_political_events.10.a
+
+	}
+}
+
+country_event = { #Change democratic flag event
+	id = AST_political_events.11
+	title = AST_political_events.11.t
+	desc = AST_political_events.11.desc
+	picture = GFX_report_event_ast_parliament_house
+
+	trigger = {
+		original_tag = AST
+		has_dlc = "Thunder at Our Gates"
+		has_completed_focus = AST_war_is_coming
+		has_government = democratic
+		is_subject = no
+	}
+	
+	fire_only_once = yes
+
+	mean_time_to_happen = { days = 7 }
+
+	option = { 
+		name = AST_political_events.11.a
+		ai_chance = {
+	 		base = 1 
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
+
+		custom_effect_tooltip = AST_change_democratic_flag_tt
+		hidden_effect = {
+			set_cosmetic_tag = AST_independent
+			set_country_flag = AST_change_democratic_flag_flag
+		}
+	}
+
+	option = { 
+		name = AST_political_events.11.b
+		ai_chance = {
+	 		base = 1
+		}
+
+	}
+}
+
+country_event = { #For focus AST_the_kings_men, AST_campbells_men: Transforms New Guard Members into divisions
+	id = AST_political_events.12
+	hidden = yes
+	is_triggered_only = yes
+
+	immediate = {
+		IF = {
+			limit = {
+				has_completed_focus = AST_the_kings_men
+			}
+			division_template = {
+				name = "Royal Guard Division"
+				division_names_group = AST_INF_02
+				is_locked = yes
+				regiments={
+					infantry = { x = 0 y = 0 }
+					infantry = { x = 0 y = 1 }
+					infantry = { x = 0 y = 2 }
+					infantry = { x = 1 y = 0 }
+					infantry = { x = 1 y = 1 }
+					infantry = { x = 1 y = 2 }
+					infantry = { x = 2 y = 0 }
+					infantry = { x = 2 y = 1 }
+					infantry = { x = 2 y = 2 }
+				}
+				support={
+					artillery = { x = 0 y = 0 }
+					engineer = { x = 0 y = 1 }
+				}
+			}
+			random_core_state = {
+				limit = {
+					is_controlled_by = AST
+					has_state_flag = AST_ng_units_spawn
+				}
+				create_unit = {
+					division = "name = \"Royal Guard Division\" division_template = \"Royal Guard Division\" start_experience_factor = 0.7 start_equipment_factor = 1.0 start_manpower_factor = 1.0"
+					owner = AST
+					allow_spawning_on_enemy_provs = no 
+					count = var:ROOT.AST_ng_units_var
+				}
+			}
+		}
+		ELSE = {
+			# has_completed_focus = AST_campbells_men
+			division_template = {
+				name = "New Guard Citizen Force"
+				division_names_group = AST_MIL_01
+				is_locked = yes
+				regiments = {
+					militia = { x = 0 y = 0 }
+					militia = { x = 0 y = 1 }
+					militia = { x = 0 y = 2 }
+					
+					militia = { x = 1 y = 0 }
+					militia = { x = 1 y = 1 }
+				}
+				support = {
+					artillery = { x = 0 y = 0 }
+					recon = { x = 0 y = 1 }
+				}
+			}
+			random_core_state = {
+				limit = {
+					is_controlled_by = AST
+					has_state_flag = AST_ng_units_spawn
+				}
+				create_unit = {
+					division = "name = \"New Guard Citizen Force\" division_template = \"New Guard Citizen Force\" start_experience_factor = 0.7 start_equipment_factor = 1.0 start_manpower_factor = 1.0"
+					owner = AST
+					allow_spawning_on_enemy_provs = no 
+					count = var:ROOT.AST_ng_units_var
+				}
+			}
+		}		
+	}
+}
+
+country_event = { #New Guard
+	id = AST_political_events.13
+	title = AST_political_events.13.t
+	desc = AST_political_events.13.desc
+	picture = GFX_report_event_fascist_militia
+
+	is_triggered_only = yes
+
+	option = { 
+		name = AST_political_events.13.a
+
+		mark_focus_tree_layout_dirty = yes
+		add_ideas = AST_new_guard_spirit
+
+		custom_effect_tooltip = generic_skip_one_line_tt
+		custom_effect_tooltip = AST_add_ng_fascist_tt
+	}
+}
+
+country_event = { #Pick president for Crown's Council
+	id = AST_political_events.14
+	title = AST_political_events.14.t
+	desc = AST_political_events.14.desc
+	picture = GFX_report_event_ast_parliament_house
+
+	is_triggered_only = yes
+
+	option = { 
+		name = AST_political_events.14.a
+
+		add_dynamic_modifier = {
+			modifier = AST_crowns_council_spirit
+		}
+		set_variable = { AST_crowns_council_stability_factor = 0.15 tooltip = stability_factor_tt }
+		set_variable = { AST_crowns_council_production_lack_of_resource_penalty_factor = -0.15 tooltip = production_lack_of_resource_penalty_factor_tt }
+		set_variable = { AST_crowns_council_consumer_goods_factor = -0.1 tooltip = consumer_goods_factor_tt }
+
+		custom_effect_tooltip = generic_skip_one_line_tt
+		custom_effect_tooltip = AST_reform_the_state_tt
+
+		set_country_flag = AST_president_pankhurst_walsh_flag
+	}
+
+	option = { 
+		name = AST_political_events.14.b
+
+		add_dynamic_modifier = {
+			modifier = AST_crowns_council_spirit
+		}
+		set_variable = { AST_crowns_council_stability_factor = 0.15 tooltip = stability_factor_tt }
+		set_variable = { AST_crowns_council_surrender_limit = 0.25 tooltip = surrender_limit_tt }
+		set_variable = { AST_crowns_council_annex_cost_factor = -0.25 tooltip = annex_cost_factor_tt }
+		
+		custom_effect_tooltip = generic_skip_one_line_tt
+		custom_effect_tooltip = AST_reform_the_state_tt
+
+		set_country_flag = AST_president_hughes_flag
+	}
+
+	option = { 
+		name = AST_political_events.14.c
+
+		add_dynamic_modifier = {
+			modifier = AST_crowns_council_spirit
+		}
+		set_variable = { AST_crowns_council_stability_factor = 0.15 tooltip = stability_factor_tt }
+		set_variable = { AST_crowns_council_resistance_growth_on_our_occupied_states = -0.1 tooltip = resistance_growth_tt }
+		set_variable = { AST_crowns_council_compliance_growth = 0.1 tooltip = compliance_growth_tt }
+	 	set_variable = { AST_crowns_council_drift_defence_factor = 0.5 tooltip = drift_defence_factor_tt }
+	 	
+	 	custom_effect_tooltip = generic_skip_one_line_tt
+		custom_effect_tooltip = AST_reform_the_state_tt
+
+	 	set_country_flag = AST_president_hore_ruthven_flag
+	}
+}
+
+country_event = { #Constructs Dockyards for decision AST_dockyard_construction
+	id = AST_political_events.15
+	is_triggered_only = yes
+	hidden = yes
+
+	immediate = {
+		random_owned_controlled_state = {
+			limit = {
+				has_state_flag = AST_dockyard_construction_state_flag
+			}
+			add_building_construction = {
+				type = dockyard
+				level = 3
+				instant_build = yes
+			}
+		}	
 	}
 }
 
@@ -3683,6 +4161,33 @@ country_event = { #Japanese response to Australian accusations
 			type = topple_government
 			target = JAP
 		}
+	}
+}
+
+country_event = { #The Crown Intervenes
+	id = AST_canberra_air_disaster_events.7
+	title = AST_canberra_air_disaster_events.7.t
+	picture = GFX_report_event_ast_parliament_house
+
+	desc = {
+		text = AST_canberra_air_disaster_events.7.desc.a
+		trigger = {
+			AST_overlord_eng_is_non_monarchy_or_fascist = no
+		}
+	}
+
+	desc = {
+		text = AST_canberra_air_disaster_events.7.desc.b
+		trigger = {
+			AST_overlord_eng_is_non_monarchy_or_fascist = yes
+		}
+	}
+
+	is_triggered_only = yes
+
+	option = { 
+		name = AST_canberra_air_disaster_events.7.a
+			
 	}
 }
 

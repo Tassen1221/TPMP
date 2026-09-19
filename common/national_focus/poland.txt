@@ -13435,15 +13435,13 @@ focus_tree = {
 		icon = GFX_goal_anschluss
 		available = {
 			is_subject = no
-			if = {
-				limit = {
-					is_faction_leader = no
-				}
-				is_in_faction = no
-			}
 			OR = {
 				is_major = yes
 				is_faction_leader = yes
+				AND = {
+					is_in_faction = no
+					is_faction_leader = no
+				}
 			}
 			has_army_manpower = { size > 699999 }
 			OR = {

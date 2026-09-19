@@ -50,7 +50,7 @@ ideas = {
 			removal_cost = -1
 			modifier = {
 
-				compliance_gain = 0.1
+				compliance_gain = 0.05
 				political_power_gain = 0.05
 				production_speed_industrial_complex_factor = 0.1
 			}
@@ -196,6 +196,101 @@ ideas = {
 			}
 		}
 
+		idea_SIA_wing_promotion_disruption = {
+			picture = generic_disjointed_gov
+			allowed_civil_war = {
+				always = yes
+			}
+
+			allowed = {
+				original_tag = SIA
+			}
+			removal_cost = -1
+			modifier = {
+				army_attack_factor = -0.15
+				army_defence_factor = -0.15
+				production_speed_arms_factory_factor = -0.15
+				production_speed_industrial_complex_factor = -0.15
+				production_factory_efficiency_gain_factor = -2 #200% of base not 200% absolute 
+			}
+		}
+
+		idea_SIA_military_wing_unrest = {
+			picture = SIA_military_rebellious
+			allowed_civil_war = {
+				always = yes
+			}
+
+			allowed = {
+				original_tag = SIA
+			}
+			removal_cost = -1
+			modifier = {
+				army_attack_factor = -0.2
+				army_defence_factor = -0.2
+				army_org_factor = -0.15
+				conscription_factor = -0.1
+				production_speed_arms_factory_factor = -0.2
+				war_support_factor = -0.1
+			}
+		}
+
+		idea_SIA_civilian_wing_unrest = {
+			picture = SIA_civillian_rebellious
+			allowed_civil_war = {
+				always = yes
+			}
+
+			allowed = {
+				original_tag = SIA
+			}
+			removal_cost = -1
+			modifier = {
+				stability_factor = -0.2
+				war_support_factor = -0.1
+				production_speed_industrial_complex_factor = -0.2
+				industrial_capacity_factory = -0.15
+				consumer_goods_factor = 0.1
+			}
+		}
+
+		idea_SIA_unified_khana_ratsadon = {
+			picture = generic_political_support
+			allowed_civil_war = {
+				always = yes
+			}
+
+			allowed = {
+				original_tag = SIA
+			}
+			removal_cost = -1
+			modifier = {
+				political_power_gain = 0.1
+				stability_factor = 0.1
+				compliance_gain = 0.05
+				production_speed_industrial_complex_factor = 0.075
+				production_speed_arms_factory_factor = 0.075
+				conscription_factor = 0.15
+			}
+		}
+
+		idea_SIA_unwavering_civilian_support = {
+			picture = SIA_civillian_full_support
+			allowed_civil_war = {
+				always = yes
+			}
+
+			allowed = {
+				original_tag = SIA
+			}
+			removal_cost = -1
+			modifier = {
+				compliance_gain = 0.1
+				political_power_gain = 0.1
+				production_speed_industrial_complex_factor = 0.15
+			}
+		}
+
 		idea_SIA_defenders_of_constitutional_liberty = {
 			picture = generic_constitutional_guarantees
 			allowed_civil_war = {
@@ -243,7 +338,7 @@ ideas = {
 			}
 			removal_cost = -1
 			modifier = {
-				research_speed_factor = 0.1
+				research_speed_factor = 0.08
 				democratic_drift = 0.02
 				political_advisor_cost_factor = -0.2
 			}
@@ -338,6 +433,40 @@ ideas = {
 				consumer_goods_factor = -0.15
 				production_speed_buildings_factor = 0.05
 			}	
+		}
+
+		idea_SIA_oss_special_forces_training = {
+			picture = eng_special_air_service
+			allowed_civil_war = {
+				always = yes
+			}
+
+			allowed = {
+				original_tag = SIA
+			}
+			removal_cost = -1
+			modifier = {
+				special_forces_attack_factor = 0.10
+				special_forces_defence_factor = 0.10
+				special_forces_cap = 0.05
+				special_forces_training_time_factor = -0.20
+			}
+		}
+
+		idea_SIA_seized_japanese_funds = {
+			picture = generic_production_bonus
+			allowed_civil_war = {
+				always = yes
+			}
+
+			allowed = {
+				original_tag = SIA
+			}
+			removal_cost = -1
+			modifier = {
+				production_speed_buildings_factor = 0.10
+				industrial_capacity_factory = 0.10
+			}
 		}
 
 		idea_SIA_war_fervor = {
@@ -489,7 +618,7 @@ ideas = {
 				war_stability_factor = 0.1
 				political_power_factor = 0.08
 				resistance_target = -0.05
-				compliance_growth = 0.1
+				compliance_growth = 0.02
 				production_factory_start_efficiency_factor = 0.15
 			}
 		}
@@ -504,12 +633,16 @@ ideas = {
 			}
 			removal_cost = -1
 			modifier = {
+
 				party_popularity_stability_factor = 0.15
 				war_stability_factor = 0.1
 				political_power_factor = 0.08
+				resistance_target = -0.05
+				compliance_growth = 0.05
+				production_factory_start_efficiency_factor = 0.15
 				resistance_growth_on_our_occupied_states = 0.25
 				resistance_target_on_our_occupied_states = 0.15
-				recruitable_population_factor = 0.15
+				conscription_factor = 0.15
 			}
 		}
 		idea_SIA_songsuradet_ascendant_0 = {
@@ -1237,6 +1370,24 @@ ideas = {
 			}
 		}
 
+		idea_SIA_japanese_fighter_instruction = {
+			allowed = {
+				has_dlc = "Thunder at Our Gates"
+				original_tag = SIA
+			}
+
+			picture = SIA_directorate_of_aeronautical_engineering
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			research_bonus = {
+				light_air = 0.15
+			}
+		}
+
 		idea_SIA_diverting_army_funds_to_navy = {
 			allowed = {
 				has_dlc = "Thunder at Our Gates"
@@ -1421,6 +1572,423 @@ ideas = {
 			}
 		}
 
+		idea_SIA_kra_air_defense = {
+			picture = generic_anti_air
+			allowed_civil_war = {
+				always = yes
+			}
+
+			allowed = {
+				original_tag = SIA
+			}
+			removal_cost = -1
+			modifier = {
+				air_mission_efficiency = 0.10
+			}
+		}
+
+		idea_SIA_fighter_type_12 = {
+			picture = generic_anti_air
+			allowed_civil_war = {
+				always = yes
+			}
+
+			allowed = {
+				original_tag = SIA
+			}
+			removal_cost = -1
+			modifier = {
+				air_agility_factor = 0.05
+				air_attack_factor = 0.05
+				air_ace_bonuses_factor = 0.30
+				air_doctrine_cost_factor = -0.10
+			}
+		}
+
+		idea_SIA_specialized_airframe_construction_conserve = {
+			picture = generic_anti_air
+			allowed_civil_war = {
+				always = yes
+			}
+
+			allowed = {
+				original_tag = SIA
+			}
+			removal_cost = -1
+			modifier = {
+				air_manpower_requirement_factor = -0.20
+				conscription_factor = 0.05
+			}
+			equipment_bonus = {
+				small_plane_airframe = {
+					instant = yes
+					reliability = -0.10
+				}
+				medium_plane_airframe = {
+					instant = yes
+					reliability = -0.10
+				}
+				medium_plane_fighter_airframe = {
+					instant = yes
+					reliability = -0.10
+				}
+				large_plane_airframe = {
+					instant = yes
+					reliability = -0.10
+				}
+				small_plane_airframe_1 = {
+					instant = yes
+					air_agility = 0.15
+					air_range = 0.10
+					reliability = -0.10
+					build_cost_ic = -0.10
+				}
+				small_plane_airframe_2 = {
+					instant = yes
+					air_agility = -0.07
+					air_range = -0.07
+					build_cost_ic = 0.07
+				}
+				small_plane_airframe_3 = {
+					instant = yes
+					air_agility = -0.07
+					air_range = -0.07
+					build_cost_ic = 0.07
+				}
+			}
+		}
+
+		idea_SIA_specialized_airframe_construction_increase = {
+			picture = generic_anti_air
+			allowed_civil_war = {
+				always = yes
+			}
+
+			allowed = {
+				original_tag = SIA
+			}
+			removal_cost = -1
+			modifier = {
+				air_manpower_requirement_factor = 0.5
+			}
+			equipment_bonus = {
+				small_plane_airframe = {
+					instant = yes
+					reliability = 0.10
+					air_defence = 0.07
+				}
+				medium_plane_airframe = {
+					instant = yes
+					reliability = 0.10
+					air_defence = 0.07
+				}
+				medium_plane_fighter_airframe = {
+					instant = yes
+					reliability = 0.10
+					air_defence = 0.07
+				}
+				large_plane_airframe = {
+					instant = yes
+					reliability = 0.10
+					air_defence = 0.07
+				}
+				small_plane_airframe_1 = {
+					instant = yes
+					air_agility = 0.15
+					air_range = 0.10
+					reliability = -0.10
+					build_cost_ic = -0.10
+				}
+				small_plane_airframe_2 = {
+					instant = yes
+					air_agility = -0.07
+					air_range = -0.07
+					build_cost_ic = 0.07
+				}
+				small_plane_airframe_3 = {
+					instant = yes
+					air_agility = -0.07
+					air_range = -0.07
+					build_cost_ic = 0.07
+				}
+			}
+		}
+
+		idea_SIA_specialized_airframe_construction_legacy_conserve = {
+			picture = generic_anti_air
+			allowed_civil_war = {
+				always = yes
+			}
+
+			allowed = {
+				original_tag = SIA
+			}
+			removal_cost = -1
+			modifier = {
+				air_manpower_requirement_factor = -0.20
+				conscription_factor = 0.05
+			}
+			equipment_bonus = {
+				small_plane_airframe = {
+					instant = yes
+					reliability = -0.10
+				}
+				medium_plane_airframe = {
+					instant = yes
+					reliability = -0.10
+				}
+				medium_plane_fighter_airframe = {
+					instant = yes
+					reliability = -0.10
+				}
+				large_plane_airframe = {
+					instant = yes
+					reliability = -0.10
+				}
+				fighter_equipment_1 = {
+					instant = yes
+					air_agility = 0.15
+					air_range = 0.10
+					reliability = -0.10
+					build_cost_ic = -0.10
+				}
+				fighter_equipment_2 = {
+					instant = yes
+					air_agility = -0.07
+					air_range = -0.07
+					build_cost_ic = 0.07
+				}
+				fighter_equipment_3 = {
+					instant = yes
+					air_agility = -0.07
+					air_range = -0.07
+					build_cost_ic = 0.07
+				}
+			}
+		}
+
+		idea_SIA_specialized_airframe_construction_legacy_increase = {
+			picture = generic_anti_air
+			allowed_civil_war = {
+				always = yes
+			}
+
+			allowed = {
+				original_tag = SIA
+			}
+			removal_cost = -1
+			modifier = {
+				air_manpower_requirement_factor = 0.5
+			}
+			equipment_bonus = {
+				small_plane_airframe = {
+					instant = yes
+					reliability = 0.10
+					air_defence = 0.07
+				}
+				medium_plane_airframe = {
+					instant = yes
+					reliability = 0.10
+					air_defence = 0.07
+				}
+				medium_plane_fighter_airframe = {
+					instant = yes
+					reliability = 0.10
+					air_defence = 0.07
+				}
+				large_plane_airframe = {
+					instant = yes
+					reliability = 0.10
+					air_defence = 0.07
+				}
+				fighter_equipment_1 = {
+					instant = yes
+					air_agility = 0.15
+					air_range = 0.10
+					reliability = -0.10
+					build_cost_ic = -0.10
+				}
+				fighter_equipment_2 = {
+					instant = yes
+					air_agility = -0.07
+					air_range = -0.07
+					build_cost_ic = 0.07
+				}
+				fighter_equipment_3 = {
+					instant = yes
+					air_agility = -0.07
+					air_range = -0.07
+					build_cost_ic = 0.07
+				}
+			}
+		}
+
+		idea_SIA_license_equipment_conserve = {
+			picture = generic_anti_air
+			allowed_civil_war = {
+				always = yes
+			}
+
+			allowed = {
+				original_tag = SIA
+			}
+			removal_cost = -1
+			modifier = {
+				license_air_purchase_cost = -0.75
+				license_production_speed = 0.5
+				license_tech_difference_speed = 0.5
+				air_manpower_requirement_factor = -0.20
+				conscription_factor = 0.05
+			}
+			equipment_bonus = {
+				small_plane_airframe = {
+					instant = yes
+					reliability = -0.10
+				}
+				medium_plane_airframe = {
+					instant = yes
+					reliability = -0.10
+				}
+				medium_plane_fighter_airframe = {
+					instant = yes
+					reliability = -0.10
+				}
+				large_plane_airframe = {
+					instant = yes
+					reliability = -0.10
+				}
+			}
+		}
+
+		idea_SIA_license_equipment_increase = {
+			picture = generic_anti_air
+			allowed_civil_war = {
+				always = yes
+			}
+
+			allowed = {
+				original_tag = SIA
+			}
+			removal_cost = -1
+			modifier = {
+				license_air_purchase_cost = -0.75
+				license_production_speed = 0.5
+				license_tech_difference_speed = 0.5
+				air_manpower_requirement_factor = 0.5
+			}
+			equipment_bonus = {
+				small_plane_airframe = {
+					instant = yes
+					reliability = 0.10
+					air_defence = 0.07
+				}
+				medium_plane_airframe = {
+					instant = yes
+					reliability = 0.10
+					air_defence = 0.07
+				}
+				medium_plane_fighter_airframe = {
+					instant = yes
+					reliability = 0.10
+					air_defence = 0.07
+				}
+				large_plane_airframe = {
+					instant = yes
+					reliability = 0.10
+					air_defence = 0.07
+				}
+			}
+		}
+
+		idea_SIA_bomber_procurement_program = {
+			picture = generic_anti_air
+			allowed_civil_war = {
+				always = yes
+			}
+
+			allowed = {
+				original_tag = SIA
+			}
+			removal_cost = -1
+			equipment_bonus = {
+				medium_plane_airframe = {
+					build_cost_ic = -0.25
+					instant = yes
+				}
+			}
+		}
+
+		idea_SIA_increase_air_crews = {
+			picture = generic_anti_air
+			allowed_civil_war = {
+				always = yes
+			}
+
+			allowed = {
+				original_tag = SIA
+			}
+			removal_cost = -1
+			modifier = {
+				air_manpower_requirement_factor = 0.40
+			}
+			equipment_bonus = {
+				small_plane_airframe = {
+					instant = yes
+					reliability = 0.10
+					air_defence = 0.05
+				}
+				medium_plane_airframe = {
+					instant = yes
+					reliability = 0.10
+					air_defence = 0.05
+				}
+				medium_plane_fighter_airframe = {
+					instant = yes
+					reliability = 0.10
+					air_defence = 0.05
+				}
+				large_plane_airframe = {
+					instant = yes
+					reliability = 0.10
+					air_defence = 0.05
+				}
+			}
+		}
+
+		idea_SIA_conserve_air_crews = {
+			picture = generic_anti_air
+			allowed_civil_war = {
+				always = yes
+			}
+
+			allowed = {
+				original_tag = SIA
+			}
+			removal_cost = -1
+			modifier = {
+				air_manpower_requirement_factor = -0.20
+				conscription_factor = 0.05
+			}
+			equipment_bonus = {
+				small_plane_airframe = {
+					instant = yes
+					reliability = -0.10
+				}
+				medium_plane_airframe = {
+					instant = yes
+					reliability = -0.10
+				}
+				medium_plane_fighter_airframe = {
+					instant = yes
+					reliability = -0.10
+				}
+				large_plane_airframe = {
+					instant = yes
+					reliability = -0.10
+				}
+			}
+		}
+
 		idea_SIA_yielded_the_air_war = {
 			picture = generic_anti_air
 			allowed_civil_war = {
@@ -1498,8 +2066,8 @@ ideas = {
 			equipment_bonus = {
 				light_tank_chassis = {
 					instant = yes
-					build_cost_ic = -0.15
-					reliability = -0.10
+					build_cost_ic = -0.1
+					soft_attack = -0.05
 				}
 			}
 		}
@@ -1515,8 +2083,7 @@ ideas = {
 			}
 			removal_cost = -1
 			modifier = {
-				production_factory_efficiency_gain_factor = -0.1
-				line_change_production_efficiency_factor = -0.05
+				production_factory_efficiency_gain_factor = 0.1
 				industrial_capacity_factory = 0.15
 			}
 		}
@@ -1538,7 +2105,7 @@ ideas = {
 			on_remove = {
 				add_timed_idea = {
 					idea = idea_SIA_short_war_temp_debuff
-					days = 180
+					days = 90
 				}
 			}
 		}
@@ -1555,8 +2122,8 @@ ideas = {
 			removal_cost = -1
 			modifier = {
 				army_attack_factor = -0.15
-				army_defence_factor = -0.2
-				army_speed_factor = -0.2
+				army_defence_factor = -0.15
+				army_speed_factor = -0.15
 			}
 		}
 

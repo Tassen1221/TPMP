@@ -9,6 +9,7 @@ add_namespace = INS_chaos_events
 add_namespace = INS_loyalist_events
 add_namespace = INS_communist_events
 add_namespace = INS_limited_war_events
+add_namespace = INS_martial_law_events
 
 # The new Governor General for Indonesia
 country_event = {
@@ -431,7 +432,7 @@ country_event = {
 
 	# Ok
 	option = {
-		name = INS_political_events.10.a
+		name = INS_revolution_events.1.a
 		indonesia_seize_oppurtunity_reconquest_effect = yes
 	}
 }
@@ -2324,6 +2325,8 @@ country_event = {
 		}
 		effect_tooltip = { indonesia_volksraad_reject_25_effect = yes }
 		hidden_effect = { INS = { add_political_power = 12 } } #Dutch PP changes happen for Dutch-event, Indonesian PP changes happen for Indonesian event. Scripted effect should always be an effect tooltip
+
+		clr_country_flag = INS_is_taking_volksraad
 	}
 }
 
@@ -4593,6 +4596,9 @@ country_event = {
 	option = { # Acknowledge
 		name = INS_industrial_events.28.a
 		ai_chance = { base = 10 }
+		hidden_effect = {
+			clr_country_flag = INS_selling_resource_flag
+		}
 		effect_tooltip = {
 			custom_effect_tooltip = INS_great_depression_tt
 			add_to_variable = { var = INS_great_depression_country_resource_cost_rubber value = 40 tooltip = country_resource_cost_rubber_tt }
@@ -4621,12 +4627,14 @@ country_event = {
 		name = INS_industrial_events.28.b
 		ai_chance = { base = 1 }
 		trigger = {
-			NOT = { has_country_flag = INS_selling_resource_flag }
 			has_resources_in_country = {
 				resource = rubber
 				amount > 39
 				extracted = no
 			}
+		}
+		hidden_effect = {
+			clr_country_flag = INS_selling_resource_flag
 		}
 		effect_tooltip = {
 			custom_effect_tooltip = INS_great_depression_tt
@@ -4668,6 +4676,9 @@ country_event = {
 	option = { # Acknowledge
 		name = INS_industrial_events.28.a
 		ai_chance = { base = 10 }
+		hidden_effect = {
+			clr_country_flag = INS_selling_resource_flag
+		}
 		effect_tooltip = {
 			custom_effect_tooltip = INS_great_depression_tt
 			add_to_variable = { var = INS_great_depression_country_resource_cost_rubber value = 24 tooltip = country_resource_cost_rubber_tt }
@@ -4696,12 +4707,15 @@ country_event = {
 		name = INS_industrial_events.28.b
 		ai_chance = { base = 1 }
 		trigger = {
-			NOT = { has_country_flag = INS_selling_resource_flag }
+			
 			has_resources_in_country = {
 				resource = rubber
 				amount > 23
 				extracted = no
 			}
+		}
+		hidden_effect = {
+			clr_country_flag = INS_selling_resource_flag
 		}
 		effect_tooltip = {
 			custom_effect_tooltip = INS_great_depression_tt
@@ -4743,6 +4757,9 @@ country_event = {
 	option = { # Acknowledge
 		name = INS_industrial_events.28.a
 		ai_chance = { base = 10 }
+		hidden_effect = {
+			clr_country_flag = INS_selling_resource_flag
+		}
 		effect_tooltip = {
 			custom_effect_tooltip = INS_great_depression_tt
 			add_to_variable = { var = INS_great_depression_country_resource_cost_rubber value = 32 tooltip = country_resource_cost_rubber_tt }
@@ -4756,12 +4773,15 @@ country_event = {
 		name = INS_industrial_events.28.b
 		ai_chance = { base = 1 }
 		trigger = {
-			NOT = { has_country_flag = INS_selling_resource_flag }
+			
 			has_resources_in_country = {
 				resource = rubber
 				amount > 31
 				extracted = no
 			}
+		}
+		hidden_effect = {
+			clr_country_flag = INS_selling_resource_flag
 		}
 		effect_tooltip = {
 			custom_effect_tooltip = INS_great_depression_tt
@@ -4788,6 +4808,9 @@ country_event = {
 	option = { # Acknowledge
 		name = INS_industrial_events.28.a
 		ai_chance = { base = 10 }
+		hidden_effect = {
+			clr_country_flag = INS_selling_resource_flag
+		}
 		effect_tooltip = {
 			custom_effect_tooltip = INS_great_depression_tt
 			add_to_variable = { var = INS_great_depression_country_resource_cost_rubber value = 16 tooltip = country_resource_cost_rubber_tt }
@@ -4800,12 +4823,15 @@ country_event = {
 		name = INS_industrial_events.28.b
 		ai_chance = { base = 1 }
 		trigger = {
-			NOT = { has_country_flag = INS_selling_resource_flag }
+			
 			has_resources_in_country = {
 				resource = rubber
 				amount > 15
 				extracted = no
 			}
+		}
+		hidden_effect = {
+			clr_country_flag = INS_selling_resource_flag
 		}
 		effect_tooltip = {
 			custom_effect_tooltip = INS_great_depression_tt
@@ -4831,6 +4857,9 @@ country_event = {
 	option = { # Acknowledge
 		name = INS_industrial_events.28.a
 		ai_chance = { base = 10 }
+		hidden_effect = {
+			clr_country_flag = INS_selling_resource_flag
+		}
 		effect_tooltip = {
 			custom_effect_tooltip = INS_great_depression_tt
 			add_to_variable = { var = INS_great_depression_country_resource_cost_rubber value = 40 tooltip = country_resource_cost_rubber_tt }
@@ -4874,12 +4903,15 @@ country_event = {
 		name = INS_industrial_events.28.b
 		ai_chance = { base = 1 }
 		trigger = {
-			NOT = { has_country_flag = INS_selling_resource_flag }
+			
 			has_resources_in_country = {
 				resource = rubber
 				amount > 39
 				extracted = no
 			}
+		}
+		hidden_effect = {
+			clr_country_flag = INS_selling_resource_flag
 		}
 		effect_tooltip = {
 			custom_effect_tooltip = INS_great_depression_tt
@@ -4936,6 +4968,9 @@ country_event = {
 	option = { # Acknowledge
 		name = INS_industrial_events.28.a
 		ai_chance = { base = 10 }
+		hidden_effect = {
+			clr_country_flag = INS_selling_resource_flag
+		}
 		effect_tooltip = {
 			custom_effect_tooltip = INS_great_depression_tt
 			add_to_variable = { var = INS_great_depression_country_resource_cost_rubber value = 16 tooltip = country_resource_cost_rubber_tt }
@@ -4951,13 +4986,16 @@ country_event = {
 		name = INS_industrial_events.28.b
 		ai_chance = { base = 1 }
 		trigger = {
-			NOT = { has_country_flag = INS_selling_resource_flag }
+			
 			has_tech = motorised_infantry
 			has_resources_in_country = {
 				resource = rubber
 				amount > 15
 				extracted = no
 			}
+		}
+		hidden_effect = {
+			clr_country_flag = INS_selling_resource_flag
 		}
 		effect_tooltip = {
 			custom_effect_tooltip = INS_great_depression_tt
@@ -4986,6 +5024,9 @@ country_event = {
 	option = { # Acknowledge
 		name = INS_industrial_events.28.a
 		ai_chance = { base = 10 }
+		hidden_effect = {
+			clr_country_flag = INS_selling_resource_flag
+		}
 		effect_tooltip = {
 			custom_effect_tooltip = INS_great_depression_tt
 			add_to_variable = { var = INS_great_depression_country_resource_cost_rubber value = 32 tooltip = country_resource_cost_rubber_tt }
@@ -5012,6 +5053,9 @@ country_event = {
 	option = { # Acknowledge
 		name = INS_industrial_events.28.a
 		ai_chance = { base = 10 }
+		hidden_effect = {
+			clr_country_flag = INS_selling_resource_flag
+		}
 		effect_tooltip = {
 			custom_effect_tooltip = INS_great_depression_tt
 			add_to_variable = { var = INS_great_depression_country_resource_cost_rubber value = 90 tooltip = country_resource_cost_rubber_tt }
@@ -5047,6 +5091,9 @@ country_event = {
 	option = { # Acknowledge
 		name = INS_industrial_events.36.a
 		ai_chance = { base = 10 }
+		hidden_effect = {
+			clr_country_flag = INS_selling_resource_flag
+		}
 		effect_tooltip = {
 			custom_effect_tooltip = INS_great_depression_tt
 			add_to_variable = { var = INS_great_depression_country_resource_cost_oil value = 24 tooltip = country_resource_cost_oil_tt }
@@ -5075,13 +5122,16 @@ country_event = {
 		name = INS_industrial_events.36.b
 		ai_chance = { base = 1 }
 		trigger = {
-			NOT = { has_country_flag = INS_selling_resource_flag }
+			
 			has_completed_focus = INS_invite_foreign_companies
 			has_resources_in_country = {
 				resource = oil
 				amount > 23
 				extracted = no
 			}
+		}
+		hidden_effect = {
+			clr_country_flag = INS_selling_resource_flag
 		}
 		effect_tooltip = {
 			custom_effect_tooltip = INS_great_depression_tt
@@ -5123,6 +5173,9 @@ country_event = {
 	option = { # Acknowledge
 		name = INS_industrial_events.36.a
 		ai_chance = { base = 10 }
+		hidden_effect = {
+			clr_country_flag = INS_selling_resource_flag
+		}
 		effect_tooltip = {
 			custom_effect_tooltip = INS_great_depression_tt
 			add_to_variable = { var = INS_great_depression_country_resource_cost_oil value = 24 tooltip = country_resource_cost_oil_tt }
@@ -5151,13 +5204,16 @@ country_event = {
 		name = INS_industrial_events.36.b
 		ai_chance = { base = 1 }
 		trigger = {
-			NOT = { has_country_flag = INS_selling_resource_flag }
+			
 			has_completed_focus = INS_invite_foreign_companies
 			has_resources_in_country = {
 				resource = oil
 				amount > 23
 				extracted = no
 			}
+		}
+		hidden_effect = {
+			clr_country_flag = INS_selling_resource_flag
 		}
 		effect_tooltip = {
 			custom_effect_tooltip = INS_great_depression_tt
@@ -5199,6 +5255,9 @@ country_event = {
 	option = { # Acknowledge
 		name = INS_industrial_events.36.a
 		ai_chance = { base = 10 }
+		hidden_effect = {
+			clr_country_flag = INS_selling_resource_flag
+		}
 		effect_tooltip = {
 			custom_effect_tooltip = INS_great_depression_tt
 			add_to_variable = { var = INS_great_depression_country_resource_cost_oil value = 32 tooltip = country_resource_cost_oil_tt }
@@ -5223,6 +5282,9 @@ country_event = {
 				amount > 31
 				extracted = no
 			}
+		}
+		hidden_effect = {
+			clr_country_flag = INS_selling_resource_flag
 		}
 		effect_tooltip = {
 			custom_effect_tooltip = INS_great_depression_tt
@@ -5250,6 +5312,9 @@ country_event = {
 	option = { # Acknowledge
 		name = INS_industrial_events.36.a
 		ai_chance = { base = 10 }
+		hidden_effect = {
+			clr_country_flag = INS_selling_resource_flag
+		}
 		effect_tooltip = {
 			custom_effect_tooltip = INS_great_depression_tt
 			add_to_variable = { var = INS_great_depression_country_resource_cost_oil value = 40 tooltip = country_resource_cost_oil_tt }
@@ -5274,6 +5339,9 @@ country_event = {
 				amount > 39
 				extracted = no
 			}
+		}
+		hidden_effect = {
+			clr_country_flag = INS_selling_resource_flag
 		}
 		effect_tooltip = {
 			custom_effect_tooltip = INS_great_depression_tt
@@ -6776,11 +6844,17 @@ country_event = {
 			ideology = communism
 			size = ins_total_com_size
 		}
+
+		ROOT = {
+			set_country_flag = INS_opposition_to_revolter
+		}
 		every_other_country = {
 			limit = {
 				original_tag = ROOT
 				has_government = communism
 			}
+
+			set_country_flag = INS_supported_revolter
 			if = {
 				limit = {
 					ROOT = {
@@ -6791,6 +6865,18 @@ country_event = {
 					var = INS_automatic_militias_var_for_target
 					value = ROOT.INS_automatic_militias_var_for_target
 				}
+
+
+				if = {
+					limit = {
+						FROM = {
+							has_completed_focus = INS_pan_economic_area
+						}
+					}
+					add_ideas = INS_pan_asian_economic_area_subject
+				}
+				
+
 				division_template = {
 					name = "Freedom Fighter Militia"	
 					is_locked = yes
@@ -6871,6 +6957,8 @@ country_event = {
 				}
 			}
 			FROM = { puppet = PREV }
+			add_ideas = INS_pan_asian_economic_area_subject
+			
 		}
 		else_if = {
 			limit = {
@@ -6879,7 +6967,12 @@ country_event = {
 					is_in_faction = yes
 				}
 			}
-			FROM = { add_to_faction = PREV }
+			FROM = { 
+				add_to_faction = PREV 
+				add_to_variable = { INS_communist_revolts_succeeded = 1 }
+				log = "[?INS_communist_revolts_succeeded] revolts started"
+				INS_update_revolutionary_economic_cooperation = yes
+			}
 		}
 
 		FROM = {
@@ -7185,8 +7278,13 @@ country_event = {
 			transfer_state_to = ROOT
 
 		}
+			# Won the Borneo limited war: unlock decisions to release Sarawak/Brunei/Sabah as puppets
+		if = {
+			limit = { has_country_flag = INS_limited_war_is_borneo }
+			set_country_flag = INS_can_release_borneo_puppets
+		}
 
-		#Re-add Indonesia into their old faction if they were in a faction before
+			#Re-add Indonesia into their old faction if they were in a faction before
 		INS_re_add_to_old_faction = yes
 		INS_clear_limited_war_variables = yes
 	}
@@ -7435,3 +7533,1050 @@ country_event = {
 		INS_clear_limited_war_variables = yes
 	}
 }
+
+# Martial Law events 
+
+# INS, FROM, wants to strengthen trade relations with Jap, ROOT
+country_event = {
+	id = INS_martial_law_events.1
+	title = INS_martial_law_events.1.t
+	desc = INS_martial_law_events.1.desc
+	picture = GFX_report_event_generic_sign_treaty2
+
+	is_triggered_only = yes
+
+	option = { #Great idea
+		name = INS_martial_law_events.1.a
+		
+		ai_chance = {
+			base = 10
+		}
+		
+
+		ROOT = {
+			add_ideas = INS_strenghtened_ins_jap_trade
+		}
+
+		FROM = {
+			country_event = {
+				id = INS_martial_law_events.2
+				hours = 2
+			}
+
+			effect_tooltip = {
+				add_faction_influence_score = 100
+			}
+		}
+	}
+
+	option = { #No thanks
+		name = INS_martial_law_events.1.b
+		ai_chance = {
+			base = 1
+		}
+
+		FROM = {
+			effect_tooltip = {
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = small_decrease
+				}
+			}
+			country_event = {
+				id = INS_martial_law_events.3
+				hours = 2
+			}
+		}
+	}
+}
+
+# INS, ROOT, gets approval from JAP, FROM
+country_event = {
+	id = INS_martial_law_events.2
+	title = INS_martial_law_events.2.t
+	desc = INS_martial_law_events.2.desc
+	picture = GFX_report_event_generic_sign_treaty2
+
+	is_triggered_only = yes
+
+	option = { #Awesome!
+		name = INS_martial_law_events.2.a
+		ai_chance = {
+			base = 10
+		}
+
+		add_faction_influence_score = 100
+
+		FROM = {
+			effect_tooltip = {
+				add_ideas = INS_strenghtened_ins_jap_trade
+			}
+		}
+	}
+}
+
+# INS, ROOT, gets rejection from JAP, FROM
+country_event = {
+	id = INS_martial_law_events.3
+	title = INS_martial_law_events.3.t
+	desc = INS_martial_law_events.3.desc
+	picture = GFX_report_event_generic_sign_treaty2
+
+	is_triggered_only = yes
+
+	option = { #How rude!
+		name = INS_martial_law_events.3.a
+		ai_chance = {
+			base = 10
+		}
+
+		add_opinion_modifier = {
+			target = FROM
+			modifier = small_decrease
+		}
+	}
+}
+
+# Ins, FROM, requests JAP, ROOT, to recognize their malay claims
+country_event = {
+	id = INS_martial_law_events.4
+	title = INS_martial_law_events.4.t
+	desc = INS_martial_law_events.4.desc
+	picture = GFX_report_event_generic_sign_treaty1
+
+	is_triggered_only = yes
+
+	option = { #Sure
+		name = INS_martial_law_events.4.a
+		ai_chance = {
+			base = 100
+		}
+
+		add_political_power = -25
+
+		effect_tooltip = {
+			FROM = {
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = medium_increase
+				}
+			}
+
+			every_state = {
+				limit = {
+					OR = {
+						region = 188 #Malayas
+						region = 160 # Phillippines
+						state = 422 #Sri Lanka
+					}
+				}
+				add_claim_by = FROM
+			}
+			
+		}
+
+		FROM = {
+			country_event = {
+				id = INS_martial_law_events.5
+				hours = 6
+			}
+		}
+
+	}
+
+	option = { #NO!
+		name = INS_martial_law_events.4.b
+		ai_chance = {
+			base = 1
+		}
+
+		add_political_power = 25
+
+		FROM = {
+			effect_tooltip = {
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = medium_decrease
+				}
+			}
+
+			country_event = {
+				id = INS_martial_law_events.6
+				hours = 6
+			}
+		}
+	}
+}
+
+# JAP, FROM, recognises INS, ROOT, claims in Malay
+country_event = {
+	id = INS_martial_law_events.5
+	title = INS_martial_law_events.5.t
+	desc = INS_martial_law_events.5.desc
+	picture = GFX_report_event_generic_sign_treaty2
+
+	is_triggered_only = yes
+
+	option = { #Great
+		name = INS_martial_law_events.5.a
+		ai_chance = {
+			base = 10
+		}
+
+
+		every_state = {
+			limit = {
+				OR = {
+					region = 188 #Malayas
+					region = 160 # Phillippines
+					state = 422 #Sri Lanka
+				}
+			}
+			add_claim_by = ROOT
+		}
+
+		add_opinion_modifier = {
+			target = FROM
+			modifier = medium_increase
+		}
+	}
+}
+
+# JAP, FROM, rejects INS, ROOT, claims in Malay
+country_event = {
+	id = INS_martial_law_events.6
+	title = INS_martial_law_events.6.t
+	desc = INS_martial_law_events.6.desc
+	picture = GFX_report_event_generic_sign_treaty3
+
+	is_triggered_only = yes
+
+	option = { #How rude!
+		name = INS_martial_law_events.6.a
+		ai_chance = {
+			base = 10
+		}
+
+		add_opinion_modifier = {
+			target = FROM
+			modifier = medium_decrease
+		}
+	}
+}
+
+#INS, FROM, demands control over JAP's, ROOT, subject's states in Malay
+country_event = {
+	id = INS_martial_law_events.7
+	title = INS_martial_law_events.7.t
+	desc = INS_martial_law_events.7.desc
+	picture = GFX_report_event_generic_sign_treaty1
+
+	is_triggered_only = yes
+
+	immediate = {
+		FROM = {
+			save_global_event_target_as = demand_originator
+		}
+	}
+
+	option = { #Okay
+		name = INS_martial_law_events.7.a
+		ai_chance = {
+			base = 10
+		}
+
+		random_subject_country = {
+			limit = {
+				original_tag = SIA
+				any_owned_state = {
+					region = 188
+				}
+			}
+			country_event = {
+				id = INS_martial_law_events.9
+				hours = 6
+			}
+		}
+
+	}
+
+	option = { #NO!
+		name = INS_martial_law_events.7.b
+		ai_chance = {
+			base = 1
+		}
+
+		add_political_power = -150
+
+		FROM = {
+			country_event = {
+				id = INS_martial_law_events.8
+				hours = 6
+			}
+
+			effect_tooltip = {
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = medium_decrease
+				}
+			}
+		}
+
+	}
+}
+
+# Jap, FROm, Rejects INS's, ROOT, request for their puppet's states (SIA not asked)
+country_event = {
+	id = INS_martial_law_events.8
+	title = INS_martial_law_events.8.t
+	desc = INS_martial_law_events.8.desc
+	picture = GFX_report_event_generic_sign_treaty2
+
+	is_triggered_only = yes
+
+	option = { #How rude!
+		name = INS_martial_law_events.8.a
+		ai_chance = {
+			base = 10
+		}
+
+		add_opinion_modifier = {
+			target = FROM
+			modifier = medium_decrease
+		}
+
+		clear_global_event_target = demand_originator
+	}
+}
+
+# SIA's, ROOT, Overlord, FROM, wants SIA to give states to INS, FROM.FROM
+country_event = {
+	id = INS_martial_law_events.9
+	title = INS_martial_law_events.9.t
+	desc = INS_martial_law_events.9.desc
+	picture = GFX_report_event_generic_sign_treaty1
+
+	is_triggered_only = yes
+
+	option = { #Okay
+		name = INS_martial_law_events.9.a
+		ai_chance = {
+			base = 10
+		}
+
+		effect_tooltip = {
+			every_owned_state = {
+				limit = {
+					region = 188 #Malay
+				}
+
+				set_state_owner_to = event_target:demand_originator
+			}
+		}
+
+		event_target:demand_originator = {
+			country_event = {
+				id = INS_martial_law_events.10
+				hours = 2
+			}
+		}
+
+		custom_effect_tooltip = generic_skip_one_line_tt
+
+		custom_effect_tooltip = INS_martial_law_events.9.a.tt
+	}
+
+	option = { #absolutely not
+		name = INS_martial_law_events.9.b
+		ai_chance = {
+			base = 1
+		}
+
+		leave_faction = yes
+
+		FROM = {
+			country_event = {
+				id = INS_martial_law_events.11
+				hours = 2
+			}
+		}
+
+		effect_tooltip = {
+
+			FROM = { #We sure we want immediate declaration rather than wargoal?
+				declare_war_on = {target = ROOT type = topple_government }
+			}
+			event_target:demand_originator = {
+				declare_war_on = {target = ROOT type = annex_everything }
+			}
+		}
+	}
+}
+
+# INS, ROOT, is informed that SIA, FROM, gives up their states as prompted by JAP, FROM.FROM
+country_event = {
+	id = INS_martial_law_events.10
+	title = INS_martial_law_events.10.t
+	desc = INS_martial_law_events.10.desc
+	picture = GFX_report_event_generic_sign_treaty2
+
+	is_triggered_only = yes
+
+	option = { #Excellent 
+		name = INS_martial_law_events.10.a
+		ai_chance = {
+			base = 10
+		}
+
+		FROM = {
+			every_owned_state = {
+				limit = {
+					region = 188 #Malay
+				}
+
+				set_state_owner_to = ROOT
+			}
+		}
+
+		clear_global_event_target = demand_originator
+	}
+}
+
+
+#JAP, ROOT, is informed that their Puppet Sia, FROM, has reused the transfer of states to INS, FROM.FROM.FROM/demand_originator
+country_event = {
+	id = INS_martial_law_events.11
+	title = INS_martial_law_events.11.t
+	desc = INS_martial_law_events.11.desc
+	picture = GFX_report_event_generic_sign_treaty3
+
+	is_triggered_only = yes
+
+	option = { #We better inform INS/FROM.FROM.FROM/event_target:demand_originator
+		name = INS_martial_law_events.11.a
+		ai_chance = {
+			base = 10
+		}
+
+		FROM = { leave_faction = yes }
+
+		ROOT = {
+			declare_war_on = {target = FROM type = topple_government}
+		}
+
+		effect_tooltip = {
+			
+			event_target:demand_originator = {
+				declare_war_on = {target = FROM type = annex_everything}
+			}
+		}
+
+		event_target:demand_originator = {
+			country_event = {
+				id = INS_martial_law_events.12
+				hours = 2
+			}
+		}
+	}
+}
+
+#INS, ROOT, is informed that JAP's, FROM, puppet, FROM.FROM, is resisting
+country_event = {
+	id = INS_martial_law_events.12
+	title = INS_martial_law_events.12.t
+	desc = INS_martial_law_events.12.desc
+	picture = GFX_report_event_generic_sign_treaty3
+
+	is_triggered_only = yes
+
+	option = { #Waaaaar!
+		name = INS_martial_law_events.12.a
+		ai_chance = {
+			base = 10
+		}
+
+		effect_tooltip = {
+			FROM.FROM = {
+				leave_faction = yes
+			}
+			FROM = { #This may need a redundancy option if SIA is JAP's puppet as you cannot declare war on your puppet
+				declare_war_on = {target = FROM.FROM type = topple_government }
+			}
+		}
+
+		declare_war_on = {target = FROM.FROM type = annex_everything }
+
+		clear_global_event_target = demand_originator
+	}
+}
+
+#INS, FROM, requests overlordship over SIA, which may be integrated, from JAP, ROOT,
+country_event = {
+	id = INS_martial_law_events.13
+	title = INS_martial_law_events.13.t
+	desc = INS_martial_law_events.13.desc
+	picture = GFX_report_event_generic_sign_treaty1
+
+	is_triggered_only = yes
+
+	option = { #Sure
+		name = INS_martial_law_events.13.a
+
+		ai_chance = {
+			base = 10
+		}
+
+		effect_tooltip = {
+			if = {
+				limit = {
+					SIA = {
+						exists = yes 
+						is_subject_of = ROOT
+					}
+				}
+
+				FROM = {
+					set_autonomy = {
+						target = SIA
+						autonomy_state = autonomy_puppet
+					}
+				}
+			}
+			else = {
+				for_each_scope_loop = {
+					array = SIA.core_states
+
+					if = {
+						limit = {
+							is_owned_by = ROOT
+						}
+						set_state_owner_to = FROM
+					}
+					
+				}
+				FROM = {
+					release_puppet = SIA
+				}
+			}
+		}
+
+		FROM = {
+			country_event = {
+				id = INS_martial_law_events.14
+				hours = 6
+			}
+		}
+	}
+
+	option = { #Absolutely Not!
+		name = INS_martial_law_events.13.b
+
+		ai_chance = {
+			base = 1
+		}
+		effect_tooltip = {
+			FROM = {
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = large_decrease
+				}
+			}
+		}
+		FROM = {
+			country_event = {
+				id = INS_martial_law_events.15
+				hours = 6
+			}
+		}
+	}
+}
+
+#JAP, FROM, passes overlordship of SIA to INS, ROOT
+country_event = {
+	id = INS_martial_law_events.14
+	title = INS_martial_law_events.14.t
+	desc = INS_martial_law_events.14.desc
+	picture = GFX_report_event_generic_sign_treaty2
+
+	is_triggered_only = yes
+
+	option = { #Nice!
+		name = INS_martial_law_events.14.a
+
+		ai_chance = {
+			base = 10
+		}
+
+		if = {
+			limit = {
+				SIA = {
+					exists = yes 
+					is_subject_of = FROM
+				}
+			}
+
+			ROOT = { #This should override JAP's overlordship
+				set_autonomy = {
+					target = SIA
+					autonomy_state = autonomy_puppet
+				}
+			}
+		}
+		else = {
+			for_each_scope_loop = {
+				array = SIA.core_states
+
+				if = {
+					limit = {
+						is_owned_by = FROM
+					}
+					set_state_owner_to = ROOT
+				}
+				
+			}
+
+			release_puppet = SIA
+		}
+	}
+}
+
+#JAP, FROM, refuses overlordship of SIA to INS, ROOT
+country_event = {
+	id = INS_martial_law_events.15
+	title = INS_martial_law_events.15.t
+	desc = INS_martial_law_events.15.desc
+	picture = GFX_report_event_generic_sign_treaty3
+
+	is_triggered_only = yes
+
+	option = { 
+		name = INS_martial_law_events.15.a
+
+		ai_chance = {
+			base = 10
+		}
+		add_opinion_modifier = {
+			target = FROM
+			modifier = large_decrease
+		}
+	}
+}
+
+country_event = {
+	id = INS_martial_law_events.16
+	title = INS_martial_law_events.16.t
+	desc = INS_martial_law_events.16.desc
+	picture = GFX_report_event_SWE_psilander_affair
+
+	is_triggered_only = yes
+
+	option = { #Keep Sukarno
+		name = INS_martial_law_events.16.a
+
+		ai_chance = {
+			base = 1
+		}
+		if = {
+			limit = {
+
+				INS_sukarno = {
+					is_country_leader = no
+				}
+				
+			}
+
+			promote_character = {
+				character = INS_sukarno 
+				ideology = neutrality #Or should it be fascism
+			}
+		}
+
+	}
+
+	option = { # Hatta
+		name = INS_martial_law_events.16.b
+
+		ai_chance = {
+			base = 1
+		}
+
+		indonesia_hatta_focus_effect = yes
+	}
+
+	option = { #Kartosoewirjo
+		name = INS_martial_law_events.16.c
+
+		ai_chance = {
+			base = 1
+		}
+
+		INS_kartosoewirjo = {
+			add_country_leader_role = {
+				promote_leader = yes
+				country_leader = {
+					ideology = despotism
+					traits = { islamic_scholar } 
+				}
+			}
+		}
+
+	}
+
+#	option = { #Field Marshal, requires art before can be implemented fully
+#		name = INS_martial_law_events.16.d
+#
+#		trigger = {
+#			OR = {
+#				has_completed_focus = INS_commander_sudirman
+#				has_completed_focus = INS_commander_oerip
+#			}
+#		}
+#
+#		ai_chance = {
+#			base = 1
+#		}
+#
+#
+#	}
+}
+
+# country_event = { #Dismantle Indonesia 1
+# 	id = INS_martial_law_events.17
+# 	title = INS_martial_law_events.17.t
+# 	desc = INS_martial_law_events.17.desc
+# 	picture = GFX_report_event_generic_read_write
+
+# 	is_triggered_only = yes
+
+# 	option = { # Option 1
+# 		name = INS_martial_law_events.17.a
+
+# 		ai_chance = {
+# 			base = 1
+# 		}
+# 		# Stay as Java: dismantle the rest, keep our tag and tree.
+# 		INS_dismantle_release_all_fragments = yes
+# 	}
+
+# 	option = { # Option 2
+# 		name = INS_martial_law_events.17.b
+
+# 		ai_chance = {
+# 			base = 1
+			
+# 		}
+# 		set_capital = { state = 721 }
+# 		ROOT = {
+# 			INS_create_rump_java = yes
+# 			every_owned_state = {
+# 				limit = { NOT = { is_core_of = TML } }
+# 				transfer_state_to = event_target:ins_rump_java
+# 			}
+# 		}
+# 		INS_free_rump_breakaways = yes
+# 		set_cosmetic_tag = TML
+# 		set_politics = {
+# 			ruling_party = neutrality
+# 			elections_allowed = no
+# 			last_election = "1930.01.01"
+# 			election_frequency = 48
+# 		}
+# 		TML = {
+# 			every_character = {
+# 				set_nationality = ROOT
+# 			}
+# 		}
+# 	}
+
+# 	option = { # Option 3
+# 		name = INS_martial_law_events.17.c
+
+# 		ai_chance = {
+# 			base = 1
+# 		}
+# 		set_capital = { state = 1050 }
+# 		ROOT = {
+# 			INS_create_rump_java = yes
+# 			every_owned_state = {
+# 				limit = { NOT = { is_core_of = ATJ } }
+# 				transfer_state_to = event_target:ins_rump_java
+# 			}
+# 		}
+# 		INS_free_rump_breakaways = yes
+# 		set_cosmetic_tag = ATJ
+# 		set_politics = {
+# 			ruling_party = neutrality
+# 			elections_allowed = no
+# 			last_election = "1930.01.01"
+# 			election_frequency = 48
+# 		}
+
+# 		ATJ = {
+# 			every_character = {
+# 				set_nationality = ROOT
+# 			}
+			
+			
+			
+# 			promote_character = {
+# 				character = INS_alauddin_syah 
+# 				ideology = despotism
+# 			}
+			
+# 		}
+		
+# 	}
+
+# 	option = { # Next page
+# 		name = INS_martial_law_events.17.d
+
+# 		ai_chance = {
+# 			base = 1
+# 		}
+
+# 		country_event = {
+# 			id = INS_martial_law_events.18
+# 			hours = 0
+# 		}
+# 	}
+# }
+
+# country_event = { #Dismantle Indonesia 2
+# 	id = INS_martial_law_events.18
+# 	title = INS_martial_law_events.17.t #intentional
+# 	desc = INS_martial_law_events.17.desc #intentional
+# 	picture = GFX_report_event_generic_read_write
+
+# 	is_triggered_only = yes
+
+# 	option = { # Option 1
+# 		name = INS_martial_law_events.18.a
+
+# 		ai_chance = {
+# 			base = 1
+# 		}
+
+# 		set_capital = { state = 1052 }
+# 		ROOT = {
+# 			INS_create_rump_java = yes
+# 			every_owned_state = {
+# 				limit = { NOT = { is_core_of = BLI } }
+# 				transfer_state_to = event_target:ins_rump_java
+# 			}
+# 		}
+# 		INS_free_rump_breakaways = yes
+# 		set_cosmetic_tag = BLI
+# 		set_politics = {
+# 			ruling_party = neutrality
+# 			elections_allowed = no
+# 			last_election = "1930.01.01"
+# 			election_frequency = 48
+# 		}
+# 		BLI = {
+# 			every_character = {
+# 				set_nationality = ROOT
+# 			}
+# 			promote_character = {
+# 				character = INS_dewa_geg
+# 				ideology = despotism
+# 			}
+# 		}
+# 	}
+
+# 	option = { # Option 2
+# 		name = INS_martial_law_events.18.b
+
+# 		ai_chance = {
+# 			base = 1
+# 		}
+# 		set_capital = { state = 523 }
+# 		ROOT = {
+# 			INS_create_rump_java = yes
+# 			every_owned_state = {
+# 				limit = { NOT = { is_core_of = PNG } }
+# 				transfer_state_to = event_target:ins_rump_java
+# 			}
+# 		}
+# 		INS_free_rump_breakaways = yes
+# 		set_cosmetic_tag = PNG
+# 		set_politics = {
+# 			ruling_party = neutrality
+# 			elections_allowed = no
+# 			last_election = "1930.01.01"
+# 			election_frequency = 48
+# 		}
+# 		PNG = {
+# 			every_character = {
+# 				set_nationality = ROOT
+# 			}
+# 		}
+# 	}
+
+# 	option = { # Option 3
+# 		name = INS_martial_law_events.18.c
+
+# 		ai_chance = {
+# 			base = 1
+# 		}
+# 		set_capital = { state = 334 }
+# 		ROOT = {
+# 			INS_create_rump_java = yes
+# 			every_owned_state = {
+# 				limit = { NOT = { is_core_of = POK } }
+# 				transfer_state_to = event_target:ins_rump_java
+# 			}
+# 		}
+# 		INS_free_rump_breakaways = yes
+# 		set_cosmetic_tag = POK
+# 		set_politics = {
+# 			ruling_party = neutrality
+# 			elections_allowed = no
+# 			last_election = "1930.01.01"
+# 			election_frequency = 48
+# 		}
+# 		POK = {
+# 			every_character = {
+# 				set_nationality = ROOT
+# 			}
+# 			promote_character = {
+# 				character = INS_syarif_muhammad_alkadrie
+# 				ideology = despotism
+# 			}
+# 		}
+# 	}
+
+# 	option = { # Next page
+# 		name = INS_martial_law_events.17.d #intentional!
+
+# 		ai_chance = {
+# 			base = 1
+# 		}
+
+# 		country_event = {
+# 			id = INS_martial_law_events.19
+# 			hours = 0
+# 		}
+# 	}
+# }
+
+# country_event = { #Dismantle Indonesia 3
+# 	id = INS_martial_law_events.19
+# 	title = INS_martial_law_events.17.t #intentional
+# 	desc = INS_martial_law_events.17.desc
+# 	picture = GFX_report_event_generic_read_write
+
+# 	is_triggered_only = yes
+
+# 	option = { # Option 1
+# 		name = INS_martial_law_events.19.a
+
+# 		ai_chance = {
+# 			base = 1
+# 		}
+
+# 		set_capital = { state = 673 }
+# 		ROOT = {
+# 			INS_create_rump_java = yes
+# 			every_owned_state = {
+# 				limit = { NOT = { is_core_of = GOW } }
+# 				transfer_state_to = event_target:ins_rump_java
+# 			}
+# 		}
+# 		INS_free_rump_breakaways = yes
+# 		set_cosmetic_tag = GOW
+# 		set_politics = {
+# 			ruling_party = neutrality
+# 			elections_allowed = no
+# 			last_election = "1930.01.01"
+# 			election_frequency = 48
+# 		}
+# 		GOW = {
+# 			every_character = {
+# 				set_nationality = ROOT
+# 			}
+# 			promote_character = {
+# 				character = INS_sultan_muhibuddin
+# 				ideology = despotism
+# 			}
+# 		}
+# 	}
+
+# 	option = { # Option 2
+# 		name = INS_martial_law_events.19.b
+
+# 		ai_chance = {
+# 			base = 1
+# 		}
+# 		set_capital = { state = 1049 }
+# 		ROOT = {
+# 			INS_create_rump_java = yes
+# 			every_owned_state = {
+# 				limit = { NOT = { is_core_of = SSI } }
+# 				transfer_state_to = event_target:ins_rump_java
+# 			}
+# 		}
+# 		INS_free_rump_breakaways = yes
+# 		set_cosmetic_tag = SSI
+# 		set_politics = {
+# 			ruling_party = neutrality
+# 			elections_allowed = no
+# 			last_election = "1930.01.01"
+# 			election_frequency = 48
+# 		}
+# 		SSI = {
+# 			every_character = {
+# 				set_nationality = ROOT
+# 			}
+# 			promote_character = {
+# 				character = INS_syarif_kasim
+# 				ideology = despotism
+# 			}
+# 		}
+# 	}
+
+# 	option = { # Option 3
+# 		name = INS_martial_law_events.19.c
+
+# 		ai_chance = {
+# 			base = 1
+# 		}
+# 		set_capital = { state = 668 }
+# 		ROOT = {
+# 			INS_create_rump_java = yes
+# 			every_owned_state = {
+# 				limit = { NOT = { is_core_of = TNE } }
+# 				transfer_state_to = event_target:ins_rump_java
+# 			}
+# 		}
+# 		INS_free_rump_breakaways = yes
+# 		set_cosmetic_tag = TNE
+# 		set_politics = {
+# 			ruling_party = neutrality
+# 			elections_allowed = no
+# 			last_election = "1930.01.01"
+# 			election_frequency = 48
+# 		}
+# 		TNE = {
+# 			every_character = {
+# 				set_nationality = ROOT
+# 			}
+# 			promote_character = {
+# 				character = INS_iskandar_sjah
+# 				ideology = despotism
+# 			}
+# 		}
+# 	}
+
+# 	option = { # Next page
+# 		name = INS_martial_law_events.17.d #intentional!
+
+# 		ai_chance = {
+# 			base = 1
+# 		}
+
+# 		country_event = {
+# 			id = INS_martial_law_events.17
+# 			hours = 0
+# 		}
+# 	}
+# }

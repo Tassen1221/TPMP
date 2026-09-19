@@ -11588,6 +11588,14 @@ mio:GER_blohm_und_voss_organization = {
 					has_war_with = ROOT
 				}
 			}
+			INS = {
+				OR = {
+					exists = no
+					NOT = {
+						has_cosmetic_tag = INS_UNION
+					}
+				}
+			}
 			BEL = {
 				OR = {
 					exists = no
@@ -11608,6 +11616,14 @@ mio:GER_blohm_und_voss_organization = {
 			is_subject = no
 			OR = {
 				NOT = { HOL = { is_in_faction_with = GER } }
+				if = {
+					limit = {
+						INS = {
+							has_cosmetic_tag = INS_UNION
+						}
+					}
+					NOT = { INS = { is_in_faction_with = GER } }
+				}
 				NOT = { BEL = { is_in_faction_with = GER } }
 				NOT = { LUX = { is_in_faction_with = GER } }
 			}
@@ -11689,6 +11705,22 @@ mio:GER_blohm_und_voss_organization = {
 				}
 				HOL = {
 					country_event = { id = mtg_germany.1 hours = 6 }
+				}
+			}
+			if = {
+				limit = {
+					country_exists = INS
+					INS = {
+						has_cosmetic_tag = INS_UNION
+					}
+					NOT = { has_war_with = INS }
+					NOT = { INS = { is_in_faction_with = GER } }
+				}
+				create_wargoal = {
+					type = take_state_focus
+					target = INS
+					expire = 0
+					generator = { 7 }
 				}
 			}
 			if = {
@@ -24502,8 +24534,10 @@ mio:GER_blohm_und_voss_organization = {
 			NOT = {
 				has_war_with = SOV
 				SOV = {
-					has_government = neutrality
-					has_government = fascism
+					OR = {
+						has_government = neutrality
+						has_government = fascism
+					}
 				}
 			}
 		}
@@ -32587,7 +32621,7 @@ mio:GER_blohm_und_voss_organization = {
 					state = 737
 					state = 684
 					state = 633
-					state = 634 # If Bougainville is ever made it's own state switch this and the associated decision from 634 to that!
+					state = 1070
 					state = 646
 					state = 726
 					state = 725
@@ -32636,7 +32670,7 @@ mio:GER_blohm_und_voss_organization = {
 							state = 737
 							state = 684
 							state = 633
-							state = 634 # If Bougainville is ever made it's own state switch this and the associated decision from 634 to that!
+							state = 1070
 							state = 646
 							state = 726
 							state = 725
@@ -33522,6 +33556,7 @@ mio:GER_blohm_und_voss_organization = {
 					523 = { state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes }
 					979 = { state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes }
 					737 = { state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes }
+					1070 = { state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes }
 				}
 			}
 		}
@@ -33573,6 +33608,7 @@ mio:GER_blohm_und_voss_organization = {
 						controls_state = 894
 						controls_state = 893
 						controls_state = 634
+						controls_state = 1070
 					}
 				}
 				display_individual_scopes = yes
@@ -33597,6 +33633,7 @@ mio:GER_blohm_und_voss_organization = {
 							state = 894
 							state = 893
 							state = 634
+							state = 1070
 						}
 					}
 					add_to_array = {
@@ -35405,6 +35442,7 @@ mio:GER_blohm_und_voss_organization = {
 			add_state_claim = 541
 			add_state_claim = 546
 			add_state_claim = 737
+			add_state_claim = 1070
 			add_state_claim = 684
 			add_state_claim = 633
 			add_state_claim = 646

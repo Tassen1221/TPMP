@@ -4796,12 +4796,174 @@ country_event = {
 		ai_chance = {
 			factor = 0
 		}
+
+		trigger = { #If Dominion is on fascist path when UK is fascist OR communist path when UK is communist, DON'T SHOW this option
+			NOT = {
+				AND = {
+					original_tag = AST
+					OR = {
+						AND = {
+							has_completed_focus = AST_support_the_centre_party
+							ENG = { has_government = fascism }
+						}
+						AND = {
+							has_completed_focus = AST_empower_the_workers
+							ENG = { has_government = communism }
+						}
+					}
+				}
+			}
+			NOT = {
+				AND = {
+					original_tag = AST
+					has_dlc = "Thunder at Our Gates"
+					OR = {
+						AND = {
+							has_completed_focus = AST_australia_first
+							ENG = { has_government = fascism }
+						}
+						AND = {
+							has_completed_focus = AST_against_war_and_fascism
+							ENG = { has_government = communism }
+						}
+					}
+				}
+			}
+			NOT = {
+				AND = {
+					original_tag = NZL
+					OR = {
+						AND = {
+							has_completed_focus = NZL_in_the_darkness
+							ENG = { has_government = fascism }
+						}
+						AND = {
+							has_completed_focus = NZL_the_lee_affair
+							ENG = { has_government = communism }
+						}
+					}
+				}
+			}
+			NOT = {
+				AND = {
+					original_tag = CAN
+					OR = {
+						AND = {
+							has_completed_focus = CAN_swastika_clubs
+							ENG = { has_government = fascism }
+						}
+						AND = {
+							has_completed_focus = CAN_burn_the_royal_portraits
+							ENG = { has_government = communism }
+						}
+					}
+				}
+			}
+			NOT = {
+				AND = {
+					original_tag = SAF
+					OR = {
+						AND = {
+							has_completed_focus = SAF_support_the_afrikaner_broederbond
+							ENG = { has_government = fascism }
+						}
+						AND = {
+							has_completed_focus = SAF_empower_the_workers
+							ENG = { has_government = communism }
+						}
+					}
+				}
+			}
+			#RAJ has other solution	
+		}
+
 		set_country_flag = ENG_dominions_stayed_with_fascist_britain_flag
-	}
+	}	
 
 	# We will leave
 	option = {
 		name = mtg_britain.66.b
+
+		trigger = { #If Dominion is on fascist path when UK is fascist OR communist path when UK is communist, DON'T SHOW this option
+			NOT = {
+				AND = {
+					original_tag = AST
+					OR = {
+						AND = {
+							has_completed_focus = AST_support_the_centre_party
+							ENG = { has_government = fascism }
+						}
+						AND = {
+							has_completed_focus = AST_empower_the_workers
+							ENG = { has_government = communism }
+						}
+					}
+				}
+			}
+			NOT = {
+				AND = {
+					original_tag = AST
+					has_dlc = "Thunder at Our Gates"
+					OR = {
+						AND = {
+							has_completed_focus = AST_australia_first
+							ENG = { has_government = fascism }
+						}
+						AND = {
+							has_completed_focus = AST_against_war_and_fascism
+							ENG = { has_government = communism }
+						}
+					}
+				}
+			}
+			NOT = {
+				AND = {
+					original_tag = NZL
+					OR = {
+						AND = {
+							has_completed_focus = NZL_in_the_darkness
+							ENG = { has_government = fascism }
+						}
+						AND = {
+							has_completed_focus = NZL_the_lee_affair
+							ENG = { has_government = communism }
+						}
+					}
+				}
+			}
+			NOT = {
+				AND = {
+					original_tag = CAN
+					OR = {
+						AND = {
+							has_completed_focus = CAN_swastika_clubs
+							ENG = { has_government = fascism }
+						}
+						AND = {
+							has_completed_focus = CAN_burn_the_royal_portraits
+							ENG = { has_government = communism }
+						}
+					}
+				}
+			}
+			NOT = {
+				AND = {
+					original_tag = SAF
+					OR = {
+						AND = {
+							has_completed_focus = SAF_support_the_afrikaner_broederbond
+							ENG = { has_government = fascism }
+						}
+						AND = {
+							has_completed_focus = SAF_empower_the_workers
+							ENG = { has_government = communism }
+						}
+					}
+				}
+			}
+			#RAJ has other solution	
+		}
+
 		if = {
 			limit = {
 				OR = {
@@ -4892,6 +5054,105 @@ country_event = {
 		
 		
 		hidden_effect = { news_event = { id = mtg_news.63 days = 1 } }
+	}
+
+	# We will stay - On path to same ideology
+	option = {
+		name = mtg_britain.66.c
+
+		trigger = { #If Dominion is on fascist path when UK is fascist / communist path when UK is communist, SHOW this option
+			OR = {
+				AND = {
+					original_tag = AST
+					OR = {
+						AND = {
+							has_completed_focus = AST_support_the_centre_party
+							ENG = { has_government = fascism }
+						}
+						AND = {
+							has_completed_focus = AST_empower_the_workers
+							ENG = { has_government = communism }
+						}
+					}
+				}
+				AND = {
+					original_tag = AST
+					has_dlc = "Thunder at Our Gates"
+					OR = {
+						AND = {
+							has_completed_focus = AST_australia_first
+							ENG = { has_government = fascism }
+						}
+						AND = {
+							has_completed_focus = AST_against_war_and_fascism
+							ENG = { has_government = communism }
+						}
+					}
+				}
+				AND = {
+					original_tag = NZL
+					OR = {
+						AND = {
+							has_completed_focus = NZL_in_the_darkness
+							ENG = { has_government = fascism }
+						}
+						AND = {
+							has_completed_focus = NZL_the_lee_affair
+							ENG = { has_government = communism }
+						}
+					}
+				}
+				AND = {
+					original_tag = CAN
+					OR = {
+						AND = {
+							has_completed_focus = CAN_swastika_clubs
+							ENG = { has_government = fascism }
+						}
+						AND = {
+							has_completed_focus = CAN_burn_the_royal_portraits
+							ENG = { has_government = communism }
+						}
+					}
+				}
+				AND = {
+					original_tag = SAF
+					OR = {
+						AND = {
+							has_completed_focus = SAF_support_the_afrikaner_broederbond
+							ENG = { has_government = fascism }
+						}
+						AND = {
+							has_completed_focus = SAF_empower_the_workers
+							ENG = { has_government = communism }
+						}
+					}
+				}
+				#RAJ has other solution		
+			}
+		}
+
+		IF = {
+			limit = {
+				ENG = { has_government = fascism }
+			}
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.05
+			}
+		}
+
+		ELSE_IF = {
+			limit = {
+				ENG = { has_government = communism }
+			}
+			add_popularity = {
+				ideology = communism
+				popularity = 0.05
+			}
+		}
+
+		set_country_flag = ENG_dominions_stayed_with_fascist_britain_flag
 	}
 }
 

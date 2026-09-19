@@ -24,6 +24,10 @@ AST_union_control_1_cat = {
 			}
 		}
 
+		cancel_trigger = {
+			has_completed_focus = AST_all_for_one_one_for_all
+		}
+
 		modifier = {
 			civilian_factory_use = 1
 		}
@@ -56,10 +60,6 @@ AST_union_control_1_cat = {
 		}
 
 		cancel_trigger = {
-		    custom_trigger_tooltip = {
-		        tooltip = AST_veterans_revolt_stability_tt
-		        has_stability > 0.40
-		    }
 		    hidden_trigger = {
 			    OR = {
 			        has_government = communism
@@ -476,7 +476,7 @@ AST_union_control_2_cat = {
 			}
 		}
 
-		cost = 75
+		cost = 50
 
 		days_remove = 30
 
@@ -557,7 +557,7 @@ AST_union_control_2_cat = {
 			}
 		}
 
-		cost = 150
+		cost = 100
 
 		fire_only_once = yes
 		days_remove = 30
@@ -807,7 +807,7 @@ AST_election_approaching_cat = {
 		timeout_effect = {
 			reduce_focus_completion_cost = {
 				focus = { AST_the_pacific_pact AST_advance_pacific_initiatives AST_domestic_industry AST_a_collapsing_league_of_nations AST_department_of_munitions AST_a_democratic_bulwark AST_call_for_a_referendum AST_rural_concessions }
-				cost = -14
+				cost = -7
 			}
 		}
 	}
@@ -1020,11 +1020,11 @@ AST_war_is_coming_cat = {
 	   		}
 
 	   		custom_effect_tooltip = generic_skip_one_line_tt
-	   		custom_effect_tooltip = when_at_war_TT
+	   		custom_effect_tooltip = AST_scorch_the_north_tt
 			effect_tooltip = {
 		   		every_owned_state = {
 					limit = {
-						is_controlled_by = ROOT
+						is_owned_by = ROOT
 						infrastructure > 0
 						OR = {
 							state = 870
@@ -1754,6 +1754,56 @@ AST_cabinet_trust_cat = {
 		}
 	}
 
+	AST_monarchist_intervention = {
+		icon = GFX_decision_generic_monarchy
+
+		visible = {
+			has_completed_focus = AST_pankhurst_walsh
+			has_idea = AST_new_guard_spirit
+		}
+
+		available = {
+			has_idea = AST_cabinet_trust_state_1_idea
+			has_idea = AST_new_guard_spirit
+			custom_override_tooltip = {
+				tooltip = AST_the_crown_intervenes_trigger_tt
+				check_variable = {
+					var = AST_ng_members_var
+					value > 15000
+				}
+			}
+		}
+
+		cost = 75
+
+		fire_only_once = yes
+
+		complete_effect = {
+			add_days_mission_timeout = { 
+	  			mission = AST_castle_crumbling_mission
+	   			days = 180
+	   		}
+	   		custom_effect_tooltip = generic_skip_one_line_tt
+
+			add_ideas = AST_monarchist_intervention_spirit
+			custom_effect_tooltip = generic_skip_one_line_tt
+
+			mark_focus_tree_layout_dirty = yes
+			custom_effect_tooltip = AST_add_the_crown_intervenes_tt
+			custom_effect_tooltip = generic_skip_one_line_tt
+			
+			set_country_flag = AST_cabinet_trust_complete_crown_flag
+		}
+
+		ai_will_do = {
+			factor = 2.5
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
+	}
+
 	AST_castle_crumbling_mission = {  
 		name = AST_castle_crumbling_mission
 		desc = AST_castle_crumbling_mission_desc
@@ -1775,8 +1825,18 @@ AST_cabinet_trust_cat = {
 					has_country_flag = AST_cabinet_trust_complete_2_flag	
 				}
 			}
-			ELSE = {
+			ELSE_IF = {
+				limit = {
+					NOT = { has_idea = AST_new_guard_spirit }
+				}
 				has_country_flag = AST_cabinet_trust_complete_not_tt
+			}
+			ELSE = {
+				#limit = {
+				#	has_idea = AST_new_guard_spirit
+				#}
+				has_country_flag = AST_cabinet_trust_complete_crown_flag
+				has_completed_focus = AST_for_crown_and_empire		
 			}	
 		}
 
@@ -1789,82 +1849,121 @@ AST_cabinet_trust_cat = {
 		fire_only_once = yes
 
 		timeout_effect = {
+			IF = { #Makes sure mission doesn't run out while completing a focus that completes it
+				limit = {
+					focus_progress = { 
+						focus = AST_for_crown_and_empire 
+						progress > 0 
+					}
+                	NOT = { 
+                		has_completed_focus = AST_for_crown_and_empire 
+                	}
+				}
+				custom_effect_tooltip = AST_castle_crumbling_reactivate_tt
+				activate_mission = AST_castle_crumbling_mission
+				add_days_mission_timeout = { 
+				  	mission = AST_castle_crumbling_mission
+				   	days = -382
+				}
+			}
+
+			ELSE = {
+				custom_effect_tooltip = AST_cabinet_trust_remove_tt
+				custom_effect_tooltip = generic_skip_one_line_tt
+
+				IF = {
+					limit = {
+						has_government = communism
+					}
+					country_event = { id = AST_canberra_air_disaster_events.4 hours = 1 }
+					custom_effect_tooltip = AST_castle_crumbling_mission_event_tt
+					effect_tooltip = {
+						AST_jack_miles = {
+							promote_character = yes
+						}
+					}
+				}
+
+				ELSE_IF = {
+					limit = {
+						has_completed_focus = AST_australia_first
+					}
+
+					IF = {
+						limit = {
+							has_idea = AST_monarchist_intervention_spirit
+						}
+						remove_ideas = AST_monarchist_intervention_spirit
+							custom_effect_tooltip = generic_skip_one_line_tt
+							custom_effect_tooltip = AST_remove_the_crown_intervenes_tt
+							custom_effect_tooltip = generic_skip_one_line_tt
+					}
+
+					country_event = { id = AST_canberra_air_disaster_events.3 hours = 1 }
+					custom_effect_tooltip = AST_castle_crumbling_mission_event_tt
+					effect_tooltip = {
+						IF = {
+							limit = {
+								OR = {
+									AND = {
+										AST_percy_stephensen = { 
+											is_hired_as_advisor = yes
+											has_character_flag = AST_fascist_leader
+										}	
+									}
+									AND = {
+										AST_adela_walsh = { 
+											is_hired_as_advisor = yes
+											has_character_flag = AST_fascist_leader
+										}
+									}
+								}
+							}
+							add_political_power = 135
+						}
+						set_politics = {
+							ruling_party = fascism
+						}
+					}
+				}
+				
+				ELSE_IF = {
+					limit = { 
+						NOT = {
+							has_completed_focus = AST_australia_first
+							has_government = communism
+						}
+					}
+					country_event = { id = AST_canberra_air_disaster_events.3 hours = 1 }
+					custom_effect_tooltip = AST_castle_crumbling_mission_event_tt
+					event_option_tooltip = AST_canberra_air_disaster_events.3.a
+				}
+
+				set_country_flag = AST_cabinet_trust_complete_3_flag
+				hidden_effect = {
+					clr_country_flag = AST_canberra_air_disaster_flag
+					AST_cabinet_trust_swap_idea = yes #Removes Cabinet Trust Ideas 
+				}
+				custom_effect_tooltip = generic_skip_one_line_tt
+			}
+		}
+
+		complete_effect = {
 			custom_effect_tooltip = AST_cabinet_trust_remove_tt
 			custom_effect_tooltip = generic_skip_one_line_tt
 
 			IF = {
 				limit = {
-					has_government = communism
+					has_idea = AST_monarchist_intervention_spirit
 				}
-				country_event = { id = AST_canberra_air_disaster_events.4 hours = 1 }
-				custom_effect_tooltip = AST_castle_crumbling_mission_event_tt
-				effect_tooltip = {
-					AST_jack_miles = {
-						promote_character = yes
-					}
-				}
+				remove_ideas = AST_monarchist_intervention_spirit
+				custom_effect_tooltip = generic_skip_one_line_tt
 			}
-
-			ELSE_IF = {
-				limit = {
-					has_completed_focus = AST_australia_first
-				}
-				country_event = { id = AST_canberra_air_disaster_events.3 hours = 1 }
-				custom_effect_tooltip = AST_castle_crumbling_mission_event_tt
-				effect_tooltip = {
-					IF = {
-						limit = {
-							OR = {
-								AND = {
-									AST_percy_stephensen = { 
-										is_hired_as_advisor = yes
-										has_character_flag = AST_fascist_leader
-									}	
-								}
-								AND = {
-									AST_adela_walsh = { 
-										is_hired_as_advisor = yes
-										has_character_flag = AST_fascist_leader
-									}
-								}
-							}
-						}
-						add_political_power = 135
-					}
-					set_politics = {
-						ruling_party = fascism
-					}
-				}
-			}
-			
-			ELSE_IF = {
-				limit = { 
-					NOT = {
-						has_completed_focus = AST_australia_first
-						has_government = communism
-					}
-				}
-				country_event = { id = AST_canberra_air_disaster_events.3 hours = 1 }
-				custom_effect_tooltip = AST_castle_crumbling_mission_event_tt
-				event_option_tooltip = AST_canberra_air_disaster_events.3.a
-			}
-
-			set_country_flag = AST_cabinet_trust_complete_3_flag
-			hidden_effect = {
-				clr_country_flag = AST_canberra_air_disaster_flag
-				AST_cabinet_trust_swap_idea = yes #Removes Cabinet Trust Ideas 
-			}
-			custom_effect_tooltip = generic_skip_one_line_tt
-		}
-
-		complete_effect = {
-			custom_effect_tooltip = AST_cabinet_trust_remove_tt	
-			custom_effect_tooltip = generic_skip_one_line_tt
 			IF = {
 				limit = {
-				 	NOT = {
-				 		has_completed_focus = AST_australia_first
-				 	}
+					NOT = { 
+						has_completed_focus = AST_australia_first 
+					}
 				}
 				country_event = { id = AST_canberra_air_disaster_events.2 hours = 1 }
 				custom_effect_tooltip = AST_castle_crumbling_mission_event_tt
@@ -1873,9 +1972,17 @@ AST_cabinet_trust_cat = {
 					clr_country_flag = AST_canberra_air_disaster_flag
 					AST_cabinet_trust_swap_idea = yes #Removes Cabinet Trust Ideas 
 				}
+			}
+			ELSE = { #has_completed_focus = AST_australia_first
+				country_event = { id = AST_canberra_air_disaster_events.7 hours = 1 }
+				set_country_flag = AST_cabinet_trust_complete_4_flag
+				hidden_effect = {
+					clr_country_flag = AST_canberra_air_disaster_flag
+					AST_cabinet_trust_swap_idea = yes #Removes Cabinet Trust Ideas
+				}
 			}	
 		}
-	} 
+	}
 
 }
 
@@ -2253,12 +2360,7 @@ AST_australia_first_movement_cat = {
 		cost = 50
 
 		available = {
-			custom_trigger_tooltip = {
-				tooltip = AST_sufficient_funds_tt		
-				NOT = {
-					has_country_flag = AST_insufficient_funds
-				}
-			}
+			NOT = { has_active_mission = AST_insufficient_funds_mission }
 		}
 
 		ai_will_do = {
@@ -2275,11 +2377,7 @@ AST_australia_first_movement_cat = {
 		}
 
 		complete_effect = {
-			set_country_flag = {
-			    flag = AST_insufficient_funds
-			    days = 100
-			    value = 1
-			}
+			set_country_flag = AST_insufficient_funds
 			IF = {
 				limit = {
 					has_completed_focus = AST_refuse_british_wars
@@ -2288,10 +2386,11 @@ AST_australia_first_movement_cat = {
 					value = 0.05
 					localization = AST_australia_first_movement_cat
 				}
+				custom_effect_tooltip = generic_skip_one_line_tt
 			}
-			custom_effect_tooltip = AST_lose_sufficient_funds_tt_100
-			activate_mission = AST_insufficient_funds_mission
+			custom_effect_tooltip = AST_for_100_days
 			hidden_effect = {
+				activate_mission = AST_insufficient_funds_mission
 				set_country_flag = {
 				    flag = AST_afm_summons
 				    days = 90
@@ -2314,12 +2413,7 @@ AST_australia_first_movement_cat = {
 		cost = 35
 
 		available = {
-			custom_trigger_tooltip = {
-				tooltip = AST_sufficient_funds_tt		
-				NOT = {
-					has_country_flag = AST_insufficient_funds
-				}
-			}
+			NOT = { has_active_mission = AST_insufficient_funds_mission }
 		}
 
 		ai_will_do = {
@@ -2335,11 +2429,7 @@ AST_australia_first_movement_cat = {
 		}
 
 		complete_effect = {
-			set_country_flag = {
-			    flag = AST_insufficient_funds
-			    days = 50
-			    value = 1
-			}
+			set_country_flag = AST_insufficient_funds
 			IF = {
 				limit = {
 					has_completed_focus = AST_refuse_british_wars
@@ -2348,10 +2438,11 @@ AST_australia_first_movement_cat = {
 					value = 0.05
 					localization = AST_australia_first_movement_cat
 				}
+				custom_effect_tooltip = generic_skip_one_line_tt
 			}
-			custom_effect_tooltip = AST_lose_sufficient_funds_tt_50
-			activate_mission = AST_insufficient_funds_mission
+			custom_effect_tooltip = AST_for_50_days
 			hidden_effect = {
+				activate_mission = AST_insufficient_funds_mission
 				add_days_mission_timeout = {
 				    mission = AST_insufficient_funds_mission
 				    days = -50
@@ -2372,12 +2463,7 @@ AST_australia_first_movement_cat = {
 		cost = 50
 
 		available = {
-			custom_trigger_tooltip = {
-				tooltip = AST_sufficient_funds_tt		
-				NOT = {
-					has_country_flag = AST_insufficient_funds
-				}
-			}
+			NOT = { has_active_mission = AST_insufficient_funds_mission }
 		}
 
 		ai_will_do = {
@@ -2393,11 +2479,7 @@ AST_australia_first_movement_cat = {
 		}
 
 		complete_effect = {
-			set_country_flag = {
-			    flag = AST_insufficient_funds
-			    days = 100
-			    value = 1
-			}
+			set_country_flag = AST_insufficient_funds
 			IF = {
 				limit = {
 					has_completed_focus = AST_refuse_british_wars
@@ -2406,10 +2488,11 @@ AST_australia_first_movement_cat = {
 					value = 0.05
 					localization = AST_australia_first_movement_cat
 				}
+				custom_effect_tooltip = generic_skip_one_line_tt
 			}
-			custom_effect_tooltip = AST_lose_sufficient_funds_tt_100
-			activate_mission = AST_insufficient_funds_mission
+			custom_effect_tooltip = AST_for_100_days
 			hidden_effect = {
+				activate_mission = AST_insufficient_funds_mission
 				set_country_flag = {
 				    flag = AST_afm_print
 				    days = 90
@@ -2432,12 +2515,7 @@ AST_australia_first_movement_cat = {
 		cost = 35
 
 		available = {
-			custom_trigger_tooltip = {
-				tooltip = AST_sufficient_funds_tt		
-				NOT = {
-					has_country_flag = AST_insufficient_funds
-				}
-			}
+			NOT = { has_active_mission = AST_insufficient_funds_mission }
 		}
 
 		ai_will_do = {
@@ -2453,11 +2531,7 @@ AST_australia_first_movement_cat = {
 		}
 
 		complete_effect = {
-			set_country_flag = {
-			    flag = AST_insufficient_funds
-			    days = 50
-			    value = 1
-			}
+			set_country_flag = AST_insufficient_funds
 			IF = {
 				limit = {
 					has_completed_focus = AST_refuse_british_wars
@@ -2466,10 +2540,11 @@ AST_australia_first_movement_cat = {
 					value = 0.05
 					localization = AST_australia_first_movement_cat
 				}
+				custom_effect_tooltip = generic_skip_one_line_tt
 			}
-			custom_effect_tooltip = AST_lose_sufficient_funds_tt_50
-			activate_mission = AST_insufficient_funds_mission
+			custom_effect_tooltip = AST_for_50_days
 			hidden_effect = {
+				activate_mission = AST_insufficient_funds_mission
 				add_days_mission_timeout = {
 				    mission = AST_insufficient_funds_mission
 				    days = -50
@@ -2497,7 +2572,6 @@ AST_australia_first_movement_cat = {
 		fire_only_once = no
 
 		complete_effect = {
-			custom_effect_tooltip = AST_sufficient_funds_tt_2
 			effect_tooltip = {
 				remove_mission = AST_insufficient_funds_mission
 			}
@@ -2536,7 +2610,7 @@ AST_australia_first_movement_cat = {
 	AST_insufficient_funds_mission = {
 		icon = GFX_decision_generic_welfare  
 
-		is_good = no
+		is_good = yes
 
 		available = {
 			custom_trigger_tooltip = {
@@ -2552,14 +2626,335 @@ AST_australia_first_movement_cat = {
 		days_mission_timeout = 100
 
 		timeout_effect = {
-			custom_effect_tooltip = AST_sufficient_funds_tt_2
 			clr_country_flag = AST_insufficient_funds
+			custom_effect_tooltip = AST_insufficient_funds_mission_tt
 		}
 
 		complete_effect = {
-			custom_effect_tooltip = AST_sufficient_funds_tt_2
 			clr_country_flag = AST_insufficient_funds
 			clr_country_flag = AST_call_on_fascists_flag
+			custom_effect_tooltip = AST_insufficient_funds_mission_tt
+		}
+	}
+
+}
+
+AST_kingdom_expansions_cat = {
+
+	AST_new_zealand_and_clause_6 = {
+
+		icon = GFX_decision_eng_trade_unions_support
+
+		visible = {
+			NZL = {
+				is_ai = yes
+				exists = yes
+			}
+		}
+
+		highlight_states = {
+			highlight_states_trigger = {
+				is_owned_by = NZL
+			}
+		}
+
+		cost = 100
+
+		available = {
+			NZL = {
+				NOT = { has_war_with = ROOT }
+				OR = {
+					threat > 0.75
+					has_war = yes
+					has_capitulated = yes
+				}
+			}
+			NZL = {
+				naval_strength_ratio = {
+					tag = AST
+					ratio < 1
+				}
+			}
+		}
+
+		ai_will_do = {
+			base = 30
+		}
+
+		days_remove = 60
+
+		fire_only_once = yes
+
+		remove_effect = {
+			IF = {
+				limit = {
+					NZL = {
+						is_subject = yes
+					}
+				}
+				hidden_effect = {
+					NZL = {
+						OVERLORD = { country_event = { id = AST_diplomatic_events.83 hours = 1 } }
+					}
+				}
+			}
+
+			custom_override_tooltip = {
+				tooltip = AST_new_zealand_and_clause_6_tt
+				annex_country = { target = NZL transfer_troops = yes }
+			}
+		}
+	
+	}
+	
+	AST_protector_of_the_indies = {
+
+		icon = GFX_decision_INS_core_state
+
+		visible = {
+			INS = {
+				is_ai = yes
+				exists = yes
+			}
+		}
+
+		highlight_states = {
+			highlight_states_trigger = {
+				is_owned_by = INS
+			}
+		}
+
+		cost = 100
+
+		available = {
+			INS = {
+				is_puppet_of = HOL
+			}
+			HOL = {
+				NOT = { has_war_with = ROOT}
+				OR = {
+					has_war = yes
+					has_capitulated = yes
+				}
+			}
+			HOL = {
+				naval_strength_ratio = {
+					tag = AST
+					ratio < 1
+				}
+			}
+		}
+
+		ai_will_do = {
+			base = 30
+		}
+
+		days_remove = 60
+
+		fire_only_once = yes
+
+		remove_effect = {
+			IF = {
+				limit = {
+					HOL = {
+						is_ai = yes
+					}
+				}
+				custom_override_tooltip = {
+					tooltip = AST_protector_of_the_indies_tt
+					annex_country = { target = INS transfer_troops = yes }
+				}
+			}
+
+			ELSE = {
+				HOL = {
+					country_event = { id = AST_diplomatic_events.84 hours = 3 } 
+					set_country_flag = AST_indonesia_to_ast
+				}
+				custom_effect_tooltip = if_they_accept_tt
+				custom_effect_tooltip = AST_protector_of_the_indies_tt
+			}
+		}
+
+	}
+
+	AST_the_solomon_islands_protectorate = {
+
+		icon = GFX_decision_eng_install_government
+
+		visible = {
+			NOT = {
+				owns_state = 634
+				controls_state = 634
+				owns_state = 734
+				controls_state = 734
+				owns_state = 636
+				controls_state = 636
+			}
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 634
+				state = 734
+				state = 636
+			}
+		}
+
+		cost = 100
+
+		available = {
+			any_allied_country = {
+				owns_state = 634
+				controls_state = 634
+				owns_state = 734
+				controls_state = 734
+				owns_state = 636
+				controls_state = 636
+				has_war = yes
+			}
+		}
+
+		ai_will_do = {
+			base = 30
+		}
+
+		days_remove = 60
+
+		fire_only_once = yes
+
+		remove_effect = {
+			IF = {
+				limit = {
+					any_allied_country = {
+						is_ai = no
+						owns_state = 634
+						controls_state = 634
+						owns_state = 734
+						controls_state = 734
+						owns_state = 636
+						controls_state = 636
+					}
+				}
+
+				634 = {
+					owner = { 
+						country_event = { id = AST_diplomatic_events.84 hours = 3 } 
+						set_country_flag = AST_solomons_to_ast
+					}
+				}
+
+				custom_effect_tooltip = if_they_accept_tt
+				effect_tooltip = {
+					634 = {
+						transfer_state_to = AST
+					}
+
+					734 = {
+						transfer_state_to = AST
+					}
+
+					636 = {
+						transfer_state_to = AST
+					}
+				}
+			}
+
+			ELSE = {
+				634 = {
+					transfer_state_to = AST
+				}
+
+				734 = {
+					transfer_state_to = AST
+				}
+
+				636 = {
+					transfer_state_to = AST
+				}
+			}
+		}
+	}
+
+	AST_new_hebrides_and_caledonia_under_our_wing = {
+
+		icon = GFX_decision_generic_protection
+
+		visible = {
+			NOT = {
+				owns_state = 1071
+				controls_state = 1071
+				owns_state = 635
+				controls_state = 635
+			}
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 1071
+				state = 635
+			}
+		}
+
+		cost = 100
+
+		available = {
+			any_allied_country = {
+				owns_state = 1071
+				controls_state = 1071
+				owns_state = 635
+				controls_state = 635
+				has_war = yes
+			}
+		}
+
+		ai_will_do = {
+			base = 30
+		}
+
+		days_remove = 60
+
+		fire_only_once = yes
+
+		remove_effect = {
+			IF = {
+				limit = {
+					any_allied_country = {
+						is_ai = no
+						owns_state = 1071
+						controls_state = 1071
+						owns_state = 635
+						controls_state = 635
+					}
+				}
+				1071 = { 
+					owner = {
+						country_event = { id = AST_diplomatic_events.84 hours = 3 } 
+						set_country_flag = AST_hebrides_caledonia_to_ast
+					}
+				}
+
+				custom_effect_tooltip = if_they_accept_tt
+				effect_tooltip = {
+					1071 = {
+						transfer_state_to = AST
+					}
+
+					635 = {
+						transfer_state_to = AST
+					}
+				}
+			}
+
+			ELSE = {
+				1071 = {
+					transfer_state_to = AST
+				}
+
+				635 = {
+					transfer_state_to = AST
+				}
+			}
 		}
 	}
 
@@ -2974,6 +3369,158 @@ AST_vichy_out_of_africa_cat = {
 
 }
 
+AST_naval_efforts_cat = {
+		
+	AST_refit_a_retired_british_carrier = {
+		icon = GFX_decision_eng_ally_imperialist_coup
+
+		cost = 100
+
+		available = {
+			NOT = {
+				has_war_with = ENG
+			}
+		}
+
+		fire_only_once = yes
+
+		days_remove = 90
+
+		modifier = {
+			
+		}
+
+		remove_effect = {
+			IF = {
+				limit = {
+					NOT = { has_tech = improved_ship_hull_carrier }
+				}
+				set_technology = { improved_ship_hull_carrier = 1 }
+			}
+		
+			create_equipment_variant = {
+				name = "HMAS Melbourne"
+				type = ship_hull_carrier_2
+				parent_version = 0
+				allow_without_tech = yes #Makes no difference since focus grants appropriate tech (above), but it improves tooltip
+				modules = {
+					fixed_ship_deck_slot_1 = ship_deck_space
+					fixed_ship_deck_slot_2 = ship_deck_space
+					fixed_ship_anti_air_slot = ship_anti_air_1
+					fixed_ship_radar_slot = empty
+					fixed_ship_engine_slot = carrier_ship_engine_2
+					fixed_ship_secondaries_slot = dp_ship_secondaries_2
+					front_1_custom_slot = empty
+				}
+			}
+
+			add_equipment_production = {
+				equipment = {
+					type = ship_hull_carrier_2
+					creator = "AST" 
+					version_name = "HMAS Melbourne"
+				}
+				requested_factories = 1
+				progress = 0.50
+				amount = 1  
+			}
+
+			custom_effect_tooltip = available_mio_tt
+			show_mio_tooltip = ENG_harland_wolff_organization
+			set_country_flag = AST_harland_wolff_mio_trigger
+		}
+
+		ai_will_do = {
+			factor = 5
+		}
+	}
+
+	AST_dockyard_construction = { 
+		icon = GFX_decision_generic_merge_plant_ship
+
+		cost = 50
+
+		available = {
+			any_core_state = {
+				impassable = no
+				is_owned_by = AST
+				is_fully_controlled_by = AST
+				is_coastal = yes
+				industrial_complex > 1
+				free_building_slots = {
+					building = dockyard
+					size > 0
+					include_locked = yes
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		days_remove = 180
+
+		modifier = {
+			production_speed_dockyard_factor = 0.1
+		}
+
+		remove_effect = {
+			random_owned_controlled_state = {
+				limit = {
+					impassable = no
+					is_core_of = AST
+					is_fully_controlled_by = AST
+					is_coastal = yes
+					industrial_complex > 1
+					free_building_slots = {
+						building = dockyard
+						size > 0
+						include_locked = yes
+					}
+				}
+				set_state_flag = AST_dockyard_construction_state_flag
+				remove_building = {
+					type = industrial_complex 
+					level = 2
+				}
+				add_extra_state_shared_building_slots = 1
+				effect_tooltip = {
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+				}
+			}
+			hidden_effect = {
+				country_event = { id = AST_political_events.15 } #triggers stuff in effect_tooltip
+			}
+		}
+
+		ai_will_do = {
+			factor = 5
+		}
+	}
+
+	AST_man_the_docks_first = { 
+		icon = GFX_decision_SWE_set_navy_budget
+
+		cost = 50
+
+		fire_only_once = yes
+
+		days_remove = 180
+
+		modifier = {
+			consumer_goods_factor = 0.05
+			industrial_capacity_dockyard = 0.5
+		}
+
+		ai_will_do = {
+			factor = 5
+		}
+	}
+}
+
 prospect_for_resources = { 
 
 	AST_develop_port_kemla_steel_medium_decision = {
@@ -3140,7 +3687,10 @@ prospect_for_resources = {
 			num_of_civilian_factories_available_for_projects > 1
 			owns_state = 519
 			controls_state = 519
-			has_completed_focus = AST_within_reach
+			OR = {
+				has_completed_focus = AST_within_reach
+				has_completed_focus = AST_planned_extraction
+			}
 			has_tech = excavation2
 		}
 		
@@ -3215,7 +3765,10 @@ prospect_for_resources = {
 			num_of_civilian_factories_available_for_projects > 1
 			owns_state = 519
 			controls_state = 519
-			has_completed_focus = AST_within_reach
+			OR = {
+				has_completed_focus = AST_within_reach
+				has_completed_focus = AST_planned_extraction
+			}
 			has_tech = excavation3
 		}
 		
@@ -3521,7 +4074,7 @@ AST_ireland_weapon_smuggling_cat = {
 
 		available = {
 			NOT = {
-				has_country_flag = AST_smuggle_arms_to_northern_ireland_ongoing_flag
+				has_country_flag = AST_smuggle_arms_to_ireland_ongoing_flag
 			}
 		}
 
@@ -3534,7 +4087,7 @@ AST_ireland_weapon_smuggling_cat = {
 		days_remove = 5
 
 		complete_effect = {
-			set_country_flag = AST_smuggle_arms_to_northern_ireland_ongoing_flag
+			set_country_flag = AST_smuggle_arms_to_ireland_ongoing_flag
 			send_equipment = {
 				equipment = infantry_equipment
 				amount = 100
@@ -3553,7 +4106,7 @@ AST_ireland_weapon_smuggling_cat = {
 		}
 
 		remove_effect = {
-			clr_country_flag = AST_smuggle_arms_to_northern_ireland_ongoing_flag
+			clr_country_flag = AST_smuggle_arms_to_ireland_ongoing_flag
 			hidden_effect = {
 				IRE = {
 					add_to_variable = { AST_IRE_northern_ireland_support_var = 1 }

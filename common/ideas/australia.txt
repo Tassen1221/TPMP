@@ -178,8 +178,8 @@ ideas = {
 			picture = citizen_militia_1
 
 			modifier = {
-				army_non_core_attack_factor = -0.25
-				army_non_core_defence_factor = -0.25
+				army_non_core_attack_factor = -0.15
+				army_non_core_defence_factor = -0.15
 			}
    		}
 
@@ -292,43 +292,41 @@ ideas = {
 			}
 
 			cancel = {
-				NOT = {
-					ENG = {
-	  					controls_state = 1021 #Singapore
-					}
-					is_subject_of = ENG
-				}
+				NOT = { controls_state = 1021 } #Singapore
 			}
 
 			on_remove = { #Edit AST_singapore_strategy_idea_desc if changed
-
-				1021 = {
-					add_building_construction = { #edit AST_singapore_strategy_tt /AND/ AST_singapore_strategy_idea_desc if changed
-						type = air_base 
-						level = 2 
-						instant_build = yes
+				IF = {
+					limit = {
+						controls_state = 1021
 					}
-					add_building_construction = { #edit AST_singapore_strategy_tt /AND/ AST_singapore_strategy_idea_desc if changed
-						type = naval_base 
-						level = 2 
-						instant_build = yes
-						province = {
-			  				all_provinces = yes
-			  				limit_to_victory_point > 0
-			  				limit_to_coastal = yes
-			  			}
+					1021 = {
+						add_building_construction = { #edit AST_singapore_strategy_tt /AND/ AST_singapore_strategy_idea_desc if changed
+							type = air_base 
+							level = 2 
+							instant_build = yes
+						}
+						add_building_construction = { #edit AST_singapore_strategy_tt /AND/ AST_singapore_strategy_idea_desc if changed
+							type = naval_base 
+							level = 2 
+							instant_build = yes
+							province = {
+				  				all_provinces = yes
+				  				limit_to_victory_point > 0
+				  				limit_to_coastal = yes
+				  			}
+						}
+						add_building_construction = { #edit AST_singapore_strategy_tt /AND/ AST_singapore_strategy_idea_desc if changed
+							type = coastal_bunker 
+							level = 1 
+							province = {
+				  				all_provinces = yes
+				  				limit_to_victory_point > 0
+				  				limit_to_coastal = yes
+				  			}
+						}
 					}
-					add_building_construction = { #edit AST_singapore_strategy_tt /AND/ AST_singapore_strategy_idea_desc if changed
-						type = coastal_bunker 
-						level = 1 
-						province = {
-			  				all_provinces = yes
-			  				limit_to_victory_point > 0
-			  				limit_to_coastal = yes
-			  			}
-					}
-				}
-					
+				}		
 			}
 		
 		}
@@ -498,6 +496,7 @@ ideas = {
 				experience_gain_army_factor = 0.05
 				experience_gain_navy_factor = 0.05
 				experience_gain_air_factor = 0.05
+				custom_modifier_tooltip = AST_faction_training_initiative_idea_1_tt
 			}
 
 		}
@@ -527,6 +526,7 @@ ideas = {
 				experience_gain_army_factor = 0.1
 				experience_gain_navy_factor = 0.1
 				experience_gain_air_factor = 0.1
+				custom_modifier_tooltip = AST_faction_training_initiative_idea_2_tt
 			}
 
 		}
@@ -542,7 +542,7 @@ ideas = {
 			}
 
 			removal_cost = -1
-			modifier = { political_power_cost = 0.15 }
+			modifier = { political_power_gain = -0.15 }
 		}
 
 		AST_referendum_aviation_idea = {
@@ -963,6 +963,49 @@ ideas = {
 
 		}
 
+		AST_war_strategy = {
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = generic_japanese_conflict
+
+			targeted_modifier = { 
+				tag = JAP
+				attack_bonus_against = 0.10
+				defense_bonus_against = 0.20
+			}
+
+		}
+
+		AST_australias_glorious_fleet = {
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			removal_cost = -1
+
+			picture = AST_royal_australian_navy
+
+			targeted_modifier = {
+				tag = AST
+				spotting_chance_against = -0.1
+				navy_capital_ship_attack_factor_against = -0.1	
+			}
+		}
+
 		AST_australian_culture_investments_idea = {
 
 			allowed = {
@@ -1089,28 +1132,6 @@ ideas = {
 
 			modifier = { 
 				monthly_population = -0.1
-			}
-
-		}
-
-		AST_british_intel_sharing = {
-
-			allowed = {
-				always = no
-			}
-
-			allowed_civil_war = {
-				always = yes
-			}
-
-			removal_cost = -1
-
-			picture = generic_spy_intel
-
-			modifier = { 
-				operative_slot = 1
-				agency_upgrade_time = -0.15
-				intel_network_gain_factor = 0.15
 			}
 
 		}
@@ -1242,10 +1263,9 @@ ideas = {
 			picture = ICE_general_strike
 
 			cancel = {
-				725 = {
-					NOT = {
-						is_owned_by = AST
-					}
+				OR = {
+					has_completed_focus = AST_all_for_one_one_for_all
+					has_government = communism
 				}
 			}
 
@@ -1316,6 +1336,73 @@ ideas = {
 				defense_bonus_against = 0.1
 			}
 
+		}
+
+		AST_new_guard_spirit = {
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = stiff_upper_lip
+
+			modifier = {
+				custom_modifier_tooltip = AST_new_guard_spirit_tt
+			}
+		}
+
+		AST_fascist_legion_spirit = {
+		
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = stiff_upper_lip
+
+			modifier = {
+				resistance_target = -0.1
+				compliance_growth = 0.1
+				required_garrison_factor = -0.15
+				resistance_damage_to_garrison = -0.15
+				stability_factor = 0.1
+			}
+		}
+
+		AST_monarchist_intervention_spirit = {
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = generic_monarchist_uprising
+
+			modifier = {
+				stability_factor = 0.15
+				war_support_factor = 0.05
+				neutrality_drift = 0.1
+			}
+
+			on_remove = {
+				mark_focus_tree_layout_dirty = yes
+			}
 		}
 
 		##################
@@ -2249,7 +2336,7 @@ ideas = {
 
 		AST_mount_isa_mines_ic = { 
 
-			picture = AST_mount_isa_mines
+			picture = AST_mount_isa_mines_ic
 
 			allowed = {
 				original_tag = AST
@@ -2278,7 +2365,7 @@ ideas = {
 
 		AST_mount_isa_mines_improved_ic = { 
 
-			picture = PLACEHOLDER_idea_icon #AST_mount_isa_mines
+			picture = AST_mount_isa_mines_ic
 
 			allowed = {
 				original_tag = AST
@@ -2305,7 +2392,7 @@ ideas = {
 
 		AST_whyalla_steelworks_ic = { 
 
-			picture = generic_industrial_concern_1
+			picture = AST_whyalla_steelworks_ic
 
 			allowed = {
 				original_tag = AST
@@ -2334,7 +2421,7 @@ ideas = {
 
 		AST_whyalla_steelworks_improved_ic = { 
 
-			picture = generic_industrial_concern_1
+			picture = AST_whyalla_steelworks_ic
 
 			allowed = {
 				original_tag = AST
@@ -2503,6 +2590,23 @@ ideas = {
 				}
 			}
 					
+			modifier = {
+			}
+		}
+
+		AST_kirov = {
+			name = kirov
+			picture = SOV_kirov
+			allowed = {
+				original_tag = AST
+			}
+			visible = {
+				has_completed_focus = AST_westward_battles
+			}
+			research_bonus = {
+				armor = 0.15
+			}
+			traits = { heavy_tank_manufacturer }
 			modifier = {
 			}
 		}
@@ -3101,23 +3205,6 @@ ideas = {
 					
 			modifier = {
 			}
-		}
-
-		AST_kirov = {
-		    name = kirov
-		    picture = kirov
-		    allowed = {
-		        original_tag = AST
-		    }
-		    visible = {
-		        has_completed_focus = AST_westward_battles
-		    }
-		    research_bonus = {
-		        armor = 0.15
-		    }
-		    traits = { heavy_tank_manufacturer }
-		    modifier = {
-		    }
 		}
 		
 		AST_yakovlev_design_bureau = {

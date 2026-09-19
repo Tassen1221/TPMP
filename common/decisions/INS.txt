@@ -232,6 +232,74 @@ political_actions = {
 			}
 		}
 	}
+
+	INS_move_capital_to_amsterdam = {
+		icon = GFX_decision_SOV_place_hq
+		priority = 30
+
+		ai_will_do = {
+			base = 0
+		}
+
+		available = {
+			has_full_control_of_state = 7
+		}
+
+		visible = {
+			OR = {
+				original_tag = INS
+				original_tag = HOL
+			}
+			has_cosmetic_tag = INS_UNION
+
+			7 = {
+				is_capital = no
+			}
+		}
+
+		cost = 50
+
+		complete_effect = {
+			set_capital = {
+				state = 7
+				remember_old_capital = yes
+			}
+		}
+	}
+
+	INS_move_capital_to_batavia = {
+		icon = GFX_decision_SOV_place_hq
+		priority = 30
+
+		ai_will_do = {
+			base = 0
+		}
+
+		available = {
+			has_full_control_of_state = 1058
+		}
+
+		visible = {
+			OR = {
+				original_tag = INS
+				original_tag = HOL
+			}
+			has_cosmetic_tag = INS_UNION
+
+			1058 = {
+				is_capital = no
+			}
+		}
+
+		cost = 50
+
+		complete_effect = {
+			set_capital = {
+				state = 1058
+				remember_old_capital = yes
+			}
+		}
+	}
 }
 
 INS_exile_cat = {
@@ -605,7 +673,6 @@ INS_volksraad_cat = {
 		complete_effect = {
 			set_country_flag = {
 				flag = INS_is_taking_volksraad
-				days = 60
 				value = 1
 			}
 		}
@@ -697,7 +764,6 @@ INS_volksraad_cat = {
 		complete_effect = {
 			set_country_flag = {
 				flag = INS_is_taking_volksraad
-				days = 60
 				value = 1
 			}
 		}
@@ -789,7 +855,6 @@ INS_volksraad_cat = {
 		complete_effect = {
 			set_country_flag = {
 				flag = INS_is_taking_volksraad
-				days = 60
 				value = 1
 			}
 		}
@@ -873,7 +938,6 @@ INS_volksraad_cat = {
 		complete_effect = {
 			set_country_flag = {
 				flag = INS_is_taking_volksraad
-				days = 90
 				value = 1
 			}
 		}
@@ -962,7 +1026,6 @@ INS_volksraad_cat = {
 		complete_effect = {
 			set_country_flag = {
 				flag = INS_is_taking_volksraad
-				days = 90
 				value = 1
 			}
 		}
@@ -1051,7 +1114,6 @@ INS_volksraad_cat = {
 		complete_effect = {
 			set_country_flag = {
 				flag = INS_is_taking_volksraad
-				days = 90
 				value = 1
 			}
 		}
@@ -1140,7 +1202,6 @@ INS_volksraad_cat = {
 		complete_effect = {
 			set_country_flag = {
 				flag = INS_is_taking_volksraad
-				days = 120
 				value = 1
 			}
 		}
@@ -1231,7 +1292,6 @@ INS_volksraad_cat = {
 		complete_effect = {
 			set_country_flag = {
 				flag = INS_is_taking_volksraad
-				days = 120
 				value = 1
 			}
 		}
@@ -1303,7 +1363,6 @@ INS_volksraad_cat = {
 		complete_effect = {
 			set_country_flag = {
 				flag = INS_is_taking_volksraad
-				days = 120
 				value = 1
 			}
 		}
@@ -1960,7 +2019,10 @@ INS_unity_in_diversity_cat = {
 		state_target = yes
 		target_trigger = {
 			FROM = {
-				is_in_array = { array = INS.owned_states_at_game_start value = THIS }
+				OR = {
+					is_in_array = { array = INS.owned_states_at_game_start value = THIS }
+					state = 721 #East Timor
+				}
 				is_controlled_by = ROOT
 				NOT = { is_core_of = ROOT }
 				NOT = { state = 1050 } #Atjeh has to be released or cored seperately
@@ -2012,12 +2074,14 @@ INS_revolution_planning_cat = {
 		targets = { 672 1050 1055 1053 673 669 }
 
 		ai_will_do = {
-			base = 10
+			base = 50
 			modifier = {
-				factor = 0.2
+				factor = 0.1
 				FROM = {
-					state = 669
-					state = 1053
+					OR = {
+						state = 669
+						state = 1053
+					}
 				}
 			}
 		}
@@ -2191,6 +2255,12 @@ INS_revolution_planning_cat = {
 					}
 				}
 			}
+			modifier = {
+				factor = 20
+				FROM = {
+					state = 672 #South Sumatra
+				}
+			}
 		}
 
 		complete_effect = {
@@ -2256,7 +2326,6 @@ INS_realign_supply_chains_cat = {
 		complete_effect = {
 			set_country_flag = {
 				flag = INS_selling_resource_flag
-				days = var:INS_realign_supply_chains_time
 				value = 1
 			}
 		}
@@ -2327,7 +2396,6 @@ INS_realign_supply_chains_cat = {
 		complete_effect = {
 			set_country_flag = {
 				flag = INS_selling_resource_flag
-				days = var:INS_realign_supply_chains_time
 				value = 1
 			}
 		}
@@ -2415,7 +2483,6 @@ INS_realign_supply_chains_cat = {
 		complete_effect = {
 			set_country_flag = {
 				flag = INS_selling_resource_flag
-				days = var:INS_realign_supply_chains_time
 				value = 1
 			}
 		}
@@ -2475,7 +2542,6 @@ INS_realign_supply_chains_cat = {
 		complete_effect = {
 			set_country_flag = {
 				flag = INS_selling_resource_flag
-				days = var:INS_realign_supply_chains_time
 				value = 1
 			}
 		}
@@ -2551,7 +2617,6 @@ INS_realign_supply_chains_cat = {
 		complete_effect = {
 			set_country_flag = {
 				flag = INS_selling_resource_flag
-				days = var:INS_realign_supply_chains_time
 				value = 1
 			}
 		}
@@ -2664,7 +2729,6 @@ INS_realign_supply_chains_cat = {
 		complete_effect = {
 			set_country_flag = {
 				flag = INS_selling_resource_flag
-				days = var:INS_realign_supply_chains_time
 				value = 1
 			}
 		}
@@ -2745,7 +2809,6 @@ INS_realign_supply_chains_cat = {
 		complete_effect = {
 			set_country_flag = {
 				flag = INS_selling_resource_flag
-				days = var:INS_realign_supply_chains_time
 				value = 1
 			}
 		}
@@ -2810,7 +2873,6 @@ INS_realign_supply_chains_cat = {
 		complete_effect = {
 			set_country_flag = {
 				flag = INS_selling_resource_flag
-				days = var:INS_realign_supply_chains_time
 				value = 1
 			}
 		}
@@ -2893,7 +2955,6 @@ INS_realign_supply_chains_cat = {
 		complete_effect = {
 			set_country_flag = {
 				flag = INS_selling_resource_flag
-				days = var:INS_realign_supply_chains_time
 				value = 1
 			}
 		}
@@ -2980,7 +3041,6 @@ INS_realign_supply_chains_cat = {
 		complete_effect = {
 			set_country_flag = {
 				flag = INS_selling_resource_flag
-				days = var:INS_realign_supply_chains_time
 				value = 1
 			}
 		}
@@ -3068,7 +3128,6 @@ INS_realign_supply_chains_cat = {
 		complete_effect = {
 			set_country_flag = {
 				flag = INS_selling_resource_flag
-				days = var:INS_realign_supply_chains_time
 				value = 1
 			}
 		}
@@ -3141,7 +3200,6 @@ INS_realign_supply_chains_cat = {
 		complete_effect = {
 			set_country_flag = {
 				flag = INS_selling_resource_flag
-				days = var:INS_realign_supply_chains_time
 				value = 1
 			}
 		}
@@ -3318,6 +3376,8 @@ INS_national_revolution_cat = {
 				any_state_in = {
 					array = INS.owned_states_at_game_start
 					tooltip = INS_owned_states_at_game_start_tt
+
+					impassable = no
 					OR = {
 						is_owned_by = HOL
 						is_owned_by = event_target:INS_dutch_indonesia
@@ -3385,6 +3445,14 @@ INS_national_revolution_cat = {
 			if = {
 				limit = {
 					has_war_with = HOL
+				}
+				every_enemy_country = {
+					limit = {
+						is_in_faction_with = HOL
+					}
+					INS = {
+						white_peace = PREV
+					}
 				}
 				white_peace = HOL
 			}
@@ -3591,12 +3659,12 @@ INS_national_revolution_cat = {
 
 		custom_cost_trigger = {
 			has_political_power > 49
-			has_manpower > 2499
+			has_manpower > 4999
 			has_equipment = {
-				infantry_equipment > 2499
+				infantry_equipment > 1499
 			}
 		}
-		custom_cost_text = decision_cost_PP_50_MP_2500_ie_2500
+		custom_cost_text = decision_cost_PP_50_MP_5000_ie_1500
 
 		fire_only_once = no
 
@@ -3611,10 +3679,10 @@ INS_national_revolution_cat = {
 		complete_effect = {
 			hidden_effect = {
 				add_political_power = -50
-				add_manpower = -2500
+				add_manpower = -5000
 				add_equipment_to_stockpile = { 
 					type = infantry_equipment
-					amount = -2500
+					amount = -1500
 				}
 			}
 			FROM = { set_state_flag = { flag = INS_feint_uprising value = 1 days = 60 } }
@@ -3917,6 +3985,17 @@ INS_national_revolution_cat = {
 		ai_will_do = {
 			base = 0
 			modifier = {
+				add = 30
+				owns_state = 1051
+				owns_state = 335
+				NOT = { owns_state = 1058 }
+				check_variable = {
+					var = INS_war_escalation_level
+					value = 7
+					compare = equals
+				}
+			}
+			modifier = {
 				add = 1
 				strength_ratio = {
 					tag = HOL
@@ -4034,9 +4113,9 @@ INS_national_revolution_cat = {
 		available = {
 			check_variable = {
 				var = INS_war_escalation_level
-				value = 1
+				value = 2
 				compare = greater_than_or_equals
-				tooltip = war_escalation_1_or_more_tt
+				tooltip = war_escalation_2_or_more_tt
 			}
 			custom_trigger_tooltip = {
 				tooltip = INS_is_deescalating_tt
@@ -4704,7 +4783,7 @@ INS_pacific_revolution_cat = {
 
 
 		available = {
-			if = {
+			if = { 
 				limit = {
 					NOT = {
 						has_completed_focus = INS_purge_oppurtunists
@@ -4769,15 +4848,16 @@ INS_pacific_revolution_cat = {
 				remove_decision_on_cooldown = INS_arm_militias
 				remove_decision_on_cooldown = INS_propoganda_mission
 				
-
 				clr_country_flag = INS_coup_in_progress
 				event_target:INS_revolution_target = {
 					set_country_flag = INS_has_already_done_revolution
 				}
 				clear_global_event_target = INS_revolution_target
+				
 			}
 		}
 	}
+
 
 	INS_propoganda_mission = {
 		icon = GFX_decision_SOV_secure_the_administration
@@ -4992,6 +5072,69 @@ INS_pacific_revolution_cat = {
 }
 
 INS_aslia_cat = {
+	INS_maphilindo_speech_ingration = {
+		icon = GFX_decision_generic_prepare_civil_war
+
+		allowed = {
+			original_tag = INS
+		}
+
+		highlight_states = {
+			highlight_states_trigger = {
+				is_owned_by = FROM
+			}
+		}
+
+		target_root_trigger	= {
+			has_completed_focus = INS_the_maphilindo_speech
+		}
+
+		available = {
+			NOT = {
+				has_country_flag = INS_integrate_subject_in_progress
+			}
+		}
+
+		target_trigger = {
+			FROM = {
+				OR = {
+					original_tag = MAL
+					original_tag = PHI
+				}
+
+				is_subject_of = ROOT
+				has_civil_war = no
+				has_country_flag = INS_has_already_done_revolution
+			}
+		}
+
+		on_map_mode = decision_view_only
+		priority = 19
+
+		cost = 100
+		days_remove = 120
+
+		ai_will_do = {
+			base = 100
+		}
+
+		complete_effect = {
+			set_country_flag = {
+				flag = INS_integrate_subject_in_progress
+				days = 120
+			}
+		}
+
+		remove_effect = {
+			ROOT = {
+				annex_country = {
+					target = FROM
+					transfer_troops = yes
+				}
+			}
+		}
+	}
+
 	INS_integrate_subject = {
 		icon = GFX_decision_generic_confiscation
 		target_root_trigger = {
@@ -5009,9 +5152,9 @@ INS_aslia_cat = {
 				is_subject_of = INS
 				has_civil_war = no
 				OR = {
-					original_tag = MAL
+					#original_tag = MAL
 					original_tag = SIA
-					original_tag = PHI
+					#original_tag = PHI
 					original_tag = AST
 					original_tag = NZL
 					original_tag = BRM
@@ -5221,6 +5364,241 @@ INS_limited_wars_cat = {
 			}
 		}
     }
+
+	INS_start_limited_war_borneo = {
+
+	    target_root_trigger = {
+	       original_tag = INS
+	    }
+	    target_array = ROOT.borneo_controllers
+	    target_trigger = {
+    		NOT = {
+    			is_in_array = {
+    				array = previous_limited_war_targets value = FROM
+    			}
+    		}
+
+    		is_in_array = {
+    			array = ROOT.borneo_controllers
+    			value = FROM
+    		}
+
+			any_of_scopes = {
+				array = ROOT.borneo_states
+				is_controlled_by = FROM
+			}
+	    }
+	    visible = {
+	    	has_completed_focus = INS_expanding_the_union
+	    }
+	    available = {
+	    	NOT = {
+	    		is_ally_with = FROM
+    			has_war_with = FROM
+    			has_non_aggression_pact_with = FROM
+    			FROM = { is_guaranteed_by = ROOT }
+	    	}
+
+    		custom_trigger_tooltip = {
+    			tooltip = is_not_engaged_in_a_limited_war
+	    		NOT = { has_variable = limited_war_target } 
+    		}
+	    }
+
+	    highlight_states = {
+	        highlight_states_trigger = {
+		    	is_in_array = {
+		    		array = ROOT.borneo_states
+		    		value = THIS
+		    	}
+		    	is_controlled_by = FROM
+
+	        }
+	    }
+
+	    cost = 20
+	    complete_effect = {
+	    	custom_effect_tooltip = SIA_start_limited_war_indochina_tt_main
+	    	clear_variable = pre_limited_war_faction_leader
+
+	    	if = {
+	    		limit = {
+	    			is_in_faction = yes
+	    			is_faction_leader = no
+	    		}
+
+	    		faction_leader = { set_variable = { ROOT.pre_limited_war_faction_leader = THIS } }
+	    		leave_faction = yes
+	    		custom_effect_tooltip = SIA_start_limited_war_rejoin_faction
+	    		custom_effect_tooltip = newline_tt
+
+	    	}
+
+	    	custom_effect_tooltip = newline_tt
+	    	set_rule = { can_join_factions = no }
+
+	    	custom_effect_tooltip = SIA_start_limited_war_can_join_faction
+	    	#General cleanup
+	    	clear_array = limited_war_states
+	    	clear_variable = limited_war_target
+	    	clear_array = limited_war_target_allies
+
+	    	#Save all states that is included in the limited war
+	    	for_each_scope_loop = {
+	    		array = borneo_states
+	    		if = {
+	    			limit = { is_controlled_by = FROM }
+	
+	    			add_to_array = { array = ROOT.limited_war_states value = THIS }
+	    		}
+	    	}
+
+	    	
+	    	set_variable = { limited_war_target = FROM } #is_target_of_limited_war
+	    	if = { #overlord will always be called if target is a subject
+	    		limit = {
+	    			var:limited_war_target = { is_subject = yes }
+	    		}
+
+	    		var:limited_war_target = {
+	    			overlord = {
+	    				add_to_array = { array = ROOT.limited_war_target_allies value = THIS }
+	    			}
+	    		}
+	    	}
+
+	    	declare_war_on = {
+	    		target = FROM
+	    		type = annex_everything
+	    	}
+
+	    	activate_mission = INS_limited_war_borneo
+	    	add_to_array = { previous_limited_war_targets = FROM }
+	    	set_country_flag = INS_limited_war_is_borneo #victory unlocks the Borneo puppet-release decisions
+	    }
+    }
+
+    INS_limited_war_borneo = {
+		visible = {
+			always = yes
+		}
+		is_good = no
+		available = { 
+			all_of_scopes = {
+				array = ROOT.limited_war_states
+				is_controlled_by = ROOT
+			}
+		}
+		fire_only_once = yes
+		activation = {
+			always = no
+		}
+		cancel_trigger = {
+			OR = {
+				exists = no
+				has_capitulated = yes
+				surrender_progress > var:global.limited_war_surrender_threshold
+			}
+		}
+		days_mission_timeout = 365
+		complete_effect = {
+			country_event = { id = INS_limited_war_events.1 hours = 2 }
+		}
+
+		cancel_effect = {
+			if = {
+				limit = { surrender_progress > var:global.limited_war_surrender_threshold }
+				var:limited_war_target = {
+					country_event = { id = INS_limited_war_events.6 hours = 2 }
+				}
+			}
+		}
+
+		timeout_effect = {
+			var:limited_war_target = {
+				country_event = { id = INS_limited_war_events.6 hours = 2 }
+			}
+		}
+    }
+}
+
+# Unlocked by winning the Borneo limited war (see INS_expanding_the_union).
+# Each releases a former British North Borneo state as an integrated puppet.
+# State split: Sarawak = British Borneo (333), Brunei = Limbang (1059), Sabah = Sabah (1024).
+INS_borneo_puppet_cat = {
+	INS_release_puppet_sarawak = {
+		icon = GFX_decision_generic_form_nation
+
+		visible = {
+			has_country_flag = INS_can_release_borneo_puppets
+		}
+		available = {
+			NOT = { country_exists = SAR }
+			owns_state = 333
+		}
+
+		fire_only_once = yes
+		cost = 0
+
+		complete_effect = {
+			release = SAR
+			set_autonomy = {
+				target = SAR
+				autonomy_state = autonomy_taog_indonesian_union_state
+			}
+			# Keep Limbang for Brunei; Indonesia holds it until Brunei is released
+			if = {
+				limit = { NOT = { country_exists = BRN } }
+				1059 = { transfer_state_to = ROOT }
+			}
+		}
+	}
+
+	INS_release_puppet_brunei = {
+		icon = GFX_decision_generic_form_nation
+
+		visible = {
+			has_country_flag = INS_can_release_borneo_puppets
+		}
+		available = {
+			NOT = { country_exists = BRN }
+			owns_state = 1059
+		}
+
+		fire_only_once = yes
+		cost = 0
+
+		complete_effect = {
+			release = BRN
+			set_autonomy = {
+				target = BRN
+				autonomy_state = autonomy_taog_indonesian_union_state
+			}
+		}
+	}
+
+	INS_release_puppet_sabah = {
+		icon = GFX_decision_generic_form_nation
+
+		visible = {
+			has_country_flag = INS_can_release_borneo_puppets
+		}
+		available = {
+			NOT = { country_exists = SAB }
+			owns_state = 1024
+		}
+
+		fire_only_once = yes
+		cost = 0
+
+		complete_effect = {
+			release = SAB
+			set_autonomy = {
+				target = SAB
+				autonomy_state = autonomy_taog_indonesian_union_state
+			}
+		}
+	}
 }
 
 INS_leaders_cat = {
@@ -6040,6 +6418,88 @@ INS_leaders_cat = {
 					}
 				}
 			}
+		}
+	}
+}
+
+INS_the_co_prosperity_sphere_cat = {
+	INS_assume_complete_power = {
+		icon = GFX_decision_generic_confiscation
+		available = {
+			has_completed_focus = INS_the_co_prosperity_sphere
+			fascism > 0.39
+		}
+
+		visible = {
+			
+			NOT = {
+				AND = {
+					has_government = fascism
+					has_country_leader = {
+						ruling_only = yes # default = yes
+						character = INS_sukarno
+						
+					}
+				}
+				
+			}
+		}
+
+		cost = 75
+		days_remove = 0
+		fire_only_once = yes
+
+		ai_will_do = {
+			base = 0
+		}
+
+		complete_effect = {
+
+			INS_sukarno = {
+				add_country_leader_role = {
+					promote_leader = yes
+					country_leader = {
+						ideology = emperor_fascism
+						expire = "1935.1.1"
+						traits = { INS_leader_of_the_people_fascist }
+					}
+				}
+			}
+
+			set_politics = {
+				ruling_party = fascism
+				elections_allowed = no
+			}
+		}
+	}
+
+	INS_request_membership = {
+		icon = GFX_decision_eng_trade_unions_support
+		available = {
+			has_completed_focus = INS_the_co_prosperity_sphere
+		}
+
+		visible = {
+		}
+
+		cost = 50
+		days_remove = 0
+		fire_only_once = yes
+
+		ai_will_do = {
+			base = 0
+		}
+
+		complete_effect = {
+
+			JAP = {
+				country_event = {
+					id = generic.2
+					hours = 6
+				}
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = INS_request_membership_tt
 		}
 	}
 }

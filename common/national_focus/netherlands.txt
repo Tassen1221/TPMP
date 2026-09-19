@@ -1162,7 +1162,7 @@ focus_tree = {
 				name = HOL_prepare_for_our_return
 				bonus = 1.0
 				uses = 1
-				category = marine_tech
+				category = cat_marine_tech
 			}
 		}
 	}
@@ -2354,13 +2354,6 @@ focus_tree = {
 		available = {
 			has_full_control_of_state = 7
 			has_full_control_of_state = 36
-			INS = {
-				exists = yes
-				is_subject_of = HOL
-				has_full_control_of_state = 1058
-				has_full_control_of_state = 1051
-				has_full_control_of_state = 335
-			}
 		}
 		mutually_exclusive = { focus = HOL_curtail_colonial_autonomy focus = HOL_curtail_colonial_autonomy_taog }
 		prerequisite = { focus = HOL_expand_the_artillerieinrichtingen }
@@ -4567,6 +4560,10 @@ focus_tree = {
 		relative_position_id = HOL_form_new_government
 		cost = 10
 
+		ai_will_do = {
+			base = 5
+		}
+
 		available_if_capitulated = yes
 		search_filters = {FOCUS_FILTER_POLITICAL}
 		completion_reward = {
@@ -4807,13 +4804,20 @@ focus_tree = {
 				check_variable = { var = eng_temp_trade_influence value = 15 compare = greater_than_or_equals }
 			}
 			modifier = {
-				factor = 10
-				date > 1940.3.1
+				factor = 25
+				date > 1939.8.1
 				OR = {
 					HOL_check_plan_historical = yes
 					HOL_check_plan_colonial_alternate_democratic = yes
 					HOL_check_plan_continental_alternate_democratic = yes
 					HOL_check_plan_lead_the_minor_democracies = yes
+				}
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					HOL_check_plan_alternate_fascist = yes
+					HOL_check_plan_alternate_communist = yes
 				}
 			}
 		}
@@ -7340,6 +7344,11 @@ focus_tree = {
 
 		available_if_capitulated = yes
 		search_filters = {FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL}
+
+		ai_will_do = {
+			base = 10 #if its available, do it
+		}
+
 		completion_reward = {
 			
 			add_stability = 0.05
@@ -7410,6 +7419,15 @@ focus_tree = {
 		cost = 5
 
 		available_if_capitulated = yes
+
+		ai_will_do = {
+			base = 10 #if its available, do it
+
+			modifier = {
+				factor = 0
+				HOL_check_plan_lead_the_minor_democracies = yes #oh yeah except dont do this if youre supposed to not do this
+			}
+		}
 
 		completion_reward = {
 			
