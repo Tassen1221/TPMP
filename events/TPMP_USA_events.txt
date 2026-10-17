@@ -65,25 +65,7 @@ country_event = { #Miners' Strike
 		trigger = {
 			has_completed_focus = TPMP_USA_union_relations
 		}
-		custom_effect_tooltip = ndd_lose_support_tt
-		custom_effect_tooltip = br_gain_support_tt
-		for_loop_effect = {
-			end = 5
-			IF = {
-				limit = {
-					check_variable = {
-						new_deal_democrat_support_var > 0
-					}
-				}
-				add_to_variable = {
-					business_republican_support_var = 1
-				}
-				add_to_variable = {
-					new_deal_democrat_support_var = -1
-				}
-			}
-		}
-		recalculate_congressional_ui = yes
+		ndd_to_br_support = yes
 		custom_effect_tooltip = generic_skip_one_line_tt
 		add_stability = -0.05
 		add_popularity = {
@@ -682,10 +664,7 @@ country_event = {
 		name = TPMP_USA_election.1.a
 		unlock_decision_category_tooltip = TPMP_USA_elections_category
 		set_country_flag = TPMP_USA_elections_flag
-		set_temp_variable = { new_support = new_deal_democrat_support_var }
-		divide_temp_variable = { new_support = 3 }
-		round_temp_variable = new_support
-		set_variable = { TPMP_USA_electoral_support_var = new_support}
+		set_variable = { TPMP_USA_electoral_support_var = 0 }
 		recalculate_electoral_ui = yes
 		set_variable = { TPMP_USA_west_campaign_cost_var = 10 }
 		set_variable = { TPMP_USA_midwest_campaign_cost_var = 10 }
@@ -722,25 +701,7 @@ country_event = {
 			check_variable = { USA.TPMP_USA_electoral_support_var < 75}
 			check_variable = { USA.TPMP_USA_electoral_support_var > 49}
 		}
-		custom_effect_tooltip = ndd_lose_support_small_tt
-		custom_effect_tooltip = br_gain_support_small_tt
-		for_loop_effect = {
-			end = 3
-			IF = {
-				limit = {
-					check_variable = {
-						new_deal_democrat_support_var > 0
-					}
-				}
-				add_to_variable = {
-					business_republican_support_var = 1
-				}
-				add_to_variable = {
-					new_deal_democrat_support_var = -1
-				}
-			}
-		}
-		recalculate_congressional_ui = yes
+		ndd_to_br_support_small = yes
 		custom_effect_tooltip = generic_skip_one_line_tt
 		add_political_power = -50
 		custom_effect_tooltip = generic_skip_one_line_tt
@@ -754,53 +715,7 @@ country_event = {
 			check_variable = { USA.TPMP_USA_electoral_support_var < 50}
 			check_variable = { USA.TPMP_USA_electoral_support_var > 24}
 		}
-		custom_effect_tooltip = ndd_lose_support_tt
-		custom_effect_tooltip = pr_gain_support_tiny_tt
-		custom_effect_tooltip = br_gain_support_small_tt
-		custom_effect_tooltip = ir_gain_support_tiny_tt
-		IF = {
-			limit = {
-				check_variable = {
-					new_deal_democrat_support_var > 0
-				}
-			}
-			add_to_variable = {
-				isolationist_republican_support_var = 1
-			}
-			add_to_variable = {
-				new_deal_democrat_support_var = -1
-			}
-		}
-		for_loop_effect = {
-			end = 3
-			IF = {
-				limit = {
-					check_variable = {
-						new_deal_democrat_support_var > 0
-					}
-				}
-				add_to_variable = {
-					business_republican_support_var = 1
-				}
-				add_to_variable = {
-					new_deal_democrat_support_var = -1
-				}
-			}
-		}
-		IF = {
-			limit = {
-				check_variable = {
-					new_deal_democrat_support_var > 0
-				}
-			}
-			add_to_variable = {
-				progressive_republican_support_var = 1
-			}
-			add_to_variable = {
-				new_deal_democrat_support_var = -1
-			}
-		}
-		recalculate_congressional_ui = yes
+		ndd_to_br_support = yes
 		custom_effect_tooltip = generic_skip_one_line_tt
 		add_political_power = -100
 		custom_effect_tooltip = generic_skip_one_line_tt
@@ -813,42 +728,7 @@ country_event = {
 		trigger = {
 			check_variable = { USA.TPMP_USA_electoral_support_var < 25}
 		}
-		custom_effect_tooltip = ndd_lose_support_large_tt
-		custom_effect_tooltip = br_gain_support_tt
-		custom_effect_tooltip = ir_gain_support_tt
-		for_loop_effect = {
-			end = 5
-			IF = {
-				limit = {
-					check_variable = {
-						new_deal_democrat_support_var > 0
-					}
-				}
-				add_to_variable = {
-					isolationist_republican_support_var = 1
-				}
-				add_to_variable = {
-					new_deal_democrat_support_var = -1
-				}
-			}
-		}
-		for_loop_effect = {
-			end = 5
-			IF = {
-				limit = {
-					check_variable = {
-						new_deal_democrat_support_var > 0
-					}
-				}
-				add_to_variable = {
-					business_republican_support_var = 1
-				}
-				add_to_variable = {
-					new_deal_democrat_support_var = -1
-				}
-			}
-		}
-		recalculate_congressional_ui = yes
+		ndd_to_br_support_large = yes
 		add_political_power = -150
 		custom_effect_tooltip = generic_skip_one_line_tt
 		complete_national_focus = TPMP_USA_the_1936_election
@@ -883,25 +763,7 @@ country_event = {
 			check_variable = { USA.TPMP_USA_electoral_support_var < 75}
 			check_variable = { USA.TPMP_USA_electoral_support_var > 49}
 		}
-		custom_effect_tooltip = ndd_lose_support_small_tt
-		custom_effect_tooltip = br_gain_support_small_tt
-		for_loop_effect = {
-			end = 3
-			IF = {
-				limit = {
-					check_variable = {
-						new_deal_democrat_support_var > 0
-					}
-				}
-				add_to_variable = {
-					business_republican_support_var = 1
-				}
-				add_to_variable = {
-					new_deal_democrat_support_var = -1
-				}
-			}
-		}
-		recalculate_congressional_ui = yes
+		ndd_to_br_support_small = yes
 		custom_effect_tooltip = generic_skip_one_line_tt
 		add_political_power = -50
 		custom_effect_tooltip = generic_skip_one_line_tt
@@ -914,53 +776,7 @@ country_event = {
 			check_variable = { USA.TPMP_USA_electoral_support_var < 50}
 			check_variable = { USA.TPMP_USA_electoral_support_var > 24}
 		}
-		custom_effect_tooltip = ndd_lose_support_tt
-		custom_effect_tooltip = pr_gain_support_tiny_tt
-		custom_effect_tooltip = br_gain_support_small_tt
-		custom_effect_tooltip = ir_gain_support_tiny_tt
-		IF = {
-			limit = {
-				check_variable = {
-					new_deal_democrat_support_var > 0
-				}
-			}
-			add_to_variable = {
-				isolationist_republican_support_var = 1
-			}
-			add_to_variable = {
-				new_deal_democrat_support_var = -1
-			}
-		}
-		for_loop_effect = {
-			end = 3
-			IF = {
-				limit = {
-					check_variable = {
-						new_deal_democrat_support_var > 0
-					}
-				}
-				add_to_variable = {
-					business_republican_support_var = 1
-				}
-				add_to_variable = {
-					new_deal_democrat_support_var = -1
-				}
-			}
-		}
-		IF = {
-			limit = {
-				check_variable = {
-					new_deal_democrat_support_var > 0
-				}
-			}
-			add_to_variable = {
-				progressive_republican_support_var = 1
-			}
-			add_to_variable = {
-				new_deal_democrat_support_var = -1
-			}
-		}
-		recalculate_congressional_ui = yes
+		ndd_to_br_support = yes
 		custom_effect_tooltip = generic_skip_one_line_tt
 		add_political_power = -100
 		custom_effect_tooltip = generic_skip_one_line_tt
@@ -972,42 +788,7 @@ country_event = {
 		trigger = {
 			check_variable = { USA.TPMP_USA_electoral_support_var < 25}
 		}
-		custom_effect_tooltip = ndd_lose_support_large_tt
-		custom_effect_tooltip = br_gain_support_tt
-		custom_effect_tooltip = ir_gain_support_tt
-		for_loop_effect = {
-			end = 5
-			IF = {
-				limit = {
-					check_variable = {
-						new_deal_democrat_support_var > 0
-					}
-				}
-				add_to_variable = {
-					isolationist_republican_support_var = 1
-				}
-				add_to_variable = {
-					new_deal_democrat_support_var = -1
-				}
-			}
-		}
-		for_loop_effect = {
-			end = 5
-			IF = {
-				limit = {
-					check_variable = {
-						new_deal_democrat_support_var > 0
-					}
-				}
-				add_to_variable = {
-					business_republican_support_var = 1
-				}
-				add_to_variable = {
-					new_deal_democrat_support_var = -1
-				}
-			}
-		}
-		recalculate_congressional_ui = yes
+		ndd_to_br_support_large = yes
 		custom_effect_tooltip = generic_skip_one_line_tt
 		add_political_power = -150
 		custom_effect_tooltip = generic_skip_one_line_tt
@@ -1042,25 +823,7 @@ country_event = {
 			check_variable = { USA.TPMP_USA_electoral_support_var < 75}
 			check_variable = { USA.TPMP_USA_electoral_support_var > 49}
 		}
-		custom_effect_tooltip = ndd_lose_support_small_tt
-		custom_effect_tooltip = br_gain_support_small_tt
-		for_loop_effect = {
-			end = 3
-			IF = {
-				limit = {
-					check_variable = {
-						new_deal_democrat_support_var > 0
-					}
-				}
-				add_to_variable = {
-					business_republican_support_var = 1
-				}
-				add_to_variable = {
-					new_deal_democrat_support_var = -1
-				}
-			}
-		}
-		recalculate_congressional_ui = yes
+		ndd_to_br_support_small = yes
 		custom_effect_tooltip = generic_skip_one_line_tt
 		add_political_power = -50
 		custom_effect_tooltip = generic_skip_one_line_tt
@@ -1073,53 +836,7 @@ country_event = {
 			check_variable = { USA.TPMP_USA_electoral_support_var < 50}
 			check_variable = { USA.TPMP_USA_electoral_support_var > 24}
 		}
-		custom_effect_tooltip = ndd_lose_support_tt
-		custom_effect_tooltip = pr_gain_support_tiny_tt
-		custom_effect_tooltip = br_gain_support_small_tt
-		custom_effect_tooltip = ir_gain_support_tiny_tt
-		IF = {
-			limit = {
-				check_variable = {
-					new_deal_democrat_support_var > 0
-				}
-			}
-			add_to_variable = {
-				isolationist_republican_support_var = 1
-			}
-			add_to_variable = {
-				new_deal_democrat_support_var = -1
-			}
-		}
-		for_loop_effect = {
-			end = 3
-			IF = {
-				limit = {
-					check_variable = {
-						new_deal_democrat_support_var > 0
-					}
-				}
-				add_to_variable = {
-					business_republican_support_var = 1
-				}
-				add_to_variable = {
-					new_deal_democrat_support_var = -1
-				}
-			}
-		}
-		IF = {
-			limit = {
-				check_variable = {
-					new_deal_democrat_support_var > 0
-				}
-			}
-			add_to_variable = {
-				progressive_republican_support_var = 1
-			}
-			add_to_variable = {
-				new_deal_democrat_support_var = -1
-			}
-		}
-		recalculate_congressional_ui = yes
+		ndd_to_br_support = yes
 		custom_effect_tooltip = generic_skip_one_line_tt
 		add_political_power = -100
 		custom_effect_tooltip = generic_skip_one_line_tt
@@ -1131,42 +848,7 @@ country_event = {
 		trigger = {
 			check_variable = { USA.TPMP_USA_electoral_support_var < 25}
 		}
-		custom_effect_tooltip = ndd_lose_support_large_tt
-		custom_effect_tooltip = br_gain_support_tt
-		custom_effect_tooltip = ir_gain_support_tt
-		for_loop_effect = {
-			end = 5
-			IF = {
-				limit = {
-					check_variable = {
-						new_deal_democrat_support_var > 0
-					}
-				}
-				add_to_variable = {
-					isolationist_republican_support_var = 1
-				}
-				add_to_variable = {
-					new_deal_democrat_support_var = -1
-				}
-			}
-		}
-		for_loop_effect = {
-			end = 5
-			IF = {
-				limit = {
-					check_variable = {
-						new_deal_democrat_support_var > 0
-					}
-				}
-				add_to_variable = {
-					business_republican_support_var = 1
-				}
-				add_to_variable = {
-					new_deal_democrat_support_var = -1
-				}
-			}
-		}
-		recalculate_congressional_ui = yes
+		ndd_to_br_support_large = yes
 		custom_effect_tooltip = generic_skip_one_line_tt
 		add_political_power = -150
 		custom_effect_tooltip = generic_skip_one_line_tt
@@ -1184,42 +866,7 @@ country_event = { #Midterm Elections
 
 	option = {
 		name = TPMP_USA_election.5.a
-		custom_effect_tooltip = ndd_lose_support_large_tt
-		custom_effect_tooltip = br_gain_support_tt
-		custom_effect_tooltip = ir_gain_support_tt
-		for_loop_effect = {
-			end = 5
-			IF = {
-				limit = {
-					check_variable = {
-						new_deal_democrat_support_var > 0
-					}
-				}
-				add_to_variable = {
-					business_republican_support_var = 1
-				}
-				add_to_variable = {
-					new_deal_democrat_support_var = -1
-				}
-			}
-		}
-		for_loop_effect = {
-			end = 5
-			IF = {
-				limit = {
-					check_variable = {
-						new_deal_democrat_support_var > 0
-					}
-				}
-				add_to_variable = {
-					isolationist_republican_support_var = 1
-				}
-				add_to_variable = {
-					new_deal_democrat_support_var = -1
-				}
-			}
-		}
-		recalculate_congressional_ui = yes
+		ndd_to_br_support_large = yes
 	}
 }
 country_event = { #1940 Running Mate
@@ -1358,6 +1005,17 @@ country_event = { #Which Generic Event for Congress
 				}
 				country_event = TPMP_USA_congress.8
 			}
+		}
+    }
+}
+country_event = { #Which Lobbyist Event for Congress
+    id = TPMP_USA_congress.3
+    
+	is_triggered_only = yes
+    hidden = yes
+    
+    immediate = {
+		random_list = {
 			10 = {
 				modifier = {
 					factor = 0
@@ -1382,101 +1040,49 @@ country_event = { #Which Generic Event for Congress
 		}
     }
 }
-country_event = { #Which Lobbyist Event for Congress
-    id = TPMP_USA_congress.3
-    
-	is_triggered_only = yes
-    hidden = yes
-    
-    immediate = {
-		random_list = {
-			10 = {
-				modifier = {
-					factor = 0
-					has_active_mission = TPMP_USA_congress_mission_8
-				}
-				country_event = TPMP_USA_congress.12
-			}
-			10 = {
-				modifier = {
-					factor = 0
-					has_active_mission = TPMP_USA_congress_mission_9
-				}
-				country_event = TPMP_USA_congress.13
-			}
-			10 = {
-				modifier = {
-					factor = 0
-					has_active_mission = TPMP_USA_congress_mission_10
-				}
-				country_event = TPMP_USA_congress.14
-			}
-			10 = {
-				modifier = {
-					factor = 0
-					has_active_mission = TPMP_USA_congress_mission_11
-				}
-				country_event = TPMP_USA_congress.15
-			}
-			10 = {
-				modifier = {
-					factor = 0
-					has_active_mission = TPMP_USA_congress_mission_12
-				}
-				country_event = TPMP_USA_congress.16
-			}
-		}
-    }
-}
 
-country_event = { #Infantry Event
+country_event = { #Military Event
     id = TPMP_USA_congress.4
     title = TPMP_USA_congress.4.t
 	desc = TPMP_USA_congress.4.desc
 	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
+
+	immediate = {
+		set_variable = { TPMP_USA_army_air_focus_mission_var = TPMP_USA_army_air_focus_var }
+		set_variable = { TPMP_USA_military_factory_mission_var = num_of_military_factories }
+		IF = {
+			limit = {
+				date > 1937.01.01
+				date < 1938.01.01
+			}
+			add_to_variable = { TPMP_USA_military_factory_mission_var = 1 }
+		}
+		ELSE_IF = {
+			limit = {
+				date > 1938.01.01
+				date < 1939.01.01
+			}
+			add_to_variable = { TPMP_USA_military_factory_mission_var = 2 }
+		}
+		ELSE_IF = {
+			limit = {
+				date > 1939.01.01
+				date < 1940.01.01
+			}
+			add_to_variable = { TPMP_USA_military_factory_mission_var = 4 }
+		}
+		ELSE_IF = {
+			limit = {
+				date > 1940.01.01
+			}
+			add_to_variable = { TPMP_USA_military_factory_mission_var = 9 }
+		}
+	}
     
     option = {
 		name = TPMP_USA_congress.4.a
-		custom_effect_tooltip = TPMP_USA_congress_equipment_tt
-		custom_effect_tooltip = generic_skip_one_line_tt
-		set_variable = { TPMP_USA_infantry_equipment_mission_var = num_equipment@infantry_equipment }
-		add_to_variable = { TPMP_USA_infantry_equipment_mission_var = num_equipment_in_armies@infantry_equipment }
-		add_to_variable = { TPMP_USA_infantry_equipment_mission_var = amount_manpower_in_deployment_queue }
-		set_variable = { TPMP_USA_special_infantry_equipment_mission_var = num_equipment@special_infantry_equipment }
-		add_to_variable = { TPMP_USA_special_infantry_equipment_mission_var = num_equipment_in_armies@special_infantry_equipment }
-		add_to_variable = { TPMP_USA_special_infantry_equipment_mission_var = amount_manpower_in_deployment_queue }
-		set_variable = { TPMP_USA_support_equipment_mission_var = num_equipment@support_equipment }
-		add_to_variable = { TPMP_USA_support_equipment_mission_var = num_equipment_in_armies@support_equipment }
-		add_to_variable = { TPMP_USA_support_equipment_mission_var = amount_manpower_in_deployment_queue }
-		set_variable = { TPMP_USA_special_equipment_mission_var = num_equipment@special_equipment }
-		add_to_variable = { TPMP_USA_special_equipment_mission_var = num_equipment_in_armies@special_equipment }
-		add_to_variable = { TPMP_USA_special_equipment_mission_var = amount_manpower_in_deployment_queue }
-		IF = {
-			limit = {
-				date < 1938.01.01
-			}
-			add_to_variable = { TPMP_USA_infantry_equipment_mission_var = 2499 }
-			add_to_variable = { TPMP_USA_special_infantry_equipment_mission_var = 499 }
-			add_to_variable = { TPMP_USA_support_equipment_mission_var = 249 }
-			add_to_variable = { TPMP_USA_special_equipment_mission_var = 249 }
-		}
-		ELSE_if = {
-			limit = {
-				date < 1940.01.01
-			}
-			add_to_variable = { TPMP_USA_infantry_equipment_mission_var = 9999 }
-			add_to_variable = { TPMP_USA_special_infantry_equipment_mission_var = 1999 }
-			add_to_variable = { TPMP_USA_support_equipment_mission_var = 999 }
-			add_to_variable = { TPMP_USA_special_equipment_mission_var = 999 }
-		}
-		ELSE = {
-			add_to_variable = { TPMP_USA_infantry_equipment_mission_var = 19999 }
-			add_to_variable = { TPMP_USA_special_infantry_equipment_mission_var = 3999 }
-			add_to_variable = { TPMP_USA_support_equipment_mission_var = 1999 }
-			add_to_variable = { TPMP_USA_special_equipment_mission_var = 1999 }
-		}
 		activate_mission = TPMP_USA_congress_mission_0
 	}
 	option = {
@@ -1494,123 +1100,51 @@ country_event = { #Infantry Event
 		}
 	}
 }
-country_event = { #Armour Event
+country_event = { #Naval Event
     id = TPMP_USA_congress.5
     title = TPMP_USA_congress.5.t
 	desc = TPMP_USA_congress.5.desc
 	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
+
+	immediate = {
+		set_variable = { TPMP_USA_navy_focus_mission_var = TPMP_USA_navy_focus_var }
+		set_variable = { TPMP_USA_dockyard_mission_var = num_of_naval_factories }
+		IF = {
+			limit = {
+				date > 1937.01.01
+				date < 1938.01.01
+			}
+			add_to_variable = { TPMP_USA_dockyard_mission_var = 1 }
+		}
+		ELSE_IF = {
+			limit = {
+				date > 1938.01.01
+				date < 1939.01.01
+			}
+			add_to_variable = { TPMP_USA_dockyard_mission_var = 2 }
+		}
+		ELSE_IF = {
+			limit = {
+				date > 1939.01.01
+				date < 1940.01.01
+			}
+			add_to_variable = { TPMP_USA_dockyard_mission_var = 3 }
+		}
+		ELSE_IF = {
+			limit = {
+				date > 1940.01.01
+			}
+			add_to_variable = { TPMP_USA_dockyard_mission_var = 4 }
+		}
+	}
     
     option = {
 		name = TPMP_USA_congress.5.a
-		custom_effect_tooltip = TPMP_USA_congress_equipment_tt
-		custom_effect_tooltip = generic_skip_one_line_tt
-		set_variable = { TPMP_USA_light_tank_equipment_mission_var = num_equipment@light_tank_chassis }
-		add_to_variable = { TPMP_USA_light_tank_equipment_mission_var = num_equipment_in_armies@light_tank_chassis }
-		add_to_variable = { TPMP_USA_light_tank_equipment_mission_var = amount_manpower_in_deployment_queue }
-		set_variable = { TPMP_USA_light_TD_equipment_mission_var = num_equipment@light_tank_destroyer_chassis }
-		add_to_variable = { TPMP_USA_light_TD_equipment_mission_var = num_equipment_in_armies@light_tank_destroyer_chassis }
-		add_to_variable = { TPMP_USA_light_TD_equipment_mission_var = amount_manpower_in_deployment_queue }
-		set_variable = { TPMP_USA_light_SPG_equipment_mission_var = num_equipment@light_tank_artillery_chassis }
-		add_to_variable = { TPMP_USA_light_SPG_equipment_mission_var = num_equipment_in_armies@light_tank_artillery_chassis }
-		add_to_variable = { TPMP_USA_light_SPG_equipment_mission_var = amount_manpower_in_deployment_queue }
-		set_variable = { TPMP_USA_light_SPAA_equipment_mission_var = num_equipment@light_tank_aa_chassis }
-		add_to_variable = { TPMP_USA_light_SPAA_equipment_mission_var = num_equipment_in_armies@light_tank_aa_chassis }
-		add_to_variable = { TPMP_USA_light_SPAA_equipment_mission_var = amount_manpower_in_deployment_queue }
-		set_variable = { TPMP_USA_light_amph_tank_equipment_mission_var = num_equipment@light_tank_amphibious_chassis }
-		add_to_variable = { TPMP_USA_light_amph_tank_equipment_mission_var = num_equipment_in_armies@light_tank_amphibious_chassis }
-		add_to_variable = { TPMP_USA_light_amph_tank_equipment_mission_var = amount_manpower_in_deployment_queue }
-		set_variable = { TPMP_USA_medium_tank_equipment_mission_var = num_equipment@medium_tank_chassis }
-		add_to_variable = { TPMP_USA_medium_tank_equipment_mission_var = num_equipment_in_armies@medium_tank_chassis }
-		add_to_variable = { TPMP_USA_medium_tank_equipment_mission_var = amount_manpower_in_deployment_queue }
-		set_variable = { TPMP_USA_medium_TD_equipment_mission_var = num_equipment@medium_tank_destroyer_chassis }
-		add_to_variable = { TPMP_USA_medium_TD_equipment_mission_var = num_equipment_in_armies@medium_tank_destroyer_chassis }
-		add_to_variable = { TPMP_USA_medium_TD_equipment_mission_var = amount_manpower_in_deployment_queue }
-		set_variable = { TPMP_USA_medium_SPG_equipment_mission_var = num_equipment@medium_tank_artillery_chassis }
-		add_to_variable = { TPMP_USA_medium_SPG_equipment_mission_var = num_equipment_in_armies@medium_tank_artillery_chassis }
-		add_to_variable = { TPMP_USA_medium_SPG_equipment_mission_var = amount_manpower_in_deployment_queue }
-		set_variable = { TPMP_USA_medium_SPAA_equipment_mission_var = num_equipment@medium_tank_aa_chassis }
-		add_to_variable = { TPMP_USA_medium_SPAA_equipment_mission_var = num_equipment_in_armies@medium_tank_aa_chassis }
-		add_to_variable = { TPMP_USA_medium_SPAA_equipment_mission_var = amount_manpower_in_deployment_queue }
-		set_variable = { TPMP_USA_medium_amph_tank_equipment_mission_var = num_equipment@medium_tank_amphibious_chassis }
-		add_to_variable = { TPMP_USA_medium_amph_tank_equipment_mission_var = num_equipment_in_armies@medium_tank_amphibious_chassis }
-		add_to_variable = { TPMP_USA_medium_amph_tank_equipment_mission_var = amount_manpower_in_deployment_queue }
-		set_variable = { TPMP_USA_heavy_tank_equipment_mission_var = num_equipment@heavy_tank_chassis }
-		add_to_variable = { TPMP_USA_heavy_tank_equipment_mission_var = num_equipment_in_armies@heavy_tank_chassis }
-		add_to_variable = { TPMP_USA_heavy_tank_equipment_mission_var = amount_manpower_in_deployment_queue }
-		set_variable = { TPMP_USA_heavy_TD_equipment_mission_var = num_equipment@heavy_tank_destroyer_chassis }
-		add_to_variable = { TPMP_USA_heavy_TD_equipment_mission_var = num_equipment_in_armies@heavy_tank_destroyer_chassis }
-		add_to_variable = { TPMP_USA_heavy_TD_equipment_mission_var = amount_manpower_in_deployment_queue }
-		set_variable = { TPMP_USA_heavy_SPG_equipment_mission_var = num_equipment@heavy_tank_artillery_chassis }
-		add_to_variable = { TPMP_USA_heavy_SPG_equipment_mission_var = num_equipment_in_armies@heavy_tank_artillery_chassis }
-		add_to_variable = { TPMP_USA_heavy_SPG_equipment_mission_var = amount_manpower_in_deployment_queue }
-		set_variable = { TPMP_USA_heavy_SPAA_equipment_mission_var = num_equipment@heavy_tank_aa_chassis }
-		add_to_variable = { TPMP_USA_heavy_SPAA_equipment_mission_var = num_equipment_in_armies@heavy_tank_aa_chassis }
-		add_to_variable = { TPMP_USA_heavy_SPAA_equipment_mission_var = amount_manpower_in_deployment_queue }
-		set_variable = { TPMP_USA_heavy_amph_tank_equipment_mission_var = num_equipment@heavy_tank_amphibious_chassis }
-		add_to_variable = { TPMP_USA_heavy_amph_tank_equipment_mission_var = num_equipment_in_armies@heavy_tank_amphibious_chassis }
-		add_to_variable = { TPMP_USA_heavy_amph_tank_equipment_mission_var = amount_manpower_in_deployment_queue }
-		IF = {
-			limit = {
-				date < 1938.01.01
-			}
-			add_to_variable = { TPMP_USA_light_tank_equipment_mission_var = 149 }
-			add_to_variable = { TPMP_USA_light_TD_equipment_mission_var = 149 }
-			add_to_variable = { TPMP_USA_light_SPG_equipment_mission_var = 149 }
-			add_to_variable = { TPMP_USA_light_SPAA_equipment_mission_var = 149 }
-			add_to_variable = { TPMP_USA_light_amph_tank_equipment_mission_var = 149 }
-			add_to_variable = { TPMP_USA_medium_tank_equipment_mission_var = 99 }
-			add_to_variable = { TPMP_USA_medium_TD_equipment_mission_var = 99 }
-			add_to_variable = { TPMP_USA_medium_SPG_equipment_mission_var = 99 }
-			add_to_variable = { TPMP_USA_medium_SPAA_equipment_mission_var = 99 }
-			add_to_variable = { TPMP_USA_medium_amph_tank_equipment_mission_var = 99 }
-			add_to_variable = { TPMP_USA_heavy_tank_equipment_mission_var = 49 }
-			add_to_variable = { TPMP_USA_heavy_TD_equipment_mission_var = 49 }
-			add_to_variable = { TPMP_USA_heavy_SPG_equipment_mission_var = 49 }
-			add_to_variable = { TPMP_USA_heavy_SPAA_equipment_mission_var = 49 }
-			add_to_variable = { TPMP_USA_heavy_amph_tank_equipment_mission_var = 49 }
-		}
-		ELSE_if = {
-			limit = {
-				date < 1940.01.01
-			}
-			add_to_variable = { TPMP_USA_light_tank_equipment_mission_var = 599 }
-			add_to_variable = { TPMP_USA_light_TD_equipment_mission_var = 599 }
-			add_to_variable = { TPMP_USA_light_SPG_equipment_mission_var = 599 }
-			add_to_variable = { TPMP_USA_light_SPAA_equipment_mission_var = 599 }
-			add_to_variable = { TPMP_USA_light_amph_tank_equipment_mission_var = 599 }
-			add_to_variable = { TPMP_USA_medium_tank_equipment_mission_var = 399 }
-			add_to_variable = { TPMP_USA_medium_TD_equipment_mission_var = 399 }
-			add_to_variable = { TPMP_USA_medium_SPG_equipment_mission_var = 399 }
-			add_to_variable = { TPMP_USA_medium_SPAA_equipment_mission_var = 399 }
-			add_to_variable = { TPMP_USA_medium_amph_tank_equipment_mission_var = 399 }
-			add_to_variable = { TPMP_USA_heavy_tank_equipment_mission_var = 199 }
-			add_to_variable = { TPMP_USA_heavy_TD_equipment_mission_var = 199 }
-			add_to_variable = { TPMP_USA_heavy_SPG_equipment_mission_var = 199 }
-			add_to_variable = { TPMP_USA_heavy_SPAA_equipment_mission_var = 199 }
-			add_to_variable = { TPMP_USA_heavy_amph_tank_equipment_mission_var = 199 }
-		}
-		ELSE = {
-			add_to_variable = { TPMP_USA_light_tank_equipment_mission_var = 1199 }
-			add_to_variable = { TPMP_USA_light_TD_equipment_mission_var = 1199 }
-			add_to_variable = { TPMP_USA_light_SPG_equipment_mission_var = 1199 }
-			add_to_variable = { TPMP_USA_light_SPAA_equipment_mission_var = 1199 }
-			add_to_variable = { TPMP_USA_light_amph_tank_equipment_mission_var = 1199 }
-			add_to_variable = { TPMP_USA_medium_tank_equipment_mission_var = 799 }
-			add_to_variable = { TPMP_USA_medium_TD_equipment_mission_var = 799 }
-			add_to_variable = { TPMP_USA_medium_SPG_equipment_mission_var = 799 }
-			add_to_variable = { TPMP_USA_medium_SPAA_equipment_mission_var = 799 }
-			add_to_variable = { TPMP_USA_medium_amph_tank_equipment_mission_var = 799 }
-			add_to_variable = { TPMP_USA_heavy_tank_equipment_mission_var = 399 }
-			add_to_variable = { TPMP_USA_heavy_TD_equipment_mission_var = 399 }
-			add_to_variable = { TPMP_USA_heavy_SPG_equipment_mission_var = 399 }
-			add_to_variable = { TPMP_USA_heavy_SPAA_equipment_mission_var = 399 }
-			add_to_variable = { TPMP_USA_heavy_amph_tank_equipment_mission_var = 399 }
-		}
 		activate_mission = TPMP_USA_congress_mission_1
 	}
-    option = {
+	option = {
 		name = TPMP_USA_congress.5.b
 		trigger = {
 			has_completed_focus = TPMP_USA_embrace_executive_powers
@@ -1625,7 +1159,7 @@ country_event = { #Armour Event
 		}
 	}
 }
-country_event = { #Plane Event
+country_event = { #Civilian Event
     id = TPMP_USA_congress.6
     title = TPMP_USA_congress.6.t
 	desc = TPMP_USA_congress.6.desc
@@ -1634,47 +1168,34 @@ country_event = { #Plane Event
 	is_triggered_only = yes
 
 	immediate = {
-		set_variable = { TPMP_USA_fighter_equipment_mission_var = num_equipment@small_plane_airframe }
-		add_to_variable = { TPMP_USA_fighter_equipment_mission_var = num_deployed_planes_with_type@small_plane_airframe }
-		set_variable = { TPMP_USA_heavy_fighter_equipment_mission_var = num_equipment@medium_plane_fighter_airframe }
-		add_to_variable = { TPMP_USA_heavy_fighter_equipment_mission_var = num_deployed_planes_with_type@medium_plane_fighter_airframe }
-		set_variable = { TPMP_USA_cas_equipment_mission_var = num_equipment@small_plane_cas_airframe }
-		add_to_variable = { TPMP_USA_cas_equipment_mission_var = num_deployed_planes_with_type@small_plane_cas_airframe }
-		set_variable = { TPMP_USA_naval_bomber_equipment_mission_var = num_equipment@small_plane_naval_bomber_airframe }
-		add_to_variable = { TPMP_USA_naval_bomber_equipment_mission_var = num_deployed_planes_with_type@small_plane_naval_bomber_airframe }
-		set_variable = { TPMP_USA_tactical_bomber_equipment_mission_var = num_equipment@medium_plane_airframe }
-		add_to_variable = { TPMP_USA_tactical_bomber_equipment_mission_var = num_deployed_planes_with_type@medium_plane_airframe }
-		set_variable = { TPMP_USA_strategic_bomber_equipment_mission_var = num_equipment@large_plane_airframe }
-		add_to_variable = { TPMP_USA_strategic_bomber_equipment_mission_var = num_deployed_planes_with_type@large_plane_airframe }
+		set_variable = { TPMP_USA_civ_focus_mission_var = TPMP_USA_civ_focus_var }
+		set_variable = { TPMP_USA_civilian_factory_mission_var = num_of_civilian_factories }
 		IF = {
 			limit = {
+				date > 1937.01.01
 				date < 1938.01.01
 			}
-			add_to_variable = { TPMP_USA_fighter_equipment_mission_var = 149 }
-			add_to_variable = { TPMP_USA_heavy_fighter_equipment_mission_var = 74 }
-			add_to_variable = { TPMP_USA_cas_equipment_mission_var = 74 }
-			add_to_variable = { TPMP_USA_naval_bomber_equipment_mission_var = 74 }
-			add_to_variable = { TPMP_USA_tactical_bomber_equipment_mission_var = 49 }
-			add_to_variable = { TPMP_USA_strategic_bomber_equipment_mission_var = 24 }
+			add_to_variable = { TPMP_USA_civilian_factory_mission_var = 2 }
 		}
-		ELSE_if = {
+		ELSE_IF = {
 			limit = {
+				date > 1938.01.01
+				date < 1939.01.01
+			}
+			add_to_variable = { TPMP_USA_civilian_factory_mission_var = 4 }
+		}
+		ELSE_IF = {
+			limit = {
+				date > 1939.01.01
 				date < 1940.01.01
 			}
-			add_to_variable = { TPMP_USA_fighter_equipment_mission_var = 599 }
-			add_to_variable = { TPMP_USA_heavy_fighter_equipment_mission_var = 299 }
-			add_to_variable = { TPMP_USA_cas_equipment_mission_var = 299 }
-			add_to_variable = { TPMP_USA_naval_bomber_equipment_mission_var = 299 }
-			add_to_variable = { TPMP_USA_tactical_bomber_equipment_mission_var = 199 }
-			add_to_variable = { TPMP_USA_strategic_bomber_equipment_mission_var = 99 }
+			add_to_variable = { TPMP_USA_civilian_factory_mission_var = 2 }
 		}
-		ELSE = {
-			add_to_variable = { TPMP_USA_fighter_equipment_mission_var = 1199 }
-			add_to_variable = { TPMP_USA_heavy_fighter_equipment_mission_var = 599 }
-			add_to_variable = { TPMP_USA_cas_equipment_mission_var = 599 }
-			add_to_variable = { TPMP_USA_naval_bomber_equipment_mission_var = 599 }
-			add_to_variable = { TPMP_USA_tactical_bomber_equipment_mission_var = 399 }
-			add_to_variable = { TPMP_USA_strategic_bomber_equipment_mission_var = 199 }
+		ELSE_IF = {
+			limit = {
+				date > 1940.01.01
+			}
+			add_to_variable = { TPMP_USA_civilian_factory_mission_var = 1 }
 		}
 	}
     
@@ -1682,7 +1203,7 @@ country_event = { #Plane Event
 		name = TPMP_USA_congress.6.a
 		activate_mission = TPMP_USA_congress_mission_2
 	}
-    option = {
+	option = {
 		name = TPMP_USA_congress.6.b
 		trigger = {
 			has_completed_focus = TPMP_USA_embrace_executive_powers
@@ -1697,46 +1218,24 @@ country_event = { #Plane Event
 		}
 	}
 }
-country_event = { #Ships Event
+country_event = { #Domestic Event
     id = TPMP_USA_congress.7
     title = TPMP_USA_congress.7.t
 	desc = TPMP_USA_congress.7.desc
 	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
-    
+
 	immediate = {
-		set_variable = { TPMP_USA_capital_ship_mission_var = num_ships_with_type@carrier }
-		add_to_variable = { TPMP_USA_capital_ship_mission_var = num_ships_with_type@sh_battleship }
-		add_to_variable = { TPMP_USA_capital_ship_mission_var = num_ships_with_type@battleship }
-		add_to_variable = { TPMP_USA_capital_ship_mission_var = num_ships_with_type@battle_cruiser }
-		add_to_variable = { TPMP_USA_capital_ship_mission_var = num_ships_with_type@heavy_cruiser }
-		set_variable = { TPMP_USA_screen_ship_mission_var = num_ships_with_type@light_cruiser }
-		add_to_variable = { TPMP_USA_screen_ship_mission_var = num_ships_with_type@destroyer }
-		IF = {
-			limit = {
-				date < 1938.01.01
-			}
-			add_to_variable = { TPMP_USA_capital_ship_mission_var = 1 }
-			add_to_variable = { TPMP_USA_screen_ship_mission_var = 4 }
-		}
-		ELSE_if = {
-			limit = {
-				date < 1940.01.01
-			}
-			add_to_variable = { TPMP_USA_capital_ship_mission_var = 2 }
-			add_to_variable = { TPMP_USA_screen_ship_mission_var = 9 }
-		}
-		ELSE = {
-			add_to_variable = { TPMP_USA_capital_ship_mission_var = 3 }
-			add_to_variable = { TPMP_USA_screen_ship_mission_var = 19 }
-		}
+		set_variable = { TPMP_USA_stability_mission_var = stability }
+		add_to_variable = { TPMP_USA_stability_mission_var = 0.04 }
 	}
+    
     option = {
 		name = TPMP_USA_congress.7.a
 		activate_mission = TPMP_USA_congress_mission_3
 	}
-    option = {
+	option = {
 		name = TPMP_USA_congress.7.b
 		trigger = {
 			has_completed_focus = TPMP_USA_embrace_executive_powers
@@ -1751,7 +1250,7 @@ country_event = { #Ships Event
 		}
 	}
 }
-country_event = { #Military Event
+country_event = { #Political Event
     id = TPMP_USA_congress.8
     title = TPMP_USA_congress.8.t
 	desc = TPMP_USA_congress.8.desc
@@ -1760,32 +1259,16 @@ country_event = { #Military Event
 	is_triggered_only = yes
 
 	immediate = {
-		set_variable = { TPMP_USA_military_factory_mission_var = num_of_military_factories }
-		set_variable = { TPMP_USA_dockyard_mission_var = num_of_naval_factories }
-		IF = {
-			limit = {
-				date < 1938.01.01
-			}
-			add_to_variable = { TPMP_USA_military_factory_mission_var = 2 }
-		}
-		ELSE_if = {
-			limit = {
-				date < 1940.01.01
-			}
-			add_to_variable = { TPMP_USA_military_factory_mission_var = 8 }
-			add_to_variable = { TPMP_USA_dockyard_mission_var = 2 }
-		}
-		ELSE = {
-			add_to_variable = { TPMP_USA_military_factory_mission_var = 14 }
-			add_to_variable = { TPMP_USA_dockyard_mission_var = 4 }
-		}
+		set_variable = { TPMP_USA_political_power_mission_var = political_power }
+		add_to_variable = { TPMP_USA_political_power_mission_var = 149 }
+		set_variable = { TPMP_USA_ndd_support_mission_var = new_deal_democrat_support_var }
 	}
     
     option = {
 		name = TPMP_USA_congress.8.a
 		activate_mission = TPMP_USA_congress_mission_4
 	}
-    option = {
+	option = {
 		name = TPMP_USA_congress.8.b
 		trigger = {
 			has_completed_focus = TPMP_USA_embrace_executive_powers
@@ -1800,7 +1283,8 @@ country_event = { #Military Event
 		}
 	}
 }
-country_event = { #Civilian Event
+
+country_event = { #Technology Lobbyist Event
     id = TPMP_USA_congress.9
     title = TPMP_USA_congress.9.t
 	desc = TPMP_USA_congress.9.desc
@@ -1809,29 +1293,16 @@ country_event = { #Civilian Event
 	is_triggered_only = yes
 
 	immediate = {
-		set_variable = { TPMP_USA_civilian_factory_mission_var = num_of_civilian_factories }
-		IF = {
-			limit = {
-				date < 1938.01.01
-			}
-			add_to_variable = { TPMP_USA_civilian_factory_mission_var = 9 }
-		}
-		ELSE_if = {
-			limit = {
-				date < 1940.01.01
-			}
-			add_to_variable = { TPMP_USA_civilian_factory_mission_var = 2 }
-		}
-		ELSE = {
-			add_to_variable = { TPMP_USA_civilian_factory_mission_var = 2 }
-		}
+		set_variable = { TPMP_USA_technology_lobby_mission_var = num_researched_technologies }
+		add_to_variable = { TPMP_USA_technology_lobby_mission_var = 1 }
+		set_variable = { TPMP_USA_research_speed_lobby_mission_var = modifier@research_speed_factor }
 	}
     
     option = {
 		name = TPMP_USA_congress.9.a
 		activate_mission = TPMP_USA_congress_mission_5
 	}
-    option = {
+	option = {
 		name = TPMP_USA_congress.9.b
 		trigger = {
 			has_completed_focus = TPMP_USA_embrace_executive_powers
@@ -1846,7 +1317,7 @@ country_event = { #Civilian Event
 		}
 	}
 }
-country_event = { #First Political Event
+country_event = { #Industrialist Lobbyist Event
     id = TPMP_USA_congress.10
     title = TPMP_USA_congress.10.t
 	desc = TPMP_USA_congress.10.desc
@@ -1855,29 +1326,16 @@ country_event = { #First Political Event
 	is_triggered_only = yes
 
 	immediate = {
-		set_variable = { TPMP_USA_political_power_mission_var = political_power }
-		IF = {
-			limit = {
-				date < 1938.01.01
-			}
-			add_to_variable = { TPMP_USA_political_power_mission_var = 150 }
-		}
-		ELSE_IF = {
-			limit = {
-				date < 1940.01.01
-			}
-			add_to_variable = { TPMP_USA_political_power_mission_var = 200 }
-		}
-		ELSE = {
-			add_to_variable = { TPMP_USA_political_power_mission_var = 250 }
-		}
+		set_variable = { TPMP_USA_efficiency_lobby_mission_var = modifier@production_factory_max_efficiency_factor }
+		set_variable = { TPMP_USA_output_lobby_mission_var = modifier@industrial_capacity_factory }
+		set_variable = { TPMP_USA_construction_lobby_mission_var = modifier@production_speed_buildings_factor }
 	}
     
     option = {
 		name = TPMP_USA_congress.10.a
 		activate_mission = TPMP_USA_congress_mission_6
 	}
-    option = {
+	option = {
 		name = TPMP_USA_congress.10.b
 		trigger = {
 			has_completed_focus = TPMP_USA_embrace_executive_powers
@@ -1892,7 +1350,7 @@ country_event = { #First Political Event
 		}
 	}
 }
-country_event = { #Second Political Event
+country_event = { #War Hawk Lobbyist Event
     id = TPMP_USA_congress.11
     title = TPMP_USA_congress.11.t
 	desc = TPMP_USA_congress.11.desc
@@ -1901,76 +1359,15 @@ country_event = { #Second Political Event
 	is_triggered_only = yes
 
 	immediate = {
-			IF = {
-                limit = {
-                    amount_taken_ideas = {
-                        amount < 1
-                        slots = { political_advisor }
-                    }
-                }
-                set_variable = { TPMP_USA_political_advisor_mission_var = 0 }
-            }
-            ELSE_IF = {
-                limit = {
-                    amount_taken_ideas = {
-                        amount < 2
-                        slots = { political_advisor }
-                    }
-                }
-                set_variable = { TPMP_USA_political_advisor_mission_var = 1 }
-            }
-            ELSE_IF = {
-                limit = {
-                    amount_taken_ideas = {
-                        amount < 3
-                        slots = { political_advisor }
-                    }
-                }
-                set_variable = { TPMP_USA_political_advisor_mission_var = 2 }
-            }
-            ELSE_IF = {
-                limit = {
-                    amount_taken_ideas = {
-                        amount < 4
-                        slots = { political_advisor }
-                    }
-                }
-                set_variable = { TPMP_USA_political_advisor_mission_var = 3 }
-            }
-            ELSE_IF = {
-                limit = {
-                    amount_taken_ideas = {
-                        amount < 5
-                        slots = { political_advisor }
-                    }
-                }
-                set_variable = { TPMP_USA_political_advisor_mission_var = 4 }
-            }
-            ELSE_IF = {
-                limit = {
-                    amount_taken_ideas = {
-                        amount < 6
-                        slots = { political_advisor }
-                    }
-                }
-                set_variable = { TPMP_USA_political_advisor_mission_var = 5 }
-            }
-            ELSE_IF = {
-                limit = {
-                    amount_taken_ideas = {
-                        amount < 7
-                        slots = { political_advisor }
-                    }
-                }
-                set_variable = { TPMP_USA_political_advisor_mission_var = 6 }
-            }
+		set_variable = { TPMP_USA_war_support_lobby_mission_var = has_war_support }
+		add_to_variable = { TPMP_USA_war_support_lobby_mission_var = 0.02 }
 	}
     
     option = {
 		name = TPMP_USA_congress.11.a
 		activate_mission = TPMP_USA_congress_mission_7
 	}
-    option = {
+	option = {
 		name = TPMP_USA_congress.11.b
 		trigger = {
 			has_completed_focus = TPMP_USA_embrace_executive_powers
@@ -1985,177 +1382,42 @@ country_event = { #Second Political Event
 		}
 	}
 }
-country_event = { #Technocrat Lobbyist Event
+
+country_event = { #War Hawk Appropriations
     id = TPMP_USA_congress.12
-    title = TPMP_USA_congress.12.t
+	title = TPMP_USA_congress.12.t
 	desc = TPMP_USA_congress.12.desc
 	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 
-	immediate = {
-		set_variable = { TPMP_USA_technology_lobby_mission_var = num_researched_technologies }
-		IF = {
-			limit = {
-				date < 1938.01.01
-			}
-			add_to_variable = { TPMP_USA_technology_lobby_mission_var = 3 }
-		}
-		ELSE_IF = {
-			limit = {
-				date < 1940.01.01
-			}
-			add_to_variable = { TPMP_USA_technology_lobby_mission_var = 4 }
-		}
-		ELSE = {
-			add_to_variable = { TPMP_USA_technology_lobby_mission_var = 5 }
-		}
-	}
-    
-    option = {
+	option = {
 		name = TPMP_USA_congress.12.a
-		activate_mission = TPMP_USA_congress_mission_8
+		add_equipment_to_stockpile = {
+			type = infantry_equipment
+			amount = 15000
+			producer = USA
+		}
 	}
 	option = {
 		name = TPMP_USA_congress.12.b
-		trigger = {
-			has_completed_focus = TPMP_USA_embrace_executive_powers
+		add_equipment_to_stockpile = {
+			type = medium_tank_chassis
+			amount = 400
+			producer = USA
 		}
-		add_political_power = -15
-		custom_effect_tooltip = TPMP_USA_congress_event_mission_tt
-		hidden_effect = {
-			country_event = {
-				id = TPMP_USA_congress.1
-				days = 1
-			}
+		add_equipment_to_stockpile = {
+			type = heavy_tank_chassis
+			amount = 200
+			producer = USA
 		}
-	}
-}
-country_event = { #Labour Lobbyist Event
-    id = TPMP_USA_congress.13
-    title = TPMP_USA_congress.13.t
-	desc = TPMP_USA_congress.13.desc
-	picture = GFX_report_event_USA_congress
-
-	is_triggered_only = yes
-
-	immediate = {
-		set_variable = { TPMP_USA_stability_lobby_mission_var = stability }
-		add_to_variable = { TPMP_USA_stability_lobby_mission_var = 0.05 }
-	}
-    
-    option = {
-		name = TPMP_USA_congress.13.a
-		activate_mission = TPMP_USA_congress_mission_9
 	}
 	option = {
-		name = TPMP_USA_congress.13.b
-		trigger = {
-			has_completed_focus = TPMP_USA_embrace_executive_powers
-		}
-		add_political_power = -15
-		custom_effect_tooltip = TPMP_USA_congress_event_mission_tt
-		hidden_effect = {
-			country_event = {
-				id = TPMP_USA_congress.1
-				days = 1
-			}
-		}
-	}
-}
-country_event = { #Corporate Lobbyist Event
-    id = TPMP_USA_congress.14
-    title = TPMP_USA_congress.14.t
-	desc = TPMP_USA_congress.14.desc
-	picture = GFX_report_event_USA_congress
-
-	is_triggered_only = yes
-
-	immediate = {
-		set_variable = { TPMP_USA_output_lobby_mission_var = modifier@industrial_capacity_factory }
-		add_to_variable = { TPMP_USA_output_lobby_mission_var = 0.05 }
-	}
-    
-    option = {
-		name = TPMP_USA_congress.14.a
-		activate_mission = TPMP_USA_congress_mission_10
-	}
-	option = {
-		name = TPMP_USA_congress.14.b
-		trigger = {
-			has_completed_focus = TPMP_USA_embrace_executive_powers
-		}
-		add_political_power = -15
-		custom_effect_tooltip = TPMP_USA_congress_event_mission_tt
-		hidden_effect = {
-			country_event = {
-				id = TPMP_USA_congress.1
-				days = 1
-			}
-		}
-	}
-}
-country_event = { #War Hawk Lobbyist Event
-    id = TPMP_USA_congress.15
-    title = TPMP_USA_congress.15.t
-	desc = TPMP_USA_congress.15.desc
-	picture = GFX_report_event_USA_congress
-
-	is_triggered_only = yes
-
-	immediate = {
-		set_variable = { TPMP_USA_war_support_lobby_mission_var = has_war_support }
-		add_to_variable = { TPMP_USA_war_support_lobby_mission_var = 0.05 }
-	}
-    
-    option = {
-		name = TPMP_USA_congress.15.a
-		activate_mission = TPMP_USA_congress_mission_11
-	}
-	option = {
-		name = TPMP_USA_congress.15.b
-		trigger = {
-			has_completed_focus = TPMP_USA_embrace_executive_powers
-		}
-		add_political_power = -15
-		custom_effect_tooltip = TPMP_USA_congress_event_mission_tt
-		hidden_effect = {
-			country_event = {
-				id = TPMP_USA_congress.1
-				days = 1
-			}
-		}
-	}
-}
-country_event = { #Political Lobbyist Event
-    id = TPMP_USA_congress.16
-    title = TPMP_USA_congress.16.t
-	desc = TPMP_USA_congress.16.desc
-	picture = GFX_report_event_USA_congress
-
-	is_triggered_only = yes
-
-	immediate = {
-		set_variable = { TPMP_USA_ndd_support_lobby_mission_var = new_deal_democrat_support_var }
-		add_to_variable = { TPMP_USA_ndd_support_lobby_mission_var = 3 }
-	}
-    
-    option = {
-		name = TPMP_USA_congress.16.a
-		activate_mission = TPMP_USA_congress_mission_12
-	}
-	option = {
-		name = TPMP_USA_congress.16.b
-		trigger = {
-			has_completed_focus = TPMP_USA_embrace_executive_powers
-		}
-		add_political_power = -15
-		custom_effect_tooltip = TPMP_USA_congress_event_mission_tt
-		hidden_effect = {
-			country_event = {
-				id = TPMP_USA_congress.1
-				days = 1
-			}
+		name = TPMP_USA_congress.12.c
+		add_equipment_to_stockpile = {
+			type = small_plane_airframe
+			amount = 600
+			producer = USA
 		}
 	}
 }

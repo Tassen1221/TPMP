@@ -81,46 +81,10 @@ characters={
 				TPMP_vice_president TPMP_conservative_dealmaker
 			}
 			on_add = {
-				custom_effect_tooltip = ndd_gain_support_small_tt
-				custom_effect_tooltip = cd_lose_support_small_tt
-				for_loop_effect = {
-					end = 3
-					IF = {
-						limit = {
-							check_variable = {
-								conservative_democrat_support_var > 0
-							}
-						}
-						add_to_variable = {
-							new_deal_democrat_support_var = 1
-						}
-						add_to_variable = {
-							conservative_democrat_support_var = -1
-						}
-					}
-				}
-				recalculate_congressional_ui = yes
+				cd_to_ndd_support_small = yes
 			}
 			on_remove = {
-				custom_effect_tooltip = ndd_lose_support_small_tt
-				custom_effect_tooltip = cd_gain_support_small_tt
-				for_loop_effect = {
-					end = 3
-					IF = {
-						limit = {
-							check_variable = {
-								new_deal_democrat_support_var > 0
-							}
-						}
-						add_to_variable = {
-							conservative_democrat_support_var = 1
-						}
-						add_to_variable = {
-							new_deal_democrat_support_var = -1
-						}
-					}
-				}
-				recalculate_congressional_ui = yes
+				ndd_to_cd_support_small = yes
 			}
 		}
 	}
@@ -146,48 +110,6 @@ characters={
 			}
 			traits = {
 				TPMP_vice_president TPMP_assistant_president
-			}
-			on_add = {
-				custom_effect_tooltip = lwd_lose_support_small_tt
-				custom_effect_tooltip = ndd_gain_support_small_tt
-				for_loop_effect = {
-					end = 3
-					IF = {
-						limit = {
-							check_variable = {
-								left_wing_democrat_support_var > 0
-							}
-						}
-						add_to_variable = {
-							new_deal_democrat_support_var = 1
-						}
-						add_to_variable = {
-							left_wing_democrat_support_var = -1
-						}
-					}
-				}
-				recalculate_congressional_ui = yes
-			}
-			on_remove = {
-				custom_effect_tooltip = lwd_gain_support_small_tt
-				custom_effect_tooltip = ndd_lose_support_small_tt
-				for_loop_effect = {
-					end = 3
-					IF = {
-						limit = {
-							check_variable = {
-								new_deal_democrat_support_var > 0
-							}
-						}
-						add_to_variable = {
-							left_wing_democrat_support_var = 1
-						}
-						add_to_variable = {
-							new_deal_democrat_support_var = -1
-						}
-					}
-				}
-				recalculate_congressional_ui = yes
 			}
 		}
 	}
@@ -643,46 +565,10 @@ characters={
 				TPMP_loyal_advisor
 			}
 			on_add = {
-				custom_effect_tooltip = ndd_gain_support_small_tt
-				custom_effect_tooltip = br_lose_support_small_tt
-				for_loop_effect = {
-					end = 3
-					IF = {
-						limit = {
-							check_variable = {
-								business_republican_support_var > 0
-							}
-						}
-						add_to_variable = {
-							new_deal_democrat_support_var = 1
-						}
-						add_to_variable = {
-							business_republican_support_var = -1
-						}
-					}
-				}
-				recalculate_congressional_ui = yes
+				br_to_ndd_support_small = yes
 			}
 			on_remove = {
-				custom_effect_tooltip = ndd_lose_support_small_tt
-				custom_effect_tooltip = br_gain_support_small_tt
-				for_loop_effect = {
-					end = 3
-					IF = {
-						limit = {
-							check_variable = {
-								new_deal_democrat_support_var > 0
-							}
-						}
-						add_to_variable = {
-							business_republican_support_var = 1
-						}
-						add_to_variable = {
-							new_deal_democrat_support_var = -1
-						}
-					}
-				}
-				recalculate_congressional_ui = yes
+				ndd_to_br_support_small = yes
 			}
 		}
 	}

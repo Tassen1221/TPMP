@@ -42,60 +42,8 @@ focus_tree = {
 			has_completed_focus = TPMP_USA_the_1936_election
 		}
 		completion_reward = {
-			custom_effect_tooltip = lwd_lose_support_tt
-			custom_effect_tooltip = cd_gain_support_large_tt
-			custom_effect_tooltip = pr_gain_support_tt
-			custom_effect_tooltip = br_lose_support_tt
-			custom_effect_tooltip = ir_lose_support_tt
-			for_loop_effect = {
-				end = 5
-				IF = {
-					limit = {
-						check_variable = {
-							left_wing_democrat_support_var > 0
-						}
-					}
-					add_to_variable = {
-						left_wing_democrat_support_var = -1
-					}
-					add_to_variable = {
-						conservative_democrat_support_var = 1
-					}
-				}
-			}
-			for_loop_effect = {
-				end = 5
-				IF = {
-					limit = {
-						check_variable = {
-							isolationist_republican_support_var > 0
-						}
-					}
-					add_to_variable = {
-						progressive_republican_support_var = 1
-					}
-					add_to_variable = {
-						isolationist_republican_support_var = -1
-					}
-				}
-			}
-			for_loop_effect = {
-				end = 5
-				IF = {
-					limit = {
-						check_variable = {
-							business_republican_support_var > 0
-						}
-					}
-					add_to_variable = {
-						conservative_democrat_support_var = 1
-					}
-					add_to_variable = {
-						business_republican_support_var = -1
-					}
-				}
-			}
-			recalculate_congressional_ui = yes
+			ndd_to_cd_support = yes
+			br_to_cd_support = yes
 			custom_effect_tooltip = generic_skip_one_line_tt
 			add_power_balance_value = {
 				id = TPMP_USA_power_balance
@@ -105,167 +53,6 @@ focus_tree = {
 			USA_electoral_support_gain_small = yes
 			custom_effect_tooltip = generic_skip_one_line_tt
 			add_stability = 0.05
-			IF = {
-				limit = {
-					has_tech = advanced_ship_hull_carrier
-				}
-				create_ship = {
-					type = ship_hull_carrier_3
-					equipment_variant = "Advanced Carrier"
-					creator = USA
-				}
-			}
-			ELSE_IF = {
-				limit = {
-					has_tech = improved_ship_hull_carrier
-				}
-				create_ship = {
-					type = ship_hull_carrier_2
-					equipment_variant = "Improved Carrier"
-					creator = USA
-				}
-			}
-			ELSE = {
-				create_ship = {
-					type = ship_hull_carrier_1
-					equipment_variant = "Basic Carrier 2"
-					creator = USA
-				}
-			}
-			IF = {
-				limit = {
-					has_tech = advanced_ship_hull_heavy
-				}
-				create_ship = {
-					type = ship_hull_heavy_4
-					equipment_variant = "Advanced Heavy Ship"
-					creator = USA
-				}
-			}
-			ELSE_IF = {
-				limit = {
-					has_tech = improved_ship_hull_heavy
-				}
-				create_ship = {
-					type = ship_hull_heavy_3
-					equipment_variant = "Improved Heavy Ship"
-					creator = USA
-				}
-			}
-			ELSE_IF = {
-				limit = {
-					has_tech = basic_ship_hull_heavy
-				}
-				create_ship = {
-					type = ship_hull_heavy_2
-					equipment_variant = "Basic Heavy Ship"
-					creator = USA
-				}
-			}
-			ELSE = {
-				create_ship = {
-					type = ship_hull_heavy_1
-					equipment_variant = "Early Heavy Ship " # trailing space matches vanilla loc ship_hull_heavy_1 exactly; lookup fails without it
-					creator = USA
-				}
-			}
-			IF = {
-				limit = {
-					has_tech = advanced_ship_hull_light
-				}
-				create_ship = {
-					type = ship_hull_light_4
-					equipment_variant = "Advanced Destroyer"
-					creator = USA
-				}
-				create_ship = {
-					type = ship_hull_light_4
-					equipment_variant = "Advanced Destroyer"
-					creator = USA
-				}
-				create_ship = {
-					type = ship_hull_light_4
-					equipment_variant = "Advanced Destroyer"
-					creator = USA
-				}
-				create_ship = {
-					type = ship_hull_light_4
-					equipment_variant = "Advanced Destroyer"
-					creator = USA
-				}
-			}
-			ELSE_IF = {
-				limit = {
-					has_tech = improved_ship_hull_light
-				}
-				create_ship = {
-					type = ship_hull_light_3
-					equipment_variant = "Improved Destroyer"
-					creator = USA
-				}
-				create_ship = {
-					type = ship_hull_light_3
-					equipment_variant = "Improved Destroyer"
-					creator = USA
-				}
-				create_ship = {
-					type = ship_hull_light_3
-					equipment_variant = "Improved Destroyer"
-					creator = USA
-				}
-				create_ship = {
-					type = ship_hull_light_3
-					equipment_variant = "Improved Destroyer"
-					creator = USA
-				}
-			}
-			ELSE_IF = {
-				limit = {
-					has_tech = basic_ship_hull_light
-				}
-				create_ship = {
-					type = ship_hull_light_2
-					equipment_variant = "Basic Destroyer"
-					creator = USA
-				}
-				create_ship = {
-					type = ship_hull_light_2
-					equipment_variant = "Basic Destroyer"
-					creator = USA
-				}
-				create_ship = {
-					type = ship_hull_light_2
-					equipment_variant = "Basic Destroyer"
-					creator = USA
-				}
-				create_ship = {
-					type = ship_hull_light_2
-					equipment_variant = "Basic Destroyer"
-					creator = USA
-				}
-			}
-			ELSE = {
-				create_ship = {
-					type = ship_hull_light_1
-					equipment_variant = "Early Destroyer"
-					creator = USA
-				}
-				create_ship = {
-					type = ship_hull_light_1
-					equipment_variant = "Early Destroyer"
-					creator = USA
-				}
-				create_ship = {
-					type = ship_hull_light_1
-					equipment_variant = "Early Destroyer"
-					creator = USA
-				}
-				create_ship = {
-					type = ship_hull_light_1
-					equipment_variant = "Early Destroyer"
-					creator = USA
-				}
-			}
 		}
 	}
 
@@ -284,43 +71,7 @@ focus_tree = {
 			has_completed_focus = TPMP_USA_the_1936_election
 		}
 		completion_reward = {
-			custom_effect_tooltip = lwd_gain_support_small_tt
-			custom_effect_tooltip = ndd_gain_support_tt
-			custom_effect_tooltip = br_lose_support_small_tt
-			custom_effect_tooltip = ir_lose_support_tt
-			for_loop_effect = {
-				end = 5
-				IF = {
-					limit = {
-						check_variable = {
-							isolationist_republican_support_var > 0
-						}
-					}
-					add_to_variable = {
-						new_deal_democrat_support_var = 1
-					}
-					add_to_variable = {
-						isolationist_republican_support_var = -1
-					}
-				}
-			}
-			for_loop_effect = {
-				end = 3
-				IF = {
-					limit = {
-						check_variable = {
-							business_republican_support_var > 0
-						}
-					}
-					add_to_variable = {
-						left_wing_democrat_support_var = 1
-					}
-					add_to_variable = {
-						business_republican_support_var = -1
-					}
-				}
-			}
-			recalculate_congressional_ui = yes
+			br_to_ndd_support_large = yes
 			custom_effect_tooltip = generic_skip_one_line_tt
 			add_power_balance_value = {
 				id = TPMP_USA_power_balance
@@ -408,43 +159,7 @@ focus_tree = {
 		relative_position_id = TPMP_USA_a_narrow_victory
 		cost = 5
 		completion_reward = {
-			custom_effect_tooltip = ndd_lose_support_small_tt
-			custom_effect_tooltip = cd_gain_support_small_tt
-			custom_effect_tooltip = br_gain_support_tt
-			custom_effect_tooltip = ir_lose_support_tt
-			for_loop_effect = {
-				end = 3
-				IF = {
-					limit = {
-						check_variable = {
-							new_deal_democrat_support_var > 0
-						}
-					}
-					add_to_variable = {
-						conservative_democrat_support_var = 1
-					}
-					add_to_variable = {
-						new_deal_democrat_support_var = -1
-					}
-				}
-			}
-			for_loop_effect = {
-				end = 5
-				IF = {
-					limit = {
-						check_variable = {
-							isolationist_republican_support_var > 0
-						}
-					}
-					add_to_variable = {
-						business_republican_support_var = 1
-					}
-					add_to_variable = {
-						isolationist_republican_support_var = -1
-					}
-				}
-			}
-			recalculate_congressional_ui = yes
+			ndd_to_cd_support_small = yes
 			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = TPMP_USA_a_conservative_coalition_tt
 			set_temp_variable = { pp_gain = conservative_democrat_support_var }
@@ -463,28 +178,10 @@ focus_tree = {
 		relative_position_id = TPMP_USA_a_conservative_coalition
 		cost = 5
 		available = {
-			has_support_cd_br_ir = yes
+			has_support_cd_br = yes
 		}
 		completion_reward = {
-			custom_effect_tooltip = ndd_gain_support_small_tt
-			custom_effect_tooltip = br_lose_support_small_tt
-			for_loop_effect = {
-				end = 3
-				IF = {
-					limit = {
-						check_variable = {
-							business_republican_support_var > 0
-						}
-					}
-					add_to_variable = {
-						new_deal_democrat_support_var = 1
-					}
-					add_to_variable = {
-						business_republican_support_var = -1
-					}
-				}
-			}
-			recalculate_congressional_ui = yes
+			br_to_ndd_support_small = yes
 			custom_effect_tooltip = generic_skip_one_line_tt
 			reduce_focus_completion_cost = {
 				focus = { TPMP_USA_manage_the_budget TPMP_USA_revenue_act TPMP_USA_cut_federal_spending }
@@ -507,53 +204,8 @@ focus_tree = {
 		relative_position_id = TPMP_USA_a_conservative_coalition
 		cost = 5
 		completion_reward = {
-			custom_effect_tooltip = ndd_lose_support_tt
-			custom_effect_tooltip = cd_gain_support_small_tt
-			custom_effect_tooltip = br_gain_support_tiny_tt
-			custom_effect_tooltip = ir_gain_support_tiny_tt
-			for_loop_effect = {
-				end = 3
-				IF = {
-					limit = {
-						check_variable = {
-							new_deal_democrat_support_var > 0
-						}
-					}
-					add_to_variable = {
-						conservative_democrat_support_var = 1
-					}
-					add_to_variable = {
-						new_deal_democrat_support_var = -1
-					}
-				}
-			}
-			IF = {
-				limit = {
-					check_variable = {
-						new_deal_democrat_support_var > 0
-					}
-				}
-				add_to_variable = {
-					business_republican_support_var = 1
-				}
-				add_to_variable = {
-					new_deal_democrat_support_var = -1
-				}
-			}
-			IF = {
-				limit = {
-					check_variable = {
-						new_deal_democrat_support_var > 0
-					}
-				}
-				add_to_variable = {
-					isolationist_republican_support_var = 1
-				}
-				add_to_variable = {
-					new_deal_democrat_support_var = -1
-				}
-			}
-			recalculate_congressional_ui = yes
+			ndd_to_cd_support_small = yes
+			ndd_to_br_support_small = yes
 			custom_effect_tooltip = generic_skip_one_line_tt
 			add_power_balance_value = {
 				id = TPMP_USA_power_balance
@@ -587,53 +239,8 @@ focus_tree = {
 		relative_position_id = TPMP_USA_a_conservative_coalition
 		cost = 5
 		completion_reward = {
-			custom_effect_tooltip = ndd_gain_support_tt
-			custom_effect_tooltip = cd_lose_support_tiny_tt
-			custom_effect_tooltip = br_lose_support_small_tt
-			custom_effect_tooltip = ir_lose_support_tiny_tt
-			IF = {
-				limit = {
-					check_variable = {
-						conservative_democrat_support_var > 0
-					}
-				}
-				add_to_variable = {
-					new_deal_democrat_support_var = 1
-				}
-				add_to_variable = {
-					conservative_democrat_support_var = -1
-				}
-			}
-			for_loop_effect = {
-				end = 3
-				IF = {
-					limit = {
-						check_variable = {
-							business_republican_support_var > 0
-						}
-					}
-					add_to_variable = {
-						new_deal_democrat_support_var = 1
-					}
-					add_to_variable = {
-						business_republican_support_var = -1
-					}
-				}
-			}
-			IF = {
-				limit = {
-					check_variable = {
-						isolationist_republican_support_var > 0
-					}
-				}
-				add_to_variable = {
-					new_deal_democrat_support_var = 1
-				}
-				add_to_variable = {
-					isolationist_republican_support_var = -1
-				}
-			}
-			recalculate_congressional_ui = yes
+			cd_to_ndd_support_tiny = yes
+			br_to_ndd_support = yes
 			custom_effect_tooltip = generic_skip_one_line_tt
 			reduce_focus_completion_cost = {
 				focus = { TPMP_USA_fair_labour_standards_act }
@@ -871,42 +478,7 @@ focus_tree = {
 			has_support_ndd = yes
 		}
 		completion_reward = {
-			custom_effect_tooltip = ndd_lose_support_large_tt
-			custom_effect_tooltip = br_gain_support_tt
-			custom_effect_tooltip = ir_gain_support_tt
-			for_loop_effect = {
-				end = 5
-				IF = {
-					limit = {
-						check_variable = {
-							new_deal_democrat_support_var > 0
-						}
-					}
-					add_to_variable = {
-						isolationist_republican_support_var = 1
-					}
-					add_to_variable = {
-						new_deal_democrat_support_var = -1
-					}
-				}
-			}
-			for_loop_effect = {
-				end = 5
-				IF = {
-					limit = {
-						check_variable = {
-							new_deal_democrat_support_var > 0
-						}
-					}
-					add_to_variable = {
-						business_republican_support_var = 1
-					}
-					add_to_variable = {
-						new_deal_democrat_support_var = -1
-					}
-				}
-			}
-			recalculate_congressional_ui = yes
+			ndd_to_br_support_large = yes
 			custom_effect_tooltip = generic_skip_one_line_tt
 			reduce_focus_completion_cost = {
 				focus = { TPMP_USA_fair_labour_standards_act }
@@ -934,53 +506,8 @@ focus_tree = {
 		available = {
 		}
 		completion_reward = {
-			custom_effect_tooltip = ndd_gain_support_tt
-			custom_effect_tooltip = cd_lose_support_small_tt
-			custom_effect_tooltip = br_lose_support_tiny_tt
-			custom_effect_tooltip = ir_lose_support_tiny_tt
-			for_loop_effect = {
-				end = 3
-				IF = {
-					limit = {
-						check_variable = {
-							conservative_democrat_support_var > 0
-						}
-					}
-					add_to_variable = {
-						new_deal_democrat_support_var = 1
-					}
-					add_to_variable = {
-						conservative_democrat_support_var = -1
-					}
-				}
-			}
-			IF = {
-				limit = {
-					check_variable = {
-						business_republican_support_var > 0
-					}
-				}
-				add_to_variable = {
-					new_deal_democrat_support_var = 1
-				}
-				add_to_variable = {
-					business_republican_support_var = -1
-				}
-			}
-			IF = {
-				limit = {
-					check_variable = {
-						isolationist_republican_support_var > 0
-					}
-				}
-				add_to_variable = {
-					new_deal_democrat_support_var = 1
-				}
-				add_to_variable = {
-					isolationist_republican_support_var = -1
-				}
-			}
-			recalculate_congressional_ui = yes
+			cd_to_ndd_support_small = yes
+			br_to_ndd_support_small = yes
 			custom_effect_tooltip = generic_skip_one_line_tt
 			reduce_focus_completion_cost = {
 				focus = { TPMP_USA_fair_labour_standards_act }
@@ -1001,28 +528,10 @@ focus_tree = {
 		relative_position_id = TPMP_USA_court_packing_plan
 		cost = 5
 		completion_reward = {
-			custom_effect_tooltip = ndd_gain_support_tt
-			custom_effect_tooltip = cd_lose_support_tt
-			for_loop_effect = {
-				end = 5
-				IF = {
-					limit = {
-						check_variable = {
-							conservative_democrat_support_var > 0
-						}
-					}
-					add_to_variable = {
-						new_deal_democrat_support_var = 1
-					}
-					add_to_variable = {
-						conservative_democrat_support_var = -1
-					}
-				}
-			}
+			cd_to_ndd_support = yes
 			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = TPMP_USA_the_new_deal_coalition_tt
 			set_temp_variable = { pp_gain = new_deal_democrat_support_var }
-			recalculate_congressional_ui = yes
 			multiply_temp_variable = { pp_gain = 5 }
 			add_political_power = pp_gain
 		}
@@ -1037,25 +546,7 @@ focus_tree = {
 		relative_position_id = TPMP_USA_the_new_deal_coalition
 		cost = 5
 		completion_reward = {
-			custom_effect_tooltip = ndd_gain_support_large_tt
-			custom_effect_tooltip = br_lose_support_large_tt
-			for_loop_effect = {
-				end = 10
-				IF = {
-					limit = {
-						check_variable = {
-							business_republican_support_var > 0
-						}
-					}
-					add_to_variable = {
-						new_deal_democrat_support_var = 1
-					}
-					add_to_variable = {
-						business_republican_support_var = -1
-					}
-				}
-			}
-			recalculate_congressional_ui = yes
+			br_to_ndd_support_large = yes
 			custom_effect_tooltip = generic_skip_one_line_tt
 			add_trait = {
 				character = USA_franklin_delano_roosevelt
@@ -1074,61 +565,8 @@ focus_tree = {
 		relative_position_id = TPMP_USA_denounce_economic_royalism
 		cost = 5
 		completion_reward = {
-			custom_effect_tooltip = lwd_gain_support_small_tt
-			custom_effect_tooltip = ndd_gain_support_tt
-			custom_effect_tooltip = cd_lose_support_small_tt
-			custom_effect_tooltip = pr_gain_support_small_tt
-			custom_effect_tooltip = br_lose_support_tt
-			custom_effect_tooltip = ir_lose_support_small_tt
-			for_loop_effect = {
-				end = 3
-				IF = {
-					limit = {
-						check_variable = {
-							conservative_democrat_support_var > 0
-						}
-					}
-					add_to_variable = {
-						left_wing_democrat_support_var = 1
-					}
-					add_to_variable = {
-						conservative_democrat_support_var = -1
-					}
-				}
-			}
-			for_loop_effect = {
-				end = 5
-				IF = {
-					limit = {
-						check_variable = {
-							business_republican_support_var > 0
-						}
-					}
-					add_to_variable = {
-						new_deal_democrat_support_var = 1
-					}
-					add_to_variable = {
-						business_republican_support_var = -1
-					}
-				}
-			}
-			for_loop_effect = {
-				end = 3
-				IF = {
-					limit = {
-						check_variable = {
-							isolationist_republican_support_var > 0
-						}
-					}
-					add_to_variable = {
-						progressive_republican_support_var = 1
-					}
-					add_to_variable = {
-						isolationist_republican_support_var = -1
-					}
-				}
-			}
-			recalculate_congressional_ui = yes
+			cd_to_ndd_support_small = yes
+			br_to_ndd_support = yes
 			custom_effect_tooltip = generic_skip_one_line_tt
 			add_stability = 0.05
 			add_popularity = {
@@ -1149,42 +587,7 @@ focus_tree = {
 		relative_position_id = TPMP_USA_a_strong_mandate
 		cost = 5
 		completion_reward = {
-			custom_effect_tooltip = cd_gain_support_large_tt
-			custom_effect_tooltip = br_lose_support_tt
-			custom_effect_tooltip = ir_lose_support_tt
-			for_loop_effect = {
-				end = 5
-				IF = {
-					limit = {
-						check_variable = {
-							isolationist_republican_support_var > 0
-						}
-					}
-					add_to_variable = {
-						conservative_democrat_support_var = 1
-					}
-					add_to_variable = {
-						isolationist_republican_support_var = -1
-					}
-				}
-			}
-			for_loop_effect = {
-				end = 5
-				IF = {
-					limit = {
-						check_variable = {
-							business_republican_support_var > 0
-						}
-					}
-					add_to_variable = {
-						conservative_democrat_support_var = 1
-					}
-					add_to_variable = {
-						business_republican_support_var = -1
-					}
-				}
-			}
-			recalculate_congressional_ui = yes
+			br_to_cd_support_large = yes
 			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = TPMP_USA_the_solid_south_tt
 			set_temp_variable = { pp_gain = conservative_democrat_support_var }
@@ -1206,25 +609,7 @@ focus_tree = {
 			has_idea = USA_john_nance_garner
 		}
 		completion_reward = {
-			custom_effect_tooltip = cd_gain_support_tt
-			custom_effect_tooltip = ir_lose_support_tt
-			for_loop_effect = {
-				end = 5
-				IF = {
-					limit = {
-						check_variable = {
-							isolationist_republican_support_var > 0
-						}
-					}
-					add_to_variable = {
-						conservative_democrat_support_var = 1
-					}
-					add_to_variable = {
-						isolationist_republican_support_var = -1
-					}
-				}
-			}
-			recalculate_congressional_ui = yes
+			br_to_cd_support = yes
 			custom_effect_tooltip = generic_skip_one_line_tt
 			remove_trait = {
 				character = USA_john_nance_garner
@@ -1250,25 +635,7 @@ focus_tree = {
 		relative_position_id = TPMP_USA_the_solid_south
 		cost = 5
 		completion_reward = {
-			custom_effect_tooltip = ndd_gain_support_large_tt
-			custom_effect_tooltip = cd_lose_support_large_tt
-			for_loop_effect = {
-				end = 10
-				IF = {
-					limit = {
-						check_variable = {
-							conservative_democrat_support_var > 0
-						}
-					}
-					add_to_variable = {
-						new_deal_democrat_support_var = 1
-					}
-					add_to_variable = {
-						conservative_democrat_support_var = -1
-					}
-				}
-			}
-			recalculate_congressional_ui = yes
+			cd_to_ndd_support_large = yes
 			custom_effect_tooltip = generic_skip_one_line_tt
 			add_power_balance_value = {
 				id = TPMP_USA_power_balance
@@ -1291,7 +658,7 @@ focus_tree = {
 		y = 0
 		cost = 5
 		available = {
-			has_support_lwd_ndd_cd_pr = yes
+			has_support_ndd_cd = yes
 		}
 		completion_reward = {
 			add_political_power = 50
@@ -1312,31 +679,13 @@ focus_tree = {
 		relative_position_id = TPMP_USA_the_second_new_deal
 		cost = 5
 		available = {
-			has_support_ndd_cd_pr_br_ir = yes
+			has_support_ndd_cd_br = yes
 		}
 		bypass = {
 			has_war = yes
 		}
 		completion_reward = {
-			custom_effect_tooltip = ndd_gain_support_small_tt
-			custom_effect_tooltip = ir_lose_support_small_tt
-			for_loop_effect = {
-				end = 3
-				IF = {
-					limit = {
-						check_variable = {
-							isolationist_republican_support_var > 0
-						}
-					}
-					add_to_variable = {
-						new_deal_democrat_support_var = 1
-					}
-					add_to_variable = {
-						isolationist_republican_support_var = -1
-					}
-				}
-			}
-			recalculate_congressional_ui = yes
+			br_to_ndd_support_small = yes
 			custom_effect_tooltip = generic_skip_one_line_tt
 			add_days_mission_timeout = {
 				mission = TPMP_USA_neutrality_act_mission
@@ -1361,25 +710,7 @@ focus_tree = {
 			has_war = yes
 		}
 		completion_reward = {
-			custom_effect_tooltip = ndd_lose_support_tt
-			custom_effect_tooltip = ir_gain_support_tt
-			for_loop_effect = {
-				end = 5
-				IF = {
-					limit = {
-						check_variable = {
-							new_deal_democrat_support_var > 0
-						}
-					}
-					add_to_variable = {
-						new_deal_democrat_support_var = -1
-					}
-					add_to_variable = {
-						isolationist_republican_support_var = 1
-					}
-				}
-			}
-			recalculate_congressional_ui = yes
+			ndd_to_br_support = yes
 			custom_effect_tooltip = generic_skip_one_line_tt
 			unlock_decision_category_tooltip = TPMP_USA_sanctions_category
 			custom_effect_tooltip = generic_skip_one_line_tt
@@ -1413,25 +744,7 @@ focus_tree = {
 			has_war = yes
 		}
 		completion_reward = {
-			custom_effect_tooltip = ndd_lose_support_large_tt
-			custom_effect_tooltip = ir_gain_support_large_tt
-			for_loop_effect = {
-				end = 10
-				IF = {
-					limit = {
-						check_variable = {
-							new_deal_democrat_support_var > 0
-						}
-					}
-					add_to_variable = {
-						new_deal_democrat_support_var = -1
-					}
-					add_to_variable = {
-						isolationist_republican_support_var = 1
-					}
-				}
-			}
-			recalculate_congressional_ui = yes
+			ndd_to_br_support_large = yes
 			custom_effect_tooltip = generic_skip_one_line_tt
 			add_ideas = TPMP_USA_AEF_idea
 		}
@@ -1447,31 +760,13 @@ focus_tree = {
 		relative_position_id = TPMP_USA_second_neutrality_act
 		cost = 5
 		available = {
-			has_support_lwd_ndd_pr = yes
+			has_support_ndd = yes
 		}
 		bypass = {
 			has_war = yes
 		}
 		completion_reward = {
-			custom_effect_tooltip = ndd_lose_support_small_tt
-			custom_effect_tooltip = br_gain_support_small_tt
-			for_loop_effect = {
-				end = 3
-				IF = {
-					limit = {
-						check_variable = {
-							new_deal_democrat_support_var > 0
-						}
-					}
-					add_to_variable = {
-						new_deal_democrat_support_var = -1
-					}
-					add_to_variable = {
-						business_republican_support_var = 1
-					}
-				}
-			}
-			recalculate_congressional_ui = yes
+			ndd_to_br_support_small = yes
 			custom_effect_tooltip = generic_skip_one_line_tt
 			ENG = {
 				country_event = TPMP_USA.4
@@ -1504,7 +799,7 @@ focus_tree = {
 		relative_position_id = TPMP_USA_limited_intervention
 		cost = 10
 		available = {
-			has_support_lwd_ndd_pr = yes
+			has_support_ndd = yes
 			ENG = {
 				has_war_with = GER
 			}
@@ -1513,25 +808,7 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
-			custom_effect_tooltip = ndd_lose_support_small_tt
-			custom_effect_tooltip = ir_gain_support_small_tt
-			for_loop_effect = {
-				end = 3
-				IF = {
-					limit = {
-						check_variable = {
-							new_deal_democrat_support_var > 0
-						}
-					}
-					add_to_variable = {
-						new_deal_democrat_support_var = -1
-					}
-					add_to_variable = {
-						isolationist_republican_support_var = 1
-					}
-				}
-			}
-			recalculate_congressional_ui = yes
+			ndd_to_br_support_small = yes
 			custom_effect_tooltip = generic_skip_one_line_tt
 			activate_mission = TPMP_USA_ENG_lend_lease_mission
 			activate_mission = TPMP_USA_FRA_lend_lease_mission 
@@ -1779,28 +1056,10 @@ focus_tree = {
 		relative_position_id = TPMP_USA_manage_the_budget
 		cost = 5
 		available = {
-			has_support_lwd_ndd_pr = yes
+			has_support_ndd = yes
 		}
 		completion_reward = {
-			custom_effect_tooltip = ndd_lose_support_tt
-			custom_effect_tooltip = br_gain_support_tt
-			for_loop_effect = {
-				end = 5
-				IF = {
-					limit = {
-						check_variable = {
-							new_deal_democrat_support_var > 0
-						}
-					}
-					add_to_variable = {
-						new_deal_democrat_support_var = -1
-					}
-					add_to_variable = {
-						business_republican_support_var = 1
-					}
-				}
-			}
-			recalculate_congressional_ui = yes
+			ndd_to_br_support = yes
 			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = USA_increase_deficit_tt
 			add_to_variable = {
@@ -1828,63 +1087,11 @@ focus_tree = {
 		relative_position_id = TPMP_USA_revenue_act
 		cost = 5
 		available = {
-			has_support_lwd_ndd = yes
+			has_support_ndd = yes
 		}
 		completion_reward = {
-			custom_effect_tooltip = lwd_lose_support_small_tt
-			custom_effect_tooltip = ndd_lose_support_large_tt
-			custom_effect_tooltip = cd_gain_support_small_tt
-			custom_effect_tooltip = br_gain_support_tt
-			custom_effect_tooltip = ir_gain_support_tt
-			for_loop_effect = {
-				end = 3
-				IF = {
-					limit = {
-						check_variable = {
-							left_wing_democrat_support_var > 0
-						}
-					}
-					add_to_variable = {
-						left_wing_democrat_support_var = -1
-					}
-					add_to_variable = {
-						conservative_democrat_support_var = 1
-					}
-				}
-			}
-			for_loop_effect = {
-				end = 5
-				IF = {
-					limit = {
-						check_variable = {
-							new_deal_democrat_support_var > 0
-						}
-					}
-					add_to_variable = {
-						new_deal_democrat_support_var = -1
-					}
-					add_to_variable = {
-						isolationist_republican_support_var = 1
-					}
-				}
-			}
-			for_loop_effect = {
-				end = 5
-				IF = {
-					limit = {
-						check_variable = {
-							new_deal_democrat_support_var > 0
-						}
-					}
-					add_to_variable = {
-						new_deal_democrat_support_var = -1
-					}
-					add_to_variable = {
-						business_republican_support_var = 1
-					}
-				}
-			}
-			recalculate_congressional_ui = yes
+			ndd_to_cd_support_small = yes
+			ndd_to_br_support_large = yes
 			custom_effect_tooltip = generic_skip_one_line_tt
 			add_power_balance_value = {
 				id = TPMP_USA_power_balance
@@ -1922,7 +1129,7 @@ focus_tree = {
 		relative_position_id = TPMP_USA_revenue_act
 		cost = 5
 		available = {
-			has_support_ndd_cd_pr_br_ir = yes
+			has_support_ndd_cd_br = yes
 		}
 		completion_reward = {
 			country_event = TPMP_USA.6
@@ -1952,7 +1159,7 @@ focus_tree = {
 		relative_position_id = TPMP_USA_wealth_taxes
 		cost = 5
 		available = {
-			has_support_lwd_ndd_pr = yes
+			has_support_ndd = yes
 			has_war = yes
 		}
 		completion_reward = {
@@ -2005,25 +1212,7 @@ focus_tree = {
 		relative_position_id = TPMP_USA_the_second_new_deal
 		cost = 5
 		completion_reward = {
-			custom_effect_tooltip = ndd_lose_support_tt
-			custom_effect_tooltip = br_gain_support_tt
-			for_loop_effect = {
-				end = 5
-				IF = {
-					limit = {
-						check_variable = {
-							new_deal_democrat_support_var > 0
-						}
-					}
-					add_to_variable = {
-						new_deal_democrat_support_var = -1
-					}
-					add_to_variable = {
-						business_republican_support_var = 1
-					}
-				}
-			}
-			recalculate_congressional_ui = yes
+			ndd_to_br_support = yes
 			custom_effect_tooltip = generic_skip_one_line_tt
 			USA_decrease_great_depression = yes
 			custom_effect_tooltip = generic_skip_one_line_tt
@@ -2041,25 +1230,7 @@ focus_tree = {
 		relative_position_id = TPMP_USA_the_second_new_deal
 		cost = 5
 		completion_reward = {
-			custom_effect_tooltip = ndd_gain_support_small_tt
-			custom_effect_tooltip = br_lose_support_small_tt
-			for_loop_effect = {
-				end = 3
-				IF = {
-					limit = {
-						check_variable = {
-							business_republican_support_var > 0
-						}
-					}
-					add_to_variable = {
-						new_deal_democrat_support_var = 1
-					}
-					add_to_variable = {
-						business_republican_support_var = -1
-					}
-				}
-			}
-			recalculate_congressional_ui = yes
+			br_to_ndd_support_small = yes
 			custom_effect_tooltip = generic_skip_one_line_tt
 			USA_decrease_deficit = yes
 		}
@@ -2076,7 +1247,7 @@ focus_tree = {
 		relative_position_id = TPMP_USA_the_second_new_deal
 		cost = 10
 		available = {
-			has_support_lwd_ndd_pr = yes
+			has_support_ndd = yes
 		}
 		completion_reward = {
 			add_ideas = TPMP_USA_fair_labour_standards_act_idea_0
@@ -2146,7 +1317,7 @@ focus_tree = {
 		relative_position_id = TPMP_USA_fair_labour_standards_act
 		cost = 5
 		available = {
-			has_support_lwd_ndd_pr = yes
+			has_support_ndd = yes
 		}
 		completion_reward = {
 			every_core_state = {
@@ -2178,7 +1349,7 @@ focus_tree = {
 		relative_position_id = TPMP_USA_fair_labour_standards_act
 		cost = 5
 		available = {
-			has_support_lwd_ndd_pr = yes
+			has_support_ndd = yes
 		}
 		bypass = {
 			has_country_flag = TPMP_USA_mine_strike_flag
@@ -2199,7 +1370,7 @@ focus_tree = {
 		relative_position_id = TPMP_USA_fair_labour_standards_act
 		cost = 5
 		available = {
-			has_support_lwd_ndd_pr = yes
+			has_support_ndd = yes
 		}
 		completion_reward = {
 			add_ideas = TPMP_USA_agricultural_adjustment_act_idea_0
@@ -2221,50 +1392,8 @@ focus_tree = {
 		relative_position_id = TPMP_USA_the_second_new_deal
 		cost = 5
 		completion_reward = {
-			custom_effect_tooltip = ndd_lose_support_small_tt
-			custom_effect_tooltip = cd_gain_support_tiny_tt
-			custom_effect_tooltip = br_gain_support_tiny_tt
-			custom_effect_tooltip = ir_gain_support_tiny_tt
-			IF = {
-				limit = {
-					check_variable = {
-						new_deal_democrat_support_var > 0
-					}
-				}
-				add_to_variable = {
-					conservative_democrat_support_var = 1
-				}
-				add_to_variable = {
-					new_deal_democrat_support_var = -1
-				}
-			}
-			IF = {
-				limit = {
-					check_variable = {
-						new_deal_democrat_support_var > 0
-					}
-				}
-				add_to_variable = {
-					business_republican_support_var = 1
-				}
-				add_to_variable = {
-					new_deal_democrat_support_var = -1
-				}
-			}
-			IF = {
-				limit = {
-					check_variable = {
-						new_deal_democrat_support_var > 0
-					}
-				}
-				add_to_variable = {
-					isolationist_republican_support_var = 1
-				}
-				add_to_variable = {
-					new_deal_democrat_support_var = -1
-				}
-			}
-			recalculate_congressional_ui = yes
+			ndd_to_cd_support_tiny = yes
+			ndd_to_br_support_small = yes
 			custom_effect_tooltip = generic_skip_one_line_tt
 			add_dynamic_modifier = {
 				modifier = TPMP_USA_alphabet_agencies_modifier
@@ -2390,50 +1519,8 @@ focus_tree = {
 		relative_position_id = TPMP_USA_form_the_alphabet_agencies
 		cost = 5
 		completion_reward = {
-			custom_effect_tooltip = ndd_lose_support_small_tt
-			custom_effect_tooltip = cd_gain_support_tiny_tt
-			custom_effect_tooltip = br_gain_support_tiny_tt
-			custom_effect_tooltip = ir_gain_support_tiny_tt
-			IF = {
-				limit = {
-					check_variable = {
-						new_deal_democrat_support_var > 0
-					}
-				}
-				add_to_variable = {
-					conservative_democrat_support_var = 1
-				}
-				add_to_variable = {
-					new_deal_democrat_support_var = -1
-				}
-			}
-			IF = {
-				limit = {
-					check_variable = {
-						new_deal_democrat_support_var > 0
-					}
-				}
-				add_to_variable = {
-					business_republican_support_var = 1
-				}
-				add_to_variable = {
-					new_deal_democrat_support_var = -1
-				}
-			}
-			IF = {
-				limit = {
-					check_variable = {
-						new_deal_democrat_support_var > 0
-					}
-				}
-				add_to_variable = {
-					isolationist_republican_support_var = 1
-				}
-				add_to_variable = {
-					new_deal_democrat_support_var = -1
-				}
-			}
-			recalculate_congressional_ui = yes
+			ndd_to_cd_support_tiny = yes
+			ndd_to_br_support_small = yes
 			custom_effect_tooltip = generic_skip_one_line_tt
 			add_power_balance_value = {
 				id = TPMP_USA_power_balance
@@ -2464,50 +1551,8 @@ focus_tree = {
 		relative_position_id = TPMP_USA_the_executive_office_of_the_president
 		cost = 5
 		completion_reward = {
-			custom_effect_tooltip = ndd_lose_support_small_tt
-			custom_effect_tooltip = cd_gain_support_tiny_tt
-			custom_effect_tooltip = br_gain_support_tiny_tt
-			custom_effect_tooltip = ir_gain_support_tiny_tt
-			IF = {
-				limit = {
-					check_variable = {
-						new_deal_democrat_support_var > 0
-					}
-				}
-				add_to_variable = {
-					conservative_democrat_support_var = 1
-				}
-				add_to_variable = {
-					new_deal_democrat_support_var = -1
-				}
-			}
-			IF = {
-				limit = {
-					check_variable = {
-						new_deal_democrat_support_var > 0
-					}
-				}
-				add_to_variable = {
-					business_republican_support_var = 1
-				}
-				add_to_variable = {
-					new_deal_democrat_support_var = -1
-				}
-			}
-			IF = {
-				limit = {
-					check_variable = {
-						new_deal_democrat_support_var > 0
-					}
-				}
-				add_to_variable = {
-					isolationist_republican_support_var = 1
-				}
-				add_to_variable = {
-					new_deal_democrat_support_var = -1
-				}
-			}
-			recalculate_congressional_ui = yes
+			ndd_to_cd_support_tiny = yes
+			ndd_to_br_support_small = yes
 			custom_effect_tooltip = generic_skip_one_line_tt
 			add_power_balance_value = {
 				id = TPMP_USA_power_balance
@@ -2730,7 +1775,7 @@ focus_tree = {
 		cost = 5
 		available = {
 			has_war = yes
-			has_support_ndd_cd_br_ir = yes
+			has_support_ndd_cd_br = yes
 		}
 		completion_reward = {
 			create_intelligence_agency = yes
@@ -2757,28 +1802,10 @@ focus_tree = {
 		relative_position_id = TPMP_USA_embrace_executive_powers
 		cost = 10
 		available = {
-			has_support_lwd_ndd = yes
+			has_support_ndd = yes
 		}
 		completion_reward = {
-			custom_effect_tooltip = ndd_lose_support_tt
-			custom_effect_tooltip = ir_gain_support_tt
-			for_loop_effect = {
-				end = 5
-				IF = {
-					limit = {
-						check_variable = {
-							new_deal_democrat_support_var > 0
-						}
-					}
-					add_to_variable = {
-						new_deal_democrat_support_var = -1
-					}
-					add_to_variable = {
-						isolationist_republican_support_var = 1
-					}
-				}
-			}
-			recalculate_congressional_ui = yes
+			ndd_to_br_support = yes
 			custom_effect_tooltip = generic_skip_one_line_tt
 			add_ideas = TPMP_USA_refugees_idea
 		}
@@ -2826,10 +1853,7 @@ focus_tree = {
 					TPMP_USA_wartime_agency_cost_var = 50
 				}
 				set_variable = {
-					TPMP_USA_congress_decision_time_short_var = 20
-				}
-				set_variable = {
-					TPMP_USA_congress_decision_time_var = 30
+					TPMP_USA_congress_decision_time_var = 20
 				}
 			}
 		}
@@ -2849,6 +1873,9 @@ focus_tree = {
 		completion_reward = {
 			add_dynamic_modifier = {
 				modifier = TPMP_USA_megaprojects_modifier
+			}
+			hidden_effect = {
+				add_to_variable = { TPMP_USA_civ_focus_var = 1 }
 			}
 		}
 	}
@@ -2891,6 +1918,9 @@ focus_tree = {
 					level = 2
 					instant_build = yes
 				}
+			}
+			hidden_effect = {
+				add_to_variable = { TPMP_USA_civ_focus_var = 1 }
 			}
 		}
 	}
@@ -2935,6 +1965,9 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
+			hidden_effect = {
+				add_to_variable = { TPMP_USA_civ_focus_var = 1 }
+			}
 		}
 	}
 
@@ -2978,6 +2011,9 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
+			hidden_effect = {
+				add_to_variable = { TPMP_USA_civ_focus_var = 1 }
+			}
 		}
 	}
 
@@ -3017,6 +2053,9 @@ focus_tree = {
 					province = 12552
 				}
 			}
+			hidden_effect = {
+				add_to_variable = { TPMP_USA_civ_focus_var = 1 }
+			}
 		}
 	}
 	focus = {
@@ -3053,6 +2092,9 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
+			hidden_effect = {
+				add_to_variable = { TPMP_USA_civ_focus_var = 1 }
+			}
 		}
 	}
 
@@ -3087,6 +2129,9 @@ focus_tree = {
 				add_dynamic_modifier = {
 					modifier = TPMP_USA_expand_industry_modifier
 				}
+			}
+			hidden_effect = {
+				add_to_variable = { TPMP_USA_civ_focus_var = 1 }
 			}
 		}
 	}
@@ -3131,6 +2176,9 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
+			hidden_effect = {
+				add_to_variable = { TPMP_USA_civ_focus_var = 1 }
+			}
 		}
 	}
 
@@ -3150,6 +2198,9 @@ focus_tree = {
 				ahead_reduction = 1.0
 				uses = 1
 				category = cat_production
+			}
+			hidden_effect = {
+				add_to_variable = { TPMP_USA_civ_focus_var = 1 }
 			}
 		}
 	}
@@ -3179,6 +2230,9 @@ focus_tree = {
 				remove_dynamic_modifier = {
 					modifier = TPMP_USA_dust_bowl_modifier
 				}
+			}
+			hidden_effect = {
+				add_to_variable = { TPMP_USA_civ_focus_var = 1 }
 			}
 		}
 	}
@@ -3219,6 +2273,9 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
+			hidden_effect = {
+				add_to_variable = { TPMP_USA_civ_focus_var = 1 }
+			}
 		}
 	}
 
@@ -3255,6 +2312,9 @@ focus_tree = {
 				add_dynamic_modifier = {
 					modifier = TPMP_USA_new_industry_modifier
 				}
+			}
+			hidden_effect = {
+				add_to_variable = { TPMP_USA_civ_focus_var = 1 }
 			}
 		}
 	}
@@ -3325,6 +2385,9 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
+			hidden_effect = {
+				add_to_variable = { TPMP_USA_civ_focus_var = 1 }
+			}
 		}
 	}
 
@@ -3344,6 +2407,9 @@ focus_tree = {
 				uses = 2
 				category = industry
 			}
+			hidden_effect = {
+				add_to_variable = { TPMP_USA_civ_focus_var = 1 }
+			}
 		}
 	}
 
@@ -3356,7 +2422,7 @@ focus_tree = {
 		relative_position_id = TPMP_USA_subassembly_techniques
 		cost = 10
 		available = {
-			has_support_ndd_cd_pr = yes
+			has_support_ndd_cd = yes
 			has_war_support > 0.5
 		}
 		completion_reward = {
@@ -3382,6 +2448,9 @@ focus_tree = {
 			show_ideas_tooltip = low_economic_mobilisation
 			custom_effect_tooltip = generic_skip_one_line_tt
 			USA_increase_deficit = yes
+			hidden_effect = {
+				add_to_variable = { TPMP_USA_civ_focus_var = 1 }
+			}
 		}
 	}
 
@@ -3419,6 +2488,9 @@ focus_tree = {
 			}
 			custom_effect_tooltip = generic_skip_one_line_tt
 			add_ideas = TPMP_USA_mines_idea
+			hidden_effect = {
+				add_to_variable = { TPMP_USA_civ_focus_var = 1 }
+			}
 		}
 	}
 
@@ -3432,6 +2504,9 @@ focus_tree = {
 		cost = 5
 		completion_reward = {
 			add_ideas = TPMP_USA_strategic_materials_act_idea
+			hidden_effect = {
+				add_to_variable = { TPMP_USA_civ_focus_var = 1 }
+			}
 		}
 	}
 
@@ -3452,6 +2527,9 @@ focus_tree = {
 			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = available_designer
 			show_ideas_tooltip = TPMP_USA_rubber_reserve_company_concern
+			hidden_effect = {
+				add_to_variable = { TPMP_USA_civ_focus_var = 1 }
+			}
 		}
 	}
 
@@ -3472,6 +2550,9 @@ focus_tree = {
 			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = available_political_advisor
 			show_ideas_tooltip = USA_edward_stettinius_jr
+			hidden_effect = {
+				add_to_variable = { TPMP_USA_civ_focus_var = 1 }
+			}
 		}
 	}
 
@@ -3492,6 +2573,9 @@ focus_tree = {
 			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = available_designer
 			show_ideas_tooltip = TPMP_USA_general_mills_concern
+			hidden_effect = {
+				add_to_variable = { TPMP_USA_civ_focus_var = 1 }
+			}
 		}
 	}
 
@@ -3516,6 +2600,9 @@ focus_tree = {
 				}
 			}
 			custom_effect_tooltip = TPMP_USA_construct_megaplants_tt
+			hidden_effect = {
+				add_to_variable = { TPMP_USA_civ_focus_var = 1 }
+			}
 		}
 	}
 
@@ -3534,6 +2621,9 @@ focus_tree = {
 				uses = 2
 				category = industry
 			}
+			hidden_effect = {
+				add_to_variable = { TPMP_USA_civ_focus_var = 1 }
+			}
 		}
 	}
 
@@ -3547,7 +2637,7 @@ focus_tree = {
 		relative_position_id = TPMP_USA_construct_megaplants
 		cost = 10
 		available = {
-			has_support_ndd_cd_pr = yes
+			has_support_ndd_cd = yes
 			has_war_support > 0.7
 		}
 		completion_reward = {
@@ -3562,6 +2652,9 @@ focus_tree = {
 			show_ideas_tooltip = partial_economic_mobilisation
 			custom_effect_tooltip = generic_skip_one_line_tt
 			USA_increase_deficit = yes
+			hidden_effect = {
+				add_to_variable = { TPMP_USA_civ_focus_var = 1 }
+			}
 		}
 	}
 
@@ -3587,6 +2680,7 @@ focus_tree = {
 					}
 					add_ideas = TPMP_USA_megaplants_idea
 				}
+				add_to_variable = { TPMP_USA_civ_focus_var = 1 }
 			}
 		}
 	}
@@ -3613,6 +2707,7 @@ focus_tree = {
 					}
 					add_ideas = TPMP_USA_megaplants_idea
 				}
+				add_to_variable = { TPMP_USA_civ_focus_var = 1 }
 			}
 		}
 	}
@@ -3639,6 +2734,7 @@ focus_tree = {
 					}
 					add_ideas = TPMP_USA_megaplants_idea
 				}
+				add_to_variable = { TPMP_USA_civ_focus_var = 1 }
 			}
 		}
 	}
@@ -3685,6 +2781,9 @@ focus_tree = {
 			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = available_law_tt
 			show_ideas_tooltip = tot_economic_mobilisation
+			hidden_effect = {
+				add_to_variable = { TPMP_USA_civ_focus_var = 1 }
+			}
 		}
 	}
 
@@ -3700,6 +2799,9 @@ focus_tree = {
 			add_dynamic_modifier = {
 				modifier = TPMP_USA_department_of_war_modifier
 			}
+			hidden_effect = {
+				add_to_variable = { TPMP_USA_army_air_focus_var = 1 }
+			}
 		}
 	}
 
@@ -3712,6 +2814,9 @@ focus_tree = {
 		relative_position_id = TPMP_USA_department_of_war
 		cost = 5
 		completion_reward = {
+			hidden_effect = {
+				add_to_variable = { TPMP_USA_army_air_focus_var = 1 }
+			}
 		}
 	}
 
@@ -3726,6 +2831,9 @@ focus_tree = {
 		relative_position_id = TPMP_USA_war_plans_division
 		cost = 5
 		completion_reward = {
+			hidden_effect = {
+				add_to_variable = { TPMP_USA_army_air_focus_var = 1 }
+			}
 		}
 	}
 
@@ -3739,6 +2847,9 @@ focus_tree = {
 		relative_position_id = TPMP_USA_war_plans_division
 		cost = 5
 		completion_reward = {
+			hidden_effect = {
+				add_to_variable = { TPMP_USA_army_air_focus_var = 1 }
+			}
 		}
 	}
 
@@ -3751,6 +2862,9 @@ focus_tree = {
 		relative_position_id = TPMP_USA_war_plans_division
 		cost = 5
 		completion_reward = {
+			hidden_effect = {
+				add_to_variable = { TPMP_USA_army_air_focus_var = 1 }
+			}
 		}
 	}
 
@@ -3763,6 +2877,9 @@ focus_tree = {
 		relative_position_id = TPMP_USA_victory_program
 		cost = 5
 		completion_reward = {
+			hidden_effect = {
+				add_to_variable = { TPMP_USA_army_air_focus_var = 1 }
+			}
 		}
 	}
 
@@ -3782,6 +2899,9 @@ focus_tree = {
 			add_mastery = {
 				amount = 50
 				track = special_forces
+			}
+			hidden_effect = {
+				add_to_variable = { TPMP_USA_army_air_focus_var = 1 }
 			}
 		}
 	}
@@ -3821,6 +2941,9 @@ focus_tree = {
 					}
 				}
 			}
+			hidden_effect = {
+				add_to_variable = { TPMP_USA_army_air_focus_var = 1 }
+			}
 		}
 	}
 
@@ -3838,6 +2961,9 @@ focus_tree = {
 			upgrade_intelligence_agency = upgrade_decryption_boost
 			custom_effect_tooltip = generic_skip_one_line_tt
 			add_ideas = TPMP_USA_magic_idea
+			hidden_effect = {
+				add_to_variable = { TPMP_USA_army_air_focus_var = 1 }
+			}
 		}
 	}
 
@@ -3887,6 +3013,9 @@ focus_tree = {
 			add_to_variable = {
 				TPMP_USA_department_para_contribution_var = -0.1
 				tooltip = paratroopers_special_forces_contribution_factor_tt
+			}
+			hidden_effect = {
+				add_to_variable = { TPMP_USA_army_air_focus_var = 1 }
 			}
 		}
 	}
@@ -3945,6 +3074,7 @@ focus_tree = {
 						province = 3957
 					}
 				}
+				add_to_variable = { TPMP_USA_army_air_focus_var = 1 }
 			}
 		}
 	}
@@ -3958,7 +3088,7 @@ focus_tree = {
 		relative_position_id = TPMP_USA_department_of_war
 		cost = 5
 		available = {
-			has_support_ndd_cd_pr = yes
+			has_support_ndd_cd = yes
 		}
 		completion_reward = {
 			add_war_support = 0.1
@@ -3984,6 +3114,9 @@ focus_tree = {
 					has_idea = reservist_system
 				}
 				add_ideas = semi_professional_army
+			}
+			hidden_effect = {
+				add_to_variable = { TPMP_USA_army_air_focus_var = 1 }
 			}
 		}
 	}
@@ -4011,6 +3144,9 @@ focus_tree = {
 					ap_attack = 0.1
 					maximum_speed = 0.1
 				}
+			}
+			hidden_effect = {
+				add_to_variable = { TPMP_USA_army_air_focus_var = 1 }
 			}
 		}
 	}
@@ -4040,6 +3176,9 @@ focus_tree = {
 						instant = yes
 					}
 				}
+			}
+			hidden_effect = {
+				add_to_variable = { TPMP_USA_army_air_focus_var = 1 }
 			}
 		}
 	}
@@ -4079,6 +3218,9 @@ focus_tree = {
 					}
 				}
 			}
+			hidden_effect = {
+				add_to_variable = { TPMP_USA_army_air_focus_var = 1 }
+			}
 		}
 	}
 
@@ -4114,6 +3256,7 @@ focus_tree = {
 					id = TPMP_USA_military.1
 					days = 180
 				}
+				add_to_variable = { TPMP_USA_army_air_focus_var = 1 }
 			}
 		}
 	}
@@ -4137,6 +3280,9 @@ focus_tree = {
 				uses = 1
 				category = cat_heavy_turret_tech
 			}
+			hidden_effect = {
+				add_to_variable = { TPMP_USA_army_air_focus_var = 1 }
+			}
 		}
 	}
 
@@ -4157,6 +3303,9 @@ focus_tree = {
 				days = 100
 				folder = land
 			}
+			hidden_effect = {
+				add_to_variable = { TPMP_USA_army_air_focus_var = 1 }
+			}
 		}
 	}
 
@@ -4171,6 +3320,9 @@ focus_tree = {
 		cost = 5
 		completion_reward = {
 			add_ideas = TPMP_USA_265_division_plan_idea_0
+			hidden_effect = {
+				add_to_variable = { TPMP_USA_army_air_focus_var = 1 }
+			}
 		}
 	}
 
@@ -4185,6 +3337,9 @@ focus_tree = {
 		cost = 5
 		completion_reward = {
 			add_ideas = TPMP_USA_90_division_plan_idea_0
+			hidden_effect = {
+				add_to_variable = { TPMP_USA_army_air_focus_var = 1 }
+			}
 		}
 	}
 
@@ -4198,6 +3353,9 @@ focus_tree = {
 		cost = 5
 		completion_reward = {
 			remove_ideas = TPMP_USA_segregated_armed_forces_idea
+			hidden_effect = {
+				add_to_variable = { TPMP_USA_army_air_focus_var = 1 }
+			}
 		}
 	}
 
@@ -4228,6 +3386,9 @@ focus_tree = {
 					}
 				}
 			}
+			hidden_effect = {
+				add_to_variable = { TPMP_USA_army_air_focus_var = 1 }
+			}
 		}
 	}
 
@@ -4244,6 +3405,9 @@ focus_tree = {
 				bonus = 0.5
 				uses = 3
 				category = cat_artillery_tech
+			}
+			hidden_effect = {
+				add_to_variable = { TPMP_USA_army_air_focus_var = 1 }
 			}
 		}
 	}
@@ -4263,6 +3427,9 @@ focus_tree = {
 				uses = 1
 				technology = artillery4_tech
 			}
+			hidden_effect = {
+				add_to_variable = { TPMP_USA_army_air_focus_var = 1 }
+			}
 		}
 	}
 
@@ -4277,6 +3444,9 @@ focus_tree = {
 		completion_reward = {
 			add_dynamic_modifier = {
 				modifier = TPMP_USA_department_of_the_navy_modifier
+			}
+			hidden_effect = {
+				add_to_variable = { TPMP_USA_navy_focus_var = 1 }
 			}
 		}
 	}
@@ -4318,6 +3488,9 @@ focus_tree = {
 				TPMP_USA_navy_department_marine_contribution_var = -0.1
 				tooltip = marines_special_forces_contribution_factor_tt
 			}
+			hidden_effect = {
+				add_to_variable = { TPMP_USA_navy_focus_var = 1 }
+			}
 		}
 	}
 
@@ -4345,6 +3518,9 @@ focus_tree = {
 				TPMP_USA_navy_department_navy_intel_var = -5
 				tooltip = navy_intel_to_others_tt
 			}
+			hidden_effect = {
+				add_to_variable = { TPMP_USA_navy_focus_var = 1 }
+			}
 		}
 	}
 
@@ -4369,6 +3545,9 @@ focus_tree = {
 					hard_attack = 0.1
 					breakthrough = 0.1
 				}
+			}
+			hidden_effect = {
+				add_to_variable = { TPMP_USA_navy_focus_var = 1 }
 			}
 		}
 	}
@@ -4397,6 +3576,7 @@ focus_tree = {
 			}
 			hidden_effect = {
 				add_ideas = TPMP_USA_bureau_of_ships_idea
+				add_to_variable = { TPMP_USA_navy_focus_var = 1 }
 			}
 		}
 	}
@@ -4465,6 +3645,9 @@ focus_tree = {
 				progress = 0.75
 				amount = 1
 			}
+			hidden_effect = {
+				add_to_variable = { TPMP_USA_navy_focus_var = 1 }
+			}
 		}
 	}
 
@@ -4494,6 +3677,9 @@ focus_tree = {
 					}
 				}
 			}
+			hidden_effect = {
+				add_to_variable = { TPMP_USA_navy_focus_var = 1 }
+			}
 		}
 	}
 
@@ -4520,6 +3706,9 @@ focus_tree = {
 						instant = yes
 					}
 				}
+			}
+			hidden_effect = {
+				add_to_variable = { TPMP_USA_navy_focus_var = 1 }
 			}
 		}
 	}
@@ -4568,6 +3757,9 @@ focus_tree = {
 					}
 				}
 			}
+			hidden_effect = {
+				add_to_variable = { TPMP_USA_navy_focus_var = 1 }
+			}
 		}
 	}
 
@@ -4580,7 +3772,7 @@ focus_tree = {
 		relative_position_id = TPMP_USA_department_of_the_navy
 		cost = 5
 		available = {
-			has_support_ndd_cd_pr = yes
+			has_support_ndd_cd = yes
 			has_war_support > 0.5
 		}
 		completion_reward = {
@@ -4603,6 +3795,9 @@ focus_tree = {
 			}
 			custom_effect_tooltip = generic_skip_one_line_tt
 			USA_increase_deficit = yes
+			hidden_effect = {
+				add_to_variable = { TPMP_USA_navy_focus_var = 1 }
+			}
 		}
 	}
 
@@ -4637,6 +3832,9 @@ focus_tree = {
 				add_dynamic_modifier = {
 					modifier = TPMP_USA_expand_dockyard_modifier
 				}
+			}
+			hidden_effect = {
+				add_to_variable = { TPMP_USA_navy_focus_var = 1 }
 			}
 		}
 	}
@@ -4678,6 +3876,9 @@ focus_tree = {
 					amount = 400
 				}
 			}
+			hidden_effect = {
+				add_to_variable = { TPMP_USA_navy_focus_var = 1 }
+			}
 		}
 	}
 
@@ -4695,6 +3896,9 @@ focus_tree = {
 				amount = 0.5
 				days = 300
 				folder = naval
+			}
+			hidden_effect = {
+				add_to_variable = { TPMP_USA_navy_focus_var = 1 }
 			}
 		}
 	}
@@ -4719,6 +3923,9 @@ focus_tree = {
 					torpedo_attack = 0.15
 					sub_visibility = -0.05
 				}
+			}
+			hidden_effect = {
+				add_to_variable = { TPMP_USA_navy_focus_var = 1 }
 			}
 		}
 	}
@@ -4747,6 +3954,9 @@ focus_tree = {
 			complete_special_project = {
 				project = sp:sp_naval_cruiser_submarine
 				show_modifiers = yes
+			}
+			hidden_effect = {
+				add_to_variable = { TPMP_USA_navy_focus_var = 1 }
 			}
 		}
 	}
@@ -4780,6 +3990,9 @@ focus_tree = {
 				progress = 0.75
 				amount = 1
 			}
+			hidden_effect = {
+				add_to_variable = { TPMP_USA_navy_focus_var = 1 }
+			}
 		}
 	}
 
@@ -4809,6 +4022,9 @@ focus_tree = {
 						instant = yes
 					}
 				}
+			}
+			hidden_effect = {
+				add_to_variable = { TPMP_USA_navy_focus_var = 1 }
 			}
 		}
 	}
@@ -4841,6 +4057,9 @@ focus_tree = {
 					}
 				}
 			}
+			hidden_effect = {
+				add_to_variable = { TPMP_USA_navy_focus_var = 1 }
+			}
 		}
 	}
 
@@ -4860,6 +4079,9 @@ focus_tree = {
 			}
 			custom_effect_tooltip = generic_skip_one_line_tt
 			add_ideas = TPMP_USA_liberty_ships_idea
+			hidden_effect = {
+				add_to_variable = { TPMP_USA_navy_focus_var = 1 }
+			}
 		}
 	}
 
@@ -4991,6 +4213,7 @@ focus_tree = {
 						}
 					}
 				}
+				add_to_variable = { TPMP_USA_navy_focus_var = 1 }
 			}
 			create_ship = { type = ship_hull_carrier_3 equipment_variant = "Essex Class" creator = USA }
 			create_ship = { type = ship_hull_carrier_3 equipment_variant = "Essex Class" creator = USA }
@@ -5066,6 +4289,9 @@ focus_tree = {
 					}
 				}
 			}
+			hidden_effect = {
+				add_to_variable = { TPMP_USA_navy_focus_var = 1 }
+			}
 		}
 	}
 
@@ -5080,6 +4306,9 @@ focus_tree = {
 		completion_reward = {
 			add_dynamic_modifier = {
 				modifier = TPMP_USA_us_army_air_corps_modifier
+			}
+			hidden_effect = {
+				add_to_variable = { TPMP_USA_army_air_focus_var = 1 }
 			}
 		}
 	}
@@ -5118,6 +4347,9 @@ focus_tree = {
 			}
 			custom_effect_tooltip = generic_skip_one_line_tt
 			add_ideas = TPMP_USA_civilian_aircraft_industry_idea
+			hidden_effect = {
+				add_to_variable = { TPMP_USA_army_air_focus_var = 1 }
+			}
 		}
 	}
 
@@ -5158,6 +4390,9 @@ focus_tree = {
 					}
 				}
 			}
+			hidden_effect = {
+				add_to_variable = { TPMP_USA_army_air_focus_var = 1 }
+			}
 		}
 	}
 
@@ -5196,6 +4431,9 @@ focus_tree = {
 				TPMP_USA_air_department_cas_present_var = 0.1
 				tooltip = air_cas_present_factor_tt
 			}
+			hidden_effect = {
+				add_to_variable = { TPMP_USA_army_air_focus_var = 1 }
+			}
 		}
 	}
 
@@ -5223,6 +4461,9 @@ focus_tree = {
 						instant = yes
 					}
 				}
+			}
+			hidden_effect = {
+				add_to_variable = { TPMP_USA_army_air_focus_var = 1 }
 			}
 		}
 	}
@@ -5258,6 +4499,9 @@ focus_tree = {
 						instant = yes
 					}
 				}
+			}
+			hidden_effect = {
+				add_to_variable = { TPMP_USA_army_air_focus_var = 1 }
 			}
 		}
 	}
@@ -5295,6 +4539,9 @@ focus_tree = {
 					}
 				}
 			}
+			hidden_effect = {
+				add_to_variable = { TPMP_USA_army_air_focus_var = 1 }
+			}
 		}
 	}
 
@@ -5330,6 +4577,9 @@ focus_tree = {
 					}
 				}
 			}
+			hidden_effect = {
+				add_to_variable = { TPMP_USA_army_air_focus_var = 1 }
+			}
 		}
 	}
 
@@ -5357,6 +4607,9 @@ focus_tree = {
 						instant = yes
 					}
 				}
+			}
+			hidden_effect = {
+				add_to_variable = { TPMP_USA_army_air_focus_var = 1 }
 			}
 		}
 	}
@@ -5414,6 +4667,7 @@ focus_tree = {
 			USA_increase_deficit = yes
 			hidden_effect = {
 				add_ideas = TPMP_USA_naca_idea
+				add_to_variable = { TPMP_USA_army_air_focus_var = 1 }
 			}
 		}
 	}
@@ -5470,6 +4724,7 @@ focus_tree = {
 			hidden_effect = {
 				remove_ideas = TPMP_USA_naca_idea
 				add_ideas = TPMP_USA_naca_funding_idea
+				add_to_variable = { TPMP_USA_army_air_focus_var = 1 }
 			}
 		}
 	}
@@ -5503,6 +4758,7 @@ focus_tree = {
 				add_dynamic_modifier = {
 					modifier = TPMP_USA_us_army_air_forces_modifier
 				}
+				add_to_variable = { TPMP_USA_army_air_focus_var = 1 }
 			}
 		}
 	}
@@ -5539,6 +4795,9 @@ focus_tree = {
 				TPMP_USA_air_department_strat_bombing_var = 0.1
 				tooltip = air_strategic_bomber_bombing_factor_tt
 			}
+			hidden_effect = {
+				add_to_variable = { TPMP_USA_army_air_focus_var = 1 }
+			}
 		}
 	}
 
@@ -5566,6 +4825,9 @@ focus_tree = {
 					}
 				}
 			}
+			hidden_effect = {
+				add_to_variable = { TPMP_USA_army_air_focus_var = 1 }
+			}
 		}
 	}
 
@@ -5587,6 +4849,9 @@ focus_tree = {
 				callsign = "Dick"
 				type = ace_of_aces
 				is_female = no
+			}
+			hidden_effect = {
+				add_to_variable = { TPMP_USA_army_air_focus_var = 1 }
 			}
 		}
 	}
@@ -5665,6 +4930,9 @@ focus_tree = {
 				TPMP_USA_air_department_naval_strike_var = 0.1
 				tooltip = naval_strike_targetting_factor_tt
 			}
+			hidden_effect = {
+				add_to_variable = { TPMP_USA_army_air_focus_var = 1 }
+			}
 		}
 	}
 
@@ -5695,6 +4963,9 @@ focus_tree = {
 					}
 				}
 			}
+			hidden_effect = {
+				add_to_variable = { TPMP_USA_army_air_focus_var = 1 }
+			}
 		}
 	}
 
@@ -5720,6 +4991,9 @@ focus_tree = {
 				uses = 1
 				category = light_air
 			}
+			hidden_effect = {
+				add_to_variable = { TPMP_USA_army_air_focus_var = 1 }
+			}
 		}
 	}
 
@@ -5737,6 +5011,9 @@ focus_tree = {
 		}
 		completion_reward = {
 			complete_special_project = sp:sp_air_axial_jet_engine
+			hidden_effect = {
+				add_to_variable = { TPMP_USA_army_air_focus_var = 1 }
+			}
 		}
 	}
 }
