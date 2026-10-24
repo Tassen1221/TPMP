@@ -6366,6 +6366,9 @@ country_event = {
 		}
 		activate_mission = ENG_imperial_conference_decision
 		set_country_flag = { flag = ENG_imperial_conference_timer_flag value = 1 days = 60 }
+		set_country_flag = ENG_imperial_conference_discussion_in_progress
+		add_political_power = -50
+		country_event = { id = mtg_britain.83 hours = 6 }
 		every_country = {
 			limit = {
 				OR = {
