@@ -44,6 +44,7 @@ NDefines.NCountry.MIN_STABILITY = 0.0
 NDefines.NCountry.MAX_STABILITY = 1.5
 NDefines.NCountry.MIN_WAR_SUPPORT = 0.0
 NDefines.NCountry.MAX_WAR_SUPPORT = 1.5
+NDefines.NCountry.DEFAULT_COASTAL_PROTECTION_STABILITY = 0.0
 
 NDefines.NCountry.BASE_RESEARCH_SLOTS = 4
 
