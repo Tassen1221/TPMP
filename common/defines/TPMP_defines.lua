@@ -189,13 +189,14 @@ NDefines.NMilitary.AIR_SUPPORT_BASE = 0.25			-- CAS bonus factor for air support
 
 NDefines.NMilitary.ENEMY_AIR_SUPERIORITY_IMPACT = -0.8		-- effect on defense due to enemy air superiorty
 NDefines.NMilitary.ENEMY_AIR_SUPERIORITY_SPEED_IMPACT = -0.4	-- effect on speed due to enemy air superiority
-NDefines.NMilitary.ENEMY_AIR_SUPERIORITY_DEFENSE = 1.6		-- more AA attack will approach this amount of help (diminishing returns)
-NDefines.NMilitary.ENEMY_AIR_SUPERIORITY_DEFENSE_STEEPNESS = 353-- how quickly defense approaches the max impact diminishing returns curve
 
-NDefines.NMilitary.ANTI_AIR_TARGETTING_TO_CHANCE = 0.15		-- Balancing value to determine the chance of ground AA hitting an attacking airplane, affecting both the effective average damage done by AA to airplanes, and the reduction of damage done by airplanes due to AA support
-NDefines.NMilitary.ANTI_AIR_ATTACK_TO_AMOUNT = 0.001		-- Balancing value to convert equipment stat anti_air_attack to the random % value of airplanes being hit.
-NDefines.NAir.ANTI_AIR_ATTACK_TO_DAMAGE_REDUCTION_FACTOR = 0.04	-- Balancing value to convert equipment stat anti_air_attack to the damage reduction modifier apply to incoming air attacks against units with AA.
+NDefines.NMilitary.ENEMY_AIR_SUPERIORITY_DEFENSE = 0.90		-- more AA attack will approach this amount of help (diminishing returns)
+NDefines.NMilitary.ENEMY_AIR_SUPERIORITY_DEFENSE_STEEPNESS = 350-- how quickly defense approaches the max impact diminishing returns curve
+NDefines.NAir.ANTI_AIR_ATTACK_TO_DAMAGE_REDUCTION_FACTOR = 1	-- Balancing value to convert equipment stat anti_air_attack to the damage reduction modifier apply to incoming air attacks against units with AA.
 NDefines.NAir.ANTI_AIR_MAXIMUM_DAMAGE_REDUCTION_FACTOR = 0.90	-- Maximum damage reduction factor applied to incoming air attacks against units with AA.
+
+NDefines.NMilitary.ANTI_AIR_TARGETTING_TO_CHANCE = 0.1		-- Balancing value to determine the chance of ground AA hitting an attacking airplane, affecting both the effective average damage done by AA to airplanes, and the reduction of damage done by airplanes due to AA support
+NDefines.NMilitary.ANTI_AIR_ATTACK_TO_AMOUNT = 0.0005		-- Balancing value to convert equipment stat anti_air_attack to the random % value of airplanes being hit.
 
 NDefines.NAir.COMBAT_DAMAGE_SCALE = 0.25			-- Higher value = more shot down planes
 NDefines.NAir.COMBAT_DAMAGE_SCALE_CARRIER = 5			-- same as above but used inside naval combat for carrier battles

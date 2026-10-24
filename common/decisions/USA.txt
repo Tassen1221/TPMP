@@ -495,7 +495,12 @@ TPMP_USA_congress_category = {
                     }
                 }
             }
-            num_of_military_factories > TPMP_USA_military_factory_mission_var
+            custom_trigger_tooltip = {
+                tooltip = TPMP_USA_congress_mission_0_factory_tt
+                check_variable = {
+                    num_of_military_factories_in_cores@ROOT > TPMP_USA_military_factory_mission_var
+                }
+            }
         }
         is_good = no
         days_mission_timeout = 90
@@ -565,7 +570,12 @@ TPMP_USA_congress_category = {
                     }
                 }
             }
-            num_of_naval_factories > TPMP_USA_dockyard_mission_var
+            custom_trigger_tooltip = {
+                tooltip = TPMP_USA_congress_mission_1_dockyard_tt
+                check_variable = {
+                    num_of_naval_factories_in_cores@ROOT > TPMP_USA_dockyard_mission_var
+                }
+            }
         }
         is_good = no
         days_mission_timeout = 90
@@ -633,7 +643,12 @@ TPMP_USA_congress_category = {
                     }
                 }
             }
-            num_of_civilian_factories > TPMP_USA_civilian_factory_mission_var
+            custom_trigger_tooltip = {
+                tooltip = TPMP_USA_congress_mission_2_factory_tt
+                check_variable = {
+                    num_of_civilian_factories_in_cores@ROOT > TPMP_USA_civilian_factory_mission_var
+                }
+            }
         }
         is_good = no
         days_mission_timeout = 90
@@ -866,7 +881,6 @@ TPMP_USA_congress_category = {
         available = {
             set_temp_variable = { efficiency_mission_var = modifier@production_factory_max_efficiency_factor }
             set_temp_variable = { output_mission_var = modifier@industrial_capacity_factory }
-            set_temp_variable = { construction_mission_var = modifier@production_speed_buildings_factor }
             OR = {
                 custom_trigger_tooltip = {
                     tooltip = TPMP_USA_congress_mission_6_efficiency_tt
@@ -878,12 +892,6 @@ TPMP_USA_congress_category = {
                     tooltip = TPMP_USA_congress_mission_6_output_tt
                     check_variable = {
                         output_mission_var > TPMP_USA_output_lobby_mission_var
-                    }
-                }
-                custom_trigger_tooltip = {
-                    tooltip = TPMP_USA_congress_mission_6_construction_tt
-                    check_variable = {
-                        construction_mission_var > TPMP_USA_construction_lobby_mission_var
                     }
                 }
             }

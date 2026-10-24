@@ -5694,101 +5694,104 @@ JAP_kwantung_army_decisions = {
 
 		timeout_effect = {
 
-			IF = {
-				limit = {
-					OR = {
-						HBC = {
-							OR = {
-								controls_state = 608
-								controls_state = 614
-							}
-						}
-						XIC = {
-							OR = {
-								controls_state = 608
-								controls_state = 614
-							}
-						}
-						CHI = { #if CHI owns one of these states, they get the event
-							OR = {
-								controls_state = 608
-								controls_state = 614
-								controls_state = 743 
-							}
-						}
-					}	
-				}
-				CHI = {
-					country_event = {
-						id = china.1
-						days = 1
-						random_days = 3
-					}	
-				}
-			}
-			ELSE_IF = {
-				limit = {
-					PRC = { #only fires the event for PRC if they control ALL of the states (to ensure that only one of them gets it, to avoid issues when one selects to turn over the states and the other doesn't)
-						AND = {
-							controls_state = 608
-							controls_state = 614
-						}
-					}
-				}
-				PRC = {
-					country_event = {
-						id = china.1
-						days = 1
-						random_days = 3
-					}	
-				}
-			}
-			ELSE_IF = {
-				limit = {
-					SHX = { #only fires the event for SHX if they control ALL of the states (to ensure that only one of them gets it, to avoid issues when one selects to turn over the states and the other doesn't)
-						AND = {
-							controls_state = 608
-							controls_state = 614
-						}
-					}
-				}
-				SHX = {
-					country_event = {
-						id = china.1
-						days = 1
-						random_days = 3
-					}	
-				}
-			}
-			ELSE_IF = {
-				limit = {
-					SND = { #only fires the event for SND if they control ALL of the states (to ensure that only one of them gets it, to avoid issues when one selects to turn over the states and the other doesn't)
-						AND = {
-							controls_state = 608
-							controls_state = 597
-							controls_state = 614
-						}
-					}
-				}
-				SND = {
-					country_event = {
-						id = china.1
-						days = 1
-						random_days = 3
-					}	
-				}
-			}
-			ELSE = {
-				608 = {
-					OWNER = {
-						country_event = {
-							id = china.1
-							days = 1
-							random_days = 3
-						}
-					}
-				}
-			}
+			# TPMP: the Marco Polo Bridge Incident is scripted. China no longer receives china.1 (which leads to japan.1 and the war declaration).
+			# Japan receives TPMP_GEN.7 instead (North China concessions), which schedules TPMP_GEN.8 (fall of China) one year later. See events/TPMP_Generic_Events.txt
+			country_event = { id = TPMP_GEN.7 days = 1 }
+#			IF = {
+#				limit = {
+#					OR = {
+#						HBC = {
+#							OR = {
+#								controls_state = 608
+#								controls_state = 614
+#							}
+#						}
+#						XIC = {
+#							OR = {
+#								controls_state = 608
+#								controls_state = 614
+#							}
+#						}
+#						CHI = { #if CHI owns one of these states, they get the event
+#							OR = {
+#								controls_state = 608
+#								controls_state = 614
+#								controls_state = 743 
+#							}
+#						}
+#					}	
+#				}
+#				CHI = {
+#					country_event = {
+#						id = china.1
+#						days = 1
+#						random_days = 3
+#					}	
+#				}
+#			}
+#			ELSE_IF = {
+#				limit = {
+#					PRC = { #only fires the event for PRC if they control ALL of the states (to ensure that only one of them gets it, to avoid issues when one selects to turn over the states and the other doesn't)
+#						AND = {
+#							controls_state = 608
+#							controls_state = 614
+#						}
+#					}
+#				}
+#				PRC = {
+#					country_event = {
+#						id = china.1
+#						days = 1
+#						random_days = 3
+#					}	
+#				}
+#			}
+#			ELSE_IF = {
+#				limit = {
+#					SHX = { #only fires the event for SHX if they control ALL of the states (to ensure that only one of them gets it, to avoid issues when one selects to turn over the states and the other doesn't)
+#						AND = {
+#							controls_state = 608
+#							controls_state = 614
+#						}
+#					}
+#				}
+#				SHX = {
+#					country_event = {
+#						id = china.1
+#						days = 1
+#						random_days = 3
+#					}	
+#				}
+#			}
+#			ELSE_IF = {
+#				limit = {
+#					SND = { #only fires the event for SND if they control ALL of the states (to ensure that only one of them gets it, to avoid issues when one selects to turn over the states and the other doesn't)
+#						AND = {
+#							controls_state = 608
+#							controls_state = 597
+#							controls_state = 614
+#						}
+#					}
+#				}
+#				SND = {
+#					country_event = {
+#						id = china.1
+#						days = 1
+#						random_days = 3
+#					}	
+#				}
+#			}
+#			ELSE = {
+#				608 = {
+#					OWNER = {
+#						country_event = {
+#							id = china.1
+#							days = 1
+#							random_days = 3
+#						}
+#					}
+#				}
+#			}
 			add_named_threat = { threat = 2 name = JAP_intervene_in_china } # From threat = 1 to 2 due to no escalation tension
 
 			hidden_effect = {

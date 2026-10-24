@@ -1,308 +1,500 @@
 ﻿add_namespace = TPMP_GER
 
+# Fall Blau - fired for GER by on_monthly_GER in common/on_actions/TPMP_eastern_front_on_actions.txt on 1 July 1942 (while at war with SOV).
 country_event = {
 	id = TPMP_GER.1
 	title = TPMP_GER.1.t
 	desc = TPMP_GER.1.d
 	picture = GFX_report_event_fall_blau
-
 	is_triggered_only = yes
-	
+	fire_only_once = yes
+
 	option = {
 		name = TPMP_GER.1.a
-		every_state = {
-			limit = {
-				is_northern_SOV_state = yes
-			}
-			if = {
+		custom_effect_tooltip = TPMP_GER_fall_blau_northern_tt
+		hidden_effect = {
+			every_state = {
 				limit = {
-					has_dynamic_modifier = {
-						modifier = TPMP_eastern_front_modifier_0
-						scope = GER
-					}
+					is_northern_SOV_state = yes
 				}
-				add_axis_eastern_front_remover_dynamic_modifier_0 = yes
-			}
-			else_if = {
-				limit = {
-					has_dynamic_modifier = {
-						modifier = TPMP_eastern_front_modifier_1
-						scope = GER
+				if = {
+					limit = {
+						has_dynamic_modifier = {
+							modifier = TPMP_eastern_front_modifier_0
+							scope = GER
+						}
 					}
+					add_axis_eastern_front_remover_dynamic_modifier_0 = yes
 				}
-				add_axis_eastern_front_remover_dynamic_modifier_1 = yes				
-			}
-			else_if = {
-				limit = {
-					has_dynamic_modifier = {
-						modifier = TPMP_eastern_front_modifier_2
-						scope = GER
+				else_if = {
+					limit = {
+						has_dynamic_modifier = {
+							modifier = TPMP_eastern_front_modifier_1
+							scope = GER
+						}
 					}
+					add_axis_eastern_front_remover_dynamic_modifier_1 = yes
 				}
-				add_axis_eastern_front_remover_dynamic_modifier_2 = yes				
-			}
-			else_if = {
-				limit = {
-					has_dynamic_modifier = {
-						modifier = TPMP_eastern_front_modifier_3
-						scope = GER
+				else_if = {
+					limit = {
+						has_dynamic_modifier = {
+							modifier = TPMP_eastern_front_modifier_2
+							scope = GER
+						}
 					}
+					add_axis_eastern_front_remover_dynamic_modifier_2 = yes
 				}
-				add_axis_eastern_front_remover_dynamic_modifier_3 = yes				
-			}
-			else_if = {
-				limit = {
-					has_dynamic_modifier = {
-						modifier = TPMP_eastern_front_modifier_4
-						scope = GER
+				else_if = {
+					limit = {
+						has_dynamic_modifier = {
+							modifier = TPMP_eastern_front_modifier_3
+							scope = GER
+						}
 					}
+					add_axis_eastern_front_remover_dynamic_modifier_3 = yes
 				}
-				add_axis_eastern_front_remover_dynamic_modifier_4 = yes				
-			}
-			else_if = {
-				limit = {
-					has_dynamic_modifier = {
-						modifier = TPMP_eastern_front_modifier_5
-						scope = GER
+				else_if = {
+					limit = {
+						has_dynamic_modifier = {
+							modifier = TPMP_eastern_front_modifier_4
+							scope = GER
+						}
 					}
+					add_axis_eastern_front_remover_dynamic_modifier_4 = yes
 				}
-				add_axis_eastern_front_remover_dynamic_modifier_5 = yes				
-			}
-			else_if = {
-				limit = {
-					has_dynamic_modifier = {
-						modifier = TPMP_eastern_front_modifier_6
-						scope = GER
+				else_if = {
+					limit = {
+						has_dynamic_modifier = {
+							modifier = TPMP_eastern_front_modifier_5
+							scope = GER
+						}
 					}
+					add_axis_eastern_front_remover_dynamic_modifier_5 = yes
 				}
-				add_axis_eastern_front_remover_dynamic_modifier_6 = yes				
-			}
-			else_if = {
-				limit = {
-					has_dynamic_modifier = {
-						modifier = TPMP_eastern_front_modifier_7
-						scope = GER
+				else_if = {
+					limit = {
+						has_dynamic_modifier = {
+							modifier = TPMP_eastern_front_modifier_6
+							scope = GER
+						}
 					}
+					add_axis_eastern_front_remover_dynamic_modifier_6 = yes
 				}
-				add_axis_eastern_front_remover_dynamic_modifier_7 = yes				
-			}
-			else_if = {
-				limit = {
-					has_dynamic_modifier = {
-						modifier = TPMP_eastern_front_modifier_8
-						scope = GER
+				else_if = {
+					limit = {
+						has_dynamic_modifier = {
+							modifier = TPMP_eastern_front_modifier_7
+							scope = GER
+						}
 					}
+					add_axis_eastern_front_remover_dynamic_modifier_7 = yes
 				}
-				add_axis_eastern_front_remover_dynamic_modifier_8 = yes				
-			}
-			else_if = {
-				limit = {
-					has_dynamic_modifier = {
-						modifier = TPMP_eastern_front_modifier_9
-						scope = GER
+				else_if = {
+					limit = {
+						has_dynamic_modifier = {
+							modifier = TPMP_eastern_front_modifier_8
+							scope = GER
+						}
 					}
+					add_axis_eastern_front_remover_dynamic_modifier_8 = yes
 				}
-				add_axis_eastern_front_remover_dynamic_modifier_9 = yes				
+				else_if = {
+					limit = {
+						has_dynamic_modifier = {
+							modifier = TPMP_eastern_front_modifier_9
+							scope = GER
+						}
+					}
+					add_axis_eastern_front_remover_dynamic_modifier_9 = yes
+				}
 			}
-			custom_effect_tooltip = add_axis_eastern_front_remover_dynamic_modifier_tt
+		}
+		custom_effect_tooltip = generic_skip_one_line_tt
+		add_timed_idea = {
+			idea = TPMP_GER_blau_idea
+			days = 90
+		}
+		hidden_effect = {
+			ITA = {
+				add_timed_idea = {
+					idea = TPMP_GER_blau_idea
+					days = 90
+				}
+			}
+			HUN = {
+				add_timed_idea = {
+					idea = TPMP_GER_blau_idea
+					days = 90
+				}
+			}
+			ROM = {
+				add_timed_idea = {
+					idea = TPMP_GER_blau_idea
+					days = 90
+				}
+			}
+			BUL = {
+				add_timed_idea = {
+					idea = TPMP_GER_blau_idea
+					days = 90
+				}
+			}
+			SPR = {
+				add_timed_idea = {
+					idea = TPMP_GER_blau_idea
+					days = 90
+				}
+			}
+			FIN = {
+				add_timed_idea = {
+					idea = TPMP_GER_blau_idea
+					days = 90
+				}
+			}
 		}
 	}
 	option = {
 		name = TPMP_GER.1.b
-		every_state = {
-			limit = {
-				is_central_SOV_state = yes
-			}
-			if = {
+		custom_effect_tooltip = TPMP_GER_fall_blau_central_tt
+		hidden_effect = {
+			every_state = {
 				limit = {
-					has_dynamic_modifier = {
-						modifier = TPMP_eastern_front_modifier_0
-						scope = GER
-					}
+					is_central_SOV_state = yes
 				}
-				add_axis_eastern_front_remover_dynamic_modifier_0 = yes
-			}
-			else_if = {
-				limit = {
-					has_dynamic_modifier = {
-						modifier = TPMP_eastern_front_modifier_1
-						scope = GER
+				if = {
+					limit = {
+						has_dynamic_modifier = {
+							modifier = TPMP_eastern_front_modifier_0
+							scope = GER
+						}
 					}
+					add_axis_eastern_front_remover_dynamic_modifier_0 = yes
 				}
-				add_axis_eastern_front_remover_dynamic_modifier_1 = yes				
-			}
-			else_if = {
-				limit = {
-					has_dynamic_modifier = {
-						modifier = TPMP_eastern_front_modifier_2
-						scope = GER
+				else_if = {
+					limit = {
+						has_dynamic_modifier = {
+							modifier = TPMP_eastern_front_modifier_1
+							scope = GER
+						}
 					}
+					add_axis_eastern_front_remover_dynamic_modifier_1 = yes
 				}
-				add_axis_eastern_front_remover_dynamic_modifier_2 = yes				
-			}
-			else_if = {
-				limit = {
-					has_dynamic_modifier = {
-						modifier = TPMP_eastern_front_modifier_3
-						scope = GER
+				else_if = {
+					limit = {
+						has_dynamic_modifier = {
+							modifier = TPMP_eastern_front_modifier_2
+							scope = GER
+						}
 					}
+					add_axis_eastern_front_remover_dynamic_modifier_2 = yes
 				}
-				add_axis_eastern_front_remover_dynamic_modifier_3 = yes				
-			}
-			else_if = {
-				limit = {
-					has_dynamic_modifier = {
-						modifier = TPMP_eastern_front_modifier_4
-						scope = GER
+				else_if = {
+					limit = {
+						has_dynamic_modifier = {
+							modifier = TPMP_eastern_front_modifier_3
+							scope = GER
+						}
 					}
+					add_axis_eastern_front_remover_dynamic_modifier_3 = yes
 				}
-				add_axis_eastern_front_remover_dynamic_modifier_4 = yes				
-			}
-			else_if = {
-				limit = {
-					has_dynamic_modifier = {
-						modifier = TPMP_eastern_front_modifier_5
-						scope = GER
+				else_if = {
+					limit = {
+						has_dynamic_modifier = {
+							modifier = TPMP_eastern_front_modifier_4
+							scope = GER
+						}
 					}
+					add_axis_eastern_front_remover_dynamic_modifier_4 = yes
 				}
-				add_axis_eastern_front_remover_dynamic_modifier_5 = yes				
-			}
-			else_if = {
-				limit = {
-					has_dynamic_modifier = {
-						modifier = TPMP_eastern_front_modifier_6
-						scope = GER
+				else_if = {
+					limit = {
+						has_dynamic_modifier = {
+							modifier = TPMP_eastern_front_modifier_5
+							scope = GER
+						}
 					}
+					add_axis_eastern_front_remover_dynamic_modifier_5 = yes
 				}
-				add_axis_eastern_front_remover_dynamic_modifier_6 = yes				
-			}
-			else_if = {
-				limit = {
-					has_dynamic_modifier = {
-						modifier = TPMP_eastern_front_modifier_7
-						scope = GER
+				else_if = {
+					limit = {
+						has_dynamic_modifier = {
+							modifier = TPMP_eastern_front_modifier_6
+							scope = GER
+						}
 					}
+					add_axis_eastern_front_remover_dynamic_modifier_6 = yes
 				}
-				add_axis_eastern_front_remover_dynamic_modifier_7 = yes				
-			}
-			else_if = {
-				limit = {
-					has_dynamic_modifier = {
-						modifier = TPMP_eastern_front_modifier_8
-						scope = GER
+				else_if = {
+					limit = {
+						has_dynamic_modifier = {
+							modifier = TPMP_eastern_front_modifier_7
+							scope = GER
+						}
 					}
+					add_axis_eastern_front_remover_dynamic_modifier_7 = yes
 				}
-				add_axis_eastern_front_remover_dynamic_modifier_8 = yes				
-			}
-			else_if = {
-				limit = {
-					has_dynamic_modifier = {
-						modifier = TPMP_eastern_front_modifier_9
-						scope = GER
+				else_if = {
+					limit = {
+						has_dynamic_modifier = {
+							modifier = TPMP_eastern_front_modifier_8
+							scope = GER
+						}
 					}
+					add_axis_eastern_front_remover_dynamic_modifier_8 = yes
 				}
-				add_axis_eastern_front_remover_dynamic_modifier_9 = yes				
+				else_if = {
+					limit = {
+						has_dynamic_modifier = {
+							modifier = TPMP_eastern_front_modifier_9
+							scope = GER
+						}
+					}
+					add_axis_eastern_front_remover_dynamic_modifier_9 = yes
+				}
 			}
-			custom_effect_tooltip = add_axis_eastern_front_remover_dynamic_modifier_tt
+		}
+		custom_effect_tooltip = generic_skip_one_line_tt
+		add_timed_idea = {
+			idea = TPMP_GER_blau_idea
+			days = 90
+		}
+		hidden_effect = {
+			ITA = {
+				add_timed_idea = {
+					idea = TPMP_GER_blau_idea
+					days = 90
+				}
+			}
+			HUN = {
+				add_timed_idea = {
+					idea = TPMP_GER_blau_idea
+					days = 90
+				}
+			}
+			ROM = {
+				add_timed_idea = {
+					idea = TPMP_GER_blau_idea
+					days = 90
+				}
+			}
+			BUL = {
+				add_timed_idea = {
+					idea = TPMP_GER_blau_idea
+					days = 90
+				}
+			}
+			SPR = {
+				add_timed_idea = {
+					idea = TPMP_GER_blau_idea
+					days = 90
+				}
+			}
+			FIN = {
+				add_timed_idea = {
+					idea = TPMP_GER_blau_idea
+					days = 90
+				}
+			}
 		}
 	}
 	option = {
 		name = TPMP_GER.1.c
-		every_state = {
-			limit = {
-				is_southern_SOV_state = yes
-			}
-			if = {
+		custom_effect_tooltip = TPMP_GER_fall_blau_southern_tt
+		hidden_effect = {
+			every_state = {
 				limit = {
-					has_dynamic_modifier = {
-						modifier = TPMP_eastern_front_modifier_0
-						scope = GER
-					}
+					is_southern_SOV_state = yes
 				}
-				add_axis_eastern_front_remover_dynamic_modifier_0 = yes
-			}
-			else_if = {
-				limit = {
-					has_dynamic_modifier = {
-						modifier = TPMP_eastern_front_modifier_1
-						scope = GER
+				if = {
+					limit = {
+						has_dynamic_modifier = {
+							modifier = TPMP_eastern_front_modifier_0
+							scope = GER
+						}
 					}
+					add_axis_eastern_front_remover_dynamic_modifier_0 = yes
 				}
-				add_axis_eastern_front_remover_dynamic_modifier_1 = yes				
-			}
-			else_if = {
-				limit = {
-					has_dynamic_modifier = {
-						modifier = TPMP_eastern_front_modifier_2
-						scope = GER
+				else_if = {
+					limit = {
+						has_dynamic_modifier = {
+							modifier = TPMP_eastern_front_modifier_1
+							scope = GER
+						}
 					}
+					add_axis_eastern_front_remover_dynamic_modifier_1 = yes
 				}
-				add_axis_eastern_front_remover_dynamic_modifier_2 = yes				
-			}
-			else_if = {
-				limit = {
-					has_dynamic_modifier = {
-						modifier = TPMP_eastern_front_modifier_3
-						scope = GER
+				else_if = {
+					limit = {
+						has_dynamic_modifier = {
+							modifier = TPMP_eastern_front_modifier_2
+							scope = GER
+						}
 					}
+					add_axis_eastern_front_remover_dynamic_modifier_2 = yes
 				}
-				add_axis_eastern_front_remover_dynamic_modifier_3 = yes				
-			}
-			else_if = {
-				limit = {
-					has_dynamic_modifier = {
-						modifier = TPMP_eastern_front_modifier_4
-						scope = GER
+				else_if = {
+					limit = {
+						has_dynamic_modifier = {
+							modifier = TPMP_eastern_front_modifier_3
+							scope = GER
+						}
 					}
+					add_axis_eastern_front_remover_dynamic_modifier_3 = yes
 				}
-				add_axis_eastern_front_remover_dynamic_modifier_4 = yes				
-			}
-			else_if = {
-				limit = {
-					has_dynamic_modifier = {
-						modifier = TPMP_eastern_front_modifier_5
-						scope = GER
+				else_if = {
+					limit = {
+						has_dynamic_modifier = {
+							modifier = TPMP_eastern_front_modifier_4
+							scope = GER
+						}
 					}
+					add_axis_eastern_front_remover_dynamic_modifier_4 = yes
 				}
-				add_axis_eastern_front_remover_dynamic_modifier_5 = yes				
-			}
-			else_if = {
-				limit = {
-					has_dynamic_modifier = {
-						modifier = TPMP_eastern_front_modifier_6
-						scope = GER
+				else_if = {
+					limit = {
+						has_dynamic_modifier = {
+							modifier = TPMP_eastern_front_modifier_5
+							scope = GER
+						}
 					}
+					add_axis_eastern_front_remover_dynamic_modifier_5 = yes
 				}
-				add_axis_eastern_front_remover_dynamic_modifier_6 = yes				
-			}
-			else_if = {
-				limit = {
-					has_dynamic_modifier = {
-						modifier = TPMP_eastern_front_modifier_7
-						scope = GER
+				else_if = {
+					limit = {
+						has_dynamic_modifier = {
+							modifier = TPMP_eastern_front_modifier_6
+							scope = GER
+						}
 					}
+					add_axis_eastern_front_remover_dynamic_modifier_6 = yes
 				}
-				add_axis_eastern_front_remover_dynamic_modifier_7 = yes				
-			}
-			else_if = {
-				limit = {
-					has_dynamic_modifier = {
-						modifier = TPMP_eastern_front_modifier_8
-						scope = GER
+				else_if = {
+					limit = {
+						has_dynamic_modifier = {
+							modifier = TPMP_eastern_front_modifier_7
+							scope = GER
+						}
 					}
+					add_axis_eastern_front_remover_dynamic_modifier_7 = yes
 				}
-				add_axis_eastern_front_remover_dynamic_modifier_8 = yes				
-			}
-			else_if = {
-				limit = {
-					has_dynamic_modifier = {
-						modifier = TPMP_eastern_front_modifier_9
-						scope = GER
+				else_if = {
+					limit = {
+						has_dynamic_modifier = {
+							modifier = TPMP_eastern_front_modifier_8
+							scope = GER
+						}
 					}
+					add_axis_eastern_front_remover_dynamic_modifier_8 = yes
 				}
-				add_axis_eastern_front_remover_dynamic_modifier_9 = yes				
+				else_if = {
+					limit = {
+						has_dynamic_modifier = {
+							modifier = TPMP_eastern_front_modifier_9
+							scope = GER
+						}
+					}
+					add_axis_eastern_front_remover_dynamic_modifier_9 = yes
+				}
 			}
-			custom_effect_tooltip = add_axis_eastern_front_remover_dynamic_modifier_tt
+		}
+		custom_effect_tooltip = generic_skip_one_line_tt
+		add_timed_idea = {
+			idea = TPMP_GER_blau_idea
+			days = 90
+		}
+		hidden_effect = {
+			ITA = {
+				add_timed_idea = {
+					idea = TPMP_GER_blau_idea
+					days = 90
+				}
+			}
+			HUN = {
+				add_timed_idea = {
+					idea = TPMP_GER_blau_idea
+					days = 90
+				}
+			}
+			ROM = {
+				add_timed_idea = {
+					idea = TPMP_GER_blau_idea
+					days = 90
+				}
+			}
+			BUL = {
+				add_timed_idea = {
+					idea = TPMP_GER_blau_idea
+					days = 90
+				}
+			}
+			SPR = {
+				add_timed_idea = {
+					idea = TPMP_GER_blau_idea
+					days = 90
+				}
+			}
+			FIN = {
+				add_timed_idea = {
+					idea = TPMP_GER_blau_idea
+					days = 90
+				}
+			}
+		}
+	}
+}
+
+# Unternehmen Zitadelle - fired for GER by on_monthly_GER in common/on_actions/TPMP_eastern_front_on_actions.txt on 1 July 1943 (while at war with SOV).
+country_event = {
+	id = TPMP_GER.2
+	title = TPMP_GER.2.t
+	desc = TPMP_GER.2.d
+	picture = GFX_report_event_generic_panzer_attack
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = TPMP_GER.2.a
+		add_timed_idea = {
+			idea = TPMP_GER_citadel_idea
+			days = 90
+		}
+		hidden_effect = {
+			ITA = {
+				add_timed_idea = {
+					idea = TPMP_GER_citadel_idea
+					days = 90
+				}
+			}
+			HUN = {
+				add_timed_idea = {
+					idea = TPMP_GER_citadel_idea
+					days = 90
+				}
+			}
+			ROM = {
+				add_timed_idea = {
+					idea = TPMP_GER_citadel_idea
+					days = 90
+				}
+			}
+			BUL = {
+				add_timed_idea = {
+					idea = TPMP_GER_citadel_idea
+					days = 90
+				}
+			}
+			SPR = {
+				add_timed_idea = {
+					idea = TPMP_GER_citadel_idea
+					days = 90
+				}
+			}
+			FIN = {
+				add_timed_idea = {
+					idea = TPMP_GER_citadel_idea
+					days = 90
+				}
+			}
 		}
 	}
 }

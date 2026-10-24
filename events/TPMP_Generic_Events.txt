@@ -434,56 +434,6 @@ country_event = {
 	fire_only_once = yes
 	title = TPMP_GEN.6.t
 	desc = TPMP_GEN.6.d
-	picture = GFX_report_event_chinese_soldiers
-
-	trigger = {
-		tag = JAP
-		date > 1938.1.1
-		CHI = {
-			exists = yes
-			has_capitulated = no
-		}
-		JAP = { is_ai = yes }
-		CHI = { is_ai = yes }
-		NOT = { has_country_flag = TPMP_JAP_forced_china_victory_flag }
-	}
-
-	mean_time_to_happen = {
-		days = 1
-	}
-
-	immediate = {
-		set_country_flag = TPMP_JAP_forced_china_victory_flag
-		annex_country = {
-			target = CHI
-			transfer_troops = yes
-		}
-		add_named_threat = {
-			threat = 3
-			name = TPMP_JAP_chinacap1
-		}
-		add_named_threat = {
-			threat = 38.5
-			name = TPMP_JAP_chinacap2
-		}
-		country_event = TPMP_GEN.4
-		CHI = {
-			every_core_state = {
-				add_compliance = 90
-			}
-		}
-	}
-
-	option = {
-		name = TPMP_GEN.6.a
-	}
-}
-
-country_event = {
-	id = TPMP_GEN.7
-	fire_only_once = yes
-	title = TPMP_GEN.7.t
-	desc = TPMP_GEN.7.d
 	picture = GFX_report_event_ETH_ethiopian_warriors
 
 	trigger = {
@@ -519,6 +469,176 @@ country_event = {
 	}
 
 	option = {
+		name = TPMP_GEN.6.a
+	}
+}
+
+# Marco Polo Bridge Incident - scripted North China concessions.
+# Fired for JAP by the JAP_kwantung_army_impatience mission timeout (common/decisions/JAP.txt) in place of the vanilla china.1 -> japan.1 war declaration.
+country_event = {
+	id = TPMP_GEN.7
+	title = TPMP_GEN.7.t
+	desc = TPMP_GEN.7.d
+	picture = GFX_report_event_chinese_soldiers_fighting
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	trigger = {
+		original_tag = JAP
+	}
+
+	option = {
 		name = TPMP_GEN.7.a
+		IF = { # Beiping
+			limit = {
+				608 = {
+					OWNER = {
+						is_literally_china = yes
+						NOT = { is_subject_of = ROOT }
+					}
+				}
+			}
+			transfer_state = 608
+			608 = { add_compliance = 90 }
+		}
+		IF = { # Hebei
+			limit = {
+				614 = {
+					OWNER = {
+						is_literally_china = yes
+						NOT = { is_subject_of = ROOT }
+					}
+				}
+			}
+			transfer_state = 614
+			614 = { add_compliance = 90 }
+		}
+		IF = { # Shandong
+			limit = {
+				597 = {
+					OWNER = {
+						is_literally_china = yes
+						NOT = { is_subject_of = ROOT }
+					}
+				}
+			}
+			transfer_state = 597
+			597 = { add_compliance = 90 }
+		}
+		IF = { # Qingdao
+			limit = {
+				743 = {
+					OWNER = {
+						is_literally_china = yes
+						NOT = { is_subject_of = ROOT }
+					}
+				}
+			}
+			transfer_state = 743
+			743 = { add_compliance = 90 }
+		}
+		IF = { # Jinan
+			limit = {
+				1038 = {
+					OWNER = {
+						is_literally_china = yes
+						NOT = { is_subject_of = ROOT }
+					}
+				}
+			}
+			transfer_state = 1038
+			1038 = { add_compliance = 90 }
+		}
+		IF = { # Hebei-Chahar
+			limit = {
+				1039 = {
+					OWNER = {
+						is_literally_china = yes
+						NOT = { is_subject_of = ROOT }
+					}
+				}
+			}
+			transfer_state = 1039
+			1039 = { add_compliance = 90 }
+		}
+		custom_effect_tooltip = generic_skip_one_line_tt
+		effect_tooltip = {
+			country_event = { id = TPMP_GEN.8 days = 365 }
+		}
+		hidden_effect = {
+			set_country_flag = TPMP_JAP_marco_polo_scripted_flag
+			country_event = { id = TPMP_GEN.8 days = 365 }
+		}
+	}
+}
+
+# The Fall of China - scripted annexation one year after TPMP_GEN.7.
+# Mirrors the scripted peace in common/on_actions/TPMP_scripted_diplo_on_actions.txt (on_capitulation_immediate for CHI) but does not transfer the army.
+country_event = {
+	id = TPMP_GEN.8
+	title = TPMP_GEN.8.t
+	desc = TPMP_GEN.8.d
+	picture = GFX_report_event_japanese_chinese_surrender
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	trigger = {
+		original_tag = JAP
+		has_capitulated = no
+		has_civil_war = no
+		is_subject = no
+		CHI = {
+			exists = yes
+			is_subject = no
+		}
+		NOT = { has_country_flag = TPMP_JAP_forced_china_victory_flag }
+	}
+
+	option = {
+		name = TPMP_GEN.8.a
+		add_mastery = {
+			amount = 200
+		}
+		effect_tooltip = {
+			annex_country = {
+				target = CHI
+				transfer_troops = no
+			}
+			add_named_threat = {
+				threat = 3
+				name = TPMP_JAP_chinacap1
+			}
+			add_named_threat = {
+				threat = 38.5
+				name = TPMP_JAP_chinacap2
+			}
+			CHI = {
+				every_core_state = {
+					add_compliance = 90
+				}
+			}
+			country_event = TPMP_GEN.4
+		}
+		hidden_effect = {
+			set_country_flag = TPMP_JAP_forced_china_victory_flag
+			annex_country = {
+				target = CHI
+				transfer_troops = no
+			}
+			add_named_threat = {
+				threat = 3
+				name = TPMP_JAP_chinacap1
+			}
+			add_named_threat = {
+				threat = 38.5
+				name = TPMP_JAP_chinacap2
+			}
+			CHI = {
+				every_core_state = {
+					add_compliance = 90
+				}
+			}
+			country_event = TPMP_GEN.4
+		}
 	}
 }

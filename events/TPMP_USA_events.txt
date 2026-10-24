@@ -1051,7 +1051,7 @@ country_event = { #Military Event
 
 	immediate = {
 		set_variable = { TPMP_USA_army_air_focus_mission_var = TPMP_USA_army_air_focus_var }
-		set_variable = { TPMP_USA_military_factory_mission_var = num_of_military_factories }
+		set_variable = { TPMP_USA_military_factory_mission_var = num_of_military_factories_in_cores@ROOT }
 		IF = {
 			limit = {
 				date > 1937.01.01
@@ -1110,7 +1110,7 @@ country_event = { #Naval Event
 
 	immediate = {
 		set_variable = { TPMP_USA_navy_focus_mission_var = TPMP_USA_navy_focus_var }
-		set_variable = { TPMP_USA_dockyard_mission_var = num_of_naval_factories }
+		set_variable = { TPMP_USA_dockyard_mission_var = num_of_naval_factories_in_cores@ROOT }
 		IF = {
 			limit = {
 				date > 1937.01.01
@@ -1169,7 +1169,7 @@ country_event = { #Civilian Event
 
 	immediate = {
 		set_variable = { TPMP_USA_civ_focus_mission_var = TPMP_USA_civ_focus_var }
-		set_variable = { TPMP_USA_civilian_factory_mission_var = num_of_civilian_factories }
+		set_variable = { TPMP_USA_civilian_factory_mission_var = num_of_civilian_factories_in_cores@ROOT }
 		IF = {
 			limit = {
 				date > 1937.01.01
@@ -1328,7 +1328,7 @@ country_event = { #Industrialist Lobbyist Event
 	immediate = {
 		set_variable = { TPMP_USA_efficiency_lobby_mission_var = modifier@production_factory_max_efficiency_factor }
 		set_variable = { TPMP_USA_output_lobby_mission_var = modifier@industrial_capacity_factory }
-		set_variable = { TPMP_USA_construction_lobby_mission_var = modifier@production_speed_buildings_factor }
+		add_to_variable = { TPMP_USA_output_lobby_mission_var = 0.04 }
 	}
     
     option = {
