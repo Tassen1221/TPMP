@@ -561,6 +561,102 @@ country_event = {
 			transfer_state = 1039
 			1039 = { add_compliance = 90 }
 		}
+		IF = { # Shanghai
+			limit = {
+				613 = {
+					OWNER = {
+						is_literally_china = yes
+						NOT = { is_subject_of = ROOT }
+					}
+				}
+			}
+			transfer_state = 613
+			613 = { add_compliance = 90 }
+		}
+		IF = { # Nanjing
+			limit = {
+				1035 = {
+					OWNER = {
+						is_literally_china = yes
+						NOT = { is_subject_of = ROOT }
+					}
+				}
+			}
+			transfer_state = 1035
+			1035 = { add_compliance = 90 }
+		}
+		IF = { # Suzhou
+			limit = {
+				1034 = {
+					OWNER = {
+						is_literally_china = yes
+						NOT = { is_subject_of = ROOT }
+					}
+				}
+			}
+			transfer_state = 1034
+			1034 = { add_compliance = 90 }
+		}
+		IF = { # Jiangsu
+			limit = {
+				598 = {
+					OWNER = {
+						is_literally_china = yes
+						NOT = { is_subject_of = ROOT }
+					}
+				}
+			}
+			transfer_state = 598
+			598 = { add_compliance = 90 }
+		}
+		IF = { # Anhui
+			limit = {
+				606 = {
+					OWNER = {
+						is_literally_china = yes
+						NOT = { is_subject_of = ROOT }
+					}
+				}
+			}
+			transfer_state = 606
+			606 = { add_compliance = 90 }
+		}
+		IF = { # Suiyuan
+			limit = {
+				621 = {
+					OWNER = {
+						is_literally_china = yes
+						NOT = { is_subject_of = ROOT }
+					}
+				}
+			}
+			transfer_state = 621
+			621 = { add_compliance = 90 }
+		}
+		IF = { # Shanxi
+			limit = {
+				615 = {
+					OWNER = {
+						is_literally_china = yes
+						NOT = { is_subject_of = ROOT }
+					}
+				}
+			}
+			transfer_state = 615
+			615 = { add_compliance = 90 }
+		}
+		IF = { # Henan
+			limit = {
+				607 = {
+					OWNER = {
+						is_literally_china = yes
+						NOT = { is_subject_of = ROOT }
+					}
+				}
+			}
+			transfer_state = 607
+			607 = { add_compliance = 90 }
+		}
 		custom_effect_tooltip = generic_skip_one_line_tt
 		effect_tooltip = {
 			country_event = { id = TPMP_GEN.8 days = 365 }
@@ -598,6 +694,11 @@ country_event = {
 		name = TPMP_GEN.8.a
 		add_mastery = {
 			amount = 200
+		}
+		MAN = {
+			add_mastery = {
+				amount = 200
+			}
 		}
 		effect_tooltip = {
 			annex_country = {
