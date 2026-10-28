@@ -375,17 +375,29 @@ country_event = {
 		name = soviet.12.a
 		SOV = { 
 			transfer_state = 146
-			custom_effect_tooltip = FIN_remove_soviet_claims_in_other_states_tt
+			if = {
+				limit = {
+					FROM = {
+						original_tag = FIN
+					}
+				}
+				custom_effect_tooltip = FIN_remove_soviet_claims_in_other_states_tt
+				hidden_effect = {
+					FIN = {
+						every_core_state = {
+							limit = {
+								is_owned_by = PREV
+								is_claimed_by = ROOT
+							}
+							remove_claim_by = ROOT 
+						} 
+					}
+				}
+			}
 		}
 		hidden_effect = {
-			FIN = {
-				every_core_state = {
-					limit = {
-						is_owned_by = PREV
-						is_claimed_by = ROOT
-					}
-					remove_claim_by = ROOT 
-				} 
+			FROM = {
+				save_event_target_as = SOV_demanded_karelia_from
 			}
 			SOV = {
 				country_event = { days = 1 id = news.13 }
@@ -398,7 +410,24 @@ country_event = {
 country_event = {
 	id = soviet.13
 	title = soviet.13.t
-	desc = soviet.13.d
+	desc = {
+		text = soviet.13.d
+		trigger = {
+			FROM = {
+				original_tag = FIN
+			}
+		}
+	}
+	desc = {
+		text = soviet.13.d.2
+		trigger = {
+			FROM = {
+				NOT = {
+					original_tag = FIN
+				}
+			}
+		}
+	}
 	picture = GFX_report_event_soviet_tanks_snow
 	
 	is_triggered_only = yes
@@ -407,12 +436,19 @@ country_event = {
 		name = soviet.13.a
 		create_wargoal = {
 			type = take_state
-			target = FIN
+			target = FROM
 			generator = { 146 }
 		}				
 		hidden_effect = {
-			SOV = {
-				country_event = { days = 1 id = news.12 }
+			if = {
+				limit = {
+					FROM = {
+						original_tag = FIN
+					}
+				}
+				SOV = {
+					country_event = { days = 1 id = news.12 }
+				}
 			}
 		}
 	}

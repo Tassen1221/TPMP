@@ -388,10 +388,12 @@ GRE_investment_decisions_category = {
 				has_war_with = GER
 				has_country_flag = GRE_germany_rebuffed
 				GER = {
-					has_capitulated = yes
-					is_puppet = yes
-					has_government = communism
-					has_government = democratic
+					OR = {
+						has_capitulated = yes
+						is_puppet = yes
+						has_government = communism
+						has_government = democratic
+					}
 				}
 			}
 		}
@@ -462,10 +464,12 @@ GRE_investment_decisions_category = {
 				has_war_with = GER
 				has_country_flag = GRE_germany_rebuffed
 				GER = {
-					has_capitulated = yes
-					is_puppet = yes
-					has_government = communism
-					has_government = democratic
+					OR = {
+						has_capitulated = yes
+						is_puppet = yes
+						has_government = communism
+						has_government = democratic
+					}
 				}
 			}
 		}
@@ -536,10 +540,12 @@ GRE_investment_decisions_category = {
 				is_puppet_of = GER
 				has_country_flag = GRE_germany_rebuffed
 				GER = {
-					has_capitulated = yes
-					is_puppet = yes
-					has_government = communism
-					has_government = democratic
+					OR = {
+						has_capitulated = yes
+						is_puppet = yes
+						has_government = communism
+						has_government = democratic
+					}
 				}
 			}
 		}
@@ -684,11 +690,11 @@ GRE_investment_decisions_category = {
 				has_war_with = ENG
 				has_country_flag = GRE_britain_rebuffed
 				ENG = {
-					has_capitulated = yes
-					is_puppet = yes
-					NOT = { 
-						has_government = democratic
-						has_government = neutrality
+					OR = {
+						has_capitulated = yes
+						is_puppet = yes
+						has_government = fascism
+						has_government = communism
 					}
 				}
 			}
@@ -749,11 +755,11 @@ GRE_investment_decisions_category = {
 				has_war_with = ENG
 				has_country_flag = GRE_britain_rebuffed
 				ENG = {
-					has_capitulated = yes
-					is_puppet = yes
-					NOT = { 
-						has_government = democratic
-						has_government = neutrality
+					OR = {
+						has_capitulated = yes
+						is_puppet = yes
+						has_government = fascism
+						has_government = communism
 					}
 				}
 			}
@@ -814,11 +820,11 @@ GRE_investment_decisions_category = {
 				has_war_with = ENG
 				has_country_flag = GRE_britain_rebuffed
 				ENG = {
-					has_capitulated = yes
-					is_puppet = yes
-					NOT = { 
-						has_government = democratic
-						has_government = neutrality
+					OR = {
+						has_capitulated = yes
+						is_puppet = yes
+						has_government = fascism
+						has_government = communism
 					}
 				}
 			}
@@ -975,10 +981,8 @@ GRE_investment_decisions_category = {
 				NOT = { has_capitulated = yes }
 				owns_state = 16 
 				is_puppet = no
-				OR = { 
-					NOT = { has_government = fascism }
-					NOT = { has_government = neutrality }
-				}
+				NOT = { has_government = fascism }
+				NOT = { has_government = neutrality }
 			}
 		}
 

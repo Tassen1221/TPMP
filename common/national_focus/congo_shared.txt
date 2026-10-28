@@ -5284,97 +5284,86 @@
 			}
 			custom_trigger_tooltip = {
 				tooltip = CONGO_expanded_rubber_plantations_available_tt
-				any_country = {
-					has_war_with = ROOT
-					AND = {
-						OR = {
-							controls_state = 671
-							any_country = {
-								OR = {
-									is_subject_of = PREV
-									is_ally_with = PREV
-								}
-								controls_state = 671
+				any_enemy_country = { #any enemy country is narrower than any country
+
+					671 = { #Start at state, scope to controller instead of starting by going through all countries again
+						controller = {
+							OR = {
+								tag = PREV.PREV
+								is_subject_of = PREV.PREV
+								is_ally_with = PREV.PREV
 							}
 						}
-						OR = {
-							controls_state = 286
-							any_country = {
-								OR = {
-									is_subject_of = PREV
-									is_ally_with = PREV
-								}
-								controls_state = 286
+					}
+					286 = {
+						controller = {
+							OR = {
+								tag = PREV.PREV
+								is_subject_of = PREV.PREV
+								is_ally_with = PREV.PREV
 							}
 						}
-						OR = {
-							controls_state = 670
-							any_country = {
-								OR = {
-									is_subject_of = PREV
-									is_ally_with = PREV
-								}
-								controls_state = 670
+					}
+					670 = {
+						controller = {
+							OR = {
+								tag = PREV.PREV
+								is_subject_of = PREV.PREV
+								is_ally_with = PREV.PREV
 							}
 						}
-						OR = {
-							controls_state = 741
-							any_country = {
-								OR = {
-									is_subject_of = PREV
-									is_ally_with = PREV
-								}
-								controls_state = 741
+					}
+					741 = {
+						controller = {
+							OR = {
+								tag = PREV.PREV
+								is_subject_of = PREV.PREV
+								is_ally_with = PREV.PREV
 							}
 						}
-						OR = {
-							controls_state = 1017
-							any_country = {
-								OR = {
-									is_subject_of = PREV
-									is_ally_with = PREV
-								}
-								controls_state = 1017
+					}
+					1017 = {
+						controller = {
+							OR = {
+								tag = PREV.PREV
+								is_subject_of = PREV.PREV
+								is_ally_with = PREV.PREV
 							}
 						}
-						OR = {
-							controls_state = 1066
-							any_country = {
-								OR = {
-									is_subject_of = PREV
-									is_ally_with = PREV
-								}
-								controls_state = 1066
+					}
+					1066 = {
+						controller = {
+							OR = {
+								tag = PREV.PREV
+								is_subject_of = PREV.PREV
+								is_ally_with = PREV.PREV
 							}
 						}
-						OR = {
-							controls_state = 1067
-							any_country = {
-								OR = {
-									is_subject_of = PREV
-									is_ally_with = PREV
-								}
-								controls_state = 1067
+					}
+					1067 = {
+						controller = {
+							OR = {
+								tag = PREV.PREV
+								is_subject_of = PREV.PREV
+								is_ally_with = PREV.PREV
 							}
 						}
-						OR = {
-							controls_state = 1068
-							any_country = {
-								OR = {
-									is_subject_of = PREV
-									is_ally_with = PREV
-								}
-								controls_state = 1068
+					}
+					1068 = {
+						controller = {
+							OR = {
+								tag = PREV.PREV
+								is_subject_of = PREV.PREV
+								is_ally_with = PREV.PREV
 							}
 						}
-						OR = {
-							controls_state = 1069
-							any_country = {
-								OR = {
-									is_subject_of = PREV
-									is_ally_with = PREV
-								}
-								controls_state = 1069
+					}
+					1069 = {
+						controller = {
+							OR = {
+								tag = PREV.PREV
+								is_subject_of = PREV.PREV
+								is_ally_with = PREV.PREV
 							}
 						}
 					}
@@ -9751,8 +9740,8 @@
 			COG = {
 				is_subject = no
 				NOT = {
-					any_country = {
-						original_tag = COG
+					any_country_with_original_tag = {
+						original_tag_to_check = COG
 						has_war_with = PREV
 					}
 				}

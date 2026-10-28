@@ -1276,28 +1276,33 @@ political_actions = {
 		priority = 500
 		visible = {
 			has_completed_focus = CZE_intervene_in_the_ussr
-			any_country = {
-				original_tag = SOV
+			any_country_with_original_tag = {
+				original_tag_to_check = SOV
 				has_civil_war = yes
 			}
 			NOT = {
-				any_country = {
-					original_tag = SOV
+				any_country_with_original_tag = {
+					original_tag_to_check = SOV
 					has_war_with = ROOT
 				}
 			}
 		}
 		fire_only_once = yes
 		available = {
-			any_country = {
-				original_tag = SOV
+			any_country_with_original_tag = {
+				original_tag_to_check = SOV
+				exists = yes
+				
 				OR = {
 					has_volunteers_amount_from = {
 						tag = ROOT
 						count > 0
 					}
-					any_other_country = {
-						original_tag = SOV
+					any_country_with_original_tag = {
+						original_tag_to_check = SOV
+						NOT = { tag = PREV }
+						exists = yes
+						
 						has_volunteers_amount_from = {
 							tag = ROOT
 							count > 0
@@ -2228,18 +2233,18 @@ CZE_bop_army_readiness_category = {
 		available = {
 			has_completed_focus = CZE_continue_armed_force_reform
 			has_war = no
-			any_other_country = {
+			any_collection_element = {
+				collection = game:all_majors
 				has_government = ROOT
-				is_major = yes
 				hidden_trigger = {
 					has_war = no
-				}
-				capital_scope = {
-					is_on_continent = europe
 				}
 				has_opinion = {
     				target = ROOT
     				value > 9
+				}
+				capital_scope = {
+					is_on_continent = europe
 				}
 			}
 		}
@@ -2259,15 +2264,18 @@ CZE_bop_army_readiness_category = {
 			CZE_bop_medium_increase_effect = yes
 			if = {
 				limit = {
-					any_other_country = {
+					any_collection_element = {
+						collection = game:all_majors
 						has_government = ROOT
-						is_major = yes
-						capital_scope = {
-							is_on_continent = europe
+						hidden_trigger = {
+							has_war = no
 						}
 						has_opinion = {
-							target = ROOT
-							value > 9
+    						target = ROOT
+    						value > 9
+						}
+						capital_scope = {
+							is_on_continent = europe
 						}
 					}
 				}
@@ -6187,13 +6195,17 @@ CZE_skoda_focus_category = {
 		priority = 2
 		visible = {
 			has_completed_focus = CZE_profit_off_the_spanish_civil_war
-			any_other_country = {	#also automatically checks for exists = yes
+			any_country_with_original_tag = {
+				original_tag_to_check = SPR
+				exists = yes
+
 				OR = {
 					tag = SPA
 					tag = SPB
 					tag = SPC
 					tag = SPD
 				}
+
 				NOT = {
 					has_war_with = ROOT
 				}
@@ -6214,12 +6226,10 @@ CZE_skoda_focus_category = {
 		}
 		visible = {
 			has_completed_focus = CZE_improve_balkan_trade_relations
-			any_other_country = {	#also automatically checks for exists = yes
-				OR = {
-					tag = ROM
-					tag = YUG
-					tag = FRA
-				}
+			any_country_with_original_tag_of = {
+				target = {ROM YUG FRA}
+				
+				exists = yes
 				NOT = {
 					has_war_with = ROOT
 				}
@@ -6964,8 +6974,7 @@ CZE_central_european_federation = {
 			}
 			OR = {
 				is_neighbor_of = HUN
-				any_other_country = {
-					is_subject_of = ROOT
+				any_subject_country = {
 					is_neighbor_of = HUN
 				}
 			}

@@ -2079,6 +2079,17 @@ country_event = {
 			}
 			FROM = { add_to_faction = ROOT }
 		}
+		else_if = {
+			limit = {
+				FROM = { is_in_faction = yes }
+			}
+			# add_to_faction no-ops unless it runs in the leader's scope, so step up to the leader.
+			FROM = {
+				faction_leader = {
+					add_to_faction = ROOT
+				}
+			}
+		}
 
 	}
 }

@@ -2286,8 +2286,8 @@ news_event = {
 		NOT = { has_global_flag = scw_over }
 		NOT = { has_dlc = "La Resistance" }
 		SPR = { has_civil_war = no }
-		any_other_country = {
-			original_tag = SPR
+		any_other_country_with_original_tag_of = {
+			target = {SPR}
 			has_government = fascism
 		}
 		all_country = {
@@ -2334,8 +2334,8 @@ news_event = {
 		NOT = { has_global_flag = scw_over }
 		NOT = { has_dlc = "La Resistance" }
 		SPR = { has_civil_war = no }
-		any_other_country = {
-			original_tag = SPR
+		any_other_country_with_original_tag_of = {
+			target = {SPR}
 			NOT = { has_government = fascism }
 		}
 		all_country = {
@@ -3844,6 +3844,12 @@ news_event = {
 			if = {
 				limit = {
 					has_dlc = "No Compromise, No Surrender"
+					PHI = {
+						OR = { # A faction leader holds out until it is close to capitulating
+							is_faction_leader = no
+							surrender_progress > 0.85
+						}
+					}
 				}
 				PHI = {
 					country_event = SEA_PHI_political_events.54
@@ -3905,9 +3911,8 @@ news_event = {
 			431 = {
 				is_owned_by = ENG
 			}
-			RAJ = {
-				is_subject_of = ENG
-				owns_state = 431
+			431 = {
+				is_owned_by = RAJ
 			}
 		}
 		JAP = { has_war_with = ENG }
@@ -3969,9 +3974,8 @@ news_event = {
 			439 = {
 				is_owned_by = ENG
 			}
-			RAJ = {
-				is_subject_of = ENG
-				owns_state = 439
+			439 = {
+				is_owned_by = RAJ
 			}
 		}
 		JAP = { has_war_with = ENG }
@@ -5030,8 +5034,8 @@ news_event = {
 	major = yes
 	
 	trigger = {
-		any_other_country = {
-			original_tag = SPR
+		any_other_country_with_original_tag_of = {
+			target = {SPR}
 			controls_state = 118
 			has_war_with = ENG
 		}
@@ -5594,12 +5598,13 @@ news_event = {
 		SPR = { has_civil_war = no }
 		NOT = { has_global_flag = scw_over }
 		NOT = { has_dlc = "La Resistance" }
-		any_other_country = {
+		any_other_country_with_original_tag_of = {
+			target = {SPR}
 			original_tag = SPR
 			has_government = fascism
 		}
-		any_other_country = {
-			original_tag = SPR
+		any_other_country_with_original_tag_of = {
+			target = {SPR}
 			NOT = { has_government = fascism }
 		}
 	}
@@ -8868,8 +8873,8 @@ news_event = {
 			has_idea = tot_economic_mobilisation
 			has_idea = totaler_krieg_economy
 		}
-		any_other_country = {
-			is_major = yes
+		any_collection_element = {
+			collection = game:all_majors
 			has_war_with = ENG
 		}
 		controls_state = 126

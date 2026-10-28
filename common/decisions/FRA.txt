@@ -260,6 +260,20 @@ FRA_vichy_france = {
 						}
 					}
 				}
+
+				every_country = {
+					limit = {
+						is_subject_of = ROOT 
+					}
+					GER = {
+						puppet = {
+						    target = PREV
+						    end_wars = no
+						    end_civil_wars = no 
+						}
+					}
+				}
+
 				GER = { annex_country = { target = ROOT } }
 			}
 
@@ -286,9 +300,7 @@ FRA_vichy_france = {
 		available = {
 			country_exists = VIC
 			VIC = {
-				NOT = {
-					has_war_with = ROOT
-				}
+				FRA_vichy_can_rejoin_free_france = yes
 			}
 			controls_state = 16 #Paris
 		}
@@ -608,6 +620,7 @@ FRA_weapons_purchases_category = {
 				add_equipment_to_stockpile = {
 					type = light_tank_chassis
 					amount = 50
+					producer = USA
 				}
 				if = {
 					limit = {
@@ -634,6 +647,7 @@ FRA_weapons_purchases_category = {
 				add_equipment_to_stockpile = {
 					type = medium_tank_chassis
 					amount = 50
+					producer = USA
 				}
 				if = {
 					limit = {
@@ -1595,7 +1609,7 @@ political_actions = {
 
 		visible = { 
 			has_completed_focus = FRA_utilize_the_leagues 
-			NOT = { has_government = fascism }
+			NOT = { has_government = fascism has_government = neutrality } #the right branch ends in either, same as FRA_utilize_the_leagues' own bypass
 		}
 
 		days_re_enable = 60
@@ -1624,7 +1638,7 @@ political_actions = {
 
 		visible = { 
 			has_completed_focus = FRA_utilize_the_leagues 
-			NOT = { has_government = fascism }
+			NOT = { has_government = fascism has_government = neutrality } #the right branch ends in either, same as FRA_utilize_the_leagues' own bypass
 		}
 		days_re_enable = 30
 		complete_effect = {
@@ -1925,13 +1939,9 @@ FRA_intervention_in_overseas_territories = {
 			NOT = {
 				FRA_controls_syria = yes
 			}
-			any_state = {
-				OR = {
-					state = 680
-					state = 677
-					state = 554
-					state = 553
-				}
+			any_state_of = {
+				target = {680 677 554 553}
+				
 				CONTROLLER = {
 					NOT = {
 						has_war_with = ROOT
@@ -1945,7 +1955,7 @@ FRA_intervention_in_overseas_territories = {
 						}
 					}
 				}
-			} 
+			}
 		} 
 
 		visible = { has_completed_focus = FRA_intervention_in_syria }
@@ -2147,18 +2157,8 @@ FRA_intervention_in_overseas_territories = {
 			NOT = {
 				FRA_controls_indochina = yes
 			}
-			any_state = {
-				OR = {
-					state = 671
-					state = 670
-					state = 286
-					state = 741
-					state = 1017
-					state = 1066 
-					state = 1067 
-					state = 1068 
-					state = 1069 
-				}
+			any_state_of = {
+				target = { 671 670 286 741 1017 1066 1067 1068 1069 }
 				CONTROLLER = {
 					NOT = {
 						has_war_with = ROOT
@@ -2375,14 +2375,9 @@ FRA_intervention_in_overseas_territories = {
 			NOT = {
 				FRA_controls_central_africa = yes
 			}
-			any_state = {
-				OR = {
-					state = 772
-					state = 539
-					state = 773
-					state = 660
-					state = 774
-				}
+			any_state_of = {
+				target = { 772 539 773 660 774 }
+
 				CONTROLLER = {
 					NOT = { has_war_with = ROOT }
 				}
@@ -2609,17 +2604,9 @@ FRA_intervention_in_overseas_territories = {
 			NOT = {
 				FRA_controls_west_africa = yes
 			}
-			any_state = {
-				OR = {
-					state = 557
-					state = 272
-					state = 556
-					state = 780
-					state = 779
-					state = 778
-					state = 781
-					state = 776
-				}
+			any_state_of = {
+				target = { 557 272 556 780 779 778 781 776 }
+				
 				CONTROLLER = {
 					NOT = { has_war_with = ROOT }
 				}

@@ -64,14 +64,12 @@ recruit_character = RAJ_william_e_parry
 recruit_character = RAJ_mohan_singh
 recruit_character = RAJ_mehar_singh
 recruit_character = RAJ_reginald_savory
-recruit_character = RAJ_bruce_w_mcpherson
 recruit_character = RAJ_aspy_merwan_engineer
 recruit_character = RAJ_arjan_singh_vibhusan
 recruit_character = RAJ_subroto_mukherjee
 recruit_character = RAJ_arthur_a_barrett
 recruit_character = RAJ_bhaskar_soman
 recruit_character = RAJ_rajendra_prasad
-recruit_character = RAJ_ravindra_darshan_singh
 recruit_character = RAJ_ram_dass_katari
 recruit_character = RAJ_archibald_wavell
 recruit_character = RAJ_louis_mountbatten
@@ -88,6 +86,15 @@ recruit_character = RAJ_mahatma_mohandas_gandhi
 recruit_character = RAJ_sir_mohammed_iqbal
 recruit_character = RAJ_john_mathai
 
+# Placeholder air chiefs for games without GoE, where Asghar Khan takes their place
+if = {
+	limit = {
+		NOT = { has_dlc = "Graveyard of Empires" }
+	}
+	recruit_character = RAJ_bruce_w_mcpherson
+	recruit_character = RAJ_ravindra_darshan_singh
+}
+
 if = {
 	limit = { has_dlc = "Graveyard of Empires" }
 
@@ -98,6 +105,10 @@ if = {
 	recruit_character = RAJ_GOE_muhammad_ali_jinnah
 	recruit_character = RAJ_GOE_arcot_doraiswamy_loganadan
 	recruit_character = RAJ_GOE_shah_nawaz_khan
+	recruit_character = RAJ_GOE_asghar_khan
+	recruit_character = RAJ_GOE_richard_peirse
+	recruit_character = RAJ_GOE_vallabhbhai_patel
+	recruit_character = RAJ_GOE_subbier_appadurai_ayer
 	recruit_character = RAJ_GOE_ukkirapandi_muthuramalinga_thevar
 	recruit_character = RAJ_GOE_rash_behari_bose
 	recruit_character = RAJ_GOE_rajendrasinhji_jadeja 

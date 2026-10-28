@@ -2834,8 +2834,8 @@ country_event = {
 		has_government = neutrality
 		has_completed_focus = HOL_wilhelminism
 		NOT = {
-			any_country = {
-				original_tag = GER
+			any_country_with_original_tag = {
+				original_tag_to_check = GER
 				has_country_leader = {
 					character = GER_wilhelm_ii
 					ruling_only = yes
@@ -2868,6 +2868,91 @@ country_event = {
 
 	immediate = {
 		hidden_effect = {
+			GER = {
+				start_civil_war = {
+					ruling_party = fascism
+					ideology = neutrality
+					size = 0.05
+					states = all
+					states_filter = {
+						has_state_flag = HOL_german_states_kaiser
+					}
+				}
+			}
+			random_country = {
+				limit = {
+					original_tag = GER
+					has_government = neutrality
+				}
+				hidden_effect = {
+					set_cosmetic_tag = GER_german_empire
+					every_unit_leader = {
+						limit = {
+							OR = {
+								has_id = 10
+								has_id = 15
+								has_id = 20
+								has_id = 24
+							}
+						}
+						set_nationality = GER
+					}
+				}
+				set_party_name = { ideology = neutrality long_name = GER_neutrality_party_kaiserreich_long name = GER_neutrality_party_kaiserreich }
+				ROOT = {
+					puppet = PREV
+					add_to_war = { 
+						targeted_alliance = PREV 
+						enemy = GER
+						hostility_reason = asked_to_join
+					}
+				}
+				if = {
+					limit = {
+						HOL = { NOT = { has_country_flag = HOL_wilhelm_ii_died } }
+					}
+					GER = {
+						GER_wilhelm_ii = {
+							set_nationality = PREV.PREV
+						}
+					}
+					GER_wilhelm_ii = {
+						add_country_leader_role = {
+							country_leader = {
+								expire = "1965.1.1"
+								ideology = despotism
+								traits = {
+									anti_democrat
+									imperial_connections
+								}
+							}
+							promote_leader = yes
+						}
+					}
+				}
+				if = {
+					limit = {
+						HOL = { has_country_flag = HOL_wilhelm_ii_died }
+					}
+					GER = {
+						GER_wilhelm_iii = {
+							set_nationality = PREV.PREV
+						}
+					}
+					GER_wilhelm_iii = {
+						add_country_leader_role = {
+							country_leader = {
+								expire = "1965.1.1"
+								ideology = despotism
+								traits = {
+									popular_figurehead2
+								}
+							}
+							promote_leader = yes
+						}
+					}				
+				}
+			}
 			random_country = {
 				limit = {
 					original_tag = GER
@@ -2881,92 +2966,7 @@ country_event = {
 	# Good
 	option = {
 		name = mtg_netherlands.73.a
-		GER = {
-			start_civil_war = {
-				ruling_party = fascism
-				ideology = neutrality
-				size = 0.05
-				states = all
-				states_filter = {
-					has_state_flag = HOL_german_states_kaiser
-				}
-			}
-		}
 		hidden_effect = { news_event = { id = mtg_news.58 } }
-		random_country = {
-			limit = {
-				original_tag = GER
-				has_government = neutrality
-			}
-			hidden_effect = {
-				set_cosmetic_tag = GER_german_empire
-				every_unit_leader = {
-					limit = {
-						OR = {
-							has_id = 10
-							has_id = 15
-							has_id = 20
-							has_id = 24
-						}
-					}
-					set_nationality = GER
-				}
-			}
-			set_party_name = { ideology = neutrality long_name = GER_neutrality_party_kaiserreich_long name = GER_neutrality_party_kaiserreich }
-			ROOT = {
-				puppet = PREV
-				add_to_war = { 
-				    targeted_alliance = PREV 
-				    enemy = GER
-				    hostility_reason = asked_to_join
-				}
-			}
-			if = {
-				limit = {
-					HOL = { NOT = { has_country_flag = HOL_wilhelm_ii_died } }
-				}
-				GER = {
-					GER_wilhelm_ii = {
-						set_nationality = PREV.PREV
-					}
-				}
-				GER_wilhelm_ii = {
-					add_country_leader_role = {
-						country_leader = {
-							expire = "1965.1.1"
-							ideology = despotism
-							traits = {
-								anti_democrat
-								imperial_connections
-							}
-						}
-						promote_leader = yes
-					}
-				}
-			}
-			if = {
-				limit = {
-					HOL = { has_country_flag = HOL_wilhelm_ii_died }
-				}
-				GER = {
-					GER_wilhelm_iii = {
-						set_nationality = PREV.PREV
-					}
-				}
-				GER_wilhelm_iii = {
-					add_country_leader_role = {
-						country_leader = {
-							expire = "1965.1.1"
-							ideology = despotism
-							traits = {
-								popular_figurehead2
-							}
-						}
-						promote_leader = yes
-					}
-				}				
-			}
-		}
 	}
 }
 
@@ -2985,10 +2985,10 @@ country_event = {
 		has_completed_focus = HOL_wilhelminism
 		NOT = { has_war_with = GER }
 		is_in_faction = no
-		any_country = {
-			original_tag = GER
-			has_government = neutrality
+		any_country_with_original_tag = {
+			original_tag_to_check = GER
 			is_subject_of = HOL
+			has_government = neutrality
 		}
 	}
 

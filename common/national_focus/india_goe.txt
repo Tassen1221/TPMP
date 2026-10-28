@@ -1446,7 +1446,7 @@ focus_tree = {
                     limit = {
                         can_construct_building = air_facility
                     }
-                    prioritize = { 291 }
+                    prioritize = { 439 }
                     construct_building_in_random_province = {
                         air_facility = 1
                     }
@@ -7579,6 +7579,10 @@ focus_tree = {
             }
 
             hidden_effect = {
+                country_event = {
+                    id = GOE_RAJ.53
+                    hours = 6
+                }
                 if = {
                     limit = {
                         has_game_rule = {
@@ -7632,6 +7636,10 @@ focus_tree = {
             custom_effect_tooltip = RAJ_league_against_gandhism_tt
             add_political_power = 30
             hidden_effect = {
+                country_event = {
+                    id = GOE_RAJ.54
+                    hours = 6
+                }
                 if = {
                     limit = {
                         has_game_rule = {
@@ -7722,6 +7730,9 @@ focus_tree = {
             custom_effect_tooltip = generic_skip_one_line_tt
             try_build_civ_in_core_otherwise_build_in_controlled = yes
             
+            custom_effect_tooltip = generic_skip_one_line_tt
+            custom_effect_tooltip = available_political_advisor
+            show_ideas_tooltip = RAJ_b_p_sitaramayya
         }
     }
 
@@ -7794,6 +7805,7 @@ focus_tree = {
             custom_effect_tooltip = generic_skip_one_line_tt
             custom_effect_tooltip = available_political_advisor
             show_ideas_tooltip = RAJ_bhimrao_ramji_ambedkar
+            show_ideas_tooltip = RAJ_GOE_vallabhbhai_patel
         }
     }
 
@@ -12986,6 +12998,10 @@ focus_tree = {
                 show_modifiers = yes # default is no
             }
 
+            custom_effect_tooltip = generic_skip_one_line_tt
+            custom_effect_tooltip = available_political_advisor
+            show_ideas_tooltip = RAJ_GOE_subbier_appadurai_ayer
+
 
 
 
@@ -15374,6 +15390,11 @@ focus_tree = {
                         exists = yes
                     }
                 }
+                custom_trigger_tooltip = {
+                    tooltip = RAJ_hedgemony_pakistan_assessed_tt
+                    has_variable = pak_factories
+                    has_variable = pak_researched_techs
+                }
                 OR = {
                     check_variable = { RAJ.num_of_factories >  pak_factories tooltip = pak_factories_tt }
                     check_variable = { RAJ.num_researched_technologies > pak_researched_techs tooltip = pak_tech_tt }
@@ -17236,6 +17257,12 @@ focus = {
 		set_variable = { RAJ_local_leaders_infra_chance = 0 }
 		set_variable = { RAJ_local_leaders_civs_chance = 0.6 }
 		set_variable = { RAJ_local_leaders_mils_chance = 0.4 }
+
+		custom_effect_tooltip = generic_skip_one_line_tt
+		custom_effect_tooltip = available_political_advisor
+		show_ideas_tooltip = RAJ_GOE_j_r_d_tata
+		custom_effect_tooltip = available_political_advisor
+		show_ideas_tooltip = RAJ_GOE_g_d_birla
 	}
 }
 
@@ -23529,6 +23556,50 @@ focus = {
                     amount = 240
                 }
             }
+        }
+    } 
+
+    focus = {
+        id = RAJ_establish_the_alupuram_works
+        icon = GFX_focus_generic_aluminum
+        prerequisite = { focus = RAJ_bombay_baroda_and_central_india_railway }
+        x = 2
+        y = 1
+        relative_position_id = RAJ_bombay_baroda_and_central_india_railway
+        
+        cost = 5
+
+        ai_will_do = {
+            factor = 1
+        }
+
+        available = {
+            controls_state = 982 
+        }
+        
+        bypass = {
+
+        }
+
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+
+        search_filters = { FOCUS_FILTER_INDUSTRY }
+
+        completion_reward = {
+            982 = {
+                add_resource = {
+                    type = aluminium
+                    amount = 15  
+                }
+            }
+            custom_effect_tooltip = generic_skip_one_line_tt
+            unlock_decision_tooltip = {
+                decision = establish_jaykaynagar_aliminium_smelters
+                show_effect_tooltip = yes # default is no
+                show_modifiers = no 
+            }   
         }
     }
 

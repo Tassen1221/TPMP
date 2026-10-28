@@ -344,8 +344,8 @@ country_event = {
 			}
 			modifier = {
 				factor = 2
-				any_other_country = {
-					has_war_with = ROOT
+				any_enemy_country = {
+					NOT = {tag = ROOT }
 					capital_scope = {
 						OR = {
 							is_on_continent = north_america
@@ -366,9 +366,10 @@ country_event = {
 				FROM = {
 					is_in_faction = yes
 					NOT = {
-						any_other_country = {
-							is_in_faction_with = FROM
-							has_war_with = ROOT
+						ROOT = {
+							any_enemy_country = {
+								is_in_faction_with = FROM
+							}
 						}
 					}
 				}
@@ -613,8 +614,8 @@ country_event = {
 			base = 3
 			modifier = {
 				factor = 0
-				any_other_country = {
-					has_war_with = ROOT
+				any_enemy_country = {
+					NOT = {tag = ROOT}
 					is_in_faction_with = FROM
 				}
 			}
@@ -2106,9 +2107,8 @@ country_event = { #Org member is under attack, should we help?
 			base = 10
 			modifier = {
 				factor = 0
-				OR = {
-					any_other_country = {
-						has_war_with = FROM
+				FROM = {
+					any_enemy_country = {
 						is_in_faction_with = ROOT
 					}
 				}
@@ -2453,9 +2453,8 @@ country_event = { #Brazilian diplomatic mission
 					is_in_faction_with = FROM
 					has_war_with_major = yes
 					AND = {
-						any_country = {
+						any_enemy_country = {
 							has_war_with = FROM
-							has_war_with = ROOT
 						}
 					}
 				}
@@ -2464,8 +2463,7 @@ country_event = { #Brazilian diplomatic mission
 				factor = 0
 				OR = {
 					has_war_with = FROM
-					any_country = {
-						is_in_faction_with = ROOT
+					any_allied_country = {
 						has_war_with = FROM
 					}
 				}

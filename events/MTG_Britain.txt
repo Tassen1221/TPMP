@@ -303,8 +303,8 @@ country_event = {
 				BRM = { has_country_flag = ENG_abdication_crisis_dominion_will_leave }
 			}
 			dismantle_faction = yes
+			remove_from_tech_sharing_group = commonwealth_research
 		}
-		remove_from_tech_sharing_group = commonwealth_research
 		effect_tooltip = {
 			if = {
 				limit = {
@@ -328,7 +328,6 @@ country_event = {
 					RAJ = {
 						drop_cosmetic_tag = yes
 						retire_country_leader = yes
-						remove_from_tech_sharing_group = commonwealth_research
 					}
 				}
 				else = {
@@ -340,12 +339,6 @@ country_event = {
 						}
 						#retire_country_leader = yes
 						RAJ = { 
-							country_event = { id = GOE_RAJ.30 hours = 2 } 
-							remove_from_tech_sharing_group = commonwealth_research
-							effect_tooltip = {
-								add_ideas = idea_RAJ_the_long_goodbye
-							}
-
 							if = {
 								limit = {
 									NOT = {
@@ -1094,7 +1087,7 @@ country_event = {
 				limit = {
 					tag = BRM
 				}
-				NZL_enforce_loyalty = yes
+				set_country_flag = britain_enforced_our_loyalty
 			}
 		}
 	}
@@ -1251,7 +1244,6 @@ country_event = {
 				RAJ = {
 					drop_cosmetic_tag = yes
 					retire_country_leader = yes
-					remove_from_tech_sharing_group = commonwealth_research
 				}
 			}
 			else = {
@@ -1260,6 +1252,7 @@ country_event = {
 						id = GOE_RAJ.30 hours = 2
 					}
 				}
+				custom_effect_tooltip = generic_skip_one_line_tt
 				custom_effect_tooltip = GOE_RAJ.30_we_are_leaving_tt
 			}
 		}
@@ -4874,7 +4867,37 @@ country_event = {
 					}
 				}
 			}
-			#RAJ has other solution	
+			NOT = {
+				AND = {
+					original_tag = RAJ
+					OR = {
+						AND = {
+							has_completed_focus = RAJ_indian_national_army
+							ENG = { has_government = fascism }
+						}
+						AND = {
+							has_completed_focus = RAJ_indian_peoples_army
+							ENG = { has_government = communism }
+						}
+					}
+				}
+			}
+			NOT = {
+				AND = {
+					original_tag = RAJ
+					has_dlc = "Graveyard of Empires"
+					OR = {
+						AND = {
+							has_completed_focus = RAJ_forward_bloc
+							ENG = { has_government = fascism }
+						}
+						AND = {
+							has_completed_focus = RAJ_red_in_the_shadows
+							ENG = { has_government = communism }
+						}
+					}
+				}
+			}
 		}
 
 		set_country_flag = ENG_dominions_stayed_with_fascist_britain_flag
@@ -4961,37 +4984,34 @@ country_event = {
 					}
 				}
 			}
-			#RAJ has other solution	
+			NOT = {
+				AND = {
+					original_tag = RAJ
+					OR = {
+						AND = {
+							has_completed_focus = RAJ_indian_national_army
+							ENG = { has_government = fascism }
+						}
+						AND = {
+							has_completed_focus = RAJ_indian_peoples_army
+							ENG = { has_government = communism }
+						}
+					}
+				}
+			}
+			NOT = { #RAJ GOE has unique option mtg_britain.66.e
+				AND = {
+					original_tag = RAJ
+					has_dlc = "Graveyard of Empires"
+				}
+			}
 		}
 
-		if = {
-			limit = {
-				OR = {
-					AND = {
-						NOT = { original_tag = RAJ }
-						has_dlc = "Graveyard of Empires"
-					}
-					NOT = { has_dlc = "Graveyard of Empires" }
-				}
-			}
-			leave_faction = yes
-		}
-		
-		if = {
-			limit = {
-				OR = {
-					AND = {
-						NOT = { original_tag = RAJ }
-						has_dlc = "Graveyard of Empires"
-					}
-					NOT = { has_dlc = "Graveyard of Empires" }
-				}
-			}
-			ENG = {
-				set_autonomy = {
-			    	target = ROOT
-			    	autonomy_state = autonomy_free
-				}
+		leave_faction = yes
+		ENG = {
+			set_autonomy = {
+			   	target = ROOT
+			   	autonomy_state = autonomy_free
 			}
 		}
 
@@ -5021,7 +5041,7 @@ country_event = {
 		}
 		if = {
 			limit = {
-				tag = RAJ
+				original_tag = RAJ
 				NOT = {
 					has_dlc = "Graveyard of Empires"
 				}
@@ -5030,29 +5050,8 @@ country_event = {
 			retire_country_leader = yes
 		}
 
-		if = {
-			limit = {
-				tag = RAJ
-				has_dlc = "Graveyard of Empires"
-				
-			}
-			country_event = { id = GOE_RAJ.30 hours = 2 }
-		}
-
-		remove_from_tech_sharing_group = commonwealth_research
 		set_country_flag = ENG_already_left_faction_flag
-		
-		if = {
-			limit = {
-				OR = {
-					NOT = { has_dlc = "Graveyard of Empires" }
-					NOT = { tag = RAJ }
-				}
-			}
-			ENG = { country_event = { id = mtg_britain.67 } }
-		}
-		
-		
+		ENG = { country_event = { id = mtg_britain.67 } }
 		hidden_effect = { news_event = { id = mtg_news.63 days = 1 } }
 	}
 
@@ -5128,7 +5127,33 @@ country_event = {
 						}
 					}
 				}
-				#RAJ has other solution		
+				AND = {
+					original_tag = RAJ
+					OR = {
+						AND = {
+							has_completed_focus = RAJ_indian_national_army
+							ENG = { has_government = fascism }
+						}
+						AND = {
+							has_completed_focus = RAJ_indian_peoples_army
+							ENG = { has_government = communism }
+						}
+					}
+				}
+				AND = {
+					original_tag = RAJ
+					has_dlc = "Graveyard of Empires"
+					OR = {
+						AND = {
+							has_completed_focus = RAJ_forward_bloc
+							ENG = { has_government = fascism }
+						}
+						AND = {
+							has_completed_focus = RAJ_red_in_the_shadows
+							ENG = { has_government = communism }
+						}
+					}
+				}		
 			}
 		}
 
@@ -5153,6 +5178,47 @@ country_event = {
 		}
 
 		set_country_flag = ENG_dominions_stayed_with_fascist_britain_flag
+	}
+
+	option = { # We will leave - RAJ GOE version
+		name = mtg_britain.66.e
+
+		trigger = {
+			AND = {
+				original_tag = RAJ
+				has_dlc = "Graveyard of Empires"
+			}
+			NOT = {
+				OR = {
+					AND = {
+						has_completed_focus = RAJ_forward_bloc
+						ENG = { has_government = fascism }
+					}
+					AND = {
+						has_completed_focus = RAJ_red_in_the_shadows
+						ENG = { has_government = communism }
+					}
+				}
+			}
+		}
+
+		if = {
+			limit = {
+				has_idea = ENG_guided_by_britain_raj_1
+			}
+			remove_ideas = ENG_guided_by_britain_raj_1
+		}
+		if = {
+			limit = {
+				has_idea = ENG_guided_by_britain_raj_2
+			}
+			remove_ideas = ENG_guided_by_britain_raj_2
+		}
+
+		country_event = { id = GOE_RAJ.30 hours = 2 }
+		custom_effect_tooltip = generic_skip_one_line_tt
+		custom_effect_tooltip = GOE_RAJ.30_we_are_leaving_tt
+		set_country_flag = ENG_already_left_faction_flag
 	}
 }
 

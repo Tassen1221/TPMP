@@ -5946,7 +5946,7 @@ focus_tree = {
 			effect_tooltip = {
 				create_corps_commander = {
 					name = "Vladislav Korchits"
-					traits = { JAP_communist_sympathizer old_guard }
+					traits = { communist_sympathizer old_guard }
 					skill = 3
 					attack_skill = 2
 					defense_skill = 4
@@ -6302,16 +6302,17 @@ focus_tree = {
 		
 		available = {
 			FRA = {
-				NOT = { has_war_with = ROOT }
+				NOT = {
+					has_war_with = ROOT
+				}
+				all_allied_country = {
+					NOT = {
+						has_war_with = ROOT
+					}
+				}
 				OR = {
 					has_government = democratic
 					has_government = communism
-				}
-			}
-			NOT = {
-				any_other_country = {
-					is_in_faction_with = FRA
-					has_war_with = POL
 				}
 			}
 			is_in_faction = no
@@ -8486,7 +8487,7 @@ focus_tree = {
 			}
 		}
 
-		available_if_capitulated = yes
+		#available_if_capitulated = yes
 
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		completion_reward = {
@@ -9746,6 +9747,7 @@ focus_tree = {
 						is_core_of = CZE
 						is_core_of = SLO
 						state = 5
+						state = 68
 						state = 763
 					}
 				}
@@ -15611,13 +15613,18 @@ focus_tree = {
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_RESEARCH }
 		completion_reward = {
+			add_mastery_bonus = {
+				name = POL_commerce_attack
+				bonus = 0.1
+				days = 180
+				track = submarines
+			}
 			add_doctrine_cost_reduction = {
 				name = POL_commerce_attack
 				cost_reduction = 0.5
 				uses = 1
-				category = submarine_doctrine
+				category = naval_doctrine
 			}
-			#1x50% research bonus to Submarine Doctrine
 		}
 	}
 

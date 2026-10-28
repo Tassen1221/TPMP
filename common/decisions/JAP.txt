@@ -1937,109 +1937,15 @@ JAP_pacific_guardian = {
 
 		visible = {
 			has_completed_focus = JAP_pacific_guardian
+			INS = {
+				is_puppet = yes
+			}
 		}
 
 		available = {
-			HOL = {
-				#has_capitulated = yes
-				NOT =  { has_war_with = ROOT}
-			}
-			"INS" = {
-				is_puppet_of = HOL
-			}
-		}
-
-		fire_only_once = yes
-
-
-		modifier = {
-
-		}
-
-		days_remove = 0
-		days_re_enable = 0
-
-		cost = 50
-
-		ai_will_do = {
-			factor = 1
-		}
-
-		complete_effect = {
-			HOL = { 
-				country_event = { 
-					id = wtt_japan.1 
-					hours = 6
-				} 
-			}
-		}
-	}
-
-	JAP_guardian_of_MAL = {
-
-		icon = jap_pacific_guardian
-
-		visible = {
-			has_completed_focus = JAP_pacific_guardian
-		}
-
-		available = {
-			ENG = {
-				#has_capitulated = yes
-				NOT =  { has_war_with = ROOT}
-			}
-			MAL = {
-				is_puppet_of = ENG
-			}
-		}
-
-		fire_only_once = yes
-
-
-		modifier = {
-
-		}
-
-		days_remove = 0
-		days_re_enable = 0
-
-		cost = 50
-
-		ai_will_do = {
-			factor = 1
-		}
-
-		complete_effect = {
-			ENG = { 
-				country_event = { 
-					id = wtt_japan.1 
-					hours = 6
-				} 
-			}
-		}
-	}
-
-	JAP_guardian_of_indochina = {
-
-		icon = jap_pacific_guardian
-
-		visible = {
-			has_completed_focus = JAP_pacific_guardian
-		}
-
-		available = {
-			FRA = {
-				#has_capitulated = yes
-				NOT =  { has_war_with = ROOT}
-				OR = {
-					has_full_control_of_state = 670
-					has_full_control_of_state = 671
-					has_full_control_of_state = 286
-					has_full_control_of_state = 741
-					has_full_control_of_state = 1066 
-					has_full_control_of_state = 1067 
-					has_full_control_of_state = 1068 
-					has_full_control_of_state = 1069 
+			INS = {
+				OVERLORD = {
+					NOT = { has_war_with = ROOT }
 				}
 			}
 		}
@@ -2061,11 +1967,113 @@ JAP_pacific_guardian = {
 		}
 
 		complete_effect = {
-			FRA = { 
-				country_event = { 
-					id = wtt_japan.1 
-					hours = 3
-				} 
+			INS = {
+				OVERLORD = {
+					country_event = {
+						id = wtt_japan.1
+						hours = 6
+					}
+				}
+			}
+		}
+	}
+
+	JAP_guardian_of_MAL = {
+
+		icon = jap_pacific_guardian
+
+		visible = {
+			has_completed_focus = JAP_pacific_guardian
+			MAL = {
+				is_puppet = yes
+			}
+		}
+
+		available = {
+			MAL = {
+				OVERLORD = {
+					NOT = { has_war_with = ROOT }
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+
+		modifier = {
+
+		}
+
+		days_remove = 0
+		days_re_enable = 0
+
+		cost = 50
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			MAL = {
+				OVERLORD = {
+					country_event = {
+						id = wtt_japan.1
+						hours = 6
+					}
+				}
+			}
+		}
+	}
+
+	JAP_guardian_of_indochina = {
+
+		icon = jap_pacific_guardian
+
+		visible = {
+			has_completed_focus = JAP_pacific_guardian
+		}
+
+		available = {
+			670 = {
+				controller = {
+					NOT = { tag = JAP }
+					NOT = { has_war_with = ROOT }
+					has_full_control_of_state = 670
+					has_full_control_of_state = 671
+					has_full_control_of_state = 286
+					has_full_control_of_state = 741
+					has_full_control_of_state = 1066
+					has_full_control_of_state = 1067
+					has_full_control_of_state = 1068
+					has_full_control_of_state = 1069
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+
+		modifier = {
+
+		}
+
+		days_remove = 0
+		days_re_enable = 0
+
+		cost = 50
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			670 = {
+				controller = {
+					country_event = {
+						id = wtt_japan.1
+						hours = 3
+					}
+				}
 			}
 		}
 	}
@@ -3470,7 +3478,8 @@ operations = {
 					add_doctrine_cost_reduction = {
 						name = sov_jap_border_conflict_won
 						category = land_doctrine
-						cost_reduction = 0.5
+						cost_reduction = 0.35
+						uses = 1
 					}
 					add_tech_bonus = {
 						name = sov_jap_border_conflict_won
@@ -3524,7 +3533,8 @@ operations = {
 					add_doctrine_cost_reduction = {
 						name = sov_jap_border_conflict_won
 						category = land_doctrine
-						cost_reduction = 0.5
+						cost_reduction = 0.35
+						uses = 1
 					}
 					add_tech_bonus = {
 						name = sov_jap_border_conflict_won
@@ -3658,9 +3668,11 @@ operations = {
 			SOV = {
 				activate_targeted_decision = { target = JAP decision = JAP_border_conflict_escalate_conflict }
 				activate_targeted_decision = { target = JAP decision = JAP_border_conflict_time_until_cancelled }
+				activate_targeted_decision = { target = JAP decision = JAP_border_conflict_back_out_of_conflict }
 			}
 			activate_targeted_decision = { target = SOV decision = JAP_border_conflict_escalate_conflict }
 			activate_targeted_decision = { target = SOV decision = JAP_border_conflict_time_until_cancelled }
+			activate_targeted_decision = { target = SOV decision = JAP_border_conflict_back_out_of_conflict }
 		}
 	}
 	#Mission for attacker to win border war against FROM in X days
@@ -3695,17 +3707,36 @@ operations = {
 		fire_only_once = yes #Reactivation handled in effect
 
 		complete_effect = {
-
+			hidden_effect = {
+				1028 = {
+					clr_state_flag = border_incident_active
+				}
+				408 = {
+					clr_state_flag = border_incident_active
+				}
+			}
 		}
 
 		timeout_effect = {
-			cancel_border_war = {
-				defender = 408
-				attacker = 1028
+			### Both sides run this mission, so only the first to fire may cancel the border war.
+			if = {
+				limit = {
+					1028 = { has_border_war = yes }
+				}
+				cancel_border_war = {
+					defender = 408
+					attacker = 1028
+				}
 			}
 			hidden_effect = {
 				remove_targeted_decision = { target = SOV decision = JAP_border_conflict_escalate_conflict }
 				remove_targeted_decision = { target = JAP decision = JAP_border_conflict_escalate_conflict }
+				1028 = {
+					clr_state_flag = border_incident_active
+				}
+				408 = {
+					clr_state_flag = border_incident_active
+				}
 			}
 		}
 	}
@@ -4119,6 +4150,10 @@ operations = {
 
 		ai_will_do = {
 			base = 250
+			modifier = { ### Don't open a second front while already at war.
+				factor = 0
+				has_war = yes
+			}
 		}
 
 		cost = 5
@@ -4196,24 +4231,7 @@ operations = {
 					remove_targeted_decision = { target = MAN decision = JAP_tauran_border_conflict_warning_MON }
 					activate_targeted_decision = { target = MAN decision = JAP_border_conflict_escalation_warning_MON }
 				}
-				ELSE_IF = {
-					limit = {
-						761 = {
-							is_owned_and_controlled_by = MAN
-						}
-						MAN = {
-							is_subject_of = JAP
-						}
-					}
-					remove_targeted_decision = { target = JAP decision = JAP_tauran_border_conflict_warning_MON }
-					activate_targeted_decision = { target = JAP decision = JAP_border_conflict_escalation_warning_MON }
-				}
-				ELSE_IF = {
-					limit = {
-						761 = {
-							is_owned_and_controlled_by = JAP
-						}
-					}
+				ELSE = {
 					remove_targeted_decision = { target = JAP decision = JAP_tauran_border_conflict_warning_MON }
 					activate_targeted_decision = { target = JAP decision = JAP_border_conflict_escalation_warning_MON }
 				}
@@ -4429,13 +4447,28 @@ operations = {
 		fire_only_once = yes #Reactivation handled in effect
 
 		complete_effect = {
-
+			hidden_effect = {
+				761 = {
+					clr_state_flag = border_incident_active
+				}
+				819 = {
+					clr_state_flag = border_incident_active
+				}
+			}
 		}
 
 		timeout_effect = {
 			cancel_border_war = {
 				defender = 819
 				attacker = 761
+			}
+			hidden_effect = {
+				761 = {
+					clr_state_flag = border_incident_active
+				}
+				819 = {
+					clr_state_flag = border_incident_active
+				}
 			}
 		}
 	}
@@ -6859,7 +6892,7 @@ JAP_imperial_influence_decision_cat = {
 		}
 
 		timeout_effect = { #Fails
-			set_variable = { JAP_army_faction_demand_failure = 1 } #This is to keep track of what effects failure will give, since we're using the same event for all army failures
+			set_variable = { JAP_army_faction_demand_failure = 5 } #Severity fed to the shared army failure event
 			country_event = {
 				id = SEA_imperial_influence_events.100
 				hours = 1
@@ -6920,7 +6953,7 @@ JAP_imperial_influence_decision_cat = {
 		}
 
 		timeout_effect = { #Fails
-			#set_variable = { JAP_army_faction_demand_failure = 1 } #This is to keep track of what effects failure will give, since we're using the same event for all army failures
+			set_variable = { JAP_army_faction_demand_failure = 1 } #Severity fed to the shared army failure event
 			country_event = {
 				id = SEA_imperial_influence_events.100
 				hours = 1
@@ -7079,7 +7112,7 @@ JAP_imperial_influence_decision_cat = {
 
 		timeout_effect = { #Fails
 			clr_country_flag = JAP_military_demands_conscription_law_change
-			#set_variable = { JAP_army_faction_demand_failure = 1 } #This is to keep track of what effects failure will give, since we're using the same event for all army failures
+			set_variable = { JAP_army_faction_demand_failure = 3 } #Severity fed to the shared army failure event
 			country_event = {
 				id = SEA_imperial_influence_events.100
 				hours = 1
@@ -7247,7 +7280,7 @@ JAP_imperial_influence_decision_cat = {
 		}
 
 		timeout_effect = { #Fails
-			#set_variable = { JAP_army_faction_demand_failure = 1 } #This is to keep track of what effects failure will give, since we're using the same event for all army failures
+			set_variable = { JAP_army_faction_demand_failure = 4 } #Severity fed to the shared army failure event
 			country_event = {
 				id = SEA_imperial_influence_events.100
 				hours = 1
@@ -7257,6 +7290,12 @@ JAP_imperial_influence_decision_cat = {
 			}
 			hidden_effect = {
 				IF = {
+					limit = {	
+						has_country_flag = JAP_has_less_than_600k_flag
+					}
+					clr_country_flag = JAP_has_less_than_600k_flag
+				}
+				ELSE_IF = {
 					limit = {	
 						has_country_flag = JAP_has_less_than_750k_flag
 					}
@@ -7331,7 +7370,7 @@ JAP_imperial_influence_decision_cat = {
 		}
 
 		timeout_effect = { #Fails
-			#set_variable = { JAP_army_faction_demand_failure = 1 } #This is to keep track of what effects failure will give, since we're using the same event for all army failures
+			set_variable = { JAP_army_faction_demand_failure = 2 } #Severity fed to the shared army failure event
 			country_event = {
 				id = SEA_imperial_influence_events.100
 				hours = 1
@@ -7402,7 +7441,7 @@ JAP_imperial_influence_decision_cat = {
 		}
 
 		timeout_effect = { #Fails
-			#set_variable = { JAP_army_faction_demand_failure = 1 } #This is to keep track of what effects failure will give, since we're using the same event for all army failures
+			set_variable = { JAP_army_faction_demand_failure = 4 } #Severity fed to the shared army failure event
 			country_event = {
 				id = SEA_imperial_influence_events.100
 				hours = 1
@@ -7462,7 +7501,7 @@ JAP_imperial_influence_decision_cat = {
 		}
 
 		timeout_effect = { #Fails
-			#set_variable = { JAP_army_faction_demand_failure = 1 } #This is to keep track of what effects failure will give, since we're using the same event for all army failures
+			set_variable = { JAP_army_faction_demand_failure = 3 } #Severity fed to the shared army failure event
 			country_event = {
 				id = SEA_imperial_influence_events.100
 				hours = 1
@@ -7522,7 +7561,7 @@ JAP_imperial_influence_decision_cat = {
 		}
 
 		timeout_effect = { #Fails
-			set_variable = { JAP_naval_faction_demand_failure = 1 } #This is to keep track of what effects failure will give, since we're using the same event for all navy failures
+			set_variable = { JAP_naval_faction_demand_failure = 5 } #Severity fed to the shared navy failure event
 			country_event = {
 				id = SEA_imperial_influence_events.200
 				hours = 1
@@ -7584,7 +7623,7 @@ JAP_imperial_influence_decision_cat = {
 		}
 
 		timeout_effect = { #Fails
-			#set_variable = { JAP_naval_faction_demand_failure = 1 } #This is to keep track of what effects failure will give, since we're using the same event for all naval failures
+			set_variable = { JAP_naval_faction_demand_failure = 1 } #Severity fed to the shared navy failure event
 			country_event = {
 				id = SEA_imperial_influence_events.200
 				hours = 1
@@ -7739,7 +7778,7 @@ JAP_imperial_influence_decision_cat = {
 
 		timeout_effect = { #Fails
 			clr_country_flag = JAP_military_demands_conscription_law_change
-			#set_variable = { JAP_naval_faction_demand_failure = 1 } #This is to keep track of what effects failure will give, since we're using the same event for all naval failures
+			set_variable = { JAP_naval_faction_demand_failure = 3 } #Severity fed to the shared navy failure event
 			country_event = {
 				id = SEA_imperial_influence_events.200
 				hours = 1
@@ -7838,7 +7877,7 @@ JAP_imperial_influence_decision_cat = {
 		}
 
 		timeout_effect = { #Fails
-			#set_variable = { JAP_naval_faction_demand_failure = 1 } #This is to keep track of what effects failure will give, since we're using the same event for all naval failures
+			set_variable = { JAP_naval_faction_demand_failure = 6 } #Severity fed to the shared navy failure event
 			country_event = {
 				id = SEA_imperial_influence_events.200
 				hours = 1
@@ -7911,7 +7950,7 @@ JAP_imperial_influence_decision_cat = {
 		}
 
 		timeout_effect = { #Fails
-			#set_variable = { JAP_naval_faction_demand_failure = 1 } #This is to keep track of what effects failure will give, since we're using the same event for all naval failures
+			set_variable = { JAP_naval_faction_demand_failure = 7 } #Severity fed to the shared navy failure event
 			country_event = {
 				id = SEA_imperial_influence_events.200
 				hours = 1
@@ -7972,7 +8011,7 @@ JAP_imperial_influence_decision_cat = {
 		}
 
 		timeout_effect = { #Fails
-			#set_variable = { JAP_naval_faction_demand_failure = 1 } #This is to keep track of what effects failure will give, since we're using the same event for all naval failures
+			set_variable = { JAP_naval_faction_demand_failure = 6 } #Severity fed to the shared navy failure event
 			country_event = {
 				id = SEA_imperial_influence_events.200
 				hours = 1
@@ -8102,7 +8141,7 @@ JAP_imperial_influence_decision_cat = {
 		}
 
 		timeout_effect = { #Fails
-			set_variable = { JAP_zaibatsu_faction_demand_failure = 1 } #This is to keep track of what effects failure will give, since we're using the same event for all Zaibatsu failures
+			set_variable = { JAP_zaibatsu_faction_demand_failure = 4 } #Severity fed to the shared zaibatsu failure event
 			country_event = {
 				id = SEA_imperial_influence_events.300
 				hours = 1
@@ -8171,7 +8210,7 @@ JAP_imperial_influence_decision_cat = {
 		}
 
 		timeout_effect = { #Fails
-			#set_variable = { JAP_zaibatsu_faction_demand_failure = 1 } #This is to keep track of what effects failure will give, since we're using the same event for all Zaibatsu failures
+			set_variable = { JAP_zaibatsu_faction_demand_failure = 1 } #Severity fed to the shared zaibatsu failure event
 			country_event = {
 				id = SEA_imperial_influence_events.300
 				hours = 1
@@ -8285,7 +8324,7 @@ JAP_imperial_influence_decision_cat = {
 		}
 
 		timeout_effect = { #Fails
-			#set_variable = { JAP_zaibatsu_faction_demand_failure = 1 } #This is to keep track of what effects failure will give, since we're using the same event for all Zaibatsu failures
+			set_variable = { JAP_zaibatsu_faction_demand_failure = 3 } #Severity fed to the shared zaibatsu failure event
 			country_event = {
 				id = SEA_imperial_influence_events.300
 				hours = 1
@@ -8385,7 +8424,7 @@ JAP_imperial_influence_decision_cat = {
 		}
 
 		timeout_effect = { #Fails
-			#set_variable = { JAP_zaibatsu_faction_demand_failure = 1 } #This is to keep track of what effects failure will give, since we're using the same event for all Zaibatsu failures
+			set_variable = { JAP_zaibatsu_faction_demand_failure = 2 } #Severity fed to the shared zaibatsu failure event
 			country_event = {
 				id = SEA_imperial_influence_events.300
 				hours = 1
@@ -8445,7 +8484,7 @@ JAP_imperial_influence_decision_cat = {
 		}
 
 		timeout_effect = { #Fails
-			#set_variable = { JAP_government_faction_demand_failure = 1 } #This is to keep track of what effects failure will give, since we're using the same event for all Government failures
+			set_variable = { JAP_government_faction_demand_failure = 2 } #Severity fed to the shared government failure event
 			country_event = {
 				id = SEA_imperial_influence_events.400
 				hours = 1
@@ -8545,7 +8584,7 @@ JAP_imperial_influence_decision_cat = {
 		}
 
 		timeout_effect = { #Fails
-			#set_variable = { JAP_government_faction_demand_failure = 1 } #This is to keep track of what effects failure will give, since we're using the same event for all Government failures
+			set_variable = { JAP_government_faction_demand_failure = 2 } #Severity fed to the shared government failure event
 			country_event = {
 				id = SEA_imperial_influence_events.400
 				hours = 1
@@ -8618,7 +8657,7 @@ JAP_imperial_influence_decision_cat = {
 		}
 
 		timeout_effect = { #Fails
-			#set_variable = { JAP_government_faction_demand_failure = 1 } #This is to keep track of what effects failure will give, since we're using the same event for all Government failures
+			set_variable = { JAP_government_faction_demand_failure = 5 } #Severity fed to the shared government failure event
 			clr_country_flag = JAP_government_faction_demands_more_influence
 			country_event = {
 				id = SEA_imperial_influence_events.400
@@ -8673,7 +8712,7 @@ JAP_imperial_influence_decision_cat = {
 		}
 
 		timeout_effect = { #Fails
-			#set_variable = { JAP_government_faction_demand_failure = 1 } #This is to keep track of what effects failure will give, since we're using the same event for all Government failures
+			set_variable = { JAP_government_faction_demand_failure = 5 } #Severity fed to the shared government failure event
 			clr_country_flag = JAP_government_faction_demands_more_influence
 			country_event = {
 				id = SEA_imperial_influence_events.400
@@ -8728,7 +8767,7 @@ JAP_imperial_influence_decision_cat = {
 		}
 
 		timeout_effect = { #Fails
-			#set_variable = { JAP_government_faction_demand_failure = 1 } #This is to keep track of what effects failure will give, since we're using the same event for all Government failures
+			set_variable = { JAP_government_faction_demand_failure = 5 } #Severity fed to the shared government failure event
 			clr_country_flag = JAP_government_faction_demands_more_influence
 			country_event = {
 				id = SEA_imperial_influence_events.400
@@ -8737,6 +8776,123 @@ JAP_imperial_influence_decision_cat = {
 			effect_tooltip = {
 				JAP_small_government_faction_loss = yes
 				
+			}
+		}
+	}
+
+	### AI MIRRORS OF THE INLAY DISAPPROVAL STAMP ###
+
+	# The AI cannot click the inlay stamp, so these give it the same 75 PP lever while the demand is live.
+	JAP_ai_curtail_the_army_faction_decision = {
+
+		priority = 1
+
+		icon = GFX_decision_JAP_civic_faction
+
+		allowed = {
+			original_tag = JAP
+		}
+
+		visible = {
+			is_ai = yes
+			has_active_mission = JAP_government_faction_demands_limited_army_influence
+		}
+
+		available = {
+			JAP_army_faction_is_not_subdued = yes
+			NOT = {
+				has_country_flag = JAP_interfered_in_imperial_influence_flag
+			}
+		}
+
+		cost = 75
+
+		ai_will_do = {
+			base = 100
+		}
+
+		complete_effect = {
+			JAP_big_army_faction_loss = yes
+			set_country_flag = {
+				flag = JAP_interfered_in_imperial_influence_flag
+				value = 1
+				days = 180
+			}
+		}
+	}
+
+	JAP_ai_curtail_the_navy_faction_decision = {
+
+		priority = 1
+
+		icon = GFX_decision_JAP_civic_faction
+
+		allowed = {
+			original_tag = JAP
+		}
+
+		visible = {
+			is_ai = yes
+			has_active_mission = JAP_government_faction_demands_limited_navy_influence
+		}
+
+		available = {
+			JAP_naval_faction_is_not_subdued = yes
+			NOT = {
+				has_country_flag = JAP_interfered_in_imperial_influence_flag
+			}
+		}
+
+		cost = 75
+
+		ai_will_do = {
+			base = 100
+		}
+
+		complete_effect = {
+			JAP_big_naval_faction_loss = yes
+			set_country_flag = {
+				flag = JAP_interfered_in_imperial_influence_flag
+				value = 1
+				days = 180
+			}
+		}
+	}
+
+	JAP_ai_curtail_the_zaibatsu_faction_decision = {
+
+		priority = 1
+
+		icon = GFX_decision_JAP_civic_faction
+
+		allowed = {
+			original_tag = JAP
+		}
+
+		visible = {
+			is_ai = yes
+			has_active_mission = JAP_government_faction_demands_limited_zaibatsu_influence
+		}
+
+		available = {
+			JAP_zaibatsu_faction_is_not_subdued = yes
+			NOT = {
+				has_country_flag = JAP_interfered_in_imperial_influence_flag
+			}
+		}
+
+		cost = 75
+
+		ai_will_do = {
+			base = 100
+		}
+
+		complete_effect = {
+			JAP_big_zaibatsu_faction_loss = yes
+			set_country_flag = {
+				flag = JAP_interfered_in_imperial_influence_flag
+				value = 1
+				days = 180
 			}
 		}
 	}
@@ -9977,7 +10133,7 @@ JAP_the_propaganda_department_decisions = {
 			}
 		}
 
-		visible = {
+		visible = { #Please verify design intentions against performance
 			has_completed_focus = JAP_the_jeweled_spear_has_struck
 			FROM = {
 				any_owned_state = {
@@ -10493,6 +10649,7 @@ JAP_the_co_prosperity_sphere_decisions = {
 					limit = {
 						is_owned_and_controlled_by = FROM
 						is_core_of = FROM
+						impassable = no
 						free_building_slots = {
 							building = industrial_complex
 							size > 2
@@ -10752,14 +10909,13 @@ JAP_the_co_prosperity_sphere_decisions = {
 		visible = { 
 			has_completed_focus = JAP_reorganized_national_government
 			has_subject = RNG
-			any_country = {
-				is_literally_china = yes
+			any_subject_country = {
+				is_ai = yes
 				NOT = {
 					original_tag = RNG
 				}
-				is_subject_of = ROOT
-				is_ai = yes
-			}
+				is_literally_china = yes
+		   	}
 		}
 	
 		available = {
@@ -15573,7 +15729,6 @@ JAP_boeitai_category = {
 				tooltip = JAP_expand_boeitai_tt
 				check_variable = { JAP_levy_cap < JAP_levy_cap_max }
 			}
-			has_war = no
 			NOT = {
 				has_country_flag = JAP_raise_boeitai_active
 			}
@@ -15648,17 +15803,85 @@ JAP_boeitai_category = {
 			custom_effect_tooltip = JAP_raise_boeitai_tt
 			add_stability = -0.05
 			set_variable = { deployed_divs = 0 }
+
+			# The corps form where the enemy actually is, not in Tokyo, and create_unit only places on provinces we control.
+			# Which tiers exist cannot change inside the loop, so resolve them once instead of rescanning every owned state per division.
+			set_temp_variable = { JAP_levy_tier_beachhead = 0 }
+			set_temp_variable = { JAP_levy_tier_threatened = 0 }
+			set_temp_variable = { JAP_levy_tier_coastal = 0 }
+			if = {
+				limit = {
+					any_owned_state = { JAP_boeitai_beachhead_state = yes }
+				}
+				set_temp_variable = { JAP_levy_tier_beachhead = 1 }
+			}
+			if = {
+				limit = {
+					any_owned_state = { JAP_boeitai_threatened_state = yes }
+				}
+				set_temp_variable = { JAP_levy_tier_threatened = 1 }
+			}
+			if = {
+				limit = {
+					any_owned_state = { JAP_boeitai_coastal_state = yes }
+				}
+				set_temp_variable = { JAP_levy_tier_coastal = 1 }
+			}
 			while_loop_effect = {
 				limit = {
 					check_variable = { deployed_divs < JAP_levy_cap }
 				}
 				add_to_variable = { deployed_divs = 1 }
-				capital_scope = {
-					create_unit = {
-						division = "division_template =\"Kokumin Giyū Sentōtai\" start_experience_factor = 0.4 start_equipment_factor = 1.0"
-						owner = JAP
-						count = 1			
-						prioritize_location = 1097
+
+				# Tier availability is resolved above - create_unit changes nothing the tier triggers test.
+				if = {
+					limit = {
+						check_variable = { JAP_levy_tier_beachhead > 0 }
+						check_variable = { deployed_divs < 5 } #only the first four corps hold the beachhead, the rest form behind it
+					}
+					random_owned_state = {
+						limit = { JAP_boeitai_beachhead_state = yes }
+						create_unit = {
+							division = "division_template =\"Kokumin Giyū Sentōtai\" start_experience_factor = 0.4 start_equipment_factor = 1.0"
+							owner = JAP
+							count = 1
+						}
+					}
+				}
+				else_if = {
+					limit = {
+						check_variable = { JAP_levy_tier_threatened > 0 }
+					}
+					random_owned_state = {
+						limit = { JAP_boeitai_threatened_state = yes }
+						create_unit = {
+							division = "division_template =\"Kokumin Giyū Sentōtai\" start_experience_factor = 0.4 start_equipment_factor = 1.0"
+							owner = JAP
+							count = 1
+						}
+					}
+				}
+				else_if = {
+					limit = {
+						check_variable = { JAP_levy_tier_coastal > 0 }
+					}
+					random_owned_state = {
+						limit = { JAP_boeitai_coastal_state = yes }
+						create_unit = {
+							division = "division_template =\"Kokumin Giyū Sentōtai\" start_experience_factor = 0.4 start_equipment_factor = 1.0"
+							owner = JAP
+							count = 1
+						}
+					}
+				}
+				else = {
+					capital_scope = {
+						create_unit = {
+							division = "division_template =\"Kokumin Giyū Sentōtai\" start_experience_factor = 0.4 start_equipment_factor = 1.0"
+							owner = JAP
+							count = 1			
+							prioritize_location = 1097
+						}
 					}
 				}
 			}

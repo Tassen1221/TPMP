@@ -215,7 +215,29 @@ if = {
 add_to_tech_sharing_group = commonwealth_research
 add_ideas = AST_unratified_westminster_act_idea
 
+if = {
+	limit = {
+		has_dlc = "Thunder at Our Gates"
+	}
+	add_ideas = {
+		AST_great_depression_taog_spirit_fake
+		AST_citizen_army_spirit_fake
+	}
+}
+
 1939.1.1 = {
+
+	if = {
+		limit = {
+			has_dlc = "Thunder at Our Gates"
+		}
+		remove_ideas = {
+			AST_great_depression_taog_spirit_fake
+			AST_citizen_army_spirit_fake
+		}
+		add_ideas = AST_war_is_coming_spirit_fake
+	}
+
 	add_political_power = 1198
 	add_command_power = 100
 	oob = "AST_1939"
@@ -756,7 +778,7 @@ IF = {
             name = "Arunta Class"
             type = ship_hull_light_2
             name_group = AST_DD_HISTORICAL
-            design_team = mio:AST_de_havilland_australia_organization
+            design_team = mio:AST_morts_dock_organization
             modules = {
                 fixed_ship_battery_slot = ship_light_battery_2
                 fixed_ship_anti_air_slot = ship_anti_air_1

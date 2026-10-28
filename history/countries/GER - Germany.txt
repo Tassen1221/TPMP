@@ -538,7 +538,7 @@ set_war_support = 0.3
 	complete_national_focus = GER_reorganize_the_wehrmacht
 	complete_national_focus = GER_advanced_panzer_research
 	complete_national_focus = GER_bribe_senior_officers
-	complete_national_focus = GER_befriend_japan
+	#complete_national_focus = GER_befriend_japan	#removed to improve timings
 
 	# ONES THAT HAVE TO BE HANDELED MANUALLY
 	unlock_national_focus = GER_remilitarize_the_rhineland
@@ -1393,7 +1393,7 @@ if = {
 	create_equipment_variant = {
 		name = "Ju 86"
 		type = tac_bomber_equipment_0
-		design_team = mio:GER_junkers_organization
+		design_team = mio:GER_dornier_organization
 		upgrades = {
 			plane_tac_bomb_upgrade = 5
 			plane_range_upgrade = 5
@@ -1443,7 +1443,7 @@ if = {
 	create_equipment_variant = {
 		name = "Ju 86"
 		type = medium_plane_airframe_0
-		design_team = mio:GER_junkers_organization
+		design_team = mio:GER_dornier_organization
 		modules = {
 			fixed_main_weapon_slot = medium_bomb_bay
 			fixed_auxiliary_weapon_slot_1 = empty
@@ -1547,8 +1547,26 @@ if = {
 	}
 }
 
+add_ideas = {
+	GER_mefo_bills_1936_fake_ns
+	GER_army_1936_fake_ns
+	GER_airforce_fake_ns
+}
+
 ## 1939 Start ##
 1939.1.1 = {
+
+	remove_ideas = {
+		GER_mefo_bills_1936_fake_ns
+		GER_army_1936_fake_ns
+		GER_airforce_fake_ns
+	}
+	add_ideas = {
+		GER_mefo_bills_1939_fake_ns
+		GER_army_1939_fake_ns
+		GER_wehrwirtschaft_fake_ns
+	}
+
 	if = {
 		limit = {
 			NOT = { has_dlc = "Man the Guns" }

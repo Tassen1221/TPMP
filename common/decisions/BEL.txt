@@ -904,7 +904,7 @@ BEL_closer_european_union_cat =  {
 
 		days_remove = 30
 
-		fire_only_once = yes
+		days_re_enable = 180
 
 		allowed = {
 			OR = {
@@ -958,6 +958,12 @@ BEL_closer_european_union_cat =  {
 					id = ww_BEL_event_diplomatic.20
 					hours = 12
 				}
+
+				set_country_flag = {
+					flag = sent_eu_invitation_flag
+					days = 365
+					value = 1
+				}
 			}
 			clr_country_flag = BEL_currently_taking_eu_decision_flag
 		}
@@ -991,12 +997,26 @@ BEL_closer_european_union_cat =  {
 
 		available = {
 			NOT = {	has_country_flag = BEL_currently_taking_eu_decision_flag }
-			any_country = { is_in_faction_with = ROOT }
+			collection_size = {
+				input = {
+					input = game:scope
+					operators = {
+						faction_members
+					}
+				}
+				value > 1 
+			}
 		}
 
 		cancel_trigger = {
-			NOT = {
-				any_country = { is_in_faction_with = ROOT }
+			collection_size = {
+				input = {
+					input = game:scope
+					operators = {
+						faction_members
+					}
+				}
+				value < 1 
 			}
 		}
 
@@ -1025,6 +1045,126 @@ BEL_closer_european_union_cat =  {
 		}
 	}
 
+	# Invest in §Y[FROM.GetAdjective]§! Industry
+	BEL_invest_in_member_industry_decision = {
+		priority = 85
+
+		icon = GFX_decision_hol_attract_foreign_investors
+
+		ai_will_do = {
+			base = 10
+		}
+
+		target_array = ROOT.allies
+
+		target_trigger = {
+			FROM = {
+				exists = yes
+				is_subject = no
+				is_government_in_exile = no
+				capital_scope = {
+					is_on_continent = europe
+				}
+				NOT = { has_country_flag = BEL_received_eu_investment_flag }
+			}
+		}
+
+		allowed = {
+			OR = {
+				original_tag = BEL
+				original_tag = AUS
+				original_tag = HOL
+			}
+		}
+
+		visible = {
+			is_subject = no
+			FROM = {
+				is_in_faction_with = ROOT
+			}
+		}
+
+		available = {
+			NOT = { has_country_flag = BEL_currently_taking_eu_decision_flag }
+			FROM = {
+				any_owned_state = {
+					is_core_of = FROM
+					is_owned_and_controlled_by = FROM
+					impassable = no
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+			}
+		}
+
+		cost = 75
+
+		days_remove = 30
+
+		days_re_enable = 90
+
+		cancel_trigger = {
+			FROM = {
+				OR = {
+					exists = no
+					is_subject = yes
+					NOT = { is_in_faction_with = ROOT }
+				}
+			}
+		}
+
+		cancel_effect = {
+			clr_country_flag = BEL_currently_taking_eu_decision_flag
+		}
+
+		complete_effect = {
+			set_country_flag = BEL_currently_taking_eu_decision_flag
+		}
+
+		remove_effect = {
+			clr_country_flag = BEL_currently_taking_eu_decision_flag
+
+			FROM = {
+				random_owned_controlled_state = {
+					limit = {
+						is_core_of = FROM
+						impassable = no
+						free_building_slots = {
+							building = industrial_complex
+							size > 1
+							include_locked = yes
+						}
+					}
+					set_state_flag = BEL_eu_investment_target
+					effect_tooltip = {
+						add_extra_state_shared_building_slots = 3
+						add_building_construction = {
+							type = industrial_complex
+							level = 2
+							instant_build = yes
+						}
+						add_building_construction = {
+							type = arms_factory
+							level = 1
+							instant_build = yes
+						}
+					}
+				}
+
+				country_event = {
+					id = ww_BEL_event_diplomatic.38
+					hours = 12
+				}
+			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = BEL_eu_investment_federalization_tt
+		}
+	}
+
 	BEL_propose_limited_federalization_descision = {
 		priority = 80
 	
@@ -1049,7 +1189,7 @@ BEL_closer_european_union_cat =  {
 
 		days_remove = 30
 
-		fire_only_once = yes
+		days_re_enable = 180
 
 		allowed = {
 			OR = { #to allow for potential Austria
@@ -1060,7 +1200,10 @@ BEL_closer_european_union_cat =  {
 		}
 
 		visible = {
-			FROM = { is_government_in_exile = no } 
+			FROM = {
+				is_government_in_exile = no
+				is_subject = no #mirrors cancel_trigger, or this re-enables for a member we already federalised and cancels itself after charging the cost
+			}
 			is_subject = no #has to be here or the target trigger will kill the decision rather than the cancel leading to cancel effects not being run
 		}
 
@@ -1118,6 +1261,2551 @@ BEL_closer_european_union_cat =  {
 			
 		}
 	}
+
+	##### European Federation, the consent route to the EU formable #####
+
+	BEL_proclaim_the_european_federation = {
+
+		priority = 100
+
+		icon = GFX_decision_generic_nationalism
+
+		cost = 300
+
+		fire_only_once = yes
+
+		on_map_mode = decision_view_only
+
+		highlight_states = { 
+			highlight_state_targets = {
+				state = 8
+				state = 7
+				state = 35
+				state = 36
+				state = 6
+				state = 34
+				state = 977
+				state = 980
+				state = 29
+				state = 18
+				state = 17
+				state = 28
+				state = 15
+				state = 16
+				state = 27
+				state = 14
+				state = 30
+				state = 24
+				state = 23
+				state = 33
+				state = 26
+				state = 20
+				state = 32
+				state = 735
+				state = 25
+				state = 22
+				state = 21
+				state = 851
+				state = 19
+				state = 1
+				state = 785
+				state = 31
+				state = 806
+				state = 158
+				state = 159
+				state = 39
+				state = 160
+				state = 161
+				state = 162
+				state = 157
+				state = 2
+				state = 117
+				state = 156
+				state = 115
+				state = 114
+				state = 736
+				state = 849
+				state = 850
+				state = 852
+				state = 51
+				state = 42
+				state = 56
+				state = 57
+				state = 55
+				state = 50
+				state = 978
+				state = 59
+				state = 58
+				state = 909
+				state = 60
+				state = 54
+				state = 52
+				state = 53
+				state = 61
+				state = 64
+				state = 65
+				state = 62
+				state = 68
+				state = 66
+				state = 67
+				state = 63
+				state = 5
+				state = 763
+			}
+		}
+
+		allowed = {
+			OR = {
+				original_tag = BEL
+				original_tag = AUS
+				original_tag = HOL
+			}
+		}
+
+		visible = {
+			NOT = { has_global_flag = form_european_union_flag }
+			NOT = { has_global_flag = EU_formed_by_federation_flag }
+		}
+
+		available = {
+			is_subject = no
+			NOT = { has_country_flag = BEL_currently_taking_eu_decision_flag }
+
+			8 = { controls_or_subject_of = yes }
+
+			# Netherlands
+			custom_trigger_tooltip = {
+				tooltip = form_eu_netherlands_required_states_tt
+				7 = { controls_or_subject_of = yes }
+				35 = { controls_or_subject_of = yes }
+				36 = { controls_or_subject_of = yes }
+			}
+
+			# Belgium
+			custom_trigger_tooltip = {
+				tooltip = form_eu_belgium_required_states_tt
+				6 = { controls_or_subject_of = yes }
+				34 = { controls_or_subject_of = yes }
+				977 = { controls_or_subject_of = yes }
+				980 = { controls_or_subject_of = yes }
+			}
+
+			# France
+			custom_trigger_tooltip = {
+				tooltip = form_eu_france_required_states_tt
+				29 = { controls_or_subject_of = yes }
+				18 = { controls_or_subject_of = yes }
+				17 = { controls_or_subject_of = yes }
+				28 = { controls_or_subject_of = yes }
+				15 = { controls_or_subject_of = yes }
+				16 = { controls_or_subject_of = yes }
+				27 = { controls_or_subject_of = yes }
+				14 = { controls_or_subject_of = yes }
+				30 = { controls_or_subject_of = yes }
+				24 = { controls_or_subject_of = yes }
+				23 = { controls_or_subject_of = yes }
+				33 = { controls_or_subject_of = yes }
+				26 = { controls_or_subject_of = yes }
+				20 = { controls_or_subject_of = yes }
+				32 = { controls_or_subject_of = yes }
+				735 = { controls_or_subject_of = yes }
+				25 = { controls_or_subject_of = yes }
+				22 = { controls_or_subject_of = yes }
+				21 = { controls_or_subject_of = yes }
+				851 = { controls_or_subject_of = yes }
+				19 = { controls_or_subject_of = yes }
+				1 = { controls_or_subject_of = yes }
+				785 = { controls_or_subject_of = yes }
+				31 = { controls_or_subject_of = yes }
+				806 = { controls_or_subject_of = yes }
+			}
+
+			# Italy
+			custom_trigger_tooltip = {
+				tooltip = form_eu_italy_required_states_tt
+				158 = { controls_or_subject_of = yes }
+				159 = { controls_or_subject_of = yes }
+				39 = { controls_or_subject_of = yes }
+				160 = { controls_or_subject_of = yes }
+				161 = { controls_or_subject_of = yes }
+				162 = { controls_or_subject_of = yes }
+				157 = { controls_or_subject_of = yes }
+				2 = { controls_or_subject_of = yes }
+				117 = { controls_or_subject_of = yes }
+				156 = { controls_or_subject_of = yes }
+				115 = { controls_or_subject_of = yes }
+				114 = { controls_or_subject_of = yes }
+				736 = { controls_or_subject_of = yes }
+				849 = { controls_or_subject_of = yes }
+				850 = { controls_or_subject_of = yes }
+				852 = { controls_or_subject_of = yes }
+			}
+
+			# Germany
+			custom_trigger_tooltip = {
+				tooltip = form_country_germany_required_states_tt
+				51 = { controls_or_subject_of = yes }
+				42 = { controls_or_subject_of = yes }
+				56 = { controls_or_subject_of = yes }
+				57 = { controls_or_subject_of = yes }
+				55 = { controls_or_subject_of = yes }
+				50 = { controls_or_subject_of = yes }
+				978 = { controls_or_subject_of = yes } #BADEN
+				59 = { controls_or_subject_of = yes }
+				58 = { controls_or_subject_of = yes }
+				909 = { controls_or_subject_of = yes } #New state of SCHLESWIG
+				60 = { controls_or_subject_of = yes }
+				54 = { controls_or_subject_of = yes }
+				52 = { controls_or_subject_of = yes }
+				53 = { controls_or_subject_of = yes }
+				61 = { controls_or_subject_of = yes }
+				64 = { controls_or_subject_of = yes }
+				65 = { controls_or_subject_of = yes }
+				62 = { controls_or_subject_of = yes }
+				68 = { controls_or_subject_of = yes }
+				66 = { controls_or_subject_of = yes }
+				67 = { controls_or_subject_of = yes }
+				63 = { controls_or_subject_of = yes }
+				5 = { controls_or_subject_of = yes }
+				763 = { controls_or_subject_of = yes }
+			}
+		}
+
+		complete_effect = {
+
+			custom_effect_tooltip = BEL_federation_annex_members_tt
+			hidden_effect = {
+				every_subject_country = {
+					limit = {
+						any_controlled_state = {
+							OR = {
+								state = 8
+								state = 7
+								state = 35
+								state = 36
+								state = 6
+								state = 34
+								state = 977
+								state = 980
+								state = 29
+								state = 18
+								state = 17
+								state = 28
+								state = 15
+								state = 16
+								state = 27
+								state = 14
+								state = 30
+								state = 24
+								state = 23
+								state = 33
+								state = 26
+								state = 20
+								state = 32
+								state = 735
+								state = 25
+								state = 22
+								state = 21
+								state = 851
+								state = 19
+								state = 1
+								state = 785
+								state = 31
+								state = 806
+								state = 158
+								state = 159
+								state = 39
+								state = 160
+								state = 161
+								state = 162
+								state = 157
+								state = 2
+								state = 117
+								state = 156
+								state = 115
+								state = 114
+								state = 736
+								state = 849
+								state = 850
+								state = 852
+								state = 51
+								state = 42
+								state = 56
+								state = 57
+								state = 55
+								state = 50
+								state = 978
+								state = 59
+								state = 58
+								state = 909
+								state = 60
+								state = 54
+								state = 52
+								state = 53
+								state = 61
+								state = 64
+								state = 65
+								state = 62
+								state = 68
+								state = 66
+								state = 67
+								state = 63
+								state = 5
+								state = 763
+							}
+						}
+					}
+					ROOT = {
+						annex_country = { target = PREV transfer_troops = yes }
+					}
+				}
+			}
+
+			set_cosmetic_tag = EUR_UNIFIED
+
+			8 = { add_core_of = ROOT } # Luxembourg
+
+			# Netherlands
+			custom_effect_tooltip = form_eu_netherlands_coring_states_tt 
+			hidden_effect = {
+				7 = { add_core_of = ROOT } # Holland
+				35 = { add_core_of = ROOT } # Brabant
+				36 = { add_core_of = ROOT } # Friesland
+			}
+
+			# Belgium
+			custom_effect_tooltip = form_eu_belgium_coring_states_tt
+			hidden_effect = {
+				6 = { add_core_of = ROOT } # Vlaanderen
+				34 = { add_core_of = ROOT } # Wallonie
+				977 = { add_core_of = ROOT } # Antwerp
+				980 = { add_core_of = ROOT } # Ardennes
+			}
+
+			# France
+			custom_effect_tooltip = form_eu_france_coring_states_tt
+			hidden_effect = {
+				29 = { add_core_of = ROOT } # Nord-pas-de-calais
+				18 = { add_core_of = ROOT } # Champagne
+				17 = { add_core_of = ROOT } # Franche-Comte
+				28 = { add_core_of = ROOT } # Alsace-Lorraine
+				15 = { add_core_of = ROOT } # Normandy
+				16 = { add_core_of = ROOT } # Ile de France
+				27 = { add_core_of = ROOT } # Bourgogne
+				14 = { add_core_of = ROOT } # Brittany
+				30 = { add_core_of = ROOT } # Loire
+				24 = { add_core_of = ROOT } # Centre
+				23 = { add_core_of = ROOT } # Poitou
+				33 = { add_core_of = ROOT } # Centre-sud
+				26 = { add_core_of = ROOT } # Auveragne
+				20 = { add_core_of = ROOT } # Rhone
+				32 = { add_core_of = ROOT } # Alpes
+				735 = { add_core_of = ROOT } # Savoy
+				25 = { add_core_of = ROOT } # Limousin
+				22 = { add_core_of = ROOT } # Languedoc
+				21 = { add_core_of = ROOT } # Bouches-du-Rhone
+				851 = { add_core_of = ROOT } # Var
+				19 = { add_core_of = ROOT } # Aquitaine
+				1 = { add_core_of = ROOT } # Corsica
+				785 = { add_core_of = ROOT } # Picardy
+				31 = { add_core_of = ROOT } # Midi Pyrinees
+				806 = { add_core_of = ROOT } # Pyrinees-Atlantique
+			}
+
+			# Italy
+			custom_effect_tooltip = form_eu_italy_coring_states_tt
+			hidden_effect = {
+				158 = { add_core_of = ROOT } # Piemonte
+				159 = { add_core_of = ROOT } # Lombardy
+				39 = { add_core_of = ROOT } # Alto Adige
+				160 = { add_core_of = ROOT } # Venice
+				161 = { add_core_of = ROOT } # Emilia Romagna
+				162 = { add_core_of = ROOT } # Tuscany
+				157 = { add_core_of = ROOT } # Abruzzo
+				2 = { add_core_of = ROOT } # Lazio
+				117 = { add_core_of = ROOT } # Campania
+				156 = { add_core_of = ROOT } # Calbria
+				115 = { add_core_of = ROOT } # Sicily
+				114 = { add_core_of = ROOT } # Sardinia
+				736 = { add_core_of = ROOT } # Litorale
+				163 = { add_core_of = ROOT } # Zara
+				849 = { add_core_of = ROOT } # Puglia
+				850 = { add_core_of = ROOT } # Trentino
+				852 = { add_core_of = ROOT } # Istria
+			}
+
+			# Germany
+			custom_effect_tooltip = form_country_germany_coring_states_tt
+			hidden_effect = {
+				51 = { add_core_of = ROOT } # Rhineland
+				42 = { add_core_of = ROOT } # Moselland
+				56 = { add_core_of = ROOT } # Weser-ems
+				57 = { add_core_of = ROOT } # Westfalen
+				55 = { add_core_of = ROOT } # Hessen
+				50 = { add_core_of = ROOT } # Wurttemberg
+				978 = { add_core_of = ROOT } # Baden
+				59 = { add_core_of = ROOT } # Hannover
+				58 = { add_core_of = ROOT } # Holstein
+				909 = { add_core_of = ROOT } # Schleswig
+				60 = { add_core_of = ROOT } # Thuringia
+				54 = { add_core_of = ROOT } # Franken
+				52 = { add_core_of = ROOT } # Oberbayern
+				53 = { add_core_of = ROOT } # Niederbayern
+				61 = { add_core_of = ROOT } # Mecklenburg
+				64 = { add_core_of = ROOT } # Brandenberg
+				65 = { add_core_of = ROOT } # Sachsen
+				62 = { add_core_of = ROOT } # Vorpommern
+				68 = { add_core_of = ROOT } # Ostmark
+				66 = { add_core_of = ROOT } # Niederschlesien
+				67 = { add_core_of = ROOT } # Oberschlesien
+				63 = { add_core_of = ROOT } # Hinterpommern
+				5 = { add_core_of = ROOT } # Ermland-Masuren
+				763 = { add_core_of = ROOT } # Königsberg
+			}
+
+			116 = { add_core_of = ROOT } # Malta
+
+			hidden_effect = {
+				news_event = { id = wtt_news.62 hours = 6 }
+				set_global_flag = EU_formed_by_federation_flag
+				set_country_flag = EU_formed_by_federation_flag
+			}
+
+		}
+
+		ai_will_do = {
+			base = 200
+		}
+	}
+
+	BEL_EU_alpine_expansion_decision = {
+
+		icon = GFX_decision_generic_nationalism
+
+		cost = 100
+
+		on_map_mode = decision_view_only
+
+		highlight_states = { 
+			highlight_state_targets = {
+				state = 845 # Jura Mountains
+				state = 3 # Swiss Plateu
+				state = 847 # Western Swiss Alps
+				state = 846 # Ticino
+				state = 151 # Eastern Swiss Alps
+				state = 848 # Vorarlberg
+				state = 153 # Tyrol
+				state = 152 # Oberösterreich
+				state = 976 # Steiermark-Kärnten
+				state = 4 # Niederösterreich
+				state = 975 # Burgenland
+			}
+		}
+
+		allowed = {
+			OR = {
+				original_tag = BEL
+				original_tag = AUS
+				original_tag = HOL
+			}
+		}
+
+		visible = { 
+			NOT = { has_global_flag = EU_integrated_alpine_states_flag }
+			has_country_flag = EU_formed_by_federation_flag
+		}
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = BEL_federation_controls_all_highlighted_states_tt
+				845 = { controls_or_subject_of = yes } # Jura Mountains
+				3 = { controls_or_subject_of = yes } # Swiss Plateu
+				847 = { controls_or_subject_of = yes } # Western Swiss Alps
+				846 = { controls_or_subject_of = yes } # Ticino
+				151 = { controls_or_subject_of = yes } # Eastern Swiss Alps
+				848 = { controls_or_subject_of = yes } # Vorarlberg
+				153 = { controls_or_subject_of = yes } # Tyrol
+				152 = { controls_or_subject_of = yes } # Oberösterreich
+				976 = { controls_or_subject_of = yes } # Steiermark-Kärnten
+				4 = { controls_or_subject_of = yes } # Niederösterreich
+				975 = { controls_or_subject_of = yes } # Burgenland
+			}
+		}
+
+		days_remove = 70
+
+		# YES it is intentional that these don't have any cancel triggers!
+
+		remove_effect = {
+
+			custom_effect_tooltip = BEL_federation_annex_members_tt
+			hidden_effect = {
+				every_subject_country = {
+					limit = {
+						any_controlled_state = {
+							OR = {
+								state = 845
+								state = 3
+								state = 847
+								state = 846
+								state = 151
+								state = 848
+								state = 153
+								state = 152
+								state = 976
+								state = 4
+								state = 975
+							}
+						}
+					}
+					ROOT = {
+						annex_country = { target = PREV transfer_troops = yes }
+					}
+				}
+			}
+
+			custom_effect_tooltip = gain_cores_on_the_highlighted_states_tt
+			hidden_effect = {
+				every_state = {
+					limit = {
+						OR = {
+							state = 845 # Jura Mountains
+							state = 3 # Swiss Plateu
+							state = 847 # Western Swiss Alps
+							state = 846 # Ticino
+							state = 151 # Eastern Swiss Alps
+							state = 848 # Vorarlberg
+							state = 153 # Tyrol
+							state = 152 # Oberösterreich
+							state = 976 # Steiermark-Kärnten
+							state = 4 # Niederösterreich
+							state = 975 # Burgenland
+						}
+					}
+					add_core_of = ROOT
+				}
+			}
+			 
+			hidden_effect = { 
+				set_global_flag = EU_integrated_alpine_states_flag
+			}
+
+		}
+
+		ai_will_do = {
+			base = 200
+		}
+	}
+
+	BEL_EU_iberian_expansion_decision = {
+
+		icon = GFX_decision_generic_nationalism
+
+		cost = 100
+
+		on_map_mode = decision_view_only
+
+		highlight_states = { 
+			highlight_state_targets = {
+				state = 177 # Islas Baleares
+				state = 165 # Catalonia
+				state = 167 # Valencia
+				state = 794 # Eastern Aragon
+				state = 166 # Western Aragon
+				state = 172 # Navarra
+				state = 792 # Pais Vasco
+				state = 790 # Asturias
+				state = 171 # Galicia
+				state = 174 # Leon
+				state = 791 # Valladolid
+				state = 176 # Burgos
+				state = 793 # Guadalajara
+				state = 168 # Murcia
+				state = 788 # Salamanca
+				state = 41 # Madrid
+				state = 175 # Ciudad Real
+				state = 170 # Extramadura
+				state = 789 # Cordoba
+				state = 173 # Granada
+				state = 169 # Sevilla
+				state = 118 # Gibraltar
+				state = 180 # Porto
+				state = 181 # Guarda
+				state = 112 # Lisbon
+				state = 795 # Santarem
+				state = 179 # Beja
+			}
+		}
+
+		allowed = {
+			OR = {
+				original_tag = BEL
+				original_tag = AUS
+				original_tag = HOL
+			}
+		}
+
+		visible = { 
+			NOT = { has_global_flag = EU_integrated_iberian_states_flag }
+			has_country_flag = EU_formed_by_federation_flag
+		}
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = BEL_federation_controls_all_highlighted_states_tt
+				177 = { controls_or_subject_of = yes } # Islas Baleares
+				165 = { controls_or_subject_of = yes } # Catalonia
+				167 = { controls_or_subject_of = yes } # Valencia
+				794 = { controls_or_subject_of = yes } # Eastern Aragon
+				166 = { controls_or_subject_of = yes } # Western Aragon
+				172 = { controls_or_subject_of = yes } # Navarra
+				792 = { controls_or_subject_of = yes } # Pais Vasco
+				790 = { controls_or_subject_of = yes } # Asturias
+				171 = { controls_or_subject_of = yes } # Galicia
+				174 = { controls_or_subject_of = yes } # Leon
+				791 = { controls_or_subject_of = yes } # Valladolid
+				176 = { controls_or_subject_of = yes } # Burgos
+				793 = { controls_or_subject_of = yes } # Guadalajara
+				168 = { controls_or_subject_of = yes } # Murcia
+				788 = { controls_or_subject_of = yes } # Salamanca
+				41 = { controls_or_subject_of = yes } # Madrid
+				175 = { controls_or_subject_of = yes } # Ciudad Real
+				170 = { controls_or_subject_of = yes } # Extramadura
+				789 = { controls_or_subject_of = yes } # Cordoba
+				173 = { controls_or_subject_of = yes } # Granada
+				169 = { controls_or_subject_of = yes } # Sevilla
+				118 = { controls_or_subject_of = yes } # Gibraltar
+				180 = { controls_or_subject_of = yes } # Porto
+				181 = { controls_or_subject_of = yes } # Guarda
+				112 = { controls_or_subject_of = yes } # Lisbon
+				795 = { controls_or_subject_of = yes } # Santarem
+				179 = { controls_or_subject_of = yes } # Beja
+			}
+		}
+
+		days_remove = 70
+
+		remove_effect = {
+
+			custom_effect_tooltip = BEL_federation_annex_members_tt
+			hidden_effect = {
+				every_subject_country = {
+					limit = {
+						any_controlled_state = {
+							OR = {
+								state = 177
+								state = 165
+								state = 167
+								state = 794
+								state = 166
+								state = 172
+								state = 792
+								state = 790
+								state = 171
+								state = 174
+								state = 791
+								state = 176
+								state = 793
+								state = 168
+								state = 788
+								state = 41
+								state = 175
+								state = 170
+								state = 789
+								state = 173
+								state = 169
+								state = 118
+								state = 180
+								state = 181
+								state = 112
+								state = 795
+								state = 179
+							}
+						}
+					}
+					ROOT = {
+						annex_country = { target = PREV transfer_troops = yes }
+					}
+				}
+			}
+
+			custom_effect_tooltip = gain_cores_on_the_highlighted_states_tt
+			hidden_effect = {
+				every_state = {
+					limit = {
+						OR = {
+							state = 177 # Islas Baleares
+							state = 165 # Catalonia
+							state = 167 # Valencia
+							state = 794 # Eastern Aragon
+							state = 166 # Western Aragon
+							state = 172 # Navarra
+							state = 792 # Pais Vasco
+							state = 790 # Asturias
+							state = 171 # Galicia
+							state = 174 # Leon
+							state = 791 # Valladolid
+							state = 176 # Burgos
+							state = 793 # Guadalajara
+							state = 168 # Murcia
+							state = 788 # Salamanca
+							state = 41 # Madrid
+							state = 175 # Ciudad Real
+							state = 170 # Extramadura
+							state = 789 # Cordoba
+							state = 173 # Granada
+							state = 169 # Sevilla
+							state = 118 # Gibraltar
+							state = 180 # Porto
+							state = 181 # Guarda
+							state = 112 # Lisbon
+							state = 795 # Santarem
+							state = 179 # Beja
+						}
+					}
+					add_core_of = ROOT
+				}
+			}
+			 
+			hidden_effect = { 
+				set_global_flag = EU_integrated_iberian_states_flag
+			}
+
+		}
+
+		ai_will_do = {
+			base = 200
+		}
+	}
+
+	BEL_EU_west_slavic_expansion_decision = {
+
+		icon = GFX_decision_generic_nationalism
+
+		cost = 100
+
+		on_map_mode = decision_view_only
+
+		highlight_states = { 
+			highlight_state_targets = {
+				state = 69 # North Sudetenland
+				state = 972 # South Sudetenland
+				state = 9 # Bohemia
+				state = 75 # Moravia
+				state = 74 # Czech Silesia
+				state = 72 # Zaolzie
+				state = 70 # Western Slovakia
+				state = 664 # Southern Slovakia
+				state = 71 # Eastern Slovakia
+				state = 73 # Carpathian Ruthenia
+				state = 762 # Katowice
+				state = 86 # Poznan
+				state = 85 # Danzig
+				state = 807 # Gdynia
+				state = 98 # Plock
+				state = 87 # Lodz
+				state = 10 # Warsaw
+				state = 90 # Kielce
+				state = 88 # Krakow
+				state = 89 # Stanislawow
+				state = 91 # Lwow
+				state = 92 # Lublin
+				state = 97 # Bialystok
+				state = 95 # Nowgrodek
+				state = 96 # Wiljeka
+				state = 784 # Wilno
+				state = 94 # Polesie
+				state = 93 # Wolyn
+			}
+		}
+
+		allowed = {
+			OR = {
+				original_tag = BEL
+				original_tag = AUS
+				original_tag = HOL
+			}
+		}
+
+		visible = { 
+			NOT = { has_global_flag = EU_integrated_west_slavic_states_flag }
+			has_country_flag = EU_formed_by_federation_flag
+		}
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = BEL_federation_controls_all_highlighted_states_tt
+				69 = { controls_or_subject_of = yes } # North Sudetenland
+				972 = { controls_or_subject_of = yes } # South Sudetenland
+				9 = { controls_or_subject_of = yes } # Bohemia
+				75 = { controls_or_subject_of = yes } # Moravia
+				74 = { controls_or_subject_of = yes } # Czech Silesia
+				72 = { controls_or_subject_of = yes } # Zaolzie
+				70 = { controls_or_subject_of = yes } # Western Slovakia
+				664 = { controls_or_subject_of = yes } # Southern Slovakia
+				71 = { controls_or_subject_of = yes } # Eastern Slovakia
+				73 = { controls_or_subject_of = yes } # Carpathian Ruthenia
+				762 = { controls_or_subject_of = yes } # Katowice
+				86 = { controls_or_subject_of = yes } # Poznan
+				85 = { controls_or_subject_of = yes } # Danzig
+				807 = { controls_or_subject_of = yes } # Gdynia
+				98 = { controls_or_subject_of = yes } # Plock
+				87 = { controls_or_subject_of = yes } # Lodz
+				10 = { controls_or_subject_of = yes } # Warsaw
+				90 = { controls_or_subject_of = yes } # Kielce
+				88 = { controls_or_subject_of = yes } # Krakow
+				89 = { controls_or_subject_of = yes } # Stanislawow
+				91 = { controls_or_subject_of = yes } # Lwow
+				92 = { controls_or_subject_of = yes } # Lublin
+				97 = { controls_or_subject_of = yes } # Bialystok
+				95 = { controls_or_subject_of = yes } # Nowgrodek
+				96 = { controls_or_subject_of = yes } # Wiljeka
+				784 = { controls_or_subject_of = yes } # Wilno
+				94 = { controls_or_subject_of = yes } # Polesie
+				93 = { controls_or_subject_of = yes } # Wolyn
+			}
+		}
+
+		days_remove = 70
+
+		remove_effect = {
+
+			custom_effect_tooltip = BEL_federation_annex_members_tt
+			hidden_effect = {
+				every_subject_country = {
+					limit = {
+						any_controlled_state = {
+							OR = {
+								state = 69
+								state = 972
+								state = 9
+								state = 75
+								state = 74
+								state = 72
+								state = 70
+								state = 664
+								state = 71
+								state = 73
+								state = 762
+								state = 86
+								state = 85
+								state = 807
+								state = 98
+								state = 87
+								state = 10
+								state = 90
+								state = 88
+								state = 89
+								state = 91
+								state = 92
+								state = 97
+								state = 95
+								state = 96
+								state = 784
+								state = 94
+								state = 93
+							}
+						}
+					}
+					ROOT = {
+						annex_country = { target = PREV transfer_troops = yes }
+					}
+				}
+			}
+
+			custom_effect_tooltip = gain_cores_on_the_highlighted_states_tt
+			hidden_effect = {
+				every_state = {
+					limit = {
+						OR = {
+							state = 69 # North Sudetenland
+							state = 972 # South Sudetenland
+							state = 9 # Bohemia
+							state = 75 # Moravia
+							state = 74 # Czech Silesia
+							state = 72 # Zaolzie
+							state = 70 # Western Slovakia
+							state = 664 # Southern Slovakia
+							state = 71 # Eastern Slovakia
+							state = 73 # Carpathian Ruthenia
+							state = 762 # Katowice
+							state = 86 # Poznan
+							state = 85 # Danzig
+							state = 807 # Gdynia
+							state = 98 # Plock
+							state = 87 # Lodz
+							state = 10 # Warsaw
+							state = 90 # Kielce
+							state = 88 # Krakow
+							state = 89 # Stanislawow
+							state = 91 # Lwow
+							state = 92 # Lublin
+							state = 97 # Bialystok
+							state = 95 # Nowgrodek
+							state = 96 # Wiljeka
+							state = 784 # Wilno
+							state = 94 # Polesie
+							state = 93 # Wolyn
+						}
+					}
+					add_core_of = ROOT
+				}
+			}
+			 
+			hidden_effect = { 
+				set_global_flag = EU_integrated_west_slavic_states_flag
+			}
+
+		}
+
+		ai_will_do = {
+			base = 200
+		}
+	}
+
+	BEL_EU_baltic_expansion_decision = {
+
+		icon = GFX_decision_generic_nationalism
+
+		cost = 100
+
+		on_map_mode = decision_view_only
+
+		highlight_states = { 
+			highlight_state_targets = {
+				state = 188 # Memel
+				state = 189 # Semigallen
+				state = 814 # Sudava
+				state = 11 # Kaunas
+				state = 815 # Aukstailjia
+				state = 190 # Kurzeme
+				state = 809 # Zemgale
+				state = 808 # Riga
+				state = 810 # Latgale
+				state = 12 # Vidzeme
+				state = 191 # Tartu
+				state = 13 # Pärnu
+				state = 813 # Virumaa
+				state = 812 # Harju
+				state = 811 # Saremaa
+			}
+		}
+
+		allowed = {
+			OR = {
+				original_tag = BEL
+				original_tag = AUS
+				original_tag = HOL
+			}
+		}
+
+		visible = { 
+			NOT = { has_global_flag = EU_integrated_baltic_states_flag }
+			has_country_flag = EU_formed_by_federation_flag
+		}
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = BEL_federation_controls_all_highlighted_states_tt
+				188 = { controls_or_subject_of = yes } # Memel
+				189 = { controls_or_subject_of = yes } # Semigallen
+				814 = { controls_or_subject_of = yes } # Sudava
+				11 = { controls_or_subject_of = yes } # Kaunas
+				815 = { controls_or_subject_of = yes } # Aukstailjia
+				190 = { controls_or_subject_of = yes } # Kurzeme
+				809 = { controls_or_subject_of = yes } # Zemgale
+				808 = { controls_or_subject_of = yes } # Riga
+				810 = { controls_or_subject_of = yes } # Latgale
+				12 = { controls_or_subject_of = yes } # Vidzeme
+				191 = { controls_or_subject_of = yes } # Tartu
+				13 = { controls_or_subject_of = yes } # Pärnu
+				813 = { controls_or_subject_of = yes } # Virumaa
+				812 = { controls_or_subject_of = yes } # Harju
+				811 = { controls_or_subject_of = yes } # Saremaa
+			}
+		}
+
+		days_remove = 70
+
+		remove_effect = {
+
+			custom_effect_tooltip = BEL_federation_annex_members_tt
+			hidden_effect = {
+				every_subject_country = {
+					limit = {
+						any_controlled_state = {
+							OR = {
+								state = 188
+								state = 189
+								state = 814
+								state = 11
+								state = 815
+								state = 190
+								state = 809
+								state = 808
+								state = 810
+								state = 12
+								state = 191
+								state = 13
+								state = 813
+								state = 812
+								state = 811
+							}
+						}
+					}
+					ROOT = {
+						annex_country = { target = PREV transfer_troops = yes }
+					}
+				}
+			}
+
+			custom_effect_tooltip = gain_cores_on_the_highlighted_states_tt
+			hidden_effect = {
+				every_state = {
+					limit = {
+						OR = {
+							state = 188 # Memel
+							state = 189 # Semigallen
+							state = 814 # Sudava
+							state = 11 # Kaunas
+							state = 815 # Aukstailjia
+							state = 190 # Kurzeme
+							state = 809 # Zemgale
+							state = 808 # Riga
+							state = 810 # Latgale
+							state = 12 # Vidzeme
+							state = 191 # Tartu
+							state = 13 # Pärnu
+							state = 813 # Virumaa
+							state = 812 # Harju
+							state = 811 # Saremaa
+						}
+					}
+					add_core_of = ROOT
+				}
+			}
+			 
+			hidden_effect = { 
+				set_global_flag = EU_integrated_baltic_states_flag
+			}
+
+		}
+
+		ai_will_do = {
+			base = 200
+		}
+	}
+
+	BEL_EU_british_isles_expansion_decision = {
+
+		icon = GFX_decision_generic_nationalism
+
+		cost = 100
+
+		on_map_mode = decision_view_only
+
+		highlight_states = { 
+			highlight_state_targets = {
+				state = 127 # Sussex
+				state = 123 # South-West England
+				state = 338 # Gloustershire
+				state = 126 # Greater London Area
+				state = 125 # East Anglia
+				state = 129 # East Midlands
+				state = 128 # West Midlands
+				state = 122 # Wales
+				state = 132 # Lancashire
+				state = 130 # Yorkshire
+				state = 931 # Cumbria
+				state = 131 # Northumberland
+				state = 932 # Isle of Man
+				state = 133 # Lanark
+				state = 121 # Lothian
+				state = 136 # Aberdeenshire
+				state = 120 # Scottish Highlands
+				state = 933 # Shetland Islands
+				state = 119 # Northern Ireland
+				state = 113 # Leinster
+				state = 134 # Connaught
+				state = 135 # Munster
+			}
+		}
+
+		allowed = {
+			OR = {
+				original_tag = BEL
+				original_tag = AUS
+				original_tag = HOL
+			}
+		}
+
+		visible = { 
+			NOT = { has_global_flag = EU_integrated_isles_states_flag }
+			has_country_flag = EU_formed_by_federation_flag
+		}
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = BEL_federation_controls_all_highlighted_states_tt
+				127 = { controls_or_subject_of = yes } # Sussex
+				123 = { controls_or_subject_of = yes } # South-West England
+				338 = { controls_or_subject_of = yes } # Gloustershire
+				126 = { controls_or_subject_of = yes } # Greater London Area
+				125 = { controls_or_subject_of = yes } # East Anglia
+				129 = { controls_or_subject_of = yes } # East Midlands
+				128 = { controls_or_subject_of = yes } # West Midlands
+				122 = { controls_or_subject_of = yes } # Wales
+				132 = { controls_or_subject_of = yes } # Lancashire
+				130 = { controls_or_subject_of = yes } # Yorkshire
+				931 = { controls_or_subject_of = yes } # Cumbria
+				131 = { controls_or_subject_of = yes } # Northumberland
+				932 = { controls_or_subject_of = yes } # Isle of Man
+				133 = { controls_or_subject_of = yes } # Lanark
+				121 = { controls_or_subject_of = yes } # Lothian
+				136 = { controls_or_subject_of = yes } # Aberdeenshire
+				120 = { controls_or_subject_of = yes } # Scottish Highlands
+				933 = { controls_or_subject_of = yes } # Shetland Islands
+				119 = { controls_or_subject_of = yes } # Northern Ireland
+				113 = { controls_or_subject_of = yes } # Leinster
+				134 = { controls_or_subject_of = yes } # Connaught
+				135 = { controls_or_subject_of = yes } # Munster
+			}
+		}
+
+		days_remove = 70
+
+		remove_effect = {
+
+			custom_effect_tooltip = BEL_federation_annex_members_tt
+			hidden_effect = {
+				every_subject_country = {
+					limit = {
+						any_controlled_state = {
+							OR = {
+								state = 127
+								state = 123
+								state = 338
+								state = 126
+								state = 125
+								state = 129
+								state = 128
+								state = 122
+								state = 132
+								state = 130
+								state = 931
+								state = 131
+								state = 932
+								state = 133
+								state = 121
+								state = 136
+								state = 120
+								state = 933
+								state = 119
+								state = 113
+								state = 134
+								state = 135
+							}
+						}
+					}
+					ROOT = {
+						annex_country = { target = PREV transfer_troops = yes }
+					}
+				}
+			}
+
+			custom_effect_tooltip = gain_cores_on_the_highlighted_states_tt
+			hidden_effect = {
+				every_state = {
+					limit = {
+						OR = {
+							state = 127 # Sussex
+							state = 123 # South-West England
+							state = 338 # Gloustershire
+							state = 126 # Greater London Area
+							state = 125 # East Anglia
+							state = 129 # East Midlands
+							state = 128 # West Midlands
+							state = 122 # Wales
+							state = 132 # Lancashire
+							state = 130 # Yorkshire
+							state = 931 # Cumbria
+							state = 131 # Northumberland
+							state = 932 # Isle of Man
+							state = 133 # Lanark
+							state = 121 # Lothian
+							state = 136 # Aberdeenshire
+							state = 120 # Scottish Highlands
+							state = 933 # Shetland Islands
+							state = 119 # Northern Ireland
+							state = 113 # Leinster
+							state = 134 # Connaught
+							state = 135 # Munster
+						}
+					}
+					add_core_of = ROOT
+				}
+			}
+			 
+			hidden_effect = { 
+				set_global_flag = EU_integrated_isles_states_flag
+			}
+
+		}
+
+		ai_will_do = {
+			base = 200
+		}
+	}
+
+	BEL_EU_scandinavian_expansion_decision = {
+
+		icon = GFX_decision_generic_nationalism
+
+		cost = 100
+
+		on_map_mode = decision_view_only
+
+		highlight_states = { 
+			highlight_state_targets = {
+				state = 912 # North Schleswig
+				state = 99 # Jutland
+				state = 911 # Fyn
+				state = 37 # Sjaelland
+				state = 910 # Bornholm
+				state = 138 # Skåne
+				state = 124 # Gotland
+				state = 139 # Småland
+				state = 140 # Västergötland
+				state = 915 # Bohuslän
+				state = 913 # Östergötland
+				state = 919 # Värmland
+				state = 141 # Södermanland
+				state = 916 # Dalarna
+				state = 38 # Gävleborg
+				state = 917 # Jämtland
+				state = 918 # Västerbotten
+				state = 666 # Norrbotten
+				state = 110 # Oslofjord
+				state = 921 # Telemark
+				state = 922 # agder
+				state = 142 # Vestlandet
+				state = 920 # Opplandene
+				state = 143 # Trondelag
+				state = 923 # Helgeland
+				state = 144 # Nordland
+				state = 924 # Troms
+				state = 925 # Finnmark
+			}
+		}
+
+		allowed = {
+			OR = {
+				original_tag = BEL
+				original_tag = AUS
+				original_tag = HOL
+			}
+		}
+
+		visible = { 
+			NOT = { has_global_flag = EU_integrated_scandinavia_states_flag }
+			has_country_flag = EU_formed_by_federation_flag
+		}
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = BEL_federation_controls_all_highlighted_states_tt
+				912 = { controls_or_subject_of = yes } # North Schleswig
+				99 = { controls_or_subject_of = yes } # Jutland
+				911 = { controls_or_subject_of = yes } # Fyn
+				37 = { controls_or_subject_of = yes } # Sjaelland
+				910 = { controls_or_subject_of = yes } # Bornholm
+				138 = { controls_or_subject_of = yes } # Skåne
+				124 = { controls_or_subject_of = yes } # Gotland
+				139 = { controls_or_subject_of = yes } # Småland
+				140 = { controls_or_subject_of = yes } # Västergötland
+				915 = { controls_or_subject_of = yes } # Bohuslän
+				913 = { controls_or_subject_of = yes } # Östergötland
+				919 = { controls_or_subject_of = yes } # Värmland
+				141 = { controls_or_subject_of = yes } # Södermanland
+				916 = { controls_or_subject_of = yes } # Dalarna
+				38 = { controls_or_subject_of = yes } # Gävleborg
+				917 = { controls_or_subject_of = yes } # Jämtland
+				918 = { controls_or_subject_of = yes } # Västerbotten
+				666 = { controls_or_subject_of = yes } # Norrbotten
+				110 = { controls_or_subject_of = yes } # Oslofjord
+				921 = { controls_or_subject_of = yes } # Telemark
+				922 = { controls_or_subject_of = yes } # agder
+				142 = { controls_or_subject_of = yes } # Vestlandet
+				920 = { controls_or_subject_of = yes } # Opplandene
+				143 = { controls_or_subject_of = yes } # Trondelag
+				923 = { controls_or_subject_of = yes } # Helgeland
+				144 = { controls_or_subject_of = yes } # Nordland
+				924 = { controls_or_subject_of = yes } # Troms
+				925 = { controls_or_subject_of = yes } # Finnmark
+			}
+		}
+
+		days_remove = 70
+
+		remove_effect = {
+
+			custom_effect_tooltip = BEL_federation_annex_members_tt
+			hidden_effect = {
+				every_subject_country = {
+					limit = {
+						any_controlled_state = {
+							OR = {
+								state = 912
+								state = 99
+								state = 911
+								state = 37
+								state = 910
+								state = 138
+								state = 124
+								state = 139
+								state = 140
+								state = 915
+								state = 913
+								state = 919
+								state = 141
+								state = 916
+								state = 38
+								state = 917
+								state = 918
+								state = 666
+								state = 110
+								state = 921
+								state = 922
+								state = 142
+								state = 920
+								state = 143
+								state = 923
+								state = 144
+								state = 924
+								state = 925
+							}
+						}
+					}
+					ROOT = {
+						annex_country = { target = PREV transfer_troops = yes }
+					}
+				}
+			}
+
+			custom_effect_tooltip = gain_cores_on_the_highlighted_states_tt
+			hidden_effect = {
+				every_state = {
+					limit = {
+						OR = {
+							state = 912 # North Schleswig
+							state = 99 # Jutland
+							state = 911 # Fyn
+							state = 37 # Sjaelland
+							state = 910 # Bornholm
+							state = 138 # Skåne
+							state = 124 # Gotland
+							state = 139 # Småland
+							state = 140 # Västergötland
+							state = 915 # Bohuslän
+							state = 913 # Östergötland
+							state = 919 # Värmland
+							state = 141 # Södermanland
+							state = 916 # Dalarna
+							state = 38 # Gävleborg
+							state = 917 # Jämtland
+							state = 918 # Västerbotten
+							state = 666 # Norrbotten
+							state = 110 # Oslofjord
+							state = 921 # Telemark
+							state = 922 # agder
+							state = 142 # Vestlandet
+							state = 920 # Opplandene
+							state = 143 # Trondelag
+							state = 923 # Helgeland
+							state = 144 # Nordland
+							state = 924 # Troms
+							state = 925 # Finnmark
+						}
+					}
+					add_core_of = ROOT
+				}
+			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+
+			# Faroe Islands
+			337 = {
+				add_core_of = ROOT
+			}
+
+			# Jan Mayen
+			914 = {
+				add_core_of = ROOT
+			}
+
+			# Iceland
+			100 = {
+				add_core_of = ROOT
+			}
+
+			# Greenland
+			101 = {
+				add_core_of = ROOT
+			}
+			 
+			hidden_effect = { 
+				set_global_flag = EU_integrated_scandinavia_states_flag
+			}
+
+		}
+
+		ai_will_do = {
+			base = 200
+		}
+	}
+
+	BEL_EU_karelo_finnish_expansion_decision = {
+
+		icon = GFX_decision_generic_nationalism
+
+		cost = 100
+
+		on_map_mode = decision_view_only
+
+		highlight_states = { 
+			highlight_state_targets = {
+				state = 148 # Lappi
+				state = 722 # Petsamo
+				state = 147 # Salla
+				state = 929 # Oulu
+				state = 150 # Kuopio
+				state = 146 # Karjala
+				state = 928 # Kymi
+				state = 930 ## Mikkeli
+				state = 149 # Vaasa
+				state = 927 # Häme
+				state = 926 # Turku
+				state = 111 # Helsinki
+				state = 145 # Åland
+				state = 213 # Murmansk
+				state = 215 # Onega
+				state = 216 # Olonets
+			}
+		}
+
+		allowed = {
+			OR = {
+				original_tag = BEL
+				original_tag = AUS
+				original_tag = HOL
+			}
+		}
+
+		visible = { 
+			NOT = { has_global_flag = EU_integrated_finnish_states_flag }
+			has_country_flag = EU_formed_by_federation_flag
+		}
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = BEL_federation_controls_all_highlighted_states_tt
+				148 = { controls_or_subject_of = yes } # Lappi
+				722 = { controls_or_subject_of = yes } # Petsamo
+				147 = { controls_or_subject_of = yes } # Salla
+				929 = { controls_or_subject_of = yes } # Oulu
+				150 = { controls_or_subject_of = yes } # Kuopio
+				146 = { controls_or_subject_of = yes } # Karjala
+				928 = { controls_or_subject_of = yes } # Kymi
+				930 = { controls_or_subject_of = yes } ## Mikkeli
+				149 = { controls_or_subject_of = yes } # Vaasa
+				927 = { controls_or_subject_of = yes } # Häme
+				926 = { controls_or_subject_of = yes } # Turku
+				111 = { controls_or_subject_of = yes } # Helsinki
+				145 = { controls_or_subject_of = yes } # Åland
+				213 = { controls_or_subject_of = yes } # Murmansk
+				215 = { controls_or_subject_of = yes } # Onega
+				216 = { controls_or_subject_of = yes } # Olonets
+			}
+		}
+
+		days_remove = 70
+
+		remove_effect = {
+
+			custom_effect_tooltip = BEL_federation_annex_members_tt
+			hidden_effect = {
+				every_subject_country = {
+					limit = {
+						any_controlled_state = {
+							OR = {
+								state = 148
+								state = 722
+								state = 147
+								state = 929
+								state = 150
+								state = 146
+								state = 928
+								state = 930
+								state = 149
+								state = 927
+								state = 926
+								state = 111
+								state = 145
+								state = 213
+								state = 215
+								state = 216
+							}
+						}
+					}
+					ROOT = {
+						annex_country = { target = PREV transfer_troops = yes }
+					}
+				}
+			}
+
+			custom_effect_tooltip = gain_cores_on_the_highlighted_states_tt
+			hidden_effect = {
+				every_state = {
+					limit = {
+						OR = {
+							state = 148 # Lappi
+							state = 722 # Petsamo
+							state = 147 # Salla
+							state = 929 # Oulu
+							state = 150 # Kuopio
+							state = 146 # Karjala
+							state = 928 # Kymi
+							state = 930 ## Mikkeli
+							state = 149 # Vaasa
+							state = 927 # Häme
+							state = 926 # Turku
+							state = 111 # Helsinki
+							state = 145 # Åland
+							state = 213 # Murmansk
+							state = 215 # Onega
+							state = 216 # Olonets
+						}
+					}
+					add_core_of = ROOT
+				}
+			}
+			 
+			hidden_effect = { 
+				set_global_flag = EU_integrated_finnish_states_flag
+			}
+
+		}
+
+		ai_will_do = {
+			base = 200
+		}
+	}
+
+	BEL_EU_balkan_expansion_decision = {
+
+		icon = GFX_decision_generic_nationalism
+
+		cost = 150
+
+		on_map_mode = decision_view_only
+
+		highlight_states = { 
+			highlight_state_targets = {
+				state = 155 # North Transdanubia
+				state = 974 # South Transdanubia
+				state = 973 # Bacs-Bodrog
+				state = 43 # Northern Hungary
+				state = 154 # Alföld
+				state = 80 # Bucovina
+				state = 78 # Besarabia
+				state = 766 # Southern Besarabia
+				state = 79 # Moldova
+				state = 76 # North Transylvania
+				state = 83 # Crisana
+				state = 84 # Transylvania
+				state = 82 # Banat
+				state = 81 # Oltenia
+				state = 46 # Muntenia
+				state = 971 # Northern Dobruja
+				state = 77 # Dobruja
+				state = 102 # North Slovenia
+				state = 853 # Ljubljana
+				state = 103 # Dalmatia
+				state = 109 # Croatia
+				state = 45 # Vojvodina
+				state = 764 # West Banat
+				state = 104 # Bosnia
+				state = 804 # Herzegovina
+				state = 105 # Montenegro
+				state = 107 # Serbia
+				state = 108 # Morava
+				state = 802 # Kosovo
+				state = 803 # Southern Serbia
+				state = 970 # Debar
+				state = 106 # Macedonia
+				state = 934 # Schkoder
+				state = 44 # Tirana
+				state = 805 # Northern Epirus
+				state = 48 # Sofia
+				state = 801 # Moesia
+				state = 211 # Burgas
+				state = 212 # Plovdiv
+			}
+		}
+
+		allowed = {
+			OR = {
+				original_tag = BEL
+				original_tag = AUS
+				original_tag = HOL
+			}
+		}
+
+		visible = { 
+			NOT = { has_global_flag = EU_integrated_balkan_states_flag }
+			has_country_flag = EU_formed_by_federation_flag
+		}
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = BEL_federation_controls_all_highlighted_states_tt
+				155 = { controls_or_subject_of = yes } # North Transdanubia
+				974 = { controls_or_subject_of = yes } # South Transdanubia
+				973 = { controls_or_subject_of = yes } # Bacs-Bodrog
+				43 = { controls_or_subject_of = yes } # Northern Hungary
+				154 = { controls_or_subject_of = yes } # Alföld
+				80 = { controls_or_subject_of = yes } # Bucovina
+				78 = { controls_or_subject_of = yes } # Besarabia
+				766 = { controls_or_subject_of = yes } # Southern Besarabia
+				79 = { controls_or_subject_of = yes } # Moldova
+				76 = { controls_or_subject_of = yes } # North Transylvania
+				83 = { controls_or_subject_of = yes } # Crisana
+				84 = { controls_or_subject_of = yes } # Transylvania
+				82 = { controls_or_subject_of = yes } # Banat
+				81 = { controls_or_subject_of = yes } # Oltenia
+				46 = { controls_or_subject_of = yes } # Muntenia
+				971 = { controls_or_subject_of = yes } # Northern Dobruja
+				77 = { controls_or_subject_of = yes } # Dobruja
+				102 = { controls_or_subject_of = yes } # North Slovenia
+				853 = { controls_or_subject_of = yes } # Ljubljana
+				103 = { controls_or_subject_of = yes } # Dalmatia
+				109 = { controls_or_subject_of = yes } # Croatia
+				45 = { controls_or_subject_of = yes } # Vojvodina
+				764 = { controls_or_subject_of = yes } # West Banat
+				104 = { controls_or_subject_of = yes } # Bosnia
+				804 = { controls_or_subject_of = yes } # Herzegovina
+				105 = { controls_or_subject_of = yes } # Montenegro
+				107 = { controls_or_subject_of = yes } # Serbia
+				108 = { controls_or_subject_of = yes } # Morava
+				802 = { controls_or_subject_of = yes } # Kosovo
+				803 = { controls_or_subject_of = yes } # Southern Serbia
+				970 = { controls_or_subject_of = yes } # Debar
+				106 = { controls_or_subject_of = yes } # Macedonia
+				934 = { controls_or_subject_of = yes } # Schkoder
+				44 = { controls_or_subject_of = yes } # Tirana
+				805 = { controls_or_subject_of = yes } # Northern Epirus
+				48 = { controls_or_subject_of = yes } # Sofia
+				801 = { controls_or_subject_of = yes } # Moesia
+				211 = { controls_or_subject_of = yes } # Burgas
+				212 = { controls_or_subject_of = yes } # Plovdiv
+			}
+		}
+
+		days_remove = 70
+
+		remove_effect = {
+
+			custom_effect_tooltip = BEL_federation_annex_members_tt
+			hidden_effect = {
+				every_subject_country = {
+					limit = {
+						any_controlled_state = {
+							OR = {
+								state = 155
+								state = 974
+								state = 973
+								state = 43
+								state = 154
+								state = 80
+								state = 78
+								state = 766
+								state = 79
+								state = 76
+								state = 83
+								state = 84
+								state = 82
+								state = 81
+								state = 46
+								state = 971
+								state = 77
+								state = 102
+								state = 853
+								state = 103
+								state = 109
+								state = 45
+								state = 764
+								state = 104
+								state = 804
+								state = 105
+								state = 107
+								state = 108
+								state = 802
+								state = 803
+								state = 970
+								state = 106
+								state = 934
+								state = 44
+								state = 805
+								state = 48
+								state = 801
+								state = 211
+								state = 212
+							}
+						}
+					}
+					ROOT = {
+						annex_country = { target = PREV transfer_troops = yes }
+					}
+				}
+			}
+
+			custom_effect_tooltip = gain_cores_on_the_highlighted_states_tt
+			hidden_effect = {
+				every_state = {
+					limit = {
+						OR = {
+							state = 155 # North Transdanubia
+							state = 974 # South Transdanubia
+							state = 973 # Bacs-Bodrog
+							state = 43 # Northern Hungary
+							state = 154 # Alföld
+							state = 80 # Bucovina
+							state = 78 # Besarabia
+							state = 766 # Southern Besarabia
+							state = 79 # Moldova
+							state = 76 # North Transylvania
+							state = 83 # Crisana
+							state = 84 # Transylvania
+							state = 82 # Banat
+							state = 81 # Oltenia
+							state = 46 # Muntenia
+							state = 971 # Northern Dobruja
+							state = 77 # Dobruja
+							state = 102 # North Slovenia
+							state = 853 # Ljubljana
+							state = 103 # Dalmatia
+							state = 109 # Croatia
+							state = 45 # Vojvodina
+							state = 764 # West Banat
+							state = 104 # Bosnia
+							state = 804 # Herzegovina
+							state = 105 # Montenegro
+							state = 107 # Serbia
+							state = 108 # Morava
+							state = 802 # Kosovo
+							state = 803 # Southern Serbia
+							state = 970 # Debar
+							state = 106 # Macedonia
+							state = 934 # Schkoder
+							state = 44 # Tirana
+							state = 805 # Northern Epirus
+							state = 48 # Sofia
+							state = 801 # Moesia
+							state = 211 # Burgas
+							state = 212 # Plovdiv
+						}
+					}
+					add_core_of = ROOT
+				}
+			}
+			 
+			hidden_effect = { 
+				set_global_flag = EU_integrated_balkan_states_flag
+			}
+
+		}
+
+		ai_will_do = {
+			base = 200
+		}
+	}
+
+	BEL_EU_aegean_expansion_decision = {
+
+		icon = GFX_decision_generic_nationalism
+
+		cost = 100
+
+		on_map_mode = decision_view_only
+
+		highlight_states = { 
+			highlight_state_targets = {
+				state = 185 # Epirus
+				state = 186 # Pelopennese
+				state = 47 # Attica
+				state = 731 # Central Macedonia
+				state = 184 # Thrace
+				state = 341 # Edirne
+				state = 797 # Istanbul
+				state = 187 # Aegean Islands
+				state = 182 # Crete
+				state = 164 # Dodecanese Islands
+			}
+		}
+
+		allowed = {
+			OR = {
+				original_tag = BEL
+				original_tag = AUS
+				original_tag = HOL
+			}
+		}
+
+		visible = { 
+			NOT = { has_global_flag = EU_integrated_aegean_states_flag }
+			has_country_flag = EU_formed_by_federation_flag
+		}
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = BEL_federation_controls_all_highlighted_states_tt
+				185 = { controls_or_subject_of = yes } # Epirus
+				186 = { controls_or_subject_of = yes } # Pelopennese
+				47 = { controls_or_subject_of = yes } # Attica
+				731 = { controls_or_subject_of = yes } # Central Macedonia
+				184 = { controls_or_subject_of = yes } # Thrace
+				341 = { controls_or_subject_of = yes } # Edirne
+				797 = { controls_or_subject_of = yes } # Istanbul
+				187 = { controls_or_subject_of = yes } # Aegean Islands
+				182 = { controls_or_subject_of = yes } # Crete
+				164 = { controls_or_subject_of = yes } # Dodecanese Islands
+			}
+		}
+
+		days_remove = 70
+
+		remove_effect = {
+
+			custom_effect_tooltip = BEL_federation_annex_members_tt
+			hidden_effect = {
+				every_subject_country = {
+					limit = {
+						any_controlled_state = {
+							OR = {
+								state = 185
+								state = 186
+								state = 47
+								state = 731
+								state = 184
+								state = 341
+								state = 797
+								state = 187
+								state = 182
+								state = 164
+							}
+						}
+					}
+					ROOT = {
+						annex_country = { target = PREV transfer_troops = yes }
+					}
+				}
+			}
+
+			custom_effect_tooltip = gain_cores_on_the_highlighted_states_tt
+			hidden_effect = {
+				every_state = {
+					limit = {
+						OR = {
+							state = 185 # Epirus
+							state = 186 # Pelopennese
+							state = 47 # Attica
+							state = 731 # Central Macedonia
+							state = 184 # Thrace
+							state = 341 # Edirne
+							state = 797 # Istanbul
+							state = 187 # Aegean Islands
+							state = 182 # Crete
+							state = 164 # Dodecanese Islands
+						}
+					}
+					add_core_of = ROOT
+				}
+			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+
+			# Cyprus
+			183 = {
+				add_core_of = ROOT
+			}
+			 
+			hidden_effect = { 
+				set_global_flag = EU_integrated_aegean_states_flag
+			}
+
+		}
+
+		ai_will_do = {
+			base = 200
+		}
+	}
+
+	BEL_EU_belarusian_and_ukrainian_expansion_decision = {
+
+		icon = GFX_decision_generic_nationalism
+
+		cost = 100
+
+		on_map_mode = decision_view_only
+
+		highlight_states = { 
+			highlight_state_targets = {
+				state = 207 # Vitebsk
+				state = 206 # Minsk
+				state = 204 # Bobrysk
+				state = 194 # Mozyr
+				state = 241 # Gomel
+				state = 199 # Proskuriv
+				state = 201 # Zhytomyr
+				state = 198 # Vinnytsia
+				state = 202 # Kyiv
+				state = 193 # Chernihiv
+				state = 203 # Cherkasy
+				state = 834 # Balta-Tiraspol
+				state = 192 # Odessa
+				state = 197 # Mykholaiv
+				state = 259 # Poltava
+				state = 225 # Sumy
+				state = 226 # Dnipropetrovsk
+				state = 196 # Kharkiv
+				state = 200 # Zaporizhia
+				state = 221 # Kharkiv
+				state = 227 # Donetsk
+				state = 228 # Luhansk
+				state = 137 # Crimea
+			}
+		}
+
+		allowed = {
+			OR = {
+				original_tag = BEL
+				original_tag = AUS
+				original_tag = HOL
+			}
+		}
+
+		visible = { 
+			NOT = { has_global_flag = EU_integrated_ukrainian_states_flag }
+			has_country_flag = EU_formed_by_federation_flag
+		}
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = BEL_federation_controls_all_highlighted_states_tt
+				207 = { controls_or_subject_of = yes } # Vitebsk
+				206 = { controls_or_subject_of = yes } # Minsk
+				204 = { controls_or_subject_of = yes } # Bobrysk
+				194 = { controls_or_subject_of = yes } # Mozyr
+				241 = { controls_or_subject_of = yes } # Gomel
+				199 = { controls_or_subject_of = yes } # Proskuriv
+				201 = { controls_or_subject_of = yes } # Zhytomyr
+				198 = { controls_or_subject_of = yes } # Vinnytsia
+				202 = { controls_or_subject_of = yes } # Kyiv
+				193 = { controls_or_subject_of = yes } # Chernihiv
+				203 = { controls_or_subject_of = yes } # Cherkasy
+				834 = { controls_or_subject_of = yes } # Balta-Tiraspol
+				192 = { controls_or_subject_of = yes } # Odessa
+				197 = { controls_or_subject_of = yes } # Mykholaiv
+				259 = { controls_or_subject_of = yes } # Poltava
+				225 = { controls_or_subject_of = yes } # Sumy
+				226 = { controls_or_subject_of = yes } # Dnipropetrovsk
+				196 = { controls_or_subject_of = yes } # Kharkiv
+				200 = { controls_or_subject_of = yes } # Zaporizhia
+				221 = { controls_or_subject_of = yes } # Kharkiv
+				227 = { controls_or_subject_of = yes } # Donetsk
+				228 = { controls_or_subject_of = yes } # Luhansk
+				137 = { controls_or_subject_of = yes } # Crimea
+			}
+		}
+
+		days_remove = 70
+
+		remove_effect = {
+
+			custom_effect_tooltip = BEL_federation_annex_members_tt
+			hidden_effect = {
+				every_subject_country = {
+					limit = {
+						any_controlled_state = {
+							OR = {
+								state = 207
+								state = 206
+								state = 204
+								state = 194
+								state = 241
+								state = 199
+								state = 201
+								state = 198
+								state = 202
+								state = 193
+								state = 203
+								state = 834
+								state = 192
+								state = 197
+								state = 259
+								state = 225
+								state = 226
+								state = 196
+								state = 200
+								state = 221
+								state = 227
+								state = 228
+								state = 137
+							}
+						}
+					}
+					ROOT = {
+						annex_country = { target = PREV transfer_troops = yes }
+					}
+				}
+			}
+
+			custom_effect_tooltip = gain_cores_on_the_highlighted_states_tt
+			hidden_effect = {
+				every_state = {
+					limit = {
+						OR = {
+							state = 207 # Vitebsk
+							state = 206 # Minsk
+							state = 204 # Bobrysk
+							state = 194 # Mozyr
+							state = 241 # Gomel
+							state = 199 # Proskuriv
+							state = 201 # Zhytomyr
+							state = 198 # Vinnytsia
+							state = 202 # Kyiv
+							state = 193 # Chernihiv
+							state = 203 # Cherkasy
+							state = 834 # Balta-Tiraspol
+							state = 192 # Odessa
+							state = 197 # Mykholaiv
+							state = 259 # Poltava
+							state = 225 # Sumy
+							state = 226 # Dnipropetrovsk
+							state = 196 # Kharkiv
+							state = 200 # Zaporizhia
+							state = 221 # Kharkiv
+							state = 227 # Donetsk
+							state = 228 # Luhansk
+							state = 137 # Crimea
+						}
+					}
+					add_core_of = ROOT
+				}
+			}
+			 
+			hidden_effect = { 
+				set_global_flag = EU_integrated_ukrainian_states_flag
+			}
+
+		}
+
+		ai_will_do = {
+			base = 200
+		}
+	}
+
+	BEL_EU_caucasian_expansion_decision = {
+
+		icon = GFX_decision_generic_nationalism
+
+		cost = 100
+
+		on_map_mode = decision_view_only
+
+		highlight_states = { 
+			highlight_state_targets = {
+				state = 233 # Sochi
+				state = 827 # Kabardino-Balkaria
+				state = 828 # North Ossetia
+				state = 821 # Chechnya
+				state = 232 # Dagestan
+				state = 826 # Abkhazia
+				state = 231 # Georgia
+				state = 230 # Armenia
+				state = 229 # Azerbaijan
+			}
+		}
+
+		allowed = {
+			OR = {
+				original_tag = BEL
+				original_tag = AUS
+				original_tag = HOL
+			}
+		}
+
+		visible = { 
+			NOT = { has_global_flag = EU_integrated_caucasian_states_flag }
+			has_country_flag = EU_formed_by_federation_flag
+		}
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = BEL_federation_controls_all_highlighted_states_tt
+				233 = { controls_or_subject_of = yes } # Sochi
+				827 = { controls_or_subject_of = yes } # Kabardino-Balkaria
+				828 = { controls_or_subject_of = yes } # North Ossetia
+				821 = { controls_or_subject_of = yes } # Chechnya
+				232 = { controls_or_subject_of = yes } # Dagestan
+				826 = { controls_or_subject_of = yes } # Abkhazia
+				231 = { controls_or_subject_of = yes } # Georgia
+				230 = { controls_or_subject_of = yes } # Armenia
+				229 = { controls_or_subject_of = yes } # Azerbaijan
+			}
+		}
+
+		days_remove = 70
+
+		remove_effect = {
+
+			custom_effect_tooltip = BEL_federation_annex_members_tt
+			hidden_effect = {
+				every_subject_country = {
+					limit = {
+						any_controlled_state = {
+							OR = {
+								state = 233
+								state = 827
+								state = 828
+								state = 821
+								state = 232
+								state = 826
+								state = 231
+								state = 230
+								state = 229
+							}
+						}
+					}
+					ROOT = {
+						annex_country = { target = PREV transfer_troops = yes }
+					}
+				}
+			}
+
+			custom_effect_tooltip = gain_cores_on_the_highlighted_states_tt
+			hidden_effect = {
+				every_state = {
+					limit = {
+						OR = {
+							state = 233 # Sochi
+							state = 827 # Kabardino-Balkaria
+							state = 828 # North Ossetia
+							state = 821 # Chechnya
+							state = 232 # Dagestan
+							state = 826 # Abkhazia
+							state = 231 # Georgia
+							state = 230 # Armenia
+							state = 229 # Azerbaijan
+						}
+					}
+					add_core_of = ROOT
+				}
+			}
+			 
+			hidden_effect = { 
+				set_global_flag = EU_integrated_caucasian_states_flag
+			}
+
+		}
+
+		ai_will_do = {
+			base = 200
+		}
+	}
+
+	BEL_EU_kuban_expansion_decision = {
+
+		icon = GFX_decision_generic_nationalism
+
+		cost = 100
+
+		on_map_mode = decision_view_only
+
+		highlight_states = { 
+			highlight_state_targets = {
+				state = 235 # Stavropol
+				state = 234 # Krasnodar
+				state = 218 # Rostov
+				state = 238 # Volgodonsk
+				state = 245 # Millerovo
+				state = 237 # Kalmykia
+				state = 217 # Stalingrad
+				state = 236 # Astrakhan
+				state = 265 # Mikhaylovka
+				state = 239 # Saratov
+				state = 829 # Volga Germany
+				state = 401 # Balakovo
+				state = 407 # Uralsk
+				state = 406 # Guryev
+			}
+		}
+
+		allowed = {
+			OR = {
+				original_tag = BEL
+				original_tag = AUS
+				original_tag = HOL
+			}
+		}
+
+		visible = { 
+			NOT = { has_global_flag = EU_integrated_kuban_states_flag }
+			has_country_flag = EU_formed_by_federation_flag
+		}
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = BEL_federation_controls_all_highlighted_states_tt
+				235 = { controls_or_subject_of = yes } # Stavropol
+				234 = { controls_or_subject_of = yes } # Krasnodar
+				218 = { controls_or_subject_of = yes } # Rostov
+				238 = { controls_or_subject_of = yes } # Volgodonsk
+				245 = { controls_or_subject_of = yes } # Millerovo
+				237 = { controls_or_subject_of = yes } # Kalmykia
+				217 = { controls_or_subject_of = yes } # Stalingrad
+				236 = { controls_or_subject_of = yes } # Astrakhan
+				265 = { controls_or_subject_of = yes } # Mikhaylovka
+				239 = { controls_or_subject_of = yes } # Saratov
+				829 = { controls_or_subject_of = yes } # Volga Germany
+				401 = { controls_or_subject_of = yes } # Balakovo
+				407 = { controls_or_subject_of = yes } # Uralsk
+				406 = { controls_or_subject_of = yes } # Guryev
+			}
+		}
+
+		days_remove = 70
+
+		remove_effect = {
+
+			custom_effect_tooltip = BEL_federation_annex_members_tt
+			hidden_effect = {
+				every_subject_country = {
+					limit = {
+						any_controlled_state = {
+							OR = {
+								state = 235
+								state = 234
+								state = 218
+								state = 238
+								state = 245
+								state = 237
+								state = 217
+								state = 236
+								state = 265
+								state = 239
+								state = 829
+								state = 401
+								state = 407
+								state = 406
+							}
+						}
+					}
+					ROOT = {
+						annex_country = { target = PREV transfer_troops = yes }
+					}
+				}
+			}
+
+			custom_effect_tooltip = gain_cores_on_the_highlighted_states_tt
+			hidden_effect = {
+				every_state = {
+					limit = {
+						OR = {
+							state = 235 # Stavropol
+							state = 234 # Krasnodar
+							state = 218 # Rostov
+							state = 238 # Volgodonsk
+							state = 245 # Millerovo
+							state = 237 # Kalmykia
+							state = 217 # Stalingrad
+							state = 236 # Astrakhan
+							state = 265 # Mikhaylovka
+							state = 239 # Saratov
+							state = 829 # Volga Germany
+							state = 401 # Balakovo
+							state = 407 # Uralsk
+							state = 406 # Guryev
+						}
+					}
+					add_core_of = ROOT
+				}
+			}
+			 
+			hidden_effect = { 
+				set_global_flag = EU_integrated_kuban_states_flag
+			}
+
+		}
+
+		ai_will_do = {
+			base = 200
+		}
+	}
+
+	BEL_EU_russian_expansion_decision = {
+
+		icon = GFX_decision_generic_nationalism
+
+		cost = 150
+
+		on_map_mode = decision_view_only
+
+		highlight_states = { 
+			highlight_state_targets = {
+				state = 195 # Leningrad
+				state = 208 # Luga
+				state = 244 # Volkhov
+				state = 263 # Novgorod
+				state = 209 # Pskov
+				state = 210 # Nevel
+				state = 246 # Rhzev
+				state = 264 # Tikhvin
+				state = 247 # Kalinin
+				state = 248 # Yaroslavl
+				state = 351 # Vologda
+				state = 879 # Kargopol
+				state = 880 # Kotlas
+				state = 214 # Arkhangelsk
+				state = 825 # Nenetsi
+				state = 262 # Pechora
+				state = 397 # Syktyvkar
+				state = 400 # Kirov
+				state = 581 # Northern Urals
+				state = 398 # Perm
+				state = 242 # Smolensk
+				state = 243 # Roslavl
+				state = 224 # Bryansk
+				state = 222 # Orel
+				state = 220 # Kursk
+				state = 240 # Belgorod
+				state = 260 # Voronezh
+				state = 258 # Lipetsk
+				state = 257 # Tambov
+				state = 205 # Kaluga
+				state = 223 # Tula
+				state = 254 # Ryazan
+				state = 219 # Moscow
+				state = 253 # Ivanovo
+				state = 255 # Penza
+				state = 252 # Gorky
+				state = 250 # Ulyanosky
+				state = 251 # Kuybyshev
+				state = 652 # Orenburg
+				state = 651 # Ufa
+				state = 399 # Udmurtia
+				state = 249 # kazan
+				state = 833 # Mari El
+				state = 256 # Chuvashia
+				state = 573 # Zlatoust
+			}
+		}
+
+		allowed = {
+			OR = {
+				original_tag = BEL
+				original_tag = AUS
+				original_tag = HOL
+			}
+		}
+
+		visible = { 
+			NOT = { has_global_flag = EU_integrated_russian_states_flag }
+			has_country_flag = EU_formed_by_federation_flag
+		}
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = BEL_federation_controls_all_highlighted_states_tt
+				195 = { controls_or_subject_of = yes } # Leningrad
+				208 = { controls_or_subject_of = yes } # Luga
+				244 = { controls_or_subject_of = yes } # Volkhov
+				263 = { controls_or_subject_of = yes } # Novgorod
+				209 = { controls_or_subject_of = yes } # Pskov
+				210 = { controls_or_subject_of = yes } # Nevel
+				246 = { controls_or_subject_of = yes } # Rhzev
+				264 = { controls_or_subject_of = yes } # Tikhvin
+				247 = { controls_or_subject_of = yes } # Kalinin
+				248 = { controls_or_subject_of = yes } # Yaroslavl
+				351 = { controls_or_subject_of = yes } # Vologda
+				879 = { controls_or_subject_of = yes } # Kargopol
+				880 = { controls_or_subject_of = yes } # Kotlas
+				214 = { controls_or_subject_of = yes } # Arkhangelsk
+				825 = { controls_or_subject_of = yes } # Nenetsi
+				262 = { controls_or_subject_of = yes } # Pechora
+				397 = { controls_or_subject_of = yes } # Syktyvkar
+				400 = { controls_or_subject_of = yes } # Kirov
+				581 = { controls_or_subject_of = yes } # Northern Urals
+				398 = { controls_or_subject_of = yes } # Perm
+				242 = { controls_or_subject_of = yes } # Smolensk
+				243 = { controls_or_subject_of = yes } # Roslavl
+				224 = { controls_or_subject_of = yes } # Bryansk
+				222 = { controls_or_subject_of = yes } # Orel
+				220 = { controls_or_subject_of = yes } # Kursk
+				240 = { controls_or_subject_of = yes } # Belgorod
+				260 = { controls_or_subject_of = yes } # Voronezh
+				258 = { controls_or_subject_of = yes } # Lipetsk
+				257 = { controls_or_subject_of = yes } # Tambov
+				205 = { controls_or_subject_of = yes } # Kaluga
+				223 = { controls_or_subject_of = yes } # Tula
+				254 = { controls_or_subject_of = yes } # Ryazan
+				219 = { controls_or_subject_of = yes } # Moscow
+				253 = { controls_or_subject_of = yes } # Ivanovo
+				255 = { controls_or_subject_of = yes } # Penza
+				252 = { controls_or_subject_of = yes } # Gorky
+				250 = { controls_or_subject_of = yes } # Ulyanosky
+				251 = { controls_or_subject_of = yes } # Kuybyshev
+				652 = { controls_or_subject_of = yes } # Orenburg
+				651 = { controls_or_subject_of = yes } # Ufa
+				399 = { controls_or_subject_of = yes } # Udmurtia
+				249 = { controls_or_subject_of = yes } # kazan
+				833 = { controls_or_subject_of = yes } # Mari El
+				256 = { controls_or_subject_of = yes } # Chuvashia
+				573 = { controls_or_subject_of = yes } # Zlatoust
+			}
+		}
+
+		days_remove = 70
+
+		remove_effect = {
+
+			custom_effect_tooltip = BEL_federation_annex_members_tt
+			hidden_effect = {
+				every_subject_country = {
+					limit = {
+						any_controlled_state = {
+							OR = {
+								state = 195
+								state = 208
+								state = 244
+								state = 263
+								state = 209
+								state = 210
+								state = 246
+								state = 264
+								state = 247
+								state = 248
+								state = 351
+								state = 879
+								state = 880
+								state = 214
+								state = 825
+								state = 262
+								state = 397
+								state = 400
+								state = 581
+								state = 398
+								state = 242
+								state = 243
+								state = 224
+								state = 222
+								state = 220
+								state = 240
+								state = 260
+								state = 258
+								state = 257
+								state = 205
+								state = 223
+								state = 254
+								state = 219
+								state = 253
+								state = 255
+								state = 252
+								state = 250
+								state = 251
+								state = 652
+								state = 651
+								state = 399
+								state = 249
+								state = 833
+								state = 256
+								state = 573
+							}
+						}
+					}
+					ROOT = {
+						annex_country = { target = PREV transfer_troops = yes }
+					}
+				}
+			}
+
+			custom_effect_tooltip = gain_cores_on_the_highlighted_states_tt
+			hidden_effect = {
+				every_state = {
+					limit = {
+						OR = {
+							state = 195 # Leningrad
+							state = 208 # Luga
+							state = 244 # Volkhov
+							state = 263 # Novgorod
+							state = 209 # Pskov
+							state = 210 # Nevel
+							state = 246 # Rhzev
+							state = 264 # Tikhvin
+							state = 247 # Kalinin
+							state = 248 # Yaroslavl
+							state = 351 # Vologda
+							state = 879 # Kargopol
+							state = 880 # Kotlas
+							state = 214 # Arkhangelsk
+							state = 825 # Nenetsi
+							state = 262 # Pechora
+							state = 397 # Syktyvkar
+							state = 400 # Kirov
+							state = 581 # Northern Urals
+							state = 398 # Perm
+							state = 242 # Smolensk
+							state = 243 # Roslavl
+							state = 224 # Bryansk
+							state = 222 # Orel
+							state = 220 # Kursk
+							state = 240 # Belgorod
+							state = 260 # Voronezh
+							state = 258 # Lipetsk
+							state = 257 # Tambov
+							state = 205 # Kaluga
+							state = 223 # Tula
+							state = 254 # Ryazan
+							state = 219 # Moscow
+							state = 253 # Ivanovo
+							state = 255 # Penza
+							state = 252 # Gorky
+							state = 250 # Ulyanosky
+							state = 251 # Kuybyshev
+							state = 652 # Orenburg
+							state = 651 # Ufa
+							state = 399 # Udmurtia
+							state = 249 # kazan
+							state = 833 # Mari El
+							state = 256 # Chuvashia
+							state = 573 # Zlatoust
+						}
+					}
+					add_core_of = ROOT
+				}
+			}
+			 
+			hidden_effect = { 
+				set_global_flag = EU_integrated_russian_states_flag
+			}
+
+		}
+
+		ai_will_do = {
+			base = 200
+		}
+	}
+
 }
 
 BEL_cores_in_gallic_france_cat = {

@@ -292,8 +292,8 @@ country_event = {
 	trigger = {
 		has_country_flag = promised_help_nationalist_spain
 		SPR = { has_civil_war = yes }
-		any_other_country = {
-			original_tag = SPR
+		any_other_country_with_original_tag_of = {
+			target = {SPR}
 			has_government = fascism
 			ROOT = { is_lend_leasing = PREV }
 		}

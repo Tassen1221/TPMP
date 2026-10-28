@@ -930,8 +930,8 @@ focus_tree = {
 				has_global_flag = scw_over
 			}
 
-			any_country = {
-				original_tag = SPR 
+			any_country_with_original_tag = {
+				original_tag_to_check = SPR # Add other triggers as needed
 				exists = yes
 				OR = {
 					has_government = democratic
@@ -1025,8 +1025,8 @@ focus_tree = {
 		available = {
 			has_global_flag = scw_over
 
-			any_country = {
-				original_tag = SPR
+			any_country_with_original_tag = {
+				original_tag_to_check = SPR # Add other triggers as needed
 				OR = {
 					has_government = democratic
 					has_government = communism
@@ -1074,8 +1074,8 @@ focus_tree = {
 			has_country_flag = AUS_volunteer_effort_SPR_flag
 			has_global_flag = scw_over
 
-			any_country = {
-				original_tag = SPR
+			any_country_with_original_tag = {
+				original_tag_to_check = SPR # Add other triggers as needed
 				exists = yes
 				OR = {
 					has_government = democratic
@@ -3649,10 +3649,10 @@ focus_tree = {
 		available = {
 			is_faction_leader = yes
 			has_government = democratic
-			any_country = {
-				original_tag = ITA
-				NOT = { is_in_faction_with = ROOT }
+			any_country_with_original_tag = {
+				original_tag_to_check = ITA
 				exists = yes
+				NOT = { is_in_faction_with = ROOT }
 				has_government = fascism
 			}
 		}
@@ -4879,13 +4879,13 @@ focus_tree = {
 		completion_reward = {
 			IF = {
 				limit = {
-					any_country = {
-						original_tag = SOV
+					any_country_with_original_tag = {
+						original_tag_to_check = SOV
+						is_in_faction = no
 						OR = {
 							has_government = democratic
 							has_government = neutrality
 						}
-						is_in_faction = no
 					}	
 				}
 				SOV = {
@@ -4898,13 +4898,13 @@ focus_tree = {
 
 			IF = {
 				limit = {
-					any_country = {
-						original_tag = GER
+					any_country_with_original_tag = {
+						original_tag_to_check = GER
+						is_in_faction = no
 						OR = {
 							has_government = democratic
 							has_government = neutrality
 						}
-						is_in_faction = no
 					}	
 				}
 				GER = {
@@ -4936,9 +4936,7 @@ focus_tree = {
 
 		available = {
 			is_faction_leader = yes
-			any_country = {
-				is_in_faction_with = ROOT
-			}
+			num_faction_members > 1
 		}
 		
 		bypass = {
@@ -4999,9 +4997,7 @@ focus_tree = {
 
 		available = {
 			is_faction_leader = yes
-			any_country = {
-				is_in_faction_with = ROOT
-			}
+			num_faction_members > 1
 		}
 		
 		bypass = {
@@ -5035,9 +5031,7 @@ focus_tree = {
 
 		available = {
 			is_faction_leader = yes
-			any_country = {
-				is_in_faction_with = ROOT
-			}
+			num_faction_members > 1
 		}
 		
 		bypass = {
@@ -6355,28 +6349,28 @@ focus_tree = {
 		}
 
 		available = {
+			is_in_faction = no
+			is_subject = no
 			OR = {
 				GER = {
 					exists = yes
+					is_faction_leader = yes
 					OR = {
 						has_government = fascism
 						has_government = neutrality
 					}
-					is_faction_leader = yes
 					NOT = { has_war_with = ROOT }
 				}
 				ITA = {
 					exists = yes
+					is_faction_leader = yes
 					OR = {
 						has_government = fascism
 						has_government = neutrality
 					}
-					is_faction_leader = yes
 					NOT = { has_war_with = ROOT }
 				}
 			}
-			is_in_faction = no
-			is_subject = no
 		}
 		
 		bypass = {
@@ -6408,11 +6402,11 @@ focus_tree = {
 					AND = {
 						GER = {
 							exists = yes
+							is_faction_leader = yes
 							OR = {
 								has_government = fascism
 								has_government = neutrality
 							}
-							is_faction_leader = yes
 						}
 					}
 				}
@@ -6433,11 +6427,11 @@ focus_tree = {
 					AND = {
 						ITA = {
 							exists = yes
+							is_faction_leader = yes
 							OR = {
 								has_government = fascism
 								has_government = neutrality
 							}
-							is_faction_leader = yes
 						}
 					}
 				}
@@ -6721,12 +6715,10 @@ focus_tree = {
 							character = AUS_ernst_rudiger_starhemberg
 						}
 						FRA = {
-							OR = {
-								has_government = neutrality
-								has_government = democratic
-								has_government = fascism
-							}
 							is_in_faction = no
+							NOT = {
+								has_government = communism
+							}
 						}
 					}
 					custom_effect_tooltip = AUS_a_royal_alliance_tt2
@@ -7140,15 +7132,19 @@ focus_tree = {
 
 		available = {
 			OR = {
-				NOT = {
-					controls_state = 66 #niederschlesien
-					controls_state = 67 #Oberschlesien
+				66 = {
+					controller = {
+						NOT = { 
+							tag = ROOT 
+							has_war_with = ROOT
+							is_in_faction_with = ROOT
+						}
+					}
 				}
-				AND = {
-					any_country = {
-						controls_state = 66 #niederschlesien
-						controls_state = 67 #Oberschlesien
-						NOT = {
+				67 = {
+					controller = {
+						NOT = { 
+							tag = ROOT 
 							has_war_with = ROOT
 							is_in_faction_with = ROOT
 						}
@@ -7199,21 +7195,23 @@ focus_tree = {
 
 			ELSE_IF= {
 				limit = {
-					any_country = {
+					any_other_country = {
 						OR = {
 							controls_state = 66 #niederschlesien
 							controls_state = 67 #Oberschlesien
 						}
-						NOT = { original_tag = AUS}
 					}
 				}
-				every_country = {
+				every_other_country = {
 					limit = {
 						OR = {
 							controls_state = 66 #niederschlesien
 							controls_state = 67 #Oberschlesien
 						}
-						NOT = { original_tag = AUS}
+						NOT = {
+							has_war_with = ROOT
+							is_in_faction_with = ROOT
+						}
 					}
 
 					country_event = {
@@ -7486,11 +7484,11 @@ focus_tree = {
 		bypass = {
 			ENG = {
 				OR = {
+					exists = no
 					has_guaranteed = ROOT
 					has_non_aggression_pact_with = ROOT
 					is_in_faction_with  = ROOT
 					is_subject = yes
-					exists = no
 					has_capitulated = yes
 				}
 				
@@ -7498,22 +7496,22 @@ focus_tree = {
 
 			FRA = {
 				OR = {
+					exists = no
 					has_guaranteed = ROOT
 					has_non_aggression_pact_with = ROOT
 					is_in_faction_with  = ROOT
 					is_subject = yes
-					exists = no
 					has_capitulated = yes
 				}
 			}
 
 			USA = {
 				OR = {
+					exists = no
 					has_guaranteed = ROOT
 					has_non_aggression_pact_with = ROOT
 					is_in_faction_with  = ROOT
 					is_subject = yes
-					exists = no
 					has_capitulated = yes
 				}
 			}
@@ -7707,17 +7705,21 @@ focus_tree = {
 
 		available = {
 			ITA = {
-				OR = {
-					controls_state = 39
-					any_subject_country = {
-						controls_state = 39
+				39 = {
+					controller = {
+						OR = {
+							tag = ITA
+							is_subject_of = ITA
+						}
 					}
 				}
 
-				OR = {
-					controls_state = 850
-					any_subject_country = {
-						controls_state = 850
+				850 = {
+					controller = {
+						OR = {
+							tag = ITA
+							is_subject_of = ITA
+						}
 					}
 				}
 				
@@ -7892,11 +7894,11 @@ focus_tree = {
 		}
 
 		available = {
+			is_subject = no
 			NOT = {
 				has_idea = AUS_treaty_of_saint_germain_en_laye
 				has_war_with = HUN
 			}
-			is_subject = no
 			HUN = {
 				exists = yes
 				is_subject = no
@@ -7908,11 +7910,11 @@ focus_tree = {
 				OR = {
 					is_subject = yes 
 					exists = no
+					is_in_faction_with = ROOT
+					has_war_with = ROOT
 					all_core_state = {
 						is_fully_controlled_by = AUS
 					}
-					is_in_faction_with = ROOT
-					has_war_with = ROOT
 				}
 			}
 		}
@@ -8017,10 +8019,7 @@ focus_tree = {
 					69 = { #Sudetenland
 						OR = {
 							is_fully_controlled_by = ROOT
-							any_country = {
-								is_in_faction_with = ROOT
-								controls_state = 69
-							}
+							controller = { is_in_faction_with = ROOT}
 							OWNER = {
 								has_war_with = ROOT
 							}
@@ -8030,10 +8029,7 @@ focus_tree = {
 					972 = { #South Sudetenland
 						OR = {
 							is_fully_controlled_by = ROOT
-							any_country = {
-								is_in_faction_with = ROOT
-								controls_state = 972
-							}
+							controller = { is_in_faction_with = ROOT}
 							OWNER = {
 								has_war_with = ROOT
 							}
@@ -8043,10 +8039,7 @@ focus_tree = {
 					9 = { #Bohemia
 						OR = {
 							is_fully_controlled_by = ROOT
-							any_country = {
-								is_in_faction_with = ROOT
-								controls_state = 9
-							}
+							controller = { is_in_faction_with = ROOT}
 							OWNER = {
 								has_war_with = ROOT
 							}
@@ -8056,10 +8049,7 @@ focus_tree = {
 					75 = { #Moravia
 						OR = {
 							is_fully_controlled_by = ROOT
-							any_country = {
-								is_in_faction_with = ROOT
-								controls_state = 75
-							}
+							controller = { is_in_faction_with = ROOT}
 							OWNER = {
 								has_war_with = ROOT
 							}
@@ -8069,10 +8059,7 @@ focus_tree = {
 					74 = { #Eastern Sudetenland
 						OR = {
 							is_fully_controlled_by = ROOT
-							any_country = {
-								is_in_faction_with = ROOT
-								controls_state = 74
-							}
+							controller = { is_in_faction_with = ROOT}
 							OWNER = {
 								has_war_with = ROOT
 							}
@@ -8082,10 +8069,7 @@ focus_tree = {
 					72 = { #Zaolzie
 						OR = {
 							is_fully_controlled_by = ROOT
-							any_country = {
-								is_in_faction_with = ROOT
-								controls_state = 72
-							}
+							controller = { is_in_faction_with = ROOT}
 							OWNER = {
 								has_war_with = ROOT
 							}
@@ -8195,10 +8179,7 @@ focus_tree = {
 			102 = { #North Slovenia
 				OR = {
 					is_fully_controlled_by = ROOT
-					any_country = {
-						is_in_faction_with = ROOT
-						controls_state = 102
-					}
+					controller = { is_in_faction_with = ROOT}
 					OWNER = {
 						has_war_with = ROOT
 					}
@@ -8208,10 +8189,7 @@ focus_tree = {
 			109 = { #Croatia
 				OR = {
 					is_fully_controlled_by = ROOT
-					any_country = {
-						is_in_faction_with = ROOT
-						controls_state = 103
-					}
+					controller = { is_in_faction_with = ROOT}
 					OWNER = {
 						has_war_with = ROOT
 					}
@@ -8221,10 +8199,7 @@ focus_tree = {
 			853 = { #Ljubljana
 				OR = {
 					is_fully_controlled_by = ROOT
-					any_country = {
-						is_in_faction_with = ROOT
-						controls_state = 853
-					}
+					controller = { is_in_faction_with = ROOT}
 					OWNER = {
 						has_war_with = ROOT
 					}
@@ -8392,10 +8367,7 @@ focus_tree = {
 					934 = { #Shkodër
 						OR = {
 							is_fully_controlled_by = ROOT
-							any_country = {
-								is_in_faction_with = ROOT
-								controls_state = 934
-							}
+							controller = { is_in_faction_with = ROOT}
 							OWNER = {
 								has_war_with = ROOT
 							}
@@ -8405,10 +8377,7 @@ focus_tree = {
 					44 = { #Central Albania
 						OR = {
 							is_fully_controlled_by = ROOT
-							any_country = {
-								is_in_faction_with = ROOT
-								controls_state = 44
-							}
+							controller = { is_in_faction_with = ROOT}
 							OWNER = {
 								has_war_with = ROOT
 							}
@@ -8418,10 +8387,7 @@ focus_tree = {
 					805 = { #Northern Epirus
 						OR = {
 							is_fully_controlled_by = ROOT
-							any_country = {
-								is_in_faction_with = ROOT
-								controls_state = 805
-							}
+							controller = { is_in_faction_with = ROOT}
 							OWNER = {
 								has_war_with = ROOT
 							}
@@ -8494,10 +8460,7 @@ focus_tree = {
 					88 = { #Krakow
 						OR = {
 							is_fully_controlled_by = ROOT
-							any_country = {
-								is_in_faction_with = ROOT
-								controls_state = 88
-							}
+							controller = { is_in_faction_with = ROOT}
 							OWNER = {
 								has_war_with = ROOT
 							}
@@ -8507,10 +8470,7 @@ focus_tree = {
 					89 = { #Stanislawow
 						OR = {
 							is_fully_controlled_by = ROOT
-							any_country = {
-								is_in_faction_with = ROOT
-								controls_state = 89
-							}
+							controller = { is_in_faction_with = ROOT}
 							OWNER = {
 								has_war_with = ROOT
 							}
@@ -8520,10 +8480,7 @@ focus_tree = {
 					91 = { #Lwow
 						OR = {
 							is_fully_controlled_by = ROOT
-							any_country = {
-								is_in_faction_with = ROOT
-								controls_state = 91
-							}
+							controller = { is_in_faction_with = ROOT}
 							OWNER = {
 								has_war_with = ROOT
 							}
@@ -8657,10 +8614,7 @@ focus_tree = {
 					76 = { #North Transylvania
 						OR = {
 							is_fully_controlled_by = ROOT
-							any_country = {
-								is_in_faction_with = ROOT
-								controls_state = 76
-							}
+							controller = { is_in_faction_with = ROOT}
 							OWNER = {
 								has_war_with = ROOT
 							}
@@ -8670,10 +8624,7 @@ focus_tree = {
 					83 = { #Crisana
 						OR = {
 							is_fully_controlled_by = ROOT
-							any_country = {
-								is_in_faction_with = ROOT
-								controls_state = 83
-							}
+							controller = { is_in_faction_with = ROOT}
 							OWNER = {
 								has_war_with = ROOT
 							}
@@ -8683,10 +8634,7 @@ focus_tree = {
 					84 = { #Transylvania
 						OR = {
 							is_fully_controlled_by = ROOT
-							any_country = {
-								is_in_faction_with = ROOT
-								controls_state = 84
-							}
+							controller = { is_in_faction_with = ROOT}
 							OWNER = {
 								has_war_with = ROOT
 							}
@@ -8696,10 +8644,7 @@ focus_tree = {
 					82 = { #Banat
 						OR = {
 							is_fully_controlled_by = ROOT
-							any_country = {
-								is_in_faction_with = ROOT
-								controls_state = 82
-							}
+							controller = { is_in_faction_with = ROOT}
 							OWNER = {
 								has_war_with = ROOT
 							}
@@ -8709,10 +8654,7 @@ focus_tree = {
 					80 = { #Bucovina
 						OR = {
 							is_fully_controlled_by = ROOT
-							any_country = {
-								is_in_faction_with = ROOT
-								controls_state = 80
-							}
+							controller = { is_in_faction_with = ROOT}
 							OWNER = {
 								has_war_with = ROOT
 							}
@@ -12518,8 +12460,9 @@ focus_tree = {
 							has_government = fascism
 							has_government = neutrality
 						}
-						any_country = {
-							original_tag = ITA
+
+						any_country_with_original_tag = {
+							original_tag_to_check = ITA # Add other triggers as needed
 							has_government = fascism
 						}
 					}
@@ -12533,8 +12476,8 @@ focus_tree = {
 				ELSE_IF = {
 					limit = { 
 						has_government = communism
-						any_country = {
-							original_tag = SOV
+						any_country_with_original_tag = {
+							original_tag_to_check = SOV # Add other triggers as needed
 							has_government = communism
 						}
 					}
@@ -12547,8 +12490,8 @@ focus_tree = {
 				ELSE_IF = {
 					limit = { 
 						has_government = democratic
-						any_country = {
-							original_tag = ENG
+						any_country_with_original_tag = {
+							original_tag_to_check = ENG
 							has_government = democratic
 						}
 					}
@@ -12578,8 +12521,8 @@ focus_tree = {
 							has_government = fascism
 							has_government = neutrality
 						}
-						any_country = {
-							original_tag = ITA
+						any_country_with_original_tag = {
+							original_tag_to_check = ITA
 							has_government = fascism
 						}
 					}
@@ -12593,8 +12536,8 @@ focus_tree = {
 				ELSE_IF = {
 					limit = { 
 						has_government = communism
-						any_country = {
-							original_tag = SOV
+						any_country_with_original_tag = {
+							original_tag_to_check = SOV
 							has_government = communism
 						}
 					}
@@ -12607,8 +12550,8 @@ focus_tree = {
 				ELSE_IF = {
 					limit = { 
 						has_government = democratic
-						any_country = {
-							original_tag = ENG
+						any_country_with_original_tag = {
+							original_tag_to_check = ENG
 							has_government = democratic
 						}
 					}
@@ -12795,8 +12738,7 @@ focus_tree = {
 					limit = { 
 						NOT = { 
 							has_war_with = AUS 
-							any_country = {
-								has_war_with = HUN
+							any_enemy_country = {
 								is_in_faction_with = AUS
 							}
 							is_enemy_ideology = yes 

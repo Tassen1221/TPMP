@@ -110,11 +110,10 @@ shared_focus = {
 	}
 
 	available = {
-		any_other_country = {
-			exists = yes
+		any_collection_element = {
+			collection = game:all_majors
 			has_capitulated = no
 			has_government = fascism
-			is_major = yes
 			NOT = { has_war_with = ROOT }
 		}
 	}
@@ -280,11 +279,10 @@ shared_focus = {
 	}
 
 	available = {
-		any_other_country = {
-			exists = yes
+		any_collection_element = {
+			collection = game:all_majors
 			has_capitulated = no
 			has_government = fascism
-			is_major = yes
 			NOT = { has_war_with = ROOT }
 		}
 	}
@@ -357,11 +355,10 @@ shared_focus = {
 	}
 
 	available = {
-		any_other_country = {
-			exists = yes
+		any_collection_element = {
+			collection = game:all_majors
 			has_capitulated = no
 			has_government = fascism
-			is_major = yes
 			NOT = { has_war_with = ROOT }
 		}
 	}
@@ -444,11 +441,10 @@ shared_focus = {
 	}
 
 	available = {
-		any_other_country = {
-			exists = yes
+		any_collection_element = {
+			collection = game:all_majors
 			has_capitulated = no
 			has_government = fascism
-			is_major = yes
 			NOT = { has_war_with = ROOT }
 		}
 	}
@@ -588,11 +584,10 @@ shared_focus = {
 	}
 
 	available = {
-		any_other_country = {
-			exists = yes
+		any_collection_element = {
+			collection = game:all_majors
 			has_capitulated = no
 			has_government = fascism
-			is_major = yes
 			NOT = { has_war_with = ROOT }
 		}
 	}
@@ -686,11 +681,10 @@ shared_focus = {
 	}
 
 	available = {
-		any_other_country = {
-			exists = yes
+		any_collection_element = {
+			collection = game:all_majors
 			has_capitulated = no
 			has_government = fascism
-			is_major = yes
 			NOT = { has_war_with = ROOT }
 		}
 	}
@@ -803,11 +797,10 @@ shared_focus = {
 	}
 
 	available = {
-		any_other_country = {
-			exists = yes
+		any_collection_element = {
+			collection = game:all_majors
 			has_capitulated = no
-			has_government = fascism
-			is_major = yes
+			has_government = democratic
 			NOT = { has_war_with = ROOT }
 		}
 	}
@@ -845,6 +838,7 @@ shared_focus = {
 	}
 
 	available = {
+		is_subject = no
 		any_other_country = {
 			exists = yes
 			has_capitulated = no
@@ -945,11 +939,10 @@ shared_focus = {
 	}
 
 	available = {
-		any_other_country = {
-			exists = yes
+		any_collection_element = {
+			collection = game:all_majors
 			has_capitulated = no
 			has_government = democratic
-			is_major = yes
 			NOT = { has_war_with = ROOT }
 		}
 	}
@@ -1113,11 +1106,10 @@ shared_focus = {
 	}
 
 	available = {
-		any_other_country = {
-			exists = yes
+		any_collection_element = {
+			collection = game:all_majors
 			has_capitulated = no
 			has_government = democratic
-			is_major = yes
 			NOT = { has_war_with = ROOT }
 		}
 	}
@@ -1187,11 +1179,10 @@ shared_focus = {
 	}
 
 	available = {
-		any_other_country = {
-			exists = yes
+		any_collection_element = {
+			collection = game:all_majors
 			has_capitulated = no
 			has_government = democratic
-			is_major = yes
 			NOT = { has_war_with = ROOT }
 		}
 	}
@@ -1288,11 +1279,10 @@ shared_focus = {
 	}
 
 	available = {
-		any_other_country = {
-			exists = yes
+		any_collection_element = {
+			collection = game:all_majors
 			has_capitulated = no
 			has_government = democratic
-			is_major = yes
 			NOT = { has_war_with = ROOT }
 		}
 	}
@@ -1428,11 +1418,10 @@ shared_focus = {
 	}
 
 	available = {
-		any_other_country = {
-			exists = yes
+		any_collection_element = {
+			collection = game:all_majors
 			has_capitulated = no
 			has_government = democratic
-			is_major = yes
 			NOT = { has_war_with = ROOT }
 		}
 	}
@@ -1569,11 +1558,10 @@ shared_focus = {
 		any_owned_state = {
 			is_coastal = yes
 		}
-		any_other_country = {
-			exists = yes
+		any_collection_element = {
+			collection = game:all_majors
 			has_capitulated = no
 			has_government = democratic
-			is_major = yes
 			NOT = { has_war_with = ROOT }
 		}
 	}
@@ -2695,9 +2683,10 @@ shared_focus = {
 	}
 
 	available = {
-		any_other_country = {
-			original_tag = SOV
+		any_country_with_original_tag = {
+			original_tag_to_check = SOV
 			has_government = communism
+			exists = yes
 		} #Can't get help from the Soviets if they don't exist
 	}
 
@@ -2715,6 +2704,8 @@ shared_focus = {
 			add_idea = BALTIC_restore_workers_republic_idea_sov_1
 			remove_idea = BALTIC_restore_workers_republic_idea
 		}
+		custom_effect_tooltip = generic_skip_one_line_tt
+		custom_effect_tooltip = BALTIC_seek_support_of_soviets_tt
 	}
 }
 
@@ -2821,7 +2812,7 @@ shared_focus = {
 			limit = { original_tag = LIT }
 			LIT_jonas_cernius = {
 				add_corps_commander_role = {
-				traits = { JAP_communist_sympathizer infantry_officer }
+				traits = { communist_sympathizer infantry_officer }
 				attack_skill = 3
 				defense_skill = 4
 				planning_skill = 3
@@ -2833,7 +2824,7 @@ shared_focus = {
 			create_corps_commander = {
 				name = "Vincas Vitkauskas"
 				gfx = GFX_portrait_LIT_vincas_vitkauskas
-				traits = { JAP_communist_sympathizer }
+				traits = { communist_sympathizer }
 				attack_skill = 4
 				defense_skill = 4
 				planning_skill = 3
@@ -2846,7 +2837,7 @@ shared_focus = {
 			create_corps_commander = {
 				name = "Martin Latsis"
 				gfx = GFX_portrait_LAT_martin_latsis
-				traits = { JAP_communist_sympathizer infantry_officer }
+				traits = { communist_sympathizer infantry_officer }
 				attack_skill = 3
 				defense_skill = 4
 				planning_skill = 3
@@ -2856,7 +2847,7 @@ shared_focus = {
 			create_corps_commander = {
 				name = "Jukums Vācietis"
 				gfx = GFX_portrait_LAT_jukums_vacietis
-				traits = { JAP_communist_sympathizer war_hero }
+				traits = { communist_sympathizer war_hero }
 				attack_skill = 4
 				defense_skill = 4
 				planning_skill = 3
@@ -2869,7 +2860,7 @@ shared_focus = {
 			create_corps_commander = {
 				name = "Jakob Palvadre"
 				gfx = GFX_portrait_EST_jakob_palvadre
-				traits = { JAP_communist_sympathizer infantry_officer }
+				traits = { communist_sympathizer infantry_officer }
 				attack_skill = 3
 				defense_skill = 4
 				planning_skill = 3
@@ -2879,7 +2870,7 @@ shared_focus = {
 			create_corps_commander = {
 				name = "August Kork"
 				gfx = GFX_portrait_EST_august_kork
-				traits = { JAP_communist_sympathizer }
+				traits = { communist_sympathizer }
 				attack_skill = 4
 				defense_skill = 4
 				planning_skill = 3
@@ -3155,6 +3146,7 @@ shared_focus = {
 			limit = { has_idea = democratic_opposition_idea_2 }
 			remove_ideas = democratic_opposition_idea_2
 		}
+		custom_effect_tooltip = generic_skip_one_line_tt
 		if = {
 			limit = {
 				has_completed_focus = BALTIC_secure_military_support
@@ -3197,8 +3189,41 @@ shared_focus = {
 			ideology = neutrality
 			size = civil_war_size_var
 			keep_unit_leaders_trigger = {
-				has_trait = JAP_communist_sympathizer
+				has_trait = communist_sympathizer
 				NOT = { has_trait = BALTIC_anti_bolshevik }
+			}
+		}
+		hidden_effect = {
+			random_country_with_original_tag = {
+				original_tag_to_check = ROOT
+				limit = {
+					has_civil_war = yes
+				}
+				ROOT = {
+					while_loop_effect = {
+						limit = {
+							any_unit_leader = {
+								has_trait = BALTIC_anti_bolshevik
+							}
+						}
+						random_unit_leader = {
+							limit = {
+								has_trait = BALTIC_anti_bolshevik
+							}
+							set_nationality = PREV.PREV
+						}
+						PREV = {
+							random_unit_leader = {
+								limit = {
+									NOT = {
+										has_trait = BALTIC_anti_bolshevik
+									}
+								}
+								set_nationality = PREV.PREV
+							}
+						}
+					}
+				}
 			}
 		}
 		if = {
@@ -3338,6 +3363,7 @@ shared_focus = {
 			}
 		}
 		remove_all_temp_boosts_baltic = yes
+		custom_effect_tooltip = generic_skip_one_line_tt
 		if = {
 			limit = {
 				tag = LIT
@@ -3792,10 +3818,11 @@ shared_focus = {
 
 	available = {
 		has_civil_war = yes
-		any_other_country = {
-			original_tag = SOV
+		any_country_with_original_tag = {
+			original_tag_to_check = SOV
 			has_government = communism
 			has_war = no
+			exists = yes
 		}
 	}
 
@@ -4556,8 +4583,31 @@ shared_focus = {
 		custom_effect_tooltip = form_country_estonia_coring_states_tt
 		custom_effect_tooltip = form_country_latvia_coring_states_tt
 		custom_effect_tooltip = form_country_lithuania_coring_states_tt
-		hidden_effect = {
-			activate_decision = form_baltic_federation
+		hidden_effect = {	#same as the decision except for the news event which wouldn't be accurate
+			set_cosmetic_tag = BAL_UNIFIED
+			# Estonia
+			13 = { add_core_of = ROOT }
+			191 = { add_core_of = ROOT }
+			811 = { add_core_of = ROOT }
+			812 = { add_core_of = ROOT }
+			813 = { add_core_of = ROOT }
+			# Latvia
+			12 = { add_core_of = ROOT }
+			190 = { add_core_of = ROOT }
+			808 = { add_core_of = ROOT }
+			809 = { add_core_of = ROOT }
+			810 = { add_core_of = ROOT }
+			# Lithuania
+			11 = { add_core_of = ROOT }
+			189 = { add_core_of = ROOT }
+			188 = { add_core_of = ROOT }
+			784 = { add_core_of = ROOT }
+			814 = { add_core_of = ROOT }
+			815 = { add_core_of = ROOT }
+			hidden_effect = {
+				#news_event = { id = wtt_news.60 hours = 6 }
+				set_global_flag = form_baltic_federation_flag
+			}
 		}
 	}
 }

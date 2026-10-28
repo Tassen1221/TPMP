@@ -4622,132 +4622,118 @@ ITA_colonial_management_dec_cat = {
 			custom_trigger_tooltip = {
 				tooltip = aoi_required_ethiopian_states
 				AND = {
-					OR = {
-						ITA = {
-						owns_state = 271 # Shewa
-						}
-						any_country = {
-							is_subject_of = ITA
-							owns_state = 271 # Shewa
-						}
-					}
-					OR = {
-						ITA = {
-						owns_state = 843 # Wello
-						}
-						any_country = {
-							is_subject_of = ITA
-							owns_state = 843 # Wello
+					271 = { # Shewa
+						owner = {
+							OR = {
+								tag = ROOT
+								is_subject_of = ROOT
+							}
 						}
 					}
-					OR = {
-						ITA = {
-						owns_state = 908 # Afar
-						}
-						any_country = {
-							is_subject_of = ITA
-							owns_state = 908 # Afar
-						}
-					}
-					OR = {
-						ITA = {
-						owns_state = 842 # Tigray
-						}
-						any_country = {
-							is_subject_of = ITA
-							owns_state = 842 # Tigray
+					843 = { # Wallo
+						owner = {
+							OR = {
+								tag = ROOT
+								is_subject_of = ROOT
+							}
 						}
 					}
-					OR = {
-						ITA = {
-						owns_state = 841 # Begemder
-						}
-						any_country = {
-							is_subject_of = ITA
-							owns_state = 841 # Begemder
-						}
-					}
-					OR = {
-						ITA = {
-						owns_state = 840 # Gojjam
-						}
-						any_country = {
-							is_subject_of = ITA
-							owns_state = 840 # Gojjamm
+					908 = { # Afar
+						owner = {
+							OR = {
+								tag = ROOT
+								is_subject_of = ROOT
+							}
 						}
 					}
-					OR = {
-						ITA = {
-						owns_state = 839 # Welega
-						}
-						any_country = {
-							is_subject_of = ITA
-							owns_state = 839 # Welega
-						}
-					}
-					OR = {
-						ITA = {
-						owns_state = 838 # Illubabor-Kaffa
-						}
-						any_country = {
-							is_subject_of = ITA
-							owns_state = 838 # Illubabor-Kaffa
+					842 = { # Tigray
+						owner = {
+							OR = {
+								tag = ROOT
+								is_subject_of = ROOT
+							}
 						}
 					}
-					OR = {
-						ITA = {
-						owns_state = 837 # Sidamo
-						}
-						any_country = {
-							is_subject_of = ITA
-							owns_state = 837 # Sidamo
-						}
-					}
-					OR = {
-						ITA = {
-						owns_state = 836 # Bale
-						}
-						any_country = {
-							is_subject_of = ITA
-							owns_state = 836 # Bale
+					841 = { # Begemder
+						owner = {
+							OR = {
+								tag = ROOT
+								is_subject_of = ROOT
+							}
 						}
 					}
-					OR = {
-						ITA = {
-						owns_state = 835 # Hararghe
+					840 = { # Gojjam
+						owner = {
+							OR = {
+								tag = ROOT
+								is_subject_of = ROOT
+							}
 						}
-						any_country = {
-							is_subject_of = ITA
-							owns_state = 835 # Hararghe
+					}
+					839 = { #Welega
+						owner = {
+							OR = {
+								tag = ROOT
+								is_subject_of = ROOT
+							}
+						}
+					}
+					838 = { # Illubabor-Kaffa
+						owner = {
+							OR = {
+								tag = ROOT
+								is_subject_of = ROOT
+							}
+						}
+					}
+					837 = { # Sidamo
+						owner = {
+							OR = {
+								tag = ROOT
+								is_subject_of = ROOT
+							}
+						}
+					}
+					836 = { # Bale
+						owner = {
+							OR = {
+								tag = ROOT
+								is_subject_of = ROOT
+							}
+						}
+					}
+					835 = { # Hararghe
+						owner = {
+							OR = {
+								tag = ROOT
+								is_subject_of = ROOT
+							}
 						}
 					}
 				}
 			}
-			OR = {
-				ITA = {
-				owns_state = 550 # Eritrea
-				}
-				any_country = {
-					is_subject_of = ITA
-					owns_state = 550 # Eritrea
-				}
-			}
-			OR = {
-				ITA = {
-				owns_state = 559 # Somaliland
-				}
-				any_country = {
-					is_subject_of = ITA
-					owns_state = 559 # Somaliland
+			550 = { # Eritrea
+				owner = {
+					OR = {
+						tag = ROOT
+						is_subject_of = ROOT
+					}
 				}
 			}
-			OR = {
-				ITA = {
-				owns_state = 844 # Jubaland
+			559 = { # Somaliland
+				owner = {
+					OR = {
+						tag = ROOT
+						is_subject_of = ROOT
+					}
 				}
-				any_country = {
-					is_subject_of = ITA
-					owns_state = 844 # Jubaland
+			}
+			844 = { # Jubaland
+				owner = {
+					OR = {
+						tag = ROOT
+						is_subject_of = ROOT
+					}
 				}
 			}
 
@@ -4896,13 +4882,12 @@ ITA_colonial_management_dec_cat = {
 			AOI = {
 				exists = yes
 			}
-			OR = {
-				ITA = {
-				controls_state = 269 # British Somaliland
-				}
-				any_country = {
-					is_subject_of = ITA
-					controls_state = 269 # British Somaliland
+			269 = {
+				controller = {
+					OR = {
+						tag = ROOT
+						is_subject_of = ROOT
+					}
 				}
 			}
 		}
@@ -4949,13 +4934,12 @@ ITA_colonial_management_dec_cat = {
 			AOI = {
 				exists = yes
 			}
-			OR = {
-				ITA = {
-				controls_state = 268 # French Somaliland
-				}
-				any_country = {
-					is_subject_of = ITA
-					controls_state = 268 # French Somaliland
+			268 = {
+				controller = {
+					OR = {
+						tag = ROOT
+						is_subject_of = ROOT
+					}
 				}
 			}
 		}
@@ -5002,13 +4986,12 @@ ITA_colonial_management_dec_cat = {
 			AOI = {
 				exists = yes
 			}
-			OR = {
-				ITA = {
-				controls_state = 903 # Garissa
-				}
-				any_country = {
-					is_subject_of = ITA
-					controls_state = 903 # Garissa
+			903 = {
+				controller = {
+					OR = {
+						tag = ROOT
+						is_subject_of = ROOT
+					}
 				}
 			}
 		}
@@ -6564,15 +6547,16 @@ ITA_diplomacy_balkan_decision_category = {
 					original_tag = MNT
 					controls_state = 105
 				}
-				any_country = {
-					is_subject_of = ITA
+				any_subject_country = {
 					controls_state = 105
 				}
 			}
-			any_country = {
-				controls_state = 105
-				NOT = {
-					has_war_with = ROOT
+
+			105 = {
+				controller = {
+					NOT = {
+						has_war_with = ROOT
+					}
 				}
 			}
 		}
@@ -6727,12 +6711,14 @@ ITA_diplomacy_balkan_decision_category = {
 			ITA = {
 				has_completed_focus = ITA_befriend_greece
 			}
-			any_country = {
-				controls_state = 342
-				controls_state = 339
-				has_war = no
-				NOT = {
-					is_in_faction_with = ITA
+			
+			342 = {
+				controller = {
+					controls_state = 339
+					has_war = no
+					NOT = {
+						is_in_faction_with = ITA
+					}
 				}
 			}
 		}

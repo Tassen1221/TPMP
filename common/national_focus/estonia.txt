@@ -524,12 +524,12 @@ focus_tree = {
 			modifier = {
 				factor = 10
 				is_in_faction = no
-				any_other_country = {
-					is_major = yes
+				any_collection_element = {
+					collection = game:all_majors
 					OR = {
-						has_war_with = ROOT
-						has_wargoal_against = ROOT
-					}
+							has_war_with = ROOT
+							has_wargoal_against = ROOT
+						}
 				} #AI should seek an alliance if they are in immediate danger
 			}
 		}
@@ -666,16 +666,15 @@ focus_tree = {
 		}
 
 		available = {
-			any_other_country = {
-				NOT = { has_war_with = ROOT }
+			any_collection_element = {
+				collection = game:all_majors
 				is_faction_leader = yes
-				is_major = yes
-				has_government = democratic
+				has_government = democratic 
+				NOT = { has_war_with = ROOT }
 			}
 			NOT = {
-				any_other_country = {
+				any_enemy_country = {
 					is_in_faction_with = ENG
-					has_war_with = ROOT
 				}
 			}
 			is_in_faction = no
@@ -686,10 +685,12 @@ focus_tree = {
 				is_in_faction_with = ENG
 				AND = {
 					is_in_faction = yes
-					any_other_country = {
+					any_collection_element = {
+						collection = collection:democratic_faction_members
 						is_faction_leader = yes
-						is_in_faction_with = ROOT
-						has_government = democratic
+						NOT = {
+							tag = ROOT
+						}
 					}
 				}
 			}
@@ -735,12 +736,15 @@ focus_tree = {
 		}
 
 		available = {
+			is_in_faction = no
 			is_subject = no
-			any_other_country = {
-				NOT = { has_war_with = ROOT }
+          	any_collection_element = {
+				collection = game:all_majors
 				is_faction_leader = yes
-				is_major = yes
 				has_government = democratic
+				NOT = {
+					tag = ROOT
+				}
 			}
 			
 			NOT = {
@@ -749,7 +753,6 @@ focus_tree = {
 					has_war_with = ROOT
 				}
 			}
-			is_in_faction = no
 		}
 
 		bypass = {
@@ -757,10 +760,12 @@ focus_tree = {
 				is_in_faction_with = ENG
 				AND = {
 					is_in_faction = yes
-					any_other_country = {
+          			any_collection_element = {
+						collection = collection:democratic_faction_members
 						is_faction_leader = yes
-						is_in_faction_with = ROOT
-						has_government = democratic
+						NOT = {
+							tag = ROOT
+						}
 					}
 				}
 			}
@@ -1820,7 +1825,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_ANNEXATION }
 		completion_reward = {
 			FIN = {
-				country_event = { id = generic.1 hours = 1 }
+				country_event = { id = EST_events.11 hours = 1 }
 				add_timed_idea = {
 					idea = EST_vaps_organizing_in_FIN
 					days = 360

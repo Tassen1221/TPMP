@@ -74,7 +74,7 @@ set_variable = { FIN_weapon_caches_decision_cost = 25 }
 set_variable = { FIN_weapon_caches_decision_cost_increase = 5 } #Will be added to the current PP&CP cost
 set_variable = { FIN_weapon_caches_decision_cost_for_trigger = FIN_weapon_caches_decision_cost } #For trigger purposes
 subtract_from_variable = { FIN_weapon_caches_decision_cost_for_trigger = 1 } 
-set_variable = { FIN_search_for_weapon_caches_decision_cost = 15 } #CP cost for decision to Search for Weapon Caches (for Finland's enemies)
+set_variable = { FIN_search_for_weapon_caches_decision_cost = 5 } #CP cost for decision to Search for Weapon Caches (for Finland's enemies)
 set_variable = { FIN_search_for_weapon_caches_decision_cost_for_trigger = FIN_search_for_weapon_caches_decision_cost } #For trigger purposes
 subtract_from_variable = { FIN_search_for_weapon_caches_decision_cost_for_trigger = 1 } 
 
@@ -562,6 +562,8 @@ set_grand_doctrine = new_operational_integrity
 	complete_national_focus = FIN_jaeger_movement
 	complete_national_focus = FIN_salvaged_and_retooled
 	complete_national_focus = FIN_motti_tactics #35
+	complete_national_focus = FIN_arm_the_lotta_svard	#added to improve timings (ai has completed it at this point when starting from 1936)
+	#complete_national_focus = FIN_oy_alkoholiliike		#added here already commented out - feel free to uncomment if needed to correct focus timings (is completed by AI at this point when starting from 1936)
 
 	# FOCUS ADJUSTMENTS
 

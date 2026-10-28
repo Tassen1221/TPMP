@@ -123,8 +123,9 @@ EST_convert_FIN_cat = {
 		has_completed_focus = EST_national_pride_in_finland
 		NOT = {
 			has_country_flag = EST_vapsid_takeover_finland
-			any_other_country = {
-				original_tag = FIN 
+			any_country_with_original_tag = {
+				original_tag_to_check = FIN
+				NOT = { tag = ROOT }
 				OR = {
 					has_government = fascism
  					has_country_flag = estonia_started_cw_in_finland
@@ -262,7 +263,8 @@ infiltrate_belarus_decisions = {
 		OR = {
 			AND = {
 				tag = SOV
-				any_other_country = {
+				any_other_country_with_original_tag_of = {
+					target = { EST LIT LAT }
 					has_completed_focus = BALTIC_belarus_ssr
 					NOT = { has_completed_focus = BALTIC_seek_support_of_soviets }
 				}

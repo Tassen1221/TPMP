@@ -512,16 +512,14 @@
 				create_equipment_variant = {
 					name = "Bristol Blenheim"
 					type = medium_plane_airframe_1
-					allow_without_tech = yes #Allowing since it comes from the UK
 					modules = {
 						fixed_main_weapon_slot = medium_bomb_bay
-						fixed_auxiliary_weapon_slot_1 = torpedo_mounting
-						fixed_auxiliary_weapon_slot_2 = bomb_locks
-						engine_type_slot = engine_3_2x
-						special_type_slot_1 = empty
+						engine_type_slot = engine_2_2x
+						special_type_slot_1 = lmg_defense_turret
 					}
-					icon = "GFX_ENG_tactical_bomber1_medium"
+					icon = "GFX_ENG_heavy_fighter1_medium"
 				}
+
 				add_equipment_to_stockpile = {
 					type = medium_plane_airframe_1
 					producer = ENG
@@ -3042,6 +3040,10 @@
 		search_filters = { FOCUS_FILTER_TFV_AUTONOMY }
 
 		completion_reward = {
+			add_popularity = {
+				ideology = communism
+				popularity = 0.15
+			}
 			swap_ideas = {
 				remove_idea = NZL_first_labor_government
 				add_idea = NZL_the_workers_party_1

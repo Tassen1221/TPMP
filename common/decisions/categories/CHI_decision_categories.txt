@@ -114,13 +114,13 @@ CHI_communist_infiltration = {
 	visible = {
 		tag = event_target:WTT_current_china_leader
 		NOT = { has_government = communism }
-		OR = {
-			any_other_country = {
-				has_completed_focus = PRC_infiltration
-			}
-			any_other_country = {
-				has_completed_focus = PRC_sea_infiltration
-			}
+
+		any_other_country_with_original_tag_of = {
+			target = { PRC YUN SIK GXC SHX XSM GDC XIC SND KHM NXM GSM SIC KUM HBC }
+    		OR = {
+    		    has_completed_focus = PRC_infiltration
+    		    has_completed_focus = PRC_sea_infiltration
+    		}
 		}
 	}
 }

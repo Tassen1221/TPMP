@@ -3932,46 +3932,52 @@ focus_tree = {
 			custom_trigger_tooltip = {
 				tooltip = netherlands_has_no_colonies_tt
 				NOT = {
-					OR = {
-						controls_state = 335
-						any_country = {
-							is_subject_of = HOL
-							controls_state = 335
+					335 = {
+						controller = {
+							OR = {
+								tag = ROOT
+								is_subject_of = HOL
+							}
 						}
 					}
-					OR = {
-						controls_state = 672
-						any_country = {
-							is_subject_of = HOL
-							controls_state = 672
+					672 = {
+						controller = {
+							OR = {
+								tag = ROOT
+								is_subject_of = HOL
+							}
 						}
 					}
-					OR = {
-						controls_state = 334
-						any_country = {
-							is_subject_of = HOL
-							controls_state = 334
+					334 = {
+						controller = {
+							OR = {
+								tag = ROOT
+								is_subject_of = HOL
+							}
 						}
 					}
-					OR = {
-						controls_state = 673
-						any_country = {
-							is_subject_of = HOL
-							controls_state = 673
+					673 = {
+						controller = {
+							OR = {
+								tag = ROOT
+								is_subject_of = HOL
+							}
 						}
 					}
-					OR = {
-						controls_state = 667
-						any_country = {
-							is_subject_of = HOL
-							controls_state = 667
+					667 = {
+						controller = {
+							OR = {
+								tag = ROOT
+								is_subject_of = HOL
+							}
 						}
 					}
-					OR = {
-						controls_state = 309
-						any_country = {
-							is_subject_of = HOL
-							controls_state = 309
+					309 = {
+						controller = {
+							OR = {
+								tag = ROOT
+								is_subject_of = HOL
+							}
 						}
 					}
 				}
@@ -6171,6 +6177,7 @@ focus_tree = {
 		available = {
 			NOT = { has_war_with = SOU }
 			SOU = { has_government = communism }
+			is_subject = no
 		}
 		bypass = {
 			is_in_faction_with = SOU
@@ -6274,6 +6281,7 @@ focus_tree = {
 		id = HOL_join_the_french
 		available = {
 			NOT = { has_war_with = FRA }
+			is_subject = no
 			FRA = {
 				OR = {
 					has_completed_focus = FRA_humanite_unie
@@ -7183,7 +7191,11 @@ focus_tree = {
 						}
 					}
 					GER = {
-						has_completed_focus = GER_revive_the_kaiserreich 
+						OR = {
+							has_completed_focus = GER_revive_the_kaiserreich 
+							has_completed_focus = GER_revive_the_kaiserreich_ww
+						}
+						
 						is_faction_leader = yes
 					}
 				}
@@ -7216,7 +7228,10 @@ focus_tree = {
 					is_in_faction = yes
 					NOT = { has_war_with = GER }
 					GER = {
-						has_completed_focus = GER_revive_the_kaiserreich
+						OR = {
+							has_completed_focus = GER_revive_the_kaiserreich 
+							has_completed_focus = GER_revive_the_kaiserreich_ww
+						}
 					}
 				}
 				leave_faction = yes
@@ -7227,7 +7242,10 @@ focus_tree = {
 					is_in_faction = no
 					NOT = { has_war_with = GER }
 					GER = {
-						has_completed_focus = GER_revive_the_kaiserreich
+						OR = {
+							has_completed_focus = GER_revive_the_kaiserreich 
+							has_completed_focus = GER_revive_the_kaiserreich_ww
+						}
 					}
 				}
 				GER = { country_event = { id = generic.2 } }
@@ -7302,7 +7320,14 @@ focus_tree = {
 			if = {
 				limit = {
 					NOT = { has_war_with = GER }
-					NOT = { GER = { has_completed_focus = GER_revive_the_kaiserreich } }
+					NOT = { 
+						GER = { 
+							OR = {
+								has_completed_focus = GER_revive_the_kaiserreich 
+								has_completed_focus = GER_revive_the_kaiserreich_ww
+							} 
+						} 
+					}
 				}
 				effect_tooltip = {
 					every_country = {
@@ -7402,6 +7427,9 @@ focus_tree = {
 			is_subject = no
 		}
 		bypass = {
+			ENG = {
+				is_in_faction = no
+			}
 			is_in_faction_with = ENG
 			NOT = {
 				focus_progress = {
@@ -7433,7 +7461,29 @@ focus_tree = {
 			
 			remove_ideas = HOL_aloof_neutrality
 			custom_effect_tooltip = generic_skip_one_line_tt
-			ENG = { country_event = { id = generic.2 hours = 6 } }
+			
+
+			custom_override_tooltip = {
+				tooltip = HOL_go_with_britain_event_tt
+				if = {
+					limit = {
+						ENG = {
+							is_faction_leader = yes
+						}
+					}
+					ENG = { country_event = { id = generic.2 hours = 6 } }
+				}
+
+				else = {
+					ENG = {
+						random_allied_country = {
+							limit = { is_faction_leader = yes }
+							country_event = { id = generic.2 hours = 6 }
+						}
+					}
+				}
+			}
+			
 		}
 	}
 
@@ -7542,11 +7592,11 @@ focus_tree = {
 				uses = 1
 				category = ss_tech
 			}
-			add_tech_bonus = {
+			add_mastery_bonus = {
 				name = HOL_ship_a_day_sinking_quotas
-				bonus = 1.0
-				uses = 1
-				category = submarine_doctrine
+				bonus = 0.1
+				days = 180
+				track = submarines
 			}
 			random_unit_leader = {
 				limit = {

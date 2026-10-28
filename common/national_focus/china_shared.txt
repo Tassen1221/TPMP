@@ -637,7 +637,6 @@ shared_focus = {
 				}
 				division_template = {
 					name = "Experimental Mechanised Division"
-					division_names_group = CHI_MEC_01
 					priority = 2
 					regiments = {
 						light_armor = { x = 0 y = 0 }
@@ -659,7 +658,6 @@ shared_focus = {
 				}
 				division_template = {
 					name = "Experimental Mechanised Division"
-					division_names_group = PRC_MEC_01
 					priority = 2
 					regiments = {
 						light_armor = { x = 0 y = 0 }
@@ -681,7 +679,6 @@ shared_focus = {
 				}
 				division_template = {
 					name = "Experimental Mechanised Division"
-					division_names_group = YUN_MEC_01
 					priority = 2
 					regiments = {
 						light_armor = { x = 0 y = 0 }
@@ -703,7 +700,6 @@ shared_focus = {
 				}
 				division_template = {
 					name = "Experimental Mechanised Division"
-					division_names_group = GXC_MEC_01
 					priority = 2
 					regiments = {
 						light_armor = { x = 0 y = 0 }
@@ -725,7 +721,6 @@ shared_focus = {
 				}
 				division_template = {
 					name = "Experimental Mechanised Division"
-					division_names_group = SHX_MEC_01
 					priority = 2
 					regiments = {
 						light_armor = { x = 0 y = 0 }
@@ -747,7 +742,6 @@ shared_focus = {
 				}
 				division_template = {
 					name = "Experimental Mechanised Division"
-					division_names_group = XSM_MEC_01
 					priority = 2
 					regiments = {
 						light_armor = { x = 0 y = 0 }
@@ -769,7 +763,6 @@ shared_focus = {
 				}
 				division_template = {
 					name = "Experimental Mechanised Division"
-					division_names_group = SIK_MEC_01
 					priority = 2
 					regiments = {
 						light_armor = { x = 0 y = 0 }
@@ -791,7 +784,6 @@ shared_focus = {
 				}
 				division_template = {
 					name = "Experimental Mechanised Division"
-					division_names_group = MAN_MEC_01
 					priority = 2
 					regiments = {
 						light_armor = { x = 0 y = 0 }
@@ -1933,8 +1925,8 @@ shared_focus = {
 	ai_will_do = {
 		factor = 1
 		modifier = {
-			any_country = {
-				is_major = yes
+			any_collection_element = {
+				collection = game:all_majors
 				is_in_faction_with = TIB
 			}
 			factor = 0
@@ -2026,8 +2018,8 @@ shared_focus = {
 	ai_will_do = {
 		factor = 1
 		modifier = {
-			any_country = {
-				is_major = yes
+			any_collection_element = {
+				collection = game:all_majors
 				is_in_faction_with = MON
 			}
 			factor = 0
@@ -2817,6 +2809,7 @@ shared_focus = {
 		}
 		set_variable = { CHI_ledo_road_current_level = 1 }
 		add_offsite_building = { type = arms_factory level = 1 }
+		set_global_flag = CHI_ledo_road_focus_taken
 	}
 }
 

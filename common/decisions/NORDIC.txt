@@ -223,9 +223,9 @@ NORDIC_cooperation_decisions_category = {
 		}
 
 		visible = {
-			any_other_country = {
-				NORDIC_is_nordic = yes 
-				NOT = {is_in_faction_with = ROOT }
+			any_country_with_original_tag_of = {
+				target = constant:country_groups.nordics
+				NOT = {is_in_faction_with = ROOT }	
 			}
 		}
 

@@ -81,6 +81,93 @@ prospect_for_resources = {
 		}
 	}
 
+	establish_jaykaynagar_aliminium_smelters = {
+		icon = aluminium
+
+		allowed = {
+			
+		}
+
+		available = {
+			owns_state = 431
+			controls_state = 431
+			num_of_civilian_factories_available_for_projects > 2
+			has_tech = excavation3
+			IF = {
+				limit = {
+					has_dlc = "Graveyard of Empires"
+					original_tag = RAJ 
+				}
+				has_completed_focus = RAJ_establish_the_alupuram_works
+			}
+		}
+		highlight_states = {
+			highlight_state_targets = {
+				state = 431
+			}
+		}
+
+		visible = {
+			owns_state = 431
+			controls_state = 431
+			431 = {
+				NOT = {
+					has_state_flag = west_bengal_aluminum_developed
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		cost = 25
+		days_remove = 60
+
+		modifier = {
+			civilian_factory_use = 3
+		}
+
+		ai_will_do = {
+			base = 1
+			modifier = {
+				factor = 0
+				OR = {
+					AND = { #Ultimatum decisions are available and we should prio them
+						original_tag = SOV
+						SOV_we_want_to_send_ultimatums = yes
+					}
+					AND = { #Too low MP we need to save PP for the laws
+						has_manpower < 10000
+						NOT = { has_idea = scraping_the_barrel }
+					}
+				}
+			}
+			modifier = {  # Too low PP
+				factor = 0.5
+				has_political_power < 80
+			}
+			modifier = { #We have plenty of PP, avanti!
+				factor = 3
+				has_political_power > 200
+			}
+			modifier = { #Running out of the stuff, need more!
+				factor = 5
+				has_resources_in_country = {
+					resource = aluminium
+					amount < 1
+				}
+			}
+		}
+		remove_effect = {
+			431 = { set_state_flag = west_bengal_aluminum_developed }
+			431 = {
+				add_resource = {
+					type = aluminium
+					amount = 12 
+				}
+			}
+		}
+	}
+
 	develop_suiyuan_steel_deposits = { #621
 
 		icon = steel

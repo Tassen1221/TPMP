@@ -341,6 +341,14 @@ if = {
 		set_character_flag = SOV_aligned_the_exiles_flag
 		set_character_flag = SOV_exiled_military_advisor_flag
 	}
+	SOV_bronislav_kaminski = {
+		set_character_flag = SOV_aligned_the_exiles_flag
+		set_character_flag = SOV_lokot_autonomy_character_flag
+	}
+	SOV_konstantin_voskoboinik = {
+		set_character_flag = SOV_aligned_the_exiles_flag
+		set_character_flag = SOV_lokot_autonomy_character_flag
+	}
 }
 
 #Initialize character flags Part III (aka who's in prison)
@@ -584,7 +592,7 @@ set_variable = { SOV_defense_industry_materiel_manufacturer_cost_factor = 0 } #-
 set_variable = { SOV_defense_industry_breakthrough_factor = 0 } #-> PC of Mortar Armament
 set_variable = { SOV_defense_industry_production_speed_coastal_bunker_factor = 0 } #-> Military Engineering University
 set_variable = { SOV_defense_industry_production_speed_bunker_factor = 0 } #-> Military Engineering University
-set_variable = { SOV_defense_industry_max_dig_in_factor = 0 } #-> Military Engineering University
+set_variable = { SOV_defense_industry_max_dig_in = 0 } #-> Military Engineering University
 set_variable = { SOV_defense_industry_army_artillery_defence_factor = 0 } #-> Military Engineering University
 
 
@@ -897,7 +905,12 @@ set_autonomy = {
 	freedom_level = 0.5
 }
 
+add_ideas = SOV_second_five_year_plan_fake_1936_ns
+
 1939.1.1 = {
+
+	remove_ideas = SOV_second_five_year_plan_fake_1936_ns
+	add_ideas = SOV_second_five_year_plan_fake_1939_ns
 
 	add_political_power = 1198
 	add_command_power = 100
@@ -1378,6 +1391,18 @@ if = {
 if = {
 	limit = {
 		has_dlc = "By Blood Alone"
+	}
+	create_equipment_variant = { #Tupolev ANT-23, twin-engine recoilless-gun prototype that never entered service, so it starts obsolete and equips no wings
+		name = "I-12"
+		type = medium_plane_fighter_airframe_0
+		modules = {
+			fixed_main_weapon_slot = aircraft_cannon_1_2x
+			fixed_auxiliary_weapon_slot_1 = empty
+			engine_type_slot = engine_1_2x
+			special_type_slot_1 = empty
+		}
+		obsolete = yes
+		icon = "GFX_SOV_heavy_fighter1_medium"
 	}
 	create_equipment_variant = { #Note: There is a copy of this variant in Finnish Scripted Effects file (FIN_purchase_soviet_equipment_for_cw). Any changes here should also be applied there
 		name = "I-15" #

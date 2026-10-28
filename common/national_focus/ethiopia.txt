@@ -16,8 +16,8 @@ focus_tree = {
 			original_tag = ETH
 			has_dlc = "By Blood Alone"
 			NOT = {
-				any_other_country = { 
-					original_tag = ETH # There can be only one...
+				any_other_country_with_original_tag_of = {
+					target = {ETH} #There can be only one...
 					has_government = ROOT # or four actually...
 				}
 			}
@@ -2496,6 +2496,20 @@ focus_tree = {
 			custom_effect_tooltip = available_industrial_concern
 			show_ideas_tooltip = ETH_tenneco
 			show_ideas_tooltip = ETH_standard_oil_california
+			hidden_effect = {	#tracks whether the category should be visible
+				841 = {
+					set_state_flag = ETH_can_prospect_resources_state_flag
+				}
+				842 = {
+					set_state_flag = ETH_can_prospect_resources_state_flag
+				}
+				840 = {
+					set_state_flag = ETH_can_prospect_resources_state_flag
+				}
+				843 = {
+					set_state_flag = ETH_can_prospect_resources_state_flag
+				}
+			}
 		}
 	}
 
@@ -2781,12 +2795,19 @@ focus_tree = {
 					instant_build = yes
 					province = 5010
 				}
-				custom_effect_tooltip = ETH_the_defense_of_addis_ababa_tt_2
-				add_building_construction = {
-					type = bunker
-					level = 2
-					instant_build = yes
-					province = 8036
+				if = {
+					limit = {	#(Above shouldnt need this check since it determines who is considered state controller)
+						var:global.province_controllers^8036 = {
+							tag = ROOT
+						}
+					}
+					custom_effect_tooltip = ETH_the_defense_of_addis_ababa_tt_2
+					add_building_construction = {
+						type = bunker
+						level = 2
+						instant_build = yes
+						province = 8036
+					}
 				}
 			}
  		}
@@ -3095,6 +3116,13 @@ focus_tree = {
 
 		completion_reward = {
 			# custom_effect_tooltip = ETH_rally_around_the_emperor_tt
+			hidden_effect = {
+				ETH_haile_selassie = {
+					remove_advisor_role = {
+						slot = political_advisor
+					}
+				}
+			}
 			custom_effect_tooltip = ETH_the_second_italo-ethiopian_war_tt
 			add_political_power = 50
 			add_popularity = {
@@ -4203,11 +4231,12 @@ focus_tree = {
 					target = ROOT
 					value > 99
 				}
-				OR = {
-					owns_state = 454
-					any_country = {
-						is_subject_of = PREV
-						owns_state = 454
+				454 = {
+					owner = {
+						OR = {
+							tag = ENG
+							is_subject_of = ENG
+						}
 					}
 				}
 			}
@@ -5616,9 +5645,10 @@ focus_tree = {
 		}
 		available = {
 			SWE = { is_in_faction = no }
-			any_country = {
-				is_faction_leader = yes 
-				has_war_with = ITA 
+			ITA = {
+				any_enemy_country = {
+					is_faction_leader = yes 
+				}
 				NOT = {
 					any_allied_country = {
 						has_war_with = SWE
@@ -6384,13 +6414,13 @@ focus_tree = {
 		available = {
 			custom_trigger_tooltip = {
 				tooltip = ETH_france_divided_tt
-				any_country = {
-					original_tag = FRA 
+				any_country_with_original_tag = {
+					original_tag_to_check = FRA 
 					exists = yes 
 					has_government = fascism
 				}
-				any_country = {
-					original_tag = FRA 
+				any_country_with_original_tag = {
+					original_tag_to_check = FRA 
 					exists = yes 
 					NOT = { has_government = fascism }
 				}
@@ -7884,13 +7914,13 @@ focus_tree = {
 		available = {
 			custom_trigger_tooltip = {
 				tooltip = ETH_france_divided_tt
-				any_country = {
-					original_tag = FRA 
+				any_country_with_original_tag = {
+					original_tag_to_check = FRA 
 					exists = yes 
 					has_government = fascism
 				}
-				any_country = {
-					original_tag = FRA 
+				any_country_with_original_tag = {
+					original_tag_to_check = FRA 
 					exists = yes 
 					NOT = { has_government = fascism }
 				}

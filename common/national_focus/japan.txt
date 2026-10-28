@@ -4929,13 +4929,18 @@ focus_tree = {
 
 		available = {
 			is_subject = no
-			any_country = {
-				any_state = {
-					is_owned_by = PREV
-					is_on_continent = asia
+			custom_override_tooltip = {
+				tooltip = JAP_strike_down_the_enemy_of_the_people_available_tt
+				any_collection_element = { #any country into any state is ~200k checks
+					collection = { #collection:communist_countries_asia only checks countries with their capitals in asia
+						input = collection:world_communist_countries #focus calls for all communists owning states in asia
+					}
+					any_owned_state = {
+						is_on_continent = asia
+					}
 				}
-				has_government = communism
 			}
+			
 		}
 
 		bypass = {
@@ -8654,13 +8659,13 @@ focus_tree = {
 
 		available = {
 			is_subject = no
-			any_country = {
-				original_tag = GER
+			any_country_with_original_tag = {
+				original_tag_to_check = GER
 				has_government = fascism
 				NOT = { has_war_with = ROOT }
 			}
-			any_country = {
-				original_tag = ITA
+			any_country_with_original_tag = {
+				original_tag_to_check = ITA
 				has_government = fascism
 				NOT = { has_war_with = ROOT }
 			}
@@ -8672,24 +8677,24 @@ focus_tree = {
 					tooltip = JAP_sign_tripartite_pact_bypass_tt
 					OR = {
 						NOT = {
-							any_country = {
-								original_tag = GER
+							any_country_with_original_tag = {
+								original_tag_to_check = GER
 								has_government = fascism
 							}
 						}
-						any_country = {
-							original_tag = GER
+						any_country_with_original_tag = {
+							original_tag_to_check = GER
 							has_government = fascism
 							has_war_with = ROOT
 						}
 						NOT = {
-							any_country = {
-								original_tag = ITA
+							any_country_with_original_tag = {
+								original_tag_to_check = ITA
 								has_government = fascism
 							}
 						}
-						any_country = {
-							original_tag = ITA
+						any_country_with_original_tag = {
+							original_tag_to_check = ITA
 							has_government = fascism
 							has_war_with = ROOT
 						}	
@@ -10398,6 +10403,27 @@ focus_tree = {
 			add_to_variable = { JAP_showa_statism_industry_repair_factor = 0.1 tooltip = industry_repair_factor_tt }
 			add_to_variable = { JAP_showa_statism_industrial_capacity_factory = 0.03 tooltip = industrial_capacity_factory_tt }
 			add_to_variable = { JAP_showa_statism_conscription_factor = 0.02 tooltip = conscription_factor_tt }
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+
+			custom_effect_tooltip = JAP_joshi_teishin_tai_levy_tt
+
+			hidden_effect = {
+				add_to_variable = { JAP_levy_cap_max = 6 }
+				add_to_variable = { JAP_levy_cap = 3 }
+				clamp_variable = {
+					var = JAP_levy_cap
+					min = JAP_levy_cap_min
+					max = JAP_levy_cap_max
+				}
+				if = {
+					limit = { has_completed_focus = JAP_found_the_boeitai }
+					set_division_template_cap = {
+						division_template = "Kokumin Giyū Sentōtai"
+						division_cap = JAP_levy_cap
+					}
+				}
+			}
 			
 		}
 	}
@@ -10820,6 +10846,26 @@ focus_tree = {
 			is_subject = no
 			has_government = fascism
 			has_war = yes
+			OR = {
+				AND = {
+					NOT = {
+						any_allied_country = {
+							is_major = yes 
+							has_capitulated = no 
+						}
+					}
+					608 = {
+						is_controlled_by_ROOT_or_ally = no  
+					}
+					1035 = {
+						is_controlled_by_ROOT_or_ally = no  
+					}
+					592 = {
+						is_controlled_by_ROOT_or_ally = no  
+					}
+				}
+				has_global_flag = JAP_nuke_1
+			}
 		}
 
 		bypass = {
@@ -11404,6 +11450,7 @@ focus_tree = {
 				NOT = {
 					has_completed_focus = JAP_ensure_temporary_peace_with_china
 				}
+				has_country_flag = JAP_chinese_japanese_neutrality_pact_refused_flag
 				AND = {
 					has_country_flag = {
 					 	flag = JAP_chinese_japanese_neutrality_pact_flag
@@ -12770,6 +12817,7 @@ focus_tree = {
 			}
 
 			custom_effect_tooltip = JAP_unlocks_pearl_harbor_raid
+			custom_effect_tooltip = JAP_pearl_harbor_raid_warning
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
@@ -12837,7 +12885,7 @@ focus_tree = {
 			custom_effect_tooltip = JAP_soviet_japanese_neutrality_pact_tt
 
 			hidden_effect = {
-				set_country_flag = JAP_soviet_japanese_neutrality_pact_flag # Used to temporarily block the Persimmon focuses
+				set_country_flag = JAP_soviet_japanese_neutrality_pact_flag
 			}
 
 		}
@@ -14814,9 +14862,8 @@ focus_tree = {
 					}
 				}
 			}
-
 			hidden_effect = {
-				set_country_flag = JAP_chinese_japanese_neutrality_pact_flag # Used to temporarily block the Persimmon focuses
+				set_country_flag = JAP_chinese_japanese_neutrality_pact_flag
 			}
 			
 		}
@@ -15207,11 +15254,31 @@ focus_tree = {
 		}
 
 		available = {
-			
+			is_subject = no
+			SOV = {
+				exists = yes
+			}
+			NOT = {
+				has_war_with = SOV
+			}
+			custom_trigger_tooltip = {
+				tooltip = JAP_borders_the_soviet_bloc_tt
+				JAP_borders_the_soviet_bloc = yes
+			}
 		}
 
 		bypass = {
-
+			OR = {
+				has_war_with = SOV
+				has_wargoal_against = SOV
+				has_subject = SOV
+				SOV = {
+					exists = no
+				}
+				NOT = {
+					JAP_borders_the_soviet_bloc = yes
+				}
+			}
 		}
 
 		cancel_if_invalid = yes
@@ -15257,27 +15324,29 @@ focus_tree = {
 				limit = {
 					is_fully_controlled_by = ROOT
 					any_neighbor_state = {
-						OR = {
-							is_controlled_by = SOV
-							AND = {
-								is_controlled_by = MON
-								MON = { is_in_faction_with = SOV }
-							}
-							AND = {
-								is_controlled_by = SIK
-								SIK = { is_in_faction_with = SOV }
-							}
-							AND = {
-								is_controlled_by = TAN
-								TAN = { is_in_faction_with = SOV }
-							}
-						}
+						JAP_state_is_soviet_bloc_controlled = yes
 					}
 				}
 				add_building_construction = {
 					type = infrastructure
 					level = 1
 					instant_build = yes
+				}
+			}
+
+			every_subject_country = {
+				every_owned_state = {
+					limit = {
+						is_fully_controlled_by = PREV
+						any_neighbor_state = {
+							JAP_state_is_soviet_bloc_controlled = yes
+						}
+					}
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build = yes
+					}
 				}
 			}
 			
@@ -15328,6 +15397,7 @@ focus_tree = {
 				NOT = {
 					has_completed_focus = JAP_soviet_japanese_neutrality_pact
 				}
+				has_country_flag = JAP_soviet_japanese_neutrality_pact_refused_flag
 				AND = {
 					has_country_flag = {
 					 	flag = JAP_soviet_japanese_neutrality_pact_flag
@@ -15388,62 +15458,8 @@ focus_tree = {
 				custom_effect_tooltip = generic_skip_one_line_tt
 			}
 
-			declare_war_on = {
-				target = SOV
-				type = annex_everything
-			}
+			JAP_persimmon_war_with_the_soviets = yes
 
-			custom_effect_tooltip = generic_skip_one_line_tt
-
-			every_state = {
-				limit = {
-					OR = {
-						state = 408
-						state = 409
-						state = 655
-						state = 657
-						state = 560
-						state = 561
-						state = 563
-						state = 564
-						state = 566
-						state = 565
-						state = 574
-						state = 876
-						state = 877
-						state = 644
-						state = 562
-						state = 874
-						state = 637
-						state = 822
-						state = 875
-					}
-					is_owned_by = SOV
-					NOT = {
-						is_claimed_by = ROOT
-						is_core_of = ROOT
-					}
-				}
-				add_claim_by = ROOT
-			}
-
-			IF = {
-				limit = {
-					has_completed_focus = JAP_utilize_our_polish_friendship
-				}
-				custom_effect_tooltip = generic_skip_one_line_tt
-				POL = {
-					country_event = {
-						id = SEA_japan_foreign_policy.86
-						hours = 6
-					}	
-				}
-			}
-
-			custom_effect_tooltip = generic_skip_one_line_tt
-
-			custom_effect_tooltip = JAP_peace_out_soviets_dec_tt
-			
 		}
 	}
 
@@ -15504,6 +15520,7 @@ focus_tree = {
 				NOT = {
 					has_completed_focus = JAP_soviet_japanese_neutrality_pact
 				}
+				has_country_flag = JAP_soviet_japanese_neutrality_pact_refused_flag
 				AND = {
 					has_country_flag = {
 					 	flag = JAP_soviet_japanese_neutrality_pact_flag
@@ -15551,62 +15568,8 @@ focus_tree = {
 
 		completion_reward = {
 
-			declare_war_on = {
-				target = SOV
-				type = annex_everything
-			}
+			JAP_persimmon_war_with_the_soviets = yes
 
-			custom_effect_tooltip = generic_skip_one_line_tt
-
-			every_state = {
-				limit = {
-					OR = {
-						state = 408
-						state = 409
-						state = 655
-						state = 657
-						state = 560
-						state = 561
-						state = 563
-						state = 564
-						state = 566
-						state = 565
-						state = 574
-						state = 876
-						state = 877
-						state = 644
-						state = 562
-						state = 874
-						state = 637
-						state = 822
-						state = 875
-					}
-					is_owned_by = SOV
-					NOT = {
-						is_claimed_by = ROOT
-						is_core_of = ROOT
-					}
-				}
-				add_claim_by = ROOT
-			}
-
-			IF = {
-				limit = {
-					has_completed_focus = JAP_utilize_our_polish_friendship
-				}
-				custom_effect_tooltip = generic_skip_one_line_tt
-				POL = {
-					country_event = {
-						id = SEA_japan_foreign_policy.86
-						hours = 6
-					}	
-				}
-			}
-
-			custom_effect_tooltip = generic_skip_one_line_tt
-
-			custom_effect_tooltip = JAP_peace_out_soviets_dec_tt
-			
 		}
 	}
 
@@ -29738,7 +29701,7 @@ focus_tree = {
 		x = 1
 		y = 1
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 3
@@ -29920,7 +29883,7 @@ focus_tree = {
 		x = -1
 		y = 1
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 3
@@ -29975,7 +29938,7 @@ focus_tree = {
 		x = 1
 		y = 1
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 3
@@ -30688,7 +30651,7 @@ focus_tree = {
 		x = -1
 		y = 1
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 3
@@ -31357,9 +31320,8 @@ focus_tree = {
 					fixed_ship_radar_slot = empty
 					fixed_ship_engine_slot = light_ship_engine_2
 					fixed_ship_torpedo_slot = ship_torpedo_1
-					mid_1_custom_slot = ship_anti_air_2
+					mid_1_custom_slot = dp_light_battery_2
 					rear_1_custom_slot = ship_depth_charge_1
-					front_1_custom_slot = dp_light_battery_1
 				}
 				design_team = mio:JAP_maizuru_naval_arsenal_organization
 			}
@@ -32077,7 +32039,7 @@ focus_tree = {
 		x = 0
 		y = 1
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 3

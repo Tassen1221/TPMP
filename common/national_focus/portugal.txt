@@ -146,8 +146,7 @@ focus_tree = {
 				add = 1
 				OR = {
 					has_government = democratic
-					any_country = {
-						is_in_faction_with = ROOT
+					any_allied_country = {
 						is_faction_leader = yes
 						has_government = democratic
 					}
@@ -3424,7 +3423,7 @@ focus_tree = {
 				custom_effect_tooltip = POR_the_iberian_socialist_union_cores_tt
 				if = { # Any Spanish Puppet will get annexed
 					limit = {
-						any_country = {
+						any_subject_country = {
 							OR = {
 								original_tag = SPR
 								tag = GLC
@@ -3432,7 +3431,6 @@ focus_tree = {
 								tag = CAT
 								tag = ADU
 							}
-							is_puppet_of = ROOT
 						}
 					}
 					hidden_effect = {
@@ -3651,19 +3649,8 @@ focus_tree = {
 		available = {
 			has_global_flag = scw_over
 			has_government = communism
-			any_country = {
-				OR = {
-					TAG = BRA TAG = MEX
-					TAG = COL TAG = ARG
-					TAG = PRU TAG = VEN
-					TAG = CHL TAG = GUA
-					TAG = ECU TAG = CUB
-					TAG = BOL TAG = HAI
-					TAG = DOM TAG = HON
-					TAG = PAR TAG = ELS
-					TAG = NIC TAG = COS
-					TAG = PAN TAG = URG						
-				}
+			any_country_with_original_tag_of = {
+				target = {BRA COL PRU CHL ECU BOL DOM PAR NIC PAN MEX ARG VEN GUA CUB HAI HON ELS COS URG }
 				has_government = communism
 			}
 		}
@@ -3913,8 +3900,8 @@ focus_tree = {
 				has_government = democratic
 				has_government = communism
 			}
-			any_country = {
-				original_tag = SPR
+			any_country_with_original_tag = {
+				original_tag_to_check = SPR
 				NOT = { has_government = ROOT }
 				NOT = { is_in_faction_with = ROOT }
 			}
@@ -4411,16 +4398,18 @@ focus_tree = {
 		id = POR_join_the_allies
 		available = {
 			is_in_faction = no
-			any_other_country = {
-				NOT = { has_war_with = ROOT }
+			any_collection_element = {
+				collection = game:all_majors
+				NOT = { tag = ROOT }
 				is_faction_leader = yes
-				is_major = yes
+				NOT = { has_war_with = ROOT }
 				has_government = democratic
 			}
 			NOT = {
-				any_other_country = {
-					is_in_faction_with = ENG
-					has_war_with = POR
+				POR = {
+					any_enemy_country = {
+						is_in_faction_with = ENG
+					}
 				}
 			}			
 		}
@@ -4430,9 +4419,9 @@ focus_tree = {
 				is_in_faction_with = ENG
 				AND = {
 					is_in_faction = yes
-					any_other_country = {
+					any_allied_country = {
 						is_faction_leader = yes
-						is_in_faction_with = ROOT
+						NOT = {tag = ROOT}
 						has_government = democratic
 					}
 				}
@@ -4869,8 +4858,8 @@ focus_tree = {
 
 		available = {	
 			has_global_flag = scw_over
-			any_country = {
-				original_tag = SPR
+			any_country_with_original_tag = {
+				original_tag_to_check = SPR
 				NOT = { has_government = ROOT }
 				NOT = { is_in_faction_with = ROOT }
 			}
@@ -4984,8 +4973,8 @@ focus_tree = {
 						exists = yes
 						NOT = { has_war_with = ROOT }
 					}
-					any_country = {
-						is_major = yes
+					any_collection_element = {
+						collection = game:all_majors
 						has_war_with = ENG
 					}
 				}
@@ -4994,8 +4983,8 @@ focus_tree = {
 						exists = yes
 						NOT = { has_war_with = ROOT }
 					}
-					any_country = {
-						is_major = yes
+					any_collection_element = {
+						collection = game:all_majors
 						has_war_with = GER
 					}
 				}
@@ -5083,14 +5072,13 @@ focus_tree = {
 				exists = yes
 				NOT = {
 					has_war_with = ROOT 
-					any_other_country = {
-						is_in_faction_with = ENG
+					any_allied_country = {
 						has_war_with = ROOT
 					}
 				}
 			}
-			any_country = {
-				is_major = yes
+			any_collection_element = {
+				collection = game:all_majors
 				has_war_with = ENG
 			}
 		}
@@ -5141,8 +5129,8 @@ focus_tree = {
 						exists = yes
 						NOT = { has_war_with = ROOT }
 					}
-					any_country = {
-						is_major = yes
+					any_collection_element = {
+						collection = game:all_majors
 						has_war_with = ENG
 					}
 				}
@@ -5151,8 +5139,8 @@ focus_tree = {
 						exists = yes
 						NOT = { has_war_with = ROOT }
 					}
-					any_country = {
-						is_major = yes
+					any_collection_element = {
+						collection = game:all_majors
 						has_war_with = GER
 					}
 				}
@@ -5424,9 +5412,8 @@ focus_tree = {
 				NOT = { has_war_with = ROOT }
 			}
 			NOT = {
-				any_other_country = {
+				any_enemy_country = {
 					is_in_faction_with = GER
-					has_war_with = ROOT
 				}
 			}	
 		}

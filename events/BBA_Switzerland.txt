@@ -106,6 +106,10 @@ country_event = {
 		    		SWI_AI_is_dem_allied = yes
 		    	}
 		    }
+		    modifier = {
+		    	factor = 0 
+		    	SWI_is_historical_ai = yes
+		    }
 	    }
 	    trigger = {
 	    }
@@ -124,6 +128,10 @@ country_event = {
 		    		SWI_AI_is_fascist = yes 
 		    		SWI_AI_is_imperial = yes
 		    	}
+		    }
+		    modifier = {
+		    	factor = 0 
+		    	SWI_is_historical_ai = yes
 		    }
 	    }
 	    trigger = {
@@ -2686,11 +2694,6 @@ country_event = { #SWI offers gold trade to country
 
 	immediate = {
 		hidden_effect = {
-			set_country_flag = {
-				flag = SWI_waiting_for_answer_timeout
-				days = 50
-				value = 1
-			}
 		}
 	}
 
@@ -2736,7 +2739,7 @@ country_event = { #SWI offers gold trade to country
 			set_country_flag = {
 				flag = SWI_rejected_investment
 				days = 240
-				value = 0
+				value = 1
 			}
 		}
 		FROM = { 
@@ -2758,6 +2761,7 @@ country_event = { #For SWI - Gold Trade accepted
 
 	immediate = {
 		hidden_effect = {
+			FROM = { clr_country_flag = SWI_waiting_for_answer_timeout }
 		}
 	}
 
@@ -2783,6 +2787,7 @@ country_event = { #For SWI - Gold Trade REJECTED
 
 	immediate = {
 		hidden_effect = {
+			FROM = { clr_country_flag = SWI_waiting_for_answer_timeout }
 		}
 	}
 
@@ -2796,13 +2801,18 @@ country_event = { #For SWI - Gold Trade REJECTED
 	}
 }
 
-country_event = { #SWI offers gold trade to country again
+country_event = { #SWI seeks increased trade
     id = BBA_switzerland_trade.11
     title = BBA_switzerland_trade.11.t
     desc = BBA_switzerland_trade.11.desc
     picture = GFX_report_event_generic_conference
 
 	is_triggered_only = yes
+
+	trigger = {
+		has_dynamic_modifier = { modifier = SWI_gold_trade_with_switzerland }
+		NOT = { has_war_with = FROM }
+	}
 
 	immediate = {
 		hidden_effect = {
@@ -2846,9 +2856,6 @@ country_event = { #SWI offers gold trade to country again
 			base = 10 
 		}
 
-		hidden_effect = {
-			set_country_flag = SWI_rejected_investment
-		}
 		FROM = { 
 			country_event = {
 				id = BBA_switzerland_trade.10

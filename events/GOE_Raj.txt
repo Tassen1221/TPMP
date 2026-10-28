@@ -1206,7 +1206,6 @@ country_event = {
 			base = 1
 		}
 		was_uk_dominion_a_subject = yes
-		add_ideas = idea_RAJ_the_long_goodbye
 		if = {
 			limit = {
 				is_subject = yes
@@ -1249,6 +1248,8 @@ country_event = {
 			}
 			raj_was_a_subject_reset_party_ideology_after_independence = yes
 		}
+		custom_effect_tooltip = generic_skip_one_line_tt
+		add_ideas = idea_RAJ_the_long_goodbye
 	}
 
 	#Keep current leader, for some reason
@@ -2038,6 +2039,167 @@ country_event = {
 	}
 }
 
+# Mountbatten as Viceregal Candidate - event for RAJ 
+country_event = {
+	id = GOE_RAJ.52
+	title = GOE_RAJ.52.t	
+	desc = GOE_RAJ.52.desc	
+	picture = GFX_report_event_generic_sign_treaty2
+
+	fire_only_once = yes
+	trigger = {
+		has_dlc = "Graveyard of Empires"
+		original_tag = RAJ 
+		is_subject = yes
+		OVERLORD = {
+			original_tag = ENG
+		}
+		date > 1947.1.1
+		OR = {
+			has_country_leader = {
+				ruling_only = yes 
+				character = RAJ_lord_linlithgow
+			}	
+			has_country_leader = {
+				ruling_only = yes 
+				character = RAJ_freeman_freeman_thomas
+			}	
+		}
+		has_character = RAJ_louis_mountbatten
+	}
+
+	mean_time_to_happen = {
+	    days = 14 
+	} 
+
+	# Lord Mountbatten must steer this ship
+	option = {
+		name = GOE_RAJ.52.a 
+		ai_chance = {
+			base = 4 
+		}
+		
+		add_country_leader_role = {
+			character = RAJ_louis_mountbatten
+			promote_leader = yes
+			country_leader={
+				ideology = centrism
+				expire="1965.1.1.1"
+				id=-1
+				traits = {
+					RAJ_viceroy_of_india_trait
+				}
+			}
+		}
+		
+	}
+
+	# Let [ROOT.GetLeader] Stay
+	option = {
+		name = GOE_RAJ.52.b
+		ai_chance = {
+			base = 0
+			modifier = {
+				is_historical_focus_on = no
+				add = 1
+			}
+		}
+
+		add_autonomy_score = { 
+			value = -100 
+			localization = RAJ_rejected_mountbattens_rule
+		}	
+
+	}
+}
+
+# The Tripuri Session - Gandhi's candidate stands for the Congress presidency
+country_event = {
+	id = GOE_RAJ.53
+	title = GOE_RAJ.53.t
+	desc = GOE_RAJ.53.desc
+	picture = GFX_report_event_generic_rally
+
+	is_triggered_only = yes
+
+	# Pattabhi takes the chair
+	option = {
+		name = GOE_RAJ.53.a
+		ai_chance = {
+			base = 1
+		}
+		add_country_leader_role = {
+			character = RAJ_b_p_sitaramayya
+			promote_leader = yes
+			country_leader = {
+				ideology = liberalism
+				expire = "1965.1.1.1"
+				id = -1
+				traits = {
+					RAJ_historian_of_the_congress
+				}
+			}
+		}
+		add_popularity = {
+			ideology = democratic
+			popularity = 0.03
+		}
+	}
+
+	# The Mahatma remains our guide
+	option = {
+		name = GOE_RAJ.53.b
+		ai_chance = {
+			base = 1
+		}
+		add_political_power = 25
+	}
+}
+
+# The Old Guard walks out - the Gandhian Working Committee resigns in protest
+country_event = {
+	id = GOE_RAJ.54
+	title = GOE_RAJ.54.t
+	desc = GOE_RAJ.54.desc
+	picture = GFX_report_event_generic_rally
+
+	is_triggered_only = yes
+
+	# Let them go
+	option = {
+		name = GOE_RAJ.54.a
+		ai_chance = {
+			base = 1
+		}
+		add_country_leader_role = {
+			character = RAJ_b_p_sitaramayya
+			promote_leader = yes
+			country_leader = {
+				ideology = liberalism
+				expire = "1965.1.1.1"
+				id = -1
+				traits = {
+					RAJ_gandhian_old_guard
+				}
+			}
+		}
+		add_popularity = {
+			ideology = democratic
+			popularity = 0.05
+		}
+		add_stability = -0.05
+	}
+
+	# Make peace with Pattabhi
+	option = {
+		name = GOE_RAJ.54.b
+		ai_chance = {
+			base = 1
+		}
+		add_political_power = -75
+	}
+}
+
 ##########
 #Partition
 ##########
@@ -2506,19 +2668,24 @@ country_event = {
 		}
 
 		RAJ = {  
-			set_variable = { pressure_left = 8 } 
+			set_variable = { pressure_left = 9 }
 			set_variable = { default_pressure = pressure_left }
 		}
 		if = {
 			limit = {
 				BAN = { exists = yes }
 			}
-			set_variable = { pressure_left = 3 }
-			set_variable = { default_pressure = pressure_left }
+			BAN = {
+				set_variable = { pressure_left = 3 }
+				set_variable = { default_pressure = pressure_left }
+			}
 
 		}
 		
 		set_global_flag = RAJ_GOE_partition_has_happened
+		RAJ = {
+			RAJ_GOE_patel_partition_pressure_effect = yes
+		}
 		#The chance for Pricely states to declare independence. Only for alt hist
 		if = {
 			limit = {
@@ -3121,6 +3288,32 @@ country_event = {
 				}
 			}
 
+			#Travancore and the Madras states, whose Diwan held out for independence
+			if = {
+				limit = {
+					RAS = {
+						all_core_state = {
+							is_controlled_by = ROOT
+						}
+					}
+				}
+				release = RAS
+				RAS = {
+					every_core_state = {
+						limit = { is_controlled_by = PREV }
+
+						set_variable = { RAJ_pressure = 0 }
+						set_variable  = { PAK_pressure = 0 }
+						set_variable = { BAN_pressure = 0 }
+						add_to_array = { array = RAJ.states_in_play_partition }
+						hidden_effect = {
+							set_state_flag = prefers_raj
+							set_variable = { preference = 1.25 }
+						}
+					}
+				}
+			}
+
 			# release BAN before pakistan if united bengal
 			if = {
 				limit = {
@@ -3181,8 +3374,10 @@ country_event = {
 							limit = {
 								BAN = { exists = yes }
 							}
-							add_to_variable = { pressure_left = 0.25 }
-							set_variable = { default_pressure = pressure_left }
+							BAN = {
+								add_to_variable = { pressure_left = 0.25 }
+								set_variable = { default_pressure = pressure_left }
+							}
 
 						}
 						hidden_effect = {
@@ -3264,8 +3459,10 @@ country_event = {
 							limit = {
 								BAN = { exists = yes }
 							}
-							add_to_variable = { pressure_left = 0.25 }
-							set_variable = { default_pressure = pressure_left }
+							BAN = {
+								add_to_variable = { pressure_left = 0.25 }
+								set_variable = { default_pressure = pressure_left }
+							}
 
 						}
 						MPU = {
@@ -3299,8 +3496,10 @@ country_event = {
 							limit = {
 								BAN = { exists = yes }
 							}
-							add_to_variable = { pressure_left = 0.25 }
-							set_variable = { default_pressure = pressure_left }
+							BAN = {
+								add_to_variable = { pressure_left = 0.25 }
+								set_variable = { default_pressure = pressure_left }
+							}
 
 						}
 						MYS = {
@@ -3336,8 +3535,10 @@ country_event = {
 							limit = {
 								BAN = { exists = yes }
 							}
-							add_to_variable = { pressure_left = 0.25 }
-							set_variable = { default_pressure = pressure_left }
+							BAN = {
+								add_to_variable = { pressure_left = 0.25 }
+								set_variable = { default_pressure = pressure_left }
+							}
 
 						}
 						NWF = {
@@ -3371,8 +3572,10 @@ country_event = {
 							limit = {
 								BAN = { exists = yes }
 							}
-							add_to_variable = { pressure_left = 1 }
-							set_variable = { default_pressure = pressure_left }
+							BAN = {
+								add_to_variable = { pressure_left = 1 }
+								set_variable = { default_pressure = pressure_left }
+							}
 
 						}
 						release = RJP 
@@ -3405,8 +3608,10 @@ country_event = {
 							limit = {
 								BAN = { exists = yes }
 							}
-							add_to_variable = { pressure_left = 0.25 }
-							set_variable = { default_pressure = pressure_left }
+							BAN = {
+								add_to_variable = { pressure_left = 0.25 }
+								set_variable = { default_pressure = pressure_left }
+							}
 
 						}
 						release = KOL 
@@ -3442,8 +3647,10 @@ country_event = {
 							limit = {
 								BAN = { exists = yes }
 							}
-							add_to_variable = { pressure_left = 0.25 }
-							set_variable = { default_pressure = pressure_left }
+							BAN = {
+								add_to_variable = { pressure_left = 0.25 }
+								set_variable = { default_pressure = pressure_left }
+							}
 
 						}
 						WIS = {
@@ -3477,8 +3684,10 @@ country_event = {
 							limit = {
 								BAN = { exists = yes }
 							}
-							add_to_variable = { pressure_left = 0.25 }
-							set_variable = { default_pressure = pressure_left }
+							BAN = {
+								add_to_variable = { pressure_left = 0.25 }
+								set_variable = { default_pressure = pressure_left }
+							}
 
 						}
 						CIP = {
@@ -3511,8 +3720,10 @@ country_event = {
 							limit = {
 								BAN = { exists = yes }
 							}
-							add_to_variable = { pressure_left = 0.25 }
-							set_variable = { default_pressure = pressure_left }
+							BAN = {
+								add_to_variable = { pressure_left = 0.25 }
+								set_variable = { default_pressure = pressure_left }
+							}
 
 						} 
 						RAS = {
@@ -3551,37 +3762,38 @@ country_event = {
 				max = 13
 			}
 			PAK = { 
+				round_variable = pressure_left
 				clamp_variable = {
 					var = pressure_left
 					min = 0
 					max = 13
 				}
+				set_variable = { default_pressure = pressure_left }
 			}
 
 			RAJ = {  
 				set_variable = { default_pressure = pressure_left }
 			}
-			if = {
-				limit = {
-					BAN = { exists = yes }
-				}
-				BAN = {
-					if = {
-						limit = {
-							check_variable = { pressure_left = 0 }
-						}
-						add_to_variable = { pressure_left = 2 }
+		}
+		if = {
+			limit = {
+				BAN = { exists = yes }
+			}
+			BAN = {
+				# Bengal is released after the immediate setup ran, so its base pressure lands here instead
+				if = {
+					limit = {
+						check_variable = { pressure_left < 3 }
 					}
-					multiply_variable = { pressure_left = RAJ.pressure_mult }
-					round_variable = pressure_left
-					set_variable = { default_pressure = pressure_left }
-					clamp_variable = {
-						var = pressure_left
-						min = 0
-						max = 13
-					}
-
+					add_to_variable = { pressure_left = 3 }
 				}
+				round_variable = pressure_left
+				clamp_variable = {
+					var = pressure_left
+					min = 0
+					max = 13
+				}
+				set_variable = { default_pressure = pressure_left }
 			}
 		}
 
@@ -3981,20 +4193,20 @@ country_event = {
 			}
 
 			retire_country_leader = yes
-			add_country_leader_role = {
-				character =  RAJ_mahatma_mohandas_gandhi # optional if inside character scope
-				promote_leader = yes
-				country_leader={
-					ideology=liberalism
-					expire="1965.1.1.1"
-					traits = { spiritual_leader skeptical_towards_industrialization }
-				}
-			
+			promote_character = {
+				character = RAJ_mahatma_mohandas_gandhi
+				ideology = liberalism
 			}
 		}
-		else = {
-			add_country_leader_trait = spiritual_leader
-			add_country_leader_trait = skeptical_towards_industrialization
+		RAJ_mahatma_mohandas_gandhi = {
+			add_country_leader_trait = {
+				ideology = liberalism
+				trait = spiritual_leader
+			}
+			add_country_leader_trait = {
+				ideology = liberalism
+				trait = skeptical_towards_industrialization
+			}
 		}
 
 		ai_chance = {
@@ -4118,20 +4330,21 @@ country_event = {
 
 #Gandthi dies
 country_event = {
-	id = GOE_RAJ_partition.9
-	title = GOE_RAJ_partition.9.t	
-	desc = GOE_RAJ_partition.9.desc	
+	id = GOE_RAJ_partition.12
+	title = GOE_RAJ_partition.12.t
+	desc = GOE_RAJ_partition.12.desc
 	picture = GFX_report_event_generic_sign_treaty2
 	
 	fire_only_once = yes
 	trigger = {
+		original_tag = RAJ
 		date > 1948.1.29
 		has_global_flag = RAJ_GOE_partition_has_happened
 		NOT = { has_country_flag = gandhi_survives_assasination_attempt }
 	}
 
 	option = {
-		name = GOE_RAJ_partition.9.a
+		name = GOE_RAJ_partition.12.a
 		if = {
 			limit ={
 				has_country_leader = {
@@ -4152,6 +4365,20 @@ country_event = {
 				} 
 			}
 		}
+	}
+}
+
+#ENG prepares to step in on a war between the successor states
+country_event = {
+	id = GOE_RAJ_partition.9
+	title = GOE_RAJ_partition.9.t
+	desc = GOE_RAJ_partition.9.desc
+	picture = GFX_report_event_generic_sign_treaty2
+
+	is_triggered_only = yes
+
+	option = {
+		name = GOE_RAJ_partition.9.a
 	}
 }
 

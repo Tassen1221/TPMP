@@ -2544,6 +2544,37 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		completion_reward = {
 			news_event = { id = bftb_news.205 }
+			effect_tooltip = {
+				add_stability = 0.15
+				add_war_support = 0.15
+				set_country_flag = TUR_ott_sultanate_flag
+				TUR_set_appropriate_cosmetic_tag = yes
+				set_capital = { state = 797 }
+				add_country_leader_role = {
+					character = TUR_abdulmejid_ii
+					country_leader = {
+						expire = "1965.1.1"
+						ideology = despotism
+						traits = {
+							gentle_scholar
+						}
+					}
+					promote_leader = yes
+				}
+				
+				set_party_name = { 
+					ideology = neutrality
+					long_name = TUR_sultanate_party_long
+					name = TUR_sultanate_party_long
+				}
+				add_popularity = {
+					ideology = neutrality
+					popularity = 0.25
+				}
+				set_province_name = { id = 9833 name = "Konstantiniyye" }
+				797 = { set_state_name = "Konstantiniyye" } 
+				
+			}
 		}
 	}
 
@@ -2560,8 +2591,8 @@ focus_tree = {
 		}
 
 		bypass = {
-			OR = {
-				GRE = { 
+			GRE = { 
+				OR = {
 					exists = no
 					is_subject_of = ROOT
 					has_capitulated = yes
@@ -2611,7 +2642,7 @@ focus_tree = {
 		x = -1
 		y = 1
 		relative_position_id = TUR_reclaim_macedonia
-		cost = 10
+		cost = 5 
 		ai_will_do = {
 			base = 10
 		}
@@ -2693,7 +2724,7 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = TUR_reclaim_macedonia
-		cost = 10
+		cost = 5 
 		ai_will_do = {
 			base = 10
 		}
@@ -3309,7 +3340,7 @@ focus_tree = {
 	focus = {
 		id = TUR_reinstate_the_darulfununu_sahane
 		icon = GFX_goal_generic_scientific_exchange
-		prerequisite = { focus = TUR_the_pan_national_association_of_ulemas focus = TUR_reclaiming_our_lost_empire }
+		prerequisite = { focus = TUR_expanding_the_saadabad_pact focus = TUR_reclaiming_our_lost_empire }
 		x = -1
 		y = 1
 		relative_position_id = TUR_the_pan_national_association_of_ulemas
@@ -3327,7 +3358,7 @@ focus_tree = {
 	focus = {
 		id = TUR_imperial_factories
 		icon = GFX_goal_generic_construct_mil_factory
-		prerequisite = { focus = TUR_the_pan_national_association_of_ulemas }
+		prerequisite = { focus = TUR_expanding_the_saadabad_pact focus = TUR_the_damascus_diktat }
 		x = 1
 		y = 1
 		relative_position_id = TUR_the_pan_national_association_of_ulemas
@@ -3359,6 +3390,85 @@ focus_tree = {
 				}
 				add_offsite_building = { type = arms_factory level = 3 }
 			}
+		}
+	}
+
+	focus = {
+		id = TUR_third_expedition_to_aceh
+		icon = GFX_focus_INS_dominion_of_atjeh
+		prerequisite = { focus = TUR_the_damascus_diktat }
+		x = 0 
+		y = 1
+		relative_position_id = TUR_the_damascus_diktat
+		cost = 10
+		ai_will_do = {
+			base = 10
+		}
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+
+			navy_experience = 50  
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+
+			random_owned_controlled_state = {
+				limit = {
+					is_coastal = yes 
+					free_building_slots = {
+						building = dockyard
+						size > 2
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = dockyard
+					level = 3
+					instant_build = yes
+				}
+			}
+
+			IF = {
+				limit = {
+					ATJ = {
+						exists = yes 
+					}
+				}
+				custom_effect_tooltip = generic_skip_one_line_tt
+				create_wargoal = {
+					type = puppet_wargoal_focus
+					target = ATJ 
+					expire = 0 
+				}	
+			}
+			ELSE_IF = {
+				limit = {
+					ATJ = {
+						exists = no  
+					}
+					1050 = {
+						NOT = {
+							is_owned_by = ROOT 
+						}
+					}
+				}
+				custom_effect_tooltip = generic_skip_one_line_tt
+				1050 = {
+					OWNER = {
+						ROOT = {
+							create_wargoal = {
+								type = liberate_wargoal
+								target = PREV
+								generator = { 1050 } 
+								expire = 0 
+							}	
+						}
+					}
+				}	
+			}
+			
 		}
 	}
 
@@ -5227,6 +5337,14 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		completion_reward = {
 			ENG = {
+				if = {
+					limit = {
+						NOT = {
+							has_guaranteed = ROOT
+						}
+					}
+					country_event = bftb_turkey.144
+				}
 				add_opinion_modifier = {
 					target = TUR
 					modifier = TUR_regional_force_of_stability
@@ -5236,13 +5354,6 @@ focus_tree = {
 				add_opinion_modifier = {
 					target = TUR
 					modifier = TUR_regional_force_of_stability
-				}
-			}
-			ENG = {
-				diplomatic_relation = {
-					country = TUR
-					relation = guarantee
-					active = yes
 				}
 			}
 			if = {
@@ -5738,7 +5849,7 @@ focus_tree = {
 
 	focus = {
 		id = TUR_securing_iran
-		icon = GFX_goal_generic_occupy_states_ongoing_war
+		icon = GFX_focus_generic_attack_iran
 		prerequisite = { focus = TUR_partnership_pact_with_bulgaria }
 		x = 0
 		y = 1
@@ -5936,14 +6047,17 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		completion_reward = {
 			GER = {
+				if = {
+					limit = {
+						NOT = {
+							has_guaranteed = ROOT
+						}
+					}
+					country_event = bftb_turkey.144
+				}
 				add_opinion_modifier = {
 					target = TUR
 					modifier = TUR_valued_strategic_partners
-				}
-				diplomatic_relation = {
-					country = TUR
-					relation = guarantee
-					active = yes
 				}
 			}
 			hidden_effect = {
@@ -6897,7 +7011,7 @@ focus_tree = {
 
 	focus = {
 		id = TUR_secure_the_iraqi_oil
-		icon = GFX_goal_generic_major_war
+		icon = GFX_focus_generic_attack_iraq
 		mutually_exclusive = { focus = TUR_support_the_golden_square }
 		prerequisite = { focus = TUR_the_tuz_golu_training_facility }
 		x = 1
@@ -9856,15 +9970,22 @@ focus_tree = {
 			add_tech_bonus = {
 				name = TUR_utilising_our_terrain
 				bonus = 1.0
-				uses = 2
-				technology = tech_mountaineers
-				technology = tech_mountaineers2
+				uses = 1
+				category = mountaineers_tech
 			}
 			add_tech_bonus = {
 				name = TUR_utilising_our_terrain
 				bonus = 1.0
 				uses = 1
 				category = cat_engineers_tech
+			}
+			random_army_leader = {
+				limit = {
+					NOT = {
+						has_trait = trait_mountaineer
+					}
+				}	
+				add_trait = { trait = trait_mountaineer }
 			}
 		}
 	}

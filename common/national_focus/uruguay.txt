@@ -237,8 +237,8 @@ focus_tree = {
 		prerequisite = { focus = URG_break_relations_with_the_ussr }
 		mutually_exclusive = { }
 		bypass = {
-			any_other_country = {
-				original_tag = SPR
+			any_country_with_original_tag = {
+				original_tag_to_check = SPR
 				OR = {
 					has_government = communism
 					has_government = democratic
@@ -519,6 +519,13 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL  }
 
 		completion_reward = {
+
+			hidden_effect = {
+				set_rule = { 
+					can_join_factions = yes 
+				}
+			}
+
 			set_politics = {
 				ruling_party = fascism
 				elections_allowed = no
@@ -1291,6 +1298,12 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 
 		completion_reward = {
+
+			hidden_effect = {
+				set_rule = { 
+					can_join_factions = yes 
+				}
+			}
 
 			add_popularity = {
 				ideology = democratic

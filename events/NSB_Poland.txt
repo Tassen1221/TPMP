@@ -114,8 +114,8 @@ country_event = {
 				NOT = { is_in_faction_with = POL }
 			}
 			modifier = {
-				any_other_country = {
-					is_major = yes
+				any_collection_element = {
+					collection = game:all_majors
 					is_in_faction_with = ROOT
 				}
 				factor = 50 #I'm Slovakia and I'm in the axis
@@ -127,8 +127,8 @@ country_event = {
 				factor = 5 #i've got friends
 			}
 			modifier = {
-				any_other_country = {
-					is_major = yes
+				any_collection_element = {
+					collection = game:all_majors
 					has_guaranteed = ROOT
 				}
 				factor = 5 #i've got big friends
@@ -300,8 +300,8 @@ country_event = {
 				factor = 5 #i've got friends
 			}
 			modifier = {
-				any_other_country = {
-					is_major = yes
+				any_collection_element = {
+					collection = game:all_majors
 					has_guaranteed = HUN
 				}
 				factor = 5 #i've got big friends
@@ -877,15 +877,15 @@ country_event = {
 			}
 			modifier = {
 				add = 25 
-				any_country = {
-					is_major = yes 
-					is_in_faction_with = FROM 
+				any_collection_element = {
+					collection = game:all_majors
+					is_in_faction_with = FROM
 				}
 			}
 			modifier = {
 				factor = 0.1
-				any_country = {
-					is_major = yes 
+				any_collection_element = {
+					collection = game:all_majors
 					OR = { 
 						has_guaranteed = ROOT 
 						is_in_faction_with = ROOT
@@ -1135,7 +1135,6 @@ country_event = {
 			clr_country_flag = POL_searching_for_monarch_flag
 		}
 		promote_character = POL_friedrich_christian
-		complete_national_focus = POL_fulfil_fifth_of_november
 		unlock_national_focus = POL_claiming_lithuania
 		hidden_effect = {
 			set_country_flag = achievement_POL_elected_monarch
@@ -1227,7 +1226,6 @@ country_event = {
 			clr_country_flag = POL_searching_for_monarch_flag
 		}
 		set_country_flag = king_michael_flag
-		complete_national_focus = POL_fulfil_fifth_of_november
 		unlock_national_focus = POL_hohenzollern
 		hidden_effect = {
 			set_country_flag = achievement_POL_elected_monarch
@@ -1304,7 +1302,6 @@ country_event = {
 			set_cosmetic_tag = POL_KINGDOM_RUS
 			clr_country_flag = POL_searching_for_monarch_flag
 		}
-		complete_national_focus = POL_fulfil_fifth_of_november
 		unlock_national_focus = POL_cossack_king
 		hidden_effect = {
 			set_country_flag = achievement_POL_elected_monarch
@@ -1390,7 +1387,6 @@ country_event = {
 			long_name = romanov_party
 			name = romanov_party
 		}
-		complete_national_focus = POL_fulfil_fifth_of_november
 		unlock_national_focus = POL_romanov
 		hidden_effect = {
 			set_country_flag = achievement_POL_elected_monarch
@@ -1635,8 +1631,8 @@ country_event = {
 				factor = 5 #i've got friends
 			}
 			modifier = {
-				any_other_country = {
-					is_major = yes
+				any_collection_element = {
+					collection = game:all_majors
 					has_guaranteed = LIT
 				}
 				factor = 5 #i've got big friends
@@ -1780,8 +1776,8 @@ country_event = {
 				factor = 5 #i've got friends
 			}
 			modifier = {
-				any_other_country = {
-					is_major = yes
+				any_collection_element = {
+					collection = game:all_majors
 					has_guaranteed = YUG
 				}
 				factor = 5 #i've got big friends
@@ -2440,8 +2436,8 @@ country_event = {
 				factor = 5 #i've got friends
 			}
 			modifier = {
-				any_other_country = {
-					is_major = yes
+				any_collection_element = {
+					collection = game:all_majors
 					has_guaranteed = LIT
 				}
 				factor = 5 #i've got big friends
@@ -2560,8 +2556,8 @@ country_event = {
 				factor = 5 #i've got friends
 			}
 			modifier = {
-				any_other_country = {
-					is_major = yes
+				any_collection_element = {
+					collection = game:all_majors
 					has_guaranteed = ROOT
 				}
 				factor = 5 #i've got big friends
@@ -2641,7 +2637,7 @@ country_event = {
 		}
 		create_wargoal = {
 			type = annex_everything
-			target = ROOT
+			target = FROM
 		}
 	}
 }
@@ -2662,16 +2658,16 @@ country_event = {
 			base = 50 #Why would they say no?
 			modifier = { #They are at war with someone I'm not
 				factor = 0.5
-				any_other_country = {
-					is_major = yes
+				any_collection_element = {
+					collection = game:all_majors
 					has_war_with = POL
 					NOT = { has_war_with = ROOT }
 				}
 			}
 			modifier = { #They are at war with the Allies and I am not
 				factor = 0.1
-				any_other_country = {
-					is_major = yes
+				any_collection_element = {
+					collection = game:all_majors
 					has_government = democratic
 					has_war_with = POL
 					NOT = { has_war_with = ROOT }
@@ -3226,16 +3222,16 @@ country_event = {
 			base = 50 #Why would they say no?
 			modifier = { #They are at war with someone I'm not
 				factor = 0.5
-				any_other_country = {
-					is_major = yes
+				any_collection_element = {
+					collection = game:all_majors
 					has_war_with = POL
 					NOT = { has_war_with = ROOT }
 				}
 			}
 			modifier = { #They are at war with the Allies and I am not
 				factor = 0.1
-				any_other_country = {
-					is_major = yes
+				any_collection_element = {
+					collection = game:all_majors
 					has_government = democratic
 					has_war_with = POL
 					NOT = { has_war_with = ROOT }
@@ -3372,8 +3368,8 @@ country_event = {
 				LIT = {
 					is_in_faction = yes
 				}
-				any_other_country = {
-					is_major = yes
+				any_collection_element = {
+					collection = game:all_majors
 					is_in_faction_with = LIT
 				}
 			}
@@ -3486,8 +3482,8 @@ country_event = {
 				factor = 5 #i've got friends
 			}
 			modifier = {
-				any_other_country = {
-					is_major = yes
+				any_collection_element = {
+					collection = game:all_majors
 					has_guaranteed = LIT
 				}
 				factor = 5 #i've got big friends
@@ -3585,6 +3581,7 @@ country_event = {
 		set_autonomy = {
 			target = POL
 			autonomy_state = autonomy_satellite
+			end_wars = no
 		}
 		hidden_effect = {
 			POL = { country_event = { id = NSB_polish_fascist_events.301 hours = 3 }  }
@@ -3766,6 +3763,51 @@ country_event = {
 		}
 		FROM = {
 			country_event = { id = NSB_polish_fascist_events.402 hours = 8 }
+		}
+		if = {
+			limit = {
+				NOT = {
+					country_exists = RKU
+					has_country_flag = GER_block_ukraine_rk
+				}
+				FROM = {
+					OR = {
+						has_country_flag = asking_for_belarus_and_ukraine_flag
+						has_country_flag = asking_for_black_sea_flag
+					}
+				}
+			}
+			if = {
+				limit = {
+					has_completed_focus = GER_uplift_the_rosenberg_office
+				}
+				effect_tooltip = {
+					custom_effect_tooltip = generic_skip_one_line_tt
+					remove_decision = GER_reichskommissariat_ukraine
+				}
+			}
+			set_country_flag = GER_block_ukraine_rk
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					country_exists = RKO
+					has_country_flag = GER_block_ostland_rk
+				}
+				FROM = {
+					has_country_flag = asking_for_baltics_flag
+				}
+			}
+			if = {
+				limit = {
+					has_completed_focus = GER_uplift_the_rosenberg_office
+				}
+				effect_tooltip = {
+					custom_effect_tooltip = generic_skip_one_line_tt
+					remove_decision = GER_reichskommissariat_ostland
+				}
+			}
+			set_country_flag = GER_block_ostland_rk
 		}
 	}
 	
@@ -4243,17 +4285,17 @@ country_event = {
 			}
 			if = {
 				limit = {
+					NOT = { has_completed_focus = HUN_strengthen_the_monarchists }
+				}
+				complete_national_focus = HUN_strengthen_the_monarchists
+			}
+			if = {
+				limit = {
 					NOT = { has_completed_focus = HUN_elect_a_king }
 				}
 				complete_national_focus = HUN_elect_a_king
 			}
 			unlock_national_focus = HUN_invite_the_habsburg_prince
-			if = {
-				limit = {
-					NOT = { has_completed_focus = HUN_strengthen_the_monarchists }
-				}
-				complete_national_focus = HUN_strengthen_the_monarchists
-			}
 			swap_ideas = {
 				add_idea = HUN_habsburg_restored
 				remove_idea = HUN_hungarian_monarchy_2
@@ -4285,8 +4327,8 @@ country_event = {
 				factor = 5 #i've got friends
 			}
 			modifier = {
-				any_other_country = {
-					is_major = yes
+				any_collection_element = {
+					collection = game:all_majors
 					has_guaranteed = HUN
 				}
 				factor = 5 #i've got big friends

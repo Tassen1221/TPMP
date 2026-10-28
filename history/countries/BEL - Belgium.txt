@@ -289,6 +289,7 @@ if = {
 	recruit_character = BEL_achille_van_acker
 	recruit_character = BEL_king_leopold_iii
 	recruit_character = BEL_raoul_van_overstraeten
+	recruit_character = BEL_georges_deffontaine
 	recruit_character = BEL_oscar_michiels
 	recruit_character = BEL_victor_van_strydonck_de_burkel
 	recruit_character = BEL_jules_pire
@@ -408,9 +409,29 @@ IF = {
 	}
 }
 
-
+if = {
+	limit = {
+		has_dlc = "Gotterdammerung"
+	}
+	add_ideas = {
+		BEL_scars_of_ww1_ns_fake
+		BEL_corruption_ns_fake
+	}
+}
 
 1939.1.1 = {
+
+	if = {
+		limit = {
+			has_dlc = "Gotterdammerung"
+		}
+		remove_ideas = {
+			BEL_scars_of_ww1_ns_fake
+			BEL_corruption_ns_fake
+		}
+		add_ideas = BEL_corruption_ns_fake_2
+	}
+
 	add_ideas = {
 		limited_conscription
 	}

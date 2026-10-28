@@ -118,18 +118,18 @@ AUS_antischluss_category = {
 			has_civil_war = no
 		}
 
-		state_target = yes
+		state_target = any_owned_state
 
 		on_map_mode = map_and_decisions_view
 
-		target_array = ROOT.core_states
-
 		target_trigger = {
 			FROM = {
+				is_core_of = ROOT
+				is_fully_controlled_by = ROOT
 				NOT = {
 					has_dynamic_modifier =  { modifier = AUS_garrisoned_state_modifier }
 				}
-				is_fully_controlled_by = ROOT
+				
 			}			
 		}
 		
@@ -187,6 +187,7 @@ AUS_antischluss_category = {
 		}
 
 		visible = { 
+			is_subject = no
 			NOT = { 
 				has_idea = AUS_fortification_effort_idea 
 				AUS_anschluss_risk_low = yes
@@ -196,9 +197,10 @@ AUS_antischluss_category = {
 				AUS_anschluss_risk_high = yes
 				AUS_anschluss_risk_critical = yes
 			}
-			is_subject = no
 		}
 		available = {
+			is_subject = no
+			has_civil_war = no
 			NOT = {
 				has_country_flag = AUS_antischluss_measures_flag
 				has_idea = AUS_fortification_effort_idea
@@ -208,8 +210,6 @@ AUS_antischluss_category = {
 				AUS_anschluss_risk_high = yes
 				AUS_anschluss_risk_critical = yes
 			}
-			is_subject = no
-			has_civil_war = no
 		}
 
 
@@ -325,6 +325,8 @@ AUS_antischluss_category = {
 			is_subject = no
 		}
 		available = {
+			is_subject = no
+			has_civil_war = no
 			NOT = {
 				has_country_flag = AUS_antischluss_measures_flag
 				has_idea = AUS_arms_industry_effort_idea
@@ -334,8 +336,7 @@ AUS_antischluss_category = {
 				AUS_anschluss_risk_high = yes
 				AUS_anschluss_risk_critical = yes
 			}
-			is_subject = no
-			has_civil_war = no
+			
 		}
 
 		
@@ -734,12 +735,14 @@ AUS_supporting_italy_in_ethiopia_category = {
 		}
 
 		visible = {
+			has_global_flag = second_italo_ethiopian_war_flag
 			any_country = {
 				is_embargoing = ITA
 			}
 		}
 
 		available = {
+			has_global_flag = second_italo_ethiopian_war_flag
 			any_country = {
 				is_embargoing = ITA
 			}
@@ -818,7 +821,7 @@ AUS_becoming_grossosterreich_category = {
 			base = 100
 		}
 
-		state_target = yes
+		state_target = yes #Change this to some sort of collection targeting only german cores
 
 		on_map_mode = map_only #map only to not clog the decision ui with a huge list.
 
@@ -939,7 +942,7 @@ AUS_subjugating_the_lands_of_old_category = {
 
 		fire_only_once = yes
 
-		state_target = yes
+		state_target = yes #Change to collection when state target takes these
 
 		target_array = AUS.expansion_targets
 
@@ -2603,10 +2606,8 @@ AUS_the_danubian_federation_category = {
 			is_subject = no
 			FROM = {
 				NOT = {
-					OR = {
-						is_subject = yes
-						has_war_with = ROOT
-					}
+					is_subject = yes
+					has_war_with = ROOT
 				}
 				is_in_faction = no
 			}
@@ -3067,7 +3068,7 @@ AUS_reintegrating_the_empire_category = {
 
 		fire_only_once = yes
 
-		state_target = yes
+		state_target = yes #Change to use collections when possible
 
 		target_trigger = {
 			FROM = {
@@ -3142,7 +3143,7 @@ AUS_reintegrating_the_empire_category = {
 
 		fire_only_once = yes
 
-		state_target = yes
+		state_target = yes #Change to use collections when possible
 
 		target_trigger = {
 			FROM = {

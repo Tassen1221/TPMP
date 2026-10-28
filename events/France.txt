@@ -274,7 +274,7 @@ country_event = {
 				}
 				country_event = {
 					id = GOE_generic_events.1
-					hours = 4
+					days = 7
 				}
 			}
 		}
@@ -416,7 +416,10 @@ country_event = {
 	
 	option = { # Become Vichy
 		name = france.13.a
-		trigger = { is_ai = no }
+		trigger = {
+			is_ai = no
+			has_civil_war = no
+		}
 		set_country_flag = become_vichy
 		set_global_flag = fall_of_france
 		save_global_event_target_as = vichy_france
@@ -455,6 +458,12 @@ country_event = {
 	picture = GFX_report_event_german_parade_paris
 	
 	is_triggered_only = yes
+
+	trigger = {
+		FRA = {
+			has_civil_war = no
+		}
+	}
 	
 	# option = { # Agree
 	# 	name = france.14.a

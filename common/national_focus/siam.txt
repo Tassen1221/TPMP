@@ -3306,9 +3306,9 @@
 					fixed_ship_anti_air_slot = ship_anti_air_1
 					fixed_ship_fire_control_system_slot = ship_fire_control_system_0
 					fixed_ship_radar_slot = empty
-					fixed_ship_engine_slot = light_ship_engine_2
-					fixed_ship_torpedo_slot = ship_torpedo_2
+					fixed_ship_engine_slot = cruiser_ship_engine_2
 					mid_1_custom_slot = ship_torpedo_2
+					mid_2_custom_slot = ship_torpedo_2
 					rear_1_custom_slot = ship_mine_layer_1
 				}
 				obsolete = yes
@@ -3705,8 +3705,7 @@
 		ai_will_do = {
 			factor = 50
 		}
-		available = {
-		}
+		available = { is_subject = no }
 		mutually_exclusive = { focus = SIA_join_the_allies focus = SIA_join_the_united_front }
 		#allow_branch = {
 		#}
@@ -7800,6 +7799,7 @@
 
 	focus = {
 		id = SIA_directorate_of_aeronautical_engineering
+		text = SIA_directorate_of_aeronautical_engineering_focus
 		icon = GFX_focus_generic_air_research_boost
 		x = 4
 		y = 0
@@ -9563,10 +9563,29 @@
 					owner = PREV
 				}
 			}
-			declare_war_on = {
-                target = CHI
-                type = puppet_wargoal_focus
-            }
+			# Join Japan's war rather than declare our own, the Phayap Army fought China as Japan's co-belligerent.
+			if = {
+				limit = {
+					SIA_aligned_with_japan = yes
+					JAP = {
+						exists = yes
+						has_war_with = CHI
+					}
+					NOT = {
+						has_war_with = CHI
+						is_ally_with = CHI
+					}
+				}
+				add_to_war = {
+					targeted_alliance = JAP
+					enemy = CHI
+					hostility_reason = asked_to_join
+					single_target_only = yes
+				}
+			}
+			else = {
+				custom_effect_tooltip = SIA_the_phayap_army_no_war_tt
+			}
 		}
 	}
 
@@ -9693,7 +9712,7 @@
 		}
 		available = {
 			any_war_score > 8
-			is_ally_with = JAP
+			SIA_aligned_with_japan = yes
 		}
 		#allow_branch = {
 		#}

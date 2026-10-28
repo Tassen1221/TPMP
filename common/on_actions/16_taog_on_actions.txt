@@ -546,6 +546,7 @@
 				limit = {
 					FROM = {
 						original_tag = SIA
+						is_subject = no
 						OR = {
 							is_faction_leader = no
 							NOT = {
@@ -575,24 +576,47 @@
 				}
 			}
 
-			#diversitifaction focus
+			#diversitifaction focus - FROM - separated to avoid this repeatedly triggering
 			if = {
 				limit = {
-					OR = {
-						FROM = {
-							original_tag = SIA
-							has_completed_focus = SIA_diversity_foreign_reserves
-							NOT = { has_country_flag = SIA_diversity_foreign_reserves_flag }
-						}
-						ROOT = {
-							original_tag = SIA
-							has_completed_focus = SIA_diversity_foreign_reserves
-							NOT = { has_country_flag = SIA_diversity_foreign_reserves_flag }
-						}
+					FROM = {
+						original_tag = SIA
+						has_completed_focus = SIA_diversity_foreign_reserves
+						NOT = { has_country_flag = SIA_diversity_foreign_reserves_flag }
 					}
 				}
 
-				SIA = {
+				FROM = {
+					set_country_flag = SIA_diversity_foreign_reserves_flag
+					add_offsite_building = {
+						type = arms_factory
+						level = 3
+					}
+
+					random_core_state = {
+						limit = {
+							is_controlled_by = SIA
+						}
+
+						add_resource = {
+							type = steel
+							amount = 8
+						}
+					}
+				}
+			}
+
+			#diversitifaction focus - ROOT - separated to avoid this repeatedly triggering
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = SIA
+						has_completed_focus = SIA_diversity_foreign_reserves
+						NOT = { has_country_flag = SIA_diversity_foreign_reserves_flag }
+					}
+				}
+
+				ROOT = {
 					set_country_flag = SIA_diversity_foreign_reserves_flag
 					add_offsite_building = {
 						type = arms_factory

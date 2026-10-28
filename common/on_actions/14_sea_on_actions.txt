@@ -89,6 +89,16 @@ on_actions = {
 			}
 		}
 
+		effect = {
+			every_country = {
+				limit = {
+					is_literally_china = yes
+				}
+				
+				add_to_array = { global.is_literally_china = THIS }
+			}
+		}
+
 		#JAPAN - Add Chinese States to an array for Strategic Offensives Decision purposes
 		effect = {
 			every_state = {
@@ -601,15 +611,25 @@ on_actions = {
 			IF = {
 				limit = {
 					has_dlc = "No Compromise, No Surrender"
-					FROM.FROM = {
-						state = 327
-					}
 					FROM = {
 						original_tag = PHI
 						has_war = yes
 						has_civil_war = no
 
 						owns_state = 327
+						NOT = { controls_state = 327 }
+						OR = { # A faction leader holds out until it is close to capitulating
+							is_faction_leader = no
+							surrender_progress > 0.85
+						}
+					}
+					OR = {
+						FROM.FROM = {
+							state = 327
+						}
+						FROM = {
+							is_faction_leader = yes
+						}
 					}
 				}
 				FROM = {
@@ -977,6 +997,17 @@ on_actions = {
 
 	# ROOT is the nation being puppeted, FROM is the overlord. 	OBS: Trigger the following commands whenever a country is puppeted in a peace conference only.
 	on_puppet = {
+
+		### A beaten CCP loses its hold on the officers who defected to it.
+		effect = {
+			if = {
+				limit = {
+					has_dlc = "No Compromise, No Surrender"
+					original_tag = PRC
+				}
+				CHI_check_for_officers_to_reclaim_from_PRC_effect = yes
+			}
+		}
 
 		effect = {
 			IF = {
@@ -1473,6 +1504,64 @@ on_actions = {
 	#fired when two countries end up at war with each other (on_war is fired when a country goes to war against anyone and is not fired again when it enters war against another country unless it went to peace first)
 	on_war_relation_added = {
 
+		### Any war with the CCP pulls the dubiously loyal officers of the other side over to them.
+		effect = {
+			if = {
+				limit = {
+					has_dlc = "No Compromise, No Surrender"
+					OR = {
+						AND = {
+							ROOT = {
+								original_tag = PRC
+							}
+							FROM = {
+								is_literally_china = yes
+								NOT = {
+									original_tag = PRC
+								}
+							}
+						}
+						AND = {
+							FROM = {
+								original_tag = PRC
+							}
+							ROOT = {
+								is_literally_china = yes
+								NOT = {
+									original_tag = PRC
+								}
+							}
+						}
+					}
+				}
+				every_country = {
+					limit = {
+						is_literally_china = yes
+						exists = yes
+						OR = {
+							has_war_with = PRC
+							any_allied_country = {
+								has_war_with = PRC
+							}
+						}
+						NOT = {
+							original_tag = PRC
+							is_subject_of = PRC
+							is_in_faction_with = PRC
+						}
+						any_character = {
+							has_character_flag = can_flip_to_prc
+						}
+					}
+					country_event = {
+						id = SEA_PRC_political_events.19
+						hours = 2
+						random_hours = 3
+					}
+				}
+			}
+		}
+
 		effect = {
 			if = {
 				limit = {
@@ -1482,15 +1571,15 @@ on_actions = {
 								original_tag = CHI
 							}
 							is_in_array = {
-									array = CHI.nine_power_treaty_signatories
-									value = FROM
+								array = CHI.nine_power_treaty_signatories
+								value = FROM
 							}
 						}
 
 						AND = {
 							is_in_array = {
-									array = CHI.nine_power_treaty_signatories
-									value = ROOT
+								array = CHI.nine_power_treaty_signatories
+								value = ROOT
 							}
 							FROM = {
 								original_tag = CHI
@@ -2035,56 +2124,6 @@ on_actions = {
 					}
 				}
 			}
-			IF = { ## When war against CHI and PRC breaks out - some generals flip to PRC
-				limit = {
-					has_dlc = "No Compromise, No Surrender"
-					OR = { 
-						AND = {
-							ROOT = {
-								original_tag = PRC
-							}
-							FROM = {
-								original_tag = CHI
-							}
-						}
-						AND = {
-							FROM = {
-								original_tag = PRC
-							}
-							ROOT = {
-								original_tag = CHI
-							}
-						}
-					}
-				}
-
-				## array here of all not PRC, then check if has characters 
-				every_country = {
-					limit = {
-					 	is_literally_china = yes
-					 	NOT = { tag = PRC }
-					 	NOT = {
-					 		is_subject_of = PRC
-					 		is_in_faction_with = PRC
-					 	}
-					 	any_character = {
-							has_character_flag = can_flip_to_prc
-						}
-					}
-					 country_event = {
-						id = SEA_PRC_political_events.19 
-						hours = 2
-						random_hours = 3
-					}
-				}
-
-				PRC = {
-					country_event = {
-						id = SEA_PRC_political_events.20
-						days = 2
-					}
-				}
-			}
 			if = {				#Return McArthur for US civil war, which he can lead the CSA in
 				limit = {
 					OR = {
@@ -2227,6 +2266,21 @@ on_actions = {
 		}
 	}
 
+	on_annex = {
+		### A beaten CCP loses its hold on the officers who defected to it.
+		effect = {
+			if = {
+				limit = {
+					has_dlc = "No Compromise, No Surrender"
+					FROM = {
+						original_tag = PRC
+					}
+				}
+				CHI_check_for_officers_to_reclaim_from_PRC_effect = yes
+			}
+		}
+	}
+
 	on_monthly_JAP = {
 		effect = {
 			if = { #The Imperial Factions are making demands
@@ -2238,8 +2292,10 @@ on_actions = {
 				if = { #We need to keep track of how many Mils and Dockyards Japan has, so the Zaibatsu can demand more Civs
 					limit = {
 						has_war = no
-						NOT = { has_country_flag = JAP_zaibatsu_faction_demands_factories }
-						NOT = { has_active_mission = JAP_zaibatsu_faction_demands_factories }
+						NOT = {
+							has_country_flag = JAP_zaibatsu_faction_demands_factories
+							has_active_mission = JAP_zaibatsu_faction_demands_factories
+						}
 					}
 					set_variable = { JAP_combined_military_factories_and_dockyards = 0 }
 					add_to_variable = { JAP_combined_military_factories_and_dockyards = num_of_naval_factories }
@@ -2277,7 +2333,7 @@ on_actions = {
 						
 						JAP_faction_demand_activation_effects = yes
 
-						set_country_flag = JAP_army_faction_demands_factories
+						set_country_flag = { flag = JAP_army_faction_demands_factories value = 1 days = 1095 }
 						country_event = { id = SEA_imperial_influence_events.110 days = 5 random_days = 10 }
 					}
 					10 = { #Appoint Chief of Army
@@ -2307,7 +2363,7 @@ on_actions = {
 						
 						JAP_faction_demand_activation_effects = yes
 
-						set_country_flag = JAP_army_faction_demands_chief_of_army
+						set_country_flag = { flag = JAP_army_faction_demands_chief_of_army value = 1 days = 1095 }
 						country_event = { id = SEA_imperial_influence_events.120 days = 5 random_days = 10 }
 					}
 					10 = { #Change Conscription Laws
@@ -2393,7 +2449,7 @@ on_actions = {
 						
 						JAP_faction_demand_activation_effects = yes
 
-						set_country_flag = JAP_army_faction_demands_more_fielded_men
+						set_country_flag = { flag = JAP_army_faction_demands_more_fielded_men value = 1 days = 1095 }
 						country_event = { id = SEA_imperial_influence_events.140 days = 5 random_days = 10 }
 					}
 					10 = { #More Trucks
@@ -2427,7 +2483,7 @@ on_actions = {
 
 						JAP_faction_demand_activation_effects = yes
 
-						set_country_flag = JAP_army_faction_demands_trucks
+						set_country_flag = { flag = JAP_army_faction_demands_trucks value = 1 days = 1095 }
 						country_event = { id =  SEA_imperial_influence_events.150 days = 5 random_days = 10 }
 					}
 					10 = { #More Tanks
@@ -2493,7 +2549,7 @@ on_actions = {
 
 						JAP_faction_demand_activation_effects = yes
 
-						set_country_flag = JAP_army_faction_demands_tanks
+						set_country_flag = { flag = JAP_army_faction_demands_tanks value = 1 days = 1095 }
 						country_event = { id = SEA_imperial_influence_events.160 days = 5 random_days = 10 }
 					}
 					10 = { #More Artillery
@@ -2531,7 +2587,7 @@ on_actions = {
 
 						JAP_faction_demand_activation_effects = yes
 
-						set_country_flag = JAP_army_faction_demands_artillery
+						set_country_flag = { flag = JAP_army_faction_demands_artillery value = 1 days = 1095 }
 						country_event = { id = SEA_imperial_influence_events.161 days = 5 random_days = 10 }
 					}
 
@@ -2544,7 +2600,7 @@ on_actions = {
 						modifier = { 
 							factor = 0
 							OR = {
-								has_country_flag = JAP_army_faction_demands_dockyards
+								has_country_flag = JAP_naval_faction_demands_dockyards_flag
 								num_of_naval_factories > num_of_military_factories
 							}
 						}
@@ -2567,7 +2623,7 @@ on_actions = {
 						
 						JAP_faction_demand_activation_effects = yes
 
-						set_country_flag = JAP_army_faction_demands_dockyards
+						set_country_flag = { flag = JAP_naval_faction_demands_dockyards_flag value = 1 days = 1095 }
 						country_event = { id = SEA_imperial_influence_events.210 days = 5 random_days = 10 }
 					}
 					10 = { #Appoint Chief of Navy
@@ -2597,7 +2653,7 @@ on_actions = {
 						
 						JAP_faction_demand_activation_effects = yes
 
-						set_country_flag = JAP_naval_faction_demands_chief_of_navy_flag
+						set_country_flag = { flag = JAP_naval_faction_demands_chief_of_navy_flag value = 1 days = 1095 }
 						country_event = { id = SEA_imperial_influence_events.220 days = 5 random_days = 10 }
 					}
 					10 = { #Change Conscription Laws
@@ -2663,7 +2719,7 @@ on_actions = {
 								has_country_flag = JAP_naval_faction_demands_carriers
 								has_navy_size = {
 									unit = carrier
-									size > 17
+									size > 10
 								}
 							}
 						}
@@ -2689,7 +2745,7 @@ on_actions = {
 
 						JAP_faction_demand_activation_effects = yes
 
-						set_country_flag = JAP_naval_faction_demands_carriers
+						set_country_flag = { flag = JAP_naval_faction_demands_carriers value = 1 days = 1095 }
 						country_event = { id = SEA_imperial_influence_events.240 days = 5 random_days = 10 }
 					}
 					10 = { #Build Carriers and Battleships
@@ -2701,8 +2757,7 @@ on_actions = {
 							factor = 0
 							OR = {
 								NOT = {	has_completed_focus = JAP_balanced_naval_approach }
-								has_country_flag = JAP_naval_faction_demands_carriers
-								has_country_flag = JAP_naval_faction_demands_battleships
+								has_country_flag = JAP_naval_faction_demands_carriers_and_battleships
 								AND = {
 									has_navy_size = {
 										unit = carrier 
@@ -2741,8 +2796,7 @@ on_actions = {
 
 						JAP_faction_demand_activation_effects = yes
 
-						set_country_flag = JAP_naval_faction_demands_carriers
-						set_country_flag = JAP_naval_faction_demands_battleships
+						set_country_flag = { flag = JAP_naval_faction_demands_carriers_and_battleships value = 1 days = 1095 }
 						country_event = { id = SEA_imperial_influence_events.241 days = 5 random_days = 10 }
 					}
 					10 = { #Build Battleships
@@ -2754,11 +2808,10 @@ on_actions = {
 							factor = 0
 							OR = {
 								NOT = {	has_completed_focus = JAP_sea_battleship_initiative }
-								has_country_flag = JAP_naval_faction_demands_carriers
 								has_country_flag = JAP_naval_faction_demands_battleships
 								has_navy_size = {
 									archetype = ship_hull_heavy
-									size > 24
+									size > 15
 								}
 							}
 						}
@@ -2784,7 +2837,7 @@ on_actions = {
 
 						JAP_faction_demand_activation_effects = yes
 
-						set_country_flag = JAP_naval_faction_demands_battleships
+						set_country_flag = { flag = JAP_naval_faction_demands_battleships value = 1 days = 1095 }
 						country_event = { id = SEA_imperial_influence_events.242 days = 5 random_days = 10 }
 					}
 
@@ -2813,7 +2866,7 @@ on_actions = {
 						
 						JAP_faction_demand_activation_effects = yes
 
-						set_country_flag = JAP_zaibatsu_faction_demands_factories
+						set_country_flag = { flag = JAP_zaibatsu_faction_demands_factories value = 1 days = 1095 }
 						country_event = { id = SEA_imperial_influence_events.310 days = 5 random_days = 10 }
 					}
 					10 = { #Appoint Industrial Advisor
@@ -2860,10 +2913,10 @@ on_actions = {
 						
 						JAP_faction_demand_activation_effects = yes
 
-						set_country_flag = JAP_zaibatsu_faction_demands_industrial_advisor_flag
+						set_country_flag = { flag = JAP_zaibatsu_faction_demands_industrial_advisor_flag value = 1 days = 1095 }
 						country_event = { id = SEA_imperial_influence_events.320 days = 5 random_days = 10 }
 					}
-					10 = { #Change Trade Laws
+					10 = { #Change Economy Laws
 						modifier = { #Zaibatsus can't make any demands if they don't have enough Influence
 							factor = 0
 							JAP_zaibatsu_faction_is_tier_3_at_least = no
@@ -2881,19 +2934,20 @@ on_actions = {
 						}
 						modifier = {
 							factor = 2
-							NOT = {
-								has_idea = free_trade
-								has_idea = export_focus
+							OR = {
+								has_idea = tot_economic_mobilisation
+								has_idea = national_defense_state
+								has_idea = war_economy
 							}
 						}
 						modifier = { 
 							factor = 0
-							has_country_flag = JAP_zaibatsu_faction_demands_trade_law_change 
+							has_country_flag = JAP_zaibatsu_faction_demands_economy_law_change_flag 
 						}
 
 						JAP_faction_demand_activation_effects = yes
 
-						set_country_flag = JAP_zaibatsu_faction_demands_trade_law_change
+						set_country_flag = { flag = JAP_zaibatsu_faction_demands_economy_law_change_flag value = 1 days = 1095 }
 						country_event = { id = SEA_imperial_influence_events.330 days = 5 random_days = 10 }
 					}
 					10 = { #Hire Industrial Company
@@ -2926,7 +2980,7 @@ on_actions = {
 						
 						JAP_faction_demand_activation_effects = yes
 
-						set_country_flag = JAP_zaibatsu_faction_demands_industrial_company
+						set_country_flag = { flag = JAP_zaibatsu_faction_demands_industrial_company value = 1 days = 1095 }
 						country_event = { id = SEA_imperial_influence_events.340 days = 5 random_days = 10 }
 					}
 
@@ -2962,7 +3016,7 @@ on_actions = {
 						
 						JAP_faction_demand_activation_effects = yes
 
-						set_country_flag = JAP_civic_faction_demands_civilian_advisor_appointment
+						set_country_flag = { flag = JAP_civic_faction_demands_civilian_advisor_appointment value = 1 days = 1095 }
 						country_event = { id = SEA_imperial_influence_events.420 days = 5 random_days = 10 }
 					}
 					10 = { #Change Trade Laws
@@ -2995,7 +3049,7 @@ on_actions = {
 
 						JAP_faction_demand_activation_effects = yes
 
-						set_country_flag = JAP_civic_faction_demands_trade_law_change_flag
+						set_country_flag = { flag = JAP_civic_faction_demands_trade_law_change_flag value = 1 days = 1095 }
 						country_event = { id = SEA_imperial_influence_events.430 days = 5 random_days = 10 }
 					}
 					10 = { #Limit the Army's Influence
@@ -3286,6 +3340,18 @@ on_actions = {
 	#ROOT is winner #FROM gets annexed - This will also fire on_annex
 	on_civil_war_end = {
 
+		### A beaten CCP loses its hold on the officers who defected to it.
+		effect = {
+			if = {
+				limit = {
+					has_dlc = "No Compromise, No Surrender"
+					FROM = {
+						original_tag = PRC
+					}
+				}
+				CHI_check_for_officers_to_reclaim_from_PRC_effect = yes
+			}
+		}
 		effect = {
 			# Give Japan a celebratory event when the democratic side wins the civil war 
 			IF = {
@@ -3349,6 +3415,31 @@ on_actions = {
 
 
 	on_capitulation = { # ROOT is capitulated country, FROM is winner
+		effect = { # Fallback for a faction leading Philippines that capitulated before the Fall of Manila event unlocked its resistance branch
+			if = {
+				limit = {
+					has_dlc = "No Compromise, No Surrender"
+					original_tag = PHI
+					is_faction_leader = yes # Still true here, faction leadership only passes on after on_capitulation
+					NOT = { has_completed_focus = PHI_subject_surrender }
+				}
+				country_event = {
+					id = SEA_PHI_political_events.54
+					hours = 6
+				}
+			}
+		}
+
+		### A beaten CCP loses its hold on the officers who defected to it.
+		effect = {
+			if = {
+				limit = {
+					has_dlc = "No Compromise, No Surrender"
+					original_tag = PRC
+				}
+				CHI_check_for_officers_to_reclaim_from_PRC_effect = yes
+			}
+		}
 
 		effect = {
 			#Yulbars Khan flees
@@ -4009,6 +4100,79 @@ on_actions = {
         	}
         }
 
+        # Korean states left with a subject Japan go to the Korean subject of the same overlord
+        effect = {
+        	IF = {
+        		limit = {
+        			KOR = {
+        				exists = yes
+        				is_subject_of = ROOT
+        			}
+        		}
+        		ROOT = {
+        			every_subject_country = {
+        				limit = {
+        					original_tag = JAP
+        				}
+        				every_owned_state = {
+        					limit = {
+        						is_core_of = KOR
+        						NOT = { is_core_of = PREV }
+        					}
+        					KOR = { transfer_state = PREV }
+        				}
+        			}
+        		}
+        	}
+        }
+
+        effect = {
+            FROM = {
+                IF = {    #This prevents the country capping again after just having been puppeted
+                    limit = {
+                        original_tag = CHI 
+                        has_country_leader = {
+                        	ruling_only = yes 
+                        	character = CHI_chiang_kaishek
+                        }	
+                        is_subject_of = JAP 
+                    }
+                   	IF = {
+                   		limit = {
+                   			has_character = CHI_wang_jingwei
+                   		}
+                   		promote_character = {
+                   			character = CHI_wang_jingwei 
+                   			ideology = despotism 
+                   		}	
+                   	}
+                   	ELSE_IF = {
+                   		limit = {
+                   			has_character = CHI_dai_li
+                   		}
+                   		add_country_leader_role = {
+                   			character = CHI_dai_li 
+                   			promote_leader = yes
+                   			country_leader = {
+                   				ideology = despotism
+                   				expire = "1965.1.1.1"
+                   				traits = { CHI_leader_of_the_chinese_brotherhood_trait }
+                   			}
+                   		}	
+                   	}
+                   	ELSE_IF = {
+                   		limit = {
+                   			has_character = SND_han_fuju
+                   		}
+                   		promote_character = {
+                   			character = SND_han_fuju 
+                   			ideology = despotism 
+                   		}
+                   	}
+                }
+            }
+        }
+
     }
 
     # ROOT is the subject, FROM is the overlord
@@ -4502,6 +4666,26 @@ on_actions = {
 
 	}
 
+	# ROOT is the invading country, scope is the state being invaded, FROM is the state the invasion started from
+	on_naval_invasion = {
+		effect = {
+			# Enemy landing on Taiwan raises the Takasago Volunteers
+			JAP_takasago_volunteers_landing_check = yes
 
+			# First enemy landing on the Home Islands initiates Ketsu-Go
+			JAP_home_islands_landing_check = yes
+		}
+	}
+
+	# ROOT is the country paradropping, scope is the state being dropped into, FROM is the state the drop started from
+	on_paradrop = {
+		effect = {
+			# Enemy landing on Taiwan raises the Takasago Volunteers
+			JAP_takasago_volunteers_landing_check = yes
+
+			# First enemy landing on the Home Islands initiates Ketsu-Go
+			JAP_home_islands_landing_check = yes
+		}
+	}
 
 }

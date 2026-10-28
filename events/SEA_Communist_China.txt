@@ -1601,8 +1601,9 @@ country_event = {
 			}
 			modifier = { #We might help to expel the invaders...
 				factor = 1.5
-				any_other_country = {
-					is_major = yes
+
+				any_collection_element = {
+					collection = game:all_majors
 					OR = {
 						any_controlled_state = {
 							is_core_of = ROOT
@@ -1730,9 +1731,9 @@ country_event = {
 					has_border_war_with = ROOT
 					has_idea = SIK_battle_for_sinkiang
 					tag = HBC
-					any_other_country = {
+					any_enemy_country = {
 						is_literally_china = yes
-						has_war_with = PREV
+						NOT = { tag = ROOT }
 					}
 				}
 			}
@@ -2149,9 +2150,9 @@ country_event = {
 					has_war_with = ROOT
 					has_border_war_with = ROOT
 					has_idea = SIK_battle_for_sinkiang
-					any_other_country = {
+					any_enemy_country = {
 						is_chinese_warlord = yes
-						has_war_with = PREV
+						NOT = { tag = ROOT}
 					}
 				}
 			}
@@ -2228,9 +2229,9 @@ country_event = {
 					has_war_with = ROOT
 					has_border_war_with = ROOT
 					has_idea = SIK_battle_for_sinkiang
-					any_other_country = {
+					any_enemy_country = {
 						is_chinese_warlord = yes
-						has_war_with = PREV
+						NOT = { tag = ROOT }
 					}
 				}
 			}
@@ -2542,9 +2543,9 @@ country_event = {
 						has_border_war_with = ROOT
 						has_idea = SIK_battle_for_sinkiang
 						tag = HBC
-						any_other_country = {
+						any_enemy_country = {
 							is_chinese_warlord = yes
-							has_war_with = PREV
+							NOT = { tag = ROOT }
 						}
 					}
 				}
@@ -6683,9 +6684,34 @@ country_event = {
 			limit = {
 				has_character_flag = can_flip_to_prc ## Can become communist
 			}
-			set_nationality = PRC
+			### Remember who they walked out on, so they can be reclaimed if the PRC is beaten.
 			add_to_array = {
-				array = global.PRC_generals_flipped
+				array = ROOT.PRC_officers_lost_to_PRC
+			}
+			set_nationality = PRC
+		}
+
+		hidden_effect = {
+			clr_global_flag = PRC_officer_reclaim_offered ## A fresh wave re-arms the reclaim offer
+			if = { ## One notification for the whole wave, however many countries lost officers
+				limit = {
+					PRC = {
+						NOT = {
+							has_country_flag = PRC_officer_defection_notified
+						}
+					}
+				}
+				PRC = {
+					set_country_flag = {
+						flag = PRC_officer_defection_notified
+						value = 1
+						days = 7
+					}
+					country_event = {
+						id = SEA_PRC_political_events.20
+						days = 2
+					}
+				}
 			}
 		}
 	}
@@ -6706,15 +6732,149 @@ country_event = {
 
 		every_character = {
 			limit = {
-				is_in_array = {
-					array = global.PRC_generals_flipped
-					value = THIS.id
-				}
+				has_character_flag = can_flip_to_prc ## The marker is only kept by officers who defected to us
 				is_unit_leader = yes
 			}
 			gain_xp = 50 ## Mainly to show all the new generals in tooltip
 		}
 		add_manpower = 5000 ## Representing their closest forces
+	}
+}
+
+### Sent to every country still owed officers by a beaten PRC. Take them back, watch them, or purge them.
+country_event = {
+	id = SEA_PRC_political_events.42
+	title = SEA_PRC_political_events.42.t
+	desc = SEA_PRC_political_events.42.desc
+	picture = GFX_report_event_PRC_generals_flock
+
+	is_triggered_only = yes
+
+	trigger = {
+		check_variable = {
+			PRC_officers_lost_to_PRC^num > 0
+		}
+	}
+
+	option = { ### Welcome them back into the fold
+		name = SEA_PRC_political_events.42.a
+
+		ai_chance = {
+			base = 55
+			modifier = {
+				factor = 2
+				original_tag = CHI
+				is_historical_focus_on = yes
+			}
+			modifier = {
+				factor = 0
+				has_government = fascism
+			}
+		}
+
+		CHI_reinstate_officers_from_PRC_effect = yes
+
+		add_political_power = -50
+		add_stability = -0.03
+	}
+
+	option = { ### Reinstate them, but watch them closely
+		name = SEA_PRC_political_events.42.b
+
+		ai_chance = {
+			base = 20
+		}
+
+		CHI_reinstate_watched_officers_from_PRC_effect = yes
+
+		add_political_power = -15
+	}
+
+	option = { ### Traitors once, traitors always
+		name = SEA_PRC_political_events.42.c
+
+		ai_chance = {
+			base = 45
+			modifier = {
+				factor = 2
+				has_government = fascism
+			}
+			modifier = {
+				factor = 0
+				is_in_faction_with = PRC
+			}
+		}
+
+		CHI_purge_officers_from_PRC_effect = yes
+
+		add_political_power = 25
+		add_war_support = 0.03
+		add_stability = -0.05
+	}
+}
+
+### Sent to CHI once the owed countries have answered, for any defector whose own country is gone.
+country_event = {
+	id = SEA_PRC_political_events.43
+	title = SEA_PRC_political_events.43.t
+	desc = SEA_PRC_political_events.43.desc
+	picture = GFX_report_event_PRC_generals_flock
+
+	is_triggered_only = yes
+
+	trigger = {
+		PRC = {
+			any_character = {
+				has_character_flag = can_flip_to_prc
+			}
+		}
+	}
+
+	option = { ### Put them back to work
+		name = SEA_PRC_political_events.43.a
+
+		ai_chance = {
+			base = 70
+			modifier = {
+				factor = 0
+				has_government = fascism
+			}
+		}
+
+		PRC = {
+			every_character = {
+				limit = {
+					has_character_flag = can_flip_to_prc
+				}
+				set_nationality = ROOT
+				CHI_clear_dubious_loyalty_effect = yes
+			}
+		}
+
+		add_political_power = -25
+	}
+
+	option = { ### They will answer for their treason
+		name = SEA_PRC_political_events.43.b
+
+		ai_chance = {
+			base = 30
+			modifier = {
+				factor = 3
+				has_government = fascism
+			}
+		}
+
+		PRC = {
+			every_character = {
+				limit = {
+					has_character_flag = can_flip_to_prc
+				}
+				retire = yes
+			}
+		}
+
+		add_war_support = 0.02
 	}
 }
 

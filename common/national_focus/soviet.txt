@@ -1108,7 +1108,12 @@ focus_tree = {
 				limit = {
 					has_dlc = "No Compromise, No Surrender"
 				}
-				has_completed_focus = SOV_curtailment_of_the_collective_farms 
+				has_completed_focus = SOV_curtailment_of_the_collective_farms
+			}
+			ELSE = {
+				hidden_trigger = {
+					always = no
+				}
 			}
 		}
 		
@@ -4434,7 +4439,7 @@ mio:SOV_sevastopol_marine_plant_organization = {
 		completion_reward = {
 			add_to_variable = { SOV_defense_industry_production_speed_coastal_bunker_factor = 0.05 }
 			add_to_variable = { SOV_defense_industry_production_speed_bunker_factor = 0.05 }
-			add_to_variable = { SOV_defense_industry_max_dig_in_factor = 0.05 }
+			add_to_variable = { SOV_defense_industry_max_dig_in = 2 }
 			custom_effect_tooltip = SOV_military_engineering_university_ns_tt
 		}
 	}
@@ -4566,7 +4571,7 @@ mio:SOV_sevastopol_marine_plant_organization = {
 		x = -3
 		y = 1
 		relative_position_id = SOV_military_engineering_university
-		cost = 10
+		cost = 5
 
 		available = {
 			has_full_control_of_state = 219 #MOSCOW
@@ -11730,8 +11735,8 @@ mio:SOV_sevastopol_marine_plant_organization = {
 				}
 			}
 			else = {
-				any_other_country = {
-					original_tag = SPR
+				any_country_with_original_tag = {
+					original_tag_to_check = SPR
 					has_civil_war = yes
 					NOT = { has_war_with = ROOT }
 					OR = {
@@ -12068,7 +12073,8 @@ mio:SOV_sevastopol_marine_plant_organization = {
 		
 		available = {
 			NOT = { has_country_flag = SOV_paranoia_system_active_flag }
-			any_country = {
+			any_collection_element = {
+				collection = game:all_majors
 				OR = {
 					tag = ENG
 					tag = FRA
@@ -12076,7 +12082,6 @@ mio:SOV_sevastopol_marine_plant_organization = {
 					tag = ITA
 				}
 				has_government = fascism
-				is_major = yes
 			}
 			is_subject = no
 		}
@@ -12503,7 +12508,9 @@ mio:SOV_sevastopol_marine_plant_organization = {
 		
 		available = {
 			NOT = { has_country_flag = SOV_paranoia_system_active_flag }
-			any_country = {
+
+			any_collection_element = {
+				collection = game:all_majors
 				OR = {
 					tag = ENG
 					tag = FRA
@@ -12511,7 +12518,6 @@ mio:SOV_sevastopol_marine_plant_organization = {
 					tag = ITA
 				}
 				has_government = democratic
-				is_major = yes
 				is_subject = no
 			}
 		}
@@ -13707,39 +13713,56 @@ mio:SOV_sevastopol_marine_plant_organization = {
 		available = {
 			NOT = { has_country_flag = SOV_paranoia_system_active_flag }
 			is_subject = no
-			any_country = {
-				owns_state = 78
-				controls_state = 78
+			78 = {
+				owner = {
+					controls_state = 78
+				}
 			}
 		}
 
 		bypass = {
 			OR = {
 				AND = {
-					OR = {
-						owns_state = 78 #Bessarabia
-						78 = {
-							owner = { is_in_faction_with = ROOT }
+					78 = { #Bessarabia
+						owner = {
+							OR = {
+								tag = ROOT
+								AND = {
+									is_in_faction_with = ROOT
+									NOT = { tag = ROOT}
+								}
+							}
 						}
 					}
-					OR = {
-						owns_state = 80 #Bucovina
-						80 = {
-							owner = { is_in_faction_with = ROOT }
+					80 = { #Bucovina
+						owner = {
+							OR = {
+								tag = ROOT
+								AND = {
+									is_in_faction_with = ROOT
+									NOT = { tag = ROOT}
+								}
+							}
 						}
 					}
-					OR = {
-						owns_state = 766 #Southern Bessarabia
-						766 = {
-							owner = { is_in_faction_with = ROOT }
+					766 = { #Southern Bessarabia
+						owner = {
+							OR = {
+								tag = ROOT
+								AND = {
+									is_in_faction_with = ROOT
+									NOT = { tag = ROOT}
+								}
+							}
 						}
 					}
 				}
-				any_country = {
-					owns_state = 78
-					owns_state = 80
-					owns_state = 766
-					has_war_with = ROOT
+				78 = { #Besserabia
+					owner = {
+						owns_state = 80 #Bucovina
+						owns_state = 766 #Southern Bessarabia
+						has_war_with = ROOT
+					}
 				}
 			}
 		}
@@ -14749,7 +14772,6 @@ ai_will_do = {
 				limit = {
 					is_in_faction_with = ROOT
 					SOV_is_chinese_tag = yes
-					is_in_faction_with = ROOT
 				}
 				hidden_effect = {
 					country_event = NSB_soviet_foreign_politics_events.251
@@ -15755,7 +15777,7 @@ ai_will_do = {
 
 		completion_reward = {
 			country_event = { 
-				id = NSB_Soviet_fascist_civil_war.001 hours = 6 random_hours = 6 
+				id = NSB_Soviet_fascist_civil_war.001 hours = 2 
 			}
 			SOV_opposition_support_high_increase_effect = yes 
 			SOV_increase_opposition_army_support = yes
@@ -17570,67 +17592,67 @@ ai_will_do = {
 	  				}
 	  			}
     		}
-    		every_country = {
-    			limit = {
-    				NOT = {
-    					tag = POL
-	     				tag = BUL
-	     				tag = YUG
-	     				tag = CZE
-	     				tag = ROOT
-    				}
-    				OR = {
-    					controls_state = 9
-						controls_state = 69
-						controls_state = 972
-						controls_state = 70
-						controls_state = 71
-						controls_state = 72
-						controls_state = 73
-						controls_state = 74
-						controls_state = 75
-						controls_state = 664
-						controls_state = 48
-						controls_state = 211
-						controls_state = 212
-						controls_state = 801
-						controls_state = 97
-						controls_state = 85
-						controls_state = 762
-						controls_state = 90
-						controls_state = 88
-						controls_state = 92
-						controls_state = 91
-						controls_state = 95
-						controls_state = 94
-						controls_state = 86
-						controls_state = 98
-						controls_state = 89
-						controls_state = 10
-						controls_state = 96
-						controls_state = 784
-						controls_state = 93
-						controls_state = 87
-						controls_state = 104
-						controls_state = 109
-						controls_state = 103
-						controls_state = 804
-						controls_state = 802
-						controls_state = 106
-						controls_state = 970
-						controls_state = 105
-						controls_state = 108
-						controls_state = 107
-						controls_state = 102
-						controls_state = 853
-						controls_state = 803
-						controls_state = 45
-						controls_state = 764
-						controls_state = 736
-						controls_state = 852
-						controls_state = 163
-					}
-    			}
+    		# every_country = {
+    		# 	limit = {
+    		# 		NOT = {
+    		# 			tag = POL
+	     	# 			tag = BUL
+	     	# 			tag = YUG
+	     	# 			tag = CZE
+	     	# 			tag = ROOT
+    		# 		}
+    		# 		OR = {
+    		# 			controls_state = 9
+			# 			controls_state = 69
+			# 			controls_state = 972
+			# 			controls_state = 70
+			# 			controls_state = 71
+			# 			controls_state = 72
+			# 			controls_state = 73
+			# 			controls_state = 74
+			# 			controls_state = 75
+			# 			controls_state = 664
+			# 			controls_state = 48
+			# 			controls_state = 211
+			# 			controls_state = 212
+			# 			controls_state = 801
+			# 			controls_state = 97
+			# 			controls_state = 85
+			# 			controls_state = 762
+			# 			controls_state = 90
+			# 			controls_state = 88
+			# 			controls_state = 92
+			# 			controls_state = 91
+			# 			controls_state = 95
+			# 			controls_state = 94
+			# 			controls_state = 86
+			# 			controls_state = 98
+			# 			controls_state = 89
+			# 			controls_state = 10
+			# 			controls_state = 96
+			# 			controls_state = 784
+			# 			controls_state = 93
+			# 			controls_state = 87
+			# 			controls_state = 104
+			# 			controls_state = 109
+			# 			controls_state = 103
+			# 			controls_state = 804
+			# 			controls_state = 802
+			# 			controls_state = 106
+			# 			controls_state = 970
+			# 			controls_state = 105
+			# 			controls_state = 108
+			# 			controls_state = 107
+			# 			controls_state = 102
+			# 			controls_state = 853
+			# 			controls_state = 803
+			# 			controls_state = 45
+			# 			controls_state = 764
+			# 			controls_state = 736
+			# 			controls_state = 852
+			# 			controls_state = 163
+			# 		}
+    		# 	}
     			every_state = {
 					limit = { 
 						OR = {
@@ -17695,7 +17717,7 @@ ai_will_do = {
 #					    target = PREV
 #					}
 #				}
-    		}
+#			}
 		}
 	}
 

@@ -4521,52 +4521,57 @@ BUL_macedonian_revolutionary_organizations = {
 					}
 					add_core_of = BUL
 				}
-				remove_core_of = controller
-				start_resistance = BUL
-				hidden_effect = {
-					if = {
-						limit = { state = 106 }
-						set_compliance = 15
-						set_resistance = 15
+				if = {
+					limit = {
+						is_core_of = controller
 					}
-					else = {
-						set_compliance = 25
-						set_resistance = 10
-					}
-					if = {
-						limit = {
-							controller = { 
-								NOT = { has_country_flag = BUL_imro_awakened_in_country_flag }
+					remove_core_of = controller
+					start_resistance = BUL
+					hidden_effect = {
+						if = {
+							limit = { state = 106 }
+							set_compliance = 15
+							set_resistance = 15
+						}
+						else = {
+							set_compliance = 25
+							set_resistance = 10
+						}
+						if = {
+							limit = {
+								controller = { 
+									NOT = { has_country_flag = BUL_imro_awakened_in_country_flag }
+								}
+							}
+							controller = {
+								country_event = bftb_bulgaria_imro.1
+								set_country_flag = BUL_imro_awakened_in_country_flag
 							}
 						}
-						controller = {
-							country_event = bftb_bulgaria_imro.1
-							set_country_flag = BUL_imro_awakened_in_country_flag
+						if = {
+							limit = {
+								state = 106 #MACEDONIA
+							}
+							controller = {
+								set_country_flag = BUL_imro_awakened_in_macedonia_flag
+							}
+						}
+						else_if = {
+							limit = {
+								state = 731 #CENTRAL MACEDONIA
+							}
+							controller = {
+								set_country_flag = BUL_imro_awakened_in_central_macedonia_flag
+							}
+						}
+						else = { #THRACE
+							controller = {
+								set_country_flag = BUL_imro_awakened_in_thrace_flag
+							}
 						}
 					}
-					if = {
-						limit = {
-							state = 106 #MACEDONIA
-						}
-						controller = {
-							set_country_flag = BUL_imro_awakened_in_macedonia_flag
-						}
-					}
-					else_if = {
-						limit = {
-							state = 731 #CENTRAL MACEDONIA
-						}
-						controller = {
-							set_country_flag = BUL_imro_awakened_in_central_macedonia_flag
-						}
-					}
-					else = { #THRACE
-						controller = {
-							set_country_flag = BUL_imro_awakened_in_thrace_flag
-						}
-					}
+					custom_effect_tooltip = BUL_support_imro_supply_activists_resistance_tt
 				}
-				custom_effect_tooltip = BUL_support_imro_supply_activists_resistance_tt
 			}
 			clr_country_flag = BUL_macedonian_affairs_ongoing_flag
 		}
@@ -4614,14 +4619,22 @@ BUL_macedonian_revolutionary_organizations = {
 				}
 				add_dynamic_modifier = { modifier = widespread_bulgarian_sentiment_02 }
 			}
-			every_state = {
+			every_core_state = {
 				limit = {
 					BUL_is_macedonian_state = yes
 					NOT = { is_controlled_by = ROOT }
 				}
 				add_dynamic_modifier = { modifier = widespread_bulgarian_sentiment_01 }
 				hidden_effect = {
-					controller = { country_event = bftb_bulgaria_imro.2 }
+					controller = {
+						country_event = bftb_bulgaria_imro.2
+						if = {
+							limit = {
+								NOT = { has_country_flag = BUL_imro_awakened_in_country_flag }
+							}
+							set_country_flag = BUL_imro_awakened_in_country_flag
+						}
+					}
 				}
 			}
 
@@ -4667,9 +4680,8 @@ BUL_macedonian_revolutionary_organizations = {
 
 		cancel_trigger = {
 			NOT = {
-				any_state = {
+				any_controlled_state = {
 					BUL_is_macedonian_state = yes
-					is_fully_controlled_by = ROOT
 				}
 			}
 		}
@@ -5062,6 +5074,11 @@ BUL_macedonian_revolutionary_organizations_foreign = {
 							has_dynamic_modifier = { modifier = skirmishes_against_imro }
 						}
 					}
+					OR = {	#any of these was our core
+						has_country_flag = BUL_imro_awakened_in_macedonia_flag
+						has_country_flag = BUL_imro_awakened_in_central_macedonia_flag
+						has_country_flag = BUL_imro_awakened_in_thrace_flag
+					}
 				}
 				custom_effect_tooltip = BUL_destroy_imro_foreign_tt
 			}
@@ -5076,8 +5093,32 @@ BUL_macedonian_revolutionary_organizations_foreign = {
 					}
 					remove_dynamic_modifier = { modifier = widespread_bulgarian_sentiment_01 }
 				}
-				remove_core_of = BUL
-				add_core_of = ROOT
+				if = {
+					limit = {
+						OR = {
+							AND = {
+								state = 106 #MACEDONIA
+								ROOT = {
+									has_country_flag = BUL_imro_awakened_in_macedonia_flag
+								}
+							}
+							AND = {
+								state = 731 #CENTRAL MACEDONIA
+								ROOT = {
+									has_country_flag = BUL_imro_awakened_in_central_macedonia_flag
+								}
+							}
+							AND = {
+								state = 184	#THRACE
+								ROOT = {
+									has_country_flag = BUL_imro_awakened_in_thrace_flag
+								}
+							}
+						}
+					}
+					remove_core_of = BUL
+					add_core_of = ROOT
+				}
 			}
 		}
 	}
@@ -6674,7 +6715,7 @@ BUL_purchase_equipment = {
 					level = -1
 				}
 			}
-			clear_variable = BUL_vehicle_type
+			clear_variable = BUL_armor_type
 			clr_country_flag = BUL_purchasing_armor_flag
 		}
 	}
@@ -6866,7 +6907,7 @@ BUL_purchase_equipment = {
 					level = -1
 				}
 			}
-			clear_variable = BUL_vehicle_type
+			clear_variable = BUL_aircraft_type
 			clr_country_flag = BUL_purchasing_aircraft_flag
 		}
 	}
@@ -8317,8 +8358,7 @@ BUL_align_bulgaria = {
 				is_justifying_wargoal_against = BUL
 				has_military_access_to = BUL
 			}
-			any_country = {
-				has_war_with = ROOT
+			any_enemy_country = {
 				is_neighbor_of = BUL				
 			}
 			is_subject = no
@@ -9693,17 +9733,17 @@ BUL_dominance_in_the_seas = {
 
 		available = { #GOAL
 			NOT = {
-				any_state = {
-					BUL_state_is_in_the_black_sea = yes
+				any_state_of = {
+					target = constant:state_groups.bul_black_sea_states
+					
 					controller = {
 						NOT = {
-							OR = {
-								tag = ROOT
-								is_subject_of = ROOT
-								is_in_faction_with = ROOT
-							}
+							tag = ROOT
+							is_subject_of = ROOT
+							is_in_faction_with = ROOT
 						}
 					}
+					
 				}
 			}
 		}
@@ -9792,17 +9832,17 @@ BUL_dominance_in_the_seas = {
 
 		available = { #GOAL
 			NOT = {
-				any_state = {
-					BUL_state_is_in_the_aegean_sea = yes
+				any_state_of = {
+					target = constant:state_groups.bul_aegean_sea_states
+					
 					controller = {
 						NOT = {
-							OR = {
-								tag = ROOT
-								is_subject_of = ROOT
-								is_in_faction_with = ROOT
-							}
+							tag = ROOT
+							is_subject_of = ROOT
+							is_in_faction_with = ROOT
 						}
 					}
+					
 				}
 			}
 		}
@@ -9891,17 +9931,17 @@ BUL_dominance_in_the_seas = {
 
 		available = { #GOAL
 			NOT = {
-				any_state = {
-					BUL_state_is_in_the_adriatic_sea = yes
+				any_state_of = {
+					target = constant:state_groups.bul_adriatic_sea_states
+					
 					controller = {
 						NOT = {
-							OR = {
-								tag = ROOT
-								is_subject_of = ROOT
-								is_in_faction_with = ROOT
-							}
+							tag = ROOT
+							is_subject_of = ROOT
+							is_in_faction_with = ROOT
 						}
 					}
+					
 				}
 			}
 		}

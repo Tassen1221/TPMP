@@ -16,6 +16,9 @@ raid_trotskys_villa = { ### 1/50
 			state = 277
 			value > 50
 		}
+		NOT = {
+			has_country_flag = SOV_murder_trotsky_active
+		}
 	}
 	visible = {
 		has_completed_focus = SOV_behead_the_snake
@@ -41,7 +44,7 @@ raid_trotskys_villa = { ### 1/50
 	}
 
 	on_start = {  # SCOPE_OPERATION
-		
+		ROOT = { set_country_flag = SOV_raid_trotskys_villa_active }
 	}
 
 	outcome_modifiers = { operation_outcome }
@@ -55,6 +58,7 @@ raid_trotskys_villa = { ### 1/50
 	experience = 5
 	# outcome is an effect that runs when the operation has completed
 	outcome_execute = { # SCOPE_OPERATION
+		ROOT = { clr_country_flag = SOV_raid_trotskys_villa_active }
 		hidden_effect = {
 			ROOT = { set_country_flag = SOV_raided_trotskys_villa_flag } #For AI Strat
 		}
@@ -110,7 +114,9 @@ murder_trotsky = { ### 1/50
 		original_tag = SOV
 	}
 	available = {
-
+		NOT = {
+			has_country_flag = SOV_raid_trotskys_villa_active
+		}
 	}
 	visible = {
 		has_completed_focus = SOV_behead_the_snake
@@ -145,7 +151,7 @@ murder_trotsky = { ### 1/50
 	network_strength = 25
 
 	on_start = {  # SCOPE_OPERATION
-		
+		ROOT = { set_country_flag = SOV_murder_trotsky_active }
 	}
 
 	outcome_modifiers = { operation_outcome operation_infiltrate_outcome }
@@ -159,6 +165,7 @@ murder_trotsky = { ### 1/50
 	experience = 5
 	# outcome is an effect that runs when the operation has completed
 	outcome_execute = { # SCOPE_OPERATION
+		ROOT = { clr_country_flag = SOV_murder_trotsky_active }
 		ROOT = { set_country_flag = SOV_trotskys_assassination_attempt_flag } # This operation can only be done once
 		ROOT = { news_event = { id = news.37 } }  #SUCCESS - Kill Trotsky and swap Trotskyite Plot NS
 	}

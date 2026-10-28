@@ -2110,21 +2110,12 @@ ETH_improve_country_category = {
 	ETH_prospect_for_resources = {
 
 		icon = GFX_decision_generic_construction
-		target_trigger = {
-			FROM = {
-				OR = {
-					state = 841
-					state = 842
-					state = 840
-					state = 843
-				}
-			}
-		}
 		target_root_trigger = { 
 			original_tag = ETH 
 			has_completed_focus = ETH_invite_foreign_prospectors
 		}
 		state_target = yes
+		targets = { 841 842 840 843 }
 		on_map_mode = map_only
 		fire_only_once = yes # Only once per State
 
@@ -2160,6 +2151,11 @@ ETH_improve_country_category = {
 
 		remove_effect = {
 			clr_country_flag = prospecting_ongoing_flag
+			hidden_effect = {
+				FROM = {
+					clr_state_flag = ETH_can_prospect_resources_state_flag
+				}
+			}
 			random_list = {
 				20 = {
 					FROM = {
@@ -3381,16 +3377,18 @@ ETH_exploit_french_weakness_category = {
 		allowed = {original_tag = ETH }
 		visible = {
 			original_tag = ETH 
-			NOT = {268 = {is_owned_by = ETH}}
+			268 = {	#Made stricter, if not true, unlikely for the availability to ever be true
+				owner = {
+					original_tag = FRA
+				}
+			}
 		}
 		available = {			
 			268 = {
 				OWNER = {
-					any_country = {
-						original_tag = FRA 
-						exists = yes 
-						has_government= fascism
-					}
+					original_tag = FRA
+					has_government = fascism
+					controls_state = PREV
 					num_divisions_in_states = {
 						count = 0
 						states = { 268 }
@@ -3401,13 +3399,13 @@ ETH_exploit_french_weakness_category = {
 			}	
 			custom_trigger_tooltip = {
 				tooltip = ETH_france_divided_tt
-				any_country = {
-					original_tag = FRA 
+				any_country_with_original_tag = {
+					original_tag_to_check = FRA 
 					exists = yes 
 					has_government = fascism
 				}
-				any_country = {
-					original_tag = FRA 
+				any_country_with_original_tag = {
+					original_tag_to_check = FRA 
 					exists = yes 
 					NOT = { has_government = fascism }
 				}
@@ -3415,17 +3413,21 @@ ETH_exploit_french_weakness_category = {
 
 		}
 		cancel_trigger = {
-			NOT = {
-				268 = { 
-					OR = {
+			268 = { 
+				OR = {
+					NOT = {
 						OWNER = {
 							original_tag = FRA
 							has_government = fascism
 						}
+					}
+					NOT = {
 						CONTROLLER = {
 							original_tag = FRA
 							has_government = fascism
 						}
+					}
+					NOT = {
 						OWNER = {
 							num_divisions_in_states = {
 								count = 0
@@ -3434,8 +3436,7 @@ ETH_exploit_french_weakness_category = {
 								exclude = {} 
 							}
 						}
-					}								
-									
+					}
 				}
 			}
 		}

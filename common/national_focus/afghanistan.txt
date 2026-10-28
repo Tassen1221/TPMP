@@ -4936,12 +4936,84 @@ focus_tree = {
 	}
 
 	focus = {
+		id = AFG_turanist_abitions
+		icon = GFX_focus_HUN_the_turul_association   
+		prerequisite = { focus = AFG_the_amu_darya_plan }
+		mutually_exclusive = { focus = AFG_heirs_of_the_chagatai }
+		x = -1
+		y = 1
+		relative_position_id = AFG_the_amu_darya_plan
+		
+		cost = 5
+
+		ai_will_do = {
+			factor = 10
+		}
+		available = {
+			
+		}
+
+		bypass = {
+			
+		}
+		
+		search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+
+		completion_reward = {
+
+			add_war_support = 0.1
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+
+			unlock_decision_category_tooltip = form_turkestan_category
+			
+		}
+
+	}
+
+	focus = {
+		id = AFG_heirs_of_the_chagatai
+		icon = GFX_focus_CHI_a_second_yuan_empire  
+		prerequisite = { focus = AFG_the_amu_darya_plan }
+		mutually_exclusive = { focus = AFG_turanist_abitions }
+		x = 1
+		y = 1
+		relative_position_id = AFG_the_amu_darya_plan
+		
+		cost = 5
+
+		ai_will_do = {
+			factor = 10
+		}
+		available = {
+			
+		}
+
+		bypass = {
+			
+		}
+		
+		search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+
+		completion_reward = {
+
+			add_war_support = 0.1
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+
+			unlock_decision_category_tooltip = greater_mongolia_category
+			
+		}
+
+	}
+
+	focus = {
 		id = AFG_reclaim_the_emperors_lost_domain
 		icon = GFX_focus_SOV_patriarch_of_all_russia  
-		prerequisite = { focus = AFG_the_amu_darya_plan }
-		x = 0
-		y = 2
-		relative_position_id = AFG_the_amu_darya_plan
+		prerequisite = { focus = AFG_heirs_of_the_chagatai focus = AFG_turanist_abitions }
+		x = -1
+		y = 1
+		relative_position_id = AFG_heirs_of_the_chagatai
 
 		will_lead_to_war_with = SOV
 		
@@ -4995,6 +5067,100 @@ focus_tree = {
         			}
         		}
         	}
+			
+		}
+
+	}
+
+	focus = {
+		id = AFG_a_turanian_empire
+		icon = GFX_focus_TUR_turanist_ambition  
+		prerequisite = { focus = AFG_reclaim_the_emperors_lost_domain }
+		prerequisite = { focus = AFG_turanist_abitions }
+		x = -1
+		y = 1
+		relative_position_id = AFG_reclaim_the_emperors_lost_domain
+		
+		cost = 10
+
+		ai_will_do = {
+			factor = 10
+		}
+		available = {
+			has_global_flag = form_turkestan_flag
+		}
+
+		bypass = {
+			
+		}
+		
+		search_filters = {  }
+
+		completion_reward = {
+
+			unlock_decision_category_tooltip = form_turan_category
+			
+		}
+
+	}
+
+	focus = {
+		id = AFG_reforging_the_yuan_dynastry
+		icon = GFX_focus_usa_focus_on_asia  
+		prerequisite = { focus = AFG_reclaim_the_emperors_lost_domain }
+		prerequisite = { focus = AFG_heirs_of_the_chagatai }
+		x = 1
+		y = 1
+		relative_position_id = AFG_reclaim_the_emperors_lost_domain
+		
+		cost = 10
+
+		ai_will_do = {
+			factor = 10
+		}
+		available = {
+			has_global_flag = greater_mongolia_formed_flag
+			608 = {
+				is_controlled_by = ROOT
+			}
+		}
+
+		bypass = {
+			
+		}
+		
+		search_filters = {  }
+
+		completion_reward = {
+
+			set_cosmetic_tag = CHI_great_yuan
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+
+			every_state = {
+				limit = {
+					is_core_of = CHI
+				}
+				add_core_of = ROOT 
+			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+
+			set_capital = {
+				state = 608
+				remember_old_capital = no
+			}
+			set_province_name = { id = 9843 name = beijing_winter_capital_name }
+			608 = {
+				set_state_name = beijing_winter_capital_name
+			}
+			hidden_effect = {
+				set_province_name = { id = 7674 name = yuan_summer_capital_name }
+			}
+			add_victory_points = {
+				province = 7674
+				value = 5 
+			}	
 			
 		}
 
@@ -11536,11 +11702,7 @@ focus_tree = {
 					hours = 1
 				}
 			}
-			custom_effect_tooltip = if_they_accept_tt
-			SOU = {
-				event_option_tooltip = AFG_political_events.120.a
-			}
-			event_option_tooltip = AFG_political_events.121.a
+			custom_effect_tooltip = AFG_request_soviet_support_tt
 		}
 	}
 

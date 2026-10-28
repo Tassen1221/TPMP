@@ -402,6 +402,15 @@ focus_tree = {
 		available = {
 			is_subject = no
 			country_exists = CZE
+			CZE = {
+				OR = {
+					has_war = no
+					surrender_progress < 0.05
+					all_enemy_country = {
+						has_war_with = ROOT
+					}
+				}
+			}
 		}
 
 		bypass = {
@@ -1010,26 +1019,27 @@ focus_tree = {
 		}
 
 		available = {
-			is_in_faction = no
-			is_subject = no
-			ENG = {
-				exists = yes
-				is_puppet = no
-				NOT = {
-					has_war_with = HUN
-				}
-			}
-			any_other_country = {
-				is_major = yes
-				is_faction_leader = yes
+	 		is_in_faction = no
+	 		is_subject = no
+	 		ENG = {
+	 			exists = yes
+	 			is_puppet = no
+	 			NOT = { has_war_with = HUN }
+	 			NOT = {
+	 				any_collection_element = {
+	 					collection = {
+	 						input = game:scope
+	 						operators = { faction_members }
+	 					}
+	 					has_war_with = ROOT
+	 				}
+	 			}
+	 		}
+	 		any_collection_element = {
+	 			collection = game:all_majors
+	 			is_faction_leader = yes
 				has_government = democratic
-			}
-			NOT = {
-				any_other_country = {
-					is_in_faction_with = ENG
-					has_war_with = HUN	
-				}
-			}
+	 		}
 		}
 
 		bypass = {
