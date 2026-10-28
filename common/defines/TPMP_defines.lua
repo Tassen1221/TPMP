@@ -188,8 +188,8 @@ NDefines.NMilitary.SLOWEST_SPEED = 1
 
 NDefines.NMilitary.AIR_SUPPORT_BASE = 0.25			-- CAS bonus factor for air support moddifier for land unit in combat
 
-NDefines.NMilitary.ENEMY_AIR_SUPERIORITY_IMPACT = -0.8		-- effect on defense due to enemy air superiorty
-NDefines.NMilitary.ENEMY_AIR_SUPERIORITY_SPEED_IMPACT = -0.4	-- effect on speed due to enemy air superiority
+NDefines.NMilitary.ENEMY_AIR_SUPERIORITY_IMPACT = -0.5		-- effect on defense due to enemy air superiorty
+NDefines.NMilitary.ENEMY_AIR_SUPERIORITY_SPEED_IMPACT = -0.2	-- effect on speed due to enemy air superiority
 
 NDefines.NMilitary.ENEMY_AIR_SUPERIORITY_DEFENSE = 0.90		-- more AA attack will approach this amount of help (diminishing returns)
 NDefines.NMilitary.ENEMY_AIR_SUPERIORITY_DEFENSE_STEEPNESS = 350-- how quickly defense approaches the max impact diminishing returns curve
