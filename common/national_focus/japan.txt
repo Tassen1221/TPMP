@@ -13507,82 +13507,91 @@ focus_tree = {
 
 		prerequisite = { focus = JAP_nanshin_ron }
 
-		cost = 5
+		cost = 2
 
 		ai_will_do = {
 			factor = 1
 		}
 
+		#available = {
+			#is_subject = no
+			#671 = { 
+				#CONTROLLER = { 
+					#NOT = {
+						#has_war_with = ROOT
+						#is_ally_with = ROOT
+					#}
+				#} 
+			#}
+			#OR = {
+				#AND = {
+					#custom_trigger_tooltip = {
+						#tooltip = JAP_demand_tonkinese_bases_tt
+						#671 = { 
+							#CONTROLLER = { 
+								#OR = { 
+									#tag = FRA 
+									#tag = VIC 
+									#is_subject_of = FRA
+									#is_subject_of = VIC
+								#} 
+							#}
+						#}
+					#}
+					#OR = {
+						#AND = {
+							#has_army_manpower = { size > 799999 }
+							#has_war_support > 0.9
+						#}
+						#16 = { NOT = { is_controlled_by = FRA } } #Paris has fallen
+					#}
+				#}
+				#custom_trigger_tooltip = {
+					#tooltip = JAP_demand_tonkinese_bases_2_tt
+					#671 = { 
+						#CONTROLLER = { 
+							#NOT = {
+								#tag = FRA 
+								#tag = VIC 
+								#is_subject_of = FRA
+								#is_subject_of = VIC
+							#}
+						#}
+					#}
+				#}
+			#}
+			#1033 = { 
+				#CONTROLLER = { 
+					#OR = {
+						#has_war_with = ROOT
+						#is_ally_with = ROOT
+					#}
+				#} 
+			#}
+		#}
+
+		#bypass = {
+			#671 = { 
+				#CONTROLLER = { 
+					#OR = {
+						#has_war_with = ROOT
+						#is_ally_with = ROOT
+					#}
+				#} 
+			#}
+		#}
+
 		available = {
-			is_subject = no
-			671 = { 
-				CONTROLLER = { 
-					NOT = {
-						has_war_with = ROOT
-						is_ally_with = ROOT
-					}
-				} 
-			}
-			OR = {
-				AND = {
-					custom_trigger_tooltip = {
-						tooltip = JAP_demand_tonkinese_bases_tt
-						671 = { 
-							CONTROLLER = { 
-								OR = { 
-									tag = FRA 
-									tag = VIC 
-									is_subject_of = FRA
-									is_subject_of = VIC
-								} 
-							}
-						}
-					}
-					OR = {
-						AND = {
-							has_army_manpower = { size > 799999 }
-							has_war_support > 0.9
-						}
-						16 = { NOT = { is_controlled_by = FRA } } #Paris has fallen
-					}
-				}
-				custom_trigger_tooltip = {
-					tooltip = JAP_demand_tonkinese_bases_2_tt
-					671 = { 
-						CONTROLLER = { 
-							NOT = {
-								tag = FRA 
-								tag = VIC 
-								is_subject_of = FRA
-								is_subject_of = VIC
-							}
-						}
-					}
-				}
-			}
-			1033 = { 
-				CONTROLLER = { 
-					OR = {
-						has_war_with = ROOT
-						is_ally_with = ROOT
-					}
-				} 
-			}
+			16 = { NOT = { is_controlled_by = FRA } }
+			has_war = no
 		}
 
 		bypass = {
-			671 = { 
-				CONTROLLER = { 
-					OR = {
-						has_war_with = ROOT
-						is_ally_with = ROOT
-					}
-				} 
-			}
+			has_war = yes
 		}
 
-		will_lead_to_war_with = FRA
-		will_lead_to_war_with = VIN
+		#will_lead_to_war_with = FRA
+		#will_lead_to_war_with = VIN
 
 		cancel_if_invalid = no
 		continue_if_invalid = yes
@@ -13590,23 +13599,63 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_HISTORICAL FOCUS_FILTER_POLITICAL FOCUS_FILTER_ANNEXATION }
 
-		completion_reward = {
+		#completion_reward = {
 			
-			671 = {
-				OWNER = {
-					country_event = {
-						id = SEA_japan_foreign_policy.10
-						days = 1
-						random_days = 2
+			#671 = {
+				#OWNER = {
+					#country_event = {
+						#id = SEA_japan_foreign_policy.10
+						#days = 1
+						#random_days = 2
+					#}
+				#}
+			#}
+			#custom_effect_tooltip = if_they_accept_tt
+			#effect_tooltip = {
+				#add_political_power = 25
+				#transfer_state = 671
+			#}
+			
+		#}
+
+		completion_reward = {
+			transfer_state = 671
+			add_political_power = 25
+
+			hidden_effect = {
+				delete_unit_template_and_units = {
+					division_template = "Hanoi Minpei"
+					disband = yes
+				}
+
+				division_template = {
+					name = "Hanoi Minpei"
+					division_names_group = JAP_INF_01
+					role = garrison
+					priority = 0
+					regiments = {
+						militia = { x = 0 y = 0 }
+						militia = { x = 0 y = 1 }
+						militia = { x = 0 y = 2 }
+						militia = { x = 1 y = 0 }
+						militia = { x = 1 y = 1 }
 					}
 				}
 			}
-			custom_effect_tooltip = if_they_accept_tt
-			effect_tooltip = {
-				add_political_power = 25
-				transfer_state = 671
+
+			random_state = {
+				limit = {
+					state = 671
+				}
+				create_unit = {
+					division = "name = \"1 Hanoi Minpei\" division_template = \"Hanoi Minpei\" start_experience_factor = 0.5 start_equipment_factor = 0.7"
+					owner = PREV
+				}
+				create_unit = {
+					division = "name = \"2 Hanoi Minpei\" division_template = \"Hanoi Minpei\" start_experience_factor = 0.5 start_equipment_factor = 0.7"
+					owner = PREV
+				}
 			}
-			
 		}
 	}
 
@@ -13620,158 +13669,178 @@ focus_tree = {
 
 		prerequisite = { focus = JAP_demand_tonkinese_bases }
 
-		cost = 5
+		cost = 8
 
 		ai_will_do = {
 			factor = 1
 		}
 
-		available = {
+		#available = {
 
-			is_subject = no
+			#is_subject = no
 
-			OR = {
-				286 = { 
-					CONTROLLER = { 
-						NOT = {
-							has_war_with = ROOT
-							is_ally_with = ROOT
-						}
-					} 
-				}
-				670 = { 
-					CONTROLLER = { 
-						NOT = {
-							has_war_with = ROOT
-							is_ally_with = ROOT
-						}
-					} 
-				}
-				1017 = { 
-					CONTROLLER = { 
-						NOT = {
-							has_war_with = ROOT
-							is_ally_with = ROOT
-						}
-					} 
-				}
-				741 = { 
-					CONTROLLER = { 
-						NOT = {
-							has_war_with = ROOT
-							is_ally_with = ROOT
-						}
-					} 
-				}
-			}
+			#OR = {
+				#286 = { 
+					#CONTROLLER = { 
+						#NOT = {
+							#has_war_with = ROOT
+							#is_ally_with = ROOT
+						#}
+					#} 
+				#}
+				#670 = { 
+					#CONTROLLER = { 
+						#NOT = {
+							#has_war_with = ROOT
+							#is_ally_with = ROOT
+						#}
+					#} 
+				#}
+				#1017 = { 
+					#CONTROLLER = { 
+						#NOT = {
+							#has_war_with = ROOT
+							#is_ally_with = ROOT
+						#}
+					#} 
+				#}
+				#741 = { 
+					#CONTROLLER = { 
+						#NOT = {
+							#has_war_with = ROOT
+							#is_ally_with = ROOT
+						#}
+					#} 
+				#}
+			#}
 
-			OR = {
-				AND = {
-					16 = { NOT = { is_controlled_by = FRA } } #Paris has fallen
-					custom_trigger_tooltip = {
-						tooltip = demand_indochina_focus_tt
-						OR = {
-							286 = { 
-								CONTROLLER = { 
-									OR = { 
-										tag = FRA 
-										tag = VIC
-										is_subject_of = FRA
-										is_subject_of = VIC 
-									}  
-								}
-							}
-							670 = { 
-								CONTROLLER = { 
-									OR = { 
-										tag = FRA 
-										tag = VIC 
-										is_subject_of = FRA
-										is_subject_of = VIC
-									} 
-								}
-							}
-							741 = { 
-								CONTROLLER = { 
-									OR = { 
-										tag = FRA 
-										tag = VIC 
-										is_subject_of = FRA
-										is_subject_of = VIC
-									} 
-								}
-							}
-							1017 = { 
-								CONTROLLER = { 
-									OR = { 
-										tag = FRA 
-										tag = VIC 
-										is_subject_of = FRA
-										is_subject_of = VIC
-									} 
-								}
-							}
-						}
-					}
-				}
-				custom_trigger_tooltip = {
-					tooltip = JAP_occupy_indochina_tt
-					OR = {
-						286 = { 
-							CONTROLLER = { 
-								NOT = { 
-									tag = FRA 
-									tag = VIC
-									is_subject_of = FRA
-									is_subject_of = VIC 
-								} 
-							}
-						}
-						670 = { 
-							CONTROLLER = { 
-								NOT = { 
-									tag = FRA 
-									tag = VIC 
-									is_subject_of = FRA
-									is_subject_of = VIC
-								} 
-							}
-						}
-						741 = { 
-							CONTROLLER = { 
-								NOT = { 
-									tag = FRA 
-									tag = VIC 
-									is_subject_of = FRA
-									is_subject_of = VIC
-								} 
-							}
-						}
-						1017 = { 
-							CONTROLLER = { 
-								NOT = { 
-									tag = FRA 
-									tag = VIC 
-									is_subject_of = FRA
-									is_subject_of = VIC
-								} 
-							}
-						}
-					}
-				}
-			}
+			#OR = {
+				#AND = {
+					#16 = { NOT = { is_controlled_by = FRA } } #Paris has fallen
+					#custom_trigger_tooltip = {
+						#tooltip = demand_indochina_focus_tt
+						#OR = {
+							#286 = { 
+								#CONTROLLER = { 
+									#OR = { 
+										#tag = FRA 
+										#tag = VIC
+										#is_subject_of = FRA
+										#is_subject_of = VIC 
+									#}  
+								#}
+							#}
+							#670 = { 
+								#CONTROLLER = { 
+									#OR = { 
+										#tag = FRA 
+										#tag = VIC 
+										#is_subject_of = FRA
+										#is_subject_of = VIC
+									#} 
+								#}
+							#}
+							#741 = { 
+								#CONTROLLER = { 
+									#OR = { 
+										#tag = FRA 
+										#tag = VIC 
+										#is_subject_of = FRA
+										#is_subject_of = VIC
+									#} 
+								#}
+							#}
+							#1017 = { 
+								#CONTROLLER = { 
+									#OR = { 
+										#tag = FRA 
+										#tag = VIC 
+										#is_subject_of = FRA
+										#is_subject_of = VIC
+									#} 
+								#}
+							#}
+						#}
+					#}
+				#}
+				#custom_trigger_tooltip = {
+					#tooltip = JAP_occupy_indochina_tt
+					#OR = {
+						#286 = { 
+							#CONTROLLER = { 
+								#NOT = { 
+									#tag = FRA 
+									#tag = VIC
+									#is_subject_of = FRA
+									#is_subject_of = VIC 
+								#} 
+							#}
+						#}
+						#670 = { 
+							#CONTROLLER = { 
+								#NOT = { 
+									#tag = FRA 
+									#tag = VIC 
+									#is_subject_of = FRA
+									#is_subject_of = VIC
+								#} 
+							#}
+						#}
+						#741 = { 
+							#CONTROLLER = { 
+								#NOT = { 
+									#tag = FRA 
+									#tag = VIC 
+									#is_subject_of = FRA
+									#is_subject_of = VIC
+								#} 
+							#}
+						#}
+						#1017 = { 
+							#CONTROLLER = { 
+								#NOT = { 
+									#tag = FRA 
+									#tag = VIC 
+									#is_subject_of = FRA
+									#is_subject_of = VIC
+								#} 
+							#}
+						#}
+					#}
+				#}
+			#}
 			
+		#}
+
+		available = {
+			NOT = {
+				any_state = {
+					OR = {
+						state = 286
+						state = 670
+						state = 671
+						state = 728
+						state = 741
+						state = 1017
+						state = 1066
+						state = 1067
+						state = 1068
+						state = 1069
+					}
+					OWNER = { has_war_with = ROOT }
+				}
+			}
 		}
 
 		bypass = {
 
 		}
 
-		will_lead_to_war_with = FRA
-		will_lead_to_war_with = VIN
-		will_lead_to_war_with = CAM
-		will_lead_to_war_with = LAO
-		will_lead_to_war_with = CHM
+		#will_lead_to_war_with = FRA
+		#will_lead_to_war_with = VIN
+		#will_lead_to_war_with = CAM
+		#will_lead_to_war_with = LAO
+		#will_lead_to_war_with = CHM
 
 		cancel_if_invalid = yes
 		continue_if_invalid = no
@@ -13779,124 +13848,138 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_HISTORICAL FOCUS_FILTER_ANNEXATION }
 
-		completion_reward = {
+		#completion_reward = {
 				
-			IF = {
-				limit = {
-					FRA = {
-						OR = {
-							controls_state = 670
-							670 = { CONTROLLER = { is_subject_of = FRA } }
-							controls_state = 286
-							286 = { CONTROLLER = { is_subject_of = FRA } }
-							controls_state = 1017
-							1017 = { CONTROLLER = { is_subject_of = FRA } }
-							controls_state = 741
-							741 = { CONTROLLER = { is_subject_of = FRA } }
-						}
-					}
-				}
-				FRA = { 
-					country_event = { 
-						id = france.1 
-						hours = 12
-						random_hours = 24
-					} 
-				}
-				custom_effect_tooltip = generic_skip_one_line_tt
-			}
-			ELSE_IF = {
-				limit = {
-					VIC = {
-						OR = {
-							controls_state = 670
-							controls_state = 286
-							controls_state = 1017
-							controls_state = 741
-							670 = { CONTROLLER = { is_subject_of = VIC } }
-							286 = { CONTROLLER = { is_subject_of = VIC } }
-							1017 = { CONTROLLER = { is_subject_of = VIC } }
-							741 = { CONTROLLER = { is_subject_of = VIC } }
-						}
-					}
-				}
-				VIC = { 
-					country_event = { 
-						id = france.1 
-						hours = 12
-						random_hours = 24
-					} 
-				}
-				custom_effect_tooltip = generic_skip_one_line_tt
-			}
+			#IF = {
+				#limit = {
+					#FRA = {
+						#OR = {
+							#controls_state = 670
+							#670 = { CONTROLLER = { is_subject_of = FRA } }
+							#controls_state = 286
+							#286 = { CONTROLLER = { is_subject_of = FRA } }
+							#controls_state = 1017
+							#1017 = { CONTROLLER = { is_subject_of = FRA } }
+							#controls_state = 741
+							#741 = { CONTROLLER = { is_subject_of = FRA } }
+						#}
+					#}
+				#}
+				#FRA = { 
+					#country_event = { 
+						#id = france.1 
+						#hours = 12
+						#random_hours = 24
+					#} 
+				#}
+				#custom_effect_tooltip = generic_skip_one_line_tt
+			#}
+			#ELSE_IF = {
+				#limit = {
+					#VIC = {
+						#OR = {
+							#controls_state = 670
+							#controls_state = 286
+							#controls_state = 1017
+							#controls_state = 741
+							#670 = { CONTROLLER = { is_subject_of = VIC } }
+							#286 = { CONTROLLER = { is_subject_of = VIC } }
+							#1017 = { CONTROLLER = { is_subject_of = VIC } }
+							#741 = { CONTROLLER = { is_subject_of = VIC } }
+						#}
+					#}
+				#}
+				#VIC = { 
+					#country_event = { 
+						#id = france.1 
+						#hours = 12
+						#random_hours = 24
+					#} 
+				#}
+				#custom_effect_tooltip = generic_skip_one_line_tt
+			#}
 
-			IF = {
-				limit = {
-					any_state = {
-						OR = {
-							state = 670
-							state = 286
-							state = 1017
-							state = 741
-							state = 728
-						}
-						OWNER = {
-							NOT = {
-								original_tag = FRA
-								is_subject_of = FRA
-								is_subject_of = VIC
-							}
-							OR = {
-								original_tag = VIN
-								original_tag = CAM
-								original_tag = LAO
-								original_tag = CHM
-								original_tag = SIA
-								original_tag = BRM
-								original_tag = GXC
-								original_tag = GDC
-								original_tag = YUN
-							}
-						}
-					}
-				}
-				every_other_country = {
-					limit = {
-						OR = {
-							owns_state = 670
-							owns_state = 286
-							owns_state = 1017
-							owns_state = 741
-							owns_state = 728
-						}
-						NOT = {
-							original_tag = FRA
-							is_subject_of = FRA
-							is_subject_of = VIC
-						}
-						OR = {
-							original_tag = VIN
-							original_tag = CAM
-							original_tag = LAO
-							original_tag = CHM
-							original_tag = SIA
-							original_tag = BRM
-							original_tag = GXC
-							original_tag = GDC
-							original_tag = YUN
-						}
-					}
+			#IF = {
+				#limit = {
+					#any_state = {
+						#OR = {
+							#state = 670
+							#state = 286
+							#state = 1017
+							#state = 741
+							#state = 728
+						#}
+						#OWNER = {
+							#NOT = {
+								#original_tag = FRA
+								#is_subject_of = FRA
+								#is_subject_of = VIC
+							#}
+							#OR = {
+								#original_tag = VIN
+								#original_tag = CAM
+								#original_tag = LAO
+								#original_tag = CHM
+								#original_tag = SIA
+								#original_tag = BRM
+								#original_tag = GXC
+								#original_tag = GDC
+								#original_tag = YUN
+							#}
+						#}
+					#}
+				#}
+				#every_other_country = {
+					#limit = {
+						#OR = {
+							#owns_state = 670
+							#owns_state = 286
+							#owns_state = 1017
+							#owns_state = 741
+							#owns_state = 728
+						#}
+						#NOT = {
+							#original_tag = FRA
+							#is_subject_of = FRA
+							#is_subject_of = VIC
+						#}
+						#OR = {
+							#original_tag = VIN
+							#original_tag = CAM
+							#original_tag = LAO
+							#original_tag = CHM
+							#original_tag = SIA
+							#original_tag = BRM
+							#original_tag = GXC
+							#original_tag = GDC
+							#original_tag = YUN
+						#}
+					#}
 					
-					ROOT = {
-						create_wargoal = {
-							type = puppet_wargoal_focus
-							target = PREV
-							expire = 0
-						}	
-					}
-				}
-			} 
+					#ROOT = {
+						#create_wargoal = {
+							#type = puppet_wargoal_focus
+							#target = PREV
+							#expire = 0
+						#}	
+					#}
+				#}
+			#} 
 			
+		#}
+
+		completion_reward = {
+			transfer_state = 286
+			transfer_state = 670
+			transfer_state = 671
+			transfer_state = 728
+			transfer_state = 741
+			transfer_state = 1017
+			transfer_state = 1066
+			transfer_state = 1067
+			transfer_state = 1068
+			transfer_state = 1069
+			add_named_threat = { threat = 3 name = france.1.t }
 		}
 	}
 

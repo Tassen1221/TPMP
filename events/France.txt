@@ -1223,6 +1223,16 @@ country_event = {
 							state = 680
 							state = 553
 							state = 554
+							state = 286
+							state = 670
+							state = 671
+							state = 728
+							state = 741
+							state = 1017
+							state = 1066
+							state = 1067
+							state = 1068
+							state = 1069
 						}
 						# Keep French Indochina out of Vichy while Siam's limited war over it is ongoing
 						NOT = {
@@ -1237,6 +1247,23 @@ country_event = {
 									has_variable = limited_war_target
 									var:limited_war_target = { original_tag = FRA }
 								}
+							}
+						}
+						NOT = {
+							AND = {
+								OR = {
+									state = 286
+									state = 670
+									state = 671
+									state = 728
+									state = 741
+									state = 1017
+									state = 1066
+									state = 1067
+									state = 1068
+									state = 1069
+								}
+								NOT = { is_owned_by = FRA }
 							}
 						}
 					}
