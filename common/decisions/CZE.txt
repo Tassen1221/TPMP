@@ -1277,11 +1277,13 @@ political_actions = {
 		visible = {
 			has_completed_focus = CZE_intervene_in_the_ussr
 			any_country_with_original_tag = {
+				exists = yes
 				original_tag_to_check = SOV
 				has_civil_war = yes
 			}
 			NOT = {
 				any_country_with_original_tag = {
+					exists = yes
 					original_tag_to_check = SOV
 					has_war_with = ROOT
 				}
@@ -6226,7 +6228,7 @@ CZE_skoda_focus_category = {
 		}
 		visible = {
 			has_completed_focus = CZE_improve_balkan_trade_relations
-			any_country_with_original_tag_of = {
+			any_country_of = {
 				target = {ROM YUG FRA}
 				
 				exists = yes

@@ -4324,6 +4324,7 @@ focus_tree = {
 						}
 					}
 					any_country_with_original_tag = {
+						exists = yes
 						original_tag_to_check = ARG
 						OR = {
 							owns_state = 512
@@ -8113,6 +8114,7 @@ focus_tree = {
 			has_government = fascism
 			#has_completed_focus = CHL_enforce_the_chilean_identity
 			any_country_with_original_tag = {
+				exists = yes
 				original_tag_to_check = GER
 				has_government = fascism
 				is_faction_leader = yes
@@ -8862,10 +8864,8 @@ focus_tree = {
 			953 = {
 				owner = {
 					OR = {
-						tag = ROOT 
-						NOT = { 
-							has_war_with = ROOT
-						}
+						tag = ROOT
+						has_war_with = ROOT
 					}
 				}
 			}
@@ -12202,6 +12202,7 @@ focus_tree = {
 				has_government = communism
 			}
 			any_country_with_original_tag = {
+				exists = yes
 				original_tag_to_check = USA
 				has_war = yes
 			}

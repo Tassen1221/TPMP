@@ -124,6 +124,7 @@ EST_convert_FIN_cat = {
 		NOT = {
 			has_country_flag = EST_vapsid_takeover_finland
 			any_country_with_original_tag = {
+				exists = yes
 				original_tag_to_check = FIN
 				NOT = { tag = ROOT }
 				OR = {
@@ -264,6 +265,7 @@ infiltrate_belarus_decisions = {
 			AND = {
 				tag = SOV
 				any_other_country_with_original_tag_of = {
+					exists = yes
 					target = { EST LIT LAT }
 					has_completed_focus = BALTIC_belarus_ssr
 					NOT = { has_completed_focus = BALTIC_seek_support_of_soviets }

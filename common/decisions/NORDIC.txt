@@ -224,6 +224,8 @@ NORDIC_cooperation_decisions_category = {
 
 		visible = {
 			any_country_with_original_tag_of = {
+				exists = yes
+				NOT = { tag = ROOT }
 				target = constant:country_groups.nordics
 				NOT = {is_in_faction_with = ROOT }	
 			}

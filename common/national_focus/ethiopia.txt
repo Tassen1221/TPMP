@@ -17,6 +17,7 @@ focus_tree = {
 			has_dlc = "By Blood Alone"
 			NOT = {
 				any_other_country_with_original_tag_of = {
+					exists = yes
 					target = {ETH} #There can be only one...
 					has_government = ROOT # or four actually...
 				}
@@ -5648,10 +5649,10 @@ focus_tree = {
 			ITA = {
 				any_enemy_country = {
 					is_faction_leader = yes 
-				}
-				NOT = {
-					any_allied_country = {
-						has_war_with = SWE
+					NOT = {
+						any_allied_country = {
+							has_war_with = SWE
+						}
 					}
 				}
 			}

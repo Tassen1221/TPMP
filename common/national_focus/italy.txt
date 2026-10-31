@@ -992,11 +992,10 @@ focus_tree = {
 			if = {
 				limit = {
 					844 = { #JUBALAND
-						OR = {
-							is_fully_controlled_by = ROOT
-							any_other_country = {
+						controller = {
+							OR = {
+								tag = ROOT
 								is_subject_of = ROOT
-								has_full_control_of_state = 559
 							}
 						}
 					}
@@ -14138,7 +14137,18 @@ focus_tree = {
 					}
 				}
 
-				ITA_add_modern_musculus_sh_tank_template_and_production = yes
+				if = {
+					limit = {
+						has_tech = super_heavy_tank_chassis
+					}
+					ITA_add_modern_musculus_sh_tank_template_and_production = yes
+				}
+				else = {
+					custom_effect_tooltip = ITA_focus_sh_tank_template_tt
+					effect_tooltip = {
+						ITA_add_modern_musculus_sh_tank_template_and_production = yes
+					}
+				}
 			}
 			else = {
 				add_tech_bonus = {
@@ -15949,6 +15959,7 @@ focus_tree = {
 			custom_trigger_tooltip = {
 			 tooltip = ITA_claims_on_france_tt
 				any_country_with_original_tag = {
+					exists = yes
 					original_tag_to_check = FRA
 					has_government = fascism
 					owns_state = 735
@@ -15975,6 +15986,7 @@ focus_tree = {
 			if = {
 				limit = { 
 					any_country_with_original_tag = {
+						exists = yes
 						original_tag_to_check = FRA
 						has_government = fascism
 						owns_state = 1
@@ -16647,6 +16659,7 @@ focus_tree = {
 				has_global_flag = spanish_civil_war
 				NOT = {
 					any_country_with_original_tag = {
+						exists = yes
 						original_tag_to_check = SPR
 						OR = {
 							has_government = fascism
@@ -16663,6 +16676,7 @@ focus_tree = {
 					NOT = { has_dlc = "La Resistance" }
 				}
 				any_country_with_original_tag = {
+					exists = yes
 					original_tag_to_check = SPR
 					has_government = fascism
 					has_volunteers_amount_from = {
@@ -16769,6 +16783,7 @@ focus_tree = {
 					has_dlc = "La Resistance"
 				}
 				any_other_country_with_original_tag_of = {
+					exists = yes
 					target = {SPR }
 					OR = {
 						tag = SPA
@@ -16779,6 +16794,7 @@ focus_tree = {
 			}
 			else = {
 				any_country_with_original_tag = {
+					exists = yes
 					original_tag_to_check = SPR
 					OR = {
 						has_government = fascism
@@ -16796,6 +16812,7 @@ focus_tree = {
 					has_dlc = "La Resistance"
 				}
 				any_country_with_original_tag = {
+					exists = yes
 					original_tag_to_check = SPR # Add other triggers as needed
 					OR = {
 						tag = SPA
@@ -16808,6 +16825,7 @@ focus_tree = {
 			}
 			else = {
 				any_country_with_original_tag = {
+					exists = yes
 					original_tag_to_check = SPR
 					OR = {
 						has_government = fascism
@@ -16858,6 +16876,7 @@ focus_tree = {
 					NOT = { has_dlc = "La Resistance" }
 				}
 				any_country_with_original_tag = {
+					exists = yes
 					original_tag_to_check = SPR
 					has_government = fascism
 					has_war = no
@@ -16881,6 +16900,7 @@ focus_tree = {
 					NOT = { has_dlc = "La Resistance" }
 				}
 				any_country_with_original_tag = {
+					exists = yes
 					original_tag_to_check = SPR
 					has_government = fascism
 					has_war_with = ROOT
@@ -17037,6 +17057,7 @@ focus_tree = {
 				if = {
 					limit = {
 						any_country_with_original_tag = {
+							exists = yes
 							original_tag_to_check = ITA
 							has_war_with = ROOT
 							any_enemy_country = {
@@ -19110,6 +19131,7 @@ focus_tree = {
 			}
 			else = {
 				any_other_country_with_original_tag_of = {
+					exists = yes
 					target = {SPR}
 
 					has_civil_war = yes
@@ -20884,6 +20906,7 @@ focus_tree = {
 			}
 			else = {
 				any_other_country_with_original_tag_of = {
+					exists = yes
 					target = {SPR}
 					has_civil_war = yes
 					NOT = { has_war_with = ROOT }
@@ -21372,7 +21395,8 @@ focus_tree = {
 		available = {
 			is_in_faction = no
 			is_subject = no
-			any_other_country_with_original_tag_of = {
+			any_other_country_of = {
+				exists = yes
 				target = {FRA ENG}
 				
 				NOT = { has_government = fascism }
@@ -21387,7 +21411,8 @@ focus_tree = {
 					}
 				}
 			}
-			any_other_country_with_original_tag_of = {
+			any_other_country_of = {
+				exists = yes
 				target = {FRA ENG}
 				
 				has_opinion	= {

@@ -1760,6 +1760,7 @@ news_event = {
 		name = lar_news.12.b # Allies
 		trigger = {
 			any_other_country_with_original_tag_of = {
+				exists = yes
 				target = {SPR}
 				is_in_faction_with = ROOT
 			}
@@ -1840,6 +1841,7 @@ news_event = {
 			NOT = {
 				original_tag = SPR
 				any_other_country_with_original_tag_of = {
+					exists = yes
 					target = {SPR}
 					is_in_faction_with = ROOT
 				}
