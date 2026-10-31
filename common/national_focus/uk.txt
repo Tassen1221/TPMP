@@ -10020,12 +10020,54 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = uk_iran_focus
+		id = TPMP_ENG_operation_exporter
 		prerequisite = { focus = ENG_home_defence }
-		icon = GFX_focus_generic_attack_iran
+		icon = GFX_focus_generic_attack_syria
 		x = -2
 		y = 1
 		relative_position_id = ENG_home_defence
+		cost = 10
+
+		available = {
+			447 = { is_controlled_by_ROOT_or_ally = yes } # Alexandria
+			907 = { is_controlled_by_ROOT_or_ally = yes } # Cairo
+			446 = { is_controlled_by_ROOT_or_ally = yes } # Suez
+			454 = { is_controlled_by_ROOT_or_ally = yes } # Palestine
+			455 = { is_controlled_by_ROOT_or_ally = yes } # Jordan
+			IF = {
+				limit = {
+					NOT = { country_exists = VIC }
+				}
+				FRA = {
+					has_capitulated = yes
+				}
+			}
+			ELSE = {
+				553 = { is_controlled_by = VIC } # Lebanon
+				554 = { is_controlled_by = VIC } # Damascus
+				677 = { is_controlled_by = VIC } # Aleppo
+				680 = { is_controlled_by = VIC } # Deir-az-Zur
+			}
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			FRA = {
+				transfer_state = 553
+				transfer_state = 554
+				transfer_state = 677
+				transfer_state = 680
+			}
+		}
+	}
+	focus = {
+		id = uk_iran_focus
+		prerequisite = { focus = TPMP_ENG_operation_exporter }
+		icon = GFX_focus_generic_attack_iran
+		x = 0
+		y = 1
+		relative_position_id = TPMP_ENG_operation_exporter
 		cost = 10
 
 		ai_will_do = {
@@ -10043,10 +10085,15 @@ focus_tree = {
 		}
 		will_lead_to_war_with = PER
 		available = {
+			GER = { has_war_with = SOV }
 			country_exists = PER
 			NOT = { has_war_with = PER }
-			is_subject = no
-			any_enemy_country = { is_major = yes }
+			447 = { is_controlled_by_ROOT_or_ally = yes } # Alexandria
+			907 = { is_controlled_by_ROOT_or_ally = yes } # Cairo
+			446 = { is_controlled_by_ROOT_or_ally = yes } # Suez
+			676 = { is_controlled_by_ROOT_or_ally = yes } # Mosul
+			291 = { is_controlled_by_ROOT_or_ally = yes } # Baghdad
+			1011 = { is_controlled_by_ROOT_or_ally = yes } # Al Basrah
 		}
 
 		bypass = {

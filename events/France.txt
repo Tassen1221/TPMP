@@ -1303,6 +1303,16 @@ country_event = {
 					}
 					add_core_of = PREV
 				}
+				# TPMP: all of French North Africa always goes to Italy, war or not
+				ITA = {
+					transfer_state = 458 # Tunisia
+					transfer_state = 665 # Gabès
+					transfer_state = 459 # Algiers
+					transfer_state = 460 # Constantine
+					transfer_state = 513 # Tlemcen
+					transfer_state = 461 # Casablanca
+					transfer_state = 462 # Marrakech
+				}
 				if = { 
 					limit = { ITA = { has_war_with = FRA } }
 					every_owned_state = {
