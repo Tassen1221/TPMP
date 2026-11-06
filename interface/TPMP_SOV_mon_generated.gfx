@@ -4,44 +4,275 @@
 spriteTypes = {
     corneredTileSpriteType = {
         name = "GFX_TPMP_SOV_mon_window"
-        size = { x = 32 y = 32 }
+        size = { x = 64 y = 64 }
         texturefile = "gfx/interface/TPMP_SOV_mon/window.tga"
-        borderSize = { x = 12 y = 12 }
+        borderSize = { x = 24 y = 24 }
         tilingCenter = yes
         effectFile = "gfx/FX/buttonstate_nodowneffect.lua"
     }
     corneredTileSpriteType = {
         name = "GFX_TPMP_SOV_mon_panel"
-        size = { x = 24 y = 24 }
+        size = { x = 32 y = 32 }
         texturefile = "gfx/interface/TPMP_SOV_mon/panel.tga"
         borderSize = { x = 8 y = 8 }
         tilingCenter = yes
         effectFile = "gfx/FX/buttonstate_nodowneffect.lua"
     }
     corneredTileSpriteType = {
-        name = "GFX_TPMP_SOV_mon_lock"
-        size = { x = 8 y = 8 }
-        texturefile = "gfx/interface/TPMP_SOV_mon/lock.tga"
-        borderSize = { x = 2 y = 2 }
+        name = "GFX_TPMP_SOV_mon_panel_btn"
+        size = { x = 32 y = 32 }
+        texturefile = "gfx/interface/TPMP_SOV_mon/panel_btn.tga"
+        borderSize = { x = 8 y = 8 }
+        tilingCenter = yes
+        effectFile = "gfx/FX/buttonstate.lua"
+    }
+    corneredTileSpriteType = {
+        name = "GFX_TPMP_SOV_mon_card"
+        size = { x = 32 y = 32 }
+        texturefile = "gfx/interface/TPMP_SOV_mon/card.tga"
+        borderSize = { x = 8 y = 8 }
+        tilingCenter = yes
+        effectFile = "gfx/FX/buttonstate.lua"
+    }
+    corneredTileSpriteType = {
+        name = "GFX_TPMP_SOV_mon_card_on"
+        size = { x = 32 y = 32 }
+        texturefile = "gfx/interface/TPMP_SOV_mon/card_on.tga"
+        borderSize = { x = 8 y = 8 }
+        tilingCenter = yes
+        effectFile = "gfx/FX/buttonstate.lua"
+    }
+    corneredTileSpriteType = {
+        name = "GFX_TPMP_SOV_mon_card_flat"
+        size = { x = 32 y = 32 }
+        texturefile = "gfx/interface/TPMP_SOV_mon/card_flat.tga"
+        borderSize = { x = 8 y = 8 }
+        tilingCenter = yes
+        effectFile = "gfx/FX/buttonstate_nodowneffect.lua"
+    }
+    corneredTileSpriteType = {
+        name = "GFX_TPMP_SOV_mon_header"
+        size = { x = 32 y = 32 }
+        texturefile = "gfx/interface/TPMP_SOV_mon/header.tga"
+        borderSize = { x = 6 y = 6 }
         tilingCenter = yes
         effectFile = "gfx/FX/buttonstate_nodowneffect.lua"
     }
     corneredTileSpriteType = {
         name = "GFX_TPMP_SOV_mon_button"
-        size = { x = 24 y = 24 }
+        size = { x = 32 y = 32 }
         texturefile = "gfx/interface/TPMP_SOV_mon/button.tga"
         borderSize = { x = 8 y = 8 }
+        tilingCenter = yes
+        effectFile = "gfx/FX/buttonstate.lua"
+    }
+    corneredTileSpriteType = {
+        name = "GFX_TPMP_SOV_mon_tab"
+        size = { x = 32 y = 32 }
+        texturefile = "gfx/interface/TPMP_SOV_mon/tab.tga"
+        borderSize = { x = 8 y = 8 }
+        tilingCenter = yes
+        effectFile = "gfx/FX/buttonstate.lua"
+    }
+    corneredTileSpriteType = {
+        name = "GFX_TPMP_SOV_mon_tab_on"
+        size = { x = 32 y = 32 }
+        texturefile = "gfx/interface/TPMP_SOV_mon/tab_on.tga"
+        borderSize = { x = 8 y = 8 }
+        tilingCenter = yes
+        effectFile = "gfx/FX/buttonstate.lua"
+    }
+    corneredTileSpriteType = {
+        name = "GFX_TPMP_SOV_mon_stalin_bg"
+        size = { x = 64 y = 64 }
+        texturefile = "gfx/interface/TPMP_SOV_mon/stalin_bg.tga"
+        borderSize = { x = 16 y = 16 }
+        tilingCenter = yes
+        effectFile = "gfx/FX/buttonstate_nodowneffect.lua"
+    }
+    corneredTileSpriteType = {
+        name = "GFX_TPMP_SOV_mon_row"
+        size = { x = 16 y = 16 }
+        texturefile = "gfx/interface/TPMP_SOV_mon/row.tga"
+        borderSize = { x = 4 y = 4 }
+        tilingCenter = yes
+        effectFile = "gfx/FX/buttonstate.lua"
+    }
+    corneredTileSpriteType = {
+        name = "GFX_TPMP_SOV_mon_row_on"
+        size = { x = 16 y = 16 }
+        texturefile = "gfx/interface/TPMP_SOV_mon/row_on.tga"
+        borderSize = { x = 4 y = 4 }
         tilingCenter = yes
         effectFile = "gfx/FX/buttonstate.lua"
     }
     spriteType = {
         name = "GFX_TPMP_SOV_mon_close"
         texturefile = "gfx/interface/TPMP_SOV_mon/close.tga"
-        noOfFrames = 1
-        effectFile = "gfx/FX/buttonstate.shader"
+        effectFile = "gfx/FX/buttonstate.lua"
+        legacy_lazy_load = no
     }
     spriteType = {
-        name = "GFX_TPMP_SOV_mon_portrait_blank"
+        name = "GFX_TPMP_SOV_mon_portrait"
         texturefile = "gfx/interface/TPMP_SOV_mon/portrait.tga"
+        legacy_lazy_load = no
+    }
+    spriteType = {
+        name = "GFX_TPMP_SOV_mon_emblem"
+        texturefile = "gfx/interface/TPMP_SOV_mon/emblem.tga"
+        legacy_lazy_load = no
+    }
+    spriteType = {
+        name = "GFX_TPMP_SOV_mon_lockov"
+        texturefile = "gfx/interface/TPMP_SOV_mon/lockov.tga"
+        legacy_lazy_load = no
+    }
+    spriteType = {
+        name = "GFX_TPMP_SOV_mon_padlock"
+        texturefile = "gfx/interface/TPMP_SOV_mon/padlock.tga"
+        legacy_lazy_load = no
+    }
+    spriteType = {
+        name = "GFX_TPMP_SOV_mon_box"
+        texturefile = "gfx/interface/TPMP_SOV_mon/box.tga"
+        noOfFrames = 5
+        legacy_lazy_load = no
+    }
+    spriteType = {
+        name = "GFX_TPMP_SOV_mon_div_1192"
+        texturefile = "gfx/interface/TPMP_SOV_mon/div_1192.tga"
+    }
+    spriteType = {
+        name = "GFX_TPMP_SOV_mon_div_276"
+        texturefile = "gfx/interface/TPMP_SOV_mon/div_276.tga"
+    }
+    spriteType = {
+        name = "GFX_TPMP_SOV_mon_div_326"
+        texturefile = "gfx/interface/TPMP_SOV_mon/div_326.tga"
+    }
+    spriteType = {
+        name = "GFX_TPMP_SOV_mon_div_364"
+        texturefile = "gfx/interface/TPMP_SOV_mon/div_364.tga"
+    }
+    spriteType = {
+        name = "GFX_TPMP_SOV_mon_div_472"
+        texturefile = "gfx/interface/TPMP_SOV_mon/div_472.tga"
+    }
+    spriteType = {
+        name = "GFX_TPMP_SOV_mon_div_706"
+        texturefile = "gfx/interface/TPMP_SOV_mon/div_706.tga"
+    }
+    spriteType = {
+        name = "GFX_TPMP_SOV_mon_plate_120x22"
+        texturefile = "gfx/interface/TPMP_SOV_mon/plate_120x22.tga"
+    }
+    spriteType = {
+        name = "GFX_TPMP_SOV_mon_plate_180x26"
+        texturefile = "gfx/interface/TPMP_SOV_mon/plate_180x26.tga"
+    }
+    progressbartype = {
+        name = "GFX_TPMP_SOV_mon_bar_slot_green"
+        textureFile1 = "gfx/interface/TPMP_SOV_mon/bar_slot_green.tga"
+        textureFile2 = "gfx/interface/TPMP_SOV_mon/bar_slot_empty.tga"
+        size = { x = 118 y = 8 }
+        effectFile = "gfx/FX/progress.lua"
+    }
+    progressbartype = {
+        name = "GFX_TPMP_SOV_mon_bar_slot_yellow"
+        textureFile1 = "gfx/interface/TPMP_SOV_mon/bar_slot_yellow.tga"
+        textureFile2 = "gfx/interface/TPMP_SOV_mon/bar_slot_empty.tga"
+        size = { x = 118 y = 8 }
+        effectFile = "gfx/FX/progress.lua"
+    }
+    progressbartype = {
+        name = "GFX_TPMP_SOV_mon_bar_slot_red"
+        textureFile1 = "gfx/interface/TPMP_SOV_mon/bar_slot_red.tga"
+        textureFile2 = "gfx/interface/TPMP_SOV_mon/bar_slot_empty.tga"
+        size = { x = 118 y = 8 }
+        effectFile = "gfx/FX/progress.lua"
+    }
+    progressbartype = {
+        name = "GFX_TPMP_SOV_mon_bar_detail_green"
+        textureFile1 = "gfx/interface/TPMP_SOV_mon/bar_detail_green.tga"
+        textureFile2 = "gfx/interface/TPMP_SOV_mon/bar_detail_empty.tga"
+        size = { x = 156 y = 10 }
+        effectFile = "gfx/FX/progress.lua"
+    }
+    progressbartype = {
+        name = "GFX_TPMP_SOV_mon_bar_detail_yellow"
+        textureFile1 = "gfx/interface/TPMP_SOV_mon/bar_detail_yellow.tga"
+        textureFile2 = "gfx/interface/TPMP_SOV_mon/bar_detail_empty.tga"
+        size = { x = 156 y = 10 }
+        effectFile = "gfx/FX/progress.lua"
+    }
+    progressbartype = {
+        name = "GFX_TPMP_SOV_mon_bar_detail_red"
+        textureFile1 = "gfx/interface/TPMP_SOV_mon/bar_detail_red.tga"
+        textureFile2 = "gfx/interface/TPMP_SOV_mon/bar_detail_empty.tga"
+        size = { x = 156 y = 10 }
+        effectFile = "gfx/FX/progress.lua"
+    }
+    progressbartype = {
+        name = "GFX_TPMP_SOV_mon_bar_plan_green"
+        textureFile1 = "gfx/interface/TPMP_SOV_mon/bar_plan_green.tga"
+        textureFile2 = "gfx/interface/TPMP_SOV_mon/bar_plan_empty.tga"
+        size = { x = 740 y = 18 }
+        effectFile = "gfx/FX/progress.lua"
+    }
+    progressbartype = {
+        name = "GFX_TPMP_SOV_mon_bar_plan_yellow"
+        textureFile1 = "gfx/interface/TPMP_SOV_mon/bar_plan_yellow.tga"
+        textureFile2 = "gfx/interface/TPMP_SOV_mon/bar_plan_empty.tga"
+        size = { x = 740 y = 18 }
+        effectFile = "gfx/FX/progress.lua"
+    }
+    progressbartype = {
+        name = "GFX_TPMP_SOV_mon_bar_plan_red"
+        textureFile1 = "gfx/interface/TPMP_SOV_mon/bar_plan_red.tga"
+        textureFile2 = "gfx/interface/TPMP_SOV_mon/bar_plan_empty.tga"
+        size = { x = 740 y = 18 }
+        effectFile = "gfx/FX/progress.lua"
+    }
+    progressbartype = {
+        name = "GFX_TPMP_SOV_mon_bar_bd_green"
+        textureFile1 = "gfx/interface/TPMP_SOV_mon/bar_bd_green.tga"
+        textureFile2 = "gfx/interface/TPMP_SOV_mon/bar_bd_empty.tga"
+        size = { x = 360 y = 18 }
+        effectFile = "gfx/FX/progress.lua"
+    }
+    progressbartype = {
+        name = "GFX_TPMP_SOV_mon_bar_bd_yellow"
+        textureFile1 = "gfx/interface/TPMP_SOV_mon/bar_bd_yellow.tga"
+        textureFile2 = "gfx/interface/TPMP_SOV_mon/bar_bd_empty.tga"
+        size = { x = 360 y = 18 }
+        effectFile = "gfx/FX/progress.lua"
+    }
+    progressbartype = {
+        name = "GFX_TPMP_SOV_mon_bar_bd_red"
+        textureFile1 = "gfx/interface/TPMP_SOV_mon/bar_bd_red.tga"
+        textureFile2 = "gfx/interface/TPMP_SOV_mon/bar_bd_empty.tga"
+        size = { x = 360 y = 18 }
+        effectFile = "gfx/FX/progress.lua"
+    }
+    progressbartype = {
+        name = "GFX_TPMP_SOV_mon_bar_fav_green"
+        textureFile1 = "gfx/interface/TPMP_SOV_mon/bar_fav_green.tga"
+        textureFile2 = "gfx/interface/TPMP_SOV_mon/bar_fav_empty.tga"
+        size = { x = 100 y = 8 }
+        effectFile = "gfx/FX/progress.lua"
+    }
+    progressbartype = {
+        name = "GFX_TPMP_SOV_mon_bar_fav_yellow"
+        textureFile1 = "gfx/interface/TPMP_SOV_mon/bar_fav_yellow.tga"
+        textureFile2 = "gfx/interface/TPMP_SOV_mon/bar_fav_empty.tga"
+        size = { x = 100 y = 8 }
+        effectFile = "gfx/FX/progress.lua"
+    }
+    progressbartype = {
+        name = "GFX_TPMP_SOV_mon_bar_fav_red"
+        textureFile1 = "gfx/interface/TPMP_SOV_mon/bar_fav_red.tga"
+        textureFile2 = "gfx/interface/TPMP_SOV_mon/bar_fav_empty.tga"
+        size = { x = 100 y = 8 }
+        effectFile = "gfx/FX/progress.lua"
     }
 }

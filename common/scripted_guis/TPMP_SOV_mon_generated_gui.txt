@@ -19,7 +19,7 @@ scripted_gui = {
                     }
                     clr_country_flag = TPMP_SOV_mon_window_open
                 }
-                else = { set_country_flag = TPMP_SOV_mon_window_open }
+                else = { set_country_flag = TPMP_SOV_mon_window_open TPMP_SOV_mon_display = yes }
                 add_to_variable = { TPMP_SOV_mon_dirty = 1 }
             }
         }
@@ -39,446 +39,987 @@ scripted_gui = {
             always = no
         }
         triggers = {
+            TPMP_SOV_mon_tab_monster_visible = {
+                NOT = { check_variable = { TPMP_SOV_mon_tab = 0 } }
+            }
+            TPMP_SOV_mon_tab_monster_on_visible = {
+                check_variable = { TPMP_SOV_mon_tab = 0 }
+            }
+            TPMP_SOV_mon_tab_ears_visible = {
+                NOT = { check_variable = { TPMP_SOV_mon_tab = 1 } }
+            }
+            TPMP_SOV_mon_tab_ears_on_visible = {
+                check_variable = { TPMP_SOV_mon_tab = 1 }
+            }
+            TPMP_SOV_mon_tab_desk_visible = {
+                NOT = { check_variable = { TPMP_SOV_mon_tab = 2 } }
+            }
+            TPMP_SOV_mon_tab_desk_on_visible = {
+                check_variable = { TPMP_SOV_mon_tab = 2 }
+            }
+            TPMP_SOV_mon_strip_visible = {
+                OR = { check_variable = { TPMP_SOV_mon_tab = 2 } AND = { check_variable = { TPMP_SOV_mon_tab = 0 } check_variable = { TPMP_SOV_mon_view = 0 } } }
+            }
+            TPMP_SOV_mon_strip_L_lock_visible = {
+                has_country_flag = TPMP_SOV_ear_left_locked
+            }
+            TPMP_SOV_mon_strip_L_locked_visible = {
+                has_country_flag = TPMP_SOV_ear_left_locked
+            }
+            TPMP_SOV_mon_strip_L_side_visible = {
+                NOT = { has_country_flag = TPMP_SOV_ear_left_locked }
+            }
             TPMP_SOV_mon_monster_pane_visible = {
-                NOT = { has_country_flag = TPMP_SOV_mon_tab_ears }
+                check_variable = { TPMP_SOV_mon_tab = 0 }
+                check_variable = { TPMP_SOV_mon_view = 0 }
+            }
+            TPMP_SOV_mon_plan_bar_r_visible = {
+                check_variable = { TPMP_SOV_mon_over_ratio > 0 }
+            }
+            TPMP_SOV_mon_plan_bar_g_visible = {
+                check_variable = { TPMP_SOV_mon_over_ratio = 0 }
+            }
+            TPMP_SOV_mon_plan_over_visible = {
+                check_variable = { TPMP_SOV_mon_over_ratio > 0 }
+            }
+            TPMP_SOV_mon_s01_card_visible = {
+                NOT = { check_variable = { TPMP_SOV_mon_sel = 1 } }
+            }
+            TPMP_SOV_mon_s01_card_on_visible = {
+                check_variable = { TPMP_SOV_mon_sel = 1 }
+            }
+            TPMP_SOV_mon_s01_lockov_visible = {
+                check_variable = { TPMP_SOV_mon_s01_access = 0 }
+            }
+            TPMP_SOV_mon_s01_padlock_visible = {
+                check_variable = { TPMP_SOV_mon_s01_access = 0 }
+            }
+            TPMP_SOV_mon_s01_sway_visible = {
+                check_variable = { TPMP_SOV_mon_s01_person > 0 }
+                check_variable = { TPMP_SOV_mon_s01_access > 0 }
+                check_variable = { TPMP_SOV_mon_s01_countdown = 0 }
+            }
+            TPMP_SOV_mon_s01_bar_r_visible = {
+                check_variable = { TPMP_SOV_mon_s01_person > 0 }
+                check_variable = { TPMP_SOV_mon_s01_access > 0 }
+                check_variable = { TPMP_SOV_mon_s01_countdown = 0 }
+                check_variable = { TPMP_SOV_mon_over_ratio > 0 }
+            }
+            TPMP_SOV_mon_s01_bar_y_visible = {
+                check_variable = { TPMP_SOV_mon_s01_person > 0 }
+                check_variable = { TPMP_SOV_mon_s01_access > 0 }
+                check_variable = { TPMP_SOV_mon_s01_countdown = 0 }
+                check_variable = { TPMP_SOV_mon_over_ratio = 0 }
+                check_variable = { var = TPMP_SOV_mon_s01_sway value = TPMP_SOV_mon_cfg_act_threshold compare = greater_than_or_equals }
+            }
+            TPMP_SOV_mon_s01_bar_g_visible = {
+                check_variable = { TPMP_SOV_mon_s01_person > 0 }
+                check_variable = { TPMP_SOV_mon_s01_access > 0 }
+                check_variable = { TPMP_SOV_mon_s01_countdown = 0 }
+                check_variable = { TPMP_SOV_mon_over_ratio = 0 }
+                check_variable = { TPMP_SOV_mon_s01_sway < TPMP_SOV_mon_cfg_act_threshold }
+            }
+            TPMP_SOV_mon_s01_cd_visible = {
+                check_variable = { TPMP_SOV_mon_s01_countdown > 0 }
+            }
+            TPMP_SOV_mon_s01_locked_visible = {
+                check_variable = { TPMP_SOV_mon_s01_access = 0 }
+            }
+            TPMP_SOV_mon_s02_card_visible = {
+                NOT = { check_variable = { TPMP_SOV_mon_sel = 2 } }
+            }
+            TPMP_SOV_mon_s02_card_on_visible = {
+                check_variable = { TPMP_SOV_mon_sel = 2 }
+            }
+            TPMP_SOV_mon_s02_lockov_visible = {
+                check_variable = { TPMP_SOV_mon_s02_access = 0 }
+            }
+            TPMP_SOV_mon_s02_padlock_visible = {
+                check_variable = { TPMP_SOV_mon_s02_access = 0 }
+            }
+            TPMP_SOV_mon_s02_sway_visible = {
+                check_variable = { TPMP_SOV_mon_s02_person > 0 }
+                check_variable = { TPMP_SOV_mon_s02_access > 0 }
+                check_variable = { TPMP_SOV_mon_s02_countdown = 0 }
+            }
+            TPMP_SOV_mon_s02_bar_r_visible = {
+                check_variable = { TPMP_SOV_mon_s02_person > 0 }
+                check_variable = { TPMP_SOV_mon_s02_access > 0 }
+                check_variable = { TPMP_SOV_mon_s02_countdown = 0 }
+                check_variable = { TPMP_SOV_mon_over_ratio > 0 }
+            }
+            TPMP_SOV_mon_s02_bar_y_visible = {
+                check_variable = { TPMP_SOV_mon_s02_person > 0 }
+                check_variable = { TPMP_SOV_mon_s02_access > 0 }
+                check_variable = { TPMP_SOV_mon_s02_countdown = 0 }
+                check_variable = { TPMP_SOV_mon_over_ratio = 0 }
+                check_variable = { var = TPMP_SOV_mon_s02_sway value = TPMP_SOV_mon_cfg_act_threshold compare = greater_than_or_equals }
+            }
+            TPMP_SOV_mon_s02_bar_g_visible = {
+                check_variable = { TPMP_SOV_mon_s02_person > 0 }
+                check_variable = { TPMP_SOV_mon_s02_access > 0 }
+                check_variable = { TPMP_SOV_mon_s02_countdown = 0 }
+                check_variable = { TPMP_SOV_mon_over_ratio = 0 }
+                check_variable = { TPMP_SOV_mon_s02_sway < TPMP_SOV_mon_cfg_act_threshold }
+            }
+            TPMP_SOV_mon_s02_cd_visible = {
+                check_variable = { TPMP_SOV_mon_s02_countdown > 0 }
+            }
+            TPMP_SOV_mon_s02_locked_visible = {
+                check_variable = { TPMP_SOV_mon_s02_access = 0 }
+            }
+            TPMP_SOV_mon_s03_card_visible = {
+                NOT = { check_variable = { TPMP_SOV_mon_sel = 3 } }
+            }
+            TPMP_SOV_mon_s03_card_on_visible = {
+                check_variable = { TPMP_SOV_mon_sel = 3 }
+            }
+            TPMP_SOV_mon_s03_lockov_visible = {
+                check_variable = { TPMP_SOV_mon_s03_access = 0 }
+            }
+            TPMP_SOV_mon_s03_padlock_visible = {
+                check_variable = { TPMP_SOV_mon_s03_access = 0 }
+            }
+            TPMP_SOV_mon_s03_sway_visible = {
+                check_variable = { TPMP_SOV_mon_s03_person > 0 }
+                check_variable = { TPMP_SOV_mon_s03_access > 0 }
+                check_variable = { TPMP_SOV_mon_s03_countdown = 0 }
+            }
+            TPMP_SOV_mon_s03_bar_r_visible = {
+                check_variable = { TPMP_SOV_mon_s03_person > 0 }
+                check_variable = { TPMP_SOV_mon_s03_access > 0 }
+                check_variable = { TPMP_SOV_mon_s03_countdown = 0 }
+                check_variable = { TPMP_SOV_mon_over_ratio > 0 }
+            }
+            TPMP_SOV_mon_s03_bar_y_visible = {
+                check_variable = { TPMP_SOV_mon_s03_person > 0 }
+                check_variable = { TPMP_SOV_mon_s03_access > 0 }
+                check_variable = { TPMP_SOV_mon_s03_countdown = 0 }
+                check_variable = { TPMP_SOV_mon_over_ratio = 0 }
+                check_variable = { var = TPMP_SOV_mon_s03_sway value = TPMP_SOV_mon_cfg_act_threshold compare = greater_than_or_equals }
+            }
+            TPMP_SOV_mon_s03_bar_g_visible = {
+                check_variable = { TPMP_SOV_mon_s03_person > 0 }
+                check_variable = { TPMP_SOV_mon_s03_access > 0 }
+                check_variable = { TPMP_SOV_mon_s03_countdown = 0 }
+                check_variable = { TPMP_SOV_mon_over_ratio = 0 }
+                check_variable = { TPMP_SOV_mon_s03_sway < TPMP_SOV_mon_cfg_act_threshold }
+            }
+            TPMP_SOV_mon_s03_cd_visible = {
+                check_variable = { TPMP_SOV_mon_s03_countdown > 0 }
+            }
+            TPMP_SOV_mon_s03_locked_visible = {
+                check_variable = { TPMP_SOV_mon_s03_access = 0 }
+            }
+            TPMP_SOV_mon_s04_card_visible = {
+                NOT = { check_variable = { TPMP_SOV_mon_sel = 4 } }
+            }
+            TPMP_SOV_mon_s04_card_on_visible = {
+                check_variable = { TPMP_SOV_mon_sel = 4 }
+            }
+            TPMP_SOV_mon_s04_lockov_visible = {
+                check_variable = { TPMP_SOV_mon_s04_access = 0 }
+            }
+            TPMP_SOV_mon_s04_padlock_visible = {
+                check_variable = { TPMP_SOV_mon_s04_access = 0 }
+            }
+            TPMP_SOV_mon_s04_sway_visible = {
+                check_variable = { TPMP_SOV_mon_s04_person > 0 }
+                check_variable = { TPMP_SOV_mon_s04_access > 0 }
+                check_variable = { TPMP_SOV_mon_s04_countdown = 0 }
+            }
+            TPMP_SOV_mon_s04_bar_r_visible = {
+                check_variable = { TPMP_SOV_mon_s04_person > 0 }
+                check_variable = { TPMP_SOV_mon_s04_access > 0 }
+                check_variable = { TPMP_SOV_mon_s04_countdown = 0 }
+                check_variable = { TPMP_SOV_mon_over_ratio > 0 }
+            }
+            TPMP_SOV_mon_s04_bar_y_visible = {
+                check_variable = { TPMP_SOV_mon_s04_person > 0 }
+                check_variable = { TPMP_SOV_mon_s04_access > 0 }
+                check_variable = { TPMP_SOV_mon_s04_countdown = 0 }
+                check_variable = { TPMP_SOV_mon_over_ratio = 0 }
+                check_variable = { var = TPMP_SOV_mon_s04_sway value = TPMP_SOV_mon_cfg_act_threshold compare = greater_than_or_equals }
+            }
+            TPMP_SOV_mon_s04_bar_g_visible = {
+                check_variable = { TPMP_SOV_mon_s04_person > 0 }
+                check_variable = { TPMP_SOV_mon_s04_access > 0 }
+                check_variable = { TPMP_SOV_mon_s04_countdown = 0 }
+                check_variable = { TPMP_SOV_mon_over_ratio = 0 }
+                check_variable = { TPMP_SOV_mon_s04_sway < TPMP_SOV_mon_cfg_act_threshold }
+            }
+            TPMP_SOV_mon_s04_cd_visible = {
+                check_variable = { TPMP_SOV_mon_s04_countdown > 0 }
+            }
+            TPMP_SOV_mon_s04_locked_visible = {
+                check_variable = { TPMP_SOV_mon_s04_access = 0 }
+            }
+            TPMP_SOV_mon_s05_card_visible = {
+                NOT = { check_variable = { TPMP_SOV_mon_sel = 5 } }
+            }
+            TPMP_SOV_mon_s05_card_on_visible = {
+                check_variable = { TPMP_SOV_mon_sel = 5 }
+            }
+            TPMP_SOV_mon_s05_lockov_visible = {
+                check_variable = { TPMP_SOV_mon_s05_access = 0 }
+            }
+            TPMP_SOV_mon_s05_padlock_visible = {
+                check_variable = { TPMP_SOV_mon_s05_access = 0 }
+            }
+            TPMP_SOV_mon_s05_sway_visible = {
+                check_variable = { TPMP_SOV_mon_s05_person > 0 }
+                check_variable = { TPMP_SOV_mon_s05_access > 0 }
+                check_variable = { TPMP_SOV_mon_s05_countdown = 0 }
+            }
+            TPMP_SOV_mon_s05_bar_r_visible = {
+                check_variable = { TPMP_SOV_mon_s05_person > 0 }
+                check_variable = { TPMP_SOV_mon_s05_access > 0 }
+                check_variable = { TPMP_SOV_mon_s05_countdown = 0 }
+                check_variable = { TPMP_SOV_mon_over_ratio > 0 }
+            }
+            TPMP_SOV_mon_s05_bar_y_visible = {
+                check_variable = { TPMP_SOV_mon_s05_person > 0 }
+                check_variable = { TPMP_SOV_mon_s05_access > 0 }
+                check_variable = { TPMP_SOV_mon_s05_countdown = 0 }
+                check_variable = { TPMP_SOV_mon_over_ratio = 0 }
+                check_variable = { var = TPMP_SOV_mon_s05_sway value = TPMP_SOV_mon_cfg_act_threshold compare = greater_than_or_equals }
+            }
+            TPMP_SOV_mon_s05_bar_g_visible = {
+                check_variable = { TPMP_SOV_mon_s05_person > 0 }
+                check_variable = { TPMP_SOV_mon_s05_access > 0 }
+                check_variable = { TPMP_SOV_mon_s05_countdown = 0 }
+                check_variable = { TPMP_SOV_mon_over_ratio = 0 }
+                check_variable = { TPMP_SOV_mon_s05_sway < TPMP_SOV_mon_cfg_act_threshold }
+            }
+            TPMP_SOV_mon_s05_cd_visible = {
+                check_variable = { TPMP_SOV_mon_s05_countdown > 0 }
+            }
+            TPMP_SOV_mon_s05_locked_visible = {
+                check_variable = { TPMP_SOV_mon_s05_access = 0 }
+            }
+            TPMP_SOV_mon_s06_card_visible = {
+                NOT = { check_variable = { TPMP_SOV_mon_sel = 6 } }
+            }
+            TPMP_SOV_mon_s06_card_on_visible = {
+                check_variable = { TPMP_SOV_mon_sel = 6 }
+            }
+            TPMP_SOV_mon_s06_lockov_visible = {
+                check_variable = { TPMP_SOV_mon_s06_access = 0 }
+            }
+            TPMP_SOV_mon_s06_padlock_visible = {
+                check_variable = { TPMP_SOV_mon_s06_access = 0 }
+            }
+            TPMP_SOV_mon_s06_sway_visible = {
+                check_variable = { TPMP_SOV_mon_s06_person > 0 }
+                check_variable = { TPMP_SOV_mon_s06_access > 0 }
+                check_variable = { TPMP_SOV_mon_s06_countdown = 0 }
+            }
+            TPMP_SOV_mon_s06_bar_r_visible = {
+                check_variable = { TPMP_SOV_mon_s06_person > 0 }
+                check_variable = { TPMP_SOV_mon_s06_access > 0 }
+                check_variable = { TPMP_SOV_mon_s06_countdown = 0 }
+                check_variable = { TPMP_SOV_mon_over_ratio > 0 }
+            }
+            TPMP_SOV_mon_s06_bar_y_visible = {
+                check_variable = { TPMP_SOV_mon_s06_person > 0 }
+                check_variable = { TPMP_SOV_mon_s06_access > 0 }
+                check_variable = { TPMP_SOV_mon_s06_countdown = 0 }
+                check_variable = { TPMP_SOV_mon_over_ratio = 0 }
+                check_variable = { var = TPMP_SOV_mon_s06_sway value = TPMP_SOV_mon_cfg_act_threshold compare = greater_than_or_equals }
+            }
+            TPMP_SOV_mon_s06_bar_g_visible = {
+                check_variable = { TPMP_SOV_mon_s06_person > 0 }
+                check_variable = { TPMP_SOV_mon_s06_access > 0 }
+                check_variable = { TPMP_SOV_mon_s06_countdown = 0 }
+                check_variable = { TPMP_SOV_mon_over_ratio = 0 }
+                check_variable = { TPMP_SOV_mon_s06_sway < TPMP_SOV_mon_cfg_act_threshold }
+            }
+            TPMP_SOV_mon_s06_cd_visible = {
+                check_variable = { TPMP_SOV_mon_s06_countdown > 0 }
+            }
+            TPMP_SOV_mon_s06_locked_visible = {
+                check_variable = { TPMP_SOV_mon_s06_access = 0 }
+            }
+            TPMP_SOV_mon_s07_card_visible = {
+                NOT = { check_variable = { TPMP_SOV_mon_sel = 7 } }
+            }
+            TPMP_SOV_mon_s07_card_on_visible = {
+                check_variable = { TPMP_SOV_mon_sel = 7 }
+            }
+            TPMP_SOV_mon_s07_lockov_visible = {
+                check_variable = { TPMP_SOV_mon_s07_access = 0 }
+            }
+            TPMP_SOV_mon_s07_padlock_visible = {
+                check_variable = { TPMP_SOV_mon_s07_access = 0 }
+            }
+            TPMP_SOV_mon_s07_sway_visible = {
+                check_variable = { TPMP_SOV_mon_s07_person > 0 }
+                check_variable = { TPMP_SOV_mon_s07_access > 0 }
+                check_variable = { TPMP_SOV_mon_s07_countdown = 0 }
+            }
+            TPMP_SOV_mon_s07_bar_r_visible = {
+                check_variable = { TPMP_SOV_mon_s07_person > 0 }
+                check_variable = { TPMP_SOV_mon_s07_access > 0 }
+                check_variable = { TPMP_SOV_mon_s07_countdown = 0 }
+                check_variable = { TPMP_SOV_mon_over_ratio > 0 }
+            }
+            TPMP_SOV_mon_s07_bar_y_visible = {
+                check_variable = { TPMP_SOV_mon_s07_person > 0 }
+                check_variable = { TPMP_SOV_mon_s07_access > 0 }
+                check_variable = { TPMP_SOV_mon_s07_countdown = 0 }
+                check_variable = { TPMP_SOV_mon_over_ratio = 0 }
+                check_variable = { var = TPMP_SOV_mon_s07_sway value = TPMP_SOV_mon_cfg_act_threshold compare = greater_than_or_equals }
+            }
+            TPMP_SOV_mon_s07_bar_g_visible = {
+                check_variable = { TPMP_SOV_mon_s07_person > 0 }
+                check_variable = { TPMP_SOV_mon_s07_access > 0 }
+                check_variable = { TPMP_SOV_mon_s07_countdown = 0 }
+                check_variable = { TPMP_SOV_mon_over_ratio = 0 }
+                check_variable = { TPMP_SOV_mon_s07_sway < TPMP_SOV_mon_cfg_act_threshold }
+            }
+            TPMP_SOV_mon_s07_cd_visible = {
+                check_variable = { TPMP_SOV_mon_s07_countdown > 0 }
+            }
+            TPMP_SOV_mon_s07_locked_visible = {
+                check_variable = { TPMP_SOV_mon_s07_access = 0 }
+            }
+            TPMP_SOV_mon_s08_card_visible = {
+                NOT = { check_variable = { TPMP_SOV_mon_sel = 8 } }
+            }
+            TPMP_SOV_mon_s08_card_on_visible = {
+                check_variable = { TPMP_SOV_mon_sel = 8 }
+            }
+            TPMP_SOV_mon_s08_lockov_visible = {
+                check_variable = { TPMP_SOV_mon_s08_access = 0 }
+            }
+            TPMP_SOV_mon_s08_padlock_visible = {
+                check_variable = { TPMP_SOV_mon_s08_access = 0 }
+            }
+            TPMP_SOV_mon_s08_sway_visible = {
+                check_variable = { TPMP_SOV_mon_s08_person > 0 }
+                check_variable = { TPMP_SOV_mon_s08_access > 0 }
+                check_variable = { TPMP_SOV_mon_s08_countdown = 0 }
+            }
+            TPMP_SOV_mon_s08_bar_r_visible = {
+                check_variable = { TPMP_SOV_mon_s08_person > 0 }
+                check_variable = { TPMP_SOV_mon_s08_access > 0 }
+                check_variable = { TPMP_SOV_mon_s08_countdown = 0 }
+                check_variable = { TPMP_SOV_mon_over_ratio > 0 }
+            }
+            TPMP_SOV_mon_s08_bar_y_visible = {
+                check_variable = { TPMP_SOV_mon_s08_person > 0 }
+                check_variable = { TPMP_SOV_mon_s08_access > 0 }
+                check_variable = { TPMP_SOV_mon_s08_countdown = 0 }
+                check_variable = { TPMP_SOV_mon_over_ratio = 0 }
+                check_variable = { var = TPMP_SOV_mon_s08_sway value = TPMP_SOV_mon_cfg_act_threshold compare = greater_than_or_equals }
+            }
+            TPMP_SOV_mon_s08_bar_g_visible = {
+                check_variable = { TPMP_SOV_mon_s08_person > 0 }
+                check_variable = { TPMP_SOV_mon_s08_access > 0 }
+                check_variable = { TPMP_SOV_mon_s08_countdown = 0 }
+                check_variable = { TPMP_SOV_mon_over_ratio = 0 }
+                check_variable = { TPMP_SOV_mon_s08_sway < TPMP_SOV_mon_cfg_act_threshold }
+            }
+            TPMP_SOV_mon_s08_cd_visible = {
+                check_variable = { TPMP_SOV_mon_s08_countdown > 0 }
+            }
+            TPMP_SOV_mon_s08_locked_visible = {
+                check_variable = { TPMP_SOV_mon_s08_access = 0 }
+            }
+            TPMP_SOV_mon_s09_card_visible = {
+                NOT = { check_variable = { TPMP_SOV_mon_sel = 9 } }
+            }
+            TPMP_SOV_mon_s09_card_on_visible = {
+                check_variable = { TPMP_SOV_mon_sel = 9 }
+            }
+            TPMP_SOV_mon_s09_lockov_visible = {
+                check_variable = { TPMP_SOV_mon_s09_access = 0 }
+            }
+            TPMP_SOV_mon_s09_padlock_visible = {
+                check_variable = { TPMP_SOV_mon_s09_access = 0 }
+            }
+            TPMP_SOV_mon_s09_sway_visible = {
+                check_variable = { TPMP_SOV_mon_s09_person > 0 }
+                check_variable = { TPMP_SOV_mon_s09_access > 0 }
+                check_variable = { TPMP_SOV_mon_s09_countdown = 0 }
+            }
+            TPMP_SOV_mon_s09_bar_r_visible = {
+                check_variable = { TPMP_SOV_mon_s09_person > 0 }
+                check_variable = { TPMP_SOV_mon_s09_access > 0 }
+                check_variable = { TPMP_SOV_mon_s09_countdown = 0 }
+                check_variable = { TPMP_SOV_mon_over_ratio > 0 }
+            }
+            TPMP_SOV_mon_s09_bar_y_visible = {
+                check_variable = { TPMP_SOV_mon_s09_person > 0 }
+                check_variable = { TPMP_SOV_mon_s09_access > 0 }
+                check_variable = { TPMP_SOV_mon_s09_countdown = 0 }
+                check_variable = { TPMP_SOV_mon_over_ratio = 0 }
+                check_variable = { var = TPMP_SOV_mon_s09_sway value = TPMP_SOV_mon_cfg_act_threshold compare = greater_than_or_equals }
+            }
+            TPMP_SOV_mon_s09_bar_g_visible = {
+                check_variable = { TPMP_SOV_mon_s09_person > 0 }
+                check_variable = { TPMP_SOV_mon_s09_access > 0 }
+                check_variable = { TPMP_SOV_mon_s09_countdown = 0 }
+                check_variable = { TPMP_SOV_mon_over_ratio = 0 }
+                check_variable = { TPMP_SOV_mon_s09_sway < TPMP_SOV_mon_cfg_act_threshold }
+            }
+            TPMP_SOV_mon_s09_cd_visible = {
+                check_variable = { TPMP_SOV_mon_s09_countdown > 0 }
+            }
+            TPMP_SOV_mon_s09_locked_visible = {
+                check_variable = { TPMP_SOV_mon_s09_access = 0 }
+            }
+            TPMP_SOV_mon_s10_card_visible = {
+                NOT = { check_variable = { TPMP_SOV_mon_sel = 10 } }
+            }
+            TPMP_SOV_mon_s10_card_on_visible = {
+                check_variable = { TPMP_SOV_mon_sel = 10 }
+            }
+            TPMP_SOV_mon_s10_lockov_visible = {
+                check_variable = { TPMP_SOV_mon_s10_access = 0 }
+            }
+            TPMP_SOV_mon_s10_padlock_visible = {
+                check_variable = { TPMP_SOV_mon_s10_access = 0 }
+            }
+            TPMP_SOV_mon_s10_sway_visible = {
+                check_variable = { TPMP_SOV_mon_s10_person > 0 }
+                check_variable = { TPMP_SOV_mon_s10_access > 0 }
+                check_variable = { TPMP_SOV_mon_s10_countdown = 0 }
+            }
+            TPMP_SOV_mon_s10_bar_r_visible = {
+                check_variable = { TPMP_SOV_mon_s10_person > 0 }
+                check_variable = { TPMP_SOV_mon_s10_access > 0 }
+                check_variable = { TPMP_SOV_mon_s10_countdown = 0 }
+                check_variable = { TPMP_SOV_mon_over_ratio > 0 }
+            }
+            TPMP_SOV_mon_s10_bar_y_visible = {
+                check_variable = { TPMP_SOV_mon_s10_person > 0 }
+                check_variable = { TPMP_SOV_mon_s10_access > 0 }
+                check_variable = { TPMP_SOV_mon_s10_countdown = 0 }
+                check_variable = { TPMP_SOV_mon_over_ratio = 0 }
+                check_variable = { var = TPMP_SOV_mon_s10_sway value = TPMP_SOV_mon_cfg_act_threshold compare = greater_than_or_equals }
+            }
+            TPMP_SOV_mon_s10_bar_g_visible = {
+                check_variable = { TPMP_SOV_mon_s10_person > 0 }
+                check_variable = { TPMP_SOV_mon_s10_access > 0 }
+                check_variable = { TPMP_SOV_mon_s10_countdown = 0 }
+                check_variable = { TPMP_SOV_mon_over_ratio = 0 }
+                check_variable = { TPMP_SOV_mon_s10_sway < TPMP_SOV_mon_cfg_act_threshold }
+            }
+            TPMP_SOV_mon_s10_cd_visible = {
+                check_variable = { TPMP_SOV_mon_s10_countdown > 0 }
+            }
+            TPMP_SOV_mon_s10_locked_visible = {
+                check_variable = { TPMP_SOV_mon_s10_access = 0 }
+            }
+            TPMP_SOV_mon_s11_card_visible = {
+                NOT = { check_variable = { TPMP_SOV_mon_sel = 11 } }
+            }
+            TPMP_SOV_mon_s11_card_on_visible = {
+                check_variable = { TPMP_SOV_mon_sel = 11 }
+            }
+            TPMP_SOV_mon_s11_lockov_visible = {
+                check_variable = { TPMP_SOV_mon_s11_access = 0 }
+            }
+            TPMP_SOV_mon_s11_padlock_visible = {
+                check_variable = { TPMP_SOV_mon_s11_access = 0 }
+            }
+            TPMP_SOV_mon_s11_sway_visible = {
+                check_variable = { TPMP_SOV_mon_s11_person > 0 }
+                check_variable = { TPMP_SOV_mon_s11_access > 0 }
+                check_variable = { TPMP_SOV_mon_s11_countdown = 0 }
+            }
+            TPMP_SOV_mon_s11_bar_r_visible = {
+                check_variable = { TPMP_SOV_mon_s11_person > 0 }
+                check_variable = { TPMP_SOV_mon_s11_access > 0 }
+                check_variable = { TPMP_SOV_mon_s11_countdown = 0 }
+                check_variable = { TPMP_SOV_mon_over_ratio > 0 }
+            }
+            TPMP_SOV_mon_s11_bar_y_visible = {
+                check_variable = { TPMP_SOV_mon_s11_person > 0 }
+                check_variable = { TPMP_SOV_mon_s11_access > 0 }
+                check_variable = { TPMP_SOV_mon_s11_countdown = 0 }
+                check_variable = { TPMP_SOV_mon_over_ratio = 0 }
+                check_variable = { var = TPMP_SOV_mon_s11_sway value = TPMP_SOV_mon_cfg_act_threshold compare = greater_than_or_equals }
+            }
+            TPMP_SOV_mon_s11_bar_g_visible = {
+                check_variable = { TPMP_SOV_mon_s11_person > 0 }
+                check_variable = { TPMP_SOV_mon_s11_access > 0 }
+                check_variable = { TPMP_SOV_mon_s11_countdown = 0 }
+                check_variable = { TPMP_SOV_mon_over_ratio = 0 }
+                check_variable = { TPMP_SOV_mon_s11_sway < TPMP_SOV_mon_cfg_act_threshold }
+            }
+            TPMP_SOV_mon_s11_cd_visible = {
+                check_variable = { TPMP_SOV_mon_s11_countdown > 0 }
+            }
+            TPMP_SOV_mon_s11_locked_visible = {
+                check_variable = { TPMP_SOV_mon_s11_access = 0 }
+            }
+            TPMP_SOV_mon_s12_card_visible = {
+                NOT = { check_variable = { TPMP_SOV_mon_sel = 12 } }
+            }
+            TPMP_SOV_mon_s12_card_on_visible = {
+                check_variable = { TPMP_SOV_mon_sel = 12 }
+            }
+            TPMP_SOV_mon_s13_card_visible = {
+                NOT = { check_variable = { TPMP_SOV_mon_sel = 13 } }
+            }
+            TPMP_SOV_mon_s13_card_on_visible = {
+                check_variable = { TPMP_SOV_mon_sel = 13 }
+            }
+            TPMP_SOV_mon_s14_card_visible = {
+                NOT = { check_variable = { TPMP_SOV_mon_sel = 14 } }
+            }
+            TPMP_SOV_mon_s14_card_on_visible = {
+                check_variable = { TPMP_SOV_mon_sel = 14 }
+            }
+            TPMP_SOV_mon_s15_card_visible = {
+                NOT = { check_variable = { TPMP_SOV_mon_sel = 15 } }
+            }
+            TPMP_SOV_mon_s15_card_on_visible = {
+                check_variable = { TPMP_SOV_mon_sel = 15 }
+            }
+            TPMP_SOV_mon_s16_card_visible = {
+                NOT = { check_variable = { TPMP_SOV_mon_sel = 16 } }
+            }
+            TPMP_SOV_mon_s16_card_on_visible = {
+                check_variable = { TPMP_SOV_mon_sel = 16 }
+            }
+            TPMP_SOV_mon_s17_card_visible = {
+                NOT = { check_variable = { TPMP_SOV_mon_sel = 17 } }
+            }
+            TPMP_SOV_mon_s17_card_on_visible = {
+                check_variable = { TPMP_SOV_mon_sel = 17 }
+            }
+            TPMP_SOV_mon_s18_card_visible = {
+                NOT = { check_variable = { TPMP_SOV_mon_sel = 18 } }
+            }
+            TPMP_SOV_mon_s18_card_on_visible = {
+                check_variable = { TPMP_SOV_mon_sel = 18 }
+            }
+            TPMP_SOV_mon_s19_card_visible = {
+                NOT = { check_variable = { TPMP_SOV_mon_sel = 19 } }
+            }
+            TPMP_SOV_mon_s19_card_on_visible = {
+                check_variable = { TPMP_SOV_mon_sel = 19 }
+            }
+            TPMP_SOV_mon_s20_card_visible = {
+                NOT = { check_variable = { TPMP_SOV_mon_sel = 20 } }
+            }
+            TPMP_SOV_mon_s20_card_on_visible = {
+                check_variable = { TPMP_SOV_mon_sel = 20 }
+            }
+            TPMP_SOV_mon_s21_card_visible = {
+                NOT = { check_variable = { TPMP_SOV_mon_sel = 21 } }
+            }
+            TPMP_SOV_mon_s21_card_on_visible = {
+                check_variable = { TPMP_SOV_mon_sel = 21 }
+            }
+            TPMP_SOV_mon_s22_card_visible = {
+                NOT = { check_variable = { TPMP_SOV_mon_sel = 22 } }
+            }
+            TPMP_SOV_mon_s22_card_on_visible = {
+                check_variable = { TPMP_SOV_mon_sel = 22 }
+            }
+            TPMP_SOV_mon_s23_card_visible = {
+                NOT = { check_variable = { TPMP_SOV_mon_sel = 23 } }
+            }
+            TPMP_SOV_mon_s23_card_on_visible = {
+                check_variable = { TPMP_SOV_mon_sel = 23 }
+            }
+            TPMP_SOV_mon_s24_card_visible = {
+                NOT = { check_variable = { TPMP_SOV_mon_sel = 24 } }
+            }
+            TPMP_SOV_mon_s24_card_on_visible = {
+                check_variable = { TPMP_SOV_mon_sel = 24 }
+            }
+            TPMP_SOV_mon_dt_portrait_visible = {
+                check_variable = { TPMP_SOV_mon_sel > 0 }
+            }
+            TPMP_SOV_mon_dt_sway_visible = {
+                TPMP_SOV_mon_sel_active = yes
+            }
+            TPMP_SOV_mon_dt_bar_r_visible = {
+                TPMP_SOV_mon_sel_active = yes
+                check_variable = { TPMP_SOV_mon_over_ratio > 0 }
+            }
+            TPMP_SOV_mon_dt_bar_y_visible = {
+                TPMP_SOV_mon_sel_active = yes
+                check_variable = { TPMP_SOV_mon_over_ratio = 0 }
+                check_variable = { var = TPMP_SOV_mon_sel_sway value = TPMP_SOV_mon_cfg_act_threshold compare = greater_than_or_equals }
+            }
+            TPMP_SOV_mon_dt_bar_g_visible = {
+                TPMP_SOV_mon_sel_active = yes
+                check_variable = { TPMP_SOV_mon_over_ratio = 0 }
+                check_variable = { TPMP_SOV_mon_sel_sway < TPMP_SOV_mon_cfg_act_threshold }
+            }
+            TPMP_SOV_mon_dt_bonus_h_visible = {
+                TPMP_SOV_mon_sel_active = yes
+            }
+            TPMP_SOV_mon_dt_bonus_visible = {
+                TPMP_SOV_mon_sel_active = yes
+            }
+            TPMP_SOV_mon_dt_over_visible = {
+                TPMP_SOV_mon_sel_active = yes
+                check_variable = { TPMP_SOV_mon_over_ratio > 0 }
+            }
+            TPMP_SOV_mon_dt_hint_visible = {
+                TPMP_SOV_mon_sel_active = yes
+            }
+            TPMP_SOV_mon_dt_cd_visible = {
+                check_variable = { TPMP_SOV_mon_sel_cd > 0 }
+            }
+            TPMP_SOV_mon_dt_none_visible = {
+                check_variable = { TPMP_SOV_mon_sel = 0 }
+            }
+            TPMP_SOV_mon_dt_locked_visible = {
+                check_variable = { TPMP_SOV_mon_sel > 0 }
+                NOT = { TPMP_SOV_mon_sel_active = yes }
+            }
+            TPMP_SOV_mon_dt_rebuke_btn_visible = {
+                TPMP_SOV_mon_sel_active = yes
+            }
+            TPMP_SOV_mon_dt_nkvd_btn_visible = {
+                TPMP_SOV_mon_sel_active = yes
+            }
+            TPMP_SOV_mon_dt_arrest_btn_visible = {
+                TPMP_SOV_mon_sel_active = yes
+            }
+            TPMP_SOV_mon_breakdown_pane_visible = {
+                check_variable = { TPMP_SOV_mon_tab = 0 }
+                check_variable = { TPMP_SOV_mon_view = 1 }
+            }
+            TPMP_SOV_mon_bd_bar_r_visible = {
+                check_variable = { TPMP_SOV_mon_over_ratio > 0 }
+            }
+            TPMP_SOV_mon_bd_bar_g_visible = {
+                check_variable = { TPMP_SOV_mon_over_ratio = 0 }
+            }
+            TPMP_SOV_mon_bd_leg_4_visible = {
+                check_variable = { TPMP_SOV_mon_over_ratio > 0 }
+            }
+            TPMP_SOV_mon_bd_leg_4_t_visible = {
+                check_variable = { TPMP_SOV_mon_over_ratio > 0 }
+            }
+            TPMP_SOV_mon_bd_caption_visible = {
+                check_variable = { TPMP_SOV_mon_sel_counted = 1 }
+            }
+            TPMP_SOV_mon_bd_caption_none_visible = {
+                check_variable = { TPMP_SOV_mon_sel_counted = 0 }
+            }
+            TPMP_SOV_mon_bd_row1_btn_visible = {
+                check_variable = { TPMP_SOV_mon_rk1_slot > 0 }
+                NOT = { check_variable = { TPMP_SOV_mon_sel = TPMP_SOV_mon_rk1_slot } }
+            }
+            TPMP_SOV_mon_bd_row1_on_visible = {
+                check_variable = { TPMP_SOV_mon_rk1_slot > 0 }
+                check_variable = { TPMP_SOV_mon_sel = TPMP_SOV_mon_rk1_slot }
+            }
+            TPMP_SOV_mon_bd_row1_portrait_visible = {
+                check_variable = { TPMP_SOV_mon_rk1_slot > 0 }
+            }
+            TPMP_SOV_mon_bd_row1_name_visible = {
+                check_variable = { TPMP_SOV_mon_rk1_slot > 0 }
+            }
+            TPMP_SOV_mon_bd_row1_units_visible = {
+                check_variable = { TPMP_SOV_mon_rk1_slot > 0 }
+            }
+            TPMP_SOV_mon_bd_row1_pct_visible = {
+                check_variable = { TPMP_SOV_mon_rk1_slot > 0 }
+            }
+            TPMP_SOV_mon_bd_row2_btn_visible = {
+                check_variable = { TPMP_SOV_mon_rk2_slot > 0 }
+                NOT = { check_variable = { TPMP_SOV_mon_sel = TPMP_SOV_mon_rk2_slot } }
+            }
+            TPMP_SOV_mon_bd_row2_on_visible = {
+                check_variable = { TPMP_SOV_mon_rk2_slot > 0 }
+                check_variable = { TPMP_SOV_mon_sel = TPMP_SOV_mon_rk2_slot }
+            }
+            TPMP_SOV_mon_bd_row2_portrait_visible = {
+                check_variable = { TPMP_SOV_mon_rk2_slot > 0 }
+            }
+            TPMP_SOV_mon_bd_row2_name_visible = {
+                check_variable = { TPMP_SOV_mon_rk2_slot > 0 }
+            }
+            TPMP_SOV_mon_bd_row2_units_visible = {
+                check_variable = { TPMP_SOV_mon_rk2_slot > 0 }
+            }
+            TPMP_SOV_mon_bd_row2_pct_visible = {
+                check_variable = { TPMP_SOV_mon_rk2_slot > 0 }
+            }
+            TPMP_SOV_mon_bd_row3_btn_visible = {
+                check_variable = { TPMP_SOV_mon_rk3_slot > 0 }
+                NOT = { check_variable = { TPMP_SOV_mon_sel = TPMP_SOV_mon_rk3_slot } }
+            }
+            TPMP_SOV_mon_bd_row3_on_visible = {
+                check_variable = { TPMP_SOV_mon_rk3_slot > 0 }
+                check_variable = { TPMP_SOV_mon_sel = TPMP_SOV_mon_rk3_slot }
+            }
+            TPMP_SOV_mon_bd_row3_portrait_visible = {
+                check_variable = { TPMP_SOV_mon_rk3_slot > 0 }
+            }
+            TPMP_SOV_mon_bd_row3_name_visible = {
+                check_variable = { TPMP_SOV_mon_rk3_slot > 0 }
+            }
+            TPMP_SOV_mon_bd_row3_units_visible = {
+                check_variable = { TPMP_SOV_mon_rk3_slot > 0 }
+            }
+            TPMP_SOV_mon_bd_row3_pct_visible = {
+                check_variable = { TPMP_SOV_mon_rk3_slot > 0 }
+            }
+            TPMP_SOV_mon_bd_row4_btn_visible = {
+                check_variable = { TPMP_SOV_mon_rk4_slot > 0 }
+                NOT = { check_variable = { TPMP_SOV_mon_sel = TPMP_SOV_mon_rk4_slot } }
+            }
+            TPMP_SOV_mon_bd_row4_on_visible = {
+                check_variable = { TPMP_SOV_mon_rk4_slot > 0 }
+                check_variable = { TPMP_SOV_mon_sel = TPMP_SOV_mon_rk4_slot }
+            }
+            TPMP_SOV_mon_bd_row4_portrait_visible = {
+                check_variable = { TPMP_SOV_mon_rk4_slot > 0 }
+            }
+            TPMP_SOV_mon_bd_row4_name_visible = {
+                check_variable = { TPMP_SOV_mon_rk4_slot > 0 }
+            }
+            TPMP_SOV_mon_bd_row4_units_visible = {
+                check_variable = { TPMP_SOV_mon_rk4_slot > 0 }
+            }
+            TPMP_SOV_mon_bd_row4_pct_visible = {
+                check_variable = { TPMP_SOV_mon_rk4_slot > 0 }
+            }
+            TPMP_SOV_mon_bd_row5_btn_visible = {
+                check_variable = { TPMP_SOV_mon_rk5_slot > 0 }
+                NOT = { check_variable = { TPMP_SOV_mon_sel = TPMP_SOV_mon_rk5_slot } }
+            }
+            TPMP_SOV_mon_bd_row5_on_visible = {
+                check_variable = { TPMP_SOV_mon_rk5_slot > 0 }
+                check_variable = { TPMP_SOV_mon_sel = TPMP_SOV_mon_rk5_slot }
+            }
+            TPMP_SOV_mon_bd_row5_portrait_visible = {
+                check_variable = { TPMP_SOV_mon_rk5_slot > 0 }
+            }
+            TPMP_SOV_mon_bd_row5_name_visible = {
+                check_variable = { TPMP_SOV_mon_rk5_slot > 0 }
+            }
+            TPMP_SOV_mon_bd_row5_units_visible = {
+                check_variable = { TPMP_SOV_mon_rk5_slot > 0 }
+            }
+            TPMP_SOV_mon_bd_row5_pct_visible = {
+                check_variable = { TPMP_SOV_mon_rk5_slot > 0 }
+            }
+            TPMP_SOV_mon_bd_row6_btn_visible = {
+                check_variable = { TPMP_SOV_mon_rk6_slot > 0 }
+                NOT = { check_variable = { TPMP_SOV_mon_sel = TPMP_SOV_mon_rk6_slot } }
+            }
+            TPMP_SOV_mon_bd_row6_on_visible = {
+                check_variable = { TPMP_SOV_mon_rk6_slot > 0 }
+                check_variable = { TPMP_SOV_mon_sel = TPMP_SOV_mon_rk6_slot }
+            }
+            TPMP_SOV_mon_bd_row6_portrait_visible = {
+                check_variable = { TPMP_SOV_mon_rk6_slot > 0 }
+            }
+            TPMP_SOV_mon_bd_row6_name_visible = {
+                check_variable = { TPMP_SOV_mon_rk6_slot > 0 }
+            }
+            TPMP_SOV_mon_bd_row6_units_visible = {
+                check_variable = { TPMP_SOV_mon_rk6_slot > 0 }
+            }
+            TPMP_SOV_mon_bd_row6_pct_visible = {
+                check_variable = { TPMP_SOV_mon_rk6_slot > 0 }
+            }
+            TPMP_SOV_mon_bd_row7_btn_visible = {
+                check_variable = { TPMP_SOV_mon_rk7_slot > 0 }
+                NOT = { check_variable = { TPMP_SOV_mon_sel = TPMP_SOV_mon_rk7_slot } }
+            }
+            TPMP_SOV_mon_bd_row7_on_visible = {
+                check_variable = { TPMP_SOV_mon_rk7_slot > 0 }
+                check_variable = { TPMP_SOV_mon_sel = TPMP_SOV_mon_rk7_slot }
+            }
+            TPMP_SOV_mon_bd_row7_portrait_visible = {
+                check_variable = { TPMP_SOV_mon_rk7_slot > 0 }
+            }
+            TPMP_SOV_mon_bd_row7_name_visible = {
+                check_variable = { TPMP_SOV_mon_rk7_slot > 0 }
+            }
+            TPMP_SOV_mon_bd_row7_units_visible = {
+                check_variable = { TPMP_SOV_mon_rk7_slot > 0 }
+            }
+            TPMP_SOV_mon_bd_row7_pct_visible = {
+                check_variable = { TPMP_SOV_mon_rk7_slot > 0 }
+            }
+            TPMP_SOV_mon_bd_row8_btn_visible = {
+                check_variable = { TPMP_SOV_mon_rk8_slot > 0 }
+                NOT = { check_variable = { TPMP_SOV_mon_sel = TPMP_SOV_mon_rk8_slot } }
+            }
+            TPMP_SOV_mon_bd_row8_on_visible = {
+                check_variable = { TPMP_SOV_mon_rk8_slot > 0 }
+                check_variable = { TPMP_SOV_mon_sel = TPMP_SOV_mon_rk8_slot }
+            }
+            TPMP_SOV_mon_bd_row8_portrait_visible = {
+                check_variable = { TPMP_SOV_mon_rk8_slot > 0 }
+            }
+            TPMP_SOV_mon_bd_row8_name_visible = {
+                check_variable = { TPMP_SOV_mon_rk8_slot > 0 }
+            }
+            TPMP_SOV_mon_bd_row8_units_visible = {
+                check_variable = { TPMP_SOV_mon_rk8_slot > 0 }
+            }
+            TPMP_SOV_mon_bd_row8_pct_visible = {
+                check_variable = { TPMP_SOV_mon_rk8_slot > 0 }
+            }
+            TPMP_SOV_mon_bd_row9_btn_visible = {
+                check_variable = { TPMP_SOV_mon_rk9_slot > 0 }
+                NOT = { check_variable = { TPMP_SOV_mon_sel = TPMP_SOV_mon_rk9_slot } }
+            }
+            TPMP_SOV_mon_bd_row9_on_visible = {
+                check_variable = { TPMP_SOV_mon_rk9_slot > 0 }
+                check_variable = { TPMP_SOV_mon_sel = TPMP_SOV_mon_rk9_slot }
+            }
+            TPMP_SOV_mon_bd_row9_portrait_visible = {
+                check_variable = { TPMP_SOV_mon_rk9_slot > 0 }
+            }
+            TPMP_SOV_mon_bd_row9_name_visible = {
+                check_variable = { TPMP_SOV_mon_rk9_slot > 0 }
+            }
+            TPMP_SOV_mon_bd_row9_units_visible = {
+                check_variable = { TPMP_SOV_mon_rk9_slot > 0 }
+            }
+            TPMP_SOV_mon_bd_row9_pct_visible = {
+                check_variable = { TPMP_SOV_mon_rk9_slot > 0 }
+            }
+            TPMP_SOV_mon_bd_row10_btn_visible = {
+                check_variable = { TPMP_SOV_mon_rk10_slot > 0 }
+                NOT = { check_variable = { TPMP_SOV_mon_sel = TPMP_SOV_mon_rk10_slot } }
+            }
+            TPMP_SOV_mon_bd_row10_on_visible = {
+                check_variable = { TPMP_SOV_mon_rk10_slot > 0 }
+                check_variable = { TPMP_SOV_mon_sel = TPMP_SOV_mon_rk10_slot }
+            }
+            TPMP_SOV_mon_bd_row10_portrait_visible = {
+                check_variable = { TPMP_SOV_mon_rk10_slot > 0 }
+            }
+            TPMP_SOV_mon_bd_row10_name_visible = {
+                check_variable = { TPMP_SOV_mon_rk10_slot > 0 }
+            }
+            TPMP_SOV_mon_bd_row10_units_visible = {
+                check_variable = { TPMP_SOV_mon_rk10_slot > 0 }
+            }
+            TPMP_SOV_mon_bd_row10_pct_visible = {
+                check_variable = { TPMP_SOV_mon_rk10_slot > 0 }
+            }
+            TPMP_SOV_mon_bd_row11_btn_visible = {
+                check_variable = { TPMP_SOV_mon_rk11_slot > 0 }
+                NOT = { check_variable = { TPMP_SOV_mon_sel = TPMP_SOV_mon_rk11_slot } }
+            }
+            TPMP_SOV_mon_bd_row11_on_visible = {
+                check_variable = { TPMP_SOV_mon_rk11_slot > 0 }
+                check_variable = { TPMP_SOV_mon_sel = TPMP_SOV_mon_rk11_slot }
+            }
+            TPMP_SOV_mon_bd_row11_portrait_visible = {
+                check_variable = { TPMP_SOV_mon_rk11_slot > 0 }
+            }
+            TPMP_SOV_mon_bd_row11_name_visible = {
+                check_variable = { TPMP_SOV_mon_rk11_slot > 0 }
+            }
+            TPMP_SOV_mon_bd_row11_units_visible = {
+                check_variable = { TPMP_SOV_mon_rk11_slot > 0 }
+            }
+            TPMP_SOV_mon_bd_row11_pct_visible = {
+                check_variable = { TPMP_SOV_mon_rk11_slot > 0 }
             }
             TPMP_SOV_mon_ears_pane_visible = {
-                has_country_flag = TPMP_SOV_mon_tab_ears
+                check_variable = { TPMP_SOV_mon_tab = 1 }
             }
-            TPMP_SOV_mon_earL_locked_visible = {
+            TPMP_SOV_mon_ep_L_lock_visible = {
+                has_country_flag = TPMP_SOV_ear_left_locked
+            }
+            TPMP_SOV_mon_ep_L_locked_visible = {
                 has_country_flag = TPMP_SOV_ear_left_locked
             }
             TPMP_SOV_mon_earL_clear_visible = {
                 check_variable = { TPMP_SOV_ear_left > 0 }
-            }
-            TPMP_SOV_mon_earL_clear_click_enabled = {
-                TPMP_SOV_ear_clear_left_ok = yes
+                NOT = { has_country_flag = TPMP_SOV_ear_left_locked }
             }
             TPMP_SOV_mon_earR_clear_visible = {
                 check_variable = { TPMP_SOV_ear_right > 0 }
             }
-            TPMP_SOV_mon_earR_clear_click_enabled = {
-                TPMP_SOV_ear_clear_right_ok = yes
+            TPMP_SOV_mon_cand_kulik_card_visible = {
+                NOT = { check_variable = { TPMP_SOV_ear_sel = 1 } }
             }
-            TPMP_SOV_mon_s01_lock_visible = {
-                check_variable = { TPMP_SOV_mon_s01_access = 0 }
+            TPMP_SOV_mon_cand_kulik_card_on_visible = {
+                check_variable = { TPMP_SOV_ear_sel = 1 }
             }
-            TPMP_SOV_mon_s01_sway_num_visible = {
-                check_variable = { TPMP_SOV_mon_s01_person > 0 }
-                check_variable = { TPMP_SOV_mon_s01_access > 0 }
+            TPMP_SOV_mon_cand_stavka_card_visible = {
+                NOT = { check_variable = { TPMP_SOV_ear_sel = 2 } }
             }
-            TPMP_SOV_mon_s01_bar_visible = {
-                check_variable = { TPMP_SOV_mon_s01_person > 0 }
-                check_variable = { TPMP_SOV_mon_s01_access > 0 }
+            TPMP_SOV_mon_cand_stavka_card_on_visible = {
+                check_variable = { TPMP_SOV_ear_sel = 2 }
             }
-            TPMP_SOV_mon_s01_countdown_visible = {
-                check_variable = { TPMP_SOV_mon_s01_countdown > 0 }
+            TPMP_SOV_mon_cand_gko_card_visible = {
+                NOT = { check_variable = { TPMP_SOV_ear_sel = 3 } }
             }
-            TPMP_SOV_mon_s01_rebuke_btn_visible = {
-                check_variable = { TPMP_SOV_mon_s01_person > 0 }
-                check_variable = { TPMP_SOV_mon_s01_access > 0 }
+            TPMP_SOV_mon_cand_gko_card_on_visible = {
+                check_variable = { TPMP_SOV_ear_sel = 3 }
             }
-            TPMP_SOV_mon_s01_nkvd_btn_visible = {
-                check_variable = { TPMP_SOV_mon_s01_person > 0 }
-                check_variable = { TPMP_SOV_mon_s01_access > 0 }
+            TPMP_SOV_mon_cand_vannikov_ear_card_visible = {
+                NOT = { check_variable = { TPMP_SOV_ear_sel = 4 } }
             }
-            TPMP_SOV_mon_s01_arrest_btn_visible = {
-                check_variable = { TPMP_SOV_mon_s01_person > 0 }
-                check_variable = { TPMP_SOV_mon_s01_access > 0 }
+            TPMP_SOV_mon_cand_vannikov_ear_card_on_visible = {
+                check_variable = { TPMP_SOV_ear_sel = 4 }
             }
-            TPMP_SOV_mon_s01_rebuke_btn_click_enabled = {
-                TPMP_SOV_mon_can_pay_rebuke = yes
+            TPMP_SOV_mon_cand_vannikov_ear_bar_g_visible = {
+                TPMP_SOV_ear_vannikov_ear_eligible = yes
             }
-            TPMP_SOV_mon_s01_nkvd_btn_click_enabled = {
-                has_completed_focus = TPMP_SOV_expand_the_role_of_nkvd
+            TPMP_SOV_mon_cand_vannikov_ear_bar_y_visible = {
+                NOT = { TPMP_SOV_ear_vannikov_ear_eligible = yes }
             }
-            TPMP_SOV_mon_s01_arrest_btn_click_enabled = {
-                TPMP_SOV_mon_s01_arrest_ok = yes
+            TPMP_SOV_mon_cand_malyshev_ear_card_visible = {
+                NOT = { check_variable = { TPMP_SOV_ear_sel = 5 } }
             }
-            TPMP_SOV_mon_s02_lock_visible = {
-                check_variable = { TPMP_SOV_mon_s02_access = 0 }
+            TPMP_SOV_mon_cand_malyshev_ear_card_on_visible = {
+                check_variable = { TPMP_SOV_ear_sel = 5 }
             }
-            TPMP_SOV_mon_s02_sway_num_visible = {
-                check_variable = { TPMP_SOV_mon_s02_person > 0 }
-                check_variable = { TPMP_SOV_mon_s02_access > 0 }
+            TPMP_SOV_mon_cand_malyshev_ear_bar_g_visible = {
+                TPMP_SOV_ear_malyshev_ear_eligible = yes
             }
-            TPMP_SOV_mon_s02_bar_visible = {
-                check_variable = { TPMP_SOV_mon_s02_person > 0 }
-                check_variable = { TPMP_SOV_mon_s02_access > 0 }
+            TPMP_SOV_mon_cand_malyshev_ear_bar_y_visible = {
+                NOT = { TPMP_SOV_ear_malyshev_ear_eligible = yes }
             }
-            TPMP_SOV_mon_s02_countdown_visible = {
-                check_variable = { TPMP_SOV_mon_s02_countdown > 0 }
+            TPMP_SOV_mon_cand_politician_1_card_visible = {
+                NOT = { check_variable = { TPMP_SOV_ear_sel = 6 } }
             }
-            TPMP_SOV_mon_s02_rebuke_btn_visible = {
-                check_variable = { TPMP_SOV_mon_s02_person > 0 }
-                check_variable = { TPMP_SOV_mon_s02_access > 0 }
+            TPMP_SOV_mon_cand_politician_1_card_on_visible = {
+                check_variable = { TPMP_SOV_ear_sel = 6 }
             }
-            TPMP_SOV_mon_s02_nkvd_btn_visible = {
-                check_variable = { TPMP_SOV_mon_s02_person > 0 }
-                check_variable = { TPMP_SOV_mon_s02_access > 0 }
+            TPMP_SOV_mon_cand_theorist_1_card_visible = {
+                NOT = { check_variable = { TPMP_SOV_ear_sel = 7 } }
             }
-            TPMP_SOV_mon_s02_arrest_btn_visible = {
-                check_variable = { TPMP_SOV_mon_s02_person > 0 }
-                check_variable = { TPMP_SOV_mon_s02_access > 0 }
+            TPMP_SOV_mon_cand_theorist_1_card_on_visible = {
+                check_variable = { TPMP_SOV_ear_sel = 7 }
             }
-            TPMP_SOV_mon_s02_rebuke_btn_click_enabled = {
-                TPMP_SOV_mon_can_pay_rebuke = yes
+            TPMP_SOV_mon_cand_designer_1_card_visible = {
+                NOT = { check_variable = { TPMP_SOV_ear_sel = 8 } }
             }
-            TPMP_SOV_mon_s02_nkvd_btn_click_enabled = {
-                has_completed_focus = TPMP_SOV_expand_the_role_of_nkvd
+            TPMP_SOV_mon_cand_designer_1_card_on_visible = {
+                check_variable = { TPMP_SOV_ear_sel = 8 }
             }
-            TPMP_SOV_mon_s02_arrest_btn_click_enabled = {
-                TPMP_SOV_mon_s02_arrest_ok = yes
+            TPMP_SOV_mon_es_portrait_visible = {
+                check_variable = { TPMP_SOV_ear_sel > 0 }
             }
-            TPMP_SOV_mon_s03_lock_visible = {
-                check_variable = { TPMP_SOV_mon_s03_access = 0 }
+            TPMP_SOV_mon_esel_clearL_btn_visible = {
+                TPMP_SOV_ear_sel_in_left = yes
+                NOT = { has_country_flag = TPMP_SOV_ear_left_locked }
             }
-            TPMP_SOV_mon_s03_sway_num_visible = {
-                check_variable = { TPMP_SOV_mon_s03_person > 0 }
-                check_variable = { TPMP_SOV_mon_s03_access > 0 }
+            TPMP_SOV_mon_esel_clearR_btn_visible = {
+                TPMP_SOV_ear_sel_in_right = yes
             }
-            TPMP_SOV_mon_s03_bar_visible = {
-                check_variable = { TPMP_SOV_mon_s03_person > 0 }
-                check_variable = { TPMP_SOV_mon_s03_access > 0 }
-            }
-            TPMP_SOV_mon_s03_countdown_visible = {
-                check_variable = { TPMP_SOV_mon_s03_countdown > 0 }
-            }
-            TPMP_SOV_mon_s03_rebuke_btn_visible = {
-                check_variable = { TPMP_SOV_mon_s03_person > 0 }
-                check_variable = { TPMP_SOV_mon_s03_access > 0 }
-            }
-            TPMP_SOV_mon_s03_nkvd_btn_visible = {
-                check_variable = { TPMP_SOV_mon_s03_person > 0 }
-                check_variable = { TPMP_SOV_mon_s03_access > 0 }
-            }
-            TPMP_SOV_mon_s03_arrest_btn_visible = {
-                check_variable = { TPMP_SOV_mon_s03_person > 0 }
-                check_variable = { TPMP_SOV_mon_s03_access > 0 }
-            }
-            TPMP_SOV_mon_s03_rebuke_btn_click_enabled = {
-                TPMP_SOV_mon_can_pay_rebuke = yes
-            }
-            TPMP_SOV_mon_s03_nkvd_btn_click_enabled = {
-                has_completed_focus = TPMP_SOV_expand_the_role_of_nkvd
-            }
-            TPMP_SOV_mon_s03_arrest_btn_click_enabled = {
-                TPMP_SOV_mon_s03_arrest_ok = yes
-            }
-            TPMP_SOV_mon_s04_lock_visible = {
-                check_variable = { TPMP_SOV_mon_s04_access = 0 }
-            }
-            TPMP_SOV_mon_s04_sway_num_visible = {
-                check_variable = { TPMP_SOV_mon_s04_person > 0 }
-                check_variable = { TPMP_SOV_mon_s04_access > 0 }
-            }
-            TPMP_SOV_mon_s04_bar_visible = {
-                check_variable = { TPMP_SOV_mon_s04_person > 0 }
-                check_variable = { TPMP_SOV_mon_s04_access > 0 }
-            }
-            TPMP_SOV_mon_s04_countdown_visible = {
-                check_variable = { TPMP_SOV_mon_s04_countdown > 0 }
-            }
-            TPMP_SOV_mon_s04_rebuke_btn_visible = {
-                check_variable = { TPMP_SOV_mon_s04_person > 0 }
-                check_variable = { TPMP_SOV_mon_s04_access > 0 }
-            }
-            TPMP_SOV_mon_s04_nkvd_btn_visible = {
-                check_variable = { TPMP_SOV_mon_s04_person > 0 }
-                check_variable = { TPMP_SOV_mon_s04_access > 0 }
-            }
-            TPMP_SOV_mon_s04_arrest_btn_visible = {
-                check_variable = { TPMP_SOV_mon_s04_person > 0 }
-                check_variable = { TPMP_SOV_mon_s04_access > 0 }
-            }
-            TPMP_SOV_mon_s04_rebuke_btn_click_enabled = {
-                TPMP_SOV_mon_can_pay_rebuke = yes
-            }
-            TPMP_SOV_mon_s04_nkvd_btn_click_enabled = {
-                has_completed_focus = TPMP_SOV_expand_the_role_of_nkvd
-            }
-            TPMP_SOV_mon_s04_arrest_btn_click_enabled = {
-                TPMP_SOV_mon_s04_arrest_ok = yes
-            }
-            TPMP_SOV_mon_s05_lock_visible = {
-                check_variable = { TPMP_SOV_mon_s05_access = 0 }
-            }
-            TPMP_SOV_mon_s05_sway_num_visible = {
-                check_variable = { TPMP_SOV_mon_s05_person > 0 }
-                check_variable = { TPMP_SOV_mon_s05_access > 0 }
-            }
-            TPMP_SOV_mon_s05_bar_visible = {
-                check_variable = { TPMP_SOV_mon_s05_person > 0 }
-                check_variable = { TPMP_SOV_mon_s05_access > 0 }
-            }
-            TPMP_SOV_mon_s05_countdown_visible = {
-                check_variable = { TPMP_SOV_mon_s05_countdown > 0 }
-            }
-            TPMP_SOV_mon_s05_rebuke_btn_visible = {
-                check_variable = { TPMP_SOV_mon_s05_person > 0 }
-                check_variable = { TPMP_SOV_mon_s05_access > 0 }
-            }
-            TPMP_SOV_mon_s05_nkvd_btn_visible = {
-                check_variable = { TPMP_SOV_mon_s05_person > 0 }
-                check_variable = { TPMP_SOV_mon_s05_access > 0 }
-            }
-            TPMP_SOV_mon_s05_arrest_btn_visible = {
-                check_variable = { TPMP_SOV_mon_s05_person > 0 }
-                check_variable = { TPMP_SOV_mon_s05_access > 0 }
-            }
-            TPMP_SOV_mon_s05_rebuke_btn_click_enabled = {
-                TPMP_SOV_mon_can_pay_rebuke = yes
-            }
-            TPMP_SOV_mon_s05_nkvd_btn_click_enabled = {
-                has_completed_focus = TPMP_SOV_expand_the_role_of_nkvd
-            }
-            TPMP_SOV_mon_s05_arrest_btn_click_enabled = {
-                TPMP_SOV_mon_s05_arrest_ok = yes
-            }
-            TPMP_SOV_mon_s06_lock_visible = {
-                check_variable = { TPMP_SOV_mon_s06_access = 0 }
-            }
-            TPMP_SOV_mon_s06_sway_num_visible = {
-                check_variable = { TPMP_SOV_mon_s06_person > 0 }
-                check_variable = { TPMP_SOV_mon_s06_access > 0 }
-            }
-            TPMP_SOV_mon_s06_bar_visible = {
-                check_variable = { TPMP_SOV_mon_s06_person > 0 }
-                check_variable = { TPMP_SOV_mon_s06_access > 0 }
-            }
-            TPMP_SOV_mon_s06_countdown_visible = {
-                check_variable = { TPMP_SOV_mon_s06_countdown > 0 }
-            }
-            TPMP_SOV_mon_s06_rebuke_btn_visible = {
-                check_variable = { TPMP_SOV_mon_s06_person > 0 }
-                check_variable = { TPMP_SOV_mon_s06_access > 0 }
-            }
-            TPMP_SOV_mon_s06_nkvd_btn_visible = {
-                check_variable = { TPMP_SOV_mon_s06_person > 0 }
-                check_variable = { TPMP_SOV_mon_s06_access > 0 }
-            }
-            TPMP_SOV_mon_s06_arrest_btn_visible = {
-                check_variable = { TPMP_SOV_mon_s06_person > 0 }
-                check_variable = { TPMP_SOV_mon_s06_access > 0 }
-            }
-            TPMP_SOV_mon_s06_rebuke_btn_click_enabled = {
-                TPMP_SOV_mon_can_pay_rebuke = yes
-            }
-            TPMP_SOV_mon_s06_nkvd_btn_click_enabled = {
-                has_completed_focus = TPMP_SOV_expand_the_role_of_nkvd
-            }
-            TPMP_SOV_mon_s06_arrest_btn_click_enabled = {
-                TPMP_SOV_mon_s06_arrest_ok = yes
-            }
-            TPMP_SOV_mon_s07_lock_visible = {
-                check_variable = { TPMP_SOV_mon_s07_access = 0 }
-            }
-            TPMP_SOV_mon_s07_sway_num_visible = {
-                check_variable = { TPMP_SOV_mon_s07_person > 0 }
-                check_variable = { TPMP_SOV_mon_s07_access > 0 }
-            }
-            TPMP_SOV_mon_s07_bar_visible = {
-                check_variable = { TPMP_SOV_mon_s07_person > 0 }
-                check_variable = { TPMP_SOV_mon_s07_access > 0 }
-            }
-            TPMP_SOV_mon_s07_countdown_visible = {
-                check_variable = { TPMP_SOV_mon_s07_countdown > 0 }
-            }
-            TPMP_SOV_mon_s07_rebuke_btn_visible = {
-                check_variable = { TPMP_SOV_mon_s07_person > 0 }
-                check_variable = { TPMP_SOV_mon_s07_access > 0 }
-            }
-            TPMP_SOV_mon_s07_nkvd_btn_visible = {
-                check_variable = { TPMP_SOV_mon_s07_person > 0 }
-                check_variable = { TPMP_SOV_mon_s07_access > 0 }
-            }
-            TPMP_SOV_mon_s07_arrest_btn_visible = {
-                check_variable = { TPMP_SOV_mon_s07_person > 0 }
-                check_variable = { TPMP_SOV_mon_s07_access > 0 }
-            }
-            TPMP_SOV_mon_s07_rebuke_btn_click_enabled = {
-                TPMP_SOV_mon_can_pay_rebuke = yes
-            }
-            TPMP_SOV_mon_s07_nkvd_btn_click_enabled = {
-                has_completed_focus = TPMP_SOV_expand_the_role_of_nkvd
-            }
-            TPMP_SOV_mon_s07_arrest_btn_click_enabled = {
-                TPMP_SOV_mon_s07_arrest_ok = yes
-            }
-            TPMP_SOV_mon_s08_lock_visible = {
-                check_variable = { TPMP_SOV_mon_s08_access = 0 }
-            }
-            TPMP_SOV_mon_s08_sway_num_visible = {
-                check_variable = { TPMP_SOV_mon_s08_person > 0 }
-                check_variable = { TPMP_SOV_mon_s08_access > 0 }
-            }
-            TPMP_SOV_mon_s08_bar_visible = {
-                check_variable = { TPMP_SOV_mon_s08_person > 0 }
-                check_variable = { TPMP_SOV_mon_s08_access > 0 }
-            }
-            TPMP_SOV_mon_s08_countdown_visible = {
-                check_variable = { TPMP_SOV_mon_s08_countdown > 0 }
-            }
-            TPMP_SOV_mon_s08_rebuke_btn_visible = {
-                check_variable = { TPMP_SOV_mon_s08_person > 0 }
-                check_variable = { TPMP_SOV_mon_s08_access > 0 }
-            }
-            TPMP_SOV_mon_s08_nkvd_btn_visible = {
-                check_variable = { TPMP_SOV_mon_s08_person > 0 }
-                check_variable = { TPMP_SOV_mon_s08_access > 0 }
-            }
-            TPMP_SOV_mon_s08_arrest_btn_visible = {
-                check_variable = { TPMP_SOV_mon_s08_person > 0 }
-                check_variable = { TPMP_SOV_mon_s08_access > 0 }
-            }
-            TPMP_SOV_mon_s08_rebuke_btn_click_enabled = {
-                TPMP_SOV_mon_can_pay_rebuke = yes
-            }
-            TPMP_SOV_mon_s08_nkvd_btn_click_enabled = {
-                has_completed_focus = TPMP_SOV_expand_the_role_of_nkvd
-            }
-            TPMP_SOV_mon_s08_arrest_btn_click_enabled = {
-                TPMP_SOV_mon_s08_arrest_ok = yes
-            }
-            TPMP_SOV_mon_s09_lock_visible = {
-                check_variable = { TPMP_SOV_mon_s09_access = 0 }
-            }
-            TPMP_SOV_mon_s09_sway_num_visible = {
-                check_variable = { TPMP_SOV_mon_s09_person > 0 }
-                check_variable = { TPMP_SOV_mon_s09_access > 0 }
-            }
-            TPMP_SOV_mon_s09_bar_visible = {
-                check_variable = { TPMP_SOV_mon_s09_person > 0 }
-                check_variable = { TPMP_SOV_mon_s09_access > 0 }
-            }
-            TPMP_SOV_mon_s09_countdown_visible = {
-                check_variable = { TPMP_SOV_mon_s09_countdown > 0 }
-            }
-            TPMP_SOV_mon_s09_rebuke_btn_visible = {
-                check_variable = { TPMP_SOV_mon_s09_person > 0 }
-                check_variable = { TPMP_SOV_mon_s09_access > 0 }
-            }
-            TPMP_SOV_mon_s09_nkvd_btn_visible = {
-                check_variable = { TPMP_SOV_mon_s09_person > 0 }
-                check_variable = { TPMP_SOV_mon_s09_access > 0 }
-            }
-            TPMP_SOV_mon_s09_arrest_btn_visible = {
-                check_variable = { TPMP_SOV_mon_s09_person > 0 }
-                check_variable = { TPMP_SOV_mon_s09_access > 0 }
-            }
-            TPMP_SOV_mon_s09_rebuke_btn_click_enabled = {
-                TPMP_SOV_mon_can_pay_rebuke = yes
-            }
-            TPMP_SOV_mon_s09_nkvd_btn_click_enabled = {
-                has_completed_focus = TPMP_SOV_expand_the_role_of_nkvd
-            }
-            TPMP_SOV_mon_s09_arrest_btn_click_enabled = {
-                TPMP_SOV_mon_s09_arrest_ok = yes
-            }
-            TPMP_SOV_mon_s10_lock_visible = {
-                check_variable = { TPMP_SOV_mon_s10_access = 0 }
-            }
-            TPMP_SOV_mon_s10_sway_num_visible = {
-                check_variable = { TPMP_SOV_mon_s10_person > 0 }
-                check_variable = { TPMP_SOV_mon_s10_access > 0 }
-            }
-            TPMP_SOV_mon_s10_bar_visible = {
-                check_variable = { TPMP_SOV_mon_s10_person > 0 }
-                check_variable = { TPMP_SOV_mon_s10_access > 0 }
-            }
-            TPMP_SOV_mon_s10_countdown_visible = {
-                check_variable = { TPMP_SOV_mon_s10_countdown > 0 }
-            }
-            TPMP_SOV_mon_s10_rebuke_btn_visible = {
-                check_variable = { TPMP_SOV_mon_s10_person > 0 }
-                check_variable = { TPMP_SOV_mon_s10_access > 0 }
-            }
-            TPMP_SOV_mon_s10_nkvd_btn_visible = {
-                check_variable = { TPMP_SOV_mon_s10_person > 0 }
-                check_variable = { TPMP_SOV_mon_s10_access > 0 }
-            }
-            TPMP_SOV_mon_s10_arrest_btn_visible = {
-                check_variable = { TPMP_SOV_mon_s10_person > 0 }
-                check_variable = { TPMP_SOV_mon_s10_access > 0 }
-            }
-            TPMP_SOV_mon_s10_rebuke_btn_click_enabled = {
-                TPMP_SOV_mon_can_pay_rebuke = yes
-            }
-            TPMP_SOV_mon_s10_nkvd_btn_click_enabled = {
-                has_completed_focus = TPMP_SOV_expand_the_role_of_nkvd
-            }
-            TPMP_SOV_mon_s10_arrest_btn_click_enabled = {
-                TPMP_SOV_mon_s10_arrest_ok = yes
-            }
-            TPMP_SOV_mon_s11_lock_visible = {
-                check_variable = { TPMP_SOV_mon_s11_access = 0 }
-            }
-            TPMP_SOV_mon_s11_sway_num_visible = {
-                check_variable = { TPMP_SOV_mon_s11_person > 0 }
-                check_variable = { TPMP_SOV_mon_s11_access > 0 }
-            }
-            TPMP_SOV_mon_s11_bar_visible = {
-                check_variable = { TPMP_SOV_mon_s11_person > 0 }
-                check_variable = { TPMP_SOV_mon_s11_access > 0 }
-            }
-            TPMP_SOV_mon_s11_countdown_visible = {
-                check_variable = { TPMP_SOV_mon_s11_countdown > 0 }
-            }
-            TPMP_SOV_mon_s11_rebuke_btn_visible = {
-                check_variable = { TPMP_SOV_mon_s11_person > 0 }
-                check_variable = { TPMP_SOV_mon_s11_access > 0 }
-            }
-            TPMP_SOV_mon_s11_nkvd_btn_visible = {
-                check_variable = { TPMP_SOV_mon_s11_person > 0 }
-                check_variable = { TPMP_SOV_mon_s11_access > 0 }
-            }
-            TPMP_SOV_mon_s11_arrest_btn_visible = {
-                check_variable = { TPMP_SOV_mon_s11_person > 0 }
-                check_variable = { TPMP_SOV_mon_s11_access > 0 }
-            }
-            TPMP_SOV_mon_s11_rebuke_btn_click_enabled = {
-                TPMP_SOV_mon_can_pay_rebuke = yes
-            }
-            TPMP_SOV_mon_s11_nkvd_btn_click_enabled = {
-                has_completed_focus = TPMP_SOV_expand_the_role_of_nkvd
-            }
-            TPMP_SOV_mon_s11_arrest_btn_click_enabled = {
-                TPMP_SOV_mon_s11_arrest_ok = yes
-            }
-            TPMP_SOV_mon_desk_row_1_visible = {
-                check_variable = { TPMP_SOV_mon_desk > 0 }
-                check_variable = { TPMP_SOV_mon_desk_got_1 = 0 }
-            }
-            TPMP_SOV_mon_desk_pick_1_btn_visible = {
-                check_variable = { TPMP_SOV_mon_desk > 0 }
-                check_variable = { TPMP_SOV_mon_desk_got_1 = 0 }
-            }
-            TPMP_SOV_mon_desk_pick_1_btn_click_enabled = {
-                TPMP_SOV_mon_desk_pick_1_ok = yes
-            }
-            TPMP_SOV_mon_desk_row_2_visible = {
-                check_variable = { TPMP_SOV_mon_desk > 0 }
-                check_variable = { TPMP_SOV_mon_desk_got_2 = 0 }
-            }
-            TPMP_SOV_mon_desk_pick_2_btn_visible = {
-                check_variable = { TPMP_SOV_mon_desk > 0 }
-                check_variable = { TPMP_SOV_mon_desk_got_2 = 0 }
-            }
-            TPMP_SOV_mon_desk_pick_2_btn_click_enabled = {
-                TPMP_SOV_mon_desk_pick_2_ok = yes
-            }
-            TPMP_SOV_mon_desk_row_3_visible = {
-                check_variable = { TPMP_SOV_mon_desk > 0 }
-                check_variable = { TPMP_SOV_mon_desk_got_3 = 0 }
-            }
-            TPMP_SOV_mon_desk_pick_3_btn_visible = {
-                check_variable = { TPMP_SOV_mon_desk > 0 }
-                check_variable = { TPMP_SOV_mon_desk_got_3 = 0 }
-            }
-            TPMP_SOV_mon_desk_pick_3_btn_click_enabled = {
-                TPMP_SOV_mon_desk_pick_3_ok = yes
+            TPMP_SOV_mon_desk_pane_visible = {
+                check_variable = { TPMP_SOV_mon_tab = 2 }
             }
             TPMP_SOV_mon_desk_title_visible = {
+                check_variable = { TPMP_SOV_mon_desk > 0 }
+            }
+            TPMP_SOV_mon_desk_sub_visible = {
                 check_variable = { TPMP_SOV_mon_desk > 0 }
             }
             TPMP_SOV_mon_desk_desc_visible = {
@@ -487,200 +1028,197 @@ scripted_gui = {
             TPMP_SOV_mon_desk_dismiss_btn_visible = {
                 check_variable = { TPMP_SOV_mon_desk > 0 }
             }
+            TPMP_SOV_mon_desk_nopen_visible = {
+                check_variable = { TPMP_SOV_mon_desk > 0 }
+            }
             TPMP_SOV_mon_desk_empty_visible = {
                 check_variable = { TPMP_SOV_mon_desk = 0 }
             }
-            TPMP_SOV_mon_cand_kulik_eligible_visible = {
-                TPMP_SOV_ear_kulik_eligible = yes
+            TPMP_SOV_mon_desk_next_visible = {
+                check_variable = { TPMP_SOV_mon_desk = 0 }
             }
-            TPMP_SOV_mon_cand_kulik_noteligible_visible = {
-                NOT = { TPMP_SOV_ear_kulik_eligible = yes }
+            TPMP_SOV_mon_desk_c1_visible = {
+                check_variable = { TPMP_SOV_mon_desk > 0 }
             }
-            TPMP_SOV_mon_cand_kulik_cost_ok_visible = {
-                TPMP_SOV_ear_kulik_eligible = yes
+            TPMP_SOV_mon_desk_c1_l_good_l_visible = {
+                check_variable = { TPMP_SOV_mon_desk_cost_1_l < 0 }
             }
-            TPMP_SOV_mon_cand_kulik_cost_force_visible = {
-                NOT = { TPMP_SOV_ear_kulik_eligible = yes }
+            TPMP_SOV_mon_desk_c1_l_good_v_visible = {
+                check_variable = { TPMP_SOV_mon_desk_cost_1_l < 0 }
             }
-            TPMP_SOV_mon_cand_kulik_here_visible = {
-                OR = {
-                    check_variable = { TPMP_SOV_ear_left = 1 }
-                    check_variable = { TPMP_SOV_ear_right = 1 }
-                }
+            TPMP_SOV_mon_desk_c1_l_bad_l_visible = {
+                check_variable = { TPMP_SOV_mon_desk_cost_1_l > 0 }
             }
-            TPMP_SOV_mon_cand_kulik_left_btn_click_enabled = {
-                TPMP_SOV_ear_put_kulik_left_ok = yes
+            TPMP_SOV_mon_desk_c1_l_bad_v_visible = {
+                check_variable = { TPMP_SOV_mon_desk_cost_1_l > 0 }
             }
-            TPMP_SOV_mon_cand_kulik_right_btn_click_enabled = {
-                TPMP_SOV_ear_put_kulik_right_ok = yes
+            TPMP_SOV_mon_desk_c1_r_good_l_visible = {
+                check_variable = { TPMP_SOV_mon_desk_cost_1_r < 0 }
             }
-            TPMP_SOV_mon_cand_stavka_eligible_visible = {
-                TPMP_SOV_ear_stavka_eligible = yes
+            TPMP_SOV_mon_desk_c1_r_good_v_visible = {
+                check_variable = { TPMP_SOV_mon_desk_cost_1_r < 0 }
             }
-            TPMP_SOV_mon_cand_stavka_noteligible_visible = {
-                NOT = { TPMP_SOV_ear_stavka_eligible = yes }
+            TPMP_SOV_mon_desk_c1_r_bad_l_visible = {
+                check_variable = { TPMP_SOV_mon_desk_cost_1_r > 0 }
             }
-            TPMP_SOV_mon_cand_stavka_cost_ok_visible = {
-                TPMP_SOV_ear_stavka_eligible = yes
+            TPMP_SOV_mon_desk_c1_r_bad_v_visible = {
+                check_variable = { TPMP_SOV_mon_desk_cost_1_r > 0 }
             }
-            TPMP_SOV_mon_cand_stavka_cost_force_visible = {
-                NOT = { TPMP_SOV_ear_stavka_eligible = yes }
+            TPMP_SOV_mon_desk_c1_2nd_l_visible = {
+                check_variable = { TPMP_SOV_mon_desk_cost_1_2nd > 0 }
+                check_variable = { TPMP_SOV_mon_desk_got_1 = 0 }
             }
-            TPMP_SOV_mon_cand_stavka_here_visible = {
-                OR = {
-                    check_variable = { TPMP_SOV_ear_left = 2 }
-                    check_variable = { TPMP_SOV_ear_right = 2 }
-                }
+            TPMP_SOV_mon_desk_c1_2nd_v_visible = {
+                check_variable = { TPMP_SOV_mon_desk_cost_1_2nd > 0 }
+                check_variable = { TPMP_SOV_mon_desk_got_1 = 0 }
             }
-            TPMP_SOV_mon_cand_stavka_left_btn_click_enabled = {
-                TPMP_SOV_ear_put_stavka_left_ok = yes
+            TPMP_SOV_mon_desk_c1_total_visible = {
+                check_variable = { TPMP_SOV_mon_desk_got_1 = 0 }
             }
-            TPMP_SOV_mon_cand_stavka_right_btn_click_enabled = {
-                TPMP_SOV_ear_put_stavka_right_ok = yes
+            TPMP_SOV_mon_desk_pick_1_btn_visible = {
+                check_variable = { TPMP_SOV_mon_desk_got_1 = 0 }
             }
-            TPMP_SOV_mon_cand_gko_eligible_visible = {
-                TPMP_SOV_ear_gko_eligible = yes
+            TPMP_SOV_mon_desk_c1_got_visible = {
+                check_variable = { TPMP_SOV_mon_desk_got_1 = 1 }
             }
-            TPMP_SOV_mon_cand_gko_noteligible_visible = {
-                NOT = { TPMP_SOV_ear_gko_eligible = yes }
+            TPMP_SOV_mon_desk_c2_visible = {
+                check_variable = { TPMP_SOV_mon_desk > 0 }
             }
-            TPMP_SOV_mon_cand_gko_cost_ok_visible = {
-                TPMP_SOV_ear_gko_eligible = yes
+            TPMP_SOV_mon_desk_c2_l_good_l_visible = {
+                check_variable = { TPMP_SOV_mon_desk_cost_2_l < 0 }
             }
-            TPMP_SOV_mon_cand_gko_cost_force_visible = {
-                NOT = { TPMP_SOV_ear_gko_eligible = yes }
+            TPMP_SOV_mon_desk_c2_l_good_v_visible = {
+                check_variable = { TPMP_SOV_mon_desk_cost_2_l < 0 }
             }
-            TPMP_SOV_mon_cand_gko_here_visible = {
-                OR = {
-                    check_variable = { TPMP_SOV_ear_left = 3 }
-                    check_variable = { TPMP_SOV_ear_right = 3 }
-                }
+            TPMP_SOV_mon_desk_c2_l_bad_l_visible = {
+                check_variable = { TPMP_SOV_mon_desk_cost_2_l > 0 }
             }
-            TPMP_SOV_mon_cand_gko_left_btn_click_enabled = {
-                TPMP_SOV_ear_put_gko_left_ok = yes
+            TPMP_SOV_mon_desk_c2_l_bad_v_visible = {
+                check_variable = { TPMP_SOV_mon_desk_cost_2_l > 0 }
             }
-            TPMP_SOV_mon_cand_gko_right_btn_click_enabled = {
-                TPMP_SOV_ear_put_gko_right_ok = yes
+            TPMP_SOV_mon_desk_c2_r_good_l_visible = {
+                check_variable = { TPMP_SOV_mon_desk_cost_2_r < 0 }
             }
-            TPMP_SOV_mon_cand_vannikov_ear_eligible_visible = {
-                TPMP_SOV_ear_vannikov_ear_eligible = yes
+            TPMP_SOV_mon_desk_c2_r_good_v_visible = {
+                check_variable = { TPMP_SOV_mon_desk_cost_2_r < 0 }
             }
-            TPMP_SOV_mon_cand_vannikov_ear_noteligible_visible = {
-                NOT = { TPMP_SOV_ear_vannikov_ear_eligible = yes }
+            TPMP_SOV_mon_desk_c2_r_bad_l_visible = {
+                check_variable = { TPMP_SOV_mon_desk_cost_2_r > 0 }
             }
-            TPMP_SOV_mon_cand_vannikov_ear_cost_ok_visible = {
-                TPMP_SOV_ear_vannikov_ear_eligible = yes
+            TPMP_SOV_mon_desk_c2_r_bad_v_visible = {
+                check_variable = { TPMP_SOV_mon_desk_cost_2_r > 0 }
             }
-            TPMP_SOV_mon_cand_vannikov_ear_cost_force_visible = {
-                NOT = { TPMP_SOV_ear_vannikov_ear_eligible = yes }
+            TPMP_SOV_mon_desk_c2_2nd_l_visible = {
+                check_variable = { TPMP_SOV_mon_desk_cost_2_2nd > 0 }
+                check_variable = { TPMP_SOV_mon_desk_got_2 = 0 }
             }
-            TPMP_SOV_mon_cand_vannikov_ear_here_visible = {
-                OR = {
-                    check_variable = { TPMP_SOV_ear_left = 4 }
-                    check_variable = { TPMP_SOV_ear_right = 4 }
-                }
+            TPMP_SOV_mon_desk_c2_2nd_v_visible = {
+                check_variable = { TPMP_SOV_mon_desk_cost_2_2nd > 0 }
+                check_variable = { TPMP_SOV_mon_desk_got_2 = 0 }
             }
-            TPMP_SOV_mon_cand_vannikov_ear_left_btn_click_enabled = {
-                TPMP_SOV_ear_put_vannikov_ear_left_ok = yes
+            TPMP_SOV_mon_desk_c2_total_visible = {
+                check_variable = { TPMP_SOV_mon_desk_got_2 = 0 }
             }
-            TPMP_SOV_mon_cand_vannikov_ear_right_btn_click_enabled = {
-                TPMP_SOV_ear_put_vannikov_ear_right_ok = yes
+            TPMP_SOV_mon_desk_pick_2_btn_visible = {
+                check_variable = { TPMP_SOV_mon_desk_got_2 = 0 }
             }
-            TPMP_SOV_mon_cand_malyshev_ear_eligible_visible = {
-                TPMP_SOV_ear_malyshev_ear_eligible = yes
+            TPMP_SOV_mon_desk_c2_got_visible = {
+                check_variable = { TPMP_SOV_mon_desk_got_2 = 1 }
             }
-            TPMP_SOV_mon_cand_malyshev_ear_noteligible_visible = {
-                NOT = { TPMP_SOV_ear_malyshev_ear_eligible = yes }
+            TPMP_SOV_mon_desk_c3_visible = {
+                check_variable = { TPMP_SOV_mon_desk > 0 }
             }
-            TPMP_SOV_mon_cand_malyshev_ear_cost_ok_visible = {
-                TPMP_SOV_ear_malyshev_ear_eligible = yes
+            TPMP_SOV_mon_desk_c3_l_good_l_visible = {
+                check_variable = { TPMP_SOV_mon_desk_cost_3_l < 0 }
             }
-            TPMP_SOV_mon_cand_malyshev_ear_cost_force_visible = {
-                NOT = { TPMP_SOV_ear_malyshev_ear_eligible = yes }
+            TPMP_SOV_mon_desk_c3_l_good_v_visible = {
+                check_variable = { TPMP_SOV_mon_desk_cost_3_l < 0 }
             }
-            TPMP_SOV_mon_cand_malyshev_ear_here_visible = {
-                OR = {
-                    check_variable = { TPMP_SOV_ear_left = 5 }
-                    check_variable = { TPMP_SOV_ear_right = 5 }
-                }
+            TPMP_SOV_mon_desk_c3_l_bad_l_visible = {
+                check_variable = { TPMP_SOV_mon_desk_cost_3_l > 0 }
             }
-            TPMP_SOV_mon_cand_malyshev_ear_left_btn_click_enabled = {
-                TPMP_SOV_ear_put_malyshev_ear_left_ok = yes
+            TPMP_SOV_mon_desk_c3_l_bad_v_visible = {
+                check_variable = { TPMP_SOV_mon_desk_cost_3_l > 0 }
             }
-            TPMP_SOV_mon_cand_malyshev_ear_right_btn_click_enabled = {
-                TPMP_SOV_ear_put_malyshev_ear_right_ok = yes
+            TPMP_SOV_mon_desk_c3_r_good_l_visible = {
+                check_variable = { TPMP_SOV_mon_desk_cost_3_r < 0 }
             }
-            TPMP_SOV_mon_cand_politician_1_eligible_visible = {
-                TPMP_SOV_ear_politician_1_eligible = yes
+            TPMP_SOV_mon_desk_c3_r_good_v_visible = {
+                check_variable = { TPMP_SOV_mon_desk_cost_3_r < 0 }
             }
-            TPMP_SOV_mon_cand_politician_1_noteligible_visible = {
-                NOT = { TPMP_SOV_ear_politician_1_eligible = yes }
+            TPMP_SOV_mon_desk_c3_r_bad_l_visible = {
+                check_variable = { TPMP_SOV_mon_desk_cost_3_r > 0 }
             }
-            TPMP_SOV_mon_cand_politician_1_cost_ok_visible = {
-                TPMP_SOV_ear_politician_1_eligible = yes
+            TPMP_SOV_mon_desk_c3_r_bad_v_visible = {
+                check_variable = { TPMP_SOV_mon_desk_cost_3_r > 0 }
             }
-            TPMP_SOV_mon_cand_politician_1_cost_force_visible = {
-                NOT = { TPMP_SOV_ear_politician_1_eligible = yes }
+            TPMP_SOV_mon_desk_c3_2nd_l_visible = {
+                check_variable = { TPMP_SOV_mon_desk_cost_3_2nd > 0 }
+                check_variable = { TPMP_SOV_mon_desk_got_3 = 0 }
             }
-            TPMP_SOV_mon_cand_politician_1_here_visible = {
-                OR = {
-                    check_variable = { TPMP_SOV_ear_left = 6 }
-                    check_variable = { TPMP_SOV_ear_right = 6 }
-                }
+            TPMP_SOV_mon_desk_c3_2nd_v_visible = {
+                check_variable = { TPMP_SOV_mon_desk_cost_3_2nd > 0 }
+                check_variable = { TPMP_SOV_mon_desk_got_3 = 0 }
             }
-            TPMP_SOV_mon_cand_politician_1_left_btn_click_enabled = {
-                TPMP_SOV_ear_put_politician_1_left_ok = yes
+            TPMP_SOV_mon_desk_c3_total_visible = {
+                check_variable = { TPMP_SOV_mon_desk_got_3 = 0 }
             }
-            TPMP_SOV_mon_cand_politician_1_right_btn_click_enabled = {
-                TPMP_SOV_ear_put_politician_1_right_ok = yes
+            TPMP_SOV_mon_desk_pick_3_btn_visible = {
+                check_variable = { TPMP_SOV_mon_desk_got_3 = 0 }
             }
-            TPMP_SOV_mon_cand_theorist_1_eligible_visible = {
-                TPMP_SOV_ear_theorist_1_eligible = yes
+            TPMP_SOV_mon_desk_c3_got_visible = {
+                check_variable = { TPMP_SOV_mon_desk_got_3 = 1 }
             }
-            TPMP_SOV_mon_cand_theorist_1_noteligible_visible = {
-                NOT = { TPMP_SOV_ear_theorist_1_eligible = yes }
+            TPMP_SOV_mon_desk_fdiv_visible = {
+                check_variable = { TPMP_SOV_mon_desk > 0 }
             }
-            TPMP_SOV_mon_cand_theorist_1_cost_ok_visible = {
-                TPMP_SOV_ear_theorist_1_eligible = yes
+            TPMP_SOV_mon_desk_foot_l_visible = {
+                check_variable = { TPMP_SOV_mon_desk > 0 }
             }
-            TPMP_SOV_mon_cand_theorist_1_cost_force_visible = {
-                NOT = { TPMP_SOV_ear_theorist_1_eligible = yes }
+            TPMP_SOV_mon_desk_foot_r_visible = {
+                check_variable = { TPMP_SOV_mon_desk > 0 }
             }
-            TPMP_SOV_mon_cand_theorist_1_here_visible = {
-                OR = {
-                    check_variable = { TPMP_SOV_ear_left = 7 }
-                    check_variable = { TPMP_SOV_ear_right = 7 }
-                }
+            TPMP_SOV_mon_dp_bar_r_visible = {
+                check_variable = { TPMP_SOV_mon_over_ratio > 0 }
             }
-            TPMP_SOV_mon_cand_theorist_1_left_btn_click_enabled = {
-                TPMP_SOV_ear_put_theorist_1_left_ok = yes
+            TPMP_SOV_mon_dp_bar_g_visible = {
+                check_variable = { TPMP_SOV_mon_over_ratio = 0 }
             }
-            TPMP_SOV_mon_cand_theorist_1_right_btn_click_enabled = {
-                TPMP_SOV_ear_put_theorist_1_right_ok = yes
+            TPMP_SOV_mon_dp_over_visible = {
+                check_variable = { TPMP_SOV_mon_over_ratio > 0 }
             }
-            TPMP_SOV_mon_cand_designer_1_eligible_visible = {
-                TPMP_SOV_ear_designer_1_eligible = yes
+            TPMP_SOV_mon_dt_rebuke_btn_click_enabled = {
+                TPMP_SOV_mon_sel_active = yes
+                TPMP_SOV_mon_can_pay_rebuke = yes
             }
-            TPMP_SOV_mon_cand_designer_1_noteligible_visible = {
-                NOT = { TPMP_SOV_ear_designer_1_eligible = yes }
+            TPMP_SOV_mon_dt_nkvd_btn_click_enabled = {
+                TPMP_SOV_mon_sel_active = yes
+                has_completed_focus = TPMP_SOV_expand_the_role_of_nkvd
             }
-            TPMP_SOV_mon_cand_designer_1_cost_ok_visible = {
-                TPMP_SOV_ear_designer_1_eligible = yes
+            TPMP_SOV_mon_dt_arrest_btn_click_enabled = {
+                TPMP_SOV_mon_sel_active = yes
+                TPMP_SOV_mon_sel_arrest_ok = yes
             }
-            TPMP_SOV_mon_cand_designer_1_cost_force_visible = {
-                NOT = { TPMP_SOV_ear_designer_1_eligible = yes }
+            TPMP_SOV_mon_earL_clear_click_enabled = {
+                TPMP_SOV_ear_clear_left_ok = yes
             }
-            TPMP_SOV_mon_cand_designer_1_here_visible = {
-                OR = {
-                    check_variable = { TPMP_SOV_ear_left = 8 }
-                    check_variable = { TPMP_SOV_ear_right = 8 }
-                }
+            TPMP_SOV_mon_earR_clear_click_enabled = {
+                TPMP_SOV_ear_clear_right_ok = yes
             }
-            TPMP_SOV_mon_cand_designer_1_left_btn_click_enabled = {
-                TPMP_SOV_ear_put_designer_1_left_ok = yes
+            TPMP_SOV_mon_esel_L_btn_click_enabled = {
+                TPMP_SOV_ear_sel_put_left_ok = yes
             }
-            TPMP_SOV_mon_cand_designer_1_right_btn_click_enabled = {
-                TPMP_SOV_ear_put_designer_1_right_ok = yes
+            TPMP_SOV_mon_esel_R_btn_click_enabled = {
+                TPMP_SOV_ear_sel_put_right_ok = yes
+            }
+            TPMP_SOV_mon_desk_pick_1_btn_click_enabled = {
+                TPMP_SOV_mon_desk_pick_1_ok = yes
+            }
+            TPMP_SOV_mon_desk_pick_2_btn_click_enabled = {
+                TPMP_SOV_mon_desk_pick_2_ok = yes
+            }
+            TPMP_SOV_mon_desk_pick_3_btn_click_enabled = {
+                TPMP_SOV_mon_desk_pick_3_ok = yes
             }
         }
         effects = {
@@ -689,273 +1227,1005 @@ scripted_gui = {
                 add_to_variable = { TPMP_SOV_mon_dirty = 1 }
             }
             TPMP_SOV_mon_tab_monster_click = {
-                clr_country_flag = TPMP_SOV_mon_tab_ears
+                set_variable = { TPMP_SOV_mon_tab = 0 }
+                set_variable = { TPMP_SOV_mon_view = 0 }
+                TPMP_SOV_mon_display = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
+            }
+            TPMP_SOV_mon_tab_monster_on_click = {
+                set_variable = { TPMP_SOV_mon_view = 0 }
                 add_to_variable = { TPMP_SOV_mon_dirty = 1 }
             }
             TPMP_SOV_mon_tab_ears_click = {
-                set_country_flag = TPMP_SOV_mon_tab_ears
+                set_variable = { TPMP_SOV_mon_tab = 1 }
+                set_variable = { TPMP_SOV_mon_view = 0 }
+                TPMP_SOV_mon_display = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
+            }
+            TPMP_SOV_mon_tab_ears_on_click = {
+                set_variable = { TPMP_SOV_mon_view = 0 }
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
+            }
+            TPMP_SOV_mon_tab_desk_click = {
+                set_variable = { TPMP_SOV_mon_tab = 2 }
+                set_variable = { TPMP_SOV_mon_view = 0 }
+                TPMP_SOV_mon_display = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
+            }
+            TPMP_SOV_mon_tab_desk_on_click = {
+                set_variable = { TPMP_SOV_mon_view = 0 }
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
+            }
+            TPMP_SOV_mon_strip_L_btn_click = {
+                set_variable = { TPMP_SOV_mon_tab = 1 }
+                set_variable = { TPMP_SOV_mon_view = 0 }
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
+            }
+            TPMP_SOV_mon_strip_R_btn_click = {
+                set_variable = { TPMP_SOV_mon_tab = 1 }
+                set_variable = { TPMP_SOV_mon_view = 0 }
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
+            }
+            TPMP_SOV_mon_plan_btn_click = {
+                set_variable = { TPMP_SOV_mon_view = 1 }
+                TPMP_SOV_mon_display = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
+            }
+            TPMP_SOV_mon_s01_card_click = {
+                TPMP_SOV_mon_select_s01 = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
+            }
+            TPMP_SOV_mon_s01_card_on_click = {
+                TPMP_SOV_mon_select_s01 = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
+            }
+            TPMP_SOV_mon_s02_card_click = {
+                TPMP_SOV_mon_select_s02 = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
+            }
+            TPMP_SOV_mon_s02_card_on_click = {
+                TPMP_SOV_mon_select_s02 = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
+            }
+            TPMP_SOV_mon_s03_card_click = {
+                TPMP_SOV_mon_select_s03 = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
+            }
+            TPMP_SOV_mon_s03_card_on_click = {
+                TPMP_SOV_mon_select_s03 = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
+            }
+            TPMP_SOV_mon_s04_card_click = {
+                TPMP_SOV_mon_select_s04 = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
+            }
+            TPMP_SOV_mon_s04_card_on_click = {
+                TPMP_SOV_mon_select_s04 = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
+            }
+            TPMP_SOV_mon_s05_card_click = {
+                TPMP_SOV_mon_select_s05 = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
+            }
+            TPMP_SOV_mon_s05_card_on_click = {
+                TPMP_SOV_mon_select_s05 = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
+            }
+            TPMP_SOV_mon_s06_card_click = {
+                TPMP_SOV_mon_select_s06 = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
+            }
+            TPMP_SOV_mon_s06_card_on_click = {
+                TPMP_SOV_mon_select_s06 = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
+            }
+            TPMP_SOV_mon_s07_card_click = {
+                TPMP_SOV_mon_select_s07 = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
+            }
+            TPMP_SOV_mon_s07_card_on_click = {
+                TPMP_SOV_mon_select_s07 = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
+            }
+            TPMP_SOV_mon_s08_card_click = {
+                TPMP_SOV_mon_select_s08 = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
+            }
+            TPMP_SOV_mon_s08_card_on_click = {
+                TPMP_SOV_mon_select_s08 = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
+            }
+            TPMP_SOV_mon_s09_card_click = {
+                TPMP_SOV_mon_select_s09 = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
+            }
+            TPMP_SOV_mon_s09_card_on_click = {
+                TPMP_SOV_mon_select_s09 = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
+            }
+            TPMP_SOV_mon_s10_card_click = {
+                TPMP_SOV_mon_select_s10 = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
+            }
+            TPMP_SOV_mon_s10_card_on_click = {
+                TPMP_SOV_mon_select_s10 = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
+            }
+            TPMP_SOV_mon_s11_card_click = {
+                TPMP_SOV_mon_select_s11 = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
+            }
+            TPMP_SOV_mon_s11_card_on_click = {
+                TPMP_SOV_mon_select_s11 = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
+            }
+            TPMP_SOV_mon_s12_card_click = {
+                TPMP_SOV_mon_select_s12 = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
+            }
+            TPMP_SOV_mon_s12_card_on_click = {
+                TPMP_SOV_mon_select_s12 = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
+            }
+            TPMP_SOV_mon_s13_card_click = {
+                TPMP_SOV_mon_select_s13 = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
+            }
+            TPMP_SOV_mon_s13_card_on_click = {
+                TPMP_SOV_mon_select_s13 = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
+            }
+            TPMP_SOV_mon_s14_card_click = {
+                TPMP_SOV_mon_select_s14 = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
+            }
+            TPMP_SOV_mon_s14_card_on_click = {
+                TPMP_SOV_mon_select_s14 = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
+            }
+            TPMP_SOV_mon_s15_card_click = {
+                TPMP_SOV_mon_select_s15 = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
+            }
+            TPMP_SOV_mon_s15_card_on_click = {
+                TPMP_SOV_mon_select_s15 = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
+            }
+            TPMP_SOV_mon_s16_card_click = {
+                TPMP_SOV_mon_select_s16 = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
+            }
+            TPMP_SOV_mon_s16_card_on_click = {
+                TPMP_SOV_mon_select_s16 = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
+            }
+            TPMP_SOV_mon_s17_card_click = {
+                TPMP_SOV_mon_select_s17 = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
+            }
+            TPMP_SOV_mon_s17_card_on_click = {
+                TPMP_SOV_mon_select_s17 = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
+            }
+            TPMP_SOV_mon_s18_card_click = {
+                TPMP_SOV_mon_select_s18 = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
+            }
+            TPMP_SOV_mon_s18_card_on_click = {
+                TPMP_SOV_mon_select_s18 = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
+            }
+            TPMP_SOV_mon_s19_card_click = {
+                TPMP_SOV_mon_select_s19 = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
+            }
+            TPMP_SOV_mon_s19_card_on_click = {
+                TPMP_SOV_mon_select_s19 = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
+            }
+            TPMP_SOV_mon_s20_card_click = {
+                TPMP_SOV_mon_select_s20 = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
+            }
+            TPMP_SOV_mon_s20_card_on_click = {
+                TPMP_SOV_mon_select_s20 = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
+            }
+            TPMP_SOV_mon_s21_card_click = {
+                TPMP_SOV_mon_select_s21 = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
+            }
+            TPMP_SOV_mon_s21_card_on_click = {
+                TPMP_SOV_mon_select_s21 = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
+            }
+            TPMP_SOV_mon_s22_card_click = {
+                TPMP_SOV_mon_select_s22 = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
+            }
+            TPMP_SOV_mon_s22_card_on_click = {
+                TPMP_SOV_mon_select_s22 = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
+            }
+            TPMP_SOV_mon_s23_card_click = {
+                TPMP_SOV_mon_select_s23 = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
+            }
+            TPMP_SOV_mon_s23_card_on_click = {
+                TPMP_SOV_mon_select_s23 = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
+            }
+            TPMP_SOV_mon_s24_card_click = {
+                TPMP_SOV_mon_select_s24 = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
+            }
+            TPMP_SOV_mon_s24_card_on_click = {
+                TPMP_SOV_mon_select_s24 = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
+            }
+            TPMP_SOV_mon_dt_rebuke_btn_click = {
+                custom_effect_tooltip = TPMP_SOV_mon_tt_rebuke
+                TPMP_SOV_mon_sel_rebuke = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
+            }
+            TPMP_SOV_mon_dt_nkvd_btn_click = {
+                custom_effect_tooltip = TPMP_SOV_mon_tt_nkvd
+                TPMP_SOV_mon_sel_nkvd = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
+            }
+            TPMP_SOV_mon_dt_arrest_btn_click = {
+                custom_effect_tooltip = TPMP_SOV_mon_tt_arrest
+                TPMP_SOV_mon_sel_arrest = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
+            }
+            TPMP_SOV_mon_bd_back_btn_click = {
+                set_variable = { TPMP_SOV_mon_view = 0 }
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
+            }
+            TPMP_SOV_mon_bd_sort_btn_click = {
+                set_temp_variable = { var = mon_s value = 1 }
+                subtract_from_temp_variable = { mon_s = TPMP_SOV_mon_sort }
+                set_variable = { TPMP_SOV_mon_sort = mon_s }
+                TPMP_SOV_mon_display = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
+            }
+            TPMP_SOV_mon_bd_row1_btn_click = {
+                TPMP_SOV_mon_select_rank_1 = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
+            }
+            TPMP_SOV_mon_bd_row1_on_click = {
+                TPMP_SOV_mon_select_rank_1 = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
+            }
+            TPMP_SOV_mon_bd_row2_btn_click = {
+                TPMP_SOV_mon_select_rank_2 = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
+            }
+            TPMP_SOV_mon_bd_row2_on_click = {
+                TPMP_SOV_mon_select_rank_2 = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
+            }
+            TPMP_SOV_mon_bd_row3_btn_click = {
+                TPMP_SOV_mon_select_rank_3 = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
+            }
+            TPMP_SOV_mon_bd_row3_on_click = {
+                TPMP_SOV_mon_select_rank_3 = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
+            }
+            TPMP_SOV_mon_bd_row4_btn_click = {
+                TPMP_SOV_mon_select_rank_4 = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
+            }
+            TPMP_SOV_mon_bd_row4_on_click = {
+                TPMP_SOV_mon_select_rank_4 = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
+            }
+            TPMP_SOV_mon_bd_row5_btn_click = {
+                TPMP_SOV_mon_select_rank_5 = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
+            }
+            TPMP_SOV_mon_bd_row5_on_click = {
+                TPMP_SOV_mon_select_rank_5 = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
+            }
+            TPMP_SOV_mon_bd_row6_btn_click = {
+                TPMP_SOV_mon_select_rank_6 = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
+            }
+            TPMP_SOV_mon_bd_row6_on_click = {
+                TPMP_SOV_mon_select_rank_6 = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
+            }
+            TPMP_SOV_mon_bd_row7_btn_click = {
+                TPMP_SOV_mon_select_rank_7 = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
+            }
+            TPMP_SOV_mon_bd_row7_on_click = {
+                TPMP_SOV_mon_select_rank_7 = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
+            }
+            TPMP_SOV_mon_bd_row8_btn_click = {
+                TPMP_SOV_mon_select_rank_8 = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
+            }
+            TPMP_SOV_mon_bd_row8_on_click = {
+                TPMP_SOV_mon_select_rank_8 = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
+            }
+            TPMP_SOV_mon_bd_row9_btn_click = {
+                TPMP_SOV_mon_select_rank_9 = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
+            }
+            TPMP_SOV_mon_bd_row9_on_click = {
+                TPMP_SOV_mon_select_rank_9 = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
+            }
+            TPMP_SOV_mon_bd_row10_btn_click = {
+                TPMP_SOV_mon_select_rank_10 = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
+            }
+            TPMP_SOV_mon_bd_row10_on_click = {
+                TPMP_SOV_mon_select_rank_10 = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
+            }
+            TPMP_SOV_mon_bd_row11_btn_click = {
+                TPMP_SOV_mon_select_rank_11 = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
+            }
+            TPMP_SOV_mon_bd_row11_on_click = {
+                TPMP_SOV_mon_select_rank_11 = yes
                 add_to_variable = { TPMP_SOV_mon_dirty = 1 }
             }
             TPMP_SOV_mon_earL_clear_click = {
                 custom_effect_tooltip = TPMP_SOV_mon_tt_ear_clear
                 TPMP_SOV_ear_clear_left = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
             }
             TPMP_SOV_mon_earR_clear_click = {
                 custom_effect_tooltip = TPMP_SOV_mon_tt_ear_clear
                 TPMP_SOV_ear_clear_right = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
             }
-            TPMP_SOV_mon_s01_rebuke_btn_click = {
-                custom_effect_tooltip = TPMP_SOV_mon_tt_rebuke
-                TPMP_SOV_mon_s01_rebuke = yes
+            TPMP_SOV_mon_cand_kulik_card_click = {
+                TPMP_SOV_ear_select_kulik = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
             }
-            TPMP_SOV_mon_s01_nkvd_btn_click = {
-                custom_effect_tooltip = TPMP_SOV_mon_tt_nkvd
-                TPMP_SOV_mon_s01_nkvd = yes
+            TPMP_SOV_mon_cand_kulik_card_on_click = {
+                TPMP_SOV_ear_select_kulik = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
             }
-            TPMP_SOV_mon_s01_arrest_btn_click = {
-                custom_effect_tooltip = TPMP_SOV_mon_tt_arrest
-                TPMP_SOV_mon_s01_arrest = yes
+            TPMP_SOV_mon_cand_stavka_card_click = {
+                TPMP_SOV_ear_select_stavka = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
             }
-            TPMP_SOV_mon_s02_rebuke_btn_click = {
-                custom_effect_tooltip = TPMP_SOV_mon_tt_rebuke
-                TPMP_SOV_mon_s02_rebuke = yes
+            TPMP_SOV_mon_cand_stavka_card_on_click = {
+                TPMP_SOV_ear_select_stavka = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
             }
-            TPMP_SOV_mon_s02_nkvd_btn_click = {
-                custom_effect_tooltip = TPMP_SOV_mon_tt_nkvd
-                TPMP_SOV_mon_s02_nkvd = yes
+            TPMP_SOV_mon_cand_gko_card_click = {
+                TPMP_SOV_ear_select_gko = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
             }
-            TPMP_SOV_mon_s02_arrest_btn_click = {
-                custom_effect_tooltip = TPMP_SOV_mon_tt_arrest
-                TPMP_SOV_mon_s02_arrest = yes
+            TPMP_SOV_mon_cand_gko_card_on_click = {
+                TPMP_SOV_ear_select_gko = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
             }
-            TPMP_SOV_mon_s03_rebuke_btn_click = {
-                custom_effect_tooltip = TPMP_SOV_mon_tt_rebuke
-                TPMP_SOV_mon_s03_rebuke = yes
+            TPMP_SOV_mon_cand_vannikov_ear_card_click = {
+                TPMP_SOV_ear_select_vannikov_ear = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
             }
-            TPMP_SOV_mon_s03_nkvd_btn_click = {
-                custom_effect_tooltip = TPMP_SOV_mon_tt_nkvd
-                TPMP_SOV_mon_s03_nkvd = yes
+            TPMP_SOV_mon_cand_vannikov_ear_card_on_click = {
+                TPMP_SOV_ear_select_vannikov_ear = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
             }
-            TPMP_SOV_mon_s03_arrest_btn_click = {
-                custom_effect_tooltip = TPMP_SOV_mon_tt_arrest
-                TPMP_SOV_mon_s03_arrest = yes
+            TPMP_SOV_mon_cand_malyshev_ear_card_click = {
+                TPMP_SOV_ear_select_malyshev_ear = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
             }
-            TPMP_SOV_mon_s04_rebuke_btn_click = {
-                custom_effect_tooltip = TPMP_SOV_mon_tt_rebuke
-                TPMP_SOV_mon_s04_rebuke = yes
+            TPMP_SOV_mon_cand_malyshev_ear_card_on_click = {
+                TPMP_SOV_ear_select_malyshev_ear = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
             }
-            TPMP_SOV_mon_s04_nkvd_btn_click = {
-                custom_effect_tooltip = TPMP_SOV_mon_tt_nkvd
-                TPMP_SOV_mon_s04_nkvd = yes
+            TPMP_SOV_mon_cand_politician_1_card_click = {
+                TPMP_SOV_ear_select_politician_1 = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
             }
-            TPMP_SOV_mon_s04_arrest_btn_click = {
-                custom_effect_tooltip = TPMP_SOV_mon_tt_arrest
-                TPMP_SOV_mon_s04_arrest = yes
+            TPMP_SOV_mon_cand_politician_1_card_on_click = {
+                TPMP_SOV_ear_select_politician_1 = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
             }
-            TPMP_SOV_mon_s05_rebuke_btn_click = {
-                custom_effect_tooltip = TPMP_SOV_mon_tt_rebuke
-                TPMP_SOV_mon_s05_rebuke = yes
+            TPMP_SOV_mon_cand_theorist_1_card_click = {
+                TPMP_SOV_ear_select_theorist_1 = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
             }
-            TPMP_SOV_mon_s05_nkvd_btn_click = {
-                custom_effect_tooltip = TPMP_SOV_mon_tt_nkvd
-                TPMP_SOV_mon_s05_nkvd = yes
+            TPMP_SOV_mon_cand_theorist_1_card_on_click = {
+                TPMP_SOV_ear_select_theorist_1 = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
             }
-            TPMP_SOV_mon_s05_arrest_btn_click = {
-                custom_effect_tooltip = TPMP_SOV_mon_tt_arrest
-                TPMP_SOV_mon_s05_arrest = yes
+            TPMP_SOV_mon_cand_designer_1_card_click = {
+                TPMP_SOV_ear_select_designer_1 = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
             }
-            TPMP_SOV_mon_s06_rebuke_btn_click = {
-                custom_effect_tooltip = TPMP_SOV_mon_tt_rebuke
-                TPMP_SOV_mon_s06_rebuke = yes
+            TPMP_SOV_mon_cand_designer_1_card_on_click = {
+                TPMP_SOV_ear_select_designer_1 = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
             }
-            TPMP_SOV_mon_s06_nkvd_btn_click = {
-                custom_effect_tooltip = TPMP_SOV_mon_tt_nkvd
-                TPMP_SOV_mon_s06_nkvd = yes
+            TPMP_SOV_mon_esel_L_btn_click = {
+                custom_effect_tooltip = TPMP_SOV_mon_tt_ear_put
+                TPMP_SOV_ear_sel_put_left = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
             }
-            TPMP_SOV_mon_s06_arrest_btn_click = {
-                custom_effect_tooltip = TPMP_SOV_mon_tt_arrest
-                TPMP_SOV_mon_s06_arrest = yes
+            TPMP_SOV_mon_esel_R_btn_click = {
+                custom_effect_tooltip = TPMP_SOV_mon_tt_ear_put
+                TPMP_SOV_ear_sel_put_right = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
             }
-            TPMP_SOV_mon_s07_rebuke_btn_click = {
-                custom_effect_tooltip = TPMP_SOV_mon_tt_rebuke
-                TPMP_SOV_mon_s07_rebuke = yes
+            TPMP_SOV_mon_esel_clearL_btn_click = {
+                custom_effect_tooltip = TPMP_SOV_mon_tt_ear_clear
+                TPMP_SOV_ear_clear_left = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
             }
-            TPMP_SOV_mon_s07_nkvd_btn_click = {
-                custom_effect_tooltip = TPMP_SOV_mon_tt_nkvd
-                TPMP_SOV_mon_s07_nkvd = yes
-            }
-            TPMP_SOV_mon_s07_arrest_btn_click = {
-                custom_effect_tooltip = TPMP_SOV_mon_tt_arrest
-                TPMP_SOV_mon_s07_arrest = yes
-            }
-            TPMP_SOV_mon_s08_rebuke_btn_click = {
-                custom_effect_tooltip = TPMP_SOV_mon_tt_rebuke
-                TPMP_SOV_mon_s08_rebuke = yes
-            }
-            TPMP_SOV_mon_s08_nkvd_btn_click = {
-                custom_effect_tooltip = TPMP_SOV_mon_tt_nkvd
-                TPMP_SOV_mon_s08_nkvd = yes
-            }
-            TPMP_SOV_mon_s08_arrest_btn_click = {
-                custom_effect_tooltip = TPMP_SOV_mon_tt_arrest
-                TPMP_SOV_mon_s08_arrest = yes
-            }
-            TPMP_SOV_mon_s09_rebuke_btn_click = {
-                custom_effect_tooltip = TPMP_SOV_mon_tt_rebuke
-                TPMP_SOV_mon_s09_rebuke = yes
-            }
-            TPMP_SOV_mon_s09_nkvd_btn_click = {
-                custom_effect_tooltip = TPMP_SOV_mon_tt_nkvd
-                TPMP_SOV_mon_s09_nkvd = yes
-            }
-            TPMP_SOV_mon_s09_arrest_btn_click = {
-                custom_effect_tooltip = TPMP_SOV_mon_tt_arrest
-                TPMP_SOV_mon_s09_arrest = yes
-            }
-            TPMP_SOV_mon_s10_rebuke_btn_click = {
-                custom_effect_tooltip = TPMP_SOV_mon_tt_rebuke
-                TPMP_SOV_mon_s10_rebuke = yes
-            }
-            TPMP_SOV_mon_s10_nkvd_btn_click = {
-                custom_effect_tooltip = TPMP_SOV_mon_tt_nkvd
-                TPMP_SOV_mon_s10_nkvd = yes
-            }
-            TPMP_SOV_mon_s10_arrest_btn_click = {
-                custom_effect_tooltip = TPMP_SOV_mon_tt_arrest
-                TPMP_SOV_mon_s10_arrest = yes
-            }
-            TPMP_SOV_mon_s11_rebuke_btn_click = {
-                custom_effect_tooltip = TPMP_SOV_mon_tt_rebuke
-                TPMP_SOV_mon_s11_rebuke = yes
-            }
-            TPMP_SOV_mon_s11_nkvd_btn_click = {
-                custom_effect_tooltip = TPMP_SOV_mon_tt_nkvd
-                TPMP_SOV_mon_s11_nkvd = yes
-            }
-            TPMP_SOV_mon_s11_arrest_btn_click = {
-                custom_effect_tooltip = TPMP_SOV_mon_tt_arrest
-                TPMP_SOV_mon_s11_arrest = yes
-            }
-            TPMP_SOV_mon_desk_pick_1_btn_click = {
-                custom_effect_tooltip = TPMP_SOV_mon_tt_pick
-                TPMP_SOV_mon_desk_pick_1 = yes
-            }
-            TPMP_SOV_mon_desk_pick_2_btn_click = {
-                custom_effect_tooltip = TPMP_SOV_mon_tt_pick
-                TPMP_SOV_mon_desk_pick_2 = yes
-            }
-            TPMP_SOV_mon_desk_pick_3_btn_click = {
-                custom_effect_tooltip = TPMP_SOV_mon_tt_pick
-                TPMP_SOV_mon_desk_pick_3 = yes
+            TPMP_SOV_mon_esel_clearR_btn_click = {
+                custom_effect_tooltip = TPMP_SOV_mon_tt_ear_clear
+                TPMP_SOV_ear_clear_right = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
             }
             TPMP_SOV_mon_desk_dismiss_btn_click = {
                 custom_effect_tooltip = TPMP_SOV_mon_tt_dismiss
                 TPMP_SOV_mon_desk_dismiss = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
             }
-            TPMP_SOV_mon_cand_kulik_left_btn_click = {
-                custom_effect_tooltip = TPMP_SOV_mon_tt_ear_put
-                TPMP_SOV_ear_put_kulik_left = yes
+            TPMP_SOV_mon_desk_pick_1_btn_click = {
+                custom_effect_tooltip = TPMP_SOV_mon_tt_pick
+                TPMP_SOV_mon_desk_pick_1 = yes
+                TPMP_SOV_mon_display = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
             }
-            TPMP_SOV_mon_cand_kulik_right_btn_click = {
-                custom_effect_tooltip = TPMP_SOV_mon_tt_ear_put
-                TPMP_SOV_ear_put_kulik_right = yes
+            TPMP_SOV_mon_desk_pick_2_btn_click = {
+                custom_effect_tooltip = TPMP_SOV_mon_tt_pick
+                TPMP_SOV_mon_desk_pick_2 = yes
+                TPMP_SOV_mon_display = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
             }
-            TPMP_SOV_mon_cand_stavka_left_btn_click = {
-                custom_effect_tooltip = TPMP_SOV_mon_tt_ear_put
-                TPMP_SOV_ear_put_stavka_left = yes
-            }
-            TPMP_SOV_mon_cand_stavka_right_btn_click = {
-                custom_effect_tooltip = TPMP_SOV_mon_tt_ear_put
-                TPMP_SOV_ear_put_stavka_right = yes
-            }
-            TPMP_SOV_mon_cand_gko_left_btn_click = {
-                custom_effect_tooltip = TPMP_SOV_mon_tt_ear_put
-                TPMP_SOV_ear_put_gko_left = yes
-            }
-            TPMP_SOV_mon_cand_gko_right_btn_click = {
-                custom_effect_tooltip = TPMP_SOV_mon_tt_ear_put
-                TPMP_SOV_ear_put_gko_right = yes
-            }
-            TPMP_SOV_mon_cand_vannikov_ear_left_btn_click = {
-                custom_effect_tooltip = TPMP_SOV_mon_tt_ear_put
-                TPMP_SOV_ear_put_vannikov_ear_left = yes
-            }
-            TPMP_SOV_mon_cand_vannikov_ear_right_btn_click = {
-                custom_effect_tooltip = TPMP_SOV_mon_tt_ear_put
-                TPMP_SOV_ear_put_vannikov_ear_right = yes
-            }
-            TPMP_SOV_mon_cand_malyshev_ear_left_btn_click = {
-                custom_effect_tooltip = TPMP_SOV_mon_tt_ear_put
-                TPMP_SOV_ear_put_malyshev_ear_left = yes
-            }
-            TPMP_SOV_mon_cand_malyshev_ear_right_btn_click = {
-                custom_effect_tooltip = TPMP_SOV_mon_tt_ear_put
-                TPMP_SOV_ear_put_malyshev_ear_right = yes
-            }
-            TPMP_SOV_mon_cand_politician_1_left_btn_click = {
-                custom_effect_tooltip = TPMP_SOV_mon_tt_ear_put
-                TPMP_SOV_ear_put_politician_1_left = yes
-            }
-            TPMP_SOV_mon_cand_politician_1_right_btn_click = {
-                custom_effect_tooltip = TPMP_SOV_mon_tt_ear_put
-                TPMP_SOV_ear_put_politician_1_right = yes
-            }
-            TPMP_SOV_mon_cand_theorist_1_left_btn_click = {
-                custom_effect_tooltip = TPMP_SOV_mon_tt_ear_put
-                TPMP_SOV_ear_put_theorist_1_left = yes
-            }
-            TPMP_SOV_mon_cand_theorist_1_right_btn_click = {
-                custom_effect_tooltip = TPMP_SOV_mon_tt_ear_put
-                TPMP_SOV_ear_put_theorist_1_right = yes
-            }
-            TPMP_SOV_mon_cand_designer_1_left_btn_click = {
-                custom_effect_tooltip = TPMP_SOV_mon_tt_ear_put
-                TPMP_SOV_ear_put_designer_1_left = yes
-            }
-            TPMP_SOV_mon_cand_designer_1_right_btn_click = {
-                custom_effect_tooltip = TPMP_SOV_mon_tt_ear_put
-                TPMP_SOV_ear_put_designer_1_right = yes
+            TPMP_SOV_mon_desk_pick_3_btn_click = {
+                custom_effect_tooltip = TPMP_SOV_mon_tt_pick
+                TPMP_SOV_mon_desk_pick_3 = yes
+                TPMP_SOV_mon_display = yes
+                add_to_variable = { TPMP_SOV_mon_dirty = 1 }
             }
         }
         properties = {
-            TPMP_SOV_mon_earL_portrait = {
+            TPMP_SOV_mon_strip_L_portrait = {
                 image = "[TPMP_SOV_mon_ear_left_portrait]"
             }
-            TPMP_SOV_mon_earR_portrait = {
+            TPMP_SOV_mon_strip_R_portrait = {
                 image = "[TPMP_SOV_mon_ear_right_portrait]"
+            }
+            TPMP_SOV_mon_plan_bar_r = {
+                frame = TPMP_SOV_mon_plan_barpct
+            }
+            TPMP_SOV_mon_plan_bar_g = {
+                frame = TPMP_SOV_mon_plan_barpct
             }
             TPMP_SOV_mon_s01_portrait = {
                 image = "[TPMP_SOV_mon_s01_portrait]"
             }
+            TPMP_SOV_mon_s01_bar_r = {
+                frame = TPMP_SOV_mon_s01_swaypct
+            }
+            TPMP_SOV_mon_s01_bar_y = {
+                frame = TPMP_SOV_mon_s01_swaypct
+            }
+            TPMP_SOV_mon_s01_bar_g = {
+                frame = TPMP_SOV_mon_s01_swaypct
+            }
             TPMP_SOV_mon_s02_portrait = {
                 image = "[TPMP_SOV_mon_s02_portrait]"
+            }
+            TPMP_SOV_mon_s02_bar_r = {
+                frame = TPMP_SOV_mon_s02_swaypct
+            }
+            TPMP_SOV_mon_s02_bar_y = {
+                frame = TPMP_SOV_mon_s02_swaypct
+            }
+            TPMP_SOV_mon_s02_bar_g = {
+                frame = TPMP_SOV_mon_s02_swaypct
             }
             TPMP_SOV_mon_s03_portrait = {
                 image = "[TPMP_SOV_mon_s03_portrait]"
             }
+            TPMP_SOV_mon_s03_bar_r = {
+                frame = TPMP_SOV_mon_s03_swaypct
+            }
+            TPMP_SOV_mon_s03_bar_y = {
+                frame = TPMP_SOV_mon_s03_swaypct
+            }
+            TPMP_SOV_mon_s03_bar_g = {
+                frame = TPMP_SOV_mon_s03_swaypct
+            }
             TPMP_SOV_mon_s04_portrait = {
                 image = "[TPMP_SOV_mon_s04_portrait]"
+            }
+            TPMP_SOV_mon_s04_bar_r = {
+                frame = TPMP_SOV_mon_s04_swaypct
+            }
+            TPMP_SOV_mon_s04_bar_y = {
+                frame = TPMP_SOV_mon_s04_swaypct
+            }
+            TPMP_SOV_mon_s04_bar_g = {
+                frame = TPMP_SOV_mon_s04_swaypct
             }
             TPMP_SOV_mon_s05_portrait = {
                 image = "[TPMP_SOV_mon_s05_portrait]"
             }
+            TPMP_SOV_mon_s05_bar_r = {
+                frame = TPMP_SOV_mon_s05_swaypct
+            }
+            TPMP_SOV_mon_s05_bar_y = {
+                frame = TPMP_SOV_mon_s05_swaypct
+            }
+            TPMP_SOV_mon_s05_bar_g = {
+                frame = TPMP_SOV_mon_s05_swaypct
+            }
             TPMP_SOV_mon_s06_portrait = {
                 image = "[TPMP_SOV_mon_s06_portrait]"
+            }
+            TPMP_SOV_mon_s06_bar_r = {
+                frame = TPMP_SOV_mon_s06_swaypct
+            }
+            TPMP_SOV_mon_s06_bar_y = {
+                frame = TPMP_SOV_mon_s06_swaypct
+            }
+            TPMP_SOV_mon_s06_bar_g = {
+                frame = TPMP_SOV_mon_s06_swaypct
             }
             TPMP_SOV_mon_s07_portrait = {
                 image = "[TPMP_SOV_mon_s07_portrait]"
             }
+            TPMP_SOV_mon_s07_bar_r = {
+                frame = TPMP_SOV_mon_s07_swaypct
+            }
+            TPMP_SOV_mon_s07_bar_y = {
+                frame = TPMP_SOV_mon_s07_swaypct
+            }
+            TPMP_SOV_mon_s07_bar_g = {
+                frame = TPMP_SOV_mon_s07_swaypct
+            }
             TPMP_SOV_mon_s08_portrait = {
                 image = "[TPMP_SOV_mon_s08_portrait]"
+            }
+            TPMP_SOV_mon_s08_bar_r = {
+                frame = TPMP_SOV_mon_s08_swaypct
+            }
+            TPMP_SOV_mon_s08_bar_y = {
+                frame = TPMP_SOV_mon_s08_swaypct
+            }
+            TPMP_SOV_mon_s08_bar_g = {
+                frame = TPMP_SOV_mon_s08_swaypct
             }
             TPMP_SOV_mon_s09_portrait = {
                 image = "[TPMP_SOV_mon_s09_portrait]"
             }
+            TPMP_SOV_mon_s09_bar_r = {
+                frame = TPMP_SOV_mon_s09_swaypct
+            }
+            TPMP_SOV_mon_s09_bar_y = {
+                frame = TPMP_SOV_mon_s09_swaypct
+            }
+            TPMP_SOV_mon_s09_bar_g = {
+                frame = TPMP_SOV_mon_s09_swaypct
+            }
             TPMP_SOV_mon_s10_portrait = {
                 image = "[TPMP_SOV_mon_s10_portrait]"
             }
+            TPMP_SOV_mon_s10_bar_r = {
+                frame = TPMP_SOV_mon_s10_swaypct
+            }
+            TPMP_SOV_mon_s10_bar_y = {
+                frame = TPMP_SOV_mon_s10_swaypct
+            }
+            TPMP_SOV_mon_s10_bar_g = {
+                frame = TPMP_SOV_mon_s10_swaypct
+            }
             TPMP_SOV_mon_s11_portrait = {
                 image = "[TPMP_SOV_mon_s11_portrait]"
+            }
+            TPMP_SOV_mon_s11_bar_r = {
+                frame = TPMP_SOV_mon_s11_swaypct
+            }
+            TPMP_SOV_mon_s11_bar_y = {
+                frame = TPMP_SOV_mon_s11_swaypct
+            }
+            TPMP_SOV_mon_s11_bar_g = {
+                frame = TPMP_SOV_mon_s11_swaypct
+            }
+            TPMP_SOV_mon_dt_portrait = {
+                image = "[TPMP_SOV_mon_sel_portrait]"
+            }
+            TPMP_SOV_mon_dt_bar_r = {
+                frame = TPMP_SOV_mon_sel_swaypct
+            }
+            TPMP_SOV_mon_dt_bar_y = {
+                frame = TPMP_SOV_mon_sel_swaypct
+            }
+            TPMP_SOV_mon_dt_bar_g = {
+                frame = TPMP_SOV_mon_sel_swaypct
+            }
+            TPMP_SOV_mon_bd_bar_r = {
+                frame = TPMP_SOV_mon_plan_barpct
+            }
+            TPMP_SOV_mon_bd_bar_g = {
+                frame = TPMP_SOV_mon_plan_barpct
+            }
+            TPMP_SOV_mon_bd_box_1 = {
+                frame = TPMP_SOV_mon_box_1
+            }
+            TPMP_SOV_mon_bd_box_2 = {
+                frame = TPMP_SOV_mon_box_2
+            }
+            TPMP_SOV_mon_bd_box_3 = {
+                frame = TPMP_SOV_mon_box_3
+            }
+            TPMP_SOV_mon_bd_box_4 = {
+                frame = TPMP_SOV_mon_box_4
+            }
+            TPMP_SOV_mon_bd_box_5 = {
+                frame = TPMP_SOV_mon_box_5
+            }
+            TPMP_SOV_mon_bd_box_6 = {
+                frame = TPMP_SOV_mon_box_6
+            }
+            TPMP_SOV_mon_bd_box_7 = {
+                frame = TPMP_SOV_mon_box_7
+            }
+            TPMP_SOV_mon_bd_box_8 = {
+                frame = TPMP_SOV_mon_box_8
+            }
+            TPMP_SOV_mon_bd_box_9 = {
+                frame = TPMP_SOV_mon_box_9
+            }
+            TPMP_SOV_mon_bd_box_10 = {
+                frame = TPMP_SOV_mon_box_10
+            }
+            TPMP_SOV_mon_bd_box_11 = {
+                frame = TPMP_SOV_mon_box_11
+            }
+            TPMP_SOV_mon_bd_box_12 = {
+                frame = TPMP_SOV_mon_box_12
+            }
+            TPMP_SOV_mon_bd_box_13 = {
+                frame = TPMP_SOV_mon_box_13
+            }
+            TPMP_SOV_mon_bd_box_14 = {
+                frame = TPMP_SOV_mon_box_14
+            }
+            TPMP_SOV_mon_bd_box_15 = {
+                frame = TPMP_SOV_mon_box_15
+            }
+            TPMP_SOV_mon_bd_box_16 = {
+                frame = TPMP_SOV_mon_box_16
+            }
+            TPMP_SOV_mon_bd_box_17 = {
+                frame = TPMP_SOV_mon_box_17
+            }
+            TPMP_SOV_mon_bd_box_18 = {
+                frame = TPMP_SOV_mon_box_18
+            }
+            TPMP_SOV_mon_bd_box_19 = {
+                frame = TPMP_SOV_mon_box_19
+            }
+            TPMP_SOV_mon_bd_box_20 = {
+                frame = TPMP_SOV_mon_box_20
+            }
+            TPMP_SOV_mon_bd_box_21 = {
+                frame = TPMP_SOV_mon_box_21
+            }
+            TPMP_SOV_mon_bd_box_22 = {
+                frame = TPMP_SOV_mon_box_22
+            }
+            TPMP_SOV_mon_bd_box_23 = {
+                frame = TPMP_SOV_mon_box_23
+            }
+            TPMP_SOV_mon_bd_box_24 = {
+                frame = TPMP_SOV_mon_box_24
+            }
+            TPMP_SOV_mon_bd_box_25 = {
+                frame = TPMP_SOV_mon_box_25
+            }
+            TPMP_SOV_mon_bd_box_26 = {
+                frame = TPMP_SOV_mon_box_26
+            }
+            TPMP_SOV_mon_bd_box_27 = {
+                frame = TPMP_SOV_mon_box_27
+            }
+            TPMP_SOV_mon_bd_box_28 = {
+                frame = TPMP_SOV_mon_box_28
+            }
+            TPMP_SOV_mon_bd_box_29 = {
+                frame = TPMP_SOV_mon_box_29
+            }
+            TPMP_SOV_mon_bd_box_30 = {
+                frame = TPMP_SOV_mon_box_30
+            }
+            TPMP_SOV_mon_bd_box_31 = {
+                frame = TPMP_SOV_mon_box_31
+            }
+            TPMP_SOV_mon_bd_box_32 = {
+                frame = TPMP_SOV_mon_box_32
+            }
+            TPMP_SOV_mon_bd_box_33 = {
+                frame = TPMP_SOV_mon_box_33
+            }
+            TPMP_SOV_mon_bd_box_34 = {
+                frame = TPMP_SOV_mon_box_34
+            }
+            TPMP_SOV_mon_bd_box_35 = {
+                frame = TPMP_SOV_mon_box_35
+            }
+            TPMP_SOV_mon_bd_box_36 = {
+                frame = TPMP_SOV_mon_box_36
+            }
+            TPMP_SOV_mon_bd_box_37 = {
+                frame = TPMP_SOV_mon_box_37
+            }
+            TPMP_SOV_mon_bd_box_38 = {
+                frame = TPMP_SOV_mon_box_38
+            }
+            TPMP_SOV_mon_bd_box_39 = {
+                frame = TPMP_SOV_mon_box_39
+            }
+            TPMP_SOV_mon_bd_box_40 = {
+                frame = TPMP_SOV_mon_box_40
+            }
+            TPMP_SOV_mon_bd_box_41 = {
+                frame = TPMP_SOV_mon_box_41
+            }
+            TPMP_SOV_mon_bd_box_42 = {
+                frame = TPMP_SOV_mon_box_42
+            }
+            TPMP_SOV_mon_bd_box_43 = {
+                frame = TPMP_SOV_mon_box_43
+            }
+            TPMP_SOV_mon_bd_box_44 = {
+                frame = TPMP_SOV_mon_box_44
+            }
+            TPMP_SOV_mon_bd_box_45 = {
+                frame = TPMP_SOV_mon_box_45
+            }
+            TPMP_SOV_mon_bd_box_46 = {
+                frame = TPMP_SOV_mon_box_46
+            }
+            TPMP_SOV_mon_bd_box_47 = {
+                frame = TPMP_SOV_mon_box_47
+            }
+            TPMP_SOV_mon_bd_box_48 = {
+                frame = TPMP_SOV_mon_box_48
+            }
+            TPMP_SOV_mon_bd_box_49 = {
+                frame = TPMP_SOV_mon_box_49
+            }
+            TPMP_SOV_mon_bd_box_50 = {
+                frame = TPMP_SOV_mon_box_50
+            }
+            TPMP_SOV_mon_bd_box_51 = {
+                frame = TPMP_SOV_mon_box_51
+            }
+            TPMP_SOV_mon_bd_box_52 = {
+                frame = TPMP_SOV_mon_box_52
+            }
+            TPMP_SOV_mon_bd_box_53 = {
+                frame = TPMP_SOV_mon_box_53
+            }
+            TPMP_SOV_mon_bd_box_54 = {
+                frame = TPMP_SOV_mon_box_54
+            }
+            TPMP_SOV_mon_bd_box_55 = {
+                frame = TPMP_SOV_mon_box_55
+            }
+            TPMP_SOV_mon_bd_box_56 = {
+                frame = TPMP_SOV_mon_box_56
+            }
+            TPMP_SOV_mon_bd_box_57 = {
+                frame = TPMP_SOV_mon_box_57
+            }
+            TPMP_SOV_mon_bd_box_58 = {
+                frame = TPMP_SOV_mon_box_58
+            }
+            TPMP_SOV_mon_bd_box_59 = {
+                frame = TPMP_SOV_mon_box_59
+            }
+            TPMP_SOV_mon_bd_box_60 = {
+                frame = TPMP_SOV_mon_box_60
+            }
+            TPMP_SOV_mon_bd_box_61 = {
+                frame = TPMP_SOV_mon_box_61
+            }
+            TPMP_SOV_mon_bd_box_62 = {
+                frame = TPMP_SOV_mon_box_62
+            }
+            TPMP_SOV_mon_bd_box_63 = {
+                frame = TPMP_SOV_mon_box_63
+            }
+            TPMP_SOV_mon_bd_box_64 = {
+                frame = TPMP_SOV_mon_box_64
+            }
+            TPMP_SOV_mon_bd_box_65 = {
+                frame = TPMP_SOV_mon_box_65
+            }
+            TPMP_SOV_mon_bd_box_66 = {
+                frame = TPMP_SOV_mon_box_66
+            }
+            TPMP_SOV_mon_bd_box_67 = {
+                frame = TPMP_SOV_mon_box_67
+            }
+            TPMP_SOV_mon_bd_box_68 = {
+                frame = TPMP_SOV_mon_box_68
+            }
+            TPMP_SOV_mon_bd_box_69 = {
+                frame = TPMP_SOV_mon_box_69
+            }
+            TPMP_SOV_mon_bd_box_70 = {
+                frame = TPMP_SOV_mon_box_70
+            }
+            TPMP_SOV_mon_bd_box_71 = {
+                frame = TPMP_SOV_mon_box_71
+            }
+            TPMP_SOV_mon_bd_box_72 = {
+                frame = TPMP_SOV_mon_box_72
+            }
+            TPMP_SOV_mon_bd_box_73 = {
+                frame = TPMP_SOV_mon_box_73
+            }
+            TPMP_SOV_mon_bd_box_74 = {
+                frame = TPMP_SOV_mon_box_74
+            }
+            TPMP_SOV_mon_bd_box_75 = {
+                frame = TPMP_SOV_mon_box_75
+            }
+            TPMP_SOV_mon_bd_box_76 = {
+                frame = TPMP_SOV_mon_box_76
+            }
+            TPMP_SOV_mon_bd_box_77 = {
+                frame = TPMP_SOV_mon_box_77
+            }
+            TPMP_SOV_mon_bd_box_78 = {
+                frame = TPMP_SOV_mon_box_78
+            }
+            TPMP_SOV_mon_bd_box_79 = {
+                frame = TPMP_SOV_mon_box_79
+            }
+            TPMP_SOV_mon_bd_box_80 = {
+                frame = TPMP_SOV_mon_box_80
+            }
+            TPMP_SOV_mon_bd_box_81 = {
+                frame = TPMP_SOV_mon_box_81
+            }
+            TPMP_SOV_mon_bd_box_82 = {
+                frame = TPMP_SOV_mon_box_82
+            }
+            TPMP_SOV_mon_bd_box_83 = {
+                frame = TPMP_SOV_mon_box_83
+            }
+            TPMP_SOV_mon_bd_box_84 = {
+                frame = TPMP_SOV_mon_box_84
+            }
+            TPMP_SOV_mon_bd_box_85 = {
+                frame = TPMP_SOV_mon_box_85
+            }
+            TPMP_SOV_mon_bd_box_86 = {
+                frame = TPMP_SOV_mon_box_86
+            }
+            TPMP_SOV_mon_bd_box_87 = {
+                frame = TPMP_SOV_mon_box_87
+            }
+            TPMP_SOV_mon_bd_box_88 = {
+                frame = TPMP_SOV_mon_box_88
+            }
+            TPMP_SOV_mon_bd_box_89 = {
+                frame = TPMP_SOV_mon_box_89
+            }
+            TPMP_SOV_mon_bd_box_90 = {
+                frame = TPMP_SOV_mon_box_90
+            }
+            TPMP_SOV_mon_bd_box_91 = {
+                frame = TPMP_SOV_mon_box_91
+            }
+            TPMP_SOV_mon_bd_box_92 = {
+                frame = TPMP_SOV_mon_box_92
+            }
+            TPMP_SOV_mon_bd_box_93 = {
+                frame = TPMP_SOV_mon_box_93
+            }
+            TPMP_SOV_mon_bd_box_94 = {
+                frame = TPMP_SOV_mon_box_94
+            }
+            TPMP_SOV_mon_bd_box_95 = {
+                frame = TPMP_SOV_mon_box_95
+            }
+            TPMP_SOV_mon_bd_box_96 = {
+                frame = TPMP_SOV_mon_box_96
+            }
+            TPMP_SOV_mon_bd_box_97 = {
+                frame = TPMP_SOV_mon_box_97
+            }
+            TPMP_SOV_mon_bd_box_98 = {
+                frame = TPMP_SOV_mon_box_98
+            }
+            TPMP_SOV_mon_bd_box_99 = {
+                frame = TPMP_SOV_mon_box_99
+            }
+            TPMP_SOV_mon_bd_box_100 = {
+                frame = TPMP_SOV_mon_box_100
+            }
+            TPMP_SOV_mon_bd_row1_portrait = {
+                image = "[TPMP_SOV_mon_rk1_portrait]"
+            }
+            TPMP_SOV_mon_bd_row2_portrait = {
+                image = "[TPMP_SOV_mon_rk2_portrait]"
+            }
+            TPMP_SOV_mon_bd_row3_portrait = {
+                image = "[TPMP_SOV_mon_rk3_portrait]"
+            }
+            TPMP_SOV_mon_bd_row4_portrait = {
+                image = "[TPMP_SOV_mon_rk4_portrait]"
+            }
+            TPMP_SOV_mon_bd_row5_portrait = {
+                image = "[TPMP_SOV_mon_rk5_portrait]"
+            }
+            TPMP_SOV_mon_bd_row6_portrait = {
+                image = "[TPMP_SOV_mon_rk6_portrait]"
+            }
+            TPMP_SOV_mon_bd_row7_portrait = {
+                image = "[TPMP_SOV_mon_rk7_portrait]"
+            }
+            TPMP_SOV_mon_bd_row8_portrait = {
+                image = "[TPMP_SOV_mon_rk8_portrait]"
+            }
+            TPMP_SOV_mon_bd_row9_portrait = {
+                image = "[TPMP_SOV_mon_rk9_portrait]"
+            }
+            TPMP_SOV_mon_bd_row10_portrait = {
+                image = "[TPMP_SOV_mon_rk10_portrait]"
+            }
+            TPMP_SOV_mon_bd_row11_portrait = {
+                image = "[TPMP_SOV_mon_rk11_portrait]"
+            }
+            TPMP_SOV_mon_ep_L_portrait = {
+                image = "[TPMP_SOV_mon_ear_left_portrait]"
+            }
+            TPMP_SOV_mon_ep_R_portrait = {
+                image = "[TPMP_SOV_mon_ear_right_portrait]"
+            }
+            TPMP_SOV_mon_cand_vannikov_ear_bar_g = {
+                frame = TPMP_SOV_mon_cand_vannikov_ear_favpct
+            }
+            TPMP_SOV_mon_cand_vannikov_ear_bar_y = {
+                frame = TPMP_SOV_mon_cand_vannikov_ear_favpct
+            }
+            TPMP_SOV_mon_cand_malyshev_ear_bar_g = {
+                frame = TPMP_SOV_mon_cand_malyshev_ear_favpct
+            }
+            TPMP_SOV_mon_cand_malyshev_ear_bar_y = {
+                frame = TPMP_SOV_mon_cand_malyshev_ear_favpct
+            }
+            TPMP_SOV_mon_es_portrait = {
+                image = "[TPMP_SOV_mon_esel_portrait]"
+            }
+            TPMP_SOV_mon_desk_c1_portrait = {
+                image = "[TPMP_SOV_mon_desk_o1_portrait]"
+            }
+            TPMP_SOV_mon_desk_c2_portrait = {
+                image = "[TPMP_SOV_mon_desk_o2_portrait]"
+            }
+            TPMP_SOV_mon_desk_c3_portrait = {
+                image = "[TPMP_SOV_mon_desk_o3_portrait]"
+            }
+            TPMP_SOV_mon_dp_bar_r = {
+                frame = TPMP_SOV_mon_plan_barpct
+            }
+            TPMP_SOV_mon_dp_bar_g = {
+                frame = TPMP_SOV_mon_plan_barpct
             }
         }
     }

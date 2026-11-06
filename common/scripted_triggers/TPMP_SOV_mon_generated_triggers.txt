@@ -505,3 +505,68 @@ TPMP_SOV_mon_s10_arrest_ok = {
 TPMP_SOV_mon_s11_arrest_ok = {
     check_variable = { TPMP_SOV_mon_s11_person > 0 }
 }
+
+# v2 GUI: the inspector acts on the selected head / candidate
+TPMP_SOV_mon_sel_active = {
+    check_variable = { TPMP_SOV_mon_sel_person > 0 }
+    check_variable = { TPMP_SOV_mon_sel_access > 0 }
+}
+TPMP_SOV_mon_sel_arrest_ok = {
+    OR = {
+        AND = { check_variable = { TPMP_SOV_mon_sel = 1 } TPMP_SOV_mon_s01_arrest_ok = yes }
+        AND = { check_variable = { TPMP_SOV_mon_sel = 2 } TPMP_SOV_mon_s02_arrest_ok = yes }
+        AND = { check_variable = { TPMP_SOV_mon_sel = 3 } TPMP_SOV_mon_s03_arrest_ok = yes }
+        AND = { check_variable = { TPMP_SOV_mon_sel = 4 } TPMP_SOV_mon_s04_arrest_ok = yes }
+        AND = { check_variable = { TPMP_SOV_mon_sel = 5 } TPMP_SOV_mon_s05_arrest_ok = yes }
+        AND = { check_variable = { TPMP_SOV_mon_sel = 6 } TPMP_SOV_mon_s06_arrest_ok = yes }
+        AND = { check_variable = { TPMP_SOV_mon_sel = 7 } TPMP_SOV_mon_s07_arrest_ok = yes }
+        AND = { check_variable = { TPMP_SOV_mon_sel = 8 } TPMP_SOV_mon_s08_arrest_ok = yes }
+        AND = { check_variable = { TPMP_SOV_mon_sel = 9 } TPMP_SOV_mon_s09_arrest_ok = yes }
+        AND = { check_variable = { TPMP_SOV_mon_sel = 10 } TPMP_SOV_mon_s10_arrest_ok = yes }
+        AND = { check_variable = { TPMP_SOV_mon_sel = 11 } TPMP_SOV_mon_s11_arrest_ok = yes }
+    }
+}
+TPMP_SOV_ear_sel_put_left_ok = {
+    OR = {
+        AND = { check_variable = { TPMP_SOV_ear_sel = 1 } TPMP_SOV_ear_put_kulik_left_ok = yes }
+        AND = { check_variable = { TPMP_SOV_ear_sel = 2 } TPMP_SOV_ear_put_stavka_left_ok = yes }
+        AND = { check_variable = { TPMP_SOV_ear_sel = 3 } TPMP_SOV_ear_put_gko_left_ok = yes }
+        AND = { check_variable = { TPMP_SOV_ear_sel = 4 } TPMP_SOV_ear_put_vannikov_ear_left_ok = yes }
+        AND = { check_variable = { TPMP_SOV_ear_sel = 5 } TPMP_SOV_ear_put_malyshev_ear_left_ok = yes }
+        AND = { check_variable = { TPMP_SOV_ear_sel = 6 } TPMP_SOV_ear_put_politician_1_left_ok = yes }
+        AND = { check_variable = { TPMP_SOV_ear_sel = 7 } TPMP_SOV_ear_put_theorist_1_left_ok = yes }
+        AND = { check_variable = { TPMP_SOV_ear_sel = 8 } TPMP_SOV_ear_put_designer_1_left_ok = yes }
+    }
+}
+TPMP_SOV_ear_sel_in_left = {
+    check_variable = { TPMP_SOV_ear_sel > 0 }
+    check_variable = { TPMP_SOV_ear_left = TPMP_SOV_ear_sel }
+}
+TPMP_SOV_ear_sel_put_right_ok = {
+    OR = {
+        AND = { check_variable = { TPMP_SOV_ear_sel = 1 } TPMP_SOV_ear_put_kulik_right_ok = yes }
+        AND = { check_variable = { TPMP_SOV_ear_sel = 2 } TPMP_SOV_ear_put_stavka_right_ok = yes }
+        AND = { check_variable = { TPMP_SOV_ear_sel = 3 } TPMP_SOV_ear_put_gko_right_ok = yes }
+        AND = { check_variable = { TPMP_SOV_ear_sel = 4 } TPMP_SOV_ear_put_vannikov_ear_right_ok = yes }
+        AND = { check_variable = { TPMP_SOV_ear_sel = 5 } TPMP_SOV_ear_put_malyshev_ear_right_ok = yes }
+        AND = { check_variable = { TPMP_SOV_ear_sel = 6 } TPMP_SOV_ear_put_politician_1_right_ok = yes }
+        AND = { check_variable = { TPMP_SOV_ear_sel = 7 } TPMP_SOV_ear_put_theorist_1_right_ok = yes }
+        AND = { check_variable = { TPMP_SOV_ear_sel = 8 } TPMP_SOV_ear_put_designer_1_right_ok = yes }
+    }
+}
+TPMP_SOV_ear_sel_in_right = {
+    check_variable = { TPMP_SOV_ear_sel > 0 }
+    check_variable = { TPMP_SOV_ear_right = TPMP_SOV_ear_sel }
+}
+TPMP_SOV_ear_sel_eligible = {
+    OR = {
+        AND = { check_variable = { TPMP_SOV_ear_sel = 1 } TPMP_SOV_ear_kulik_eligible = yes }
+        AND = { check_variable = { TPMP_SOV_ear_sel = 2 } TPMP_SOV_ear_stavka_eligible = yes }
+        AND = { check_variable = { TPMP_SOV_ear_sel = 3 } TPMP_SOV_ear_gko_eligible = yes }
+        AND = { check_variable = { TPMP_SOV_ear_sel = 4 } TPMP_SOV_ear_vannikov_ear_eligible = yes }
+        AND = { check_variable = { TPMP_SOV_ear_sel = 5 } TPMP_SOV_ear_malyshev_ear_eligible = yes }
+        AND = { check_variable = { TPMP_SOV_ear_sel = 6 } TPMP_SOV_ear_politician_1_eligible = yes }
+        AND = { check_variable = { TPMP_SOV_ear_sel = 7 } TPMP_SOV_ear_theorist_1_eligible = yes }
+        AND = { check_variable = { TPMP_SOV_ear_sel = 8 } TPMP_SOV_ear_designer_1_eligible = yes }
+    }
+}
