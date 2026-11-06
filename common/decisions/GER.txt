@@ -292,6 +292,19 @@ GER_seize_gold_reserves_cat = {
 
 		target_trigger = {
 			FROM = {
+				#TPMP: only these countries can ever be plundered
+				OR = {
+					original_tag = FRA
+					original_tag = POL
+					original_tag = YUG
+					original_tag = HOL
+					original_tag = BEL
+					original_tag = NOR
+					original_tag = DEN
+					original_tag = GRE
+					original_tag = SWI
+					original_tag = LUX
+				}
 				has_country_flag = GER_has_capitulated_to_germany
 				NOT = { #Don't seize France's gold reserves too soon; set up Vichy France first. Set in event France.10 and cleared in event france.14
 					has_country_flag = GER_dont_seize_gold_reserves_flag
@@ -348,72 +361,53 @@ GER_seize_gold_reserves_cat = {
 		cost = 25
 
 		complete_effect = {
-			set_temp_variable = { occupied_state_num_factory = 0 } #This will show how many factories in total Germany controls from FROM's cores
-
-			#TPMP Fix for various countries controlling stuff meant for GER
-
+			#TPMP: fixed CG reduction per country to avoid complicated strategies and exploits
+			set_temp_variable = { occupied_state_num_factory = 0 }
 			if = {
-				limit = {
-					FROM = {
-						has_country_flag = GER_has_capitulated_to_germany_is_dynamic_country #it will have lost its cores so the regular method wont work #set in 00_on_actions when a country capitulates to germany
-					}
-				}
-				FROM = {
-					set_temp_variable = {
-						var = country_tag #this variable will be set to the original tag if relevant, otherwise the variable is just set to the tag as usual
-						value = var:GER_has_capitulated_to_germany_dynamic_country_original_tag #set in 00_on_actions when a country capitulates to germany
-					}
-				}
+				limit = { FROM = { original_tag = FRA } }
+				set_temp_variable = { occupied_state_num_factory = -0.35 } # France
 			}
-			else = {
-				FROM = {
-					set_temp_variable = {
-						var = country_tag #this is what happens 99% of the time. typically, var:country_tag=FROM
-						value = THIS
-					}
-				}
+			else_if = {
+				limit = { FROM = { original_tag = POL } }
+				set_temp_variable = { occupied_state_num_factory = -0.25 } # Poland
 			}
-			# factories in states germany controls cored by var:country_tag (typically means FROM) are added
-			add_to_temp_variable = { occupied_state_num_factory = var:country_tag:num_of_military_factories_in_cores@GER }
-			add_to_temp_variable = { occupied_state_num_factory = var:country_tag:num_of_civilian_factories_in_cores@GER }
-			add_to_temp_variable = { occupied_state_num_factory = var:country_tag:num_of_naval_factories_in_cores@GER }
-
-			add_to_temp_variable = { GER.occupied_state_num_factory = FROM.num_of_military_factories_in_cores@ITA }
-			add_to_temp_variable = { GER.occupied_state_num_factory = FROM.num_of_civilian_factories_in_cores@ITA }
-			add_to_temp_variable = { GER.occupied_state_num_factory = FROM.num_of_naval_factories_in_cores@ITA }
-
-			add_to_temp_variable = { GER.occupied_state_num_factory = FROM.num_of_military_factories_in_cores@BUL }
-			add_to_temp_variable = { GER.occupied_state_num_factory = FROM.num_of_civilian_factories_in_cores@BUL }
-			add_to_temp_variable = { GER.occupied_state_num_factory = FROM.num_of_naval_factories_in_cores@BUL }
-
-			add_to_temp_variable = { GER.occupied_state_num_factory = FROM.num_of_military_factories_in_cores@ROM }
-			add_to_temp_variable = { GER.occupied_state_num_factory = FROM.num_of_civilian_factories_in_cores@ROM }
-			add_to_temp_variable = { GER.occupied_state_num_factory = FROM.num_of_naval_factories_in_cores@ROM }
-			
-			add_to_temp_variable = { GER.occupied_state_num_factory = FROM.num_of_military_factories_in_cores@HUN }
-			add_to_temp_variable = { GER.occupied_state_num_factory = FROM.num_of_civilian_factories_in_cores@HUN }
-			add_to_temp_variable = { GER.occupied_state_num_factory = FROM.num_of_naval_factories_in_cores@HUN }			
-
-			divide_temp_variable = { occupied_state_num_factory = 200 } #This is necessary since a single factory will increase the occupied_state_num_factory number to 1, which in turn translates to -100% when subtracting from the Consumer Goods. Dividing it by 100 here will give you 1% instead, which is more like what we want.
-			multiply_temp_variable = { occupied_state_num_factory = -1 }
-
-			#If Germany has seized Gold Reserves from Soviet states, deduct that amount when seizing the nation wide Gold Reserves from Soviet, so we're not double dipping
-			if = { 
-				limit = {
-					FROM = {
-						original_tag = SOV
-					}
-					#Check if Germany has seized Gold Reserves that needs to be deducted from the total amount
-					check_variable = { GER_reduce_russian_CG_bonus < 0 }
-				}
-				subtract_from_temp_variable = { occupied_state_num_factory = GER_reduce_russian_CG_bonus }
+			else_if = {
+				limit = { FROM = { original_tag = YUG } }
+				set_temp_variable = { occupied_state_num_factory = -0.25 } # Yugoslavia
+			}
+			else_if = {
+				limit = { FROM = { original_tag = HOL } }
+				set_temp_variable = { occupied_state_num_factory = -0.20 } # Netherlands
+			}
+			else_if = {
+				limit = { FROM = { original_tag = BEL } }
+				set_temp_variable = { occupied_state_num_factory = -0.15 } # Belgium
+			}
+			else_if = {
+				limit = { FROM = { original_tag = NOR } }
+				set_temp_variable = { occupied_state_num_factory = -0.15 } # Norway
+			}
+			else_if = {
+				limit = { FROM = { original_tag = DEN } }
+				set_temp_variable = { occupied_state_num_factory = -0.15 } # Denmark
+			}
+			else_if = {
+				limit = { FROM = { original_tag = GRE } }
+				set_temp_variable = { occupied_state_num_factory = -0.15 } # Greece
+			}
+			else_if = {
+				limit = { FROM = { original_tag = SWI } }
+				set_temp_variable = { occupied_state_num_factory = -0.10 } # Switzerland
+			}
+			else_if = {
+				limit = { FROM = { original_tag = LUX } }
+				set_temp_variable = { occupied_state_num_factory = -0.05 } # Luxembourg
 			}
 			custom_effect_tooltip = GER_modify_economy_of_conquest_modifier_tt
 			add_to_variable = {
 				GER_industrial_consumer_goods_factor = occupied_state_num_factory
 				tooltip = consumer_goods_factor_tt
 			}
-
 			GER_reduce_mefo_bills_penalty = yes
 		}
 	}
@@ -502,13 +496,8 @@ GER_seize_gold_reserves_cat = {
 
 			#All temp variables need to be in the same scope to display the effect tooltip properly
 			FROM = {
-				set_temp_variable = { occupied_state_num_factory = 0 }
-				add_to_temp_variable = { occupied_state_num_factory = arms_factory_level }
-				add_to_temp_variable = { occupied_state_num_factory = industrial_complex_level }
-				add_to_temp_variable = { occupied_state_num_factory = building_level@dockyard }
-				
-				divide_temp_variable = { occupied_state_num_factory = 200 } #This is necessary since a single factory will increase the occupied_state_num_factory number to 1, which in turn translates to -100% when subtracting from the Consumer Goods. Dividing it by 100 here will give you 1% instead, which is more like what we want.
-				multiply_temp_variable = { occupied_state_num_factory = -1 }
+				#TPMP: every Soviet city gives a fixed CG reduction
+				set_temp_variable = { occupied_state_num_factory = -0.10 }
 
 				if = {
 					limit = {
@@ -523,9 +512,6 @@ GER_seize_gold_reserves_cat = {
 				else = {
 					custom_effect_tooltip = GER_modify_economy_of_conquest_modifier_russian_states_tt
 				}
-
-				#Reduce future Soviet Gold Reserves Germany can seize
-				add_to_variable = { ROOT.GER_reduce_russian_CG_bonus = occupied_state_num_factory }
 			}
 			GER_reduce_mefo_bills_penalty = yes
 		}
