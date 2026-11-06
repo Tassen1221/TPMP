@@ -4,7 +4,7 @@ oob = "SPR_1936"
 
 if = {
 	limit = { has_dlc = "Man the Guns" }
-		set_naval_oob = "SPR_1936_naval_mtg"
+		set_naval_oob = "TPMP_SPR_1936_naval"
 	else = {
 		set_naval_oob = "SPR_1936_naval_legacy"
 	}
@@ -241,6 +241,7 @@ if = {
 	recruit_character = SPA_mauricio_de_sivatte
 	recruit_character = SPA_karl_pius_von_habsburg
 	recruit_character = SPR_manuel_azana
+	recruit_character = SPR_anarchist_commune # Recruited last so that the existing neutrality party leader is not displaced
 	165 = {
 		add_dynamic_modifier = { modifier = autonomous_state }
 	}
@@ -804,7 +805,7 @@ if = {
 }
 
 create_equipment_variant = {
-	name = "Basic Infantry Equipment"
+	name = "Inf Eq."
 	type = line_infantry_equipment_1
 	parent_version = 0
 	modules = {
@@ -824,7 +825,7 @@ create_equipment_variant = {
 	}
 }
 create_equipment_variant = {
-	name = "Basic Special Infantry Equipment"
+	name = "SF Eq."
 	type = special_infantry_equipment_1
 	parent_version = 0
 	modules = {
@@ -844,7 +845,7 @@ create_equipment_variant = {
 	}
 }
 create_equipment_variant = {
-	name = "Basic Mobile Infantry Equipment"
+	name = "Mobile Eq."
 	type = mobile_infantry_equipment_1
 	parent_version = 0
 	modules = {

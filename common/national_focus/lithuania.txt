@@ -168,7 +168,7 @@ focus_tree = {
 		completion_reward = {
 			LIT_jonas_cernius = {
 				add_field_marshal_role = {
-					traits = { JAP_communist_sympathizer career_officer politically_connected}
+					traits = { communist_sympathizer career_officer politically_connected}
 					attack_skill = 1
 					defense_skill = 2
 					planning_skill = 2
@@ -2190,12 +2190,10 @@ focus_tree = {
 						has_war_with = ROOT
 					}
 				}
-			}
-			any_country = {
-				is_in_faction_with = ROOT
-				any_state = {
-					is_controlled_by = PREV
-					is_core_of = POL
+				any_core_state = {
+					controller = {
+						is_in_faction_with = ROOT
+					}
 				}
 			}
 		}

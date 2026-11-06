@@ -1,4 +1,16 @@
 on_actions = {
+	on_capitulation_immediate = { #scripted Dutch East Indies
+		effect = {
+			if = {
+				limit = {
+					tag = HOL
+				}
+				AST = {
+					country_event = TPMP_AST.1
+				}
+			}
+		}
+	}
 	on_capitulation_immediate = { #scripted Iran
 		effect = {
 			if = {
@@ -106,16 +118,12 @@ on_actions = {
 				limit = {
 					tag = YUG
 				}
+				YUG = {
+					every_owned_state = {
+						set_state_controller_to = ITA
+					}
+				}
 				if = {
-					limit = {
-						ITA = { has_war_with = YUG }
-					}
-					YUG = {
-						every_owned_state = {
-							set_state_controller_to = ITA
-						}
-					}
-					if = { #backup in case some asshole does albanian puppet
 					limit = {
 						ALB = {
 							exists = yes
@@ -130,40 +138,14 @@ on_actions = {
 					802 = { set_state_controller_to = ALB }
 					970 = { set_state_controller_to = ALB }
 				}
-				}
-				if = {
-					limit = {
-						HUN = { has_war_with = YUG }
-					}	
-					45 = { set_state_controller_to = HUN }
-					764 = {	set_state_controller_to = HUN }
-					if = { # hungary can only core croatia if Fascist
-						limit = {
-							HUN = { has_government = fascism }
-						}
-						109 = { set_state_controller_to = HUN }
-						103 = { set_state_controller_to = HUN }
-					}
-				}
-				if = {
-					limit = {
-						BUL = { has_war_with = YUG }
-					}
-					803 = { set_state_controller_to = BUL }
-					106 = { set_state_controller_to = BUL }
-				}
-				if = {
-					limit = {
-						GER = { has_war_with = YUG }
-					}
-					102 = { set_state_controller_to = GER }
-					if = { # preventing border gore 
-						limit = {
-							HUN = { has_government = fascism }
-						}
-						853 = { set_state_controller_to = GER }
-					}
-				}
+				45 = { set_state_controller_to = HUN }
+				764 = {	set_state_controller_to = HUN }
+				109 = { set_state_controller_to = HUN }
+				103 = { set_state_controller_to = HUN }
+				803 = { set_state_controller_to = BUL }
+				106 = { set_state_controller_to = BUL }
+				102 = { set_state_controller_to = GER }
+				853 = { set_state_controller_to = GER }
 			}
 		}
 	}
@@ -173,21 +155,13 @@ on_actions = {
 				limit = {
 					tag = GRE
 				}
-				if = {
-					limit = {
-						ITA = { has_war_with = GRE }
-					}
-					185 = { set_state_controller_to = ITA }
-					47 = { set_state_controller_to = ITA }
-					186 = { set_state_controller_to = ITA }
-				}
-				if = {
-					limit = {
-						BUL = { has_war_with = GRE }
-					}
-					731 = { set_state_controller_to = BUL }
-					184 = { set_state_controller_to = BUL }
-				}
+				185 = { set_state_controller_to = ITA }
+				47 = { set_state_controller_to = ITA }
+				186 = { set_state_controller_to = ITA }
+				731 = { set_state_controller_to = BUL }
+				184 = { set_state_controller_to = BUL }
+				182 = { set_state_controller_to = ENG }
+				187 = { set_state_controller_to = ENG }
 			}
 		}
 	}
@@ -215,4 +189,44 @@ on_actions = {
 			}
 		}
 	}
+	# on_capitulation_immediate = { #scripted japan
+	# 	effect = {	
+	# 		if = {
+	# 			limit = {
+	# 				tag = JAP
+	# 			}
+	# 			537 = { transfer_state_to = SOV }
+	# 			555 = { transfer_state_to = SOV }
+	# 			1028 = { transfer_state_to = SOV }
+	# 			527 = { transfer_state_to = SOV }
+
+	# 			526 = { transfer_state_to = USA }
+	# 			645 = { transfer_state_to = USA }
+	# 			646 = { transfer_state_to = USA }
+	# 			648 = { transfer_state_to = USA }
+				
+	# 			SOV = {	
+    #                 puppet = MAN
+    #             }
+	# 			MAN = {
+	# 				set_political_party = {
+	# 					ideology = communism
+	# 					popularity = 30
+	# 				}
+	# 			}
+	# 			USA = {
+	# 				puppet = JAP
+	# 				every_state = {
+    #                     limit = {
+    #                         OR = {
+    #                             is_owned_by = JAP
+    #                         }
+    #                         NOT = { is_core_of = JAP }
+    #                     }
+    #                     transfer_state_to = USA
+    #                 }
+	# 			}
+	# 		}
+	# 	}
+	# }
 }

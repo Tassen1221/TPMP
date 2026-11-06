@@ -1,0 +1,39 @@
+on_actions = {
+	on_monthly_ROM = {
+		effect = {
+			if = {
+				limit = {
+					date > 1937.11.1
+					NOT = { has_completed_focus = TPMP_ROM_1937_romanian_general_election }
+					NOT = { has_country_flag = TPMP_ROM_election_deadline_fired }
+				}
+				set_country_flag = TPMP_ROM_election_deadline_fired
+				if = {
+					limit = { NOT = { has_completed_focus = TPMP_ROM_sideline_titulescu } }
+					complete_national_focus = TPMP_ROM_sideline_titulescu
+				}
+				complete_national_focus = TPMP_ROM_1937_romanian_general_election
+			}
+
+			if = {
+				limit = {
+					date > 1940.7.1
+					76 = { is_owned_by = ROOT }
+					NOT = { has_country_flag = TPMP_ROM_transylvania_deadline_fired }
+				}
+				set_country_flag = TPMP_ROM_transylvania_deadline_fired
+				if = {
+					limit = {
+						has_completed_focus = TPMP_ROM_institute_royal_dictatorship
+						NOT = { has_completed_focus = TPMP_ROM_translyvanian_fiasco }
+					}
+					complete_national_focus = TPMP_ROM_translyvanian_fiasco
+				}
+				else_if = {
+					limit = { NOT = { has_completed_focus = TPMP_ROM_institute_royal_dictatorship } }
+					country_event = { id = TPMP_ROM.4 }
+				}
+			}
+		}
+	}
+}

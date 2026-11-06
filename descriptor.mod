@@ -5,7 +5,7 @@ tags={
 	"Balance"
 }
 name="Tryhard Party Multiplayer"
-supported_version="1.16.10"
+supported_version="1.19.4"
 picture="thumbnail.png"
 replace_path = "common/ai_strategy"
 replace_path = "common/ai_equipment"

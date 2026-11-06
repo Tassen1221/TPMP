@@ -516,6 +516,12 @@ if = {
 
 # 1939 Start #
 1939.1.1 = {
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1937.5.26"
+		election_frequency = 48
+		elections_allowed = yes
+	}
 	if = {
 		limit = {
 			has_dlc = "By Blood Alone"
@@ -622,7 +628,7 @@ if = {
 }
 
 create_equipment_variant = {
-	name = "Basic Infantry Equipment"
+	name = "Inf Eq."
 	type = line_infantry_equipment_1
 	parent_version = 0
 	modules = {
@@ -642,7 +648,7 @@ create_equipment_variant = {
 	}
 }
 create_equipment_variant = {
-	name = "Basic Special Infantry Equipment"
+	name = "SF Eq."
 	type = special_infantry_equipment_1
 	parent_version = 0
 	modules = {
@@ -662,7 +668,7 @@ create_equipment_variant = {
 	}
 }
 create_equipment_variant = {
-	name = "Basic Mobile Infantry Equipment"
+	name = "Mobile Eq."
 	type = mobile_infantry_equipment_1
 	parent_version = 0
 	modules = {

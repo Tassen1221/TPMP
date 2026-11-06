@@ -511,16 +511,26 @@ on_actions = {
 	#fired when two countries end up at war with each other ()
 	on_war_relation_added = {
 		effect = {
-			if = {
+			if = { # ROOT is only ever the instigator, so check both sides for SWI
 				limit = {
-					SWI_bba = yes 
-					has_dynamic_modifier = { modifier = SWI_swiss_gold_market}
-				}
-				every_enemy_country = {
-					limit = {
-						has_dynamic_modifier = { modifier = SWI_gold_trade_with_switzerland }
+					OR = {
+						FROM = {
+							SWI_bba = yes
+							has_dynamic_modifier = { modifier = SWI_swiss_gold_market }
+						}
+						ROOT = {
+							SWI_bba = yes
+							has_dynamic_modifier = { modifier = SWI_swiss_gold_market }
+						}
 					}
-					SWI_seize_gold = yes 
+				}
+				SWI = {
+					every_enemy_country = {
+						limit = {
+							has_dynamic_modifier = { modifier = SWI_gold_trade_with_switzerland }
+						}
+						SWI_seize_gold = yes
+					}
 				}
 			}
 		}	

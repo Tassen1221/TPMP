@@ -3744,10 +3744,8 @@ leader_traits = {
 		}
 		
 		modifier = {
-			max_commander_army_size = -18
-			max_army_group_size = -4
-			army_non_core_attack_factor = 0.15
-			army_non_core_defence_factor = 0.15
+			army_non_core_attack_factor = 0.015
+			army_non_core_defence_factor = 0.015
 		}
 		
 		ai_will_do = {
@@ -4105,7 +4103,7 @@ leader_traits = {
 	}
 	
 	CHI_dubious_loyalty = {
-		type = { land }
+		type = { land navy }
 		trait_type = personality_trait
 		
 		new_commander_weight = {
@@ -4131,6 +4129,19 @@ leader_traits = {
 			
 		}
 		
+	}
+
+	CHI_watched_officer = {
+		type = { land navy }
+		trait_type = personality_trait
+
+		new_commander_weight = {
+			factor = 0
+		}
+
+		modifier = {
+			experience_gain_factor = -0.25
+		}
 	}
 
 	INS_loyalty_to_indonesia = {

@@ -45,158 +45,158 @@ country_event = {
 	}
 
 	# Accept - Morganatic marriage
-	option = {
-		name = mtg_britain.1.b
-		trigger = {
-			NOT = {
-				OR = {
-					has_completed_focus = ENG_organize_the_blackshirts
-					has_completed_focus = ENG_concessions_to_the_trade_unions
-					has_completed_focus = ENG_steady_as_she_goes
-				}
-			}
-		}
-		ai_chance = {
-			factor = 20
-			modifier = {
-				factor = 0
-				ENG_is_on_historical_plan_trigger = yes
-			}
-			modifier = {
-				factor = 0
-				has_completed_focus = ENG_steady_as_she_goes
-			}
-			modifier = {
-				factor = 0
-				has_completed_focus = ENG_organize_the_blackshirts
-			}
-			modifier = {
-				factor = 0
-				has_completed_focus = ENG_concessions_to_the_trade_unions
-			}
-			modifier = {
-				factor = 0
-				OR = {
-					has_game_rule = {
-						rule = ENG_ai_behavior 
-						option = DEMOCRATIC_HISTORICAL
-					}
-					has_game_rule = {
-						rule = ENG_ai_behavior 
-						option = DEMOCRATIC_ALTERNATE
-					}
-					has_game_rule = {
-						rule = ENG_ai_behavior 
-						option = COMMUNIST
-					}
-					has_game_rule = {
-						rule = ENG_ai_behavior 
-						option = FASCIST
-					}
-					has_country_flag = ENG_AI_RANDOM_FASCIST
-					has_country_flag = ENG_AI_RANDOM_COMMUNIST
-					has_country_flag = ENG_AI_RANDOM_DEMOCRATIC_ALTERNATE
-					has_country_flag = ENG_AI_DEMOCRATIC_HISTORICAL
-				}
-			}
-		}
-		add_stability = -0.05
-		add_popularity = { ideology = neutrality popularity = 0.05 }
-		custom_effect_tooltip = mtg_britain.1_tt
-		activate_mission = ENG_abdication_crisis
-		hidden_effect = { 
-			country_event = { id = mtg_britain.2 days = 50 }
-			country_event = { id = mtg_britain.6 days = 15 random_days = 10 }
-		}
-		set_country_flag = ENG_abdication_crisis_morganatic_marriage
-		set_country_flag = edward_viii_refused_to_abdicate_flag
-		hidden_effect = {
-			CAN = { country_event = { id = mtg_britain.15 } }
-			SAF = { country_event = { id = mtg_britain.15 } }
-			RAJ = { country_event = { id = mtg_britain.15 } }
-			AST = { country_event = { id = mtg_britain.15 } }
-			NZL = { country_event = { id = mtg_britain.15 } }
-			BRM = { country_event = { id = mtg_britain.15 } }
-
-		}
-	}
+#	option = {
+#		name = mtg_britain.1.b
+#		trigger = {
+#			NOT = {
+#				OR = {
+#					has_completed_focus = ENG_organize_the_blackshirts
+#					has_completed_focus = ENG_concessions_to_the_trade_unions
+#					has_completed_focus = ENG_steady_as_she_goes
+#				}
+#			}
+#		}
+#		ai_chance = {
+#			factor = 20
+#			modifier = {
+#				factor = 0
+#				ENG_is_on_historical_plan_trigger = yes
+#			}
+#			modifier = {
+#				factor = 0
+#				has_completed_focus = ENG_steady_as_she_goes
+#			}
+#			modifier = {
+#				factor = 0
+#				has_completed_focus = ENG_organize_the_blackshirts
+#			}
+#			modifier = {
+#				factor = 0
+#				has_completed_focus = ENG_concessions_to_the_trade_unions
+#			}
+#			modifier = {
+#				factor = 0
+#				OR = {
+#					has_game_rule = {
+#						rule = ENG_ai_behavior
+#						option = DEMOCRATIC_HISTORICAL
+#					}
+#					has_game_rule = {
+#						rule = ENG_ai_behavior
+#						option = DEMOCRATIC_ALTERNATE
+#					}
+#					has_game_rule = {
+#						rule = ENG_ai_behavior
+#						option = COMMUNIST
+#					}
+#					has_game_rule = {
+#						rule = ENG_ai_behavior
+#						option = FASCIST
+#					}
+#					has_country_flag = ENG_AI_RANDOM_FASCIST
+#					has_country_flag = ENG_AI_RANDOM_COMMUNIST
+#					has_country_flag = ENG_AI_RANDOM_DEMOCRATIC_ALTERNATE
+#					has_country_flag = ENG_AI_DEMOCRATIC_HISTORICAL
+#				}
+#			}
+#		}
+#		add_stability = -0.05
+#		add_popularity = { ideology = neutrality popularity = 0.05 }
+#		custom_effect_tooltip = mtg_britain.1_tt
+#		activate_mission = ENG_abdication_crisis
+#		hidden_effect = {
+#			country_event = { id = mtg_britain.2 days = 50 }
+#			country_event = { id = mtg_britain.6 days = 15 random_days = 10 }
+#		}
+#		set_country_flag = ENG_abdication_crisis_morganatic_marriage
+#		set_country_flag = edward_viii_refused_to_abdicate_flag
+#		hidden_effect = {
+#			CAN = { country_event = { id = mtg_britain.15 } }
+#			SAF = { country_event = { id = mtg_britain.15 } }
+#			RAJ = { country_event = { id = mtg_britain.15 } }
+#			AST = { country_event = { id = mtg_britain.15 } }
+#			NZL = { country_event = { id = mtg_britain.15 } }
+#			BRM = { country_event = { id = mtg_britain.15 } }
+#
+#		}
+#	}
 
 	# Accept - Normal marriage
-	option = {
-		name = mtg_britain.1.a
-		trigger = {
-			NOT = {
-				OR = {
-					has_completed_focus = ENG_organize_the_blackshirts
-					has_completed_focus = ENG_concessions_to_the_trade_unions
-					has_completed_focus = ENG_steady_as_she_goes
-				}
-			}
-		}
-		ai_chance = {
-			factor = 10
-			modifier = {
-				factor = 0
-				ENG_is_on_historical_plan_trigger = yes
-			}
-			modifier = {
-				factor = 0
-				has_completed_focus = ENG_steady_as_she_goes
-			}
-			modifier = {
-				factor = 0
-				has_completed_focus = ENG_organize_the_blackshirts
-			}
-			modifier = {
-				factor = 0
-				has_completed_focus = ENG_concessions_to_the_trade_unions
-			}
-			modifier = {
-				factor = 0
-				OR = {
-					has_game_rule = {
-						rule = ENG_ai_behavior 
-						option = DEMOCRATIC_HISTORICAL
-					}
-					has_game_rule = {
-						rule = ENG_ai_behavior 
-						option = DEMOCRATIC_ALTERNATE
-					}
-					has_game_rule = {
-						rule = ENG_ai_behavior 
-						option = COMMUNIST
-					}
-					has_game_rule = {
-						rule = ENG_ai_behavior 
-						option = FASCIST
-					}
-					has_country_flag = ENG_AI_RANDOM_FASCIST
-					has_country_flag = ENG_AI_RANDOM_COMMUNIST
-					has_country_flag = ENG_AI_RANDOM_DEMOCRATIC_ALTERNATE
-					has_country_flag = ENG_AI_DEMOCRATIC_HISTORICAL
-				}
-			}
-		}
-		add_stability = -0.15
-		add_popularity = { ideology = neutrality popularity = 0.1 }
-		add_political_power = -25
-		custom_effect_tooltip = mtg_britain.1_tt
-		activate_mission = ENG_abdication_crisis
-		hidden_effect = { 
-			country_event = { id = mtg_britain.2 days = 50 }
-			country_event = { id = mtg_britain.6 days = 15 random_days = 10 }
-		}
-		set_country_flag = ENG_abdication_crisis_normal_marriage
-		set_country_flag = edward_viii_refused_to_abdicate_flag
-		hidden_effect = {
-			CAN = { country_event = { id = mtg_britain.15 } }
-			SAF = { country_event = { id = mtg_britain.15 } }
-			RAJ = { country_event = { id = mtg_britain.15 } }
-			AST = { country_event = { id = mtg_britain.15 } }
-			NZL = { country_event = { id = mtg_britain.15 } }
-			BRM = { country_event = { id = mtg_britain.15 } }
-		}
-	}
+#	option = {
+#		name = mtg_britain.1.a
+#		trigger = {
+#			NOT = {
+#				OR = {
+#					has_completed_focus = ENG_organize_the_blackshirts
+#					has_completed_focus = ENG_concessions_to_the_trade_unions
+#					has_completed_focus = ENG_steady_as_she_goes
+#				}
+#			}
+#		}
+#		ai_chance = {
+#			factor = 10
+#			modifier = {
+#				factor = 0
+#				ENG_is_on_historical_plan_trigger = yes
+#			}
+#			modifier = {
+#				factor = 0
+#				has_completed_focus = ENG_steady_as_she_goes
+#			}
+#			modifier = {
+#				factor = 0
+#				has_completed_focus = ENG_organize_the_blackshirts
+#			}
+#			modifier = {
+#				factor = 0
+#				has_completed_focus = ENG_concessions_to_the_trade_unions
+#			}
+#			modifier = {
+#				factor = 0
+#				OR = {
+#					has_game_rule = {
+#						rule = ENG_ai_behavior
+#						option = DEMOCRATIC_HISTORICAL
+#					}
+#					has_game_rule = {
+#						rule = ENG_ai_behavior
+#						option = DEMOCRATIC_ALTERNATE
+#					}
+#					has_game_rule = {
+#						rule = ENG_ai_behavior
+#						option = COMMUNIST
+#					}
+#					has_game_rule = {
+#						rule = ENG_ai_behavior
+#						option = FASCIST
+#					}
+#					has_country_flag = ENG_AI_RANDOM_FASCIST
+#					has_country_flag = ENG_AI_RANDOM_COMMUNIST
+#					has_country_flag = ENG_AI_RANDOM_DEMOCRATIC_ALTERNATE
+#					has_country_flag = ENG_AI_DEMOCRATIC_HISTORICAL
+#				}
+#			}
+#		}
+#		add_stability = -0.15
+#		add_popularity = { ideology = neutrality popularity = 0.1 }
+#		add_political_power = -25
+#		custom_effect_tooltip = mtg_britain.1_tt
+#		activate_mission = ENG_abdication_crisis
+#		hidden_effect = {
+#			country_event = { id = mtg_britain.2 days = 50 }
+#			country_event = { id = mtg_britain.6 days = 15 random_days = 10 }
+#		}
+#		set_country_flag = ENG_abdication_crisis_normal_marriage
+#		set_country_flag = edward_viii_refused_to_abdicate_flag
+#		hidden_effect = {
+#			CAN = { country_event = { id = mtg_britain.15 } }
+#			SAF = { country_event = { id = mtg_britain.15 } }
+#			RAJ = { country_event = { id = mtg_britain.15 } }
+#			AST = { country_event = { id = mtg_britain.15 } }
+#			NZL = { country_event = { id = mtg_britain.15 } }
+#			BRM = { country_event = { id = mtg_britain.15 } }
+#		}
+#	}
 }
 
 # Abdication Crisis Edward VIII - King's support coalesces
@@ -303,8 +303,8 @@ country_event = {
 				BRM = { has_country_flag = ENG_abdication_crisis_dominion_will_leave }
 			}
 			dismantle_faction = yes
+			remove_from_tech_sharing_group = commonwealth_research
 		}
-		remove_from_tech_sharing_group = commonwealth_research
 		effect_tooltip = {
 			if = {
 				limit = {
@@ -328,7 +328,6 @@ country_event = {
 					RAJ = {
 						drop_cosmetic_tag = yes
 						retire_country_leader = yes
-						remove_from_tech_sharing_group = commonwealth_research
 					}
 				}
 				else = {
@@ -340,12 +339,6 @@ country_event = {
 						}
 						#retire_country_leader = yes
 						RAJ = { 
-							country_event = { id = GOE_RAJ.30 hours = 2 } 
-							remove_from_tech_sharing_group = commonwealth_research
-							effect_tooltip = {
-								add_ideas = idea_RAJ_the_long_goodbye
-							}
-
 							if = {
 								limit = {
 									NOT = {
@@ -1094,7 +1087,7 @@ country_event = {
 				limit = {
 					tag = BRM
 				}
-				NZL_enforce_loyalty = yes
+				set_country_flag = britain_enforced_our_loyalty
 			}
 		}
 	}
@@ -1251,7 +1244,6 @@ country_event = {
 				RAJ = {
 					drop_cosmetic_tag = yes
 					retire_country_leader = yes
-					remove_from_tech_sharing_group = commonwealth_research
 				}
 			}
 			else = {
@@ -1260,6 +1252,7 @@ country_event = {
 						id = GOE_RAJ.30 hours = 2
 					}
 				}
+				custom_effect_tooltip = generic_skip_one_line_tt
 				custom_effect_tooltip = GOE_RAJ.30_we_are_leaving_tt
 			}
 		}
@@ -4796,40 +4789,229 @@ country_event = {
 		ai_chance = {
 			factor = 0
 		}
+
+		trigger = { #If Dominion is on fascist path when UK is fascist OR communist path when UK is communist, DON'T SHOW this option
+			NOT = {
+				AND = {
+					original_tag = AST
+					OR = {
+						AND = {
+							has_completed_focus = AST_support_the_centre_party
+							ENG = { has_government = fascism }
+						}
+						AND = {
+							has_completed_focus = AST_empower_the_workers
+							ENG = { has_government = communism }
+						}
+					}
+				}
+			}
+			NOT = {
+				AND = {
+					original_tag = AST
+					has_dlc = "Thunder at Our Gates"
+					OR = {
+						AND = {
+							has_completed_focus = AST_australia_first
+							ENG = { has_government = fascism }
+						}
+						AND = {
+							has_completed_focus = AST_against_war_and_fascism
+							ENG = { has_government = communism }
+						}
+					}
+				}
+			}
+			NOT = {
+				AND = {
+					original_tag = NZL
+					OR = {
+						AND = {
+							has_completed_focus = NZL_in_the_darkness
+							ENG = { has_government = fascism }
+						}
+						AND = {
+							has_completed_focus = NZL_the_lee_affair
+							ENG = { has_government = communism }
+						}
+					}
+				}
+			}
+			NOT = {
+				AND = {
+					original_tag = CAN
+					OR = {
+						AND = {
+							has_completed_focus = CAN_swastika_clubs
+							ENG = { has_government = fascism }
+						}
+						AND = {
+							has_completed_focus = CAN_burn_the_royal_portraits
+							ENG = { has_government = communism }
+						}
+					}
+				}
+			}
+			NOT = {
+				AND = {
+					original_tag = SAF
+					OR = {
+						AND = {
+							has_completed_focus = SAF_support_the_afrikaner_broederbond
+							ENG = { has_government = fascism }
+						}
+						AND = {
+							has_completed_focus = SAF_empower_the_workers
+							ENG = { has_government = communism }
+						}
+					}
+				}
+			}
+			NOT = {
+				AND = {
+					original_tag = RAJ
+					OR = {
+						AND = {
+							has_completed_focus = RAJ_indian_national_army
+							ENG = { has_government = fascism }
+						}
+						AND = {
+							has_completed_focus = RAJ_indian_peoples_army
+							ENG = { has_government = communism }
+						}
+					}
+				}
+			}
+			NOT = {
+				AND = {
+					original_tag = RAJ
+					has_dlc = "Graveyard of Empires"
+					OR = {
+						AND = {
+							has_completed_focus = RAJ_forward_bloc
+							ENG = { has_government = fascism }
+						}
+						AND = {
+							has_completed_focus = RAJ_red_in_the_shadows
+							ENG = { has_government = communism }
+						}
+					}
+				}
+			}
+		}
+
 		set_country_flag = ENG_dominions_stayed_with_fascist_britain_flag
-	}
+	}	
 
 	# We will leave
 	option = {
 		name = mtg_britain.66.b
-		if = {
-			limit = {
-				OR = {
-					AND = {
-						NOT = { original_tag = RAJ }
-						has_dlc = "Graveyard of Empires"
+
+		trigger = { #If Dominion is on fascist path when UK is fascist OR communist path when UK is communist, DON'T SHOW this option
+			NOT = {
+				AND = {
+					original_tag = AST
+					OR = {
+						AND = {
+							has_completed_focus = AST_support_the_centre_party
+							ENG = { has_government = fascism }
+						}
+						AND = {
+							has_completed_focus = AST_empower_the_workers
+							ENG = { has_government = communism }
+						}
 					}
-					NOT = { has_dlc = "Graveyard of Empires" }
 				}
 			}
-			leave_faction = yes
+			NOT = {
+				AND = {
+					original_tag = AST
+					has_dlc = "Thunder at Our Gates"
+					OR = {
+						AND = {
+							has_completed_focus = AST_australia_first
+							ENG = { has_government = fascism }
+						}
+						AND = {
+							has_completed_focus = AST_against_war_and_fascism
+							ENG = { has_government = communism }
+						}
+					}
+				}
+			}
+			NOT = {
+				AND = {
+					original_tag = NZL
+					OR = {
+						AND = {
+							has_completed_focus = NZL_in_the_darkness
+							ENG = { has_government = fascism }
+						}
+						AND = {
+							has_completed_focus = NZL_the_lee_affair
+							ENG = { has_government = communism }
+						}
+					}
+				}
+			}
+			NOT = {
+				AND = {
+					original_tag = CAN
+					OR = {
+						AND = {
+							has_completed_focus = CAN_swastika_clubs
+							ENG = { has_government = fascism }
+						}
+						AND = {
+							has_completed_focus = CAN_burn_the_royal_portraits
+							ENG = { has_government = communism }
+						}
+					}
+				}
+			}
+			NOT = {
+				AND = {
+					original_tag = SAF
+					OR = {
+						AND = {
+							has_completed_focus = SAF_support_the_afrikaner_broederbond
+							ENG = { has_government = fascism }
+						}
+						AND = {
+							has_completed_focus = SAF_empower_the_workers
+							ENG = { has_government = communism }
+						}
+					}
+				}
+			}
+			NOT = {
+				AND = {
+					original_tag = RAJ
+					OR = {
+						AND = {
+							has_completed_focus = RAJ_indian_national_army
+							ENG = { has_government = fascism }
+						}
+						AND = {
+							has_completed_focus = RAJ_indian_peoples_army
+							ENG = { has_government = communism }
+						}
+					}
+				}
+			}
+			NOT = { #RAJ GOE has unique option mtg_britain.66.e
+				AND = {
+					original_tag = RAJ
+					has_dlc = "Graveyard of Empires"
+				}
+			}
 		}
-		
-		if = {
-			limit = {
-				OR = {
-					AND = {
-						NOT = { original_tag = RAJ }
-						has_dlc = "Graveyard of Empires"
-					}
-					NOT = { has_dlc = "Graveyard of Empires" }
-				}
-			}
-			ENG = {
-				set_autonomy = {
-			    	target = ROOT
-			    	autonomy_state = autonomy_free
-				}
+
+		leave_faction = yes
+		ENG = {
+			set_autonomy = {
+			   	target = ROOT
+			   	autonomy_state = autonomy_free
 			}
 		}
 
@@ -4859,7 +5041,7 @@ country_event = {
 		}
 		if = {
 			limit = {
-				tag = RAJ
+				original_tag = RAJ
 				NOT = {
 					has_dlc = "Graveyard of Empires"
 				}
@@ -4868,30 +5050,175 @@ country_event = {
 			retire_country_leader = yes
 		}
 
-		if = {
-			limit = {
-				tag = RAJ
-				has_dlc = "Graveyard of Empires"
-				
+		set_country_flag = ENG_already_left_faction_flag
+		ENG = { country_event = { id = mtg_britain.67 } }
+		hidden_effect = { news_event = { id = mtg_news.63 days = 1 } }
+	}
+
+	# We will stay - On path to same ideology
+	option = {
+		name = mtg_britain.66.c
+
+		trigger = { #If Dominion is on fascist path when UK is fascist / communist path when UK is communist, SHOW this option
+			OR = {
+				AND = {
+					original_tag = AST
+					OR = {
+						AND = {
+							has_completed_focus = AST_support_the_centre_party
+							ENG = { has_government = fascism }
+						}
+						AND = {
+							has_completed_focus = AST_empower_the_workers
+							ENG = { has_government = communism }
+						}
+					}
+				}
+				AND = {
+					original_tag = AST
+					has_dlc = "Thunder at Our Gates"
+					OR = {
+						AND = {
+							has_completed_focus = AST_australia_first
+							ENG = { has_government = fascism }
+						}
+						AND = {
+							has_completed_focus = AST_against_war_and_fascism
+							ENG = { has_government = communism }
+						}
+					}
+				}
+				AND = {
+					original_tag = NZL
+					OR = {
+						AND = {
+							has_completed_focus = NZL_in_the_darkness
+							ENG = { has_government = fascism }
+						}
+						AND = {
+							has_completed_focus = NZL_the_lee_affair
+							ENG = { has_government = communism }
+						}
+					}
+				}
+				AND = {
+					original_tag = CAN
+					OR = {
+						AND = {
+							has_completed_focus = CAN_swastika_clubs
+							ENG = { has_government = fascism }
+						}
+						AND = {
+							has_completed_focus = CAN_burn_the_royal_portraits
+							ENG = { has_government = communism }
+						}
+					}
+				}
+				AND = {
+					original_tag = SAF
+					OR = {
+						AND = {
+							has_completed_focus = SAF_support_the_afrikaner_broederbond
+							ENG = { has_government = fascism }
+						}
+						AND = {
+							has_completed_focus = SAF_empower_the_workers
+							ENG = { has_government = communism }
+						}
+					}
+				}
+				AND = {
+					original_tag = RAJ
+					OR = {
+						AND = {
+							has_completed_focus = RAJ_indian_national_army
+							ENG = { has_government = fascism }
+						}
+						AND = {
+							has_completed_focus = RAJ_indian_peoples_army
+							ENG = { has_government = communism }
+						}
+					}
+				}
+				AND = {
+					original_tag = RAJ
+					has_dlc = "Graveyard of Empires"
+					OR = {
+						AND = {
+							has_completed_focus = RAJ_forward_bloc
+							ENG = { has_government = fascism }
+						}
+						AND = {
+							has_completed_focus = RAJ_red_in_the_shadows
+							ENG = { has_government = communism }
+						}
+					}
+				}		
 			}
-			country_event = { id = GOE_RAJ.30 hours = 2 }
 		}
 
-		remove_from_tech_sharing_group = commonwealth_research
-		set_country_flag = ENG_already_left_faction_flag
-		
-		if = {
+		IF = {
 			limit = {
+				ENG = { has_government = fascism }
+			}
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.05
+			}
+		}
+
+		ELSE_IF = {
+			limit = {
+				ENG = { has_government = communism }
+			}
+			add_popularity = {
+				ideology = communism
+				popularity = 0.05
+			}
+		}
+
+		set_country_flag = ENG_dominions_stayed_with_fascist_britain_flag
+	}
+
+	option = { # We will leave - RAJ GOE version
+		name = mtg_britain.66.e
+
+		trigger = {
+			AND = {
+				original_tag = RAJ
+				has_dlc = "Graveyard of Empires"
+			}
+			NOT = {
 				OR = {
-					NOT = { has_dlc = "Graveyard of Empires" }
-					NOT = { tag = RAJ }
+					AND = {
+						has_completed_focus = RAJ_forward_bloc
+						ENG = { has_government = fascism }
+					}
+					AND = {
+						has_completed_focus = RAJ_red_in_the_shadows
+						ENG = { has_government = communism }
+					}
 				}
 			}
-			ENG = { country_event = { id = mtg_britain.67 } }
 		}
-		
-		
-		hidden_effect = { news_event = { id = mtg_news.63 days = 1 } }
+
+		if = {
+			limit = {
+				has_idea = ENG_guided_by_britain_raj_1
+			}
+			remove_ideas = ENG_guided_by_britain_raj_1
+		}
+		if = {
+			limit = {
+				has_idea = ENG_guided_by_britain_raj_2
+			}
+			remove_ideas = ENG_guided_by_britain_raj_2
+		}
+
+		country_event = { id = GOE_RAJ.30 hours = 2 }
+		custom_effect_tooltip = generic_skip_one_line_tt
+		custom_effect_tooltip = GOE_RAJ.30_we_are_leaving_tt
+		set_country_flag = ENG_already_left_faction_flag
 	}
 }
 
@@ -6105,6 +6432,9 @@ country_event = {
 		}
 		activate_mission = ENG_imperial_conference_decision
 		set_country_flag = { flag = ENG_imperial_conference_timer_flag value = 1 days = 60 }
+		set_country_flag = ENG_imperial_conference_discussion_in_progress
+		add_political_power = -50
+		country_event = { id = mtg_britain.83 hours = 6 }
 		every_country = {
 			limit = {
 				OR = {

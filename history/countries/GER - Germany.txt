@@ -115,6 +115,7 @@ if = {
 		tank0_tech = 1
 		lighttank1_tech = 1
 		lighttank2_tech = 1
+		lighttankturret1_tech = 1
 		mediumtank1_tech = 1
 		heavytank1_tech = 1
 		tankupgrade1_tech = 1
@@ -168,7 +169,7 @@ if = {
 		sonar = 1
 		basic_cruiser_armor_scheme = 1
 	}
-	set_naval_oob = "GER_1936_naval_mtg"
+	set_naval_oob = "TPMP_GER_1936_naval"
 }
 if = {
 	limit = {
@@ -537,7 +538,7 @@ set_war_support = 0.3
 	complete_national_focus = GER_reorganize_the_wehrmacht
 	complete_national_focus = GER_advanced_panzer_research
 	complete_national_focus = GER_bribe_senior_officers
-	complete_national_focus = GER_befriend_japan
+	#complete_national_focus = GER_befriend_japan	#removed to improve timings
 
 	# ONES THAT HAVE TO BE HANDELED MANUALLY
 	unlock_national_focus = GER_remilitarize_the_rhineland
@@ -1392,7 +1393,7 @@ if = {
 	create_equipment_variant = {
 		name = "Ju 86"
 		type = tac_bomber_equipment_0
-		design_team = mio:GER_junkers_organization
+		design_team = mio:GER_dornier_organization
 		upgrades = {
 			plane_tac_bomb_upgrade = 5
 			plane_range_upgrade = 5
@@ -1442,7 +1443,7 @@ if = {
 	create_equipment_variant = {
 		name = "Ju 86"
 		type = medium_plane_airframe_0
-		design_team = mio:GER_junkers_organization
+		design_team = mio:GER_dornier_organization
 		modules = {
 			fixed_main_weapon_slot = medium_bomb_bay
 			fixed_auxiliary_weapon_slot_1 = empty
@@ -1546,8 +1547,26 @@ if = {
 	}
 }
 
+add_ideas = {
+	GER_mefo_bills_1936_fake_ns
+	GER_army_1936_fake_ns
+	GER_airforce_fake_ns
+}
+
 ## 1939 Start ##
 1939.1.1 = {
+
+	remove_ideas = {
+		GER_mefo_bills_1936_fake_ns
+		GER_army_1936_fake_ns
+		GER_airforce_fake_ns
+	}
+	add_ideas = {
+		GER_mefo_bills_1939_fake_ns
+		GER_army_1939_fake_ns
+		GER_wehrwirtschaft_fake_ns
+	}
+
 	if = {
 		limit = {
 			NOT = { has_dlc = "Man the Guns" }
@@ -1802,7 +1821,7 @@ if = {
 }
 
 create_equipment_variant = {
-	name = "Basic Infantry Equipment"
+	name = "Inf Eq."
 	type = line_infantry_equipment_1
 	parent_version = 0
 	modules = {
@@ -1822,7 +1841,7 @@ create_equipment_variant = {
 	}
 }
 create_equipment_variant = {
-	name = "Basic Special Infantry Equipment"
+	name = "SF Eq."
 	type = special_infantry_equipment_1
 	parent_version = 0
 	modules = {
@@ -1842,7 +1861,7 @@ create_equipment_variant = {
 	}
 }
 create_equipment_variant = {
-	name = "Basic Mobile Infantry Equipment"
+	name = "Mobile Eq."
 	type = mobile_infantry_equipment_1
 	parent_version = 0
 	modules = {

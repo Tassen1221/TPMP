@@ -120,6 +120,7 @@ characters={
 			traits  = {
 				AST_wartime_soothsayer
 			}
+			always_show_on_actions_tooltip = yes
 			on_add = {
                	add_to_variable = {
                		var = AST_uap_votes_daily_var
@@ -320,8 +321,23 @@ characters={
 				AST_motherland_advocate_pa
 			}
 			available = {
-				is_country_leader = no
-				has_completed_focus = AST_in_from_the_cold
+				IF = {
+					limit = {
+						OR = {
+							has_idea = AST_monarchist_intervention_spirit
+							has_completed_focus = AST_for_crown_and_empire
+						}
+					}
+					NOT = {
+						has_completed_focus = AST_for_crown_and_empire
+					}
+					is_country_leader = no
+					has_completed_focus = AST_in_from_the_cold
+				}
+				ELSE = {
+					is_country_leader = no
+					has_completed_focus = AST_in_from_the_cold
+				}
 			}
 		}
 	}
@@ -415,7 +431,7 @@ characters={
 		}		
 	}
 
-	AST_eric_campbell={ #BASEGAME ONLY
+	AST_eric_campbell={
 		name=AST_eric_campbell
 		portraits={
 			civilian={
@@ -823,6 +839,7 @@ characters={
 				slot = high_command
 				cost = 50
 				idea_token = AST_john_northcott
+				ledger = army
 				allowed = {
 					original_tag = AST
 				}
@@ -887,6 +904,7 @@ characters={
 			slot = high_command
 			cost = 100
 			idea_token = AST_edward_milford
+			ledger = army
 			allowed = {
 				original_tag = AST
 			}
@@ -1752,7 +1770,19 @@ characters={
 				original_tag = AST
 			}
 			available = {
-				has_completed_focus = AST_australian_command
+				IF = {
+					limit = {
+						OR = {
+							has_idea = AST_monarchist_intervention_spirit
+							has_completed_focus = AST_for_crown_and_empire
+						}
+					}
+					has_completed_focus = AST_the_councils_advice
+					has_country_flag = AST_president_pankhurst_walsh_flag
+				}
+				ELSE = {
+					has_completed_focus = AST_australian_command
+				}
 			}
 			traits = {
 				navy_chief_naval_aviation_2
@@ -1831,6 +1861,7 @@ characters={
 		advisor={
 			slot = high_command
 			idea_token = AST_stanley_goble
+			ledger = air
 			allowed = {
 				original_tag = AST
 			}
@@ -1913,6 +1944,7 @@ characters={
 			advisor={
 				slot = high_command
 				idea_token = AST_charles_burnett
+				ledger = air
 				allowed = {
 					original_tag = AST
 				}
@@ -1949,7 +1981,7 @@ characters={
 					original_tag = AST
 				}
 				traits = {
-					air_air_combat_training_2
+					air_chief_old_guard
 				}
 				cost = 100
 				ai_will_do = {
@@ -1999,7 +2031,7 @@ characters={
 		advisor={
 			slot = high_command
 			idea_token = AST_peter_jeffrey
-			ledger = army
+			ledger = air
 			allowed = {
 				original_tag = AST
 			}
@@ -2369,6 +2401,7 @@ characters={
 			traits  = {
 				AST_tax_reformer
 			}
+			always_show_on_actions_tooltip = yes
 			on_add = {
                	add_to_variable = {
                		var = AST_alp_votes_daily_var

@@ -211,8 +211,9 @@ country_event = {
 		FROM.FROM = { save_event_target_as = their_country }
 		FROM.FROM.FROM = { save_event_target_as = their_state }
 		set_country_flag = show_effect_tooltips
+		remove_targeted_decision = { target = event_target:their_country decision = WTT_border_conflict_time_until_cancelled }
 	}
-	
+
 	option = {
 		name = wtt_border_conflict_canceled_attacker.1.a
 		army_experience = 15
@@ -255,9 +256,10 @@ country_event = {
 			set_country_flag = show_effect_tooltips
 			clear_variable = attacker_state_vs_@FROM.FROM
 			clear_variable = defender_state_vs_@FROM.FROM
+			remove_targeted_decision = { target = event_target:their_country decision = WTT_border_conflict_time_until_cancelled }
 		}
 	}
-	
+
 	option = {
 		name = wtt_border_conflict_canceled_defender.1.a
 		army_experience = 30

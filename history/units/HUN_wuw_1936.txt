@@ -8,13 +8,28 @@
 		infantry = { x = 0 y = 0 }
 		infantry = { x = 0 y = 1 }
 		infantry = { x = 0 y = 2 }
+		infantry = { x = 0 y = 3 }
+
 		infantry = { x = 1 y = 0 }
 		infantry = { x = 1 y = 1 }
 		infantry = { x = 1 y = 2 }
+		infantry = { x = 1 y = 3 }
+
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+		infantry = { x = 2 y = 3 }
+
+		artillery_brigade = { x = 3 y = 0 }
+		artillery_brigade = { x = 3 y = 1 }
+		artillery_brigade = { x = 3 y = 2 }
+		
+		artillery_brigade = { x = 4 y = 0 }
+		artillery_brigade = { x = 4 y = 1 }
+		artillery_brigade = { x = 4 y = 2 }
 	}
 	support = {
 		recon = { x = 0 y = 0 }   # cavalry recon
-		artillery = { x = 0 y = 1 } # Represents the smaller artillery regiments
 	}
 }
 division_template = {
@@ -29,6 +44,16 @@ division_template = {
 		cavalry = { x = 0 y = 1 }
 		cavalry = { x = 0 y = 2 }
 		cavalry = { x = 0 y = 3 }
+
+		cavalry = { x = 1 y = 0 }
+		cavalry = { x = 1 y = 1 }
+		cavalry = { x = 1 y = 2 }
+		cavalry = { x = 1 y = 3 }
+
+		cavalry = { x = 2 y = 0 }
+		cavalry = { x = 2 y = 1 }
+		cavalry = { x = 2 y = 2 }
+		cavalry = { x = 2 y = 3 }
 	}
 	support = {
 		recon = { x = 0 y = 0 }   # recon bn of tankettes, ACs, mot inf
@@ -49,39 +74,39 @@ division_template = {
 units = {
 	##### Honvédelmi Fõparancsnokság #####
 	# Gyorshadtest ('Rapid Corps', actual corps raised in 1940)
-	division = {
-		#name = "1. Huszár Dandár"
-		division_name = {    # New syntax for compatibility with name lists
-			is_name_ordered = yes
-			name_order = 1
-		}
-		location = 9660
-		division_template = "Huszár Dandár"
-		officer = {
-			name = HUN_andras_littay
-			portraits = {
-				army = {
-					large = GFX_portrait_HUN_andras_littay
-					small = GFX_portrait_HUN_andras_littay_small
-				}
-			}
-		}
-		start_experience_factor = 0.2
-		start_equipment_factor = 0.5
+	# division = {
+	# 	#name = "1. Huszár Dandár"
+	# 	division_name = {    # New syntax for compatibility with name lists
+	# 		is_name_ordered = yes
+	# 		name_order = 1
+	# 	}
+	# 	location = 9660
+	# 	division_template = "Huszár Dandár"
+	# 	officer = {
+	# 		name = HUN_andras_littay
+	# 		portraits = {
+	# 			army = {
+	# 				large = GFX_portrait_HUN_andras_littay
+	# 				small = GFX_portrait_HUN_andras_littay_small
+	# 			}
+	# 		}
+	# 	}
+	# 	start_experience_factor = 0.2
+	# 	start_equipment_factor = 1
 
-	}
-	division = {
-		#name = "2. Huszár Dandár"
-		division_name = {    # New syntax for compatibility with name lists
-			is_name_ordered = yes
-			name_order = 2
-		}
-		location = 9660
-		division_template = "Huszár Dandár"
-		start_experience_factor = 0.2
-		start_equipment_factor = 0.5
+	# }
+	# division = {
+	# 	#name = "2. Huszár Dandár"
+	# 	division_name = {    # New syntax for compatibility with name lists
+	# 		is_name_ordered = yes
+	# 		name_order = 2
+	# 	}
+	# 	location = 9660
+	# 	division_template = "Huszár Dandár"
+	# 	start_experience_factor = 0.2
+	# 	start_equipment_factor = 1
 
-	}
+	# }
 
 	# I Hadtest
 	division = {
@@ -101,8 +126,8 @@ units = {
 				}
 			}
 		}
-		start_experience_factor = 0.2
-		start_equipment_factor = 0.7
+		start_experience_factor = 0.3
+		start_equipment_factor = 1
 
 	}
 	division = {
@@ -113,8 +138,17 @@ units = {
 		}
 		location = 9660
 		division_template = "Gyalogdandár"
-		start_experience_factor = 0.2
-		start_equipment_factor = 0.8
+		officer = {
+			name = HUN_andras_littay
+			portraits = {
+				army = {
+					large = GFX_portrait_HUN_andras_littay
+					small = GFX_portrait_HUN_andras_littay_small
+				}
+			}
+		}
+		start_experience_factor = 0.3
+		start_equipment_factor = 1
 
 	}
 
@@ -127,62 +161,62 @@ units = {
 		}
 		location = 701
 		division_template = "Gyalogdandár"
-		start_experience_factor = 0.2
-		start_equipment_factor = 0.7
+		start_experience_factor = 0.3
+		start_equipment_factor = 1
 
 	}
-	division = {
-		#name = "4. Gyalogdandár"
-		division_name = {    # New syntax for compatibility with name lists
-			is_name_ordered = yes
-			name_order = 4
-		}
-		location = 11659
-		division_template = "Gyalogdandár"
-		start_experience_factor = 0.2
-		start_equipment_factor = 0.6
+	# division = {
+	# 	#name = "4. Gyalogdandár"
+	# 	division_name = {    # New syntax for compatibility with name lists
+	# 		is_name_ordered = yes
+	# 		name_order = 4
+	# 	}
+	# 	location = 11659
+	# 	division_template = "Gyalogdandár"
+	# 	start_experience_factor = 0.2
+	# 	start_equipment_factor = 1
 
-	}
+	# }
 
-	# III Hadtest
-	division = {
-		#name = "5. Gyalogdandár"
-		division_name = {    # New syntax for compatibility with name lists
-			is_name_ordered = yes
-			name_order = 5
-		}
-		location = 11646
-		division_template = "Gyalogdandár"
-		start_experience_factor = 0.2
-		start_equipment_factor = 0.6
+	# # III Hadtest
+	# division = {
+	# 	#name = "5. Gyalogdandár"
+	# 	division_name = {    # New syntax for compatibility with name lists
+	# 		is_name_ordered = yes
+	# 		name_order = 5
+	# 	}
+	# 	location = 11646
+	# 	division_template = "Gyalogdandár"
+	# 	start_experience_factor = 0.2
+	# 	start_equipment_factor = 1
 
-	}
-	division = {
-		#name = "6. Gyalogdandár"
-		division_name = {    # New syntax for compatibility with name lists
-			is_name_ordered = yes
-			name_order = 6
-		}
-		location = 11627
-		division_template = "Gyalogdandár"
-		start_experience_factor = 0.2
-		start_equipment_factor = 0.7
+	# }
+	# division = {
+	# 	#name = "6. Gyalogdandár"
+	# 	division_name = {    # New syntax for compatibility with name lists
+	# 		is_name_ordered = yes
+	# 		name_order = 6
+	# 	}
+	# 	location = 11627
+	# 	division_template = "Gyalogdandár"
+	# 	start_experience_factor = 0.2
+	# 	start_equipment_factor = 1
 
-	}
+	# }
 
-	# IV Hadtest
-	division = {
-		#name = "7. Gyalogdandár"
-		division_name = {    # New syntax for compatibility with name lists
-			is_name_ordered = yes
-			name_order = 7
-		}
-		location = 11610
-		division_template = "Gyalogdandár"
-		start_experience_factor = 0.2
-		start_equipment_factor = 0.5
+	# # IV Hadtest
+	# division = {
+	# 	#name = "7. Gyalogdandár"
+	# 	division_name = {    # New syntax for compatibility with name lists
+	# 		is_name_ordered = yes
+	# 		name_order = 7
+	# 	}
+	# 	location = 11610
+	# 	division_template = "Gyalogdandár"
+	# 	start_experience_factor = 0.2
+	# 	start_equipment_factor = 1
 
-	}
+	# }
 }
 
 

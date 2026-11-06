@@ -2969,3 +2969,39 @@ country_event = { #China is losing against PRC
 		}
 	}
 }
+
+country_event = {
+	id = SEA_china.30 # hidden dispatcher event for Chinese request for removal of nine powers 
+	title = SEA_china.30.t
+	desc = SEA_china.30.desc
+	picture = GFX_report_event_generic_handshake 
+
+	hidden = yes 
+	
+	is_triggered_only = yes
+
+	fire_only_once = yes
+	
+	option = { # We accept
+		name = SEA_china.30.a
+
+		every_other_country = {
+			limit = {
+				is_in_array = {
+					array = CHI.nine_power_treaty_signatories
+					value = THIS
+				}
+				NOT = {
+					has_war_with = CHI
+				}
+			}
+			country_event = {
+				id = SEA_china.19
+				days = 2
+				random_hours = 36
+			}
+		}
+
+	}
+}
+

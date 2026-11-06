@@ -396,14 +396,19 @@ on_actions = {
 		}
 
 		effect = {
-			IF = {
-				limit = {
-					FROM = {
-						original_tag = BEL
-						has_completed_focus = BEL_interpreters
+			ROOT = {
+				IF = {
+					limit = {
+						BEL = {
+							has_completed_focus = BEL_interpreters
+						}
+						FROM = {
+							OR = {
+								is_ally_with = BEL
+								original_tag = BEL
+							}
+						}
 					}
-				}
-				ROOT = {
 					add_ideas = BEL_interpreters_ns
 				}
 			}
@@ -626,14 +631,19 @@ on_actions = {
 		}
 
 		effect = {
-			IF = {
-				limit = {
-					ROOT = {
-						original_tag = BEL
-						has_completed_focus = BEL_interpreters
+			FROM = {
+				IF = {
+					limit = {
+						BEL = {
+							has_completed_focus = BEL_interpreters
+						}
+						ROOT = {
+							OR = {
+								original_tag = BEL
+								is_ally_with = BEL
+							}
+						}
 					}
-				}
-				FROM = {
 					add_ideas = BEL_interpreters_ns
 				}
 			}
@@ -963,6 +973,19 @@ on_actions = {
 	on_release_as_puppet = {
 
 		effect = {
+			IF = {
+				limit = {
+					original_tag = COG
+					has_cosmetic_tag = COG_belgian_congo
+					NOT = { is_subject_of = BEL }
+				}
+				COG = {
+					drop_cosmetic_tag = yes
+				}
+			}
+		}
+
+		effect = {
 			# European States Array
 			if = {
 				limit = {
@@ -1149,6 +1172,7 @@ on_actions = {
 	}
 
 	on_release_as_free = { #ROOT is free nation FROM is releaser.
+
 		effect = {
 			# European States Array
 			if = {
@@ -1786,6 +1810,17 @@ on_actions = {
 					ROOT = { original_tag = BEL }
 				}
 				add_to_variable = { BEL.special_projects_completed = 1 }
+			}
+			# Used by the US AI to time its second nuclear facility
+			IF = {
+				limit = {
+					ROOT = {
+						original_tag = USA
+						is_special_project_completed = sp:sp_nuclear_reactor
+						NOT = { has_country_flag = USA_nuclear_reactor_done_flag }
+					}
+				}
+				ROOT = { set_country_flag = USA_nuclear_reactor_done_flag }
 			}
 		}
 	}
@@ -3134,6 +3169,43 @@ on_actions = {
 					FROM = { tag = GER }  # Germany is loser
 				}
 				log = "Germany [FROM.GetName] lost against [ROOT.GetName]"
+			}
+		}
+		effect = {
+			FROM = {
+				if = {
+					limit = {
+						original_tag = GER
+					}
+					every_country = {
+						limit = {
+							GER_is_reichskommissariat_tag = yes
+						}
+						every_other_country = {
+							limit = {
+								meta_trigger = {
+									text = {
+										has_country_flag = GER_RK_capital_state_trasferred_[RK_TAG]_victim_flag
+									}
+									RK_TAG = "[PREV.GetTag]"
+								}
+							}
+							PREV = {
+								every_owned_state = {
+									limit = {
+										meta_trigger = {
+											text = {
+												has_state_flag = GER_RK_capital_state_trasferred_[RK_TAG]_flag
+											}
+											RK_TAG = "[PREV.GetTag]"
+										}
+									}
+									set_state_owner_to = PREV.PREV	#transfer_state might cause issues if there is another war ongoing
+								}
+							}
+						}
+					}
+				}
 			}
 		}
 	}

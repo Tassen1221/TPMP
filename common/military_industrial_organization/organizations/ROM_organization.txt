@@ -19,12 +19,11 @@ ROM_constanta_shipyard_organization = {
 ROM_galati_shipyard_organization = {
 	include = generic_raider_ship_organization
 	icon = GFX_idea_generic_coastal_navy
-	allowed = { 
+	allowed = {
 		tag = ROM
-		has_dlc = "Death or Dishonor"
 	}
 	available = {
-		FROM = { has_completed_focus = ROM_coastal_defense_navy }
+		FROM = { has_completed_focus = TPMP_ROM_expand_galati_shipyards }
 	}
 	initial_trait = {
 		name = ROM_mio_trait_coastal_defense_production
@@ -42,12 +41,11 @@ ROM_galati_shipyard_organization = {
 ROM_Braila_organization = {
 	include = generic_battle_line_ship_organization
 	icon = GFX_idea_generic_sea_focused_navy
-	allowed = { 
+	allowed = {
 		tag = ROM
-		has_dlc = "Death or Dishonor"
 	}
 	available = {
-		FROM = { has_completed_focus = ROM_black_sea_dominance }
+		FROM = { has_completed_focus = TPMP_ROM_expand_galati_shipyards }
 	}
 }
 
@@ -68,12 +66,7 @@ ROM_iar_organization = {
 		tag = ROM
 	}
 	available = {
-		if = {
-			limit = {
-				has_dlc = "Death or Dishonor"
-			}
-			FROM = { has_completed_focus = ROM_invest_in_the_iar }
-		}
+		FROM = { has_completed_focus = TPMP_ROM_trust_in_iar }
 	}
 
 	add_trait = {
@@ -84,12 +77,8 @@ ROM_iar_organization = {
 		position = { x=2 y=0 }
 		relative_position_id = generic_mio_trait_advanced_aerodynamics
 
-		visible = {
-			has_dlc = "Death or Dishonor"
-		}
-
 		available = {
-			FROM = { has_completed_focus = ROM_invest_in_the_iar }
+			FROM = { has_completed_focus = TPMP_ROM_trust_in_iar }
 		}
 
 		equipment_bonus = {

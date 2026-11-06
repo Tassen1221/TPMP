@@ -584,3 +584,60 @@ AST_PAR_01 =
 		# AST didn't have any Marine divisions, these are all fictional.
 	}
 }
+
+AST_INF_02 = {
+	name = "Royal Guard Division"
+
+	for_countries = { AST }
+
+	can_use = { 
+		has_dlc = "Thunder at Our Gates"
+		has_government = neutrality
+		has_completed_focus = AST_the_kings_men
+	}
+
+	division_types = { "infantry" }
+
+	fallback_name = "%d. Royal Guard Division"
+
+	# Names with numbers (only one number per entry)
+	ordered = {
+		1 = { "%dst Royal Guard Division" }
+		2 = { "%dnd Royal Guard Division" }
+		3 = { "%drd Royal Guard Division" }
+		4 = { "%dth Royal Guard Division" }
+		5 = { "%dth Royal Guard Division" }
+	}
+	
+}
+
+AST_MIL_01 = {
+	name = "New Guard Citizen Force"
+
+	for_countries = { AST }
+
+	can_use = { 
+		has_dlc = "Thunder at Our Gates"
+		has_government = neutrality
+		has_completed_focus = AST_campbells_men
+	}
+
+	division_types = { "militia" }
+
+	fallback_name = "%d. New Guard Citizen Force"
+
+	# Names with numbers (only one number per entry)
+	ordered = {
+		1 = { "%dst NG-Force 'Spades'" }
+		2 = { "%dnd NG-Force 'Hearts'" }
+		3 = { "%drd NG-Force 'Diamonds'" }
+		4 = { "%dth NG-Force 'Clubs'" }
+		5 = { "%dth NG-Force 'The Joker's Own'" }
+		6 = { "%dth NG-Force 'Trumps'" }
+		7 = { "%dth NG-Force 'Aces'" }
+		8 = { "%dth NG-Force 'Kings'" }
+		9 = { "%dth. NG-Force 'Knaves'" }
+		10 = { "%dth NG-Force 'Pips'" }
+	}
+	
+}

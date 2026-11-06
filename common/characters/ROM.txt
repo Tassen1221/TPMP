@@ -62,8 +62,11 @@ characters={
 			allowed = {
 				original_tag = ROM
 			}
+			available = {
+				NOT = { has_completed_focus = TPMP_ROM_night_of_the_green_knives }
+			}
 			traits = {
-				prince_of_terror 
+				prince_of_terror
 			}
 		}
 
@@ -499,17 +502,10 @@ characters={
 				original_tag = ROM
 			}
 			available = {
-				if = {
-					limit = {
-						has_dlc = "Man the Guns"
-					}
-					NOT = {
-						has_autonomy_state = autonomy_supervised_state
-					}
-				}
+				NOT = { has_completed_focus = TPMP_ROM_night_of_the_green_knives }
 			}
 			traits = {
-				democratic_reformer 
+				HUN_popular_liberal
 			}
 		}
 	}
@@ -565,8 +561,11 @@ characters={
 			allowed = {
 				original_tag = ROM
 			}
+			available = {
+				NOT = { has_completed_focus = TPMP_ROM_night_of_the_green_knives }
+			}
 			traits = {
-				silent_workhorse 
+				silent_workhorse
 			}
 		}
 	}
@@ -585,8 +584,11 @@ characters={
 				original_tag = ROM
 				has_dlc = "Death or Dishonor"
 			}
+			available = {
+				has_completed_focus = TPMP_ROM_malaxa_and_resita
+			}
 			traits = {
-				captain_of_industry 
+				captain_of_industry
 			}
 		}
 	}
@@ -624,12 +626,7 @@ characters={
 			slot = political_advisor
 			idea_token = ROM_mihail_sturdza
 			available = {
-				if = {
-					limit = {
-						has_dlc = "Death or Dishonor"
-					}
-					has_completed_focus = ROM_appoint_german_friendly_government
-				}
+				has_completed_focus = TPMP_ROM_night_of_the_green_knives
 				if = {
 					limit = {
 						has_dlc = "Man the Guns"
@@ -643,7 +640,7 @@ characters={
 				original_tag = ROM
 			}
 			traits = {
-				fascist_demagogue 
+				NOR_fascist_advocate
 			}
 			ai_will_do = {
 				factor = 0.000

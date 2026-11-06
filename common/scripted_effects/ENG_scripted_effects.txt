@@ -211,6 +211,9 @@ ENG_imperial_conference_clear_in_progress_flags = {
 		clr_country_flag = ENG_diplomatic_pressure_flag
 		clr_country_flag = ENG_extensive_diplomatic_pressure_flag
 		clr_country_flag = ENG_imperial_defense_flag
+		set_country_flag = ENG_imperial_conference_discussion_in_progress
+		add_political_power = -50
+		country_event = { id = mtg_britain.87 hours = 6 }
 	}
 	if = {
 		limit = {
@@ -221,6 +224,9 @@ ENG_imperial_conference_clear_in_progress_flags = {
 		clr_country_flag = ENG_diplomatic_pressure_flag
 		clr_country_flag = ENG_extensive_diplomatic_pressure_flag
 		clr_country_flag = ENG_imperial_trade_flag
+		set_country_flag = ENG_imperial_conference_discussion_in_progress
+		add_political_power = -50
+		country_event = { id = mtg_britain.91 hours = 6 }
 	}
 	if = {
 		limit = {
@@ -231,6 +237,12 @@ ENG_imperial_conference_clear_in_progress_flags = {
 		clr_country_flag = ENG_diplomatic_pressure_flag
 		clr_country_flag = ENG_extensive_diplomatic_pressure_flag
 		clr_country_flag = ENG_imperial_economy_flag
+		if = {
+			limit = { has_war = no }
+			set_country_flag = ENG_imperial_conference_discussion_in_progress
+			add_political_power = -50
+			country_event = { id = mtg_britain.95 hours = 6 }
+		}
 	}
 	if = {
 		limit = {

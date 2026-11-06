@@ -319,6 +319,11 @@ MTG_naval_treaties = {
 			OR = {
 				has_government = fascism
 				has_government = communism
+				# Neutral Japan walks out cheaply too, so it deceives at the same price rather than the democratic one
+				AND = {
+					original_tag = JAP
+					has_government = neutrality
+				}
 			}
 		}
 	
@@ -339,6 +344,177 @@ MTG_naval_treaties = {
 				swap_ideas = {
 					remove_idea = MTG_naval_treaty_adherent_reduced
 					add_idea = MTG_naval_treaty_cheating_reduced
+				}
+			}
+			# Dates the deception, which is what lets it surface on its own where there is no intelligence work to catch it
+			set_country_flag = MTG_naval_treaty_cheating_since
+			custom_effect_tooltip = MTG_cheat_on_treaty_risk_tt
+		}
+	}
+
+	# The same deception, priced for a government that has to lie to an electorate rather than to a censor.
+	MTG_cheat_on_treaty_democratic = {
+
+		icon = generic
+
+		available = {
+		}
+
+		cost = 150
+		fire_only_once = yes
+		ai_will_do = {
+			factor = 0
+		}
+
+		visible = {
+			OR = {
+				has_idea = MTG_naval_treaty_adherent
+				has_idea = MTG_naval_treaty_adherent_reduced
+			}
+			OR = {
+				has_government = democratic
+				has_government = neutrality
+			}
+			NOT = {
+				AND = {
+					original_tag = JAP
+					has_government = neutrality
+				}
+			}
+		}
+
+		complete_effect = {
+			if = {
+				limit = {
+					has_idea = MTG_naval_treaty_adherent
+				}
+				swap_ideas = {
+					remove_idea = MTG_naval_treaty_adherent
+					add_idea = MTG_naval_treaty_cheating
+				}
+			}
+			if = {
+				limit = {
+					has_idea = MTG_naval_treaty_adherent_reduced
+				}
+				swap_ideas = {
+					remove_idea = MTG_naval_treaty_adherent_reduced
+					add_idea = MTG_naval_treaty_cheating_reduced
+				}
+			}
+			# Dates the deception, which is what lets it surface on its own where there is no intelligence work to catch it
+			set_country_flag = MTG_naval_treaty_cheating_since
+			custom_effect_tooltip = MTG_cheat_on_treaty_risk_tt
+		}
+	}
+
+	# Naval intelligence is the only way a violation becomes public knowledge, the cheating idea masks itself as adherence.
+	MTG_expose_FROM_treaty_violation = {
+
+		icon = generic_naval
+
+		available = {
+		}
+
+		target_root_trigger = {
+			has_naval_treaty_trigger = yes
+		}
+
+		target_trigger = {
+			FROM = {
+				OR = {
+					has_idea = MTG_naval_treaty_cheating
+					has_idea = MTG_naval_treaty_cheating_reduced
+				}
+				NOT = { has_country_flag = MTG_treaty_violation_exposed }
+			}
+			OR = {
+				AND = {
+					has_dlc = "La Resistance"
+					intel_level_over = {
+						target = FROM
+						navy_intel > 0.65
+					}
+				}
+				# Without the intelligence systems nothing can build a case early, so the deception only surfaces with time
+				AND = {
+					NOT = { has_dlc = "La Resistance" }
+					FROM = {
+						has_country_flag = {
+							flag = MTG_naval_treaty_cheating_since
+							days > 420
+						}
+					}
+				}
+			}
+		}
+
+		cost = 75
+		ai_will_do = {
+			factor = 10
+			modifier = {
+				NOT = {
+					OR = {
+						TAG = ENG
+						TAG = USA
+					}
+				}
+				factor = 0
+			}
+		}
+
+		visible = {
+			has_naval_treaty_trigger = yes
+		}
+
+		complete_effect = {
+			custom_effect_tooltip = MTG_expose_FROM_treaty_violation_tt
+			add_named_threat = { threat = 1 name = MTG_expose_FROM_treaty_violation_threat }
+			FROM = {
+				set_country_flag = MTG_treaty_violation_exposed
+				add_political_power = -50
+				add_stability = -0.05
+				if = {
+					limit = {
+						OR = {
+							has_government = democratic
+							has_government = neutrality
+						}
+					}
+					add_stability = -0.05
+					add_war_support = -0.05
+				}
+				# PREV is the violator in here, so every remaining member turns against them
+				every_other_country = {
+					limit = {
+						has_naval_treaty_trigger = yes
+					}
+					add_opinion_modifier = {
+						target = PREV
+						modifier = broken_naval_treaty_opinion_mod
+					}
+				}
+				if = {
+					limit = {
+						NOT = {
+							any_other_country = {
+								OR = {
+									has_idea = MTG_naval_treaty_cheating_reduced
+									has_idea = MTG_naval_treaty_adherent_reduced
+								}
+							}
+						}
+					}
+					every_other_country = {
+						limit = {
+							OR = {
+								has_idea = MTG_naval_treaty_cheating
+								has_idea = MTG_naval_treaty_adherent
+							}
+						}
+						activate_mission = MTG_escalator_clause_invocation_mission
+						custom_effect_tooltip = MTG_escalator_clause_tt
+					}
 				}
 			}
 		}
@@ -415,8 +591,13 @@ MTG_naval_treaties = {
 		}
 	
 		complete_effect = {
+			custom_effect_tooltip = MTG_invite_FROM_to_treaty_tt
 			FROM = {
-				country_event = MTG_naval_treaty.1
+				country_event = {
+					id = MTG_naval_treaty.1
+					hours = 2
+					random_hours = 6
+				}
 			}
 		}
 	}
@@ -501,6 +682,7 @@ MTG_naval_treaties = {
 		}
 	
 		complete_effect = {
+			custom_effect_tooltip = MTG_send_treaty_warning_tt
 			FROM = {
 				country_event = { id = MTG_naval_treaty.4 }
 			}
@@ -618,8 +800,12 @@ MTG_naval_treaties = {
 		}
 	
 		complete_effect = {
+			custom_effect_tooltip = MTG_send_treaty_warning_tt
 			FROM = {
-				country_event = { id = MTG_naval_treaty.4 }
+				country_event = {
+					id = MTG_naval_treaty.4
+					hours = 6
+				}
 			}
 		}
 	}
@@ -792,10 +978,11 @@ MTG_naval_treaties = {
 			has_naval_treaty_trigger = yes
 		}
 		timeout_effect = {
-			clr_global_flag = MTG_second_london_conference 
+			custom_effect_tooltip = MTG_treaty_renew_mission_timeout_tt
+			clr_global_flag = MTG_second_london_conference
 		}
 		complete_effect = {
-			
+
 		}
 	}
 	MTG_escalator_clause_invocation_mission = {

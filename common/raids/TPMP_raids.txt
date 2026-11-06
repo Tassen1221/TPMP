@@ -439,6 +439,12 @@ types = {
 		# Specific Target is visible
 		show_target = {
 			has_war_with = FROM
+			FROM = {
+				tag = USA
+				NOT = {
+					has_completed_focus = TPMP_USA_executive_order_9066
+				}
+			}
 		}
 
 		# Can prepare

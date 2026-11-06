@@ -1,0 +1,69 @@
+
+TPMP_USA_elections_category = {
+	priority = 100
+	icon =  GFX_decision_category_generic_democracy
+	allowed = {
+		tag = USA
+	}
+	visible = {
+		has_country_flag = TPMP_USA_elections_flag
+	}
+	scripted_gui = TPMP_USA_elections_ui
+}
+TPMP_USA_congress_category = {
+	priority = 99
+	icon =  GFX_decision_category_usa_congress
+	allowed = {
+		tag = USA
+	}
+	scripted_gui = TPMP_USA_congress_ui	
+}
+TPMP_USA_alphabet_category = {
+	priority = 98
+	icon =  GFX_decision_category_generic_political_actions
+	allowed = {
+		tag = USA
+	}
+	visible = {
+		has_completed_focus = TPMP_USA_form_the_alphabet_agencies
+	}
+}
+TPMP_USA_deficit_category = {
+	priority = 97
+	icon =  GFX_decision_category_gre_paying_ifc_debt
+	allowed = {
+		tag = USA
+	}
+	visible = {
+		has_completed_focus = TPMP_USA_manage_the_budget
+	}
+}
+TPMP_USA_foreign_aid_category = {
+	priority = 96
+	picture = GFX_decision_cat_foreign_aid
+	icon =  GFX_decision_category_generic_arms_trade
+	allowed = {
+		tag = USA
+	}
+	visible = {
+		has_completed_focus = TPMP_USA_lend_lease
+	}
+	scripted_gui = TPMP_USA_foreign_aid_ui	
+}
+TPMP_USA_sanctions_category = {
+	priority = 95
+	icon =  GFX_decision_category_generic_economy
+	allowed = {
+		tag = USA
+	}
+	visible = {
+		has_completed_focus = TPMP_USA_limited_intervention
+	}
+}
+TPMP_USA_power_balance_category = {
+	priority = 94
+	icon = GFX_decision_category_generic_political_actions
+	allowed = {
+		tag = USA
+	}
+}

@@ -14,68 +14,84 @@ TPMP_western_front_decision_category = {
 			}
 		}
 		is_good = yes
-		days_mission_timeout = 270
+		days_mission_timeout = 180
 		fire_only_once = yes
 		timeout_effect = {
 			GER = {
 				add_ideas = TPMP_GER_gelb_idea
 			}
-		}
-	}
-	TPMP_operation_compass_decision = {
-		icon = GFX_decision_generic_operation
-		allowed = {
-			tag = ENG
-		}
-		activation = {
-			has_war_with = GER
-		}
-		available = {
-		}
-		days_remove = 60
-		fire_only_once = yes
-		remove_effect = {
 			ITA = {
-				declare_war_on = {
-					target = ENG
-					type = annex_everything
-				}
+				add_ideas = TPMP_GER_gelb_idea
 			}
-			ENG = {
-				add_timed_idea = {
-					idea = TPMP_ENG_compass_idea
-					days = 60
-				}
+			HUN = {
+				add_ideas = TPMP_GER_gelb_idea
 			}
-			CAN = {
-				add_timed_idea = {
-					idea = TPMP_ENG_compass_idea
-					days = 60
-				}
+			ROM = {
+				add_ideas = TPMP_GER_gelb_idea
 			}
-			AST = {
-				add_timed_idea = {
-					idea = TPMP_ENG_compass_idea
-					days = 60
-				}
+			BUL = {
+				add_ideas = TPMP_GER_gelb_idea
 			}
-			RAJ = {
-				add_timed_idea = {
-					idea = TPMP_ENG_compass_idea
-					days = 60
-				}
-			}
-			SAF = {
-				add_timed_idea = {
-					idea = TPMP_ENG_compass_idea
-					days = 60
-				}
+			SPR = {
+				add_ideas = TPMP_GER_gelb_idea
 			}
 		}
-		cancel_trigger = {
-            has_war_with = ITA
-        }
 	}
+	# Operation Compass -- disabled, uncomment this block to restore
+#	TPMP_operation_compass_decision = {
+#		icon = GFX_decision_generic_operation
+#		allowed = {
+#			tag = ENG
+#		}
+#		activation = {
+#			has_war_with = GER
+#		}
+#		available = {
+#		}
+#		days_remove = 60
+#		fire_only_once = yes
+#		remove_effect = {
+#			ITA = {
+#				declare_war_on = {
+#					target = ENG
+#					type = annex_everything
+#				}
+#			}
+#			ENG = {
+#				add_timed_idea = {
+#					idea = TPMP_ENG_compass_idea
+#					days = 60
+#				}
+#			}
+#			CAN = {
+#				add_timed_idea = {
+#					idea = TPMP_ENG_compass_idea
+#					days = 60
+#				}
+#			}
+#			AST = {
+#				add_timed_idea = {
+#					idea = TPMP_ENG_compass_idea
+#					days = 60
+#				}
+#			}
+#			RAJ = {
+#				add_timed_idea = {
+#					idea = TPMP_ENG_compass_idea
+#					days = 60
+#				}
+#			}
+#			SAF = {
+#				add_timed_idea = {
+#					idea = TPMP_ENG_compass_idea
+#					days = 60
+#				}
+#			}
+#		}
+#		cancel_trigger = {
+#            has_war_with = ITA
+#        }
+#	}
 	TPMP_operation_sealion_decision = {
 		icon = GFX_decision_generic_operation
         allowed = {
@@ -98,7 +114,7 @@ TPMP_western_front_decision_category = {
 			IF = {
 				limit = {
 					ENG = {
-						check_variable = { TPMP_ENG_sealion_attack_var = 0.5 }
+						check_variable = { TPMP_ENG_sealion_attack_var = 1.0 }
 					}
 				}
 				ENG = {
@@ -109,8 +125,8 @@ TPMP_western_front_decision_category = {
 			}
 			ENG = {
 				custom_effect_tooltip = TPMP_ENG_sealion_tt
-				subtract_from_variable = { TPMP_ENG_sealion_attack_var = 0.5 tooltip = army_core_attack_factor_tt }
-				subtract_from_variable = { TPMP_ENG_sealion_defence_var = 0.5 tooltip = army_core_defence_factor_tt }
+				subtract_from_variable = { TPMP_ENG_sealion_attack_var = 1.0 tooltip = army_core_attack_factor_tt }
+				subtract_from_variable = { TPMP_ENG_sealion_defence_var = 1.0 tooltip = army_core_defence_factor_tt }
 			}
 			hidden_effect = {
 				ENG = {

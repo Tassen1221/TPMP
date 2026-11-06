@@ -516,7 +516,7 @@ focus_tree = {
                     modules={
                         main_armament_slot=tank_light_cannon_1
                         engine_type_slot=tank_gasoline_engine_1
-                        turret_type_slot=tank_simple_light_turret_1
+                        turret_type_slot=tank_light_turret_1
                         suspension_type_slot=tank_christie_suspension
                         armor_type_slot=tank_welded_armor
                     }
@@ -1446,7 +1446,7 @@ focus_tree = {
                     limit = {
                         can_construct_building = air_facility
                     }
-                    prioritize = { 291 }
+                    prioritize = { 439 }
                     construct_building_in_random_province = {
                         air_facility = 1
                     }
@@ -1715,9 +1715,10 @@ focus_tree = {
             division_template = {
                 name = "Gajhastas"
                 is_locked = no
-                #division_names_group = NAMELIST_ID # optional
-                priority = 1 # optional 
-                template_counter = 108 # optional
+
+                priority = 1 
+                template_counter = 108 
+                override_model = RAJ_elephantry_entity
                 regiments = {
                     cavalry = { x = 0 y = 0 }
                     cavalry = { x = 0 y = 1 }
@@ -1728,9 +1729,9 @@ focus_tree = {
                     cavalry = { x = 1 y = 2 }
                     cavalry = { x = 1 y = 3 }
                 }
-                #support = {
-                #    artillery = { x = 0 y = 0 }
-                #}
+                regimental_support = {
+                    artillery = { x = 0 y = 0 }
+                }
             }
             capital_scope = {
                 create_unit = {
@@ -7578,6 +7579,10 @@ focus_tree = {
             }
 
             hidden_effect = {
+                country_event = {
+                    id = GOE_RAJ.53
+                    hours = 6
+                }
                 if = {
                     limit = {
                         has_game_rule = {
@@ -7631,6 +7636,10 @@ focus_tree = {
             custom_effect_tooltip = RAJ_league_against_gandhism_tt
             add_political_power = 30
             hidden_effect = {
+                country_event = {
+                    id = GOE_RAJ.54
+                    hours = 6
+                }
                 if = {
                     limit = {
                         has_game_rule = {
@@ -7721,6 +7730,9 @@ focus_tree = {
             custom_effect_tooltip = generic_skip_one_line_tt
             try_build_civ_in_core_otherwise_build_in_controlled = yes
             
+            custom_effect_tooltip = generic_skip_one_line_tt
+            custom_effect_tooltip = available_political_advisor
+            show_ideas_tooltip = RAJ_b_p_sitaramayya
         }
     }
 
@@ -7793,6 +7805,7 @@ focus_tree = {
             custom_effect_tooltip = generic_skip_one_line_tt
             custom_effect_tooltip = available_political_advisor
             show_ideas_tooltip = RAJ_bhimrao_ramji_ambedkar
+            show_ideas_tooltip = RAJ_GOE_vallabhbhai_patel
         }
     }
 
@@ -12985,6 +12998,10 @@ focus_tree = {
                 show_modifiers = yes # default is no
             }
 
+            custom_effect_tooltip = generic_skip_one_line_tt
+            custom_effect_tooltip = available_political_advisor
+            show_ideas_tooltip = RAJ_GOE_subbier_appadurai_ayer
+
 
 
 
@@ -14980,6 +14997,15 @@ focus_tree = {
         completion_reward = {
             if = {
                 limit = {
+                    has_idea = RAJ_marginalized_muslim_community_very_happy
+                }
+                swap_ideas = {
+                    add_idea = RAJ_marginalized_muslim_community_very_happy_alt
+                    remove_idea = RAJ_marginalized_muslim_community_very_happy
+                }
+            }
+            else_if = {
+                limit = {
                     has_idea = RAJ_marginalized_muslim_community_angry
                 }
                 swap_ideas = {
@@ -14987,7 +15013,19 @@ focus_tree = {
                     remove_idea = RAJ_marginalized_muslim_community_angry
                 }
             }
-            else = {
+            else_if = {
+                limit = {
+                    has_idea = RAJ_marginalized_muslim_community_happy
+                }
+                swap_ideas = {
+                    add_idea = RAJ_marginalized_muslim_community_happy_alt
+                    remove_idea = RAJ_marginalized_muslim_community_happy
+                }
+            }
+            else_if = {
+                limit = {
+                    has_idea = RAJ_marginalized_muslim_community
+                }
                 swap_ideas = {
                     add_idea = RAJ_marginalized_muslim_community_happy_alt
                     remove_idea = RAJ_marginalized_muslim_community
@@ -15105,9 +15143,33 @@ focus_tree = {
         }
 
         completion_reward = {
-           swap_ideas = {
-               remove_idea = RAJ_marginalized_muslim_community_happy
-               add_idea = RAJ_marginalized_muslim_community_very_happy
+           if = {
+               limit = { has_idea = RAJ_marginalized_muslim_community_happy_alt }
+               swap_ideas = {
+                   remove_idea = RAJ_marginalized_muslim_community_happy_alt
+                   add_idea = RAJ_marginalized_muslim_community_very_happy_alt
+               }
+           }
+           else_if = {
+               limit = { has_idea = RAJ_marginalized_muslim_community_happy }
+               swap_ideas = {
+                   remove_idea = RAJ_marginalized_muslim_community_happy
+                   add_idea = RAJ_marginalized_muslim_community_very_happy
+               }
+           }
+           else_if = {
+               limit = { has_idea = RAJ_marginalized_muslim_community_angry }
+               swap_ideas = {
+                   remove_idea = RAJ_marginalized_muslim_community_angry
+                   add_idea = RAJ_marginalized_muslim_community_very_happy
+               }
+           }
+           else_if = {
+               limit = { has_idea = RAJ_marginalized_muslim_community }
+               swap_ideas = {
+                   remove_idea = RAJ_marginalized_muslim_community
+                   add_idea = RAJ_marginalized_muslim_community_very_happy
+               }
            }
         }
     }
@@ -15327,6 +15389,11 @@ focus_tree = {
                     PAK = {
                         exists = yes
                     }
+                }
+                custom_trigger_tooltip = {
+                    tooltip = RAJ_hedgemony_pakistan_assessed_tt
+                    has_variable = pak_factories
+                    has_variable = pak_researched_techs
                 }
                 OR = {
                     check_variable = { RAJ.num_of_factories >  pak_factories tooltip = pak_factories_tt }
@@ -17190,6 +17257,12 @@ focus = {
 		set_variable = { RAJ_local_leaders_infra_chance = 0 }
 		set_variable = { RAJ_local_leaders_civs_chance = 0.6 }
 		set_variable = { RAJ_local_leaders_mils_chance = 0.4 }
+
+		custom_effect_tooltip = generic_skip_one_line_tt
+		custom_effect_tooltip = available_political_advisor
+		show_ideas_tooltip = RAJ_GOE_j_r_d_tata
+		custom_effect_tooltip = available_political_advisor
+		show_ideas_tooltip = RAJ_GOE_g_d_birla
 	}
 }
 
@@ -20756,8 +20829,10 @@ focus = {
 			support = {
 				engineer = { x = 0 y = 0 }
 				recon = { x = 0 y = 1 }
-				artillery = { x = 0 y = 2 }
 			}
+            regimental_support = {
+                artillery = { x = 0 y = 0 }
+            }
 		}
 
 		custom_effect_tooltip = generic_skip_one_line_tt
@@ -23021,9 +23096,11 @@ focus = {
                     
                 }
                 support = {
+                    engineer = { x = 0 y = 0 }
+                }
+                regimental_support = {
                     artillery = { x = 0 y = 0 }
-                    engineer = { x = 0 y = 1 }
-                    anti_air = { x = 0 y = 2 }
+                    anti_air = { x = 0 y = 1}
                 }
             }
 
@@ -23479,6 +23556,50 @@ focus = {
                     amount = 240
                 }
             }
+        }
+    } 
+
+    focus = {
+        id = RAJ_establish_the_alupuram_works
+        icon = GFX_focus_generic_aluminum
+        prerequisite = { focus = RAJ_bombay_baroda_and_central_india_railway }
+        x = 2
+        y = 1
+        relative_position_id = RAJ_bombay_baroda_and_central_india_railway
+        
+        cost = 5
+
+        ai_will_do = {
+            factor = 1
+        }
+
+        available = {
+            controls_state = 982 
+        }
+        
+        bypass = {
+
+        }
+
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+
+        search_filters = { FOCUS_FILTER_INDUSTRY }
+
+        completion_reward = {
+            982 = {
+                add_resource = {
+                    type = aluminium
+                    amount = 15  
+                }
+            }
+            custom_effect_tooltip = generic_skip_one_line_tt
+            unlock_decision_tooltip = {
+                decision = establish_jaykaynagar_aliminium_smelters
+                show_effect_tooltip = yes # default is no
+                show_modifiers = no 
+            }   
         }
     }
 

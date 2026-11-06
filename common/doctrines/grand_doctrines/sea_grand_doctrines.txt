@@ -8,7 +8,7 @@ new_fleet_in_being = {
         always = yes
     }
 
-    xp_cost = 100
+    xp_cost = 0
     xp_type = navy
 
     ai_will_do = {
@@ -118,7 +118,7 @@ new_convoy_raiding = {
         always = yes
     }
 
-    xp_cost = 100
+    xp_cost = 0
     xp_type = navy
 
     ai_will_do = {
@@ -149,7 +149,9 @@ new_convoy_raiding = {
     milestones = {
         {
             #Submarines
-            submarine_attack = 0.10
+            submarine = {
+                torpedo_attack = 0.1
+            }
             naval_torpedo_reveal_chance_factor = -0.10
             convoy_raiding_efficiency_factor = 0.1
 
@@ -238,7 +240,7 @@ new_base_strike = {
         always = yes
     }
 
-    xp_cost = 100
+    xp_cost = 0
     xp_type = navy
 
     ai_will_do = {

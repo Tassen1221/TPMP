@@ -289,6 +289,7 @@ if = {
 	recruit_character = BEL_achille_van_acker
 	recruit_character = BEL_king_leopold_iii
 	recruit_character = BEL_raoul_van_overstraeten
+	recruit_character = BEL_georges_deffontaine
 	recruit_character = BEL_oscar_michiels
 	recruit_character = BEL_victor_van_strydonck_de_burkel
 	recruit_character = BEL_jules_pire
@@ -408,9 +409,29 @@ IF = {
 	}
 }
 
-
+if = {
+	limit = {
+		has_dlc = "Gotterdammerung"
+	}
+	add_ideas = {
+		BEL_scars_of_ww1_ns_fake
+		BEL_corruption_ns_fake
+	}
+}
 
 1939.1.1 = {
+
+	if = {
+		limit = {
+			has_dlc = "Gotterdammerung"
+		}
+		remove_ideas = {
+			BEL_scars_of_ww1_ns_fake
+			BEL_corruption_ns_fake
+		}
+		add_ideas = BEL_corruption_ns_fake_2
+	}
+
 	add_ideas = {
 		limited_conscription
 	}
@@ -615,12 +636,12 @@ IF = {
 }
 
 create_equipment_variant = {
-	name = "Basic Infantry Equipment"
+	name = "Belgian Clearance Eq."
 	type = line_infantry_equipment_1
 	parent_version = 0
 	modules = {
 		soldier_type_slot_0 = light_machine_gun_1
-		soldier_type_slot_1 = bolt_action_1
+		soldier_type_slot_1 = light_machine_gun_1
 		soldier_type_slot_2 = bolt_action_1
 		soldier_type_slot_3 = bolt_action_1
 		soldier_type_slot_4 = bolt_action_1
@@ -628,14 +649,15 @@ create_equipment_variant = {
 		soldier_type_slot_6 = bolt_action_1
 		soldier_type_slot_7 = bolt_action_1
 		soldier_type_slot_8 = bolt_action_1
-		soldier_type_slot_9 = bolt_action_1
+		soldier_type_slot_9 = at_rifle_1
 		uniform_type_slot = helmet
-		sidearm_type_slot = bayonet
-		support_type_slot_0 = improvised_at_grenades
+		sidearm_type_slot = entrenching_tool
+		support_type_slot_0 = infantry_heavy_machine_gun
+		support_type_slot_1 = rations
 	}
 }
 create_equipment_variant = {
-	name = "Basic Special Infantry Equipment"
+	name = "SF Eq."
 	type = special_infantry_equipment_1
 	parent_version = 0
 	modules = {
@@ -655,7 +677,7 @@ create_equipment_variant = {
 	}
 }
 create_equipment_variant = {
-	name = "Basic Mobile Infantry Equipment"
+	name = "Mobile Eq."
 	type = mobile_infantry_equipment_1
 	parent_version = 0
 	modules = {

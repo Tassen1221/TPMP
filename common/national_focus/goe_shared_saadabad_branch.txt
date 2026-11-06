@@ -10,40 +10,32 @@ joint_focus = {
 		y = 0
 		trigger = {
 			tag = IRQ
-			AND = {
-				NOT = { has_completed_focus = IRQ_promote_kurdish_culture }
-				NOT = { has_completed_focus = IRQ_party_of_national_brotherhood }
-				NOT = { has_completed_focus = IRQ_rally_behind_the_hashemite_dynasty }
-			}
 		}
 	}
 
 	offset = {
-		x = 38
+		x = -26
 		y = 0
 		trigger = {
 			tag = IRQ
-			AND = {
-				has_completed_focus = IRQ_promote_kurdish_culture
-				NOT = { has_completed_focus = IRQ_party_of_national_brotherhood }
-				NOT = { has_completed_focus = IRQ_rally_behind_the_hashemite_dynasty }
+			has_game_rule = {
+				rule = obsolete_focus_branches_visibility
+				option = HIDE
 			}
+			has_completed_focus = IRQ_promote_kurdish_culture
 		}
 	}
 
-
 	offset = {
-		x = 58
+		x = -6
 		y = 0
 		trigger = {
 			tag = IRQ
-			AND = {
-				NOT = { has_completed_focus = IRQ_promote_kurdish_culture }
-				OR = {
-					has_completed_focus = IRQ_party_of_national_brotherhood
-					has_completed_focus = IRQ_rally_behind_the_hashemite_dynasty
-				}
+			has_game_rule = {
+				rule = obsolete_focus_branches_visibility
+				option = HIDE
 			}
+			has_completed_focus = IRQ_ensure_sunni_dominance
 		}
 	}
 

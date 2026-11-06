@@ -274,7 +274,7 @@ country_event = {
 				}
 				country_event = {
 					id = GOE_generic_events.1
-					hours = 4
+					days = 7
 				}
 			}
 		}
@@ -416,7 +416,10 @@ country_event = {
 	
 	option = { # Become Vichy
 		name = france.13.a
-		trigger = { is_ai = no }
+		trigger = {
+			is_ai = no
+			has_civil_war = no
+		}
 		set_country_flag = become_vichy
 		set_global_flag = fall_of_france
 		save_global_event_target_as = vichy_france
@@ -455,6 +458,12 @@ country_event = {
 	picture = GFX_report_event_german_parade_paris
 	
 	is_triggered_only = yes
+
+	trigger = {
+		FRA = {
+			has_civil_war = no
+		}
+	}
 	
 	# option = { # Agree
 	# 	name = france.14.a
@@ -1214,6 +1223,16 @@ country_event = {
 							state = 680
 							state = 553
 							state = 554
+							state = 286
+							state = 670
+							state = 671
+							state = 728
+							state = 741
+							state = 1017
+							state = 1066
+							state = 1067
+							state = 1068
+							state = 1069
 						}
 						# Keep French Indochina out of Vichy while Siam's limited war over it is ongoing
 						NOT = {
@@ -1228,6 +1247,23 @@ country_event = {
 									has_variable = limited_war_target
 									var:limited_war_target = { original_tag = FRA }
 								}
+							}
+						}
+						NOT = {
+							AND = {
+								OR = {
+									state = 286
+									state = 670
+									state = 671
+									state = 728
+									state = 741
+									state = 1017
+									state = 1066
+									state = 1067
+									state = 1068
+									state = 1069
+								}
+								NOT = { is_owned_by = FRA }
 							}
 						}
 					}
@@ -1266,6 +1302,16 @@ country_event = {
 						}
 					}
 					add_core_of = PREV
+				}
+				# TPMP: all of French North Africa always goes to Italy, war or not
+				ITA = {
+					transfer_state = 458 # Tunisia
+					transfer_state = 665 # Gabès
+					transfer_state = 459 # Algiers
+					transfer_state = 460 # Constantine
+					transfer_state = 513 # Tlemcen
+					transfer_state = 461 # Casablanca
+					transfer_state = 462 # Marrakech
 				}
 				if = { 
 					limit = { ITA = { has_war_with = FRA } }
@@ -1341,10 +1387,10 @@ country_event = {
 					transfer_units_fraction = {
 						target = event_target:vichy_france
 						size = 0.9
-						stockpile_ratio = 0.7
-						army_ratio = 0.7
+						stockpile_ratio = 0.9
+						army_ratio = 0.9
 						navy_ratio = 0.85
-						air_ratio = 1.0
+						air_ratio = 0.9
 					}
 				}
 				if = {

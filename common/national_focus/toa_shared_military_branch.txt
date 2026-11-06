@@ -1,3 +1,18 @@
+### search_filters = { FOCUS_FILTER_POLITICAL }
+### search_filters = { FOCUS_FILTER_RESEARCH }
+### search_filters = { FOCUS_FILTER_INDUSTRY }
+### search_filters = { FOCUS_FILTER_STABILITY }
+### search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+### search_filters = { FOCUS_FILTER_MANPOWER }
+### search_filters = { FOCUS_FILTER_ANNEXATION }
+### search_filters = { FOCUS_FILTER_ARMY_XP }
+### search_filters = { FOCUS_FILTER_NAVY_XP }
+### search_filters = { FOCUS_FILTER_AIR_XP }
+### search_filters = { FOCUS_FILTER_BALANCE_OF_POWER }
+### search_filters = { FOCUS_FILTER_POLITICAL_CHARACTER }
+### search_filters = { FOCUS_FILTER_MILITARY_CHARACTER }
+### search_filters = { FOCUS_FILTER_INTERNATIONAL_TRADE }
+### search_filters = { FOCUS_FILTER_HISTORICAL }
 
 shared_focus = {
 	id = SMB_army
@@ -260,6 +275,7 @@ shared_focus = {
 			add_dynamic_modifier = { modifier = south_american_army_modifier }
 		}
 	}
+	search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_INDUSTRY }
 }
 
 shared_focus = {
@@ -371,6 +387,7 @@ shared_focus = {
 		}
 
 	}
+	search_filters = { FOCUS_FILTER_INDUSTRY }
 }
 
 shared_focus = {
@@ -416,6 +433,7 @@ shared_focus = {
 		}
 
 	}
+	search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_POLITICAL }
 }
 
 shared_focus = {  
@@ -558,6 +576,7 @@ shared_focus = {
 			}
 		#}
 	}
+	search_filters = { FOCUS_FILTER_RESEARCH }
 }
 
 shared_focus = {
@@ -684,6 +703,7 @@ shared_focus = {
 			}
 		}
 	}
+	search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH }
 }
 
 shared_focus = {
@@ -718,6 +738,7 @@ shared_focus = {
 
 		custom_effect_tooltip = SMB_tank_warfare_tt
 	}
+	search_filters = { FOCUS_FILTER_RESEARCH }
 }
 
 shared_focus = {
@@ -794,6 +815,7 @@ shared_focus = {
 			add_to_variable = { JUNO_army_modifier_industrial_capacity_factory = 0.05 tooltip = industrial_capacity_factory_tt }
 		}
 	}
+	search_filters = { FOCUS_FILTER_INDUSTRY }
 }
 
 shared_focus = {
@@ -949,6 +971,7 @@ shared_focus = {
 
 	completion_reward = {
 	}
+	search_filters = { FOCUS_FILTER_RESEARCH }
 }
 
 shared_focus = {
@@ -988,6 +1011,7 @@ shared_focus = {
 			category = cat_motorized_tech
 		}
 	}
+	search_filters = { FOCUS_FILTER_RESEARCH }
 }
 
 shared_focus = {
@@ -1077,6 +1101,7 @@ shared_focus = {
 			add_to_variable = { JUNO_army_modifier_army_org_factor = 0.03 tooltip = army_org_factor_tt }
 		}
 	}
+	search_filters = { FOCUS_FILTER_ARMY_XP }
 }
 
 shared_focus = {
@@ -1157,6 +1182,7 @@ shared_focus = {
 			category = cat_infantry_tech
 		}
 	}
+	search_filters = { FOCUS_FILTER_RESEARCH }
 }
 
 shared_focus = {
@@ -1195,6 +1221,7 @@ shared_focus = {
 			hours = 0
 		}	
 	}
+	search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY }
 }
 
 shared_focus = {
@@ -1417,6 +1444,7 @@ shared_focus = {
 			add_to_variable = { JUNO_army_modifier_conscription = 0.015 tooltip = conscription_tt }
 		}
 	}
+	search_filters = { FOCUS_FILTER_MANPOWER }
 }
 
 shared_focus = {
@@ -1462,6 +1490,7 @@ shared_focus = {
 		#}
 
 	}
+	search_filters = { FOCUS_FILTER_RESEARCH }
 }
 
 shared_focus = {
@@ -1514,7 +1543,8 @@ shared_focus = {
 			}
 		}
 
-	}   
+	}
+	search_filters = { FOCUS_FILTER_RESEARCH }
 }  
  
 shared_focus = {
@@ -1653,6 +1683,7 @@ shared_focus = {
 			}
 		}
 	}
+	search_filters = { FOCUS_FILTER_RESEARCH }
 }
 
 shared_focus = {
@@ -1718,6 +1749,7 @@ shared_focus = {
 			}
 		}
 	}
+	search_filters = { FOCUS_FILTER_RESEARCH }
 }
 
 shared_focus = {
@@ -1785,6 +1817,7 @@ shared_focus = {
 			}
 		}
 	}
+	search_filters = { FOCUS_FILTER_RESEARCH }
 }
 
 shared_focus = {
@@ -1908,6 +1941,7 @@ shared_focus = {
 		army_experience = 15
 		air_experience = 15
 	}
+	search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_AIR_XP FOCUS_FILTER_RESEARCH }
 }
 
 shared_focus = {
@@ -2033,6 +2067,7 @@ shared_focus = {
 		navy_experience = 15
 		army_experience = 15
 	}
+	search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_NAVY_XP FOCUS_FILTER_RESEARCH }
 }
 
 shared_focus = {
@@ -2102,6 +2137,7 @@ shared_focus = {
 
 		army_experience = 30
 	}
+	search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_RESEARCH }
 }
 
 shared_focus = {
@@ -2132,6 +2168,7 @@ shared_focus = {
 
 	completion_reward = {
 	}
+	search_filters = { FOCUS_FILTER_RESEARCH }
 }
 
 shared_focus = {
@@ -2213,6 +2250,7 @@ shared_focus = {
 
 		add_ideas = JUNO_hidden_aa_production_ns_2
 	}
+	search_filters = { FOCUS_FILTER_INDUSTRY }
 }
 
 shared_focus = {
@@ -2332,6 +2370,7 @@ shared_focus = {
 			add_dynamic_modifier = { modifier = south_american_airforce_modifier }
 		}
 	}
+	search_filters = { FOCUS_FILTER_AIR_XP FOCUS_FILTER_INDUSTRY }
 }
 
 shared_focus = {
@@ -2484,6 +2523,7 @@ shared_focus = {
 			}
 		}
 	}
+	search_filters = { FOCUS_FILTER_INDUSTRY }
 }
 
 shared_focus = {
@@ -2552,6 +2592,7 @@ shared_focus = {
 		}
 		
 	}
+	search_filters = { FOCUS_FILTER_INDUSTRY }
 }
 
 shared_focus = {
@@ -2698,6 +2739,7 @@ custom_effect_tooltip = generic_skip_one_line_tt
 			}
 		}
 	}
+	search_filters = { FOCUS_FILTER_INDUSTRY }
 }
 
 shared_focus = {
@@ -2731,6 +2773,7 @@ shared_focus = {
 			category = heavy_air
 		}
 	}
+	search_filters = { FOCUS_FILTER_RESEARCH }
 }
 
 shared_focus = {
@@ -2764,6 +2807,7 @@ shared_focus = {
 			category = medium_air
 		}
 	}
+	search_filters = { FOCUS_FILTER_RESEARCH }
 }
 
 shared_focus = {
@@ -2797,6 +2841,7 @@ shared_focus = {
 			category = light_air
 		}
 	}
+	search_filters = { FOCUS_FILTER_RESEARCH }
 }
 
 shared_focus = {
@@ -3262,6 +3307,7 @@ shared_focus = {
 			category = jet_technology
 		} 
 	}
+	search_filters = { FOCUS_FILTER_RESEARCH }
 }
 
 shared_focus = {
@@ -3297,6 +3343,7 @@ shared_focus = {
 			category = cat_air_doctrine
 		}
 	}
+	search_filters = { FOCUS_FILTER_AIR_XP }
 }
 
 shared_focus = {
@@ -3340,6 +3387,7 @@ shared_focus = {
 			tooltip = refit_speed_tt
 		}
 	}
+	search_filters = { FOCUS_FILTER_RESEARCH }
 }
 
 
@@ -3489,6 +3537,7 @@ shared_focus = {
 			add_to_variable = { JUNO_army_modifier_planning_speed_factor = 0.15 tooltip = planning_speed_factor_tt }
 		}
 	}
+	search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_AIR_XP FOCUS_FILTER_NAVY_XP }
 }
 
 shared_focus = {
@@ -3564,6 +3613,7 @@ shared_focus = {
 			add_to_variable = { JUNO_airforce_modifier_conscription_factor = 0.1 tooltip = conscription_factor_tt }
 		}
 	}
+	search_filters = { FOCUS_FILTER_AIR_XP FOCUS_FILTER_MANPOWER }
 }
 
 shared_focus = {
@@ -3672,6 +3722,7 @@ shared_focus = {
 		}
 
 	}
+	search_filters = { FOCUS_FILTER_NAVY_XP FOCUS_FILTER_INDUSTRY }
 }
 
 shared_focus = {
@@ -3734,6 +3785,7 @@ shared_focus = {
 			}
 		}
 	}
+	search_filters = { FOCUS_FILTER_NAVY_XP }
 }
 
 shared_focus = {
@@ -3801,6 +3853,7 @@ shared_focus = {
 			}
 		}
 	}
+	search_filters = { FOCUS_FILTER_INDUSTRY }
 }
 
 
@@ -3941,6 +3994,7 @@ shared_focus = {
 			}
 		}
 	}
+	search_filters = { FOCUS_FILTER_INDUSTRY }
 }
 
 shared_focus = {
@@ -3976,6 +4030,7 @@ shared_focus = {
 			category = bb_tech
 		}
 	}
+	search_filters = { FOCUS_FILTER_RESEARCH }
 }
 
 shared_focus = {
@@ -4017,6 +4072,7 @@ shared_focus = {
 			category = dd_tech
 		}
 	}
+	search_filters = { FOCUS_FILTER_RESEARCH }
 }
 
 shared_focus = {
@@ -4102,6 +4158,7 @@ shared_focus = {
 			tooltip = naval_mines_effect_reduction_tt
 		}
 	}
+	search_filters = { FOCUS_FILTER_RESEARCH }
 }
 
 shared_focus = {
@@ -4164,6 +4221,7 @@ shared_focus = {
 		}
 		
 	}
+	search_filters = { FOCUS_FILTER_NAVY_XP FOCUS_FILTER_RESEARCH }
 }
 
 shared_focus = {
@@ -4224,6 +4282,7 @@ shared_focus = {
 		}
 
 	}
+	search_filters = { FOCUS_FILTER_NAVY_XP }
 }
 
 shared_focus = {
@@ -4274,7 +4333,8 @@ shared_focus = {
 				}
 			add_ideas = CAN_degauss_ship_hulls
 		}
-	}	
+	}
+	search_filters = { FOCUS_FILTER_NAVY_XP FOCUS_FILTER_RESEARCH }
 }
 
 shared_focus = {
@@ -4354,6 +4414,7 @@ shared_focus = {
 			add_ideas = cruiser_submarine_specialization
 		}
 	}
+	search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH }
 }
 
 shared_focus = {
@@ -4408,6 +4469,7 @@ shared_focus = {
 		}
 
 	}
+	search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH }
 }
 
 shared_focus = {
@@ -4443,6 +4505,7 @@ shared_focus = {
 			tooltip = repair_speed_factor_tt
 		}
 	}
+	search_filters = { FOCUS_FILTER_INDUSTRY }
 }
 
 shared_focus = {
@@ -4611,6 +4674,7 @@ shared_focus = {
 			}
 		}
 	}
+	search_filters = { FOCUS_FILTER_INDUSTRY }
 }
 
 shared_focus = {
@@ -4639,6 +4703,7 @@ shared_focus = {
 	completion_reward = {
 		add_ideas = POR_convoy_build_efficiency
 	}
+	search_filters = { FOCUS_FILTER_INDUSTRY }
 }
 
 shared_focus = {
@@ -4725,6 +4790,7 @@ shared_focus = {
 			}
 		}
 	}
+	search_filters = { FOCUS_FILTER_INDUSTRY }
 }
 
 shared_focus = {  
@@ -4781,6 +4847,7 @@ shared_focus = {
 		add_to_variable = { JUNO_army_modifier_experience_gain_army_factor = 0.02 tooltip = experience_gain_army_factor_tt }
 		add_to_variable = { JUNO_army_modifier_army_org_factor = 0.03 tooltip = army_org_factor_tt }
 	}
+	search_filters = { FOCUS_FILTER_MILITARY_CHARACTER }
 }
 
 shared_focus = {  
@@ -4815,6 +4882,7 @@ shared_focus = {
 			category = cat_support_tech
 		}
 	}
+	search_filters = { FOCUS_FILTER_RESEARCH }
 }
 
 shared_focus = {  
@@ -4844,4 +4912,5 @@ shared_focus = {
 	completion_reward = {
 		add_ideas = BRA_brown_water_navy_idea
 	}
+	search_filters = { FOCUS_FILTER_RESEARCH }
 }

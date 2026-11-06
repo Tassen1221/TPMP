@@ -1180,9 +1180,29 @@
 		}
 
 		available = {
-			NOT = {
-				has_idea = CHI_army_corruption_1
-			}		
+			if = {
+				limit = { has_idea = CHI_army_corruption_1 }
+				NOT = { has_idea = CHI_army_corruption_1 }
+			}
+
+			if = {
+				limit = { has_idea = CHI_army_corruption_2 }
+				NOT = { has_idea = CHI_army_corruption_2 }
+			}
+
+			if = {
+				limit = { has_idea = CHI_army_corruption_3 }
+				NOT = { has_idea = CHI_army_corruption_3 }
+			}
+
+			if = {
+				limit = {
+					NOT = { has_idea = CHI_army_corruption_1 }
+					NOT = { has_idea = CHI_army_corruption_2 }
+					NOT = { has_idea = CHI_army_corruption_3 }
+				}
+				NOT = { has_idea = CHI_army_corruption_3 }
+			}	
 		}
 
 		bypass = {

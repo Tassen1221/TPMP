@@ -1,0 +1,52 @@
+faction_goal_TPMP_to_bring_about_peace = {
+	name = faction_goal_TPMP_to_bring_about_peace_name
+	description = faction_goal_TPMP_to_bring_about_peace_desc
+	category = long_term
+	group = FOCUS_FILTER_CONSOLIDATION
+	visible = {
+		FROM = {
+			has_completed_focus = TPMP_USA_to_bring_about_peace
+		}
+	}
+	available = {
+		FROM = {
+			has_completed_focus = TPMP_USA_to_bring_about_peace
+		}
+	}
+	ratio_progress = {
+		total_amount_collection = collection:TPMP_axis_controlled_states
+		completed_amount_collection = collection:TPMP_liberated_axis_states
+
+		scale = {
+			stability_factor = 0.10
+			consumer_goods_factor = -0.10
+			production_speed_buildings_factor = 0.10
+		}
+	}
+}
+
+faction_goal_TPMP_to_bring_about_victory = {
+	name = faction_goal_TPMP_to_bring_about_victory_name
+	description = faction_goal_TPMP_to_bring_about_victory_desc
+	category = long_term
+	group = FOCUS_FILTER_ANNEXATION
+	visible = {
+		FROM = {
+			has_completed_focus = TPMP_USA_to_bring_about_victory
+		}
+	}
+	available = {
+		FROM = {
+			has_completed_focus = TPMP_USA_to_bring_about_victory
+		}
+	}
+	ratio_progress = {
+		total_amount_collection = collection:TPMP_axis_controlled_states
+		completed_amount_collection = collection:TPMP_liberated_axis_states
+
+		scale = {
+			army_speed_factor = 0.10
+			army_attack_factor = 0.05
+		}
+	}
+}

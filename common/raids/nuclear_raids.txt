@@ -5,6 +5,9 @@ types = {
 
 		category = nuclear_raids
 
+		# Base success is 0.5 and RAIDS_MIN_SUCCESS_FOR_LAUNCH is 0.65, so without this the AI prepares strikes it can never launch.
+		ai_min_success_chance = 0.45
+
 		command_power = 20 # command power allocation cost
 		ai_will_do = {
 			base = 1
@@ -46,7 +49,7 @@ types = {
 		visible = {
 			OR = {
 				is_special_project_completed = sp:sp_nuclear_bomb
-				num_of_nukes > 0	#To fix the nuke from the project option "we can use this against or enemies", not actually being usable
+				has_country_flag = early_nuclear_raid_unlock
 			}
 		}
 		# Specific Target is visible
@@ -334,6 +337,12 @@ types = {
             scale = 0.5
         }
 
+        unit_animations = {
+            stage = { state = "idle" }
+            stage = { state = "idle2" intro = "idle2_intro" at_progress = 0.33 }
+            stage = { state = "idle3" intro = "idle3_intro" at_progress = 0.66 }
+        }
+
 		success_factors = {
 			success = {
 				base = 0.8
@@ -500,6 +509,12 @@ types = {
             scale = 0.5
         }
 
+        unit_animations = {
+            stage = { state = "idle" }
+            stage = { state = "idle2" intro = "idle2_intro" at_progress = 0.33 }
+            stage = { state = "idle3" intro = "idle3_intro" at_progress = 0.66 }
+        }
+
 		success_factors = {
 			success = {
 				base = 0.8
@@ -581,6 +596,9 @@ types = {
 		days_to_prepare = 14
 
 		category = nuclear_raids
+
+		# Same 0.5 base as nuclear_strike, so it needs the same override to clear RAIDS_MIN_SUCCESS_FOR_LAUNCH.
+		ai_min_success_chance = 0.45
 
 		ai_will_do = {
 			base = 1
@@ -923,6 +941,12 @@ types = {
             scale = 0.5
         }
 
+        unit_animations = {
+            stage = { state = "idle" }
+            stage = { state = "idle2" intro = "idle2_intro" at_progress = 0.33 }
+            stage = { state = "idle3" intro = "idle3_intro" at_progress = 0.66 }
+        }
+
 		success_factors = {
 			success = {
 				base = 0.8
@@ -1089,6 +1113,12 @@ types = {
 
         unit_model = {
             scale = 0.5
+        }
+
+        unit_animations = {
+            stage = { state = "idle" }
+            stage = { state = "idle2" intro = "idle2_intro" at_progress = 0.33 }
+            stage = { state = "idle3" intro = "idle3_intro" at_progress = 0.66 }
         }
 
 		success_factors = {

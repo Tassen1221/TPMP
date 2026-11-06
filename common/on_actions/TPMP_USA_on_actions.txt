@@ -1,0 +1,437 @@
+on_actions = {
+	on_weekly_USA = {
+		effect = {
+			IF = {
+				limit = {
+					OR = {
+						has_completed_focus = TPMP_USA_90_division_plan
+						has_completed_focus = TPMP_USA_265_division_plan
+					}
+					has_war = yes
+				}
+				IF = {
+					limit = {
+						has_idea = TPMP_USA_90_division_plan_idea_0
+						num_divisions > 90
+					}
+					swap_ideas = {
+						remove_idea = TPMP_USA_90_division_plan_idea_0
+						add_idea = TPMP_USA_90_division_plan_idea_1
+					}
+				}
+				ELSE_IF = {
+					limit = {
+						has_idea = TPMP_USA_90_division_plan_idea_1
+						num_divisions < 91
+					}
+					swap_ideas = {
+						remove_idea = TPMP_USA_90_division_plan_idea_1
+						add_idea = TPMP_USA_90_division_plan_idea_0
+					}
+				}
+				IF = {
+					limit = {
+						has_idea = TPMP_USA_265_division_plan_idea_0
+						num_divisions > 265
+					}
+					swap_ideas = {
+						remove_idea = TPMP_USA_265_division_plan_idea_0
+						add_idea = TPMP_USA_265_division_plan_idea_1
+					}
+				}
+				ELSE_IF = {
+					limit = {
+						has_idea = TPMP_USA_265_division_plan_idea_1
+						num_divisions < 266
+					}
+					swap_ideas = {
+						remove_idea = TPMP_USA_265_division_plan_idea_1
+						add_idea = TPMP_USA_265_division_plan_idea_0
+					}
+				}
+			}
+			IF = {
+				limit = {
+					has_completed_focus = TPMP_USA_willow_run_plant
+				}
+				IF = {
+					limit = {
+						393 = {
+							is_controlled_by = USA
+							arms_factory > 49
+						}
+						NOT = {
+							has_idea = TPMP_USA_willow_run_plant_idea_5
+						}
+					}
+					USA_remove_willow_run_plant = yes
+					add_ideas = TPMP_USA_willow_run_plant_idea_5
+				}
+				ELSE_IF = {
+					limit = {
+						393 = {
+							is_controlled_by = USA
+							arms_factory < 50
+							arms_factory > 39
+						}
+						NOT = {
+							has_idea = TPMP_USA_willow_run_plant_idea_4
+						}
+					}
+					USA_remove_willow_run_plant = yes
+					add_ideas = TPMP_USA_willow_run_plant_idea_4
+				}
+				ELSE_IF = {
+					limit = {
+						393 = {
+							is_controlled_by = USA
+							arms_factory < 40
+							arms_factory > 29
+						}
+						NOT = {
+							has_idea = TPMP_USA_willow_run_plant_idea_3
+						}
+					}
+					USA_remove_willow_run_plant = yes
+					add_ideas = TPMP_USA_willow_run_plant_idea_3
+				}
+				ELSE_IF = {
+					limit = {
+						393 = {
+							is_controlled_by = USA
+							arms_factory < 30
+							arms_factory > 19
+						}
+						NOT = {
+							has_idea = TPMP_USA_willow_run_plant_idea_2
+						}
+					}
+					USA_remove_willow_run_plant = yes
+					add_ideas = TPMP_USA_willow_run_plant_idea_2
+				}
+				ELSE_IF = {
+					limit = {
+						393 = {
+							is_controlled_by = USA
+							arms_factory < 20
+							arms_factory > 9
+						}
+						NOT = {
+							has_idea = TPMP_USA_willow_run_plant_idea_1
+						}
+					}
+					USA_remove_willow_run_plant = yes
+					add_ideas = TPMP_USA_willow_run_plant_idea_1
+				}
+				ELSE_IF = {
+					limit = {
+						393 = {
+							is_controlled_by = USA
+							arms_factory < 10
+						}
+						NOT = {
+							has_idea = TPMP_USA_willow_run_plant_idea_0
+						}
+					}
+					USA_remove_willow_run_plant = yes
+					add_ideas = TPMP_USA_willow_run_plant_idea_0
+				}
+				ELSE_IF = {
+					limit = {
+						393 = {
+							NOT = {
+								is_controlled_by = USA
+							}
+						}
+					}
+					USA_remove_willow_run_plant = yes
+				}
+			}
+			IF = {
+				limit = {
+					has_completed_focus = TPMP_USA_detroit_arsenal
+				}
+				IF = {
+					limit = {
+						393 = {
+							is_controlled_by = USA
+							arms_factory > 49
+						}
+						NOT = {
+							has_idea = TPMP_USA_detroit_arsenal_idea_5
+						}
+					}
+					USA_remove_detroit_arsenal = yes
+					add_ideas = TPMP_USA_detroit_arsenal_idea_5
+				}
+				ELSE_IF = {
+					limit = {
+						393 = {
+							is_controlled_by = USA
+							arms_factory < 50
+							arms_factory > 39
+						}
+						NOT = {
+							has_idea = TPMP_USA_detroit_arsenal_idea_4
+						}
+					}
+					USA_remove_detroit_arsenal = yes
+					add_ideas = TPMP_USA_detroit_arsenal_idea_4
+				}
+				ELSE_IF = {
+					limit = {
+						393 = {
+							is_controlled_by = USA
+							arms_factory < 40
+							arms_factory > 29
+						}
+						NOT = {
+							has_idea = TPMP_USA_detroit_arsenal_idea_3
+						}
+					}
+					USA_remove_detroit_arsenal = yes
+					add_ideas = TPMP_USA_detroit_arsenal_idea_3
+				}
+				ELSE_IF = {
+					limit = {
+						393 = {
+							is_controlled_by = USA
+							arms_factory < 30
+							arms_factory > 19
+						}
+						NOT = {
+							has_idea = TPMP_USA_detroit_arsenal_idea_2
+						}
+					}
+					USA_remove_detroit_arsenal = yes
+					add_ideas = TPMP_USA_detroit_arsenal_idea_2
+				}
+				ELSE_IF = {
+					limit = {
+						393 = {
+							is_controlled_by = USA
+							arms_factory < 20
+							arms_factory > 9
+						}
+						NOT = {
+							has_idea = TPMP_USA_detroit_arsenal_idea_1
+						}
+					}
+					USA_remove_detroit_arsenal = yes
+					add_ideas = TPMP_USA_detroit_arsenal_idea_1
+				}
+				ELSE_IF = {
+					limit = {
+						393 = {
+							is_controlled_by = USA
+							arms_factory < 10
+						}
+						NOT = {
+							has_idea = TPMP_USA_detroit_arsenal_idea_0
+						}
+					}
+					USA_remove_detroit_arsenal = yes
+					add_ideas = TPMP_USA_detroit_arsenal_idea_0
+				}
+				ELSE_IF = {
+					limit = {
+						393 = {
+							NOT = {
+								is_controlled_by = USA
+							}
+						}
+					}
+					USA_remove_detroit_arsenal = yes
+				}
+			}
+			IF = {
+				limit = {
+					has_completed_focus = TPMP_USA_kaiser_shipyards
+				}
+				IF = {
+					limit = {
+						385 = {
+							is_controlled_by = USA
+							dockyard > 24
+						}
+						NOT = {
+							has_idea = TPMP_USA_kaiser_shipyards_idea_5
+						}
+					}
+					USA_remove_kaiser_shipyards = yes
+					add_ideas = TPMP_USA_kaiser_shipyards_idea_5
+				}
+				ELSE_IF = {
+					limit = {
+						385 = {
+							is_controlled_by = USA
+							dockyard < 25
+							dockyard > 19
+						}
+						NOT = {
+							has_idea = TPMP_USA_kaiser_shipyards_idea_4
+						}
+					}
+					USA_remove_kaiser_shipyards = yes
+					add_ideas = TPMP_USA_kaiser_shipyards_idea_4
+				}
+				ELSE_IF = {
+					limit = {
+						385 = {
+							is_controlled_by = USA
+							dockyard < 20
+							dockyard > 14
+						}
+						NOT = {
+							has_idea = TPMP_USA_kaiser_shipyards_idea_3
+						}
+					}
+					USA_remove_kaiser_shipyards = yes
+					add_ideas = TPMP_USA_kaiser_shipyards_idea_3
+				}
+				ELSE_IF = {
+					limit = {
+						385 = {
+							is_controlled_by = USA
+							dockyard < 15
+							dockyard > 9
+						}
+						NOT = {
+							has_idea = TPMP_USA_kaiser_shipyards_idea_2
+						}
+					}
+					USA_remove_kaiser_shipyards = yes
+					add_ideas = TPMP_USA_kaiser_shipyards_idea_2
+				}
+				ELSE_IF = {
+					limit = {
+						385 = {
+							is_controlled_by = USA
+							dockyard < 10
+							dockyard > 4
+						}
+						NOT = {
+							has_idea = TPMP_USA_kaiser_shipyards_idea_1
+						}
+					}
+					USA_remove_kaiser_shipyards = yes
+					add_ideas = TPMP_USA_kaiser_shipyards_idea_1
+				}
+				ELSE_IF = {
+					limit = {
+						385 = {
+							is_controlled_by = USA
+							dockyard < 5
+						}
+						NOT = {
+							has_idea = TPMP_USA_kaiser_shipyards_idea_0
+						}
+					}
+					USA_remove_kaiser_shipyards = yes
+					add_ideas = TPMP_USA_kaiser_shipyards_idea_0
+				}
+				ELSE_IF = {
+					limit = {
+						385 = {
+							NOT = {
+								is_controlled_by = USA
+							}
+						}
+					}
+					USA_remove_kaiser_shipyards = yes
+				}
+			}
+		}
+	}
+	on_monthly_USA = {
+		effect = {
+			IF = {
+				limit = {
+					date > 1936.01.01
+					NOT = { has_country_flag = TPMP_USA_1936_campaign_flag }
+				}
+				set_country_flag = TPMP_USA_1936_campaign_flag
+				country_event = { id = TPMP_USA_election.1 }
+			}
+			IF = {
+				limit = {
+					date > 1940.01.01
+					NOT = { has_country_flag = TPMP_USA_1940_campaign_flag }
+				}
+				set_country_flag = TPMP_USA_1940_campaign_flag
+				country_event = { id = TPMP_USA_election.1 }
+				country_event = { id = TPMP_USA_election.6 days = 3 }
+			}
+			IF = {
+				limit = {
+					date > 1944.01.01
+					NOT = { has_country_flag = TPMP_USA_1944_campaign_flag }
+				}
+				set_country_flag = TPMP_USA_1944_campaign_flag
+				country_event = { id = TPMP_USA_election.1 }
+				country_event = { id = TPMP_USA_election.7 days = 3 }
+			}
+			IF = {
+				limit = {
+					date > 1938.11.01
+					NOT = { has_country_flag = TPMP_USA_1938_midterms_flag }
+				}
+				set_country_flag = TPMP_USA_1938_midterms_flag
+				country_event = { id = TPMP_USA_election.5 }
+			}
+			IF = {
+				limit = {
+					date > 1942.11.01
+					NOT = { has_country_flag = TPMP_USA_1942_midterms_flag }
+				}
+				set_country_flag = TPMP_USA_1942_midterms_flag
+				country_event = { id = TPMP_USA_election.5 }
+			}
+		}
+	}
+	on_monthly_USA = {
+		effect = {
+			#Flint Sit-Down Strike
+			IF = {
+				limit = {
+					date > 1936.12.1
+					NOT = {
+						has_country_flag = TPMP_USA_flint_strike_flag
+					}
+				}
+				country_event = TPMP_USA.1
+			}
+			#Miners' Strike
+			IF = {
+				limit = {
+					date > 1943.4.1
+					NOT = {
+						has_country_flag = TPMP_USA_mine_strike_flag
+					}
+				}
+				country_event = TPMP_USA.2
+			}
+		}
+	}
+	on_monthly_USA = {
+		effect = {
+			#Einstein-Szilard Letter
+			IF = {
+				limit = {
+					date > 1939.07.1
+					NOT = {
+						has_country_flag = TPMP_USA_einstein_szilard_flag
+					}
+				}
+				country_event = TPMP_USA.5
+			}
+		}
+	}
+	on_new_term_election = {
+		random_events = {
+			100 = TPMP_USA_election.2
+			100 = TPMP_USA_election.3
+			100 = TPMP_USA_election.4
+		}
+	}
+}

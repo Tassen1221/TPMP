@@ -55,11 +55,11 @@ recruit_character = LAT_vilis_lacis
 recruit_character = LAT_vilhelms_munters
 recruit_character = LAT_janis_kaminskis
 recruit_character = LAT_fricis_menders
-recruit_character = LAT_alberts_kvesis
 recruit_character = LAT_karlis_ulmanis
 
 IF = { 
 	limit = { has_dlc = "No Step Back" }
+	recruit_character = LAT_alberts_kvesis
 	recruit_character = LAT_janis_balodis
 	recruit_character = LAT_janis_sudrabkalns
 	recruit_character = LAT_emilija_veinberga
@@ -238,7 +238,7 @@ if = {
 }
 
 create_equipment_variant = {
-	name = "Basic Infantry Equipment"
+	name = "Inf Eq."
 	type = line_infantry_equipment_1
 	parent_version = 0
 	modules = {
@@ -258,7 +258,7 @@ create_equipment_variant = {
 	}
 }
 create_equipment_variant = {
-	name = "Basic Special Infantry Equipment"
+	name = "SF Eq."
 	type = special_infantry_equipment_1
 	parent_version = 0
 	modules = {
@@ -278,7 +278,7 @@ create_equipment_variant = {
 	}
 }
 create_equipment_variant = {
-	name = "Basic Mobile Infantry Equipment"
+	name = "Mobile Eq."
 	type = mobile_infantry_equipment_1
 	parent_version = 0
 	modules = {

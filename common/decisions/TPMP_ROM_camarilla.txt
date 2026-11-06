@@ -1,0 +1,477 @@
+TPMP_ROM_camarilla_decisions = {
+
+	TPMP_ROM_camarilla_extend_decision = {
+		icon = GFX_decision_generic_political_discourse
+		priority = 100
+
+		allowed = {
+			original_tag = ROM
+		}
+
+		visible = {
+			has_country_flag = TPMP_ROM_camarilla_active
+		}
+
+		available = {
+			always = yes
+		}
+
+		days_re_enable = 90
+
+		cost = 50
+
+		complete_effect = {
+			TPMP_ROM_camarilla_prolong_effect = yes
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	TPMP_ROM_camarilla_curtail_decision = {
+		icon = GFX_decision_oppression
+		priority = 99
+
+		allowed = {
+			original_tag = ROM
+		}
+
+		visible = {
+			has_country_flag = TPMP_ROM_camarilla_active
+		}
+
+		available = {
+			always = yes
+		}
+
+		days_re_enable = 90
+
+		cost = 50
+
+		complete_effect = {
+			TPMP_ROM_camarilla_curtail_effect = yes
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	TPMP_ROM_camarilla_extend_renewed_decision = {
+		icon = GFX_decision_generic_political_discourse
+		priority = 100
+
+		allowed = {
+			original_tag = ROM
+		}
+
+		visible = {
+			has_country_flag = TPMP_ROM_camarilla_active
+			has_completed_focus = TPMP_ROM_camarilla_renewed
+		}
+
+		available = {
+			always = yes
+		}
+
+		days_re_enable = 150
+
+		cost = 0
+
+		complete_effect = {
+			add_political_power = -100
+			TPMP_ROM_camarilla_prolong_renewed_effect = yes
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	TPMP_ROM_camarilla_curtail_renewed_decision = {
+		icon = GFX_decision_oppression
+		priority = 99
+
+		allowed = {
+			original_tag = ROM
+		}
+
+		visible = {
+			has_country_flag = TPMP_ROM_camarilla_active
+			has_completed_focus = TPMP_ROM_camarilla_renewed
+		}
+
+		available = {
+			always = yes
+		}
+
+		days_re_enable = 90
+
+		cost = 0
+
+		complete_effect = {
+			add_political_power = -100
+			custom_effect_tooltip = TPMP_ROM_camarilla_dismiss_tt
+			hidden_effect = {
+				TPMP_ROM_camarilla_dismiss_effect = yes
+			}
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	TPMP_ROM_camarilla_mission_0 = {
+		icon = GFX_idea_TPMP_ROM_Nicolae_Titulescu
+		priority = 70
+		allowed = { original_tag = ROM }
+		visible = {
+			has_country_flag = TPMP_ROM_camarilla_active
+			check_variable = { TPMP_ROM_camarilla_index = 0 }
+			NOT = { has_country_flag = TPMP_ROM_titulescu_sidelined }
+		}
+		available = { hidden_trigger = { always = no } }
+		activation = { always = no }
+		selectable_mission = no
+		days_mission_timeout = 91
+		fire_only_once = no
+		timeout_effect = {
+			TPMP_ROM_camarilla_advance_0_to_1 = yes
+		}
+	}
+	TPMP_ROM_camarilla_mission_1 = {
+		icon = GFX_idea_TPMP_ROM_Elena_Lupescu
+		priority = 60
+		allowed = { original_tag = ROM }
+		visible = {
+			has_country_flag = TPMP_ROM_camarilla_active
+			check_variable = { TPMP_ROM_camarilla_index = 1 }
+		}
+		available = { hidden_trigger = { always = no } }
+		activation = { always = no }
+		selectable_mission = no
+		days_mission_timeout = 91
+		fire_only_once = no
+		timeout_effect = {
+			TPMP_ROM_camarilla_advance_1_to_2 = yes
+		}
+	}
+	TPMP_ROM_camarilla_mission_2 = {
+		icon = GFX_idea_TPMP_ROM_Ernest_Urdareanu
+		priority = 50
+		allowed = { original_tag = ROM }
+		visible = {
+			has_country_flag = TPMP_ROM_camarilla_active
+			check_variable = { TPMP_ROM_camarilla_index = 2 }
+		}
+		available = { hidden_trigger = { always = no } }
+		activation = { always = no }
+		selectable_mission = no
+		days_mission_timeout = 91
+		fire_only_once = no
+		timeout_effect = {
+			if = {
+				limit = { has_country_flag = TPMP_ROM_auschnitt_purged }
+				TPMP_ROM_camarilla_advance_2_to_4_skip_auschnitt = yes
+			}
+			if = {
+				limit = { NOT = { has_country_flag = TPMP_ROM_auschnitt_purged } }
+				TPMP_ROM_camarilla_advance_2_to_3 = yes
+			}
+		}
+	}
+	TPMP_ROM_camarilla_mission_3 = {
+		icon = GFX_idea_TPMP_ROM_Max_Auschnitt
+		priority = 40
+		allowed = { original_tag = ROM }
+		visible = {
+			has_country_flag = TPMP_ROM_camarilla_active
+			check_variable = { TPMP_ROM_camarilla_index = 3 }
+			NOT = { has_country_flag = TPMP_ROM_auschnitt_purged }
+		}
+		available = { hidden_trigger = { always = no } }
+		activation = { always = no }
+		selectable_mission = no
+		days_mission_timeout = 91
+		fire_only_once = no
+		timeout_effect = {
+			TPMP_ROM_camarilla_advance_3_to_4 = yes
+		}
+	}
+	TPMP_ROM_camarilla_mission_4 = {
+		icon = GFX_idea_ROM_armand_calinescu
+		priority = 30
+		allowed = { original_tag = ROM }
+		visible = {
+			has_country_flag = TPMP_ROM_camarilla_active
+			check_variable = { TPMP_ROM_camarilla_index = 4 }
+		}
+		available = { hidden_trigger = { always = no } }
+		activation = { always = no }
+		selectable_mission = no
+		days_mission_timeout = 91
+		fire_only_once = no
+		timeout_effect = {
+			TPMP_ROM_camarilla_advance_4_to_5 = yes
+		}
+	}
+	TPMP_ROM_camarilla_mission_5 = {
+		icon = GFX_idea_ROM_nicolae_malaxa
+		priority = 20
+		allowed = { original_tag = ROM }
+		visible = {
+			has_country_flag = TPMP_ROM_camarilla_active
+			check_variable = { TPMP_ROM_camarilla_index = 5 }
+		}
+		available = { hidden_trigger = { always = no } }
+		activation = { always = no }
+		selectable_mission = no
+		days_mission_timeout = 91
+		fire_only_once = no
+		timeout_effect = {
+			TPMP_ROM_camarilla_advance_5_to_6 = yes
+		}
+	}
+	TPMP_ROM_camarilla_mission_6 = {
+		icon = GFX_idea_TPMP_ROM_Gabriel_Marinescu
+		priority = 10
+		allowed = { original_tag = ROM }
+		visible = {
+			has_country_flag = TPMP_ROM_camarilla_active
+			check_variable = { TPMP_ROM_camarilla_index = 6 }
+		}
+		available = { hidden_trigger = { always = no } }
+		activation = { always = no }
+		selectable_mission = no
+		days_mission_timeout = 91
+		fire_only_once = no
+		timeout_effect = {
+			if = {
+				limit = { has_country_flag = TPMP_ROM_titulescu_sidelined }
+				TPMP_ROM_camarilla_advance_6_to_1_skip_titulescu = yes
+			}
+			if = {
+				limit = { NOT = { has_country_flag = TPMP_ROM_titulescu_sidelined } }
+				TPMP_ROM_camarilla_advance_6_to_0 = yes
+			}
+		}
+	}
+
+	TPMP_ROM_camarilla_upcoming_0 = {
+		icon = GFX_idea_TPMP_ROM_Nicolae_Titulescu
+		priority = 70
+		allowed = { original_tag = ROM }
+		visible = {
+			has_country_flag = TPMP_ROM_camarilla_active
+			NOT = { check_variable = { TPMP_ROM_camarilla_index = 0 } }
+			NOT = { has_country_flag = TPMP_ROM_titulescu_sidelined }
+		}
+		available = { hidden_trigger = { always = no } }
+		days_remove = 91
+		modifier = {
+			guarantee_tension = -1.0
+			guarantee_cost = -0.5
+		}
+	}
+	TPMP_ROM_camarilla_upcoming_1 = {
+		icon = GFX_idea_TPMP_ROM_Elena_Lupescu
+		priority = 60
+		allowed = { original_tag = ROM }
+		visible = {
+			has_country_flag = TPMP_ROM_camarilla_active
+			NOT = { check_variable = { TPMP_ROM_camarilla_index = 1 } }
+			NOT = { has_completed_focus = TPMP_ROM_camarilla_renewed }
+		}
+		available = { hidden_trigger = { always = no } }
+		days_remove = 91
+		modifier = {
+			political_power_gain = 0.3
+			stability_factor = -0.1
+			fascism_drift = 0.02
+		}
+	}
+	TPMP_ROM_camarilla_upcoming_1_renewed = {
+		icon = GFX_idea_TPMP_ROM_Elena_Lupescu
+		priority = 60
+		allowed = { original_tag = ROM }
+		visible = {
+			has_country_flag = TPMP_ROM_camarilla_active
+			NOT = { check_variable = { TPMP_ROM_camarilla_index = 1 } }
+			has_completed_focus = TPMP_ROM_camarilla_renewed
+		}
+		available = { hidden_trigger = { always = no } }
+		days_remove = 91
+		modifier = {
+			political_power_gain = 0.67
+		}
+	}
+	TPMP_ROM_camarilla_upcoming_2 = {
+		icon = GFX_idea_TPMP_ROM_Ernest_Urdareanu
+		priority = 50
+		allowed = { original_tag = ROM }
+		visible = {
+			has_country_flag = TPMP_ROM_camarilla_active
+			NOT = { check_variable = { TPMP_ROM_camarilla_index = 2 } }
+			NOT = { has_completed_focus = TPMP_ROM_camarilla_renewed }
+		}
+		available = { hidden_trigger = { always = no } }
+		days_remove = 91
+		modifier = {
+			political_advisor_cost_factor = -0.25
+			economy_cost_factor = -0.25
+			trade_laws_cost_factor = -0.25
+			mobilization_laws_cost_factor = -0.25
+			industrial_concern_cost_factor = -0.25
+			procurement_cost_factor = -0.25
+			army_professionalism_cost_factor = -0.25
+		}
+	}
+	TPMP_ROM_camarilla_upcoming_2_renewed = {
+		icon = GFX_idea_TPMP_ROM_Ernest_Urdareanu
+		priority = 50
+		allowed = { original_tag = ROM }
+		visible = {
+			has_country_flag = TPMP_ROM_camarilla_active
+			NOT = { check_variable = { TPMP_ROM_camarilla_index = 2 } }
+			has_completed_focus = TPMP_ROM_camarilla_renewed
+		}
+		available = { hidden_trigger = { always = no } }
+		days_remove = 91
+		modifier = {
+			political_advisor_cost_factor = -0.5
+			economy_cost_factor = -0.5
+			trade_laws_cost_factor = -0.5
+			mobilization_laws_cost_factor = -0.5
+			industrial_concern_cost_factor = -0.5
+			procurement_cost_factor = -0.5
+			army_professionalism_cost_factor = -0.5
+		}
+	}
+	TPMP_ROM_camarilla_upcoming_3 = {
+		icon = GFX_idea_TPMP_ROM_Max_Auschnitt
+		priority = 40
+		allowed = { original_tag = ROM }
+		visible = {
+			has_country_flag = TPMP_ROM_camarilla_active
+			NOT = { check_variable = { TPMP_ROM_camarilla_index = 3 } }
+			NOT = { has_country_flag = TPMP_ROM_auschnitt_purged }
+		}
+		available = { hidden_trigger = { always = no } }
+		days_remove = 91
+		modifier = {
+			consumer_goods_factor = -0.05
+			production_speed_industrial_complex_factor = 0.1
+			production_speed_infrastructure_factor = 0.15
+			stability_factor = -0.05
+			industrial_factory_donations = 1
+		}
+	}
+	TPMP_ROM_camarilla_upcoming_4 = {
+		icon = GFX_idea_ROM_armand_calinescu
+		priority = 30
+		allowed = { original_tag = ROM }
+		visible = {
+			has_country_flag = TPMP_ROM_camarilla_active
+			NOT = { check_variable = { TPMP_ROM_camarilla_index = 4 } }
+			NOT = { has_completed_focus = TPMP_ROM_camarilla_renewed }
+		}
+		available = { hidden_trigger = { always = no } }
+		days_remove = 91
+		modifier = {
+			weekly_manpower = -300
+			army_defence_factor = 0.05
+			fascism_drift = -0.02
+		}
+	}
+	TPMP_ROM_camarilla_upcoming_4_renewed = {
+		icon = GFX_idea_ROM_armand_calinescu
+		priority = 30
+		allowed = { original_tag = ROM }
+		visible = {
+			has_country_flag = TPMP_ROM_camarilla_active
+			NOT = { check_variable = { TPMP_ROM_camarilla_index = 4 } }
+			has_completed_focus = TPMP_ROM_camarilla_renewed
+		}
+		available = { hidden_trigger = { always = no } }
+		days_remove = 91
+		modifier = {
+			army_defence_factor = 0.05
+			army_attack_factor = 0.05
+			fascism_drift = -0.02
+		}
+	}
+	TPMP_ROM_camarilla_upcoming_5 = {
+		icon = GFX_idea_ROM_nicolae_malaxa
+		priority = 20
+		allowed = { original_tag = ROM }
+		visible = {
+			has_country_flag = TPMP_ROM_camarilla_active
+			NOT = { check_variable = { TPMP_ROM_camarilla_index = 5 } }
+			NOT = { has_completed_focus = TPMP_ROM_camarilla_renewed }
+		}
+		available = { hidden_trigger = { always = no } }
+		days_remove = 91
+		modifier = {
+			production_speed_arms_factory_factor = 0.1
+			production_speed_rail_way_factor = 0.15
+			industrial_capacity_factory = -0.05
+			political_power_gain = -0.1
+			industrial_factory_donations = 1
+		}
+	}
+	TPMP_ROM_camarilla_upcoming_5_renewed = {
+		icon = GFX_idea_ROM_nicolae_malaxa
+		priority = 20
+		allowed = { original_tag = ROM }
+		visible = {
+			has_country_flag = TPMP_ROM_camarilla_active
+			NOT = { check_variable = { TPMP_ROM_camarilla_index = 5 } }
+			has_completed_focus = TPMP_ROM_camarilla_renewed
+		}
+		available = { hidden_trigger = { always = no } }
+		days_remove = 91
+		modifier = {
+			production_speed_arms_factory_factor = 0.1
+			production_speed_rail_way_factor = 0.15
+			consumer_goods_factor = -0.05
+			industrial_factory_donations = 3
+		}
+	}
+	TPMP_ROM_camarilla_upcoming_6 = {
+		icon = GFX_idea_TPMP_ROM_Gabriel_Marinescu
+		priority = 10
+		allowed = { original_tag = ROM }
+		visible = {
+			has_country_flag = TPMP_ROM_camarilla_active
+			NOT = { check_variable = { TPMP_ROM_camarilla_index = 6 } }
+			NOT = { has_completed_focus = TPMP_ROM_camarilla_renewed }
+		}
+		available = { hidden_trigger = { always = no } }
+		days_remove = 91
+		modifier = {
+			resistance_target = -0.05
+			resistance_damage_to_garrison = -0.1
+			stability_factor = 0.05
+			political_power_gain = -0.05
+		}
+	}
+	TPMP_ROM_camarilla_upcoming_6_renewed = {
+		icon = GFX_idea_TPMP_ROM_Gabriel_Marinescu
+		priority = 10
+		allowed = { original_tag = ROM }
+		visible = {
+			has_country_flag = TPMP_ROM_camarilla_active
+			NOT = { check_variable = { TPMP_ROM_camarilla_index = 6 } }
+			has_completed_focus = TPMP_ROM_camarilla_renewed
+		}
+		available = { hidden_trigger = { always = no } }
+		days_remove = 91
+		modifier = {
+			resistance_target = -0.1
+			resistance_damage_to_garrison = -0.2
+			stability_factor = 0.1
+		}
+	}
+}

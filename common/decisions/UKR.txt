@@ -72,7 +72,7 @@ UKR_resource_mission_cat = {
 	}
 }
 
-UKR_production_mission_cat = { #TODO add this mission
+UKR_production_mission_cat = {
 
 
 	UKR_production_mission_debug = {
@@ -107,19 +107,14 @@ UKR_production_mission_cat = { #TODO add this mission
 		available = {
 			AND = {
 				OR = {
-					has_equipment = {
-						light_tank_equipment_2 > 750
-					}		
-					has_equipment = {
-						light_tank_equipment_3 > 500
-					}									
+					has_idea = partial_economic_mobilisation
+					has_idea = war_economy
 				}
-				has_equipment = {
-					support_equipment_1 > 1000
+				OR = {
+
+					has_tech = concentrated_industry3
+					has_tech = dispersed_industry3
 				}
-				has_equipment = {
-					line_infantry_equipment_1 > 15000
-				}				
 			}
 		}
 		cancel_trigger = {
@@ -127,7 +122,7 @@ UKR_production_mission_cat = { #TODO add this mission
 		}
 
 		icon = GFX_decision_gre_faction_management 
-		is_good = yes
+		is_good = no
 		days_mission_timeout = 365
    		selectable_mission = no
 
@@ -135,30 +130,31 @@ UKR_production_mission_cat = { #TODO add this mission
 			complete_national_focus = ukr_production_quotas_exceeded
 		}
 		timeout_effect = {
-				if = {
-					limit = {
-						AND = {
-							OR = {
-								has_equipment = {
-									light_tank_equipment_2 > 500
-								}		
-								has_equipment = {
-									light_tank_equipment_3 > 250
-								}									
-							}
-							has_equipment = {
-								support_equipment_1 > 500
-							}
-							has_equipment = {
-								line_infantry_equipment_1 > 8000
-							}
+			if = {
+				limit = {
+					AND = {
+						OR = {
+							has_idea = low_economic_mobilisation
+							has_idea = partial_economic_mobilisation
+							has_idea = war_economy
 						}
+
+						OR = {
+							has_tech = concentrated_industry2
+							has_tech = dispersed_industry2
+						}
+						
 					}
-					complete_national_focus = ukr_production_quotas_are_met
 				}
-				else = {
-					complete_national_focus = ukr_production_embarassing_failure
-				}
+
+				complete_national_focus = ukr_production_quotas_are_met
+
+			}
+			else = {
+				complete_national_focus = ukr_production_embarassing_failure
+			}
+
+			custom_effect_tooltip = UKR_stalin_production_quotas_effect_tt
 		}
 	} 
 }
@@ -362,7 +358,7 @@ UKR_stalin_mission_cat = { #TODO Add decisions(lengthen the plan, lower factory 
 			has_active_mission = UKR_five_year_plan_mission
 		}
 
-		cost = 50
+		cost = 75
 		icon = GFX_decision_generic_fundraising
 
 		days_remove = 89
@@ -684,7 +680,7 @@ UKR_stalin_mission_cat = { #TODO Add decisions(lengthen the plan, lower factory 
 			else = {
 				add_to_variable = {
 					var = 329:var_ukr_tpmp_2nd_5year_plan_reward
-					value = 3
+					value = 2
 					tooltip = TPMP_UKR_2nd_five_year_plan_decision_R1_tt
 				}								
 			}
@@ -765,7 +761,32 @@ UKR_state_of_the_army_cat = {
 
 		}
 	}
-	
+
+	UKR_state_of_the_army_start_debug = {
+
+		available = {
+			tag = UKR
+		}
+
+		visible = {
+			is_debug = yes
+		}
+
+		cost = 0
+
+		days_remove = 1
+
+		days_re_enable = 1
+
+		complete_effect = {
+			activate_mission = UKR_the_reorganization_mission
+		}
+
+		remove_effect = {
+
+		}
+	}	
+
 	UKR_state_of_the_army_clamp_debug = {
 
 		available = {

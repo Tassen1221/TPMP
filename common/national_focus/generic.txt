@@ -1016,6 +1016,7 @@ focus_tree = {
 		completion_reward = {
 			random_owned_controlled_state = {
 				limit = {
+					impassable = no
 					free_building_slots = {
 						building = industrial_complex
 						size > 2
@@ -1080,6 +1081,7 @@ focus_tree = {
 		completion_reward = {
 			random_owned_controlled_state = {
 				limit = {
+					impassable = no
 					free_building_slots = {
 						building = arms_factory
 						size > 2
@@ -1145,10 +1147,13 @@ focus_tree = {
 			custom_trigger_tooltip = {
 				tooltip = construction_effort_tt
 				all_owned_state = {
-					free_building_slots = {
-						building = industrial_complex
-						size < 1
-						include_locked = yes
+					OR = {
+						impassable = yes
+						free_building_slots = {
+							building = industrial_complex
+							size < 1
+							include_locked = yes
+						}
 					}
 				}
 			}
@@ -1166,6 +1171,7 @@ focus_tree = {
 		completion_reward = {
 			random_owned_controlled_state = {
 				limit = {
+					impassable = no
 					free_building_slots = {
 						building = industrial_complex
 						size > 2
@@ -1230,6 +1236,7 @@ focus_tree = {
 		completion_reward = {
 			random_owned_controlled_state = {
 				limit = {
+					impassable = no
 					free_building_slots = {
 						building = arms_factory
 						size > 2
@@ -1286,6 +1293,7 @@ focus_tree = {
 			every_owned_state = {
 				random_select_amount = 3
 				limit = {
+					impassable = no
 					is_in_home_area = yes
 				}
 				add_building_construction = {
@@ -1331,6 +1339,7 @@ focus_tree = {
 		completion_reward = {
 			random_owned_controlled_state = {
 				limit = {
+					impassable = no
 					free_building_slots = {
 						building = arms_factory
 						size > 2
@@ -1386,6 +1395,7 @@ focus_tree = {
 			every_owned_state = {
 				random_select_amount = 3
 				limit = {
+					impassable = no
 					is_in_home_area = yes
 				}
 				add_building_construction = {
@@ -1430,6 +1440,7 @@ focus_tree = {
 		completion_reward = {
 			random_owned_controlled_state = {
 				limit = {
+					impassable = no
 					free_building_slots = {
 						building = industrial_complex
 						size > 2
@@ -1460,6 +1471,7 @@ focus_tree = {
 			}
 			random_owned_controlled_state = {
 				limit = {
+					impassable = no
 					free_building_slots = {
 						building = industrial_complex
 						size > 2

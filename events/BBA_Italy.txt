@@ -180,8 +180,7 @@ country_event = {
 		hidden_effect = {
 			if = {
 				limit = {
-					any_country = {
-						is_in_faction_with = ROOT
+					any_allied_country = {
 						has_war_with = FROM
 					}
 				}
@@ -5972,6 +5971,7 @@ country_event = {
 						has_state_flag = ITA_cw_state_split
 						is_owned_by = RSI
 					}
+					is_core_of = RDS
 				}
 			}
 		}
@@ -6018,6 +6018,7 @@ country_event = {
 							has_state_flag = ITA_cw_state_split
 							is_owned_by = RSI
 						}
+						is_core_of = RDS
 					}
 				}
 			}
@@ -6031,6 +6032,7 @@ country_event = {
 							has_state_flag = ITA_cw_state_split
 							is_owned_by = RSI
 						}
+						is_core_of = RDS
 					}
 					ROOT = { transfer_state = PREV }
 				}
@@ -7999,8 +8001,7 @@ country_event = {
 		hidden_effect = {
 			if = {
 				limit = {
-					any_country = {
-						is_in_faction_with = ROOT
+					any_allied_country = {
 						has_war_with = FROM
 					}
 				}
@@ -11246,13 +11247,12 @@ country_event = {
 		}
 		IF = {
 			limit = {
-				OR = {
-					45 = {
-						is_controlled_by = ITA
-					}
-					any_country = {
-						is_subject_of = ITA
-						controls_state = 45
+				45 = {
+					controller = {
+						OR = {
+							tag = ITA
+							is_subject_of = ITA
+						}
 					}
 				}
 			}
@@ -11262,9 +11262,10 @@ country_event = {
 		}
 		IF = {
 			limit = {
-				any_country = {
-					is_subject_of = ITA
-					controls_state = 45
+				45 = {
+					controller = {
+						is_subject_of = ITA
+					}
 				}
 			}
 			random_country = {

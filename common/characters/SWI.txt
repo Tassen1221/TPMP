@@ -307,7 +307,13 @@ characters={
 				}
 				cost = 100
 				ai_will_do = {
-					base = 200
+					base = 0
+					modifier = {
+						add = 200
+						has_navy_size = {
+							size > 0
+						}
+					}
 				}
 			}
 			advisor={
@@ -363,16 +369,22 @@ characters={
 				slot = high_command
 				idea_token = SWI_hans_oehler
 				ledger = navy
-					allowed = {
-						original_tag = SWI
+				allowed = {
+					original_tag = SWI
+				}
+				traits = {
+					navy_capital_ship_2
+				}
+				cost = 100
+				ai_will_do = {
+					base = 0
+					modifier = {
+						add = 200
+						has_navy_size = {
+							size > 0
+						}
 					}
-					traits = {
-						navy_capital_ship_2
-					}
-					cost = 100
-					ai_will_do = {
-						base = 200
-					}
+				}
 			}
 			name=SWI_hans_oehler
 			portraits={
@@ -596,9 +608,9 @@ characters={
 					
 				}		
 				traits = {
-					navy_naval_air_defense_2
+					navy_chief_decisive_battle_1
 				}
-				cost = 100
+				cost = 50
 				ai_will_do = {
 					base = 200
 				}
@@ -621,9 +633,9 @@ characters={
 						original_tag = SWI
 					}
 					traits = {
-						navy_naval_air_defense_2
+						navy_chief_decisive_battle_1
 					}
-					cost = 100
+					cost = 50
 					ai_will_do = {
 						base = 200
 					}
@@ -779,7 +791,13 @@ characters={
 				}
 				cost = 100
 				ai_will_do = {
-					base = 200
+					base = 0
+					modifier = {
+						add = 200
+						has_navy_size = {
+							size > 0
+						}
+					}
 				}
 			}
 			name=SWI_hermann_hessel_lorenz
@@ -804,7 +822,13 @@ characters={
 					}
 					cost = 100
 					ai_will_do = {
-						base = 200
+						base = 0
+						modifier = {
+							add = 200
+							has_navy_size = {
+								size > 0
+							}
+						}
 					}
 			}
 			name=SWI_hermann_hessel_lorenz
