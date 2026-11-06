@@ -1368,6 +1368,7 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOCUS_FILTER_STABILITY}
 
 		completion_reward = {
+			add_to_variable = { TPMP_SOV_mon_plan_bonus = TPMP_SOV_mon_cfg_focus_plan_bonus } # TPMP_SOV_mon hook
 		}
 	}
 
@@ -1430,6 +1431,7 @@ focus_tree = {
 
 		completion_reward = {
 			add_ideas = TPMP_SOV_3rd_fyp_eco_law
+			add_to_variable = { TPMP_SOV_mon_plan_bonus = TPMP_SOV_mon_cfg_focus_plan_bonus } # TPMP_SOV_mon hook
 		}
 	}
 
@@ -1462,6 +1464,8 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOCUS_FILTER_STABILITY}
 
 		completion_reward = {
+			set_country_flag = TPMP_SOV_mon_militarisation_open # TPMP_SOV_mon hook
+			TPMP_SOV_mon_recompute = yes # TPMP_SOV_mon hook
 		}
 	}
 
@@ -3872,6 +3876,7 @@ focus_tree = {
 			}
 
 
+			set_country_flag = TPMP_SOV_ear_gko_available # TPMP_SOV_mon hook
 		}
 	}
 
