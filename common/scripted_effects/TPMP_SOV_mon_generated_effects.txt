@@ -6095,8 +6095,8 @@ TPMP_SOV_mon_init = {
         set_variable = { TPMP_SOV_mon_dmv_10 = 0 }
         set_variable = { TPMP_SOV_mon_dmv_11 = 0 }
         set_variable = { TPMP_SOV_mon_over_malus = 0 }
-        remove_dynamic_modifier = { modifier = TPMP_SOV_mon_sectors_dm }
-        remove_dynamic_modifier = { modifier = TPMP_SOV_mon_over_dm }
+        if = { limit = { has_dynamic_modifier = { modifier = TPMP_SOV_mon_sectors_dm } } remove_dynamic_modifier = { modifier = TPMP_SOV_mon_sectors_dm } }
+        if = { limit = { has_dynamic_modifier = { modifier = TPMP_SOV_mon_over_dm } } remove_dynamic_modifier = { modifier = TPMP_SOV_mon_over_dm } }
         add_dynamic_modifier = { modifier = TPMP_SOV_mon_sectors_dm }
         add_dynamic_modifier = { modifier = TPMP_SOV_mon_over_dm }
         TPMP_SOV_mon_recompute = yes
@@ -8992,7 +8992,7 @@ TPMP_SOV_mon_desk_do_pick_1 = {
         limit = {
             check_variable = { TPMP_SOV_mon_desk = 7 }
         }
-        add_equipment_to_stockpile = { type = infantry_equipment_1 amount = 1500 }
+        add_equipment_to_stockpile = { type = infantry_equipment amount = 1500 }
         set_temp_variable = { mon_delta = TPMP_SOV_mon_cfg_desk_sway_chosen }
         TPMP_SOV_mon_s05_add_sway = yes
         set_temp_variable = { mon_fav = TPMP_SOV_mon_cfg_desk_favour_chosen }
@@ -9011,7 +9011,7 @@ TPMP_SOV_mon_desk_do_pick_1 = {
         limit = {
             check_variable = { TPMP_SOV_mon_desk = 8 }
         }
-        add_equipment_to_stockpile = { type = infantry_equipment_1 amount = 1000 }
+        add_equipment_to_stockpile = { type = infantry_equipment amount = 1000 }
         set_temp_variable = { mon_delta = TPMP_SOV_mon_cfg_desk_sway_chosen }
         TPMP_SOV_mon_s08_add_sway = yes
         set_temp_variable = { mon_fav = TPMP_SOV_mon_cfg_desk_favour_chosen }
@@ -9106,7 +9106,7 @@ TPMP_SOV_mon_desk_do_pick_2 = {
         limit = {
             check_variable = { TPMP_SOV_mon_desk = 4 }
         }
-        add_equipment_to_stockpile = { type = infantry_equipment_1 amount = 1000 }
+        add_equipment_to_stockpile = { type = infantry_equipment amount = 1000 }
         set_temp_variable = { mon_delta = TPMP_SOV_mon_cfg_desk_sway_chosen }
         TPMP_SOV_mon_s08_add_sway = yes
         set_temp_variable = { mon_fav = TPMP_SOV_mon_cfg_desk_favour_chosen }
@@ -9163,7 +9163,7 @@ TPMP_SOV_mon_desk_do_pick_2 = {
         limit = {
             check_variable = { TPMP_SOV_mon_desk = 7 }
         }
-        add_equipment_to_stockpile = { type = infantry_equipment_1 amount = 800 }
+        add_equipment_to_stockpile = { type = infantry_equipment amount = 800 }
         set_temp_variable = { mon_delta = TPMP_SOV_mon_cfg_desk_sway_chosen }
         TPMP_SOV_mon_s08_add_sway = yes
         set_temp_variable = { mon_fav = TPMP_SOV_mon_cfg_desk_favour_chosen }
