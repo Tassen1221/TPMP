@@ -93,12 +93,8 @@ focus_tree = {
 		focus = {
 		id = TPMP_SOV_continue_the_second_fyp
 		icon = GFX_SOV_finish_the_five_year_plan_ccp_2d_sov_compatibility
-		prerequisite = { 
-			#focus = SLOPPER  
-		}
-		x = -20
+		x = 65
 		y = 0
-		relative_position_id = SOV_the_path_of_marxism_leninism
 
 		
 		cost = 5
@@ -1406,12 +1402,12 @@ focus_tree = {
 		focus = {
 		id = TPMP_SOV_begin_the_third_fyp
 		icon = GFX_SOV_third_five_year_plan_ccp_2d_sov_compatibility_shine
-		prerequisite = { focus =  TPMP_SOV_finish_the_second_fyp
-		
-		}
 		x = 0
 		y = 1
 		relative_position_id = TPMP_SOV_finish_the_second_fyp
+		prerequisite = { focus =  TPMP_SOV_finish_the_second_fyp
+		
+		}
 		
 		cost = 5
 
@@ -1435,39 +1431,209 @@ focus_tree = {
 		}
 	}
 
-
-#123123
+	#123123
 	focus = {
-		id = TPMP_SOV_a_monster_with_too_many_heads
+		id = TPMP_SOV_aviation_commissariat
 		icon = GFX_focus_fra_loyalty_stalin
-		prerequisite = { focus =  TPMP_SOV_begin_the_third_fyp
-		
-		}
-		x = -12
+		prerequisite = { focus = TPMP_SOV_begin_the_third_fyp }
+		x = -9
 		y = 1
 		relative_position_id = TPMP_SOV_begin_the_third_fyp
-		
 		cost = 5
 
-		mutually_exclusive = { 
-			
-
-		}
-
-		allow_branch = {
-		}
-
 		available = {
-
 		}
-		
-		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOCUS_FILTER_STABILITY}
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
 
 		completion_reward = {
-			set_country_flag = TPMP_SOV_mon_militarisation_open # TPMP_SOV_mon hook
-			TPMP_SOV_mon_recompute = yes # TPMP_SOV_mon hook
+			custom_effect_tooltip = TPMP_SOV_aviation_commissariat_tt
 		}
 	}
+
+	#123123
+	focus = {
+		id = TPMP_SOV_moscow_aircraft_plants
+		icon = GFX_focus_fra_loyalty_stalin
+		prerequisite = { focus = TPMP_SOV_aviation_commissariat }
+		x = -1
+		y = 1
+		relative_position_id = TPMP_SOV_aviation_commissariat
+		cost = 5
+
+		available = {
+		}
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			custom_effect_tooltip = TPMP_SOV_moscow_aircraft_plants_tt
+		}
+	}
+
+	#123123
+	focus = {
+		id = TPMP_SOV_kharkov_voronezh_aircraft_plants
+		icon = GFX_focus_fra_loyalty_stalin
+		prerequisite = { focus = TPMP_SOV_aviation_commissariat }
+		x = 1
+		y = 1
+		relative_position_id = TPMP_SOV_aviation_commissariat
+		cost = 5
+
+		available = {
+		}
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			custom_effect_tooltip = TPMP_SOV_kharkov_voronezh_aircraft_plants_tt
+		}
+	}
+
+	#123123
+	focus = {
+		id = TPMP_SOV_new_fighter_contest
+		icon = GFX_focus_fra_loyalty_stalin
+		prerequisite = { focus = TPMP_SOV_moscow_aircraft_plants focus = TPMP_SOV_kharkov_voronezh_aircraft_plants }
+		x = 1
+		y = 1
+		relative_position_id = TPMP_SOV_moscow_aircraft_plants
+		cost = 5
+
+		available = {
+		}
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			custom_effect_tooltip = TPMP_SOV_new_fighter_contest_tt
+		}
+	}
+
+	#123123
+	focus = {
+		id = TPMP_SOV_big_fleet_programme
+		icon = GFX_focus_fra_loyalty_stalin
+		prerequisite = { focus = TPMP_SOV_begin_the_third_fyp }
+		x = -6
+		y = 1
+		relative_position_id = TPMP_SOV_begin_the_third_fyp
+		cost = 5
+
+		available = {
+		}
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			custom_effect_tooltip = TPMP_SOV_big_fleet_programme_tt
+		}
+	}
+
+	#123123
+	focus = {
+		id = TPMP_SOV_nikolaev_leningrad_yards
+		icon = GFX_focus_fra_loyalty_stalin
+		prerequisite = { focus = TPMP_SOV_big_fleet_programme }
+		x = 0
+		y = 1
+		relative_position_id = TPMP_SOV_big_fleet_programme
+		cost = 5
+
+		available = {
+		}
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			custom_effect_tooltip = TPMP_SOV_nikolaev_leningrad_yards_tt
+		}
+	}
+
+	#123123
+	focus = {
+		id = TPMP_SOV_tula_cartridge_works
+		icon = GFX_focus_fra_loyalty_stalin
+		prerequisite = { focus = TPMP_SOV_begin_the_third_fyp }
+		x = -3
+		y = 1
+		relative_position_id = TPMP_SOV_begin_the_third_fyp
+		cost = 5
+
+		available = {
+		}
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			custom_effect_tooltip = TPMP_SOV_tula_cartridge_works_tt
+		}
+	}
+
+	#123123
+	focus = {
+		id = TPMP_SOV_lugansk_cartridge_works
+		icon = GFX_focus_fra_loyalty_stalin
+		prerequisite = { focus = TPMP_SOV_tula_cartridge_works }
+		x = -1
+		y = 1
+		relative_position_id = TPMP_SOV_tula_cartridge_works
+		cost = 5
+
+		available = {
+		}
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			custom_effect_tooltip = TPMP_SOV_lugansk_cartridge_works_tt
+		}
+	}
+
+	#123123
+	focus = {
+		id = TPMP_SOV_leningrad_shell_works
+		icon = GFX_focus_fra_loyalty_stalin
+		prerequisite = { focus = TPMP_SOV_tula_cartridge_works }
+		x = 1
+		y = 1
+		relative_position_id = TPMP_SOV_tula_cartridge_works
+		cost = 5
+
+		available = {
+		}
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			custom_effect_tooltip = TPMP_SOV_leningrad_shell_works_tt
+		}
+	}
+
+	#123123
+	focus = {
+		id = TPMP_SOV_mobilisation_plan
+		icon = GFX_focus_fra_loyalty_stalin
+		prerequisite = { focus = TPMP_SOV_vannikovs_nkv }
+		prerequisite = { focus = TPMP_SOV_malyshevs_nktp }
+		x = 2
+		y = 3
+		relative_position_id = TPMP_SOV_vannikovs_nkv
+		cost = 10
+
+		available = {
+		}
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			custom_effect_tooltip = TPMP_SOV_mobilisation_plan_tt
+		}
+	}
+
+
+#123123
 
 
 
@@ -1480,35 +1646,6 @@ focus_tree = {
 
 
 #123123
-		focus = {
-		id = TPMP_SOV_kuliks_gau
-		icon = GFX_focus_fra_loyalty_stalin
-		prerequisite = { focus =  TPMP_SOV_a_monster_with_too_many_heads
-		
-		}
-		x = -6
-		y = 1
-		relative_position_id = TPMP_SOV_a_monster_with_too_many_heads
-		
-		cost = 5
-
-		mutually_exclusive = { 
-			
-
-		}
-
-		allow_branch = {
-		}
-
-		available = {
-
-		}
-		
-		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOCUS_FILTER_STABILITY}
-
-		completion_reward = {
-		}
-	}
 
 
 
@@ -1517,12 +1654,10 @@ focus_tree = {
 		focus = {
 		id = TPMP_SOV_vannikovs_nkv
 		icon = GFX_focus_fra_loyalty_stalin
-		prerequisite = { focus =  TPMP_SOV_a_monster_with_too_many_heads
-		
-		}
-		x = 6
+		prerequisite = { focus = TPMP_SOV_begin_the_third_fyp }
+		x = 2
 		y = 1
-		relative_position_id = TPMP_SOV_a_monster_with_too_many_heads
+		relative_position_id = TPMP_SOV_begin_the_third_fyp
 		
 		cost = 5
 
@@ -1559,12 +1694,10 @@ focus_tree = {
 		focus = {
 		id = TPMP_SOV_malyshevs_nktp
 		icon = GFX_focus_fra_loyalty_stalin
-		prerequisite = { focus =  TPMP_SOV_a_monster_with_too_many_heads
-		
-		}
-		x = 14
+		prerequisite = { focus = TPMP_SOV_begin_the_third_fyp }
+		x = 6
 		y = 1
-		relative_position_id = TPMP_SOV_a_monster_with_too_many_heads
+		relative_position_id = TPMP_SOV_begin_the_third_fyp
 		
 		cost = 10
 
@@ -1605,51 +1738,6 @@ focus_tree = {
 
 
 #123123
-		focus = {
-		id = TPMP_SOV_support_plant_no_37
-		icon = GFX_focus_fra_loyalty_stalin
-		prerequisite = { focus =  TPMP_SOV_malyshevs_nktp
-		
-		}
-		x = -2
-		y = 1
-		relative_position_id = TPMP_SOV_malyshevs_nktp
-		
-		cost = 10
-
-		mutually_exclusive = { 
-			
-
-		}
-
-		allow_branch = {
-		}
-
-		available = {
-
-		}
-		
-		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOCUS_FILTER_STABILITY}
-
-		completion_reward = {
-			219 = {
-				add_extra_state_shared_building_slots = 5
-				add_building_construction = {
-					type = arms_factory
-					level = 5
-					instant_build = yes
-				}
-			}
-    set_country_flag = TPMP_SOV_plant37_shock_window_active
-    country_event = { 
-        id = TPMP_shock.plant37
-        days = 1
-        random_days = 364
-    }
-
-
-		}
-	}
 
 
 
@@ -1669,12 +1757,12 @@ focus_tree = {
 		focus = {
 		id = TPMP_SOV_support_khpz
 		icon = GFX_focus_fra_loyalty_stalin
+		x = -1
+		y = 1
+		relative_position_id = TPMP_SOV_malyshevs_nktp
 		prerequisite = { focus =  TPMP_SOV_malyshevs_nktp
 		
 		}
-		x = 0
-		y = 1
-		relative_position_id = TPMP_SOV_malyshevs_nktp
 		
 		cost = 10
 
@@ -1718,12 +1806,12 @@ focus_tree = {
 		focus = {
 		id = TPMP_SOV_support_kirov
 		icon = GFX_focus_fra_loyalty_stalin
+		x = 1
+		y = 1
+		relative_position_id = TPMP_SOV_malyshevs_nktp
 		prerequisite = { focus =  TPMP_SOV_malyshevs_nktp
 		
 		}
-		x = 2
-		y = 1
-		relative_position_id = TPMP_SOV_malyshevs_nktp
 		
 		cost = 10
 
@@ -1764,139 +1852,15 @@ focus_tree = {
 
 
 #123123
-		focus = {
-		id = TPMP_SOV_expand_STZ
-		icon = GFX_focus_fra_loyalty_stalin
-		prerequisite = { focus =  TPMP_SOV_support_khpz
-		focus = TPMP_SOV_support_kirov
-		focus = TPMP_SOV_support_plant_no_37
-		}
-		x = 4
-		y = 1
-		relative_position_id = TPMP_SOV_support_khpz
-		
-		cost = 10
-
-		mutually_exclusive = { 
-			
-
-		}
-
-		allow_branch = {
-		}
-
-		available = {
-
-		}
-		
-		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOCUS_FILTER_STABILITY}
-
-		completion_reward = {
-			217 = {
-				add_extra_state_shared_building_slots = 5
-				add_building_construction = {
-					type = arms_factory
-					level = 5
-					instant_build = yes
-				}
-			}
-
-
-
-
-
-		}
-	}
 
 
 #123123
-		focus = {
-		id = TPMP_SOV_merge_tank_plants
-		icon = GFX_focus_SOV_merge_plants
-		prerequisite = { focus =  TPMP_SOV_support_khpz
-		focus = TPMP_SOV_support_kirov
-		focus = TPMP_SOV_support_plant_no_37
-		}
-		x = 6
-		y = 1
-		relative_position_id = TPMP_SOV_support_khpz
-		
-		cost = 10
-
-		mutually_exclusive = { 
-			
-
-		}
-
-		allow_branch = {
-		}
-
-		available = {
-			has_completed_focus = TPMP_SOV_evacuate_leningrad_industry
-
-
-		}
-		
-		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOCUS_FILTER_STABILITY}
-
-		completion_reward = {
-
-			add_ideas = TPMP_SOV_merge_tank_plants_idea
-			572 = {
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = arms_factory
-					level = 2
-					instant_build = yes
-				}
-			}
-
-
-
-
-
-		}
-	}
 
 
 
 
 
 #123123
-		focus = {
-		id = TPMP_SOV_the_paton_automatic_welding_process
-		icon = GFX_SOV_national_specialists_ccp_2d_sov_compatibility
-		prerequisite = { focus =  TPMP_SOV_support_khpz
-		focus = TPMP_SOV_support_kirov
-		focus = TPMP_SOV_support_plant_no_37
-		}
-		x = 0
-		y = 2
-		relative_position_id = TPMP_SOV_support_khpz
-		
-		cost = 10
-
-		mutually_exclusive = { 
-			
-
-		}
-
-		allow_branch = {
-		}
-
-		available = {
-
-
-		}
-		
-		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOCUS_FILTER_STABILITY}
-
-		completion_reward = {
-			add_ideas = TPMP_SOV_paton_welding_process_idea
-
-
-		}
-	}
 
 
 
@@ -1904,12 +1868,9 @@ focus_tree = {
 		focus = {
 		id = TPMP_SOV_dedicated_diesel_engine_facility
 		icon = GFX_focus_fra_loyalty_stalin
-		prerequisite = { focus =  TPMP_SOV_support_khpz
-		focus = TPMP_SOV_support_kirov
-		focus = TPMP_SOV_support_plant_no_37
-		}
-		x = 2
-		y = 2
+		prerequisite = { focus = TPMP_SOV_support_khpz focus = TPMP_SOV_support_kirov }
+		x = 1
+		y = 1
 		relative_position_id = TPMP_SOV_support_khpz
 		
 		cost = 10
@@ -1958,140 +1919,13 @@ focus_tree = {
 	}
 
 #123123
-		focus = {
-		id = TPMP_SOV_retrieve_vannikov_from_the_nkvd
-		icon = GFX_focus_fra_loyalty_stalin
-		prerequisite = { focus =  TPMP_SOV_support_khpz
-		focus = TPMP_SOV_support_kirov
-		focus = TPMP_SOV_support_plant_no_37
-		}
-		x = -2
-		y = 2
-		relative_position_id = TPMP_SOV_support_khpz
-		
-		cost = 10
-
-		mutually_exclusive = { 
-			
-
-		}
-
-		allow_branch = {
-		}
-
-		available = {
-
-
-		}
-		
-		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOCUS_FILTER_STABILITY}
-
-		completion_reward = {
-
-
-		}
-	}
 
 
 
 
 	#123123
-	focus = {
-		id = TPMP_SOV_expand_sverdlovsk_plant_no_9
-		icon = GFX_focus_fra_loyalty_stalin
-		prerequisite = { focus = TPMP_SOV_vannikovs_nkv
-		}
-		x = -4
-		y = 1
-		relative_position_id = TPMP_SOV_vannikovs_nkv
-		
-		cost = 5
-
-		mutually_exclusive = { 
-			
-
-		}
-
-		allow_branch = {
-		}
-
-
-		bypass = {
-			
-   			653 = {
-    		    arms_factory > 21
-			}
-
-		}
-
-
-		available = {
-
-
-		}
-
-
-		
-		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOCUS_FILTER_STABILITY}
-
-		completion_reward = {	
-			653 = {
-				add_dynamic_modifier = { 
-					modifier = TPMP_SOV_15_mil_con_speed_dynamic_modifier
-					days = 720
-					scope = SOV
-				}
-			}
-
-		}
-	}
 
 #123123
-	focus = {
-		id = TPMP_SOV_petrovs_he_solution
-		icon = GFX_focus_fra_loyalty_stalin
-		prerequisite = { focus = TPMP_SOV_expand_sverdlovsk_plant_no_9
-		}
-		x = 0
-		y = 1
-		relative_position_id = TPMP_SOV_expand_sverdlovsk_plant_no_9
-		
-		cost = 5
-
-		mutually_exclusive = { 
-			
-
-		}
-
-		allow_branch = {
-		}
-
-
-		bypass = {
-
-		}
-
-
-		available = {
-			
-   			 252 = {
-    		    arms_factory > 21
-			}
-
-
-		}
-
-
-		
-		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOCUS_FILTER_STABILITY}
-
-		completion_reward = {	
-			add_ideas = TPMP_SOV_petrovs_he_solution_idea
-
-
-
-		}
-	}
 
 
 
@@ -2134,11 +1968,11 @@ focus_tree = {
 	focus = {
 		id = TPMP_SOV_gorky_plant_no_92
 		icon = GFX_focus_fra_loyalty_stalin
-		prerequisite = { focus = TPMP_SOV_vannikovs_nkv
-		}
-		x = -2
+		x = 0
 		y = 1
 		relative_position_id = TPMP_SOV_vannikovs_nkv
+		prerequisite = { focus = TPMP_SOV_vannikovs_nkv
+		}
 		
 		cost = 5
 
@@ -2183,51 +2017,6 @@ focus_tree = {
 
 
 #123123
-	focus = {
-		id = TPMP_SOV_grabins_beautiful_plant
-		icon = GFX_focus_fra_loyalty_stalin
-		prerequisite = { focus = TPMP_SOV_gorky_plant_no_92
-		}
-		x = 0
-		y = 1
-		relative_position_id = TPMP_SOV_gorky_plant_no_92
-		
-		cost = 5
-
-		mutually_exclusive = { 
-			
-
-		}
-
-		allow_branch = {
-		}
-
-
-		bypass = {
-
-		}
-
-
-		available = {
-			
-   			 252 = {
-    		    arms_factory > 19
-			}
-
-
-		}
-
-
-		
-		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOCUS_FILTER_STABILITY}
-
-		completion_reward = {	
-			add_ideas = TPMP_SOV_grabins_beautiful_plant_idea
-
-
-
-		}
-	}
 
 
 
@@ -2243,11 +2032,11 @@ focus_tree = {
 	focus = {
 		id = TPMP_SOV_expand_tula_arms_plant
 		icon = GFX_focus_fra_loyalty_stalin
-		prerequisite = { focus = TPMP_SOV_vannikovs_nkv
-		}
-		x = 0
+		x = -1
 		y = 1
 		relative_position_id = TPMP_SOV_vannikovs_nkv
+		prerequisite = { focus = TPMP_SOV_vannikovs_nkv
+		}
 		
 		cost = 5
 
@@ -2293,40 +2082,6 @@ focus_tree = {
 
 
 #123123
-	focus = {
-		id = TPMP_SOV_replicate_the_tula_model
-		icon = GFX_focus_fra_loyalty_stalin
-		prerequisite = { focus =  TPMP_SOV_expand_tula_arms_plant
-		}
-		x = 0
-		y = 1
-		relative_position_id = TPMP_SOV_expand_tula_arms_plant
-		
-		cost = 10
-
-		mutually_exclusive = { 
-			
-
-		}
-
-		allow_branch = {
-		}
-
-		available = {
-   			 223 = {
-    		    arms_factory > 11
-			}
-
-		}
-		
-		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOCUS_FILTER_STABILITY}
-
-		completion_reward = {
-			add_ideas = TPMP_SOV_replicate_the_tula_model_idea
-
-
-		}
-	}
 
 
 
@@ -2334,111 +2089,9 @@ focus_tree = {
 
 
 #123123
-	focus = {
-		id = TPMP_SOV_expand_izhevsk_mechanical_plant
-		icon = GFX_focus_fra_loyalty_stalin
-		prerequisite = { focus = TPMP_SOV_vannikovs_nkv
-		}
-		x = 2
-		y = 1
-		relative_position_id = TPMP_SOV_vannikovs_nkv
-		
-		cost = 5
-
-		mutually_exclusive = { 
-			
-
-		}
-
-		allow_branch = {
-		}
-
-
-		bypass = {
-			
-   			 399 = {
-    		    arms_factory > 11
-			}
-
-		}
-
-
-		available = {
-
-
-		}
-
-
-		
-		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOCUS_FILTER_STABILITY}
-
-		completion_reward = {	
-			399 = {
-				add_dynamic_modifier = { 
-					modifier = TPMP_SOV_15_mil_con_speed_dynamic_modifier
-					days = 720
-					scope = SOV
-				}
-			}
-
-		}
-	}
 
 
 #123123
-	focus = {
-		id = TPMP_SOV_undisturbed_eastern_production
-		icon = GFX_focus_fra_loyalty_stalin
-		prerequisite = { focus = TPMP_SOV_expand_izhevsk_mechanical_plant
-		}
-		x = 0
-		y = 1
-		relative_position_id = TPMP_SOV_expand_izhevsk_mechanical_plant
-		
-		cost = 5
-
-		mutually_exclusive = { 
-			
-
-		}
-
-		allow_branch = {
-		}
-
-
-		bypass = {
-			
-
-
-		}
-
-
-		available = {
-   			 399 = {
-    		    arms_factory > 11
-			}
-
-
-		}
-
-
-		
-		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOCUS_FILTER_STABILITY}
-
-		completion_reward = {	
-			399 = {
-				add_extra_state_shared_building_slots = 4
-				add_building_construction = {
-					type = arms_factory
-					level = 4
-					instant_build = yes
-				}
-			}
-			
-
-
-		}
-	}
 
 
 
@@ -2448,11 +2101,11 @@ focus_tree = {
 	focus = {
 		id = TPMP_SOV_expand_kovrov_plant_no_2
 		icon = GFX_focus_fra_loyalty_stalin
-		prerequisite = { focus = TPMP_SOV_vannikovs_nkv
-		}
-		x = 4
+		x = 1
 		y = 1
 		relative_position_id = TPMP_SOV_vannikovs_nkv
+		prerequisite = { focus = TPMP_SOV_vannikovs_nkv
+		}
 		
 		cost = 5
 
@@ -2499,51 +2152,6 @@ focus_tree = {
 
 
 #123123
-	focus = {
-		id = TPMP_SOV_degtyaryovs_playground
-		icon = GFX_focus_fra_loyalty_stalin
-		prerequisite = { focus = TPMP_SOV_expand_kovrov_plant_no_2
-		}
-		x = 0
-		y = 1
-		relative_position_id = TPMP_SOV_expand_kovrov_plant_no_2
-		
-		cost = 5
-
-		mutually_exclusive = { 
-			
-
-		}
-
-		allow_branch = {
-		}
-
-
-		bypass = {
-		}
-
-
-		available = {
-			
-   			253 = {
-    		    arms_factory > 15
-			}
-
-
-		}
-
-
-		
-		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOCUS_FILTER_STABILITY}
-
-		completion_reward = {	
-			add_ideas = TPMP_SOV_degtyaryovs_playground_idea
-
-
-
-
-		}
-	}
 
 
 
@@ -2593,35 +2201,6 @@ focus_tree = {
 
 
 #123123
-	focus = {
-		id = TPMP_SOV_small_arms_development
-		icon = GFX_focus_fra_loyalty_stalin
-		prerequisite = { focus =  TPMP_SOV_kuliks_gau
-		
-		}
-		x = -6
-		y = 1
-		relative_position_id = TPMP_SOV_kuliks_gau
-		
-		cost = 5
-
-		mutually_exclusive = { 
-			
-
-		}
-
-		allow_branch = {
-		}
-
-		available = {
-
-		}
-		
-		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOCUS_FILTER_STABILITY}
-
-		completion_reward = {
-		}
-	}
 
 
 
@@ -2638,99 +2217,12 @@ focus_tree = {
 
 
 #123123
-	focus = {
-		id = TPMP_SOV_submachinegun_competition
-		icon = GFX_focus_fra_loyalty_stalin
-		prerequisite = { focus =  TPMP_SOV_small_arms_development
-		
-		}
-		x = -12
-		y = 1
-		relative_position_id = TPMP_SOV_small_arms_development
-		
-		cost = 10
-
-		mutually_exclusive = { 
-			
-
-		}
-
-		allow_branch = {
-		}
-
-		available = {
-
-		}
-		
-		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOCUS_FILTER_STABILITY}
-
-		completion_reward = {
-		}
-	}
 
 
 
 #123123
-	focus = {
-		id = TPMP_SOV_the_ppd40
-		icon = GFX_focus_fra_loyalty_stalin
-		prerequisite = { focus =  TPMP_SOV_submachinegun_competition
-		
-		}
-		x = -1
-		y = 1
-		relative_position_id = TPMP_SOV_submachinegun_competition
-		
-		cost = 10
-
-		mutually_exclusive = { 
-			
-
-		}
-
-		allow_branch = {
-		}
-
-		available = {
-
-		}
-		
-		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOCUS_FILTER_STABILITY}
-
-		completion_reward = {
-		}
-	}
 
 #123123
-	focus = {
-		id = TPMP_SOV_the_ppsh41
-		icon = GFX_focus_fra_loyalty_stalin
-		prerequisite = { focus =  TPMP_SOV_submachinegun_competition
-		
-		}
-		x = 1
-		y = 1
-		relative_position_id = TPMP_SOV_submachinegun_competition
-		
-		cost = 10
-
-		mutually_exclusive = { 
-			
-
-		}
-
-		allow_branch = {
-		}
-
-		available = {
-
-		}
-		
-		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOCUS_FILTER_STABILITY}
-
-		completion_reward = {
-		}
-	}
 
 
 
@@ -2740,129 +2232,13 @@ focus_tree = {
 
 
 #123123
-	focus = {
-		id = TPMP_SOV_rifle_competition
-		icon = GFX_focus_fra_loyalty_stalin
-		prerequisite = { focus =  TPMP_SOV_small_arms_development
-		
-		}
-		x = -5
-		y = 1
-		relative_position_id = TPMP_SOV_small_arms_development
-		
-		cost = 5
-
-		mutually_exclusive = { 
-			
-
-		}
-
-		allow_branch = {
-		}
-
-		available = {
-
-		}
-		
-		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOCUS_FILTER_STABILITY}
-
-		completion_reward = {
-		}
-	}
 
 
 #123123
-	focus = {
-		id = TPMP_SOV_mosin_my_beloved
-		icon = GFX_focus_fra_loyalty_stalin
-		prerequisite = { focus =  TPMP_SOV_rifle_competition
-		
-		}
-		x = -2
-		y = 1
-		relative_position_id = TPMP_SOV_rifle_competition
-		
-		cost = 5
-
-		mutually_exclusive = { 
-			
-
-		}
-
-		allow_branch = {
-		}
-
-		available = {
-
-		}
-		
-		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOCUS_FILTER_STABILITY}
-
-		completion_reward = {
-		}
-	}
 
 #123123
-	focus = {
-		id = TPMP_SOV_svt_40
-		icon = GFX_focus_fra_loyalty_stalin
-		prerequisite = { focus =  TPMP_SOV_rifle_competition
-		
-		}
-		x = 0
-		y = 1
-		relative_position_id = TPMP_SOV_rifle_competition
-		
-		cost = 5
-
-		mutually_exclusive = { 
-			
-
-		}
-
-		allow_branch = {
-		}
-
-		available = {
-
-		}
-		
-		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOCUS_FILTER_STABILITY}
-
-		completion_reward = {
-		}
-	}
 
 #123123
-	focus = {
-		id = TPMP_SOV_avs_36
-		icon = GFX_focus_fra_loyalty_stalin
-		prerequisite = { focus =  TPMP_SOV_rifle_competition
-		
-		}
-		x = 2
-		y = 1
-		relative_position_id = TPMP_SOV_rifle_competition
-		
-		cost = 5
-
-		mutually_exclusive = { 
-			
-
-		}
-
-		allow_branch = {
-		}
-
-		available = {
-
-		}
-		
-		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOCUS_FILTER_STABILITY}
-
-		completion_reward = {
-		}
-	}
 
 
 
@@ -2871,164 +2247,19 @@ focus_tree = {
 
 
 #123123
-	focus = {
-		id = TPMP_SOV_heavy_machine_gun_comeptition
-		icon = GFX_focus_fra_loyalty_stalin
-		prerequisite = { focus =  TPMP_SOV_small_arms_development
-		
-		}
-		x = 3
-		y = 1
-		relative_position_id = TPMP_SOV_small_arms_development
-		
-		cost = 10
-
-		mutually_exclusive = { 
-			
-
-		}
-
-		allow_branch = {
-		}
-
-		available = {
-
-		}
-		
-		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOCUS_FILTER_STABILITY}
-
-		completion_reward = {
-		}
-	}
 
 
 
 #123123
-	focus = {
-		id = TPMP_SOV_old_reliable_maxim
-		icon = GFX_focus_fra_loyalty_stalin
-		prerequisite = { focus =  TPMP_SOV_heavy_machine_gun_comeptition
-		
-		}
-		x = -3
-		y = 1
-		relative_position_id = TPMP_SOV_heavy_machine_gun_comeptition
-		
-		cost = 10
-
-		mutually_exclusive = { 
-			
-
-		}
-
-		allow_branch = {
-		}
-
-		available = {
-
-		}
-		
-		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOCUS_FILTER_STABILITY}
-
-		completion_reward = {
-		}
-	}
 
 #123123
-	focus = {
-		id = TPMP_SOV_ds39
-		icon = GFX_focus_fra_loyalty_stalin
-		prerequisite = { focus =  TPMP_SOV_heavy_machine_gun_comeptition
-		
-		}
-		x = -1
-		y = 1
-		relative_position_id = TPMP_SOV_heavy_machine_gun_comeptition
-		
-		cost = 10
-
-		mutually_exclusive = { 
-			
-
-		}
-
-		allow_branch = {
-		}
-
-		available = {
-
-		}
-		
-		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOCUS_FILTER_STABILITY}
-
-		completion_reward = {
-		}
-	}
 
 
 
 #123123
-	focus = {
-		id = TPMP_SOV_sg43
-		icon = GFX_focus_fra_loyalty_stalin
-		prerequisite = { focus =  TPMP_SOV_heavy_machine_gun_comeptition
-		
-		}
-		x = 1
-		y = 1
-		relative_position_id = TPMP_SOV_heavy_machine_gun_comeptition
-		
-		cost = 10
-
-		mutually_exclusive = { 
-			
-
-		}
-
-		allow_branch = {
-		}
-
-		available = {
-
-		}
-		
-		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOCUS_FILTER_STABILITY}
-
-		completion_reward = {
-		}
-	}
 
 
 #123123
-	focus = {
-		id = TPMP_SOV_dshk
-		icon = GFX_focus_fra_loyalty_stalin
-		prerequisite = { focus =  TPMP_SOV_heavy_machine_gun_comeptition
-		
-		}
-		x = 3
-		y = 1
-		relative_position_id = TPMP_SOV_heavy_machine_gun_comeptition
-		
-		cost = 10
-
-		mutually_exclusive = { 
-			
-
-		}
-
-		allow_branch = {
-		}
-
-		available = {
-
-		}
-		
-		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOCUS_FILTER_STABILITY}
-
-		completion_reward = {
-		}
-	}
 
 
 
@@ -10570,119 +9801,190 @@ mio:SOV_sevastopol_marine_plant_organization = {
 
 
 
-	focus = {
-		id = SOV_the_path_of_marxism_leninism
-		icon = GFX_focus_SOV_the_path_of_marxism_leninism
-		x = 85
-		y = 0
 
+	#123123
+	focus = {
+		id = TPMP_SOV_vigilance_after_kirov
+		icon = GFX_focus_fra_loyalty_stalin
+		x = 80
+		y = 0
 		cost = 5
 
-		mutually_exclusive = { focus = SOV_beaten_but_not_defeated }
-
-		allow_branch = {
-			if = {
-				limit = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-				}
-				NOT = { has_completed_focus = SOV_the_hands_do }
-			}
-		}
-
 		available = {
-
 		}
-		
-		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA}
+
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA }
 
 		completion_reward = {
-			add_political_power = 25
-
-			SOV_paranoia_low_decrease_effect = yes	
-			if = {
-				limit = {
-					has_dlc = "No Step Back"
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-				}
-				mark_focus_tree_layout_dirty = yes
-			}
+			custom_effect_tooltip = TPMP_SOV_vigilance_after_kirov_tt
 		}
 	}
 
+	#123123
 	focus = {
-		id = SOV_the_centre
+		id = TPMP_SOV_order_00447
 		icon = GFX_focus_fra_loyalty_stalin
-		prerequisite = { focus = SOV_the_path_of_marxism_leninism }
-		x = -8
+		prerequisite = { focus = TPMP_SOV_vigilance_after_kirov }
+		x = -4
 		y = 1
-		
-		relative_position_id = SOV_the_path_of_marxism_leninism
+		relative_position_id = TPMP_SOV_vigilance_after_kirov
 		cost = 5
 
-		mutually_exclusive = { focus = SOV_the_right_opposition focus = SOV_the_left_opposition }
-
-		allow_branch = {
-			if = {
-				limit = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-				}
-				NOT = {
-					AND = {
-						has_completed_focus = SOV_the_left_opposition
-						has_completed_focus = SOV_left_opposition_coup
-					}
-					AND = {
-						has_completed_focus = SOV_the_right_opposition
-						has_completed_focus = SOV_coup_detat
-					}
-					AND = {
-						has_completed_focus = SOV_beaten_but_not_defeated
-						has_completed_focus = SOV_the_hands_do
-					}
-				}
-			}
-		}
-
 		available = {
-
 		}
-		
-		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOCUS_FILTER_STABILITY}
+
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA }
 
 		completion_reward = {
-			hidden_effect = {
-				add_dynamic_modifier = { modifier = SOV_the_politburo_good_dynamic_modifier }
-			}
-			custom_effect_tooltip = SOV_the_centre_ns_tt
+			custom_effect_tooltip = TPMP_SOV_order_00447_tt
+		}
+	}
 
-			add_political_power = 25
-			add_stability = 0.05
+	#123123
+	focus = {
+		id = TPMP_SOV_wreckers_trial
+		icon = GFX_focus_fra_loyalty_stalin
+		prerequisite = { focus = TPMP_SOV_vigilance_after_kirov }
+		x = -2
+		y = 1
+		relative_position_id = TPMP_SOV_vigilance_after_kirov
+		cost = 5
+
+		available = {
+		}
+
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA }
+
+		completion_reward = {
+			custom_effect_tooltip = TPMP_SOV_wreckers_trial_tt
+		}
+	}
+
+	#123123
+	focus = {
+		id = TPMP_SOV_military_conspiracy
+		icon = GFX_focus_fra_loyalty_stalin
+		prerequisite = { focus = TPMP_SOV_vigilance_after_kirov }
+		x = 0
+		y = 1
+		relative_position_id = TPMP_SOV_vigilance_after_kirov
+		cost = 5
+
+		available = {
+		}
+
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA }
+
+		completion_reward = {
+			custom_effect_tooltip = TPMP_SOV_military_conspiracy_tt
+		}
+	}
+
+	#123123
+	focus = {
+		id = TPMP_SOV_bloc_of_rights
+		icon = GFX_focus_fra_loyalty_stalin
+		prerequisite = { focus = TPMP_SOV_vigilance_after_kirov }
+		x = 2
+		y = 1
+		relative_position_id = TPMP_SOV_vigilance_after_kirov
+		cost = 5
+
+		available = {
+		}
+
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA }
+
+		completion_reward = {
+			custom_effect_tooltip = TPMP_SOV_bloc_of_rights_tt
+		}
+	}
+
+	#123123
+	focus = {
+		id = TPMP_SOV_nkvd_border_troops
+		icon = GFX_focus_fra_loyalty_stalin
+		prerequisite = { focus = TPMP_SOV_order_00447 }
+		x = 0
+		y = 1
+		relative_position_id = TPMP_SOV_order_00447
+		cost = 5
+
+		available = {
+		}
+
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA }
+
+		completion_reward = {
+			custom_effect_tooltip = TPMP_SOV_nkvd_border_troops_tt
 			set_division_template_lock = {
 				division_template = "NKVD Pogranichnaya Diviziya"
 				is_locked = no
 			}
-
-			SOV_paranoia_low_decrease_effect = yes
-			if = {
-				limit = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-				}
-				mark_focus_tree_layout_dirty = yes
-			}
 		}
 	}
+
+	#123123
+	focus = {
+		id = TPMP_SOV_nkvd_special_departments
+		icon = GFX_focus_fra_loyalty_stalin
+		prerequisite = { focus = TPMP_SOV_order_00447 }
+		x = 1
+		y = 1
+		relative_position_id = TPMP_SOV_order_00447
+		cost = 5
+
+		available = {
+		}
+
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA }
+
+		completion_reward = {
+			custom_effect_tooltip = TPMP_SOV_nkvd_special_departments_tt
+		}
+	}
+
+	#123123
+	focus = {
+		id = TPMP_SOV_beria_replaces_yezhov
+		icon = GFX_focus_fra_loyalty_stalin
+		prerequisite = { focus = TPMP_SOV_military_conspiracy }
+		x = 0
+		y = 1
+		relative_position_id = TPMP_SOV_military_conspiracy
+		cost = 5
+
+		available = {
+			date > 1938.6.1
+		}
+
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA }
+
+		completion_reward = {
+			custom_effect_tooltip = TPMP_SOV_beria_replaces_yezhov_tt
+		}
+	}
+
+	#123123
+	focus = {
+		id = TPMP_SOV_release_the_useful_ones
+		icon = GFX_focus_fra_loyalty_stalin
+		prerequisite = { focus = TPMP_SOV_beria_replaces_yezhov }
+		x = 0
+		y = 1
+		relative_position_id = TPMP_SOV_beria_replaces_yezhov
+		cost = 5
+
+		available = {
+		}
+
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA }
+
+		completion_reward = {
+			custom_effect_tooltip = TPMP_SOV_release_the_useful_ones_tt
+		}
+	}
+
 
 
 
@@ -10694,20 +9996,19 @@ mio:SOV_sevastopol_marine_plant_organization = {
 		focus = {
 		id = TPMP_SOV_gulag_1
 		icon = GFX_focus_fra_loyalty_stalin
-		prerequisite = { focus = SOV_the_centre }
+		prerequisite = { focus = TPMP_SOV_order_00447 }
 		prerequisite = { focus = TPMP_SOV_expand_the_role_of_nkvd }
-
-
-
-
-		
-		x = -3
+		x = -2
 		y = 1
+		relative_position_id = TPMP_SOV_order_00447
+
+
+
+
 		
-		relative_position_id = SOV_the_centre
+		
 		cost = 5
 
-		mutually_exclusive = { focus = SOV_the_right_opposition focus = SOV_the_left_opposition }
 
 		allow_branch = {
 		}
@@ -10741,7 +10042,6 @@ mio:SOV_sevastopol_marine_plant_organization = {
 		relative_position_id = TPMP_SOV_gulag_1
 		cost = 5
 
-		mutually_exclusive = { focus = SOV_the_right_opposition focus = SOV_the_left_opposition }
 
 		allow_branch = {
 		}
@@ -10773,7 +10073,6 @@ mio:SOV_sevastopol_marine_plant_organization = {
 		relative_position_id = TPMP_SOV_gulag_2
 		cost = 5
 
-		mutually_exclusive = { focus = SOV_the_right_opposition focus = SOV_the_left_opposition }
 
 		allow_branch = {
 		}
@@ -10929,857 +10228,18 @@ mio:SOV_sevastopol_marine_plant_organization = {
 
 
 
-	focus = {
-		id = SOV_socialism_in_one_country
-		icon = GFX_focus_SOV_socialism_in_one_country
-		prerequisite = { focus = SOV_the_centre }
-		x = -1
-		y = 1
-		relative_position_id = SOV_the_centre
-		cost = 5
 
-		available = {
 
-		}
-		
-		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA}
 
-		completion_reward = {
-			add_to_variable = { SOV_the_politburo_communism_drift = 0.05 }
-			add_to_variable = { SOV_the_politburo_drift_defence_factor = 0.05 } 
-			add_to_variable = { SOV_the_politburo_defensive_war_stability_factor = 0.25 } 
-			custom_effect_tooltip = SOV_socialism_in_one_country_ns_tt
 
-			add_political_power = 25
 
-			SOV_paranoia_low_decrease_effect = yes
-		}
-	}
 
-	focus = {
-		id = SOV_the_stalin_constitution
-		icon = GFX_SOV_the_stalin_constitutiony_ccp_2d_sov_compatibility
-		prerequisite = { focus = SOV_the_centre }
-		x = 1
-		y = 1
-		relative_position_id = SOV_the_centre
-		cost = 10
 
-		available = {
 
-		}
-		
-		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOCUS_FILTER_STABILITY}
 
-		completion_reward = {
-			add_to_variable = { SOV_the_politburo_political_power_factor = 0.05 }
-			add_to_variable = { SOV_the_politburo_drift_defence_factor = 0.05 } 
-			custom_effect_tooltip = SOV_the_stalin_constitution_ns_tt
 
-			add_political_power = 50
-			add_stability = 0.05
 
-			SOV_paranoia_low_decrease_effect = yes
-		}
-	}
 
-	focus = {
-		id = SOV_the_zinovyevite_terrorist_center
-		icon = GFX_focus_SOV_purge_zinovyevists
-		prerequisite = { focus = SOV_the_stalin_constitution }
-		x = 0
-		y = 1
-		relative_position_id = SOV_the_stalin_constitution
-		cost = 5
-
-		available = {
-
-		}
-		
-		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA}
-
-		select_effect = {
-			set_country_flag = SOV_paranoia_do_not_cancel_focus_flag #This focus cannot be canceled
-		}
-
-		completion_reward = {
-			clr_country_flag = SOV_paranoia_do_not_cancel_focus_flag
-			set_country_flag = { flag = SOV_paranoia_random_purge_cooldown_from_focus_flag days = 15 } #Used to prevent random purges from popping up while this is active
-			set_country_flag = SOV_first_moscow_trial_flag #Used to unlock the next purge focus
-
-			add_political_power = 25
-
-			SOV_paranoia_high_increase_effect = yes
-			
-			#HISTORICAL
-			#Zinovyev
-			if = {
-				limit = {
-					has_character = SOV_grigory_zinovyev
-				}
-				SOV_grigory_zinovyev = {
-					set_character_flag = SOV_targeted_for_purge_flag
-				}
-			}
-			else = {
-				SOV_add_random_character_to_purge_targets_effect = yes
-			}
-			#Kamenev
-			if = {
-				limit = {
-					has_character = SOV_lev_kamenev
-				}
-				SOV_lev_kamenev = {
-					set_character_flag = SOV_targeted_for_purge_flag
-				}
-			}
-			else = {
-				SOV_add_random_character_to_purge_targets_effect = yes
-			}
-			#Smirnov
-			if = {
-				limit = {
-					has_character = SOV_ivan_smirnov
-				}
-				SOV_ivan_smirnov = {
-					set_character_flag = SOV_targeted_for_purge_flag
-				}
-			}
-			else = {
-				SOV_add_random_character_to_purge_targets_effect = yes
-			}
-
-			#NOT-SO-HISTORICAL
-			#Sokolnikov
-			if = {
-				limit = {
-					has_character = SOV_grigory_sokolnikov
-				}
-				SOV_grigory_sokolnikov = {
-					set_character_flag = SOV_targeted_for_purge_flag
-				}
-			}
-			else = {
-				SOV_add_random_character_to_purge_targets_effect = yes
-			}
-			#Shlyapnikov
-			if = {
-				limit = {
-					has_character = SOV_aleksandr_shlyapnikov
-				}
-				SOV_aleksandr_shlyapnikov = {
-					set_character_flag = SOV_targeted_for_purge_flag
-				}
-			}
-			else = {
-				SOV_add_random_character_to_purge_targets_effect = yes
-			}
-			
-			custom_effect_tooltip = SOV_will_trigger_a_great_purge_tt
-			hidden_effect = {
-				set_country_flag = SOV_purge_event_unavoidable_flag #No way to avoid this purge. This people are about to be purged and there's nothing you can do for them.
-				SOV_trigger_great_purge_moscow_trial_effect = yes #FIRST MOSCOW TRIAL -> Zinovyev & friends
-			}
-			custom_effect_tooltip = SOV_trigger_first_moscow_trial_tt
-		}
-	}
-
-	focus = {
-		id = SOV_secure_the_administration
-		icon = GFX_focus_generic_join_comintern
-		prerequisite = { focus = SOV_the_zinovyevite_terrorist_center }
-		x = -1
-		y = 1
-		relative_position_id = SOV_the_zinovyevite_terrorist_center
-		cost = 10
-
-		available = {
-
-		}
-		
-		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA}
-
-		completion_reward = {
-			add_to_variable = { SOV_the_politburo_economy_cost_factor = -0.2 }
-			add_to_variable = { SOV_the_politburo_trade_laws_cost_factor = -0.2 }
-			add_to_variable = { SOV_the_politburo_mobilization_laws_cost_factor = -0.2 }
-			custom_effect_tooltip = SOV_secure_the_administration_ns_tt
-
-			add_political_power = 50
-
-			SOV_paranoia_medium_decrease_effect = yes
-		}
-	}
-
-	focus = {
-		id = SOV_the_collectivization_process
-		icon = GFX_focus_prc_agrarian_socialism
-		prerequisite = { focus = SOV_socialism_in_one_country }
-		prerequisite = { focus = SOV_secure_the_administration }
-		x = 0
-		y = 3
-		relative_position_id = SOV_socialism_in_one_country
-		cost = 10
-
-		available = {
-
-		}
-		
-		search_filters = {FOCUS_FILTER_INDUSTRY FOCUS_FILTER_SOV_POLITICAL_PARANOIA}
-
-		completion_reward = {
-			add_to_variable = { SOV_the_politburo_good_consumer_goods_factor = -0.02 }
-			add_to_variable = { SOV_the_politburo_production_speed_buildings_factor = 0.05 } 
-			add_to_variable = { SOV_the_politburo_global_building_slots_factor = 0.1 } 
-			custom_effect_tooltip = SOV_the_collectivization_process_ns_tt
-
-			add_stability = -0.05
-			add_war_support = -0.05
-
-			if = { #Target a rural state with no civs
-				limit = {
-					any_owned_state = {
-						OR = {
-							has_state_category = town #Developed Rural Region
-							has_state_category = rural #Rural Region
-						}
-						is_fully_controlled_by = ROOT
-						industrial_complex < 1
-						arms_factory < 1
-						dockyard < 1
-						free_building_slots = {
-							building = industrial_complex
-							size > 1
-							include_locked = yes
-						}
-					}
-				}
-				random_owned_state = {
-					limit = {
-						OR = {
-							has_state_category = town #Developed Rural Region
-							has_state_category = rural #Rural Region
-						}
-						is_fully_controlled_by = ROOT
-						industrial_complex < 1
-						arms_factory < 1
-						dockyard < 1
-						free_building_slots = {
-							building = industrial_complex
-							size > 1
-							include_locked = yes
-						}
-					}
-					add_extra_state_shared_building_slots = 2
-					add_building_construction = {
-						type = industrial_complex
-						level = 2
-						instant_build = yes
-					}
-				}
-			}
-			else_if = { #Failsafe 1: Target a random rural state
-				limit = {
-					any_owned_state = {
-						OR = {
-							has_state_category = town #Developed Rural Region
-							has_state_category = rural #Rural Region
-						}
-						is_fully_controlled_by = ROOT
-						free_building_slots = {
-							building = industrial_complex
-							size > 1
-							include_locked = yes
-						}
-					}
-				}
-				random_owned_state = {
-					limit = {
-						OR = {
-							has_state_category = town #Developed Rural Region
-							has_state_category = rural #Rural Region
-						}
-						is_fully_controlled_by = ROOT
-						free_building_slots = {
-							building = industrial_complex
-							size > 1
-							include_locked = yes
-						}
-					}
-					add_extra_state_shared_building_slots = 2
-					add_building_construction = {
-						type = industrial_complex
-						level = 2
-						instant_build = yes
-					}
-				}
-			}
-			else_if = { #Failsafe 2: Target a random state
-				limit = {
-					any_owned_state = {
-						is_fully_controlled_by = ROOT
-						free_building_slots = {
-							building = industrial_complex
-							size > 1
-							include_locked = yes
-						}
-					}
-				}
-				random_owned_state = {
-					limit = {
-						is_fully_controlled_by = ROOT
-						free_building_slots = {
-							building = industrial_complex
-							size > 1
-							include_locked = yes
-						}
-					}
-					add_extra_state_shared_building_slots = 2
-					add_building_construction = {
-						type = industrial_complex
-						level = 2
-						instant_build = yes
-					}
-				}
-			}
-
-			SOV_paranoia_medium_decrease_effect = yes
-		}
-	}
-
-	focus = {
-		id = SOV_the_anti_soviet_trotskyist_center
-		icon = GFX_focus_SOV_purge_trotskyists
-		prerequisite = { focus = SOV_the_zinovyevite_terrorist_center }
-		x = 0
-		y = 2
-		relative_position_id = SOV_the_zinovyevite_terrorist_center
-		cost = 5
-
-		available = {
-			has_country_flag = {
-				flag = SOV_first_moscow_trial_flag
-				days > 175
-			}
-			custom_trigger_tooltip = {
-				tooltip = SOV_last_purge_focus_days_tt
-				has_country_flag = {
-					flag = SOV_first_moscow_trial_flag
-					days > 175
-				}
-			}
-		}
-		
-		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA}
-
-		select_effect = {
-			set_country_flag = SOV_paranoia_do_not_cancel_focus_flag #This focus cannot be canceled
-		}
-
-		completion_reward = {
-			clr_country_flag = SOV_paranoia_do_not_cancel_focus_flag
-			set_country_flag = { flag = SOV_paranoia_random_purge_cooldown_from_focus_flag days = 15 } #Used to prevent random purges from popping up while this is active
-			set_country_flag = SOV_second_moscow_trial_flag #Used to unlock the next purge focus
-
-			add_political_power = 25
-
-			SOV_paranoia_high_increase_effect = yes
-
-			#HISTORICAL
-			#Radek
-			if = {
-				limit = {
-					has_character = SOV_karl_radek
-				}
-				SOV_karl_radek = {
-					set_character_flag = SOV_targeted_for_purge_flag
-				}
-			}
-			else = {
-				SOV_add_random_character_to_purge_targets_effect = yes
-			}
-			#NOT-SO-HISTORICAL
-			#Smilga
-			if = {
-				limit = {
-					has_character = SOV_ivar_smilga
-				}
-				SOV_ivar_smilga = {
-					set_character_flag = SOV_targeted_for_purge_flag
-				}
-			}
-			else = {
-				SOV_add_random_character_to_purge_targets_effect = yes
-			}
-			#Preobrazhensky
-			if = {
-				limit = {
-					has_character = SOV_yevgeny_preobrazhensky
-				}
-				SOV_yevgeny_preobrazhensky = {
-					set_character_flag = SOV_targeted_for_purge_flag
-				}
-			}
-			else = {
-				SOV_add_random_character_to_purge_targets_effect = yes
-			}
-			#Ryutin
-			if = {
-				limit = {
-					has_character = SOV_martemyan_ryutin
-				}
-				SOV_martemyan_ryutin = {
-					set_character_flag = SOV_targeted_for_purge_flag
-				}
-			}
-			else = {
-				SOV_add_random_character_to_purge_targets_effect = yes
-			}
-			#Ustryalov
-			if = {
-				limit = {
-					has_dlc = "No Step Back"
-				}
-				if = {
-					limit = {
-						has_character = SOV_nikolay_ustryalov
-					}
-					SOV_nikolay_ustryalov = {
-						set_character_flag = SOV_targeted_for_purge_flag
-					}
-				}
-				else = {
-					SOV_add_random_character_to_purge_targets_effect = yes
-				}
-			}
-
-			custom_effect_tooltip = SOV_will_trigger_a_great_purge_tt
-			hidden_effect = {
-				set_country_flag = SOV_purge_event_unavoidable_flag #No way to avoid this purge. This people are about to be purged and there's nothing you can do for them.
-				SOV_trigger_great_purge_moscow_trial_effect = yes #SECOND MOSCOW TRIAL -> Left Opposition
-			}
-			custom_effect_tooltip = SOV_trigger_second_moscow_trial_tt
-
-			hidden_effect = {
-				swap_ruler_traits = {
-					remove = stalin_political_paranoia
-					add = stalin_political_paranoia_advanced
-				}
-				add_to_variable = { SOV_paranoia_weekly_modifiers_amount = 1 }
-				SOV_paranoia_modifier_update_gui_tooltip = yes
-			}		
-			custom_effect_tooltip = SOV_increase_weekly_paranoia_in_trait_tt
-		}
-	}
-
-	focus = {
-		id = SOV_the_workers_dictatorship
-		icon = GFX_SOV_the_workers_dictatorship_ccp_2d_sov_compatibility
-		prerequisite = { focus = SOV_the_anti_soviet_trotskyist_center }
-		x = 0
-		y = 1
-		relative_position_id = SOV_the_anti_soviet_trotskyist_center
-		cost = 10
-
-		available = {
-
-		}
-		
-		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA}
-
-		completion_reward = {
-			add_to_variable = { SOV_the_politburo_political_power_factor = 0.05 }
-			add_to_variable = { SOV_the_politburo_max_surrender_limit_offset = 0.05 }
-			custom_effect_tooltip = SOV_the_workers_dictatorship_ns_tt
-
-			add_political_power = 50
-
-			SOV_paranoia_low_decrease_effect = yes
-		}
-	}
-
-	focus = {
-		id = SOV_organization_centralization_discipline
-		icon = GFX_focus_SOV_organization_centralization_discipline
-		prerequisite = { focus = SOV_the_collectivization_process }
-		prerequisite = { focus = SOV_the_workers_dictatorship }
-		x = -2
-		y = 1
-		relative_position_id = SOV_the_workers_dictatorship
-		cost = 5
-
-		available = {
-
-		}
-		
-		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA}
-
-		completion_reward = {
-			add_to_variable = { SOV_the_politburo_max_command_power = 20 }
-			add_to_variable = { SOV_the_politburo_mobilization_speed = 0.05 }
-			custom_effect_tooltip = SOV_organization_centralization_discipline_ns_tt
-
-			add_political_power = 50
-
-			SOV_paranoia_medium_decrease_effect = yes
-		}
-	}
-
-	focus = {
-		id = SOV_war_economy
-		icon = GFX_SOV_war_economy_ccp_2d_sov_compatibility
-		prerequisite = { focus = SOV_organization_centralization_discipline }
-		x = 0
-		y = 1
-		relative_position_id = SOV_organization_centralization_discipline
-		cost = 10
-
-		available = {
-
-		}
-		
-		search_filters = {FOCUS_FILTER_INDUSTRY}
-
-		completion_reward = {
-			custom_effect_tooltip = SOV_war_economy_stability_tt
-			if = {
-				limit = {
-					has_war = no
-				}
-				add_stability = -0.1
-			}
-			else = {
-				custom_effect_tooltip = SOV_war_economy_stability_war_tt
-			}
-			if = {
-				limit = {
-					NOT = { has_idea = war_economy }
-					NOT = { has_idea = tot_economic_mobilisation }
-				}
-				add_ideas = war_economy
-			}
-			custom_effect_tooltip = generic_skip_one_line_tt
-			if = {
-				limit = {
-					217 = {
-						is_controlled_by = ROOT
-						free_building_slots = {
-							building = arms_factory
-							size > 1
-							include_locked = yes
-						}
-					}
-				}
-				217 = {
-					add_extra_state_shared_building_slots = 2
-					add_building_construction = {
-						type = arms_factory
-						level = 2
-						instant_build = yes
-					}
-				}
-			}
-			else = {
-				random_controlled_state = {
-					limit = {
-						arms_factory > 1
-						free_building_slots = {
-							building = arms_factory
-							size > 1
-							include_locked = yes
-						}
-					}
-					add_extra_state_shared_building_slots = 2
-					add_building_construction = {
-						type = arms_factory
-						level = 2
-						instant_build = yes
-					}
-				}
-			}
-		}
-	}
-
-	focus = {
-		id = SOV_the_military_conspiracy
-		icon = GFX_focus_SOV_military_purge
-		prerequisite = { focus = SOV_the_workers_dictatorship }
-		x = 0
-		y = 2
-		relative_position_id = SOV_the_anti_soviet_trotskyist_center
-		cost = 5
-
-		available = {
-			has_country_flag = {
-				flag = SOV_second_moscow_trial_flag
-				days > 175
-			}
-			custom_trigger_tooltip = {
-				tooltip = SOV_last_purge_focus_days_military_tt
-				has_country_flag = {
-					flag = SOV_second_moscow_trial_flag
-					days > 175
-				}
-			}
-		}
-		
-		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA}
-
-		select_effect = {
-			set_country_flag = SOV_paranoia_do_not_cancel_focus_flag #This focus cannot be canceled
-		}
-
-		completion_reward = {
-			clr_country_flag = SOV_paranoia_do_not_cancel_focus_flag
-			set_country_flag = { flag = SOV_paranoia_random_purge_cooldown_from_focus_flag days = 15 } #Used to prevent random purges from popping up while this is active
-			set_country_flag = SOV_trial_of_the_generals_flag #Used to unlock the next purge focus
-
-			add_political_power = 25
-
-			SOV_paranoia_high_increase_effect = yes
-
-			#Historical
-			if = {
-				limit = {
-					has_character = SOV_mikhail_tukhachevsky
-				}
-				SOV_mikhail_tukhachevsky = {
-					set_character_flag = SOV_targeted_for_purge_flag
-				}
-			}
-			else = {
-				SOV_add_random_character_to_purge_targets_effect = yes
-			}
-			#NOT-SO-HISTORICAL
-			#Yegorov
-			if = {
-				limit = {
-					has_character = SOV_aleksandr_yegorov
-				}
-				SOV_aleksandr_yegorov = {
-					set_character_flag = SOV_targeted_for_purge_flag
-				}
-			}
-			else = {
-				SOV_add_random_character_to_purge_targets_effect = yes
-			}
-			#Blyukher
-			if = {
-				limit = {
-					has_character = SOV_vasily_blyukher
-				}
-				SOV_vasily_blyukher = {
-					set_character_flag = SOV_targeted_for_purge_flag
-				}
-			}
-			else = {
-				SOV_add_random_character_to_purge_targets_effect = yes
-			}
-			#Primakov
-			if = {
-				limit = {
-					has_character = SOV_vitaly_primakov
-				}
-				SOV_vitaly_primakov = {
-					set_character_flag = SOV_targeted_for_purge_flag
-				}
-			}
-			else = {
-				SOV_add_random_character_to_purge_targets_effect = yes
-			}			
-
-			custom_effect_tooltip = SOV_will_trigger_a_great_purge_tt
-			hidden_effect = {
-				set_country_flag = SOV_purge_event_unavoidable_flag #No way to avoid this purge. This people are about to be purged and there's nothing you can do for them.
-				SOV_great_purge_army_trial_of_the_generals_effect = yes #TRIAL OF THE GENERALS -> Tukhachevsky
-			}
-
-			set_country_flag = SOV_stalinist_military_flag #New Generals have more chances of being Stalinists after this
-		}
-	}
-
-	focus = {
-		id = SOV_the_bloc_of_rights_and_trotskyites
-		icon = GFX_focus_SOV_purge_bukharinists
-		prerequisite = { focus = SOV_the_military_conspiracy }
-		x = 0
-		y = 1
-		relative_position_id = SOV_the_military_conspiracy
-		cost = 10
-
-		available = {
-			has_country_flag = {
-				flag = SOV_trial_of_the_generals_flag
-				days > 175
-			}
-			custom_trigger_tooltip = {
-				tooltip = SOV_last_purge_focus_days_rights_tt
-				has_country_flag = {
-					flag = SOV_trial_of_the_generals_flag
-					days > 175
-				}
-			}
-		}
-		
-		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA}
-
-		select_effect = {
-			set_country_flag = SOV_paranoia_do_not_cancel_focus_flag #This focus cannot be canceled
-		}
-
-		completion_reward = {
-			clr_country_flag = SOV_paranoia_do_not_cancel_focus_flag
-			set_country_flag = { flag = SOV_paranoia_random_purge_cooldown_from_focus_flag days = 15 } #Used to prevent random purges from popping up while this is active
-			set_country_flag = SOV_third_moscow_trial_flag #Used to unlock the next purge focus
-
-			add_political_power = 25
-
-			#HISTORICAL
-			#Bukharin
-			if = {
-				limit = {
-					has_character = SOV_nikolay_bukharin
-				}
-				SOV_nikolay_bukharin = {
-					set_character_flag = SOV_targeted_for_purge_flag
-				}
-			}
-			else = {
-				SOV_add_random_character_to_purge_targets_effect = yes
-			}
-			#Rykov
-			if = {
-				limit = {
-					has_character = SOV_aleksey_rykov
-				}
-				SOV_aleksey_rykov = {
-					set_character_flag = SOV_targeted_for_purge_flag
-				}
-			}
-			else = {
-				SOV_add_random_character_to_purge_targets_effect = yes
-			}
-			#NOT-SO-HISTORICAL
-			#Tomsky
-			if = {
-				limit = {
-					has_character = SOV_mikhail_tomsky
-				}
-				SOV_mikhail_tomsky = {
-					set_character_flag = SOV_targeted_for_purge_flag
-				}
-			}
-			else = {
-				SOV_add_random_character_to_purge_targets_effect = yes
-			}
-			#Litvinov
-			if = {
-				limit = {
-					has_character = SOV_maksim_litvinov
-				}
-				SOV_maksim_litvinov = {
-					set_character_flag = SOV_targeted_for_purge_flag
-				}
-			}
-			else = {
-				SOV_add_random_character_to_purge_targets_effect = yes
-			}
-
-			custom_effect_tooltip = SOV_will_trigger_a_great_purge_tt
-			hidden_effect = {
-				set_country_flag = SOV_purge_event_unavoidable_flag #No way to avoid this purge. This people are about to be purged and there's nothing you can do for them.
-				SOV_trigger_great_purge_moscow_trial_effect = yes #THIRD MOSCOW TRIAL -> Right Opposition
-			}
-			custom_effect_tooltip = SOV_trigger_third_moscow_trial_tt
-
-			SOV_remove_paranoia_effect = yes #REMOVE PARANOIA SYSTEM
-			
-			UKR = { country_event = { id = UKR_great_purge_event.1 days = 1 } }
-		}
-	}
-
-	focus = {
-		id = SOV_behead_the_snake
-		icon = GFX_focus_SOV_behead_the_snake
-		prerequisite = { focus = SOV_the_military_conspiracy }
-		x = 2
-		y = 1
-		relative_position_id = SOV_the_military_conspiracy
-		cost = 5
-
-		available = {
-			has_government = communism
-			NOT = { has_global_flag = AAT_trotsky_sent_to_stalin }
-			has_global_flag = AAT_trotsky_in_mexico
-		}
-		
-		search_filters = {FOCUS_FILTER_SOV_POLITICAL_PARANOIA}
-
-		completion_reward = {
-			if = {
-				limit = {
-					has_dlc = "La Resistance"
-				}
-				custom_effect_tooltip = SOV_behead_the_snake_lar_tt
-				create_operative_leader = {
-					name = "Ramón Mercader"
-					GFX = GFX_portrait_SOV_ramon_mercader
-					traits = { operative_tough operative_infiltrator }
-					bypass_recruitment = no
-					available_to_spy_master = yes
-					nationalities = { SOV SPR MEX }
-				}
-
-				#Extra operative slot
-				set_variable = { SOV_the_politburo_operative_slot = 1 }
-				custom_effect_tooltip = SOV_behead_the_snake_ns_tt
-			}
-			else = {
-				custom_effect_tooltip = SOV_behead_the_snake_no_lar_tt
-			}
-
-			SOV_paranoia_high_decrease_effect = yes
-		}
-	}
-
-	focus = {
-		id = SOV_stalins_cult_of_personality
-		icon = GFX_focus_SOV_stalins_cult_of_personality
-		prerequisite = { focus = SOV_the_bloc_of_rights_and_trotskyites }
-		x = 0
-		y = 1
-		relative_position_id = SOV_the_bloc_of_rights_and_trotskyites
-		cost = 5
-
-		available = {
-			has_country_flag = {
-				flag = SOV_third_moscow_trial_flag
-				days > 175
-			}
-			custom_trigger_tooltip = {
-				tooltip = SOV_last_purge_focus_days_cult_tt
-				has_country_flag = {
-					flag = SOV_third_moscow_trial_flag
-					days > 175
-				}
-			}
-			has_completed_focus = SOV_expand_the_agitprop
-			has_country_leader = {
-				character = SOV_iosif_stalin
-				ruling_only = yes
-			}
-		}
-		
-		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_PROPAGANDA}
-
-		completion_reward = {
-			add_political_power = 25
-
-			custom_effect_tooltip = unlock_propaganda_campaign_tt
-			unlock_decision_tooltip = SOV_propaganda_stalin
-			custom_effect_tooltip = propaganda_campaign_requirement_tt
-		}
-	}
 
 	# focus = {
 	# 	id = SOV_they_will_know_fear
@@ -11821,297 +10281,13 @@ mio:SOV_sevastopol_marine_plant_organization = {
 	# 	}
 	# }
 
-	focus = {
-		id = SOV_inheritor_of_the_mantle_of_lenin
-		icon = GFX_SOV_inheritor_of_the_mantle_of_lenin_ccp_2d_sov_compatibility
-		prerequisite = { focus = SOV_stalins_cult_of_personality }
-		x = -1
-		y = 1
-		relative_position_id = SOV_stalins_cult_of_personality
-		cost = 5
 
-		mutually_exclusive = { focus = SOV_the_faithful_servant_of_lenin }
 
-		available = {
-			custom_trigger_tooltip = {
-				tooltip = SOV_propaganda_campaigns_taken_5_or_greater_tt
-				check_variable = { SOV_propaganda_campaigns_taken = 5 compare = greater_than_or_equals }
-			}
-		}
-		
-		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_WAR_SUPPORT}
 
-		completion_reward = {
-			add_war_support = 0.05
-			add_country_leader_trait = stalin_inheritor_of_lenin
-		}
-	}
 
-	focus = {
-		id = SOV_brilliant_genius
-		icon = GFX_focus_generic_socialist_science
-		prerequisite = { focus = SOV_inheritor_of_the_mantle_of_lenin }
-		x = -1
-		y = 1
-		relative_position_id = SOV_inheritor_of_the_mantle_of_lenin
-		cost = 10
-		
-		available = {
-			custom_trigger_tooltip = {
-				tooltip = SOV_propaganda_campaigns_taken_10_or_greater_tt
-				check_variable = { SOV_propaganda_campaigns_taken = 10 compare = greater_than_or_equals }
-			}
-		}
-		
-		search_filters = {FOCUS_FILTER_RESEARCH}
 
-		completion_reward = {
-			#Academies of Sciences decisions are 50% cheaper
-			divide_variable = { SOV_national_academy_of_sciences_construction_cost = 2 }
-			custom_effect_tooltip = SOV_brilliant_genius_academies_of_sciences_tt
 
-			if = {
-				limit = {
-					has_completed_focus = SOV_leader_of_the_party_and_the_people
-				}
-				swap_ruler_traits = {
-					remove = stalin_inheritor_of_lenin_leader
-					add = stalin_inheritor_of_lenin_final
-				}
-			}
-			else = {
-				swap_ruler_traits = {
-					remove = stalin_inheritor_of_lenin
-					add = stalin_inheritor_of_lenin_genius
-				}
-			}
-		}
-	}
 
-	focus = {
-		id = SOV_the_faithful_servant_of_lenin
-		icon = GFX_SOV_the_faithful_servant_of_lenin_ccp_2d_sov_compatibility
-		prerequisite = { focus = SOV_stalins_cult_of_personality }
-		x = 1
-		y = 1
-		relative_position_id = SOV_stalins_cult_of_personality
-		cost = 5
-
-		mutually_exclusive = { focus = SOV_inheritor_of_the_mantle_of_lenin }
-
-		available = {
-			custom_trigger_tooltip = {
-				tooltip = SOV_propaganda_campaigns_taken_5_or_greater_tt
-				check_variable = { SOV_propaganda_campaigns_taken = 5 compare = greater_than_or_equals }
-			}
-		}
-		
-		search_filters = {FOCUS_FILTER_STABILITY}
-
-		completion_reward = {
-			add_stability = 0.1
-			add_country_leader_trait = stalin_servant_of_lenin
-		}
-	}
-
-	focus = {
-		id = SOV_ban_excessive_hero_worship
-		icon = GFX_focus_renounce_the_treaty_of_trianon
-		prerequisite = { focus = SOV_the_faithful_servant_of_lenin }
-		x = 1
-		y = 1
-		relative_position_id = SOV_the_faithful_servant_of_lenin
-		cost = 10
-
-		available = {
-			custom_trigger_tooltip = {
-				tooltip = SOV_propaganda_campaigns_taken_10_or_greater_tt
-				check_variable = { SOV_propaganda_campaigns_taken = 10 compare = greater_than_or_equals }
-			}
-		}
-		
-		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY}
-
-		completion_reward = {
-			custom_effect_tooltip = SOV_ban_excessive_hero_worship_dec_cost_tt
-			SOV_foreign_politics_decision_cost_reduction_effect = yes
-
-			if = {
-				limit = {
-					has_completed_focus = SOV_leader_of_the_party_and_the_people
-				}
-				swap_ruler_traits = {
-					remove = stalin_servant_of_lenin_leader
-					add = stalin_servant_of_lenin_final
-				}
-			}
-			else = {
-				swap_ruler_traits = {
-					remove = stalin_servant_of_lenin
-					add = stalin_servant_of_lenin_worship
-				}
-			}
-		}
-	}
-
-	focus = {
-		id = SOV_leader_of_the_party_and_the_people
-		icon = GFX_SOV_leader_of_the_party_and_the_people_ccp_2d_sov_compatibility
-		prerequisite = { focus = SOV_inheritor_of_the_mantle_of_lenin focus = SOV_the_faithful_servant_of_lenin }
-		x = 1
-		y = 1
-		relative_position_id = SOV_inheritor_of_the_mantle_of_lenin
-		cost = 5
-		
-		available = {
-			custom_trigger_tooltip = {
-				tooltip = SOV_propaganda_campaigns_taken_10_or_greater_tt
-				check_variable = { SOV_propaganda_campaigns_taken = 10 compare = greater_than_or_equals }
-			}
-		}
-		
-		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY}
-
-		completion_reward = {
-			add_political_power = 50
-
-			#Swap Stalin's Trait
-			if = { #INHERITOR BRANCH
-				limit = {
-					has_completed_focus = SOV_inheritor_of_the_mantle_of_lenin
-				}
-				if = {
-					limit = {
-						has_completed_focus = SOV_brilliant_genius
-					}
-					swap_ruler_traits = {
-						remove = stalin_inheritor_of_lenin_genius
-						add = stalin_inheritor_of_lenin_final
-					}
-				}
-				else = {
-					swap_ruler_traits = {
-						remove = stalin_inheritor_of_lenin
-						add = stalin_inheritor_of_lenin_leader
-					}
-				}
-			}
-			else_if = { #SERVANT BRANCH
-				limit = {
-					has_completed_focus = SOV_the_faithful_servant_of_lenin
-				}
-				if = {
-					limit = {
-						has_completed_focus = SOV_ban_excessive_hero_worship
-					}
-					swap_ruler_traits = {
-						remove = stalin_servant_of_lenin_worship
-						add = stalin_servant_of_lenin_final
-					}
-				}
-				else = {
-					swap_ruler_traits = {
-						remove = stalin_servant_of_lenin
-						add = stalin_servant_of_lenin_leader
-					}
-				}
-			}
-			else = {
-				custom_effect_tooltip = SOV_leader_of_the_party_and_the_people_trait_tt
-			}
-		}
-	}
-
-	focus = {
-		id = SOV_great_commander
-		icon = GFX_SOV_great_commander_ccp_2d_sov_compatibility
-		prerequisite = { focus = SOV_inheritor_of_the_mantle_of_lenin }
-		prerequisite = { focus = SOV_leader_of_the_party_and_the_people }
-		x = -1
-		y = 1
-		relative_position_id = SOV_leader_of_the_party_and_the_people
-		cost = 5
-
-		mutually_exclusive = { focus = SOV_architect_of_communism }
-		
-		available = {
-			custom_trigger_tooltip = {
-				tooltip = SOV_propaganda_campaigns_taken_15_or_greater_tt
-				check_variable = { SOV_propaganda_campaigns_taken = 15 compare = greater_than_or_equals }
-			}
-		}
-		
-		search_filters = {FOCUS_FILTER_WAR_SUPPORT}
-
-		completion_reward = {
-			add_country_leader_trait = stalin_great_commander
-			add_field_marshal_role = {
-				character = "SOV_iosif_stalin"
-				traits={ old_guard politically_connected media_personality harsh_leader }
-				skill=3
-				attack_skill=1
-				defense_skill=3
-				planning_skill=3
-				logistics_skill=3
-				legacy_id=0
-			}
-		}
-	}
-
-	focus = {
-		id = SOV_architect_of_communism
-		icon = GFX_SOV_architect_of_communism_ccp_2d_sov_compatibility
-		prerequisite = { focus = SOV_the_faithful_servant_of_lenin }
-		prerequisite = { focus = SOV_leader_of_the_party_and_the_people }
-		x = 1
-		y = 1
-		relative_position_id = SOV_leader_of_the_party_and_the_people
-		cost = 5
-
-		mutually_exclusive = { focus = SOV_great_commander }
-
-		available = {
-			custom_trigger_tooltip = {
-				tooltip = SOV_propaganda_campaigns_taken_15_or_greater_tt
-				check_variable = { SOV_propaganda_campaigns_taken = 15 compare = greater_than_or_equals }
-			}
-		}
-		
-		search_filters = {FOCUS_FILTER_POLITICAL}
-
-		completion_reward = {
-			add_country_leader_trait = stalin_architect_of_communism
-		}
-	}
-
-	focus = {
-		id = SOV_father_of_nations
-		icon = GFX_SOV_father_of_nations_ccp_2d_sov_compatibility
-		prerequisite = { focus = SOV_great_commander focus = SOV_architect_of_communism }
-		x = 1
-		y = 1
-		relative_position_id = SOV_great_commander
-		cost = 10
-
-		available = {
-			custom_trigger_tooltip = {
-				tooltip = SOV_propaganda_campaigns_taken_20_or_greater_tt
-				check_variable = { SOV_propaganda_campaigns_taken = 20 compare = greater_than_or_equals }
-			}
-		}
-		
-		search_filters = {FOCUS_FILTER_MANPOWER FOCUS_FILTER_STABILITY}
-
-		completion_reward = {
-			swap_ruler_traits = {
-				remove = stalin_heart_of_steel
-				add = stalin_father_of_nations
-			}
-			hidden_effect = {
-				play_song = "comintern_war_1"
-			}
-		}
-	}
 
 
 
@@ -12128,380 +10304,17 @@ mio:SOV_sevastopol_marine_plant_organization = {
 	
 
 
-	focus = {
-		id = SOV_addressing_internal_affairs
-		icon = GFX_focus_generic_self_management
-		prerequisite = { focus = SOV_the_path_of_marxism_leninism }
-		x = -2
-		y = 1
-		
-		
-		relative_position_id = SOV_the_path_of_marxism_leninism
-		cost = 5
 
-		allow_branch = {
-			if = {
-				limit = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-				}
-				NOT = { has_completed_focus = SOV_beaten_but_not_defeated }
-			}
-		}
 
-		available = {
 
-		}
-		
-		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY}
 
-		completion_reward = {
-			add_political_power = 50
-			add_stability = 0.1
-		}
-	}
 
-	focus = {
-		id = SOV_nkvd_primacy
-		icon = GFX_SOV_nkvd_primacy_ccp_2d_sov_compatibility
-		prerequisite = { focus = SOV_addressing_internal_affairs }
-		x = -2
-		y = 1
-		relative_position_id = SOV_addressing_internal_affairs
-		cost = 5
 
-		available = {
 
-		}
-		
-		search_filters = {FOCUS_FILTER_SOV_POLITICAL_PARANOIA}
 
-		completion_reward = {
-			add_ideas = SOV_nkvd_nsb
-			SOV_paranoia_medium_increase_effect = yes
-		}
-	}
 
-	focus = {
-		id = SOV_the_new_soviet_woman
-		icon = GFX_SOV_the_new_soviet_woman_ccp_2d_sov_compatibility
-		prerequisite = { focus = SOV_addressing_internal_affairs }
-		x = 2
-		y = 1
-		relative_position_id = SOV_addressing_internal_affairs
-		cost = 5
 
-		available = {
 
-		}
-		
-		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY}
-
-		completion_reward = {
-			add_political_power = 70
-			add_stability = 0.1
-			add_popularity = {
-				ideology = communism
-				popularity = 0.1
-			}
-		}
-	}
-
-	focus = {
-		id = SOV_expand_the_agitprop
-		icon = GFX_SOV_expand_the_agitprop_ccp_2d_sov_compatibility
-		prerequisite = { focus = SOV_addressing_internal_affairs }
-		x = 0
-		y = 1
-		relative_position_id = SOV_addressing_internal_affairs
-		cost = 5
-
-		available = {
-
-		}
-		
-		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_PROPAGANDA}
-
-		completion_reward = {
-			add_political_power = 25
-			add_popularity = {
-				ideology = communism
-				popularity = 0.1
-			}
-
-			hidden_effect = {
-				SOV_unlock_propaganda_campaign_slot_effect = yes
-			}
-			unlock_decision_category_tooltip = SOV_propaganda_campaigns
-		}
-	}
-
-	focus = {
-		id = SOV_positive_heroism
-		icon = GFX_SOV_positive_heroism_ccp_2d_sov_compatibility
-		prerequisite = { focus = SOV_expand_the_agitprop }
-		x = -2
-		y = 1
-		relative_position_id = SOV_expand_the_agitprop
-		cost = 10
-
-		mutually_exclusive = { focus = SOV_collectivist_propaganda }
-
-		available = {
-
-		}
-		
-		search_filters = {FOCUS_FILTER_PROPAGANDA}
-
-		completion_reward = {
-			add_political_power = 25
-			custom_effect_tooltip = available_military_high_command
-			show_ideas_tooltip = konstantin_rokossovsky 
-			custom_effect_tooltip = available_theorist
-			show_ideas_tooltip = georgy_zhukov
-
-			custom_effect_tooltip = unlock_propaganda_campaign_tt
-			unlock_decision_tooltip = SOV_propaganda_heroes_forward
-			custom_effect_tooltip = unlock_propaganda_campaign_slot_tt
-			SOV_unlock_propaganda_campaign_slot_effect = yes
-		}
-	}
-
-	focus = {
-		id = SOV_revive_the_stakhanovite_movement
-		icon = GFX_SOV_revive_the_stakhanovite_movement_ccp_2d_sov_compatibility
-		prerequisite = { focus = SOV_positive_heroism }
-		x = 0
-		y = 1
-		relative_position_id = SOV_positive_heroism
-		cost = 10
-
-		available = {
-
-		}
-		
-		search_filters = {FOCUS_FILTER_INDUSTRY}
-
-		completion_reward = {
-			add_ideas = SOV_stakhanovite_movement
-		}
-	}
-
-	focus = {
-		id = SOV_war_heroes
-		icon = GFX_SOV_war_heroes_ccp_2d_sov_compatibility
-		prerequisite = { focus = SOV_revive_the_stakhanovite_movement }
-		x = 0
-		y = 1
-		relative_position_id = SOV_revive_the_stakhanovite_movement
-		cost = 10
-
-		available = {
-
-		}
-		
-		search_filters = {}
-
-		completion_reward = {
-			add_ideas = SOV_war_heroes_ns
-
-			custom_effect_tooltip = generic_skip_one_line_tt
-
-			if = {
-				limit = {
-					SOV_georgy_zhukov = {
-						NOT = { has_character_flag = SOV_character_purged_flag }
-						is_corps_commander = yes
-					}
-				}
-				SOV_georgy_zhukov = {
-					promote_leader = yes
-				}
-			}
-			else = {
-				random_army_leader = {
-					limit = {
-						NOT = { has_character_flag = SOV_potential_target_flag }
-						is_corps_commander = yes
-						NOT = { is_character = SOV_konstantin_rokossovsky }
-						NOT = { is_character = SOV_ivan_konev }
-					}
-					promote_leader = yes
-				}
-			}
-			if = {
-				limit = {
-					SOV_konstantin_rokossovsky = {
-						NOT = { has_character_flag = SOV_character_purged_flag }
-						is_corps_commander = yes
-					}
-				}
-				SOV_konstantin_rokossovsky = {
-					promote_leader = yes
-				}
-			}
-			else = {
-				random_army_leader = {
-					limit = {
-						NOT = { has_character_flag = SOV_potential_target_flag }
-						is_corps_commander = yes
-						NOT = { is_character = SOV_georgy_zhukov }
-						NOT = { is_character = SOV_ivan_konev }
-					}
-					promote_leader = yes
-				}
-			}
-			if = {
-				limit = {
-					SOV_ivan_konev = {
-						NOT = { has_character_flag = SOV_character_purged_flag }
-						is_corps_commander = yes
-					}
-				}
-				SOV_ivan_konev = {
-					promote_leader = yes
-				}
-			}
-			else = {
-				random_army_leader = {
-					limit = {
-						NOT = { has_character_flag = SOV_potential_target_flag }
-						is_corps_commander = yes
-						NOT = { is_character = SOV_georgy_zhukov }
-						NOT = { is_character = SOV_konstantin_rokossovsky }
-					}
-					promote_leader = yes
-				}
-			}
-		}
-	}
-
-	focus = {
-		id = SOV_collectivist_propaganda
-		icon = GFX_SOV_collectivist_propaganda_ccp_2d_sov_compatibility
-		prerequisite = { focus = SOV_expand_the_agitprop }
-		x = 0
-		y = 1
-		relative_position_id = SOV_expand_the_agitprop
-		cost = 10
-
-		mutually_exclusive = { focus = SOV_positive_heroism }
-
-		available = {
-
-		}
-		
-		search_filters = {FOCUS_FILTER_MANPOWER FOCUS_FILTER_PROPAGANDA}
-
-		completion_reward = {
-			add_political_power = 25
-			add_ideas = SOV_collectivist_propaganda_ns
-
-			custom_effect_tooltip = unlock_propaganda_campaign_tt
-			unlock_decision_tooltip = SOV_propaganda_for_the_motherland
-			custom_effect_tooltip = unlock_propaganda_campaign_slot_tt
-			SOV_unlock_propaganda_campaign_slot_effect = yes
-		}
-	}
-
-	focus = {
-		id = SOV_socialist_emulation
-		icon = GFX_SOV_socialist_emulation_ccp_2d_sov_compatibility
-		prerequisite = { focus = SOV_collectivist_propaganda }
-		x = 0
-		y = 1
-		relative_position_id = SOV_collectivist_propaganda
-		cost = 10
-
-		available = {
-
-		}
-		
-		search_filters = {FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH}
-
-		completion_reward = {
-			add_ideas = SOV_socialist_emulation_1_ns
-		}
-	}
-
-	focus = {
-		id = SOV_socialist_realism
-		icon = GFX_SOV_socialist_realism_ccp_2d_sov_compatibility
-		prerequisite = { focus = SOV_socialist_emulation }
-		x = 0
-		y = 1
-		relative_position_id = SOV_socialist_emulation
-		cost = 10
-
-		available = {
-
-		}
-		
-		search_filters = {FOCUS_FILTER_INDUSTRY FOCUS_FILTER_POLITICAL}
-
-		completion_reward = {
-			swap_ideas = {
-				remove_idea = SOV_socialist_emulation_1_ns
-				add_idea = SOV_socialist_emulation_2_ns
-			}
-		}
-	}
-
-	focus = {
-		id = SOV_the_komsomol
-		icon = GFX_SOV_the_komsomol_ccp_2d_sov_compatibility
-		prerequisite = { focus = SOV_expand_the_agitprop }
-		x = 2
-		y = 1
-		relative_position_id = SOV_expand_the_agitprop
-		cost = 5
-
-		available = {
-
-		}
-		
-		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_PROPAGANDA}
-
-		completion_reward = {
-			add_political_power = 50
-			add_popularity = {
-				ideology = communism
-				popularity = 0.1
-			}
-
-			custom_effect_tooltip = unlock_propaganda_campaign_tt
-			unlock_decision_tooltip = SOV_propaganda_knowledge
-			unlock_decision_tooltip = SOV_propaganda_builders_of_communism
-			unlock_decision_tooltip = SOV_propaganda_sweep_scum_out
-			custom_effect_tooltip = unlock_propaganda_campaign_slot_tt
-			SOV_unlock_propaganda_campaign_slot_effect = yes
-		}
-	}
-
-	focus = {
-		id = SOV_patriarch_of_all_russia
-		icon = GFX_SOV_patriarch_of_all_russia_ccp_2d_sov_compatibility
-		prerequisite = { focus = SOV_war_heroes focus = SOV_socialist_realism }
-		x = 1
-		y = 1
-		relative_position_id = SOV_war_heroes
-		cost = 5
-
-		available = {
-
-		}
-		
-		search_filters = {FOCUS_FILTER_STABILITY}
-
-		completion_reward = {
-			add_stability = 0.1
-
-			custom_effect_tooltip = available_political_advisor
-			show_ideas_tooltip = SOV_patriarch_sergy
-		}
-	}
 
 
 
@@ -12518,10 +10331,8 @@ mio:SOV_sevastopol_marine_plant_organization = {
 	focus = {
 		id = SOV_the_comintern
 		icon = GFX_goal_support_communism
-		prerequisite = { focus = SOV_the_path_of_marxism_leninism }
-		x = 9
+		x = 92
 		y = 0
-		relative_position_id = SOV_addressing_internal_affairs
 		cost = 5
 
 		allow_branch = {
