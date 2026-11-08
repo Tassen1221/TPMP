@@ -10322,7 +10322,7 @@ mio:SOV_sevastopol_marine_plant_organization = {
 		id = TPMP_SOV_order_00447
 		prerequisite = { focus = TPMP_SOV_vigilance_after_kirov }
 		icon = GFX_focus_fra_loyalty_stalin
-		x = 0
+		x = -1
 		y = 1
 		relative_position_id = TPMP_SOV_vigilance_after_kirov
 		cost = 5
@@ -10343,7 +10343,7 @@ mio:SOV_sevastopol_marine_plant_organization = {
 		prerequisite = { focus = TPMP_SOV_order_00447 }
 		icon = GFX_focus_fra_loyalty_stalin
 		x = -2
-		y = 2
+		y = 3
 		relative_position_id = TPMP_SOV_vigilance_after_kirov
 		cost = 5
 
@@ -10403,7 +10403,7 @@ mio:SOV_sevastopol_marine_plant_organization = {
 		prerequisite = { focus = TPMP_SOV_gulag_3 }
 		icon = GFX_focus_fra_loyalty_stalin
 		x = -2
-		y = 7
+		y = 6
 		relative_position_id = TPMP_SOV_vigilance_after_kirov
 		cost = 5
 
@@ -10427,7 +10427,7 @@ mio:SOV_sevastopol_marine_plant_organization = {
 		prerequisite = { focus = TPMP_SOV_gulag_3 }
 		icon = GFX_focus_fra_loyalty_stalin
 		x = 0
-		y = 7
+		y = 6
 		relative_position_id = TPMP_SOV_vigilance_after_kirov
 		cost = 5
 
@@ -10482,88 +10482,7 @@ mio:SOV_sevastopol_marine_plant_organization = {
 		}
 	}
 
-	# ---- Spain, foreign affairs, Ukraine (skeleton v4): political tree ----
-	#123123
-	focus = {
-		id = TPMP_SOV_operation_x
-		icon = GFX_focus_fra_loyalty_stalin
-		prerequisite = { focus = TPMP_SOV_vigilance_after_kirov }
-		x = 8
-		y = 1
-		relative_position_id = TPMP_SOV_vigilance_after_kirov
-		cost = 5
-
-		available = {
-		}
-
-		search_filters = { FOCUS_FILTER_POLITICAL }
-
-		completion_reward = {
-			custom_effect_tooltip = TPMP_SOV_operation_x_tt
-		}
-	}
-
-	#123123
-	focus = {
-		id = TPMP_SOV_moscow_gold
-		icon = GFX_focus_fra_loyalty_stalin
-		prerequisite = { focus = TPMP_SOV_operation_x }
-		x = 6
-		y = 2
-		relative_position_id = TPMP_SOV_vigilance_after_kirov
-		cost = 5
-
-		available = {
-		}
-
-		search_filters = { FOCUS_FILTER_POLITICAL }
-
-		completion_reward = {
-			custom_effect_tooltip = TPMP_SOV_moscow_gold_tt
-		}
-	}
-
-	#123123
-	focus = {
-		id = TPMP_SOV_advisers_and_volunteers
-		icon = GFX_focus_fra_loyalty_stalin
-		prerequisite = { focus = TPMP_SOV_operation_x }
-		x = 10
-		y = 2
-		relative_position_id = TPMP_SOV_vigilance_after_kirov
-		cost = 5
-
-		available = {
-		}
-
-		search_filters = { FOCUS_FILTER_POLITICAL }
-
-		completion_reward = {
-			custom_effect_tooltip = TPMP_SOV_advisers_and_volunteers_tt
-		}
-	}
-
-	#123123
-	focus = {
-		id = TPMP_SOV_recall_the_spaniards
-		icon = GFX_focus_fra_loyalty_stalin
-		prerequisite = { focus = TPMP_SOV_moscow_gold }
-		prerequisite = { focus = TPMP_SOV_advisers_and_volunteers }
-		x = 8
-		y = 3
-		relative_position_id = TPMP_SOV_vigilance_after_kirov
-		cost = 5
-
-		available = {
-		}
-
-		search_filters = { FOCUS_FILTER_POLITICAL }
-
-		completion_reward = {
-			custom_effect_tooltip = TPMP_SOV_recall_the_spaniards_tt
-		}
-	}
-
+	# ---- Foreign affairs, Ukraine (skeleton v5): political tree ----
 	#123123
 	focus = {
 		id = TPMP_SOV_molotov_replaces_litvinov
@@ -11069,10 +10988,10 @@ mio:SOV_sevastopol_marine_plant_organization = {
 		focus = {
 		id = TPMP_SOV_gulag_3
 		prerequisite = { focus = TPMP_SOV_gulag_2 }
-		prerequisite = { focus = TPMP_SOV_wreckers_trial focus = TPMP_SOV_bloc_of_rights focus = TPMP_SOV_military_conspiracy }
+		prerequisite = { focus = TPMP_SOV_bloc_of_rights }
 		icon = GFX_focus_fra_loyalty_stalin
 		x = -4
-		y = 6
+		y = 5
 		
 		relative_position_id = TPMP_SOV_vigilance_after_kirov
 		cost = 5
