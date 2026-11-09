@@ -1,0 +1,36 @@
+# Soviet frontline evacuation (focus TPMP_SOV_evacuate_industry_east). State scope, ROOT = the evacuating country.
+
+# On the front: ours, held by us, and either partly occupied or touching a state held by an enemy at war with us.
+TPMP_SOV_evac_is_frontline_state = {
+	is_owned_by = ROOT
+	is_controlled_by = ROOT
+	OR = {
+		NOT = { is_fully_controlled_by = ROOT }
+		any_neighbor_state = {
+			controller = { has_war_with = ROOT }
+		}
+	}
+}
+
+# The evacuation band: the front plus one state behind it.
+TPMP_SOV_evac_in_band = {
+	is_owned_by = ROOT
+	is_controlled_by = ROOT
+	OR = {
+		TPMP_SOV_evac_is_frontline_state = yes
+		any_neighbor_state = { TPMP_SOV_evac_is_frontline_state = yes }
+	}
+}
+
+# Where the plants go: the Urals / Siberia / Volga list (same list as the UKR evacuation, plus the big Ural states),
+# ours, held by us, not in the band.
+TPMP_SOV_evac_is_destination_state = {
+	OR = {
+		state = 580 state = 398 state = 651 state = 582 state = 583 state = 571 state = 397 state = 652
+		state = 402 state = 577 state = 824 state = 570 state = 578 state = 40 state = 569
+		state = 653 state = 572 state = 881 state = 249 state = 251 state = 399
+	}
+	is_owned_by = ROOT
+	is_controlled_by = ROOT
+	NOT = { TPMP_SOV_evac_in_band = yes }
+}

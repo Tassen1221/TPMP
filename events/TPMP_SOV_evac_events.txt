@@ -1,0 +1,21 @@
+# Soviet frontline evacuation pulse: started by focus TPMP_SOV_evacuate_industry_east, repeats every 3 days
+# while TPMP_SOV_evacuation_active is set. Does nothing when not at war (the band is empty).
+add_namespace = TPMP_SOV_evac
+
+country_event = {
+	id = TPMP_SOV_evac.1
+	hidden = yes
+	is_triggered_only = yes
+
+	option = {
+		name = TPMP_SOV_evac.1.a
+		if = {
+			limit = { has_country_flag = TPMP_SOV_evacuation_active }
+			if = {
+				limit = { has_war = yes }
+				TPMP_SOV_evac_pulse = yes
+			}
+			country_event = { id = TPMP_SOV_evac.1 days = 3 }
+		}
+	}
+}

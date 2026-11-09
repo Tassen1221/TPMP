@@ -1,0 +1,87 @@
+# Soviet frontline evacuation (focus TPMP_SOV_evacuate_industry_east), driven by event TPMP_SOV_evac.1 every 3 days.
+# Each pulse moves ONE factory out of the evacuation band (front + one state behind):
+# civilian factories first (front, then the state behind), military factories second (front, then behind).
+# The factory is rebuilt at once in a free slot of an eastern state; with no free slot it goes off-map.
+# Counters: TPMP_SOV_evac_civs_moved, TPMP_SOV_evac_mils_moved (country variables).
+
+TPMP_SOV_evac_pulse = {
+	if = {
+		limit = { any_owned_state = { TPMP_SOV_evac_is_frontline_state = yes industrial_complex > 0 } }
+		random_owned_state = {
+			limit = { TPMP_SOV_evac_is_frontline_state = yes industrial_complex > 0 }
+			TPMP_SOV_evac_move_civ = yes
+		}
+	}
+	else_if = {
+		limit = { any_owned_state = { TPMP_SOV_evac_in_band = yes industrial_complex > 0 } }
+		random_owned_state = {
+			limit = { TPMP_SOV_evac_in_band = yes industrial_complex > 0 }
+			TPMP_SOV_evac_move_civ = yes
+		}
+	}
+	else_if = {
+		limit = { any_owned_state = { TPMP_SOV_evac_is_frontline_state = yes arms_factory > 0 } }
+		random_owned_state = {
+			limit = { TPMP_SOV_evac_is_frontline_state = yes arms_factory > 0 }
+			TPMP_SOV_evac_move_mil = yes
+		}
+	}
+	else_if = {
+		limit = { any_owned_state = { TPMP_SOV_evac_in_band = yes arms_factory > 0 } }
+		random_owned_state = {
+			limit = { TPMP_SOV_evac_in_band = yes arms_factory > 0 }
+			TPMP_SOV_evac_move_mil = yes
+		}
+	}
+}
+
+# State scope: the source state.
+TPMP_SOV_evac_move_civ = {
+	remove_building = { type = industrial_complex level = 1 }
+	ROOT = {
+		add_to_variable = { TPMP_SOV_evac_civs_moved = 1 }
+		if = {
+			limit = {
+				any_owned_state = {
+					TPMP_SOV_evac_is_destination_state = yes
+					free_building_slots = { building = industrial_complex size > 0 include_locked = no }
+				}
+			}
+			random_owned_state = {
+				limit = {
+					TPMP_SOV_evac_is_destination_state = yes
+					free_building_slots = { building = industrial_complex size > 0 include_locked = no }
+				}
+				add_building_construction = { type = industrial_complex level = 1 instant_build = yes }
+			}
+		}
+		else = {
+			add_offsite_building = { type = industrial_complex level = 1 }
+		}
+	}
+}
+
+TPMP_SOV_evac_move_mil = {
+	remove_building = { type = arms_factory level = 1 }
+	ROOT = {
+		add_to_variable = { TPMP_SOV_evac_mils_moved = 1 }
+		if = {
+			limit = {
+				any_owned_state = {
+					TPMP_SOV_evac_is_destination_state = yes
+					free_building_slots = { building = arms_factory size > 0 include_locked = no }
+				}
+			}
+			random_owned_state = {
+				limit = {
+					TPMP_SOV_evac_is_destination_state = yes
+					free_building_slots = { building = arms_factory size > 0 include_locked = no }
+				}
+				add_building_construction = { type = arms_factory level = 1 instant_build = yes }
+			}
+		}
+		else = {
+			add_offsite_building = { type = arms_factory level = 1 }
+		}
+	}
+}
