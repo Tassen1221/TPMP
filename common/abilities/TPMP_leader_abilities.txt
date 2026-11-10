@@ -88,4 +88,29 @@ ability = {
 			str_damage_multiplier = -0.5
 		}
 	}
+	saturation_fire = {
+		name = ABILITY_SATURATION_FIRE
+		desc = ABILITY_SATURATION_FIRE_DESC
+
+		sound_effect = command_power_ability_offensive
+
+		type = army_leader
+
+		allowed = {
+			is_leading_army_group = no
+			is_border_war = no
+			OWNER = {
+				original_tag = SOV
+				has_country_flag = TPMP_SOV_saturation_fire_flag
+			}
+		}
+
+		cost = 0.22
+		duration = 168
+
+		unit_modifiers = {
+			offence = -0.5
+			org_damage_multiplier = -1.0
+		}
+	}
 }

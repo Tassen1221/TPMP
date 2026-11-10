@@ -1,0 +1,149 @@
+# Reserve Rifle Division spawns (Defence in Depth "Reserve Armies from the East", Neutrality Pact with Japan).
+# Kuybyshev = state 251, city province 11225.
+
+TPMP_SOV_make_reserve_template = {
+	if = {
+		limit = { NOT = { has_country_flag = TPMP_SOV_reserve_template_made } }
+		division_template = {
+			name = "Reserve Rifle Division"
+			division_names_group = SOV_INF_01
+			priority = 1
+			regiments = {
+				infantry = { x = 0 y = 0 }
+				infantry = { x = 0 y = 1 }
+				infantry = { x = 0 y = 2 }
+				infantry = { x = 0 y = 3 }
+				infantry = { x = 1 y = 0 }
+				infantry = { x = 1 y = 1 }
+				infantry = { x = 1 y = 2 }
+				infantry = { x = 2 y = 0 }
+				infantry = { x = 2 y = 1 }
+				infantry = { x = 2 y = 2 }
+				infantry = { x = 3 y = 0 }
+				infantry = { x = 3 y = 1 }
+				infantry = { x = 3 y = 2 }
+				anti_tank_brigade = { x = 4 y = 0 }
+				anti_tank_brigade = { x = 4 y = 1 }
+				anti_air_brigade = { x = 4 y = 2 }
+				anti_air_brigade = { x = 4 y = 3 }
+			}
+			support = {
+				military_police = { x = 0 y = 0 }
+				logistics_company = { x = 0 y = 1 }
+				mot_recon = { x = 0 y = 2 }
+				field_hospital = { x = 0 y = 3 }
+				engineer = { x = 0 y = 4 }
+			}
+			regimental_support = {
+				anti_air = { x = 0 y = 0 }
+				anti_tank = { x = 0 y = 1 }
+				anti_tank = { x = 0 y = 2 }
+				anti_tank = { x = 0 y = 3 }
+				anti_tank = { x = 0 y = 4 }
+			}
+		}
+		set_country_flag = TPMP_SOV_reserve_template_made
+	}
+}
+
+# Spawns 150 Reserve Rifle Divisions. create_unit must run in a STATE scope
+# (GAME error.log 2026-11-09: "create_unit -- invalid scope state" when run in country scope).
+TPMP_SOV_spawn_reserve_divisions_150 = {
+	TPMP_SOV_make_reserve_template = yes
+	# missing tech -> give the most basic variant so the divisions are still fully equipped
+	if = {
+		limit = { NOT = { OR = { has_tech = infantrygun1_tech } } }
+		add_equipment_to_stockpile = { type = line_infantry_equipment_1 amount = 207000 producer = SOV }
+	}
+	if = {
+		limit = { NOT = { OR = { has_tech = infantrygun1_tech has_tech = infantrymg3_tech has_tech = infantrymg4_tech has_tech = assaultrifle1_tech has_tech = assaultrifle2_tech } } }
+		add_equipment_to_stockpile = { type = mobile_infantry_equipment_1 amount = 4500 producer = SOV }
+	}
+	if = {
+		limit = { NOT = { OR = { has_tech = antiair0_tech has_tech = antiair1_tech has_tech = antiair2_tech } } }
+		add_equipment_to_stockpile = { type = anti_air_equipment_0 amount = 11250 producer = SOV }
+	}
+	if = {
+		limit = { NOT = { OR = { has_tech = antitank0_tech has_tech = antitank1_tech has_tech = artillery5_tech has_tech = artillery6_tech } } }
+		add_equipment_to_stockpile = { type = anti_tank_equipment_0 amount = 18000 producer = SOV }
+	}
+	if = {
+		limit = { NOT = { OR = { has_tech = tech_support } } }
+		add_equipment_to_stockpile = { type = support_equipment_1 amount = 15000 producer = SOV }
+	}
+	if = {
+		limit = { NOT = { OR = { has_tech = tech_trucks has_tech = motorised_infantry } } }
+		add_equipment_to_stockpile = { type = motorized_equipment_0 amount = 16500 producer = SOV }
+	}
+	if = {
+		limit = { controls_state = 251 }
+		251 = {
+			create_unit = {
+				division = "name = \"Reserve Army\" division_template = \"Reserve Rifle Division\" start_experience_factor = 0.3 start_equipment_factor = 1.0"
+				owner = ROOT
+				count = 150
+				prioritize_location = 11225
+			}
+		}
+	}
+	else = {
+		capital_scope = {
+			create_unit = {
+				division = "name = \"Reserve Army\" division_template = \"Reserve Rifle Division\" start_experience_factor = 0.3 start_equipment_factor = 1.0"
+				owner = ROOT
+				count = 150
+			}
+		}
+	}
+}
+
+# Spawns 20 Reserve Rifle Divisions. create_unit must run in a STATE scope
+# (GAME error.log 2026-11-09: "create_unit -- invalid scope state" when run in country scope).
+TPMP_SOV_spawn_reserve_divisions_20 = {
+	TPMP_SOV_make_reserve_template = yes
+	# missing tech -> give the most basic variant so the divisions are still fully equipped
+	if = {
+		limit = { NOT = { OR = { has_tech = infantrygun1_tech } } }
+		add_equipment_to_stockpile = { type = line_infantry_equipment_1 amount = 27600 producer = SOV }
+	}
+	if = {
+		limit = { NOT = { OR = { has_tech = infantrygun1_tech has_tech = infantrymg3_tech has_tech = infantrymg4_tech has_tech = assaultrifle1_tech has_tech = assaultrifle2_tech } } }
+		add_equipment_to_stockpile = { type = mobile_infantry_equipment_1 amount = 600 producer = SOV }
+	}
+	if = {
+		limit = { NOT = { OR = { has_tech = antiair0_tech has_tech = antiair1_tech has_tech = antiair2_tech } } }
+		add_equipment_to_stockpile = { type = anti_air_equipment_0 amount = 1500 producer = SOV }
+	}
+	if = {
+		limit = { NOT = { OR = { has_tech = antitank0_tech has_tech = antitank1_tech has_tech = artillery5_tech has_tech = artillery6_tech } } }
+		add_equipment_to_stockpile = { type = anti_tank_equipment_0 amount = 2400 producer = SOV }
+	}
+	if = {
+		limit = { NOT = { OR = { has_tech = tech_support } } }
+		add_equipment_to_stockpile = { type = support_equipment_1 amount = 2000 producer = SOV }
+	}
+	if = {
+		limit = { NOT = { OR = { has_tech = tech_trucks has_tech = motorised_infantry } } }
+		add_equipment_to_stockpile = { type = motorized_equipment_0 amount = 2200 producer = SOV }
+	}
+	if = {
+		limit = { controls_state = 251 }
+		251 = {
+			create_unit = {
+				division = "name = \"Reserve Army\" division_template = \"Reserve Rifle Division\" start_experience_factor = 0.3 start_equipment_factor = 1.0"
+				owner = ROOT
+				count = 20
+				prioritize_location = 11225
+			}
+		}
+	}
+	else = {
+		capital_scope = {
+			create_unit = {
+				division = "name = \"Reserve Army\" division_template = \"Reserve Rifle Division\" start_experience_factor = 0.3 start_equipment_factor = 1.0"
+				owner = ROOT
+				count = 20
+			}
+		}
+	}
+}

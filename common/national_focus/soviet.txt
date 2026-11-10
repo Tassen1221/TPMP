@@ -105,6 +105,7 @@ completion_reward = {
 
 			# wherever SOV initialises (on_startup or first focus etc.)
 
+			custom_effect_tooltip = generic_skip_one_line_tt
 			SOV = {
 				set_variable = { TPMP_SOV_economic_shock_construction_factor = 0 }
 
@@ -398,6 +399,7 @@ completion_reward = {
 completion_reward = {
 			unlock_decision_category_tooltip = TPMP_SOV_tractor_category
 
+			custom_effect_tooltip = generic_skip_one_line_tt
 			add_tech_bonus = {
 				name = TPMP_SOV_chelyabinsk_heavy_machinery_research_bonus
 				ahead_reduction = 0.5
@@ -443,6 +445,7 @@ completion_reward = {
 completion_reward = {
 			add_ideas = TPMP_SOV_ordzhonikidze_machine_tool_plant_idea
 
+			custom_effect_tooltip = generic_skip_one_line_tt
 			205 = {
 				add_extra_state_shared_building_slots = 5
 				add_building_construction = {
@@ -454,6 +457,7 @@ completion_reward = {
 
 
 set_country_flag = TPMP_SOV_ordzhonikidze_shock_window_active
+    custom_effect_tooltip = generic_skip_one_line_tt
     country_event = { 
         id = TPMP_shock.ordzhonikidze
         days = 1
@@ -503,6 +507,7 @@ completion_reward = {
 			add_research_slot = 1
 
 			
+			custom_effect_tooltip = generic_skip_one_line_tt
 			572 = {
 				add_extra_state_shared_building_slots = 7
 				add_building_construction = {
@@ -607,6 +612,7 @@ completion_reward = {
 completion_reward = {
 			add_research_slot = 1
 
+			custom_effect_tooltip = generic_skip_one_line_tt
 			570 = {
 				add_extra_state_shared_building_slots = 8
 				add_building_construction = {
@@ -619,6 +625,7 @@ completion_reward = {
 
 # In TPMP_SOV_second_fyp_mils_2 completion_reward:
 				set_country_flag = TPMP_SOV_mils_2_shock_window_active
+				custom_effect_tooltip = generic_skip_one_line_tt
 				country_event = {  
 					id = TPMP_shock.mils2
 					days = 1
@@ -678,6 +685,7 @@ add_resource = {
 
 }
     set_country_flag = TPMP_SOV_magnitogorsk3_shock_window_active
+    custom_effect_tooltip = generic_skip_one_line_tt
     country_event = { 
         id = TPMP_shock.magnitogorsk3
         days = 1
@@ -765,6 +773,7 @@ completion_reward = {
 				}
 			}	
 
+			custom_effect_tooltip = generic_skip_one_line_tt
 			219 = {
 				add_extra_state_shared_building_slots = 5
 				add_building_construction = {
@@ -773,6 +782,7 @@ completion_reward = {
 					instant_build = yes
 				}
 			}	
+			custom_effect_tooltip = generic_skip_one_line_tt
 			217 = {
 				add_extra_state_shared_building_slots = 5
 				add_building_construction = {
@@ -781,6 +791,7 @@ completion_reward = {
 					instant_build = yes
 				}
 			}	
+			custom_effect_tooltip = generic_skip_one_line_tt
 			218 = {
 				add_extra_state_shared_building_slots = 5
 				add_building_construction = {
@@ -789,6 +800,7 @@ completion_reward = {
 					instant_build = yes
 				}
 			}	
+			custom_effect_tooltip = generic_skip_one_line_tt
 			202 = {
 				add_extra_state_shared_building_slots = 5
 				add_building_construction = {
@@ -797,6 +809,7 @@ completion_reward = {
 					instant_build = yes
 				}
 			}	
+			custom_effect_tooltip = generic_skip_one_line_tt
 			408 = {
 				add_extra_state_shared_building_slots = 5
 				add_building_construction = {
@@ -918,6 +931,7 @@ completion_reward = {
 
 
 }
+			custom_effect_tooltip = generic_skip_one_line_tt
 			572 = {
 				add_building_construction = {
 					type = energy_infrastructure
@@ -1083,6 +1097,7 @@ bypass = {
 
 		completion_reward = {
 			unlock_decision_category_tooltip = TPMP_SOV_workers_decision_category
+			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = TPMP_SOV_expand_the_role_of_nkvd_tt
 
 		}
@@ -1186,7 +1201,9 @@ bypass = {
 			add_ideas = TPMP_SOV_3rd_fyp_eco_law
 			add_to_variable = { TPMP_SOV_mon_plan_bonus = TPMP_SOV_mon_cfg_focus_plan_bonus } # TPMP_SOV_mon hook
 			set_country_flag = TPMP_SOV_mon_militarisation_open # TPMP_SOV_mon hook
+			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = TPMP_SOV_mon_open_tt
+			custom_effect_tooltip = generic_skip_one_line_tt
 			TPMP_SOV_mon_recompute = yes # TPMP_SOV_mon hook
 		}
 	}
@@ -1208,7 +1225,9 @@ bypass = {
 
 		completion_reward = {
 			custom_effect_tooltip = TPMP_SOV_mon_slot_tt_aviation
+			custom_effect_tooltip = generic_skip_one_line_tt
 			TPMP_SOV_mon_recompute = yes
+			custom_effect_tooltip = generic_skip_one_line_tt
 			add_tech_bonus = { name = TPMP_SOV_aviation_commissariat bonus = 0.5 uses = 1 category = air_equipment }
 		}
 	}
@@ -1230,7 +1249,9 @@ bypass = {
 
 		completion_reward = {
 			219 = { add_dynamic_modifier = { modifier = TPMP_SOV_plant_arms_dm days = 730 scope = SOV } }
+			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = TPMP_SOV_moscow_aircraft_plants_tt
+			custom_effect_tooltip = generic_skip_one_line_tt
 			effect_tooltip = {
 				add_tech_bonus = { name = TPMP_SOV_moscow_aircraft_plants bonus = 1.0 uses = 1 category = light_fighter }
 				add_tech_bonus = { name = TPMP_SOV_moscow_aircraft_plants bonus = 0.5 uses = 1 category = air_equipment }
@@ -1256,8 +1277,11 @@ bypass = {
 
 		completion_reward = {
 			221 = { add_dynamic_modifier = { modifier = TPMP_SOV_plant_arms_dm days = 730 scope = SOV } }
+			custom_effect_tooltip = generic_skip_one_line_tt
 			260 = { add_dynamic_modifier = { modifier = TPMP_SOV_plant_arms_dm days = 730 scope = SOV } }
+			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = TPMP_SOV_kharkov_voronezh_aircraft_plants_tt
+			custom_effect_tooltip = generic_skip_one_line_tt
 			effect_tooltip = {
 				add_tech_bonus = { name = TPMP_SOV_kharkov_voronezh_aircraft_plants bonus = 1.0 uses = 1 category = tactical_bomber }
 				add_tech_bonus = { name = TPMP_SOV_kharkov_voronezh_aircraft_plants bonus = 0.5 uses = 1 category = cas_bomber }
@@ -1303,7 +1327,9 @@ bypass = {
 
 		completion_reward = {
 			custom_effect_tooltip = TPMP_SOV_mon_slot_tt_ships
+			custom_effect_tooltip = generic_skip_one_line_tt
 			TPMP_SOV_mon_recompute = yes
+			custom_effect_tooltip = generic_skip_one_line_tt
 			add_tech_bonus = { name = TPMP_SOV_big_fleet_programme bonus = 0.5 uses = 1 category = naval_equipment }
 		}
 	}
@@ -1325,8 +1351,11 @@ bypass = {
 
 		completion_reward = {
 			195 = { add_dynamic_modifier = { modifier = TPMP_SOV_plant_yard_dm days = 730 scope = SOV } }
+			custom_effect_tooltip = generic_skip_one_line_tt
 			197 = { add_dynamic_modifier = { modifier = TPMP_SOV_plant_yard_dm days = 730 scope = SOV } }
+			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = TPMP_SOV_nikolaev_leningrad_yards_tt
+			custom_effect_tooltip = generic_skip_one_line_tt
 			effect_tooltip = {
 				add_tech_bonus = { name = TPMP_SOV_nikolaev_leningrad_yards bonus = 1.0 uses = 1 category = naval_equipment }
 			}
@@ -1351,9 +1380,13 @@ bypass = {
 
 		completion_reward = {
 			custom_effect_tooltip = TPMP_SOV_mon_slot_tt_ammo
+			custom_effect_tooltip = generic_skip_one_line_tt
 			TPMP_SOV_mon_recompute = yes
+			custom_effect_tooltip = generic_skip_one_line_tt
 			223 = { add_dynamic_modifier = { modifier = TPMP_SOV_plant_arms_dm days = 730 scope = SOV } }
+			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = TPMP_SOV_tula_cartridge_works_tt
+			custom_effect_tooltip = generic_skip_one_line_tt
 			effect_tooltip = {
 				add_tech_bonus = { name = TPMP_SOV_tula_cartridge_works bonus = 1.0 uses = 1 category = cat_shells_tech }
 			}
@@ -1378,13 +1411,17 @@ bypass = {
 
 		completion_reward = {
 			228 = { add_dynamic_modifier = { modifier = TPMP_SOV_plant_arms_dm days = 730 scope = SOV } }
+			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = TPMP_SOV_lugansk_cartridge_works_tt
+			custom_effect_tooltip = generic_skip_one_line_tt
 			effect_tooltip = {
 				add_tech_bonus = { name = TPMP_SOV_lugansk_cartridge_works bonus = 1.0 uses = 1 category = cat_infantry_tech }
 			}
 			set_country_flag = TPMP_SOV_plant_lugansk_cartridge_works_armed
 			set_country_flag = TPMP_SOV_lugansk_shock_window_active
+			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = TPMP_SOV_3fyp_shock_tt
+			custom_effect_tooltip = generic_skip_one_line_tt
 			country_event = { id = TPMP_shock3.lugansk days = 1 random_days = 364 }
 		}
 	}
@@ -1406,7 +1443,9 @@ bypass = {
 
 		completion_reward = {
 			195 = { add_dynamic_modifier = { modifier = TPMP_SOV_plant_arms_dm days = 730 scope = SOV } }
+			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = TPMP_SOV_leningrad_shell_works_tt
+			custom_effect_tooltip = generic_skip_one_line_tt
 			effect_tooltip = {
 				add_tech_bonus = { name = TPMP_SOV_leningrad_shell_works bonus = 1.0 uses = 1 category = cat_artillery_tech }
 			}
@@ -1452,7 +1491,9 @@ bypass = {
 
 		completion_reward = {
 			249 = { add_dynamic_modifier = { modifier = TPMP_SOV_plant_arms_dm days = 730 scope = SOV } }
+			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = TPMP_SOV_kazan_plant_124_tt
+			custom_effect_tooltip = generic_skip_one_line_tt
 			effect_tooltip = {
 				add_tech_bonus = { name = TPMP_SOV_kazan_plant_124 bonus = 1.0 uses = 2 category = cat_strategic_bomber }
 			}
@@ -1519,6 +1560,7 @@ bypass = {
 
 		completion_reward = {
 			add_tech_bonus = { name = TPMP_SOV_petlyakov_sharashka bonus = 1.0 uses = 1 category = tactical_bomber }
+			custom_effect_tooltip = generic_skip_one_line_tt
 			add_tech_bonus = { name = TPMP_SOV_petlyakov_sharashka bonus = 1.0 uses = 1 category = cas_bomber }
 		}
 	}
@@ -1540,8 +1582,11 @@ bypass = {
 
 		completion_reward = {
 			248 = { add_dynamic_modifier = { modifier = TPMP_SOV_plant_arms_dm days = 730 scope = SOV } }
+			custom_effect_tooltip = generic_skip_one_line_tt
 			398 = { add_dynamic_modifier = { modifier = TPMP_SOV_plant_arms_dm days = 730 scope = SOV } }
+			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = TPMP_SOV_aero_engine_plants_tt
+			custom_effect_tooltip = generic_skip_one_line_tt
 			effect_tooltip = {
 				add_tech_bonus = { name = TPMP_SOV_aero_engine_plants bonus = 1.0 uses = 2 category = cat_air_engine }
 			}
@@ -1567,6 +1612,7 @@ bypass = {
 
 		completion_reward = {
 			add_ideas = TPMP_SOV_big_ships_idea
+			custom_effect_tooltip = generic_skip_one_line_tt
 			add_tech_bonus = { name = TPMP_SOV_sovetsky_soyuz_battleships bonus = 1.0 uses = 2 category = bb_tech }
 		}
 	}
@@ -1589,7 +1635,9 @@ bypass = {
 
 		completion_reward = {
 			add_ideas = TPMP_SOV_mosquito_fleet_idea
+			custom_effect_tooltip = generic_skip_one_line_tt
 			add_tech_bonus = { name = TPMP_SOV_mosquito_fleet bonus = 1.0 uses = 2 category = ss_tech }
+			custom_effect_tooltip = generic_skip_one_line_tt
 			add_tech_bonus = { name = TPMP_SOV_mosquito_fleet bonus = 1.0 uses = 1 category = dd_tech }
 		}
 	}
@@ -1611,13 +1659,17 @@ bypass = {
 
 		completion_reward = {
 			252 = { add_dynamic_modifier = { modifier = TPMP_SOV_plant_arms_dm days = 730 scope = SOV } }
+			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = TPMP_SOV_dzerzhinsk_powder_plants_tt
+			custom_effect_tooltip = generic_skip_one_line_tt
 			effect_tooltip = {
 				add_tech_bonus = { name = TPMP_SOV_dzerzhinsk_powder_plants bonus = 1.0 uses = 2 category = cat_shells_tech }
 			}
 			set_country_flag = TPMP_SOV_plant_dzerzhinsk_powder_plants_armed
 			set_country_flag = TPMP_SOV_dzerzhinsk_shock_window_active
+			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = TPMP_SOV_3fyp_shock_tt
+			custom_effect_tooltip = generic_skip_one_line_tt
 			country_event = { id = TPMP_shock3.dzerzhinsk days = 1 random_days = 364 }
 		}
 	}
@@ -1661,6 +1713,7 @@ bypass = {
 
 		completion_reward = {
 			add_ideas = TPMP_SOV_fuzes_idea
+			custom_effect_tooltip = generic_skip_one_line_tt
 			add_tech_bonus = { name = TPMP_SOV_fuzes_and_precision bonus = 1.0 uses = 1 category = cat_shells_tech }
 		}
 	}
@@ -1702,7 +1755,9 @@ bypass = {
 
 		completion_reward = {
 			399 = { add_dynamic_modifier = { modifier = TPMP_SOV_plant_arms_dm days = 730 scope = SOV } }
+			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = TPMP_SOV_izhevsk_plant_74_tt
+			custom_effect_tooltip = generic_skip_one_line_tt
 			effect_tooltip = {
 				add_tech_bonus = { name = TPMP_SOV_izhevsk_plant_74 bonus = 1.0 uses = 2 category = cat_rifle_tech }
 			}
@@ -1748,6 +1803,7 @@ bypass = {
 
 		completion_reward = {
 			add_ideas = TPMP_SOV_svt_idea
+			custom_effect_tooltip = generic_skip_one_line_tt
 			add_tech_bonus = { name = TPMP_SOV_svt_for_the_infantry bonus = 1.0 uses = 1 category = cat_rifle_tech }
 		}
 	}
@@ -1770,6 +1826,7 @@ bypass = {
 
 		completion_reward = {
 			add_ideas = TPMP_SOV_mosin_ppsh_idea
+			custom_effect_tooltip = generic_skip_one_line_tt
 			add_tech_bonus = { name = TPMP_SOV_mosin_and_ppsh bonus = 1.0 uses = 1 category = cat_cqc_tech }
 		}
 	}
@@ -1791,6 +1848,7 @@ bypass = {
 
 		completion_reward = {
 			add_equipment_to_stockpile = { type = light_tank_chassis_1936 amount = 1500 producer = SOV variant_name = "T-27" }
+			custom_effect_tooltip = generic_skip_one_line_tt
 			add_tech_bonus = { name = TPMP_SOV_gorky_light_tanks bonus = 1.0 uses = 1 category = cat_light_chassis_tech }
 		}
 	}
@@ -1813,6 +1871,7 @@ bypass = {
 
 		completion_reward = {
 			add_tech_bonus = { name = TPMP_SOV_t34_into_series bonus = 1.0 uses = 2 category = cat_medium_chassis_tech }
+			custom_effect_tooltip = generic_skip_one_line_tt
 			add_tech_bonus = { name = TPMP_SOV_t34_into_series bonus = 0.5 uses = 1 category = cat_armour_tech }
 		}
 	}
@@ -1835,6 +1894,7 @@ bypass = {
 
 		completion_reward = {
 			add_tech_bonus = { name = TPMP_SOV_the_kv_line bonus = 1.0 uses = 2 category = cat_heavy_chassis_tech }
+			custom_effect_tooltip = generic_skip_one_line_tt
 			add_tech_bonus = { name = TPMP_SOV_the_kv_line bonus = 0.5 uses = 1 category = cat_armour_tech }
 		}
 	}
@@ -1856,13 +1916,17 @@ bypass = {
 
 		completion_reward = {
 			217 = { add_dynamic_modifier = { modifier = TPMP_SOV_plant_arms_dm days = 730 scope = SOV } }
+			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = TPMP_SOV_stalingrad_tractor_tanks_tt
+			custom_effect_tooltip = generic_skip_one_line_tt
 			effect_tooltip = {
 				add_tech_bonus = { name = TPMP_SOV_stalingrad_tractor_tanks bonus = 1.0 uses = 2 category = cat_armour_tech }
 			}
 			set_country_flag = TPMP_SOV_plant_stalingrad_tractor_tanks_armed
 			set_country_flag = TPMP_SOV_stalingrad_shock_window_active
+			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = TPMP_SOV_3fyp_shock_tt
+			custom_effect_tooltip = generic_skip_one_line_tt
 			country_event = { id = TPMP_shock3.stalingrad days = 1 random_days = 364 }
 		}
 	}
@@ -1940,6 +2004,7 @@ bypass = {
 				}
 			}
     set_country_flag = TPMP_SOV_plant37_shock_window_active
+    custom_effect_tooltip = generic_skip_one_line_tt
     country_event = { 
         id = TPMP_shock.plant37
         days = 1
@@ -1991,12 +2056,15 @@ bypass = {
 				}
 			}
     set_country_flag = TPMP_SOV_khpz_shock_window_active
+    custom_effect_tooltip = generic_skip_one_line_tt
     country_event = { 
         id = TPMP_shock.khpz
         days = 1
         random_days = 364
     }
+			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = TPMP_SOV_support_khpz_tt
+			custom_effect_tooltip = generic_skip_one_line_tt
 			effect_tooltip = {
 				add_tech_bonus = { name = TPMP_SOV_support_khpz bonus = 1.0 uses = 1 category = cat_medium_chassis_tech }
 			}
@@ -2042,12 +2110,15 @@ bypass = {
 				}
 			}
     set_country_flag = TPMP_SOV_kirov_shock_window_active
+    custom_effect_tooltip = generic_skip_one_line_tt
     country_event = { 
         id = TPMP_shock.kirov
         days = 1
         random_days = 364
     }
+			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = TPMP_SOV_support_kirov_tt
+			custom_effect_tooltip = generic_skip_one_line_tt
 			effect_tooltip = {
 				add_tech_bonus = { name = TPMP_SOV_support_kirov bonus = 1.0 uses = 1 category = cat_heavy_chassis_tech }
 			}
@@ -2172,7 +2243,9 @@ search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOC
 					scope = SOV
 				}
 			}
+			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = TPMP_SOV_gorky_plant_no_92_tt
+			custom_effect_tooltip = generic_skip_one_line_tt
 			effect_tooltip = {
 				add_tech_bonus = { name = TPMP_SOV_gorky_plant_no_92 bonus = 1.0 uses = 1 category = cat_light_howitzer_tech }
 			}
@@ -2230,7 +2303,9 @@ search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOC
 					scope = SOV
 				}
 			}
+			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = TPMP_SOV_expand_tula_arms_plant_tt
+			custom_effect_tooltip = generic_skip_one_line_tt
 			effect_tooltip = {
 				add_tech_bonus = { name = TPMP_SOV_expand_tula_arms_plant bonus = 1.0 uses = 1 category = cat_rifle_tech }
 			}
@@ -2294,7 +2369,9 @@ search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOC
 					scope = SOV
 				}
 			}
+			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = TPMP_SOV_expand_kovrov_plant_no_2_tt
+			custom_effect_tooltip = generic_skip_one_line_tt
 			effect_tooltip = {
 				add_tech_bonus = { name = TPMP_SOV_expand_kovrov_plant_no_2 bonus = 1.0 uses = 1 category = cat_mg_tech }
 			}
@@ -2905,6 +2982,10 @@ search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOC
 		cost = 5
 		search_filters = { FOCUS_FILTER_ARMY_XP }
 		completion_reward = {
+			hidden_effect = {
+				add_ideas = TPMP_SOV_doc_fire_1
+			}
+			custom_effect_tooltip = TPMP_SOV_doc_fire_1_tt
 		}
 	}
 
@@ -2918,6 +2999,13 @@ search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOC
 		cost = 5
 		search_filters = { FOCUS_FILTER_ARMY_XP }
 		completion_reward = {
+			hidden_effect = {
+				swap_ideas = {
+					remove_idea = TPMP_SOV_doc_fire_1
+					add_idea = TPMP_SOV_doc_fire_2
+				}
+			}
+			custom_effect_tooltip = TPMP_SOV_doc_fire_2_tt
 		}
 	}
 
@@ -2931,6 +3019,13 @@ search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOC
 		cost = 5
 		search_filters = { FOCUS_FILTER_ARMY_XP }
 		completion_reward = {
+			hidden_effect = {
+				swap_ideas = {
+					remove_idea = TPMP_SOV_doc_fire_2
+					add_idea = TPMP_SOV_doc_fire_3
+				}
+			}
+			custom_effect_tooltip = TPMP_SOV_doc_fire_3_tt
 		}
 	}
 
@@ -2944,6 +3039,14 @@ search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOC
 		cost = 5
 		search_filters = { FOCUS_FILTER_ARMY_XP }
 		completion_reward = {
+			hidden_effect = {
+				swap_ideas = {
+					remove_idea = TPMP_SOV_doc_fire_3
+					add_idea = TPMP_SOV_doc_fire_4
+				}
+				set_country_flag = TPMP_SOV_saturation_fire_flag
+			}
+			custom_effect_tooltip = TPMP_SOV_doc_fire_4_tt
 		}
 	}
 
@@ -2958,6 +3061,10 @@ search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOC
 		cost = 5
 		search_filters = { FOCUS_FILTER_ARMY_XP }
 		completion_reward = {
+			hidden_effect = {
+				add_ideas = TPMP_SOV_doc_spear_1
+			}
+			custom_effect_tooltip = TPMP_SOV_doc_spear_1_tt
 		}
 	}
 
@@ -2971,6 +3078,13 @@ search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOC
 		cost = 5
 		search_filters = { FOCUS_FILTER_ARMY_XP }
 		completion_reward = {
+			hidden_effect = {
+				swap_ideas = {
+					remove_idea = TPMP_SOV_doc_spear_1
+					add_idea = TPMP_SOV_doc_spear_2
+				}
+			}
+			custom_effect_tooltip = TPMP_SOV_doc_spear_2_tt
 		}
 	}
 
@@ -2984,6 +3098,13 @@ search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOC
 		cost = 5
 		search_filters = { FOCUS_FILTER_ARMY_XP }
 		completion_reward = {
+			hidden_effect = {
+				swap_ideas = {
+					remove_idea = TPMP_SOV_doc_spear_2
+					add_idea = TPMP_SOV_doc_spear_3
+				}
+			}
+			custom_effect_tooltip = TPMP_SOV_doc_spear_3_tt
 		}
 	}
 
@@ -2997,6 +3118,14 @@ search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOC
 		cost = 5
 		search_filters = { FOCUS_FILTER_ARMY_XP }
 		completion_reward = {
+			hidden_effect = {
+				swap_ideas = {
+					remove_idea = TPMP_SOV_doc_spear_3
+					add_idea = TPMP_SOV_doc_spear_4
+				}
+				set_technology = { TPMP_SOV_spearhead_assault_tech = 1 }
+			}
+			custom_effect_tooltip = TPMP_SOV_doc_spear_4_tt
 		}
 	}
 
@@ -3011,6 +3140,10 @@ search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOC
 		cost = 5
 		search_filters = { FOCUS_FILTER_ARMY_XP }
 		completion_reward = {
+			hidden_effect = {
+				add_ideas = TPMP_SOV_doc_deep_1
+			}
+			custom_effect_tooltip = TPMP_SOV_doc_deep_1_tt
 		}
 	}
 
@@ -3024,6 +3157,13 @@ search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOC
 		cost = 5
 		search_filters = { FOCUS_FILTER_ARMY_XP }
 		completion_reward = {
+			hidden_effect = {
+				swap_ideas = {
+					remove_idea = TPMP_SOV_doc_deep_1
+					add_idea = TPMP_SOV_doc_deep_2
+				}
+			}
+			custom_effect_tooltip = TPMP_SOV_doc_deep_2_tt
 		}
 	}
 
@@ -3037,6 +3177,13 @@ search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOC
 		cost = 5
 		search_filters = { FOCUS_FILTER_ARMY_XP }
 		completion_reward = {
+			hidden_effect = {
+				swap_ideas = {
+					remove_idea = TPMP_SOV_doc_deep_2
+					add_idea = TPMP_SOV_doc_deep_3
+				}
+			}
+			custom_effect_tooltip = TPMP_SOV_doc_deep_3_tt
 		}
 	}
 
@@ -3050,6 +3197,13 @@ search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOC
 		cost = 5
 		search_filters = { FOCUS_FILTER_ARMY_XP }
 		completion_reward = {
+			hidden_effect = {
+				swap_ideas = {
+					remove_idea = TPMP_SOV_doc_deep_3
+					add_idea = TPMP_SOV_doc_deep_4
+				}
+			}
+			custom_effect_tooltip = TPMP_SOV_doc_deep_4_tt
 		}
 	}
 
@@ -3064,6 +3218,10 @@ search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOC
 		cost = 5
 		search_filters = { FOCUS_FILTER_ARMY_XP }
 		completion_reward = {
+			hidden_effect = {
+				add_ideas = TPMP_SOV_doc_air_1
+			}
+			custom_effect_tooltip = TPMP_SOV_doc_air_1_tt
 		}
 	}
 
@@ -3077,6 +3235,13 @@ search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOC
 		cost = 5
 		search_filters = { FOCUS_FILTER_ARMY_XP }
 		completion_reward = {
+			hidden_effect = {
+				swap_ideas = {
+					remove_idea = TPMP_SOV_doc_air_1
+					add_idea = TPMP_SOV_doc_air_2
+				}
+			}
+			custom_effect_tooltip = TPMP_SOV_doc_air_2_tt
 		}
 	}
 
@@ -3090,6 +3255,13 @@ search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOC
 		cost = 5
 		search_filters = { FOCUS_FILTER_ARMY_XP }
 		completion_reward = {
+			hidden_effect = {
+				swap_ideas = {
+					remove_idea = TPMP_SOV_doc_air_2
+					add_idea = TPMP_SOV_doc_air_3
+				}
+			}
+			custom_effect_tooltip = TPMP_SOV_doc_air_3_tt
 		}
 	}
 
@@ -3103,6 +3275,13 @@ search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOC
 		cost = 5
 		search_filters = { FOCUS_FILTER_ARMY_XP }
 		completion_reward = {
+			hidden_effect = {
+				swap_ideas = {
+					remove_idea = TPMP_SOV_doc_air_3
+					add_idea = TPMP_SOV_doc_air_4
+				}
+			}
+			custom_effect_tooltip = TPMP_SOV_doc_air_4_tt
 		}
 	}
 
@@ -3117,6 +3296,53 @@ search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOC
 		cost = 5
 		search_filters = { FOCUS_FILTER_ARMY_XP }
 		completion_reward = {
+			hidden_effect = {
+				add_ideas = TPMP_SOV_doc_did_1
+				hidden_effect = {
+					if = {
+						limit = { controls_province = 6380 }
+						219 = { set_building_level = { type = bunker level = 6 province = { id = 6380 level < 6 } } }
+					}
+					if = {
+						limit = { controls_province = 3151 }
+						195 = { set_building_level = { type = bunker level = 6 province = { id = 3151 level < 6 } } }
+					}
+					if = {
+						limit = { controls_province = 3529 }
+						217 = { set_building_level = { type = bunker level = 6 province = { id = 3529 level < 6 } } }
+					}
+					if = {
+						limit = { controls_province = 11225 }
+						251 = { set_building_level = { type = bunker level = 6 province = { id = 11225 level < 6 } } }
+					}
+					if = {
+						limit = { controls_province = 6338 }
+						249 = { set_building_level = { type = bunker level = 6 province = { id = 6338 level < 6 } } }
+					}
+					if = {
+						limit = { controls_province = 11370 }
+						206 = { set_building_level = { type = bunker level = 6 province = { id = 11370 level < 6 } } }
+					}
+					if = {
+						limit = { controls_province = 525 }
+						202 = { set_building_level = { type = bunker level = 6 province = { id = 525 level < 6 } } }
+					}
+					if = {
+						limit = { controls_province = 9340 }
+						808 = { set_building_level = { type = bunker level = 6 province = { id = 9340 level < 6 } } }
+					}
+					if = {
+						limit = { controls_province = 9417 }
+						218 = { set_building_level = { type = bunker level = 6 province = { id = 9417 level < 6 } } }
+					}
+					if = {
+						limit = { controls_province = 11241 }
+						207 = { set_building_level = { type = bunker level = 6 province = { id = 11241 level < 6 } } }
+					}
+				}
+			}
+			custom_effect_tooltip = TPMP_SOV_doc_did_1_tt
+			custom_effect_tooltip = TPMP_SOV_doc_did_1_tt2
 		}
 	}
 
@@ -3124,12 +3350,19 @@ search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOC
 	focus = {
 		id = TPMP_SOV_peoples_militia
 		icon = GFX_focus_fra_loyalty_stalin
-		prerequisite = { focus = TPMP_SOV_war_doctrine_defence_in_depth }
+		prerequisite = { focus = TPMP_SOV_reserve_armies_from_the_east }
 		x = 61
-		y = 24
+		y = 25
 		cost = 5
 		search_filters = { FOCUS_FILTER_ARMY_XP }
 		completion_reward = {
+			hidden_effect = {
+				swap_ideas = {
+					remove_idea = TPMP_SOV_doc_did_2
+					add_idea = TPMP_SOV_doc_did_3
+				}
+			}
+			custom_effect_tooltip = TPMP_SOV_doc_did_3_tt
 		}
 	}
 
@@ -3137,12 +3370,21 @@ search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOC
 	focus = {
 		id = TPMP_SOV_reserve_armies_from_the_east
 		icon = GFX_focus_fra_loyalty_stalin
-		prerequisite = { focus = TPMP_SOV_peoples_militia }
+		prerequisite = { focus = TPMP_SOV_war_doctrine_defence_in_depth }
 		x = 61
-		y = 25
+		y = 24
 		cost = 5
 		search_filters = { FOCUS_FILTER_ARMY_XP }
 		completion_reward = {
+			hidden_effect = {
+				swap_ideas = {
+					remove_idea = TPMP_SOV_doc_did_1
+					add_idea = TPMP_SOV_doc_did_2
+				}
+				TPMP_SOV_spawn_reserve_divisions_150 = yes
+			}
+			custom_effect_tooltip = TPMP_SOV_doc_did_2_tt
+			custom_effect_tooltip = TPMP_SOV_doc_did_2_tt2
 		}
 	}
 
@@ -3156,6 +3398,13 @@ search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOC
 		cost = 5
 		search_filters = { FOCUS_FILTER_ARMY_XP }
 		completion_reward = {
+			hidden_effect = {
+				swap_ideas = {
+					remove_idea = TPMP_SOV_doc_did_3
+					add_idea = TPMP_SOV_doc_did_4
+				}
+			}
+			custom_effect_tooltip = TPMP_SOV_doc_did_4_tt
 		}
 	}
 
@@ -3518,9 +3767,8 @@ search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOC
 		id = TPMP_SOV_winter_counteroffensive
 		icon = GFX_focus_fra_loyalty_stalin
 		prerequisite = { focus = TPMP_SOV_order_no_227 }
-		x = 0
-		y = 1
-		relative_position_id = TPMP_SOV_order_no_227
+		x = 55
+		y = 19
 		
 		cost = 5
 
@@ -3731,6 +3979,7 @@ search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOC
 
 		completion_reward = {
 			custom_effect_tooltip = TPMP_SOV_nkvd_border_troops_tt
+			custom_effect_tooltip = generic_skip_one_line_tt
 			set_division_template_lock = {
 				division_template = "NKVD Pogranichnaya Diviziya"
 				is_locked = no
@@ -3816,14 +4065,17 @@ search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOC
 		search_filters = { FOCUS_FILTER_POLITICAL }
 
 		completion_reward = {
+			add_political_power = 100
+			add_stability = -0.02
+			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = TPMP_SOV_molotov_replaces_litvinov_tt
 		}
 	}
 
 	#123123
 	focus = {
-		id = TPMP_SOV_non_aggression_pact
-		icon = GFX_goal_molotov_ribbentrop_pact
+		id = TPMP_SOV_german_trade_agreements
+		icon = GFX_focus_generic_german_trade
 		prerequisite = { focus = TPMP_SOV_molotov_replaces_litvinov }
 		x = 8
 		y = 6
@@ -3833,50 +4085,28 @@ search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOC
 		available = {
 		}
 
-		search_filters = { FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY }
 
 		completion_reward = {
-			custom_effect_tooltip = TPMP_SOV_non_aggression_pact_tt
-		}
-	}
-
-	#123123
-	focus = {
-		id = TPMP_SOV_partition_of_poland
-		icon = GFX_SOV_demand_eastern_poland_ccp_2d_sov_compatibility
-		prerequisite = { focus = TPMP_SOV_non_aggression_pact }
-		x = 6
-		y = 7
-		relative_position_id = TPMP_SOV_vigilance_after_kirov
-		cost = 5
-
-		available = {
-		}
-
-		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_ANNEXATION }
-
-		completion_reward = {
-			custom_effect_tooltip = TPMP_SOV_partition_of_poland_tt
-		}
-	}
-
-	#123123
-	focus = {
-		id = TPMP_SOV_german_trade_agreements
-		icon = GFX_focus_generic_german_trade
-		prerequisite = { focus = TPMP_SOV_non_aggression_pact }
-		x = 10
-		y = 7
-		relative_position_id = TPMP_SOV_vigilance_after_kirov
-		cost = 5
-
-		available = {
-		}
-
-		search_filters = { FOCUS_FILTER_POLITICAL }
-
-		completion_reward = {
-			custom_effect_tooltip = TPMP_SOV_german_trade_agreements_tt
+			add_tech_bonus = {
+				name = TPMP_SOV_german_trade_agreements
+				ahead_reduction = 1
+				uses = 1
+				category = armor
+			}
+			add_tech_bonus = {
+				name = TPMP_SOV_german_trade_agreements
+				ahead_reduction = 1
+				uses = 1
+				category = artillery
+			}
+			if = {
+				limit = { owns_state = 218 }
+				218 = {
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = { type = arms_factory level = 3 instant_build = yes }
+				}
+			}
 		}
 	}
 
@@ -3884,11 +4114,15 @@ search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOC
 	focus = {
 		id = TPMP_SOV_baltic_mutual_assistance
 		icon = GFX_SOV_secure_the_baltics_ccp_2d_sov_compatibility
-		prerequisite = { focus = TPMP_SOV_partition_of_poland }
+		prerequisite = { focus = TPMP_SOV_german_trade_agreements }
 		x = 6
-		y = 8
+		y = 7
 		relative_position_id = TPMP_SOV_vigilance_after_kirov
 		cost = 5
+
+		bypass = {
+			NOT = { country_exists = EST country_exists = LAT country_exists = LIT }
+		}
 
 		available = {
 		}
@@ -3896,7 +4130,32 @@ search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOC
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_ANNEXATION }
 
 		completion_reward = {
-			custom_effect_tooltip = TPMP_SOV_baltic_mutual_assistance_tt
+			# Rewired vanilla SOV_claims_in_baltic: claims on the Baltic cores + the Baltic ultimatum decisions
+			if = {
+				limit = { country_exists = EST }
+				custom_effect_tooltip = SOV_estonian_claimed_states_tt
+				hidden_effect = {
+					EST = { every_owned_state = { limit = { is_core_of = PREV } ROOT = { add_state_claim = PREV } } }
+				}
+				activate_targeted_decision = { target = EST decision = SOV_send_ultimatum_to_country_baltic }
+			}
+			if = {
+				limit = { country_exists = LAT }
+				custom_effect_tooltip = SOV_latvian_claimed_states_tt
+				hidden_effect = {
+					LAT = { every_owned_state = { limit = { is_core_of = PREV } ROOT = { add_state_claim = PREV } } }
+				}
+				activate_targeted_decision = { target = LAT decision = SOV_send_ultimatum_to_country_baltic }
+			}
+			if = {
+				limit = { country_exists = LIT }
+				custom_effect_tooltip = SOV_lithuanian_claimed_states_tt
+				hidden_effect = {
+					LIT = { every_owned_state = { limit = { is_core_of = PREV } ROOT = { add_state_claim = PREV } } }
+				}
+				activate_targeted_decision = { target = LIT decision = SOV_send_ultimatum_to_country_baltic }
+			}
+			add_named_threat = { threat = 1 name = SOV_claims_in_baltic }
 		}
 	}
 
@@ -3904,31 +4163,21 @@ search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOC
 	focus = {
 		id = TPMP_SOV_demands_on_finland
 		icon = GFX_SOV_secure_finland_ccp_2d_sov_compatibility
-		prerequisite = { focus = TPMP_SOV_partition_of_poland }
+		prerequisite = { focus = TPMP_SOV_german_trade_agreements }
 		x = 8
-		y = 8
+		y = 7
 		relative_position_id = TPMP_SOV_vigilance_after_kirov
 		cost = 5
 
-		available = {
+		will_lead_to_war_with = FIN
+
+		bypass = {
+			OR = {
+				NOT = { country_exists = FIN }
+				has_full_control_of_state = 146
+				is_in_faction_with = FIN
+			}
 		}
-
-		search_filters = { FOCUS_FILTER_POLITICAL }
-
-		completion_reward = {
-			custom_effect_tooltip = TPMP_SOV_demands_on_finland_tt
-		}
-	}
-
-	#123123
-	focus = {
-		id = TPMP_SOV_bessarabia_ultimatum
-		icon = GFX_SOV_the_fate_of_romania_ccp_2d_sov_compatibility
-		prerequisite = { focus = TPMP_SOV_partition_of_poland }
-		x = 10
-		y = 8
-		relative_position_id = TPMP_SOV_vigilance_after_kirov
-		cost = 5
 
 		available = {
 		}
@@ -3936,7 +4185,85 @@ search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOC
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_ANNEXATION }
 
 		completion_reward = {
-			custom_effect_tooltip = TPMP_SOV_bessarabia_ultimatum_tt
+			add_state_claim = 146 # Karelia (Viipuri)
+			if = {
+				limit = {
+					country_exists = FIN
+					FIN = { NOT = { has_war_with = ROOT } }
+				}
+				create_wargoal = {
+					type = take_state_focus
+					target = FIN
+					generator = { 146 }
+				}
+			}
+			add_named_threat = { threat = 1 name = TPMP_SOV_demands_on_finland }
+		}
+	}
+
+	#123123
+	focus = {
+		id = TPMP_SOV_bessarabia_ultimatum
+		icon = GFX_SOV_the_fate_of_romania_ccp_2d_sov_compatibility
+		prerequisite = { focus = TPMP_SOV_german_trade_agreements }
+		x = 10
+		y = 7
+		relative_position_id = TPMP_SOV_vigilance_after_kirov
+		cost = 5
+
+		will_lead_to_war_with = ROM
+
+		bypass = {
+			78 = { OWNER = { OR = { tag = ROOT is_in_faction_with = ROOT } } }
+			80 = { OWNER = { OR = { tag = ROOT is_in_faction_with = ROOT } } }
+			766 = { OWNER = { OR = { tag = ROOT is_in_faction_with = ROOT } } }
+		}
+
+		available = {
+		}
+
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_ANNEXATION }
+
+		completion_reward = {
+			# Rewired vanilla SOV_claim_on_bessarabia: claims + the romania.1 ultimatum to every owner
+			if = {
+				limit = { 78 = { OWNER = { NOT = { is_in_faction_with = ROOT } } } }
+				add_state_claim = 78
+			}
+			if = {
+				limit = { 766 = { OWNER = { NOT = { is_in_faction_with = ROOT } } } }
+				add_state_claim = 766
+			}
+			if = {
+				limit = { 80 = { OWNER = { NOT = { is_in_faction_with = ROOT } } } }
+				add_state_claim = 80
+			}
+			add_named_threat = { threat = 1 name = SOV_claim_on_bessarabia }
+			random_other_country = {
+				limit = { owns_state = 78 }
+				add_opinion_modifier = { target = SOV modifier = claimed_bessarabia }
+				set_country_flag = SOV_added_claimed_bessarabia
+				country_event = { id = romania.1 hours = 16 random_hours = 8 }
+			}
+			if = {
+				limit = { any_other_country = { owns_state = 78 NOT = { owns_state = 80 } } }
+				random_other_country = {
+					limit = { owns_state = 80 NOT = { has_country_flag = SOV_added_claimed_bessarabia } }
+					add_opinion_modifier = { target = SOV modifier = claimed_bucovina }
+					country_event = { id = romania.1 hours = 16 random_hours = 8 }
+				}
+			}
+			if = {
+				limit = {
+					any_other_country = { owns_state = 78 NOT = { owns_state = 766 } }
+					any_other_country = { owns_state = 80 NOT = { owns_state = 766 } }
+				}
+				random_other_country = {
+					limit = { owns_state = 766 NOT = { has_country_flag = SOV_added_claimed_bessarabia } }
+					add_opinion_modifier = { target = SOV modifier = claimed_bucovina }
+					country_event = { id = romania.1 hours = 16 random_hours = 8 }
+				}
+			}
 		}
 	}
 
@@ -3956,6 +4283,8 @@ search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOC
 		search_filters = { FOCUS_FILTER_POLITICAL }
 
 		completion_reward = {
+			add_mastery = { amount = 200 track = fighter_aircraft }
+			add_mastery = { amount = 200 track = strike_aircraft }
 			custom_effect_tooltip = TPMP_SOV_aid_to_china_tt
 		}
 	}
@@ -3966,7 +4295,7 @@ search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOC
 		icon = GFX_SOV_japanese_overtures_ccp_2d_sov_compatibility
 		prerequisite = { focus = TPMP_SOV_aid_to_china }
 		x = 12
-		y = 7
+		y = 6
 		relative_position_id = TPMP_SOV_vigilance_after_kirov
 		cost = 5
 
@@ -3976,27 +4305,8 @@ search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOC
 		search_filters = { FOCUS_FILTER_POLITICAL }
 
 		completion_reward = {
+			hidden_effect = { TPMP_SOV_spawn_reserve_divisions_20 = yes }
 			custom_effect_tooltip = TPMP_SOV_neutrality_pact_with_japan_tt
-		}
-	}
-
-	#123123
-	focus = {
-		id = TPMP_SOV_buying_time
-		icon = GFX_goal_generic_neutrality_focus
-		prerequisite = { focus = TPMP_SOV_baltic_mutual_assistance focus = TPMP_SOV_demands_on_finland focus = TPMP_SOV_bessarabia_ultimatum focus = TPMP_SOV_neutrality_pact_with_japan }
-		x = 8
-		y = 9
-		relative_position_id = TPMP_SOV_vigilance_after_kirov
-		cost = 5
-
-		available = {
-		}
-
-		search_filters = { FOCUS_FILTER_POLITICAL }
-
-		completion_reward = {
-			custom_effect_tooltip = TPMP_SOV_buying_time_tt
 		}
 	}
 
@@ -4079,7 +4389,9 @@ search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOC
 
 		completion_reward = {
 			add_political_power = 100
+			custom_effect_tooltip = generic_skip_one_line_tt
 			add_stability = 0.03
+			custom_effect_tooltip = generic_skip_one_line_tt
 			if = {
 				limit = { country_exists = UKR }
 				UKR = { add_political_power = -50 }

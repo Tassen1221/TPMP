@@ -5355,7 +5355,10 @@ SOV_diplomacy_baltic_decision_category = {
 		}
 
 		target_root_trigger = {
-			has_completed_focus = SOV_claims_in_baltic
+			OR = {
+				has_completed_focus = SOV_claims_in_baltic
+				has_completed_focus = TPMP_SOV_baltic_mutual_assistance
+			}
 			is_subject = no
 		}
 

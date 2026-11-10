@@ -289,6 +289,7 @@ TPMP_SOV_workers_decision_category = {
     custom_cost_text = TPMP_SOV_gulag_spend_workers_western_russia_decision
 
     visible = {
+			NOT = { has_country_flag = TPMP_SOV_ord_done_brig_wrus } # TPMP_SOV_ord hook
     }
     available = {
         check_variable = { TPMP_SOV_workers_var > 124999 }
@@ -308,6 +309,7 @@ TPMP_SOV_workers_decision_category = {
         }
     }
     complete_effect = {
+			set_country_flag = TPMP_SOV_ord_done_brig_wrus # TPMP_SOV_ord hook
         subtract_from_variable = { TPMP_SOV_workers_var = 125000 }
         every_state = {
             limit = { is_western_russia_industrial_region = yes }
@@ -335,6 +337,7 @@ TPMP_SOV_workers_decision_category = {
 
 		custom_cost_text = TPMP_SOV_gulag_spend_workers_coal_targeted_825_decision
     visible = {
+			NOT = { has_country_flag = TPMP_SOV_ord_done_coal_825 } # TPMP_SOV_ord hook
 			has_completed_focus =  TPMP_SOV_gulag_1
     }
 
@@ -346,6 +349,7 @@ TPMP_SOV_workers_decision_category = {
 		icon = coal
 		cost = 5
 		complete_effect = {
+			set_country_flag = TPMP_SOV_ord_done_coal_825 # TPMP_SOV_ord hook
 
 			every_core_state = {
 				limit = {
@@ -376,6 +380,7 @@ TPMP_SOV_workers_decision_category = {
 		custom_cost_text = TPMP_SOV_gulag_spend_workers_coal_targeted_569_decision
 
     visible = {
+			NOT = { has_country_flag = TPMP_SOV_ord_done_coal_569 } # TPMP_SOV_ord hook
 			has_completed_focus =  TPMP_SOV_gulag_1
     }
 		available = {
@@ -387,6 +392,7 @@ TPMP_SOV_workers_decision_category = {
 		icon = coal
 		cost = 5
 		complete_effect = {
+			set_country_flag = TPMP_SOV_ord_done_coal_569 # TPMP_SOV_ord hook
 
 			every_core_state = {
 				limit = {
@@ -420,6 +426,7 @@ TPMP_SOV_workers_decision_category = {
 		custom_cost_text = TPMP_SOV_gulag_spend_workers_coal_targeted_881_decision
 
     visible = {
+			NOT = { has_country_flag = TPMP_SOV_ord_done_coal_881 } # TPMP_SOV_ord hook
 			has_completed_focus =  TPMP_SOV_gulag_1
     }
 		available = {
@@ -431,6 +438,7 @@ TPMP_SOV_workers_decision_category = {
 		icon = coal
 		cost = 5
 		complete_effect = {
+			set_country_flag = TPMP_SOV_ord_done_coal_881 # TPMP_SOV_ord hook
 
 			every_core_state = {
 				limit = {
@@ -467,6 +475,7 @@ TPMP_SOV_workers_decision_category = {
 
 		custom_cost_text = TPMP_SOV_gulag_spend_workers_lumber_decision
 		visible = {
+			NOT = { has_country_flag = TPMP_SOV_ord_done_timber } # TPMP_SOV_ord hook
 				has_completed_focus =  TPMP_SOV_gulag_1
 		}
 		available = {
@@ -475,6 +484,7 @@ TPMP_SOV_workers_decision_category = {
 
 		cost = 5
 		complete_effect = {
+			set_country_flag = TPMP_SOV_ord_done_timber # TPMP_SOV_ord hook
 
 			swap_ideas = {
 					remove_idea = TPMP_SOV_does_not_have_karelia_lumber_idea
@@ -508,6 +518,7 @@ TPMP_SOV_workers_decision_category = {
 		custom_cost_text = TPMP_SOV_gulag_spend_workers_gold_targeted_644_decision
 
 		visible = {
+			NOT = { has_country_flag = TPMP_SOV_ord_done_gold_644 } # TPMP_SOV_ord hook
 				has_completed_focus =  TPMP_SOV_gulag_2
 		}
 		available = {
@@ -519,6 +530,7 @@ TPMP_SOV_workers_decision_category = {
 		icon = coal
 		cost = 5
 		complete_effect = {
+			set_country_flag = TPMP_SOV_ord_done_gold_644 # TPMP_SOV_ord hook
 			add_ideas = TPMP_SOV_kolyma_gold_idea
 			every_core_state = {
 				limit = {
@@ -574,6 +586,7 @@ TPMP_SOV_workers_decision_category = {
 		custom_cost_text = TPMP_SOV_gulag_spend_workers_trace_coal_siberia_west_decision
 
 		visible = {
+			NOT = { has_country_flag = TPMP_SOV_ord_done_trace_wsib } # TPMP_SOV_ord hook
 				has_completed_focus =  TPMP_SOV_gulag_2
 		}
 
@@ -604,6 +617,7 @@ TPMP_SOV_workers_decision_category = {
 		}
 
 		complete_effect = {
+			set_country_flag = TPMP_SOV_ord_done_trace_wsib # TPMP_SOV_ord hook
 			subtract_from_variable = { TPMP_SOV_workers_var = 190000 } 
 
 
@@ -637,6 +651,7 @@ TPMP_SOV_workers_decision_category = {
 		custom_cost_text = TPMP_SOV_gulag_spend_workers_trace_coal_siberia_far_east_decision
 
 		visible = {
+			NOT = { has_country_flag = TPMP_SOV_ord_done_trace_fe } # TPMP_SOV_ord hook
 				has_completed_focus =  TPMP_SOV_gulag_2
 		}
 
@@ -678,6 +693,7 @@ TPMP_SOV_workers_decision_category = {
 		}
 
 		complete_effect = {
+			set_country_flag = TPMP_SOV_ord_done_trace_fe # TPMP_SOV_ord hook
 			subtract_from_variable = { TPMP_SOV_workers_var = 330000 } 
 
 
@@ -783,6 +799,7 @@ TPMP_SOV_workers_develop_infrastructure_moscow_decision = {
 
 
     visible = {
+			NOT = { has_country_flag = TPMP_SOV_ord_done_inf_moscow } # TPMP_SOV_ord hook
         has_country_flag = show_regional_infrastructure
 				has_completed_focus =  TPMP_SOV_gulag_3
     }
@@ -806,6 +823,7 @@ TPMP_SOV_workers_develop_infrastructure_moscow_decision = {
         }
     }
     complete_effect = {
+			set_country_flag = TPMP_SOV_ord_done_inf_moscow # TPMP_SOV_ord hook
         subtract_from_variable = { TPMP_SOV_workers_var = 60000 }
         every_state = {
             limit = { is_moscow_industrial_region = yes }
@@ -829,6 +847,7 @@ TPMP_SOV_workers_develop_infrastructure_leningrad_decision = {
     custom_cost_text = TPMP_SOV_gulag_spend_workers_leningrad_infrastructure_decision
 
     visible = {
+			NOT = { has_country_flag = TPMP_SOV_ord_done_inf_leningrad } # TPMP_SOV_ord hook
         has_country_flag = show_regional_infrastructure
 				has_completed_focus =  TPMP_SOV_gulag_3
     }
@@ -848,6 +867,7 @@ TPMP_SOV_workers_develop_infrastructure_leningrad_decision = {
         }
     }
     complete_effect = {
+			set_country_flag = TPMP_SOV_ord_done_inf_leningrad # TPMP_SOV_ord hook
         subtract_from_variable = { TPMP_SOV_workers_var = 70000 }
         every_state = {
             limit = { is_leningrad_industrial_region = yes }
@@ -871,6 +891,7 @@ TPMP_SOV_workers_develop_infrastructure_western_russia_decision = {
     custom_cost_text = TPMP_SOV_gulag_spend_workers_western_russia_infrastructure_decision
 
     visible = {
+			NOT = { has_country_flag = TPMP_SOV_ord_done_inf_western_russia } # TPMP_SOV_ord hook
         has_country_flag = show_regional_infrastructure
 				has_completed_focus =  TPMP_SOV_gulag_3
     }
@@ -892,6 +913,7 @@ TPMP_SOV_workers_develop_infrastructure_western_russia_decision = {
         }
     }
     complete_effect = {
+			set_country_flag = TPMP_SOV_ord_done_inf_western_russia # TPMP_SOV_ord hook
         subtract_from_variable = { TPMP_SOV_workers_var = 80000 }
         every_state = {
             limit = { is_western_russia_industrial_region = yes }
@@ -915,6 +937,7 @@ TPMP_SOV_workers_develop_infrastructure_northern_russia_decision = {
     custom_cost_text = TPMP_SOV_gulag_spend_workers_northern_russia_infrastructure_decision
 
     visible = {
+			NOT = { has_country_flag = TPMP_SOV_ord_done_inf_northern_russia } # TPMP_SOV_ord hook
         has_country_flag = show_regional_infrastructure
 				has_completed_focus =  TPMP_SOV_gulag_3
     }
@@ -939,6 +962,7 @@ TPMP_SOV_workers_develop_infrastructure_northern_russia_decision = {
         }
     }
     complete_effect = {
+			set_country_flag = TPMP_SOV_ord_done_inf_northern_russia # TPMP_SOV_ord hook
         subtract_from_variable = { TPMP_SOV_workers_var = 150000 }
         every_state = {
             limit = { is_northern_russia_industrial_region = yes }
@@ -962,6 +986,7 @@ TPMP_SOV_workers_develop_infrastructure_ukraine_decision = {
     custom_cost_text = TPMP_SOV_gulag_spend_workers_ukraine_infrastructure_decision
 
     visible = {
+			NOT = { has_country_flag = TPMP_SOV_ord_done_inf_ukraine } # TPMP_SOV_ord hook
         has_country_flag = show_regional_infrastructure
 				has_completed_focus =  TPMP_SOV_gulag_3
     }
@@ -990,6 +1015,7 @@ TPMP_SOV_workers_develop_infrastructure_ukraine_decision = {
         }
     }
     complete_effect = {
+			set_country_flag = TPMP_SOV_ord_done_inf_ukraine # TPMP_SOV_ord hook
         subtract_from_variable = { TPMP_SOV_workers_var = 50000 }
         every_state = {
             limit = { is_ukraine_industrial_region = yes }
@@ -1013,6 +1039,7 @@ TPMP_SOV_workers_develop_infrastructure_volga_decision = {
     custom_cost_text = TPMP_SOV_gulag_spend_workers_volga_infrastructure_decision
 
     visible = {
+			NOT = { has_country_flag = TPMP_SOV_ord_done_inf_volga } # TPMP_SOV_ord hook
         has_country_flag = show_regional_infrastructure
 				has_completed_focus =  TPMP_SOV_gulag_3
     }
@@ -1037,6 +1064,7 @@ TPMP_SOV_workers_develop_infrastructure_volga_decision = {
         }
     }
     complete_effect = {
+			set_country_flag = TPMP_SOV_ord_done_inf_volga # TPMP_SOV_ord hook
         subtract_from_variable = { TPMP_SOV_workers_var = 80000 }
         every_state = {
             limit = { is_volga_industrial_region = yes }
@@ -1060,6 +1088,7 @@ TPMP_SOV_workers_develop_infrastructure_south_russia_don_decision = {
     custom_cost_text = TPMP_SOV_gulag_spend_workers_south_russia_don_infrastructure_decision
 
     visible = {
+			NOT = { has_country_flag = TPMP_SOV_ord_done_inf_south_russia_don } # TPMP_SOV_ord hook
         has_country_flag = show_regional_infrastructure
 				has_completed_focus =  TPMP_SOV_gulag_3
     }
@@ -1084,6 +1113,7 @@ TPMP_SOV_workers_develop_infrastructure_south_russia_don_decision = {
         }
     }
     complete_effect = {
+			set_country_flag = TPMP_SOV_ord_done_inf_south_russia_don # TPMP_SOV_ord hook
         subtract_from_variable = { TPMP_SOV_workers_var = 90000 }
         every_state = {
             limit = { is_south_russia_don_industrial_region = yes }
@@ -1107,6 +1137,7 @@ TPMP_SOV_workers_develop_infrastructure_caucasus_decision = {
     custom_cost_text = TPMP_SOV_gulag_spend_workers_caucasus_infrastructure_decision
 
     visible = {
+			NOT = { has_country_flag = TPMP_SOV_ord_done_inf_caucasus } # TPMP_SOV_ord hook
         has_country_flag = show_regional_infrastructure
 				has_completed_focus =  TPMP_SOV_gulag_3
     }
@@ -1128,6 +1159,7 @@ TPMP_SOV_workers_develop_infrastructure_caucasus_decision = {
         }
     }
     complete_effect = {
+			set_country_flag = TPMP_SOV_ord_done_inf_caucasus # TPMP_SOV_ord hook
         subtract_from_variable = { TPMP_SOV_workers_var = 120000 }
         every_state = {
             limit = { is_caucasus_industrial_region = yes }
@@ -1151,6 +1183,7 @@ TPMP_SOV_workers_develop_infrastructure_urals_west_decision = {
     custom_cost_text = TPMP_SOV_gulag_spend_workers_urals_infrastructure_decision
 
     visible = {
+			NOT = { has_country_flag = TPMP_SOV_ord_done_inf_urals_west } # TPMP_SOV_ord hook
         has_country_flag = show_regional_infrastructure
 				has_completed_focus =  TPMP_SOV_gulag_3
     }
@@ -1169,6 +1202,7 @@ TPMP_SOV_workers_develop_infrastructure_urals_west_decision = {
         }
     }
     complete_effect = {
+			set_country_flag = TPMP_SOV_ord_done_inf_urals_west # TPMP_SOV_ord hook
         subtract_from_variable = { TPMP_SOV_workers_var = 130000 }
         every_state = {
             limit = { is_urals_west_industrial_region = yes }
@@ -1192,6 +1226,7 @@ TPMP_SOV_workers_develop_infrastructure_central_asia_decision = {
     custom_cost_text = TPMP_SOV_gulag_spend_workers_central_asia_infrastructure_decision
 
     visible = {
+			NOT = { has_country_flag = TPMP_SOV_ord_done_inf_central_asia } # TPMP_SOV_ord hook
         has_country_flag = show_regional_infrastructure
 				has_completed_focus =  TPMP_SOV_gulag_3
     }
@@ -1221,6 +1256,7 @@ TPMP_SOV_workers_develop_infrastructure_central_asia_decision = {
         }
     }
     complete_effect = {
+			set_country_flag = TPMP_SOV_ord_done_inf_central_asia # TPMP_SOV_ord hook
         subtract_from_variable = { TPMP_SOV_workers_var = 180000 }
         every_state = {
             limit = { is_central_asia_industrial_region = yes }
@@ -1244,6 +1280,7 @@ TPMP_SOV_workers_develop_infrastructure_siberia_west_decision = {
     custom_cost_text = TPMP_SOV_gulag_spend_workers_siberia_west_infrastructure_decision
 
     visible = {
+			NOT = { has_country_flag = TPMP_SOV_ord_done_inf_siberia_west } # TPMP_SOV_ord hook
         has_country_flag = show_regional_infrastructure
 				has_completed_focus =  TPMP_SOV_gulag_3
     }
@@ -1273,6 +1310,7 @@ TPMP_SOV_workers_develop_infrastructure_siberia_west_decision = {
         }
     }
     complete_effect = {
+			set_country_flag = TPMP_SOV_ord_done_inf_siberia_west # TPMP_SOV_ord hook
         subtract_from_variable = { TPMP_SOV_workers_var = 220000 }
         every_state = {
             limit = { is_siberia_west_industrial_region = yes }
@@ -1297,6 +1335,7 @@ TPMP_SOV_workers_develop_infrastructure_siberia_west_decision = {
 		custom_cost_text = TPMP_SOV_gulag_spend_workers_siberia_far_east_infrastructure_decision
 
 		visible = {
+			NOT = { has_country_flag = TPMP_SOV_ord_done_inf_siberia_far_east } # TPMP_SOV_ord hook
 			has_country_flag = show_regional_infrastructure
 				has_completed_focus =  TPMP_SOV_gulag_3
 		}
@@ -1339,6 +1378,7 @@ TPMP_SOV_workers_develop_infrastructure_siberia_west_decision = {
 		}
 
 		complete_effect = {
+			set_country_flag = TPMP_SOV_ord_done_inf_siberia_far_east # TPMP_SOV_ord hook
 			subtract_from_variable = { TPMP_SOV_workers_var = 300000 } 
 
 
