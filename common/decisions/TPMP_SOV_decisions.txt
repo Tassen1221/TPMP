@@ -1656,6 +1656,24 @@ TPMP_SOV_mitigate_stalingrad_shock_decision = {
     }
 }
 
+TPMP_SOV_mitigate_moscow_air_shock_decision = {
+    icon = generic_industry
+    cost = 50
+    visible = {
+        has_country_flag = TPMP_SOV_moscow_air_shock_window_active
+        NOT = { has_country_flag = TPMP_SOV_moscow_air_shock_fired }
+    }
+    available = {
+        has_country_flag = TPMP_SOV_moscow_air_shock_window_active
+        NOT = { has_country_flag = TPMP_SOV_moscow_air_shock_fired }
+    }
+    complete_effect = {
+        set_country_flag = TPMP_SOV_moscow_air_shock_fired
+        clr_country_flag = TPMP_SOV_moscow_air_shock_window_active
+        SOV_paranoia_medium_increase_effect = yes
+    }
+}
+
 
 
 TPMP_SOV_mitigate_mils_2_shock_decision = {

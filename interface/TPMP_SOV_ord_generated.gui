@@ -23,7 +23,7 @@ guiTypes = {
 		position = { x = 0 y = 0 }
 		orientation = center
 		origo = center
-		size = { width = 1060 height = 760 }
+		size = { width = 1430 height = 760 }
 		moveable = yes
 		clipping = no
 		background = {
@@ -41,7 +41,7 @@ guiTypes = {
 			position = { x = 0 y = 12 }
 			font = "hoi_36header"
 			text = "TPMP_SOV_ord_title"
-			maxWidth = 1060
+			maxWidth = 1430
 			maxHeight = 44
 			format = center
 			alwaystransparent = yes
@@ -49,7 +49,7 @@ guiTypes = {
 		buttonType = {
 			name = "TPMP_SOV_ord_close"
 			spriteType = "GFX_TPMP_SOV_mon_close"
-			position = { x = 1016 y = 14 }
+			position = { x = 1386 y = 14 }
 			clicksound = click_default
 			shortcut = "ESCAPE"
 		}
@@ -58,7 +58,7 @@ guiTypes = {
 			position = { x = 30 y = 66 }
 			font = "hoi_16mbs"
 			text = "TPMP_SOV_ord_subtitle"
-			maxWidth = 1000
+			maxWidth = 1370
 			maxHeight = 40
 			format = center
 			alwaystransparent = yes
@@ -1534,12 +1534,84 @@ guiTypes = {
 				alwaystransparent = yes
 			}
 		}
+		containerWindowType = {
+			name = "TPMP_SOV_ord_presets"
+			position = { x = 1054 y = 112 }
+			size = { width = 356 height = 628 }
+			clipping = no
+			background = {
+				name = "Background"
+				quadTextureSprite = "GFX_TPMP_SOV_mon_panel"
+			}
+			iconType = {
+				name = "TPMP_SOV_ord_presets_head_bg"
+				spriteType = "GFX_TPMP_SOV_ord_header"
+				position = { x = 8 y = 10 }
+				alwaystransparent = yes
+			}
+			instantTextBoxType = {
+				name = "TPMP_SOV_ord_presets_head"
+				position = { x = 0 y = 18 }
+				font = "hoi_18mbs"
+				text = "TPMP_SOV_ord_presets_head"
+				maxWidth = 356
+				maxHeight = 20
+				format = center
+				alwaystransparent = yes
+			}
+			instantTextBoxType = {
+				name = "TPMP_SOV_ord_presets_note"
+				position = { x = 16 y = 54 }
+				font = "hoi_16mbs"
+				text = "TPMP_SOV_ord_presets_note"
+				maxWidth = 324
+				maxHeight = 40
+				format = left
+				alwaystransparent = yes
+			}
+			buttonType = {
+				name = "TPMP_SOV_ord_preset_test"
+				quadTextureSprite = "GFX_TPMP_SOV_mon_row"
+				position = { x = 8 y = 100 }
+				size = { x = 340 y = 50 }
+				pdx_tooltip = TPMP_SOV_ord_preset_test_tt
+				clicksound = click_default
+			}
+			buttonType = {
+				name = "TPMP_SOV_ord_preset_test_on"
+				quadTextureSprite = "GFX_TPMP_SOV_mon_row_on"
+				position = { x = 8 y = 100 }
+				size = { x = 340 y = 50 }
+				pdx_tooltip = TPMP_SOV_ord_preset_test_tt
+				clicksound = click_default
+			}
+			instantTextBoxType = {
+				name = "TPMP_SOV_ord_preset_test_name"
+				position = { x = 18 y = 107 }
+				font = "hoi_18mbs"
+				text = "TPMP_SOV_ord_preset_test_name"
+				maxWidth = 320
+				maxHeight = 20
+				format = left
+				alwaystransparent = yes
+			}
+			instantTextBoxType = {
+				name = "TPMP_SOV_ord_preset_test_by"
+				position = { x = 18 y = 128 }
+				font = "hoi_16mbs"
+				text = "TPMP_SOV_ord_preset_test_by"
+				maxWidth = 320
+				maxHeight = 20
+				format = left
+				alwaystransparent = yes
+			}
+		}
 		instantTextBoxType = {
 			name = "TPMP_SOV_ord_footer"
 			position = { x = 30 y = 742 }
 			font = "hoi_16mbs"
 			text = "TPMP_SOV_ord_footer"
-			maxWidth = 1000
+			maxWidth = 1370
 			maxHeight = 20
 			format = center
 			alwaystransparent = yes

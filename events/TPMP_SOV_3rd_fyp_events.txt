@@ -1,6 +1,8 @@
 # Generated (skeleton v3): plant-capacity research events and 3rd FYP shocks.
 add_namespace = TPMP_SOV_plant
 add_namespace = TPMP_shock3
+add_namespace = TPMP_SOV_air
+add_namespace = TPMP_SOV_fleet
 
 country_event = {
 	id = TPMP_SOV_plant.1
@@ -23,8 +25,7 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = TPMP_SOV_plant.2.a
-		add_tech_bonus = { name = TPMP_SOV_kharkov_voronezh_aircraft_plants bonus = 1.0 uses = 1 category = tactical_bomber }
-		add_tech_bonus = { name = TPMP_SOV_kharkov_voronezh_aircraft_plants bonus = 0.5 uses = 1 category = cas_bomber }
+		add_tech_bonus = { name = TPMP_SOV_kharkov_voronezh_aircraft_plants bonus = 1.0 uses = 1 category = medium_air }
 	}
 }
 
@@ -244,5 +245,60 @@ country_event = {
 	option = {
 		name = TPMP_shock3.stalingrad.a
 		add_timed_idea = { idea = TPMP_SOV_armour_shock_idea days = 30 }
+	}
+}
+
+# New Fighter Contest (focus TPMP_SOV_new_fighter_contest): pick the winning design
+country_event = {
+	id = TPMP_SOV_air.1
+	title = TPMP_SOV_air.1.t
+	desc = TPMP_SOV_air.1.d
+	picture = GFX_report_event_airplane_factory
+	is_triggered_only = yes
+	option = {
+		name = TPMP_SOV_air.1.a
+		ai_chance = { base = 40 }
+		add_ideas = TPMP_SOV_fighter_yak_idea
+	}
+	option = {
+		name = TPMP_SOV_air.1.b
+		ai_chance = { base = 30 }
+		add_ideas = TPMP_SOV_fighter_lagg_idea
+	}
+	option = {
+		name = TPMP_SOV_air.1.c
+		ai_chance = { base = 30 }
+		add_ideas = TPMP_SOV_fighter_mig_idea
+	}
+}
+
+# Moscow aircraft plants shock (armed by focus TPMP_SOV_moscow_aircraft_plants)
+country_event = {
+	id = TPMP_shock3.moscow_air
+	title = TPMP_shock3.moscow_air.t
+	desc = TPMP_shock3.moscow_air.d
+	picture = GFX_report_event_airplane_crash
+	is_triggered_only = yes
+	trigger = { NOT = { has_country_flag = TPMP_SOV_moscow_air_shock_fired } }
+	immediate = {
+		set_country_flag = TPMP_SOV_moscow_air_shock_fired
+		clr_country_flag = TPMP_SOV_moscow_air_shock_window_active
+	}
+	option = {
+		name = TPMP_shock3.moscow_air.a
+		add_timed_idea = { idea = TPMP_SOV_air_shock_idea days = 30 }
+	}
+}
+
+# Black Sea Fleet First: 15 dockyards across Rostov, Crimea and Krasnodar (weekly check) -> 4 Kirov Class cruisers
+country_event = {
+	id = TPMP_SOV_fleet.1
+	title = TPMP_SOV_fleet.1.t
+	desc = TPMP_SOV_fleet.1.d
+	picture = GFX_report_event_destroyers
+	is_triggered_only = yes
+	option = {
+		name = TPMP_SOV_fleet.1.a
+		create_ship = { type = ship_hull_cruiser_2 equipment_variant = "Kirov Class" creator = SOV amount = 4 }
 	}
 }

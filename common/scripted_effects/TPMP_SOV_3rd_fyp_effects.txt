@@ -128,4 +128,59 @@ TPMP_SOV_3rd_fyp_plant_check = {
 		clr_country_flag = TPMP_SOV_plant_stalingrad_tractor_tanks_armed
 		country_event = { id = TPMP_SOV_plant.16 }
 	}
+	# Black Sea Fleet First: combined dockyards in Rostov 218, Crimea 137, Krasnodar 234 (counted up to 15 each)
+	if = {
+		limit = { has_country_flag = TPMP_SOV_black_sea_cruisers_armed }
+		set_temp_variable = { TPMP_SOV_bs_yards = 0 }
+		if = { limit = { 218 = { dockyard > 0 } } add_to_temp_variable = { TPMP_SOV_bs_yards = 1 } }
+		if = { limit = { 218 = { dockyard > 1 } } add_to_temp_variable = { TPMP_SOV_bs_yards = 1 } }
+		if = { limit = { 218 = { dockyard > 2 } } add_to_temp_variable = { TPMP_SOV_bs_yards = 1 } }
+		if = { limit = { 218 = { dockyard > 3 } } add_to_temp_variable = { TPMP_SOV_bs_yards = 1 } }
+		if = { limit = { 218 = { dockyard > 4 } } add_to_temp_variable = { TPMP_SOV_bs_yards = 1 } }
+		if = { limit = { 218 = { dockyard > 5 } } add_to_temp_variable = { TPMP_SOV_bs_yards = 1 } }
+		if = { limit = { 218 = { dockyard > 6 } } add_to_temp_variable = { TPMP_SOV_bs_yards = 1 } }
+		if = { limit = { 218 = { dockyard > 7 } } add_to_temp_variable = { TPMP_SOV_bs_yards = 1 } }
+		if = { limit = { 218 = { dockyard > 8 } } add_to_temp_variable = { TPMP_SOV_bs_yards = 1 } }
+		if = { limit = { 218 = { dockyard > 9 } } add_to_temp_variable = { TPMP_SOV_bs_yards = 1 } }
+		if = { limit = { 218 = { dockyard > 10 } } add_to_temp_variable = { TPMP_SOV_bs_yards = 1 } }
+		if = { limit = { 218 = { dockyard > 11 } } add_to_temp_variable = { TPMP_SOV_bs_yards = 1 } }
+		if = { limit = { 218 = { dockyard > 12 } } add_to_temp_variable = { TPMP_SOV_bs_yards = 1 } }
+		if = { limit = { 218 = { dockyard > 13 } } add_to_temp_variable = { TPMP_SOV_bs_yards = 1 } }
+		if = { limit = { 218 = { dockyard > 14 } } add_to_temp_variable = { TPMP_SOV_bs_yards = 1 } }
+		if = { limit = { 137 = { dockyard > 0 } } add_to_temp_variable = { TPMP_SOV_bs_yards = 1 } }
+		if = { limit = { 137 = { dockyard > 1 } } add_to_temp_variable = { TPMP_SOV_bs_yards = 1 } }
+		if = { limit = { 137 = { dockyard > 2 } } add_to_temp_variable = { TPMP_SOV_bs_yards = 1 } }
+		if = { limit = { 137 = { dockyard > 3 } } add_to_temp_variable = { TPMP_SOV_bs_yards = 1 } }
+		if = { limit = { 137 = { dockyard > 4 } } add_to_temp_variable = { TPMP_SOV_bs_yards = 1 } }
+		if = { limit = { 137 = { dockyard > 5 } } add_to_temp_variable = { TPMP_SOV_bs_yards = 1 } }
+		if = { limit = { 137 = { dockyard > 6 } } add_to_temp_variable = { TPMP_SOV_bs_yards = 1 } }
+		if = { limit = { 137 = { dockyard > 7 } } add_to_temp_variable = { TPMP_SOV_bs_yards = 1 } }
+		if = { limit = { 137 = { dockyard > 8 } } add_to_temp_variable = { TPMP_SOV_bs_yards = 1 } }
+		if = { limit = { 137 = { dockyard > 9 } } add_to_temp_variable = { TPMP_SOV_bs_yards = 1 } }
+		if = { limit = { 137 = { dockyard > 10 } } add_to_temp_variable = { TPMP_SOV_bs_yards = 1 } }
+		if = { limit = { 137 = { dockyard > 11 } } add_to_temp_variable = { TPMP_SOV_bs_yards = 1 } }
+		if = { limit = { 137 = { dockyard > 12 } } add_to_temp_variable = { TPMP_SOV_bs_yards = 1 } }
+		if = { limit = { 137 = { dockyard > 13 } } add_to_temp_variable = { TPMP_SOV_bs_yards = 1 } }
+		if = { limit = { 137 = { dockyard > 14 } } add_to_temp_variable = { TPMP_SOV_bs_yards = 1 } }
+		if = { limit = { 234 = { dockyard > 0 } } add_to_temp_variable = { TPMP_SOV_bs_yards = 1 } }
+		if = { limit = { 234 = { dockyard > 1 } } add_to_temp_variable = { TPMP_SOV_bs_yards = 1 } }
+		if = { limit = { 234 = { dockyard > 2 } } add_to_temp_variable = { TPMP_SOV_bs_yards = 1 } }
+		if = { limit = { 234 = { dockyard > 3 } } add_to_temp_variable = { TPMP_SOV_bs_yards = 1 } }
+		if = { limit = { 234 = { dockyard > 4 } } add_to_temp_variable = { TPMP_SOV_bs_yards = 1 } }
+		if = { limit = { 234 = { dockyard > 5 } } add_to_temp_variable = { TPMP_SOV_bs_yards = 1 } }
+		if = { limit = { 234 = { dockyard > 6 } } add_to_temp_variable = { TPMP_SOV_bs_yards = 1 } }
+		if = { limit = { 234 = { dockyard > 7 } } add_to_temp_variable = { TPMP_SOV_bs_yards = 1 } }
+		if = { limit = { 234 = { dockyard > 8 } } add_to_temp_variable = { TPMP_SOV_bs_yards = 1 } }
+		if = { limit = { 234 = { dockyard > 9 } } add_to_temp_variable = { TPMP_SOV_bs_yards = 1 } }
+		if = { limit = { 234 = { dockyard > 10 } } add_to_temp_variable = { TPMP_SOV_bs_yards = 1 } }
+		if = { limit = { 234 = { dockyard > 11 } } add_to_temp_variable = { TPMP_SOV_bs_yards = 1 } }
+		if = { limit = { 234 = { dockyard > 12 } } add_to_temp_variable = { TPMP_SOV_bs_yards = 1 } }
+		if = { limit = { 234 = { dockyard > 13 } } add_to_temp_variable = { TPMP_SOV_bs_yards = 1 } }
+		if = { limit = { 234 = { dockyard > 14 } } add_to_temp_variable = { TPMP_SOV_bs_yards = 1 } }
+		if = {
+			limit = { check_variable = { TPMP_SOV_bs_yards > 14 } }
+			clr_country_flag = TPMP_SOV_black_sea_cruisers_armed
+			country_event = { id = TPMP_SOV_fleet.1 }
+		}
+	}
 }

@@ -200,6 +200,12 @@ scripted_gui = {
 			TPMP_SOV_ord_rule_skip_chk_on_visible = {
 				has_country_flag = TPMP_SOV_ord_skip_ahead
 			}
+			TPMP_SOV_ord_preset_test_visible = {
+				NOT = { check_variable = { TPMP_SOV_ord_preset_loaded = 1 } }
+			}
+			TPMP_SOV_ord_preset_test_on_visible = {
+				check_variable = { TPMP_SOV_ord_preset_loaded = 1 }
+			}
 			TPMP_SOV_ord_row_rail_click_enabled = {
 				always = yes
 			}
@@ -417,6 +423,14 @@ scripted_gui = {
 				set_country_flag = TPMP_SOV_ord_skip_ahead
 				TPMP_SOV_ord_execute = yes
 				TPMP_SOV_ord_display = yes
+				add_to_variable = { TPMP_SOV_ord_dirty = 1 }
+			}
+			TPMP_SOV_ord_preset_test_click = {
+				TPMP_SOV_ord_preset_test = yes
+				add_to_variable = { TPMP_SOV_ord_dirty = 1 }
+			}
+			TPMP_SOV_ord_preset_test_on_click = {
+				TPMP_SOV_ord_preset_test = yes
 				add_to_variable = { TPMP_SOV_ord_dirty = 1 }
 			}
 		}

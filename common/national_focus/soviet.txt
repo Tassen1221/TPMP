@@ -1227,8 +1227,6 @@ bypass = {
 			custom_effect_tooltip = TPMP_SOV_mon_slot_tt_aviation
 			custom_effect_tooltip = generic_skip_one_line_tt
 			TPMP_SOV_mon_recompute = yes
-			custom_effect_tooltip = generic_skip_one_line_tt
-			add_tech_bonus = { name = TPMP_SOV_aviation_commissariat bonus = 0.5 uses = 1 category = air_equipment }
 		}
 	}
 
@@ -1257,6 +1255,10 @@ bypass = {
 				add_tech_bonus = { name = TPMP_SOV_moscow_aircraft_plants bonus = 0.5 uses = 1 category = air_equipment }
 			}
 			set_country_flag = TPMP_SOV_plant_moscow_aircraft_plants_armed
+			set_country_flag = TPMP_SOV_moscow_air_shock_window_active
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = TPMP_SOV_3fyp_shock_tt
+			country_event = { id = TPMP_shock3.moscow_air days = 1 random_days = 364 }
 		}
 	}
 
@@ -1283,8 +1285,7 @@ bypass = {
 			custom_effect_tooltip = TPMP_SOV_kharkov_voronezh_aircraft_plants_tt
 			custom_effect_tooltip = generic_skip_one_line_tt
 			effect_tooltip = {
-				add_tech_bonus = { name = TPMP_SOV_kharkov_voronezh_aircraft_plants bonus = 1.0 uses = 1 category = tactical_bomber }
-				add_tech_bonus = { name = TPMP_SOV_kharkov_voronezh_aircraft_plants bonus = 0.5 uses = 1 category = cas_bomber }
+				add_tech_bonus = { name = TPMP_SOV_kharkov_voronezh_aircraft_plants bonus = 1.0 uses = 1 category = medium_air }
 			}
 			set_country_flag = TPMP_SOV_plant_kharkov_voronezh_aircraft_plants_armed
 		}
@@ -1294,7 +1295,7 @@ bypass = {
 	focus = {
 		id = TPMP_SOV_new_fighter_contest
 		icon = GFX_goal_generic_air_fighter
-		prerequisite = { focus = TPMP_SOV_moscow_aircraft_plants focus = TPMP_SOV_kharkov_voronezh_aircraft_plants }
+		prerequisite = { focus = TPMP_SOV_moscow_aircraft_plants }
 		x = -11
 		y = 3
 		relative_position_id = TPMP_SOV_begin_the_third_fyp
@@ -1306,7 +1307,8 @@ bypass = {
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 
 		completion_reward = {
-			add_tech_bonus = { name = TPMP_SOV_new_fighter_contest bonus = 1.0 uses = 2 category = light_fighter }
+			custom_effect_tooltip = TPMP_SOV_new_fighter_contest_tt
+			hidden_effect = { country_event = { id = TPMP_SOV_air.1 } }
 		}
 	}
 
@@ -1330,16 +1332,19 @@ bypass = {
 			custom_effect_tooltip = generic_skip_one_line_tt
 			TPMP_SOV_mon_recompute = yes
 			custom_effect_tooltip = generic_skip_one_line_tt
+			add_ideas = TPMP_SOV_big_fleet_idea
+			custom_effect_tooltip = generic_skip_one_line_tt
 			add_tech_bonus = { name = TPMP_SOV_big_fleet_programme bonus = 0.5 uses = 1 category = naval_equipment }
 		}
 	}
 
 	#123123
 	focus = {
-		id = TPMP_SOV_nikolaev_leningrad_yards
-		icon = GFX_SOV_expand_shipbuilding_plants_ccp_2d_sov_compatibility
+		id = TPMP_SOV_baltic_bastion
+		icon = GFX_focus_generic_coastal_fort
 		prerequisite = { focus = TPMP_SOV_big_fleet_programme }
-		x = -5
+		mutually_exclusive = { focus = TPMP_SOV_black_sea_fleet_first }
+		x = -6
 		y = 2
 		relative_position_id = TPMP_SOV_begin_the_third_fyp
 		cost = 5
@@ -1350,16 +1355,56 @@ bypass = {
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 
 		completion_reward = {
-			195 = { add_dynamic_modifier = { modifier = TPMP_SOV_plant_yard_dm days = 730 scope = SOV } }
-			custom_effect_tooltip = generic_skip_one_line_tt
-			197 = { add_dynamic_modifier = { modifier = TPMP_SOV_plant_yard_dm days = 730 scope = SOV } }
-			custom_effect_tooltip = generic_skip_one_line_tt
-			custom_effect_tooltip = TPMP_SOV_nikolaev_leningrad_yards_tt
-			custom_effect_tooltip = generic_skip_one_line_tt
-			effect_tooltip = {
-				add_tech_bonus = { name = TPMP_SOV_nikolaev_leningrad_yards bonus = 1.0 uses = 1 category = naval_equipment }
+			if = {
+				limit = { controls_state = 195 }
+				195 = {
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = { type = dockyard level = 2 instant_build = yes }
+					if = {
+						limit = { any_province_building_level = { province = { id = 3151 } level < 8 building = coastal_bunker } }
+						set_building_level = { type = coastal_bunker province = { id = 3151 } level = 8 instant_build = yes }
+					}
+					if = {
+						limit = { any_province_building_level = { province = { id = 6174 } level < 4 building = coastal_bunker } }
+						set_building_level = { type = coastal_bunker province = { id = 6174 } level = 4 instant_build = yes }
+					}
+				}
 			}
-			set_country_flag = TPMP_SOV_plant_nikolaev_leningrad_yards_armed
+			if = {
+				limit = { controls_state = 208 }
+				208 = {
+					if = {
+						limit = { any_province_building_level = { province = { id = 9097 } level < 4 building = coastal_bunker } }
+						set_building_level = { type = coastal_bunker province = { id = 9097 } level = 4 instant_build = yes }
+					}
+				}
+			}
+		}
+	}
+
+	#123123
+	focus = {
+		id = TPMP_SOV_black_sea_fleet_first
+		icon = GFX_SOV_expand_shipbuilding_plants_ccp_2d_sov_compatibility
+		prerequisite = { focus = TPMP_SOV_big_fleet_programme }
+		mutually_exclusive = { focus = TPMP_SOV_baltic_bastion }
+		x = -4
+		y = 2
+		relative_position_id = TPMP_SOV_begin_the_third_fyp
+		cost = 10
+
+		available = {
+		}
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			218 = { add_dynamic_modifier = { modifier = TPMP_SOV_black_sea_yard_dm days = 730 scope = SOV } }
+			137 = { add_dynamic_modifier = { modifier = TPMP_SOV_black_sea_yard_dm days = 730 scope = SOV } }
+			234 = { add_dynamic_modifier = { modifier = TPMP_SOV_black_sea_yard_dm days = 730 scope = SOV } }
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = TPMP_SOV_black_sea_fleet_tt
+			set_country_flag = TPMP_SOV_black_sea_cruisers_armed
 		}
 	}
 
@@ -1598,7 +1643,7 @@ bypass = {
 	focus = {
 		id = TPMP_SOV_sovetsky_soyuz_battleships
 		icon = GFX_goal_generic_navy_battleship
-		prerequisite = { focus = TPMP_SOV_nikolaev_leningrad_yards }
+		prerequisite = { focus = TPMP_SOV_baltic_bastion focus = TPMP_SOV_black_sea_fleet_first }
 		mutually_exclusive = { focus = TPMP_SOV_mosquito_fleet }
 		x = -6
 		y = 3
@@ -1621,7 +1666,7 @@ bypass = {
 	focus = {
 		id = TPMP_SOV_mosquito_fleet
 		icon = GFX_goal_generic_navy_submarine
-		prerequisite = { focus = TPMP_SOV_nikolaev_leningrad_yards }
+		prerequisite = { focus = TPMP_SOV_baltic_bastion focus = TPMP_SOV_black_sea_fleet_first }
 		mutually_exclusive = { focus = TPMP_SOV_sovetsky_soyuz_battleships }
 		x = -4
 		y = 3
