@@ -4990,28 +4990,7 @@ on_actions = {
 				}
 			}
 		}
-		effect = {
-			# Libyan Desert follows Sirte, civil war winners otherwise sweep it up
-			if = {
-				limit = {
-					273 = {
-						owner = {
-							NOT = { owns_state = 662 }
-						}
-					}
-					662 = {
-						owner = {
-							NOT = { has_war_with = 273.owner }
-						}
-					}
-				}
-				662 = {
-					owner = {
-						transfer_state = 273
-					}
-				}
-			}
-		}
+		# TPMP: vanilla "Libyan Desert follows Sirte" transfer removed - the Libyan Desert (273) stays NEU
 		effect = {
 			#Country becomes a colonial power
 			if = {

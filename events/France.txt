@@ -1190,13 +1190,6 @@ country_event = {
 				set_capital = { state = 272 }
 			}
 			country_event = france.20
-			every_owned_state = {
-				limit = { 
-					is_controlled_by = ITA 
-					is_core_of = FRA
-				}
-				set_state_flag = vichy_italian_conquest
-			}
 		}
 		custom_effect_tooltip = establishing_vichy_tt
 
@@ -1303,8 +1296,13 @@ country_event = {
 					}
 					add_core_of = PREV
 				}
-				# TPMP: all of French North Africa always goes to Italy, war or not
+				# TPMP: Italy always gets its share when France falls, war or not, occupied or not
 				ITA = {
+					transfer_state = 1 # Corsica
+					transfer_state = 735 # Savoy
+					transfer_state = 32 # Alpes
+					transfer_state = 851 # Var
+					transfer_state = 21 # Bouches-du-Rhone
 					transfer_state = 458 # Tunisia
 					transfer_state = 665 # Gabès
 					transfer_state = 459 # Algiers
@@ -1312,31 +1310,6 @@ country_event = {
 					transfer_state = 513 # Tlemcen
 					transfer_state = 461 # Casablanca
 					transfer_state = 462 # Marrakech
-				}
-				if = { 
-					limit = { ITA = { has_war_with = FRA } }
-					every_owned_state = {
-						limit = {
-							OR = {
-								state = 21
-								state = 1
-								state = 735
-								state = 851
-							}
-							has_state_flag = vichy_italian_conquest
-						}
-						ITA = { transfer_state = PREV }
-					}
-					
-					if = {
-						limit = {
-							21 = { is_controlled_by = ITA }
-							851 = { is_controlled_by = ITA }
-							735 = { is_controlled_by = ITA } 
-						}
-						ITA = { transfer_state = 32 }
-					}
-					
 				}
 				every_owned_state = {
 					limit = {

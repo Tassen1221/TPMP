@@ -486,10 +486,11 @@ if = {
 		has_start_date < 1936.01.02
 	}
 
-	declare_war_on = {
-		target = ETH
-		type = annex_everything
-	}
+	# TPMP: Ethiopia starts conquered (states owned by ITA, ETH keeps cores) - the war is skipped
+	# Mirror the outcome of a won war: victory flag, Solid Progress, Missiolinis system active
+	set_country_flag = ITA_victory_in_ethiopia_flag
+	complete_national_focus = ITA_solid_progress
+	ITA_missiolinis_initialize_missiolinis_system = yes
 	give_guarantee = ALB
 }
 
@@ -890,7 +891,7 @@ if = {
 	ITA_benito_mussolini = { unit_leader_event = { id = BBA_italo_ethiopian_war_events.01 days = 14 } }  # JAN 36 - Conquer Ethiopia  - APR/JUNE 36 - (120-170 days)
 }
 
-ITA_benito_mussolini = { unit_leader_event = { id = BBA_italy_missiolinis.11 days = 185 random_days = 5 } } # JUN 36 - Conquer Ethiopia  - DEC 36 - (170 days)
+#ITA_benito_mussolini = { unit_leader_event = { id = BBA_italy_missiolinis.11 days = 185 random_days = 5 } } # JUN 36 - Conquer Ethiopia  - DEC 36 - (170 days) #TPMP: disabled, Ethiopia is conquered at start
 #ITA_benito_mussolini = { unit_leader_event = { id = BBA_italy_missiolinis.21 days = 370 random_days = 5 } } # JAN 37 - Pacify Ethiopia - DEC 39 - (720 days) #MM: This is now triggered after war with MTTH
 ITA_benito_mussolini = { unit_leader_event = { id = BBA_italy_missiolinis.31 days = 370 random_days = 5 } } # JAN 37 - Industrialization - DEC 37 - (350 days)
 ITA_benito_mussolini = { unit_leader_event = { id = BBA_italy_missiolinis.41 days = 735 random_days = 5 } } # JAN 38 - Increase Army - DEC 38 (350 days)

@@ -819,29 +819,7 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_WAR_SUPPORT }
 		completion_reward = {
-			if = {
-				limit = {
-					FRA = { owns_state = 799 }
-				}
-				FRA = { country_event = { id = bftb_turkey.25 hours = 6 } }
-			}
-			else_if = {
-				limit = {
-					SYR = { 
-						owns_state = 799 
-						is_subject_of = FRA
-					}
-				}
-				FRA = { country_event = { id = bftb_turkey.25 hours = 6 } }
-			}
-			else = {
-				random_neighbor_country = { 
-					limit = {
-						owns_state = 799
-					}
-					country_event = { id = bftb_turkey.60 hours = 6 } 
-				}
-			}
+			# TPMP: Turkey no longer requests Hatay (799), the state stays with France/Vichy
 			add_war_support = 0.05
 		}
 	}
