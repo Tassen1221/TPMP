@@ -1,0 +1,94 @@
+scripted_gui = {
+
+	# Thin tab along the bottom of the flag in the top bar. Opens and closes the Strategic Situations panel.
+	TPMP_strat_topbar_tab_gui = {
+		context_type = player_context
+		window_name = "TPMP_strat_topbar_tab_window"
+		parent_window_token = top_bar
+
+		visible = {
+			always = yes
+		}
+
+		triggers = {
+			TPMP_strat_open_button_visible = {
+				NOT = { has_country_flag = TPMP_strat_window_open }
+			}
+			TPMP_strat_close_button_visible = {
+				has_country_flag = TPMP_strat_window_open
+			}
+		}
+
+		effects = {
+			TPMP_strat_open_button_click = {
+				TPMP_strat_open_window = yes
+			}
+			TPMP_strat_close_button_click = {
+				clr_country_flag = TPMP_strat_window_open
+			}
+		}
+
+		ai_enabled = {
+			always = no
+		}
+	}
+
+	# The Strategic Situations panel
+	TPMP_strat_window_gui = {
+		context_type = player_context
+		window_name = "TPMP_strat_window"
+
+		visible = {
+			has_country_flag = TPMP_strat_window_open
+		}
+
+		effects = {
+			TPMP_strat_window_close_button_click = {
+				clr_country_flag = TPMP_strat_window_open
+			}
+			TPMP_strat_tab_1_click = {
+				set_variable = { TPMP_strat_tab = 1 }
+				TPMP_strat_refresh_tabs = yes
+			}
+			TPMP_strat_tab_2_click = {
+				set_variable = { TPMP_strat_tab = 2 }
+				TPMP_strat_refresh_tabs = yes
+			}
+			TPMP_strat_tab_3_click = {
+				set_variable = { TPMP_strat_tab = 3 }
+				TPMP_strat_refresh_tabs = yes
+			}
+			TPMP_strat_tab_4_click = {
+				set_variable = { TPMP_strat_tab = 4 }
+				TPMP_strat_refresh_tabs = yes
+			}
+		}
+
+		properties = {
+			# Selected / idle look of the front tabs, see TPMP_strat_refresh_tabs
+			TPMP_strat_tab_1 = {
+				frame = TPMP_strat_tab_1_frame
+			}
+			TPMP_strat_tab_2 = {
+				frame = TPMP_strat_tab_2_frame
+			}
+			TPMP_strat_tab_3 = {
+				frame = TPMP_strat_tab_3_frame
+			}
+			TPMP_strat_tab_4 = {
+				frame = TPMP_strat_tab_4_frame
+			}
+			# Demonstrator: fixed sides. The real version picks these from the country being played.
+			TPMP_strat_left_flag = {
+				image = "[GER.GetFlag]"
+			}
+			TPMP_strat_right_flag = {
+				image = "[ENG.GetFlag]"
+			}
+		}
+
+		ai_enabled = {
+			always = no
+		}
+	}
+}

@@ -1,0 +1,373 @@
+guiTypes = {
+
+	# Thin tab hanging from the bottom edge of the top bar, under the flag. Attached to the top bar by the scripted GUI.
+	containerWindowType = {
+		name = "TPMP_strat_topbar_tab_window"
+		position = { x = 7 y = 79 }
+		size = { width = 92 height = 20 }
+		clipping = no
+
+		buttonType = {
+			name = "TPMP_strat_open_button"
+			position = { x = 0 y = 0 }
+			quadTextureSprite = "GFX_TPMP_strat_topbar_tab_open"
+			clicksound = click_close # same pair of sounds as the vanilla top bar tabs
+			oversound = ui_menu_over
+			pdx_tooltip = "TPMP_strat_topbar_tab_open_tt"
+			pdx_tooltip_delayed = "TPMP_strat_topbar_tab_open_tt_delayed"
+		}
+
+		buttonType = {
+			name = "TPMP_strat_close_button"
+			position = { x = 0 y = 0 }
+			quadTextureSprite = "GFX_TPMP_strat_topbar_tab_close"
+			clicksound = click_close # same pair of sounds as the vanilla top bar tabs
+			oversound = ui_menu_over
+			pdx_tooltip = "TPMP_strat_topbar_tab_close_tt"
+			pdx_tooltip_delayed = "TPMP_strat_topbar_tab_close_tt_delayed"
+		}
+	}
+
+	# The Strategic Situations panel
+	containerWindowType = {
+		name = "TPMP_strat_window"
+		position = { x = -425 y = -371 }
+		size = { width = 850 height = 742 }
+		orientation = center
+		moveable = yes
+		click_to_front = yes
+		show_sound = menu_open_window
+		hide_sound = menu_close_window
+
+		background = {
+			name = "Background"
+			quadTextureSprite = "GFX_tiled_plain_bg"
+		}
+
+		iconType = {
+			name = "TPMP_strat_header_bg"
+			spriteType = "GFX_TPMP_strat_header_bg"
+			position = { x = 5 y = 7 }
+			alwaystransparent = yes
+		}
+
+		instantTextBoxType = {
+			name = "TPMP_strat_title"
+			position = { x = 45 y = 8 }
+			font = "hoi_36header"
+			borderSize = { x = 0 y = 0 }
+			text = "TPMP_strat_title"
+			maxWidth = 700
+			maxHeight = 20
+			format = left
+		}
+
+		buttonType = {
+			name = "TPMP_strat_window_close_button"
+			position = { x = -46 y = 10 }
+			quadTextureSprite = "GFX_closebutton"
+			buttonFont = "hoi_16mbs"
+			shortcut = "ESCAPE"
+			Orientation = "UPPER_RIGHT"
+			clicksound = click_close
+			pdx_tooltip = "CLOSE"
+		}
+
+		# Front selection. Frame 1 is the selected look, frame 2 the idle look (same convention as the vanilla research tabs).
+		# Declared before the body so the body frame draws over the bottom of the tabs and they read as part of it.
+		containerWindowType = {
+			name = "TPMP_strat_tabs"
+			position = { x = 5 y = 50 }
+			size = { width = 840 height = 34 }
+
+			buttonType = {
+				name = "TPMP_strat_tab_1"
+				position = { x = 0 y = 0 }
+				quadTextureSprite = "GFX_tab_medium"
+				text = "TPMP_strat_tab_eastern"
+				buttonFont = "hoi_18mbs"
+				frame = 1
+				clicksound = click_default
+			}
+
+			buttonType = {
+				name = "TPMP_strat_tab_2"
+				position = { x = 210 y = 0 }
+				quadTextureSprite = "GFX_tab_medium"
+				text = "TPMP_strat_tab_western"
+				buttonFont = "hoi_18mbs"
+				frame = 2
+				clicksound = click_default
+			}
+
+			buttonType = {
+				name = "TPMP_strat_tab_3"
+				position = { x = 420 y = 0 }
+				quadTextureSprite = "GFX_tab_medium"
+				text = "TPMP_strat_tab_mediterranean"
+				buttonFont = "hoi_18mbs"
+				frame = 2
+				clicksound = click_default
+			}
+
+			buttonType = {
+				name = "TPMP_strat_tab_4"
+				position = { x = 630 y = 0 }
+				quadTextureSprite = "GFX_tab_medium"
+				text = "TPMP_strat_tab_pacific"
+				buttonFont = "hoi_18mbs"
+				frame = 2
+				clicksound = click_default
+			}
+		}
+
+		# Everything that belongs to the selected front sits in this one framed box, the tabs lead into it
+		containerWindowType = {
+			name = "TPMP_strat_body"
+			position = { x = 5 y = 78 }
+			size = { width = 840 height = 658 }
+
+			background = {
+				name = "Background"
+				quadTextureSprite = "GFX_tiled_bg"
+			}
+
+			# Map of the selected front. Demonstrator: the world, one hoverable sprite per continent.
+			containerWindowType = {
+				name = "TPMP_strat_map"
+				position = { x = 8 y = 10 }
+				size = { width = 824 height = 302 }
+
+				background = {
+					name = "Background"
+					quadTextureSprite = "GFX_tiled_window_thin_border"
+				}
+
+				iconType = {
+					name = "TPMP_strat_map_sea"
+					spriteType = "GFX_TPMP_strat_map_sea"
+					position = { x = 2 y = 2 }
+					alwaystransparent = yes
+				}
+
+				buttonType = {
+					name = "TPMP_strat_continent_asia"
+					position = { x = 4 y = 2 }
+					quadTextureSprite = "GFX_TPMP_strat_continent_asia"
+					oversound = ui_menu_over
+					pdx_tooltip = "TPMP_strat_continent_asia"
+				}
+
+				buttonType = {
+					name = "TPMP_strat_continent_australia"
+					position = { x = 154 y = 205 }
+					quadTextureSprite = "GFX_TPMP_strat_continent_australia"
+					oversound = ui_menu_over
+					pdx_tooltip = "TPMP_strat_continent_australia"
+				}
+
+				buttonType = {
+					name = "TPMP_strat_continent_north_america"
+					position = { x = 5 y = 2 }
+					quadTextureSprite = "GFX_TPMP_strat_continent_north_america"
+					oversound = ui_menu_over
+					pdx_tooltip = "TPMP_strat_continent_north_america"
+				}
+
+				buttonType = {
+					name = "TPMP_strat_continent_africa"
+					position = { x = 352 y = 114 }
+					quadTextureSprite = "GFX_TPMP_strat_continent_africa"
+					oversound = ui_menu_over
+					pdx_tooltip = "TPMP_strat_continent_africa"
+				}
+
+				buttonType = {
+					name = "TPMP_strat_continent_south_america"
+					position = { x = 201 y = 109 }
+					quadTextureSprite = "GFX_TPMP_strat_continent_south_america"
+					oversound = ui_menu_over
+					pdx_tooltip = "TPMP_strat_continent_south_america"
+				}
+
+				buttonType = {
+					name = "TPMP_strat_continent_europe"
+					position = { x = 345 y = 2 }
+					quadTextureSprite = "GFX_TPMP_strat_continent_europe"
+					oversound = ui_menu_over
+					pdx_tooltip = "TPMP_strat_continent_europe"
+				}
+
+				buttonType = {
+					name = "TPMP_strat_continent_middle_east"
+					position = { x = 470 y = 98 }
+					quadTextureSprite = "GFX_TPMP_strat_continent_middle_east"
+					oversound = ui_menu_over
+					pdx_tooltip = "TPMP_strat_continent_middle_east"
+				}
+			}
+
+			containerWindowType = {
+				name = "TPMP_strat_left_section"
+				position = { x = 8 y = 318 }
+				size = { width = 272 height = 330 }
+
+				background = {
+					name = "Background"
+					quadTextureSprite = "GFX_tiled_plain_bg"
+				}
+
+				iconType = {
+					name = "TPMP_strat_left_flag"
+					quadTextureSprite = "GFX_player_flag"
+					position = { x = 95 y = 14 }
+				}
+
+				iconType = {
+					name = "TPMP_strat_left_flag_frame"
+					spriteType = "GFX_large_flag_frame"
+					position = { x = 90 y = 12 }
+					alwaystransparent = yes
+				}
+
+				instantTextBoxType = {
+					name = "TPMP_strat_left_name"
+					position = { x = 0 y = 76 }
+					font = "hoi_20b"
+					text = "TPMP_strat_left_name"
+					format = centre
+					maxWidth = 272
+					maxHeight = 22
+				}
+
+				containerWindowType = {
+					name = "TPMP_strat_left_textbox"
+					position = { x = 10 y = 104 }
+					size = { width = 252 height = 216 }
+
+					background = {
+						name = "Background"
+						quadTextureSprite = "GFX_tiled_window_thin_border"
+					}
+
+					instantTextBoxType = {
+						name = "TPMP_strat_left_text"
+						position = { x = 12 y = 10 }
+						font = "hoi_16mbs"
+						text = "TPMP_strat_left_text"
+						format = left
+						maxWidth = 228
+						maxHeight = 196
+					}
+				}
+			}
+
+			containerWindowType = {
+				name = "TPMP_strat_middle_section"
+				position = { x = 284 y = 318 }
+				size = { width = 272 height = 330 }
+
+				background = {
+					name = "Background"
+					quadTextureSprite = "GFX_tiled_plain_bg"
+				}
+
+				instantTextBoxType = {
+					name = "TPMP_strat_front_name"
+					position = { x = 0 y = 22 }
+					font = "hoi_24header"
+					text = "TPMP_strat_front_name"
+					format = centre
+					maxWidth = 272
+					maxHeight = 26
+				}
+
+				instantTextBoxType = {
+					name = "TPMP_strat_middle_caption"
+					position = { x = 0 y = 62 }
+					font = "hoi_16mbs"
+					text = "TPMP_strat_middle_caption"
+					format = centre
+					maxWidth = 272
+					maxHeight = 20
+				}
+
+				containerWindowType = {
+					name = "TPMP_strat_middle_textbox"
+					position = { x = 10 y = 104 }
+					size = { width = 252 height = 216 }
+
+					background = {
+						name = "Background"
+						quadTextureSprite = "GFX_tiled_window_thin_border"
+					}
+
+					instantTextBoxType = {
+						name = "TPMP_strat_middle_text"
+						position = { x = 12 y = 10 }
+						font = "hoi_16mbs"
+						text = "TPMP_strat_middle_text"
+						format = left
+						maxWidth = 228
+						maxHeight = 196
+					}
+				}
+			}
+
+			containerWindowType = {
+				name = "TPMP_strat_right_section"
+				position = { x = 560 y = 318 }
+				size = { width = 272 height = 330 }
+
+				background = {
+					name = "Background"
+					quadTextureSprite = "GFX_tiled_plain_bg"
+				}
+
+				iconType = {
+					name = "TPMP_strat_right_flag"
+					quadTextureSprite = "GFX_player_flag"
+					position = { x = 95 y = 14 }
+				}
+
+				iconType = {
+					name = "TPMP_strat_right_flag_frame"
+					spriteType = "GFX_large_flag_frame"
+					position = { x = 90 y = 12 }
+					alwaystransparent = yes
+				}
+
+				instantTextBoxType = {
+					name = "TPMP_strat_right_name"
+					position = { x = 0 y = 76 }
+					font = "hoi_20b"
+					text = "TPMP_strat_right_name"
+					format = centre
+					maxWidth = 272
+					maxHeight = 22
+				}
+
+				containerWindowType = {
+					name = "TPMP_strat_right_textbox"
+					position = { x = 10 y = 104 }
+					size = { width = 252 height = 216 }
+
+					background = {
+						name = "Background"
+						quadTextureSprite = "GFX_tiled_window_thin_border"
+					}
+
+					instantTextBoxType = {
+						name = "TPMP_strat_right_text"
+						position = { x = 12 y = 10 }
+						font = "hoi_16mbs"
+						text = "TPMP_strat_right_text"
+						format = left
+						maxWidth = 228
+						maxHeight = 196
+					}
+				}
+			}
+		}
+	}
+}

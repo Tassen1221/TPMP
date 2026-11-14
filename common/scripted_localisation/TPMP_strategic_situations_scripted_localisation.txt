@@ -1,0 +1,101 @@
+# Strategic Situations panel - text follows the selected front (TPMP_strat_tab), the Eastern Front is the fallback
+
+defined_text = {
+	name = TPMP_strat_front_name_loc
+	text = {
+		trigger = {
+			check_variable = { TPMP_strat_tab = 2 }
+		}
+		localization_key = TPMP_strat_tab_western
+	}
+	text = {
+		trigger = {
+			check_variable = { TPMP_strat_tab = 3 }
+		}
+		localization_key = TPMP_strat_tab_mediterranean
+	}
+	text = {
+		trigger = {
+			check_variable = { TPMP_strat_tab = 4 }
+		}
+		localization_key = TPMP_strat_tab_pacific
+	}
+	text = {
+		localization_key = TPMP_strat_tab_eastern
+	}
+}
+
+defined_text = {
+	name = TPMP_strat_left_text_loc
+	text = {
+		trigger = {
+			check_variable = { TPMP_strat_tab = 2 }
+		}
+		localization_key = TPMP_strat_western_left
+	}
+	text = {
+		trigger = {
+			check_variable = { TPMP_strat_tab = 3 }
+		}
+		localization_key = TPMP_strat_mediterranean_left
+	}
+	text = {
+		trigger = {
+			check_variable = { TPMP_strat_tab = 4 }
+		}
+		localization_key = TPMP_strat_pacific_left
+	}
+	text = {
+		localization_key = TPMP_strat_eastern_left
+	}
+}
+
+defined_text = {
+	name = TPMP_strat_middle_text_loc
+	text = {
+		trigger = {
+			check_variable = { TPMP_strat_tab = 2 }
+		}
+		localization_key = TPMP_strat_western_middle
+	}
+	text = {
+		trigger = {
+			check_variable = { TPMP_strat_tab = 3 }
+		}
+		localization_key = TPMP_strat_mediterranean_middle
+	}
+	text = {
+		trigger = {
+			check_variable = { TPMP_strat_tab = 4 }
+		}
+		localization_key = TPMP_strat_pacific_middle
+	}
+	text = {
+		localization_key = TPMP_strat_eastern_middle
+	}
+}
+
+defined_text = {
+	name = TPMP_strat_right_text_loc
+	text = {
+		trigger = {
+			check_variable = { TPMP_strat_tab = 2 }
+		}
+		localization_key = TPMP_strat_western_right
+	}
+	text = {
+		trigger = {
+			check_variable = { TPMP_strat_tab = 3 }
+		}
+		localization_key = TPMP_strat_mediterranean_right
+	}
+	text = {
+		trigger = {
+			check_variable = { TPMP_strat_tab = 4 }
+		}
+		localization_key = TPMP_strat_pacific_right
+	}
+	text = {
+		localization_key = TPMP_strat_eastern_right
+	}
+}
