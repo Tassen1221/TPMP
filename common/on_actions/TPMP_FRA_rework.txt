@@ -1,0 +1,6 @@
+on_actions = {
+        on_startup = { effect = { FRA = { TPMP_FRA_initialize_effect = yes } } }
+        on_daily_FRA = { effect = { TPMP_FRA_campaign_tick_effect = yes } }
+        # ROOT is the capitulated country; the flag records actual capitulation permanently.
+        on_capitulation = { effect = { if = { limit = { tag = FRA } TPMP_FRA_initialize_effect = yes TPMP_FRA_enter_exile_effect = yes } } }
+    }

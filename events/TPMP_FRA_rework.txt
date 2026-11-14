@@ -1,0 +1,82 @@
+add_namespace = tpmp_france
+
+country_event = {
+            id = tpmp_france.11
+            hidden = yes is_triggered_only = yes
+            immediate = {
+                clr_country_flag = TPMP_FRA_reserve_active
+                remove_ideas = TPMP_FRA_reserve_contract
+                add_to_variable = { var = TPMP_FRA_reserve_cadres value = 1 }
+                if = { limit = { has_country_flag = TPMP_FRA_capitulated } TPMP_FRA_release_reserves_effect = yes }
+            }
+        }
+
+country_event = {
+            id = tpmp_france.12
+            hidden = yes is_triggered_only = yes
+            immediate = {
+                clr_country_flag = TPMP_FRA_reserve_active
+                remove_ideas = TPMP_FRA_reserve_contract
+                add_to_variable = { var = TPMP_FRA_reserve_armaments value = 1 }
+                if = { limit = { has_country_flag = TPMP_FRA_capitulated } TPMP_FRA_release_reserves_effect = yes }
+            }
+        }
+
+country_event = {
+            id = tpmp_france.13
+            hidden = yes is_triggered_only = yes
+            immediate = {
+                clr_country_flag = TPMP_FRA_reserve_active
+                remove_ideas = TPMP_FRA_reserve_contract
+                add_to_variable = { var = TPMP_FRA_reserve_transport value = 1 }
+                if = { limit = { has_country_flag = TPMP_FRA_capitulated } TPMP_FRA_release_reserves_effect = yes }
+            }
+        }
+
+country_event = {
+            id = tpmp_france.2 title = tpmp_france.2.t desc = tpmp_france.2.d
+            picture = GFX_report_event_degaulle_churchill is_triggered_only = yes
+            option = { name = tpmp_france.2.a }
+        }
+
+country_event = {
+            id = tpmp_france.3 title = tpmp_france.3.t desc = tpmp_france.3.d
+            picture = GFX_report_event_degaulle_churchill is_triggered_only = yes
+            option = { name = tpmp_france.3.a }
+        }
+
+country_event = {
+            id = tpmp_france.4 title = tpmp_france.4.t desc = tpmp_france.4.d
+            picture = GFX_report_event_degaulle_churchill is_triggered_only = yes
+            option = { name = tpmp_france.4.a }
+        }
+
+country_event = {
+            id = tpmp_france.5 title = tpmp_france.5.t desc = tpmp_france.5.d
+            picture = GFX_report_event_degaulle_churchill is_triggered_only = yes
+            option = { name = tpmp_france.5.a }
+        }
+
+country_event = {
+        id = tpmp_france.31 hidden = yes is_triggered_only = yes
+        immediate = {
+            if = { limit = { has_idea = TPMP_FRA_staff_reform_1 }
+                swap_ideas = { remove_idea = TPMP_FRA_staff_reform_1 add_idea = TPMP_FRA_staff_reform_2 }
+            }
+        }
+    }
+    country_event = {
+        id = tpmp_france.32 hidden = yes is_triggered_only = yes
+        immediate = {
+            if = { limit = { has_country_flag = TPMP_FRA_staff_started NOT = { has_country_flag = TPMP_FRA_staff_finished } }
+                set_country_flag = TPMP_FRA_staff_finished
+                remove_ideas = TPMP_FRA_staff_reform_1
+                remove_ideas = TPMP_FRA_staff_reform_2
+                if = { limit = { NOT = { has_dynamic_modifier = { modifier = TPMP_FRA_army_modifier } } } add_dynamic_modifier = { modifier = TPMP_FRA_army_modifier } }
+add_to_variable = { var = TPMP_FRA_army_command_power_gain_mult value = 0.1 }
+add_to_variable = { var = TPMP_FRA_army_land_reinforce_rate value = 0.01 }
+add_to_variable = { var = TPMP_FRA_army_planning_speed value = 0.1 }
+force_update_dynamic_modifier = yes
+            }
+        }
+    }

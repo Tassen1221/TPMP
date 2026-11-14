@@ -1,44 +1,28 @@
-﻿focus_tree = {
+# Compatibility ID only; both playable chapters are in french_focus.
+focus_tree = {
 	id = free_french_focus
-	
-	country = {
-		factor = 0
-		
-		modifier = {
-			add = 1
-			tag = FRA
-		}
-	}
-	
 	default = no
 	focus = {
 		id = FRA_appeal_to_the_french_nation
 		icon = GFX_goal_generic_propaganda
-		x = 18
-		y = 0
-		offset = {
-			x = 0
-			y = 0
-		}
-		prerequisite = {}
+		prerequisite = { }
 		mutually_exclusive = { }
-		
 		cost = 3
 		ai_will_do = {
 			factor = 1
 		}
-		available = {
-		}
-		
-		bypass = {
-
-		}
+		available = { }
+		bypass = { }
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = yes
 		completion_reward = {
 			if = {
-				limit = { not = { has_dlc = "Man the Guns" } }
+				limit = {
+					not = {
+						has_dlc = "Man the Guns"
+					}
+				}
 				add_manpower = 10000
 			}
 			else = {
@@ -75,32 +59,24 @@
 				remove_ideas = { FRA_defeatism }
 			}
 		}
+		x = 0
+		y = 100
+		allow_branch = {
+			always = no
+		}
 	}
 	focus = {
 		id = FRA_appeal_to_overseas_territories
 		icon = GFX_goal_generic_radar
-		x = 0
-		y = 1
-		offset = {
-			x = 0
-			y = 0
-		}
-		prerequisite = { 
+		prerequisite = {
 			focus = FRA_appeal_to_the_french_nation
 		}
-		relative_position_id = FRA_appeal_to_the_french_nation
-		
 		cost = 3
 		ai_will_do = {
 			factor = 1
 		}
-		available = {
-			
-		}
-		
-		bypass = {
-
-		}
+		available = { }
+		bypass = { }
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = yes
@@ -111,23 +87,18 @@
 			}
 			add_ideas = TPMP_FRA_resources_idea
 		}
+		x = 3
+		y = 100
+		allow_branch = {
+			always = no
+		}
 	}
-	
-	
 	focus = {
 		id = FRA_form_the_national_committee
 		icon = GFX_goal_generic_intelligence_exchange
-		x = 0
-		y = 1
-		offset = {
-			x = 0
-			y = 0
-		}
-		prerequisite = { 
+		prerequisite = {
 			focus = FRA_appeal_to_overseas_territories
 		}
-		relative_position_id = FRA_appeal_to_overseas_territories
-		
 		cost = 5
 		ai_will_do = {
 			factor = 1
@@ -135,7 +106,6 @@
 		available = {
 			has_legitimacy > 90
 		}
-
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = yes
@@ -151,21 +121,18 @@
 				}
 			}
 		}
+		x = 6
+		y = 100
+		allow_branch = {
+			always = no
+		}
 	}
 	focus = {
 		id = FRA_form_the_provisional_government_of_the_republic
 		icon = GFX_goal_tripartite_pact
-		x = 0
-		y = 3
-		offset = {
-			x = 0
-			y = 0
-		}
-		prerequisite = { 
+		prerequisite = {
 			focus = FRA_form_the_national_committee
 		}
-		relative_position_id = FRA_form_the_national_committee
-		
 		cost = 5
 		ai_will_do = {
 			factor = 1
@@ -175,31 +142,25 @@
 				is_controlled_by = ROOT
 			}
 		}
-		
-		bypass = {
-
-		}
+		bypass = { }
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = yes
 		completion_reward = {
 			load_focus_tree = french_focus
-			#TODO_GABRIEL: Make scripted effect to give correct focuses depending on left/right
+		}
+		x = 9
+		y = 100
+		allow_branch = {
+			always = no
 		}
 	}
 	focus = {
 		id = FRA_continue_the_fight
 		icon = GFX_goal_generic_major_war
-		x = 9
-		y = 1
-		offset = {
-			x = 0
-			y = 0
-		}
-		prerequisite = { 
+		prerequisite = {
 			focus = FRA_appeal_to_the_french_nation
 		}
-		relative_position_id = FRA_appeal_to_the_french_nation
 		cost = 10
 		ai_will_do = {
 			factor = 1
@@ -221,7 +182,7 @@
 				name = "Marie-Pierre Koenig"
 				GFX = GFX_portrait_fra_marie_pierre_koenig
 				skill = 3
-				traits = {  }
+				traits = { }
 				attack_skill = 2
 				defense_skill = 2
 				planning_skill = 3
@@ -231,23 +192,25 @@
 				name = "Georges Catroux"
 				GFX = GFX_portrait_fra_georges_catroux
 				skill = 3
-				traits = {  }
+				traits = { }
 				attack_skill = 3
 				defense_skill = 3
 				planning_skill = 2
 				logistics_skill = 2
 			}
 		}
+		x = 12
+		y = 100
+		allow_branch = {
+			always = no
+		}
 	}
 	focus = {
 		id = FRA_the_free_french_navy
 		icon = GFX_goal_generic_build_navy
-		x = -5
-		y = 1
-		prerequisite = { 
+		prerequisite = {
 			focus = FRA_continue_the_fight
 		}
-		relative_position_id = FRA_continue_the_fight
 		cost = 10
 		ai_will_do = {
 			factor = 1
@@ -264,24 +227,28 @@
 				name = "Emilie Muselier"
 				GFX = GFX_portrait_fra_emilie_muselier
 				skill = 3
-				traits = {  }
+				traits = { }
 				attack_skill = 6
 				defense_skill = 6
 				maneuvering_skill = 6
 				coordination_skill = 6
 			}
 		}
+		x = 15
+		y = 100
+		allow_branch = {
+			always = no
+		}
 	}
 	focus = {
 		id = FRA_submarine_infancy
 		icon = GFX_goal_generic_build_navy
-		x = -1
-		y = 1
-		prerequisite = { 
+		prerequisite = {
 			focus = FRA_the_free_french_navy
 		}
-		mutually_exclusive = { focus = FRA_light_ship_dominance }
-		relative_position_id = FRA_the_free_french_navy
+		mutually_exclusive = {
+			focus = FRA_light_ship_dominance
+		}
 		cost = 10
 		ai_will_do = {
 			factor = 1
@@ -290,69 +257,56 @@
 		continue_if_invalid = no
 		available_if_capitulated = yes
 		completion_reward = {
-			add_ideas = {
-				FRA_submarine_fleet
-			}
+			add_ideas = { FRA_submarine_fleet }
+		}
+		x = 18
+		y = 100
+		allow_branch = {
+			always = no
 		}
 	}
-
 	focus = {
 		id = FRA_light_ship_dominance
 		icon = GFX_goal_generic_build_navy
-		x = 1
-		y = 1
-		prerequisite = { 
+		prerequisite = {
 			focus = FRA_the_free_french_navy
 		}
 		mutually_exclusive = {
 			focus = FRA_submarine_infancy
 		}
-		relative_position_id = FRA_the_free_french_navy
-		
 		cost = 10
 		ai_will_do = {
 			factor = 1
 		}
-		available = {
-			
-		}
-		
-		bypass = {
-
-		}
+		available = { }
+		bypass = { }
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = yes
 		completion_reward = {
-			add_ideas = {
-				FRA_light_focus
-			}
+			add_ideas = { FRA_light_focus }
+		}
+		x = 21
+		y = 100
+		allow_branch = {
+			always = no
 		}
 	}
 	focus = {
 		id = FRA_selective_targeting
 		icon = GFX_goal_generic_build_navy
-		x = -1
-		y = 1
-		prerequisite = { 
+		prerequisite = {
 			focus = FRA_submarine_infancy
 		}
 		mutually_exclusive = {
 			focus = FRA_rip_and_tear
 		}
-		relative_position_id = FRA_submarine_infancy
-		
 		cost = 10
 		ai_will_do = {
 			factor = 1
 		}
-		available = {
-			
-		}
-		
-		bypass = {
-
-		}
+		available = { }
+		bypass = { }
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = yes
@@ -362,13 +316,16 @@
 				add_idea = FRA_sneaky_subs
 			}
 		}
+		x = 24
+		y = 100
+		allow_branch = {
+			always = no
+		}
 	}
 	focus = {
 		id = FRA_rip_and_tear
 		icon = GFX_goal_generic_build_navy
-		x = 1
-		y = 1
-		prerequisite = { 
+		prerequisite = {
 			focus = FRA_submarine_infancy
 			focus = FRA_light_ship_dominance
 		}
@@ -376,52 +333,39 @@
 			focus = FRA_selective_targeting
 			focus = FRA_spam_everything
 		}
-		relative_position_id = FRA_submarine_infancy
-		
 		cost = 10
 		ai_will_do = {
 			factor = 1
 		}
-		available = {
-			
-		}
-		
-		bypass = {
-
-		}
+		available = { }
+		bypass = { }
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = yes
 		completion_reward = {
-			add_ideas = {
-				FRA_until_done
-			}
+			add_ideas = { FRA_until_done }
+		}
+		x = 27
+		y = 100
+		allow_branch = {
+			always = no
 		}
 	}
 	focus = {
 		id = FRA_spam_everything
 		icon = GFX_goal_generic_build_navy
-		x = 1
-		y = 1
-		prerequisite = { 
+		prerequisite = {
 			focus = FRA_light_ship_dominance
 		}
 		mutually_exclusive = {
 			focus = FRA_rip_and_tear
 		}
-		relative_position_id = FRA_light_ship_dominance
-		
 		cost = 10
 		ai_will_do = {
 			factor = 1
 		}
-		available = {
-			
-		}
-		
-		bypass = {
-
-		}
+		available = { }
+		bypass = { }
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = yes
@@ -431,43 +375,38 @@
 				add_idea = FRA_light_navy
 			}
 		}
+		x = 30
+		y = 100
+		allow_branch = {
+			always = no
+		}
 	}
 	focus = {
 		id = FRA_carrier_fighting
 		icon = GFX_goal_generic_build_navy
-		x = -1
-		y = 2
-		prerequisite = { 
+		prerequisite = {
 			focus = FRA_light_ship_dominance
 			focus = FRA_submarine_infancy
 		}
-		prerequisite = { 
+		prerequisite = {
 			focus = FRA_spam_everything
 			focus = FRA_selective_targeting
 			focus = FRA_rip_and_tear
 		}
-		relative_position_id = FRA_light_ship_dominance
-		
 		cost = 10
 		ai_will_do = {
 			factor = 1
 		}
-		available = {
-			
-		}
-		
-		bypass = {
-
-		}
+		available = { }
+		bypass = { }
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = yes
 		completion_reward = {
-			
 			create_equipment_variant = {
 				name = "French Carrier"
 				name_group = JAP_CC_HISTROICAL
-				allow_without_tech = yes #Makes no difference since focus requires appropriate tech (above), but it improves tooltip
+				allow_without_tech = yes
 				type = ship_hull_carrier_3
 				parent_version = 0
 				modules = {
@@ -480,7 +419,6 @@
 					mid_1_custom_slot = ship_deck_space
 				}
 			}
-			
 			add_equipment_production = {
 				equipment = {
 					type = ship_hull_carrier_3
@@ -492,17 +430,18 @@
 				amount = 1
 			}
 		}
+		x = 33
+		y = 100
+		allow_branch = {
+			always = no
+		}
 	}
 	focus = {
 		id = FRA_colonial_recruitment
 		icon = GFX_goal_generic_allies_build_infantry
-		x = 0
-		y = 1
-		prerequisite = { 
+		prerequisite = {
 			focus = FRA_continue_the_fight
 		}
-		relative_position_id = FRA_continue_the_fight
-		
 		cost = 5
 		ai_will_do = {
 			factor = 1
@@ -515,31 +454,29 @@
 				}
 			}
 		}
-		
-		bypass = {
-
-		}
+		bypass = { }
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_MANPOWER }
 		completion_reward = {
-			add_ideas = FRA_colonial_recruitment 
+			add_ideas = FRA_colonial_recruitment
+		}
+		x = 36
+		y = 100
+		allow_branch = {
+			always = no
 		}
 	}
 	focus = {
 		id = FRA_heavy_armour
 		icon = GFX_goal_generic_allies_build_infantry
-		x = -1
-		y = 1
-		prerequisite = { 
+		prerequisite = {
 			focus = FRA_colonial_recruitment
 		}
-		relative_position_id = FRA_colonial_recruitment
 		mutually_exclusive = {
 			focus = FRA_bravo_six
 		}
-		
 		cost = 5
 		ai_will_do = {
 			factor = 1
@@ -552,10 +489,7 @@
 				}
 			}
 		}
-		
-		bypass = {
-
-		}
+		bypass = { }
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = yes
@@ -563,20 +497,21 @@
 		completion_reward = {
 			add_ideas = FRA_french_armour
 		}
+		x = 39
+		y = 100
+		allow_branch = {
+			always = no
+		}
 	}
 	focus = {
 		id = FRA_bravo_six
 		icon = GFX_goal_generic_allies_build_infantry
-		x = 1
-		y = 1
 		prerequisite = {
 			focus = FRA_colonial_recruitment
 		}
-		relative_position_id = FRA_colonial_recruitment
 		mutually_exclusive = {
 			focus = FRA_heavy_armour
 		}
-		
 		cost = 5
 		ai_will_do = {
 			factor = 1
@@ -589,10 +524,7 @@
 				}
 			}
 		}
-		
-		bypass = {
-
-		}
+		bypass = { }
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = yes
@@ -600,21 +532,22 @@
 		completion_reward = {
 			add_ideas = FRA_john_infantryman
 		}
+		x = 42
+		y = 100
+		allow_branch = {
+			always = no
+		}
 	}
 	focus = {
 		id = FRA_factory_recruitment_light
 		icon = GFX_goal_generic_allies_build_infantry
-		x = 0
-		y = 1
-		prerequisite = { 
+		prerequisite = {
 			focus = FRA_heavy_armour
 			focus = FRA_bravo_six
 		}
-		relative_position_id = FRA_heavy_armour
 		mutually_exclusive = {
 			focus = FRA_factory_recruitment_heavy
 		}
-		
 		cost = 5
 		ai_will_do = {
 			factor = 1
@@ -627,10 +560,7 @@
 				}
 			}
 		}
-		
-		bypass = {
-
-		}
+		bypass = { }
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = yes
@@ -641,21 +571,22 @@
 				add_idea = FRA_factory_bolster_light
 			}
 		}
+		x = 45
+		y = 100
+		allow_branch = {
+			always = no
+		}
 	}
 	focus = {
 		id = FRA_factory_recruitment_heavy
 		icon = GFX_goal_generic_allies_build_infantry
-		x = 0
-		y = 1
-		prerequisite = { 
+		prerequisite = {
 			focus = FRA_heavy_armour
 			focus = FRA_bravo_six
 		}
-		relative_position_id = FRA_bravo_six
 		mutually_exclusive = {
 			focus = FRA_factory_recruitment_light
 		}
-		
 		cost = 5
 		ai_will_do = {
 			factor = 1
@@ -668,10 +599,7 @@
 				}
 			}
 		}
-		
-		bypass = {
-
-		}
+		bypass = { }
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = yes
@@ -682,16 +610,16 @@
 				add_idea = FRA_factory_bolster_heavy
 			}
 		}
+		x = 48
+		y = 100
+		allow_branch = {
+			always = no
+		}
 	}
 	focus = {
 		id = FRA_refus_absurde
 		icon = GFX_goal_generic_demand_territory
-		x = 8
-		y = 0
-		prerequisite = { 
-			
-		}
-		
+		prerequisite = { }
 		cost = 10
 		ai_will_do = {
 			factor = 1
@@ -709,38 +637,31 @@
 				}
 				has_war = no
 			}
-			
 		}
-		
-
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = yes
 		completion_reward = {
-			add_ideas = FRA_situation_stable 
+			add_ideas = FRA_situation_stable
+		}
+		x = 51
+		y = 100
+		allow_branch = {
+			always = no
 		}
 	}
 	focus = {
 		id = FRA_the_maquis
 		icon = GFX_focus_focus_fra_maquis
-		x = -2
-		y = 2
-		prerequisite = { 
+		prerequisite = {
 			focus = FRA_refus_absurde
 		}
-		relative_position_id = FRA_refus_absurde
-		
 		cost = 10
 		ai_will_do = {
 			factor = 1
 		}
-		available = {
-			
-		}
-		
-		bypass = {
-
-		}
+		available = { }
+		bypass = { }
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = yes
@@ -750,7 +671,9 @@
 			every_state = {
 				limit = {
 					is_core_of = ROOT
-					not = { is_controlled_by = ROOT }
+					not = {
+						is_controlled_by = ROOT
+					}
 					infrastructure < 3
 				}
 				add_resistance_target = {
@@ -759,28 +682,24 @@
 				}
 			}
 		}
+		x = 54
+		y = 100
+		allow_branch = {
+			always = no
+		}
 	}
 	focus = {
 		id = FRA_reach_out_to_trade_unions
 		icon = GFX_goal_generic_major_alliance
-		x = 0
-		y = 2
-		prerequisite = { 
+		prerequisite = {
 			focus = FRA_refus_absurde
 		}
-		relative_position_id = FRA_refus_absurde
-		
 		cost = 10
 		ai_will_do = {
 			factor = 1
 		}
-		available = {
-			
-		}
-		
-		bypass = {
-
-		}
+		available = { }
+		bypass = { }
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = yes
@@ -788,28 +707,24 @@
 		completion_reward = {
 			add_ideas = FRA_connections_to_trade_unions
 		}
+		x = 57
+		y = 100
+		allow_branch = {
+			always = no
+		}
 	}
 	focus = {
 		id = FRA_cooperation_with_the_communists
 		icon = GFX_focus_generic_soviet_politics
-		x = 0
-		y = 2
-		prerequisite = { 
+		prerequisite = {
 			focus = FRA_reach_out_to_trade_unions
 		}
-		relative_position_id = FRA_reach_out_to_trade_unions
-		
 		cost = 10
 		ai_will_do = {
 			factor = 1
 		}
-		available = {
-			
-		}
-		
-		bypass = {
-
-		}
+		available = { }
+		bypass = { }
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = yes
@@ -826,28 +741,24 @@
 			}
 			add_ideas = FRA_communist_cooperation_2
 		}
+		x = 0
+		y = 101
+		allow_branch = {
+			always = no
+		}
 	}
 	focus = {
 		id = FRA_connections_to_industrialists
 		icon = GFX_goal_generic_intelligence_exchange
-		x = 2
-		y = 2
-		prerequisite = { 
+		prerequisite = {
 			focus = FRA_refus_absurde
 		}
-		relative_position_id = FRA_refus_absurde
-		
 		cost = 10
 		ai_will_do = {
 			factor = 1
 		}
-		available = {
-			
-		}
-		
-		bypass = {
-
-		}
+		available = { }
+		bypass = { }
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = yes
@@ -855,28 +766,24 @@
 		completion_reward = {
 			add_ideas = FRA_industrialist_connections
 		}
+		x = 3
+		y = 101
+		allow_branch = {
+			always = no
+		}
 	}
 	focus = {
 		id = FRA_the_civil_and_military_organization
 		icon = GFX_goal_generic_military_deal
-		x = 0
-		y = 2
-		prerequisite = { 
+		prerequisite = {
 			focus = FRA_connections_to_industrialists
 		}
-		relative_position_id = FRA_connections_to_industrialists
-		
 		cost = 10
 		ai_will_do = {
 			factor = 1
 		}
-		available = {
-			
-		}
-		
-		bypass = {
-
-		}
+		available = { }
+		bypass = { }
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = yes
@@ -887,13 +794,16 @@
 				add_idea = FRA_civil_and_military_organization
 			}
 		}
+		x = 6
+		y = 101
+		allow_branch = {
+			always = no
+		}
 	}
 	focus = {
 		id = FRA_national_council_of_the_resistance
 		icon = GFX_focus_focus_fra_national_resistance_council
-		x = 0
-		y = 2
-		prerequisite = { 
+		prerequisite = {
 			focus = FRA_the_civil_and_military_organization
 		}
 		prerequisite = {
@@ -902,19 +812,12 @@
 		prerequisite = {
 			focus = FRA_form_the_national_committee
 		}
-		relative_position_id = FRA_the_civil_and_military_organization
-		
 		cost = 10
 		ai_will_do = {
 			factor = 1
 		}
-		available = {
-			
-		}
-		
-		bypass = {
-
-		}
+		available = { }
+		bypass = { }
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = yes
@@ -925,106 +828,113 @@
 				add_idea = FRA_national_council_of_the_resistance
 			}
 		}
+		x = 9
+		y = 101
+		allow_branch = {
+			always = no
+		}
 	}
 	focus = {
 		id = FRA_national_uprising
 		icon = GFX_goal_generic_dangerous_deal
-		x = -2
-		y = 2
-		offset = {
-			x = 0
-			y = 0
-		}
-		prerequisite = { 
+		prerequisite = {
 			focus = FRA_national_council_of_the_resistance
 		}
-		relative_position_id = FRA_national_council_of_the_resistance
-		
 		cost = 10
 		ai_will_do = {
 			factor = 1
 		}
-		available = {
-			
-		}
-		
-		bypass = {
-
-		}
+		available = { }
+		bypass = { }
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = yes
 		completion_reward = {
-			add_timed_idea = { idea = FRA_national_uprising days = 90 }
+			add_timed_idea = {
+				idea = FRA_national_uprising
+				days = 90
+			}
+		}
+		x = 12
+		y = 101
+		allow_branch = {
+			always = no
 		}
 	}
 	focus = {
 		id = FRA_french_forces_of_the_interior
 		icon = GFX_focus_prc_infiltration
-		x = 2
-		y = 2
-		offset = {
-			x = 0
-			y = 0
-		}
-		prerequisite = { 
+		prerequisite = {
 			focus = FRA_national_council_of_the_resistance
 		}
-		relative_position_id = FRA_national_council_of_the_resistance
-		
 		cost = 10
 		ai_will_do = {
 			factor = 1
 		}
-		available = {
-			
-		}
-		
-		bypass = {
-
-		}
+		available = { }
+		bypass = { }
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = yes
 		completion_reward = {
 			custom_effect_tooltip = FRA_french_forces_of_the_interior_tt
 			division_template = {
-				name = "FFI Demi-Brigade" 	
+				name = "FFI Demi-Brigade"
 				division_names_group = FRA_INF_01
-				
 				regiments = {
-					infantry = { x = 0 y = 0 }		
-					infantry = { x = 1 y = 1 }		
-					infantry = { x = 2 y = 2 }		
-					infantry = { x = 3 y = 3 }		
-					infantry = { x = 4 y = 4 }		
+					infantry = {
+						x = 0
+						y = 0
+					}
+					infantry = {
+						x = 1
+						y = 1
+					}
+					infantry = {
+						x = 2
+						y = 2
+					}
+					infantry = {
+						x = 3
+						y = 3
+					}
+					infantry = {
+						x = 4
+						y = 4
+					}
 				}
-				support = {
-					
-				}
+				support = { }
 			}
 			every_owned_state = {
-				limit = { 
-					is_core_of = ROOT 
-					not = { has_state_flag = FRA_core_state_liberated }
+				limit = {
+					is_core_of = ROOT
+					not = {
+						has_state_flag = FRA_core_state_liberated
+					}
 					is_fully_controlled_by = ROOT
 				}
 				create_unit = {
-					division = "name = \"1re Demi-Brigade des FFI\" division_template = \"FFI Demi-Brigade\" start_experience_factor = 0"  
+					division = "name = \"1re Demi-Brigade des FFI\" division_template = \"FFI Demi-Brigade\" start_experience_factor = 0"
 					owner = ROOT
 				}
 				create_unit = {
-					division = "name = \"2me Demi-Brigade des FFI\" division_template = \"FFI Demi-Brigade\" start_experience_factor = 0"  
+					division = "name = \"2me Demi-Brigade des FFI\" division_template = \"FFI Demi-Brigade\" start_experience_factor = 0"
 					owner = ROOT
 				}
 				create_unit = {
-					division = "name = \"3me Demi-Brigade des FFI\" division_template = \"FFI Demi-Brigade\" start_experience_factor = 0"  
+					division = "name = \"3me Demi-Brigade des FFI\" division_template = \"FFI Demi-Brigade\" start_experience_factor = 0"
 					owner = ROOT
 				}
 				set_state_flag = FRA_core_state_liberated
 			}
 		}
+		x = 15
+		y = 101
+		allow_branch = {
+			always = no
+		}
+	}
+	country = {
+		factor = 0
 	}
 }
-	
-	

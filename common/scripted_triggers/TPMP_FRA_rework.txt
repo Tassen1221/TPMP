@@ -1,0 +1,9 @@
+TPMP_FRA_paris_friendly_trigger = {
+            16 = { controller = { OR = { tag = ROOT is_in_faction_with = ROOT } NOT = { has_war_with = ROOT } } }
+        }
+
+TPMP_FRA_strasbourg_friendly_trigger = {
+            28 = { controller = { OR = { tag = ROOT is_in_faction_with = ROOT } NOT = { has_war_with = ROOT } } }
+        }
+
+TPMP_FRA_any_core_friendly_trigger = { any_core_state = { is_on_continent = europe controller = { OR = { tag = ROOT is_in_faction_with = ROOT } NOT = { has_war_with = ROOT } } } }

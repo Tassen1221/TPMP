@@ -1,0 +1,63 @@
+TPMP_FRA_reserve_category = { TPMP_FRA_contract_cadres = {
+            icon = generic_prepare_civil_war
+            cost = 45
+            visible = { NOT = { has_country_flag = TPMP_FRA_capitulated } }
+            available = {
+                NOT = { has_country_flag = TPMP_FRA_reserve_active }
+                check_variable = { var = TPMP_FRA_reserve_placed value = 3 compare = less_than }
+                num_of_civilian_factories > 1
+                has_manpower > 7999
+            }
+            complete_effect = {
+                set_country_flag = TPMP_FRA_reserve_active
+                add_to_variable = { var = TPMP_FRA_reserve_placed value = 1 }
+                add_manpower = -8000
+                add_timed_idea = { idea = TPMP_FRA_reserve_contract days = 120 }
+                country_event = { id = tpmp_france.11 days = 120 }
+                custom_effect_tooltip = TPMP_FRA_contract_cadres_tt
+            }
+            ai_will_do = { factor = 1 }
+        } TPMP_FRA_contract_armaments = {
+            icon = generic_prepare_civil_war
+            cost = 45
+            visible = { NOT = { has_country_flag = TPMP_FRA_capitulated } }
+            available = {
+                NOT = { has_country_flag = TPMP_FRA_reserve_active }
+                check_variable = { var = TPMP_FRA_reserve_placed value = 3 compare = less_than }
+                num_of_civilian_factories > 1
+                
+            }
+            complete_effect = {
+                set_country_flag = TPMP_FRA_reserve_active
+                add_to_variable = { var = TPMP_FRA_reserve_placed value = 1 }
+                
+                add_timed_idea = { idea = TPMP_FRA_reserve_contract days = 120 }
+                country_event = { id = tpmp_france.12 days = 120 }
+                custom_effect_tooltip = TPMP_FRA_contract_armaments_tt
+            }
+            ai_will_do = { factor = 1 }
+        } TPMP_FRA_contract_transport = {
+            icon = generic_prepare_civil_war
+            cost = 45
+            visible = { NOT = { has_country_flag = TPMP_FRA_capitulated } }
+            available = {
+                NOT = { has_country_flag = TPMP_FRA_reserve_active }
+                check_variable = { var = TPMP_FRA_reserve_placed value = 3 compare = less_than }
+                num_of_civilian_factories > 1
+                
+            }
+            complete_effect = {
+                set_country_flag = TPMP_FRA_reserve_active
+                add_to_variable = { var = TPMP_FRA_reserve_placed value = 1 }
+                
+                add_timed_idea = { idea = TPMP_FRA_reserve_contract days = 120 }
+                country_event = { id = tpmp_france.13 days = 120 }
+                custom_effect_tooltip = TPMP_FRA_contract_transport_tt
+            }
+            ai_will_do = { factor = 1 }
+        } TPMP_FRA_call_reserve = {
+        icon = generic_prepare_civil_war cost = 0
+        available = { has_war = yes OR = { check_variable = { var = TPMP_FRA_reserve_cadres value = 0 compare = greater_than } check_variable = { var = TPMP_FRA_reserve_armaments value = 0 compare = greater_than } check_variable = { var = TPMP_FRA_reserve_transport value = 0 compare = greater_than } } }
+        complete_effect = { TPMP_FRA_release_reserves_effect = yes }
+        ai_will_do = { factor = 10 }
+    } }
