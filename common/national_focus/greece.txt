@@ -1461,12 +1461,30 @@ focus_tree = {
 		ai_will_do = {
 			base = 0
 			modifier = { 
-				add = 1
+				add = 4
 				AND = { 
 					has_war = no
 					strength_ratio = { 
 						tag = BUL
-						ratio > 0.4
+						ratio > 1.25
+					}
+					NOT = {
+						any_other_country = {
+							OR = {
+								AND = {
+									has_guaranteed = BUL
+									NOT = {
+										has_guaranteed = ROOT
+										is_ally_with = ROOT
+									}
+								}
+								is_ally_with = BUL
+							}
+							strength_ratio = { 
+								tag = ROOT
+								ratio > 1.25
+							}
+						}
 					}
 				}
 			}
@@ -1635,12 +1653,7 @@ focus_tree = {
 		relative_position_id = GRE_dominate_the_bulgarians
 		cost = 10
 		ai_will_do = {
-			factor = 0
-			modifier = { 
-				add = 1
-				has_offensive_war = no
-				num_of_military_factories > 20
-			}
+			factor = 0	#the idea upgrade is useless and the wargoals are primarily against much larger enemies
 		}
 
 		available = {
@@ -5063,6 +5076,14 @@ focus_tree = {
 		cost = 5
 		ai_will_do = {
 			base = 1
+			modifier = {
+				factor = 0.1
+				arms_factory < 25
+				has_deployed_air_force_size = {
+					size < 100
+					type = fighter
+				}
+			}
 		}
 
 		available = {

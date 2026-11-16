@@ -445,7 +445,15 @@ SS_resolve_effects_ss = {
 			}
 		}
 		random_list = {
-			50 = { country_event = { id = ss_recruitment_event.20 days = 1 } } #Himmler protests
+			50 = { #Himmler protest, unless Himmler is leading the country
+				modifier = {
+					factor = 0
+					GER_heinrich_himmler = {
+						is_country_leader = yes
+					}
+				}
+				country_event = { id = ss_recruitment_event.20 days = 1 } 
+			} 
 			50 = {}
 		}
 	}
@@ -457,7 +465,15 @@ SS_resolve_effects_ss = {
 			}
 		}
 		random_list = {
-			50 = { country_event = { id = ss_recruitment_event.20 days = 1 } } #Himmler protest
+			50 = { #Himmler protest, unless Himmler is leading the country
+				modifier = {
+					factor = 0
+					GER_heinrich_himmler = {
+						is_country_leader = yes
+					}
+				}
+				country_event = { id = ss_recruitment_event.20 days = 1 } 
+			} 
 			25 = { country_event = { id = ss_recruitment_event.21 days = 1 } } #secret meeting of SS officers
 			25 = {}
 		}
@@ -470,7 +486,15 @@ SS_resolve_effects_ss = {
 			}
 		}
 		random_list = {
-			50 = { country_event = { id = ss_recruitment_event.20 days = 1 } } #Himmler protest
+			50 = { #Himmler protest, unless Himmler is leading the country
+				modifier = {
+					factor = 0
+					GER_heinrich_himmler = {
+						is_country_leader = yes
+					}
+				}
+				country_event = { id = ss_recruitment_event.20 days = 1 } 
+			} 
 			25 = { country_event = { id = ss_recruitment_event.21 days = 1 } } #SS officials meet
 			25 = { country_event = { id = ss_recruitment_event.22 days = 1 } } #SS reroutes factory output
 		}
@@ -485,7 +509,15 @@ SS_resolve_effects_ss = {
 		random_list = {
 			35 = { country_event = { id = ss_recruitment_event.21 days = 1 } } #SS officials meet
 			35 = { country_event = { id = ss_recruitment_event.22 days = 1 } } #SS reroutes factory output
-			30 = { country_event = { id = ss_recruitment_event.23 days = 1 } } #Himmler plots plot
+			30 = { #Himmler plots plot, unless Himmler is leading the country
+				modifier = {
+					factor = 0
+					GER_heinrich_himmler = {
+						is_country_leader = yes
+					}
+				}
+				country_event = { id = ss_recruitment_event.23 days = 1 } 
+			} 
 		}
 	}
 	if = {
@@ -497,7 +529,15 @@ SS_resolve_effects_ss = {
 		}
 		random_list = {
 			35 = { country_event = { id = ss_recruitment_event.21 days = 1 } } #SS officials meet
-			55 = { country_event = { id = ss_recruitment_event.23 days = 1 } } #Himmler plots
+			55 = { #Himmler plots plot, unless Himmler is leading the country
+				modifier = {
+					factor = 0
+					GER_heinrich_himmler = {
+						is_country_leader = yes
+					}
+				}
+				country_event = { id = ss_recruitment_event.23 days = 1 } 
+			} 
 			10 = { country_event = { id = ss_recruitment_event.24 days = 1 } } #assassination attempt - SS
 		}
 	}
@@ -509,7 +549,15 @@ SS_resolve_effects_ss = {
 			}
 		}
 		random_list = {
-			75 = { country_event = { id = ss_recruitment_event.23 days = 1 } } #Himmler plots
+			75 = { #Himmler plots plot, unless Himmler is leading the country
+				modifier = {
+					factor = 0
+					GER_heinrich_himmler = {
+						is_country_leader = yes
+					}
+				}
+				country_event = { id = ss_recruitment_event.23 days = 1 } 
+			} 
 			15 = { country_event = { id = ss_recruitment_event.24 days = 1 } } #assassination attempt - SS
 			10 = { country_event = { id = ss_recruitment_event.25 days = 1 } } #fascist on fascist violence
 		}

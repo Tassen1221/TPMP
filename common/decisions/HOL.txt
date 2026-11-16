@@ -65,7 +65,10 @@ HOL_obtain_foreign_colonial_investments = {
 
 		visible = {
 			tag = HOL
-			has_completed_focus = HOL_obtain_foreign_colonial_investments
+			OR = {
+				has_completed_focus = HOL_obtain_foreign_colonial_investments
+				has_completed_focus = HOL_obtain_foreign_colonial_investments_taog
+			}
 		}
 
 		remove_effect = {
@@ -141,7 +144,10 @@ HOL_obtain_foreign_colonial_investments = {
 
 		visible = {
 			tag = HOL
-			has_completed_focus = HOL_obtain_foreign_colonial_investments
+			OR = {
+				has_completed_focus = HOL_obtain_foreign_colonial_investments
+				has_completed_focus = HOL_obtain_foreign_colonial_investments_taog
+			}
 		}
 
 		remove_effect = {
@@ -180,7 +186,10 @@ HOL_obtain_foreign_colonial_investments = {
 
 		visible = {
 			tag = HOL
-			has_completed_focus = HOL_obtain_foreign_colonial_investments
+			OR = {
+				has_completed_focus = HOL_obtain_foreign_colonial_investments
+				has_completed_focus = HOL_obtain_foreign_colonial_investments_taog
+			}
 		}
 
 		remove_effect = {
@@ -276,7 +285,10 @@ HOL_obtain_foreign_colonial_investments = {
 		days_remove = 120
 
 		visible = {
-			has_completed_focus = HOL_obtain_foreign_colonial_investments
+			OR = {
+				has_completed_focus = HOL_obtain_foreign_colonial_investments
+				has_completed_focus = HOL_obtain_foreign_colonial_investments_taog
+			}
 		}
 
 		remove_effect = {
@@ -1053,7 +1065,7 @@ HOL_gateway_to_europe_eng_category = {
 		ai_will_do = {
 			base = 0.03
 			modifier = {
-				factor = 2
+				factor = 5
 				is_historical_focus_on = yes
 			}
 			modifier = {
@@ -1481,8 +1493,12 @@ HOL_gateway_to_europe_hol_category = {
 			factor = 0.1
 			modifier = {
 				factor = 10
-				is_historical_focus_on = yes
-				date > 1940.01.01
+				OR = {
+					HOL_check_plan_historical = yes
+					HOL_check_plan_colonial_alternate_democratic = yes
+					HOL_check_plan_continental_alternate_democratic = yes
+					HOL_check_plan_lead_the_minor_democracies = yes
+				}
 			}
 			modifier = {
 				factor = 0
@@ -1628,8 +1644,12 @@ HOL_gateway_to_europe_hol_category = {
 			factor = 0.1
 			modifier = {
 				factor = 0
-				is_historical_focus_on = yes
-				date > 1940.01.01
+				OR = {
+					HOL_check_plan_historical = yes
+					HOL_check_plan_colonial_alternate_democratic = yes
+					HOL_check_plan_continental_alternate_democratic = yes
+					HOL_check_plan_lead_the_minor_democracies = yes
+				}
 			}
 			modifier = {
 				factor = 0

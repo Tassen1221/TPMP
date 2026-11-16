@@ -35,7 +35,7 @@ add_ideas = {
 	vittorio_emanuele
 	vittoria_mutilata
 	limited_exports
-	limited_conscription
+	volunteer_only
 	partial_economic_mobilisation
 	corporate_arms_partnerships
 	semi_professional_army
@@ -124,6 +124,10 @@ if = {
 
 set_variable = { ITA_bop_take_over_ministry_cost = 50 }
 set_variable = { ITA_bop_resign_ministry_cost = 15 }
+
+set_variable = { TPMP_ITA_homeland_attack_var = 3.0 }
+set_variable = { TPMP_ITA_homeland_defence_var = 3.0 }
+add_dynamic_modifier = { modifier = TPMP_ITA_invasion_modifier }
 set_variable = { ITA_bop_liturgical_reforms_cd = 365 }
 
 set_variable = { ITA_bop_concesions_to_the_bourgeoisie_cost = 100 } # Changes if going democratic
@@ -482,14 +486,24 @@ if = {
 		has_start_date < 1936.01.02
 	}
 
-	declare_war_on = {
-		target = ETH
-		type = annex_everything
-	}
+	# TPMP: Ethiopia starts conquered (states owned by ITA, ETH keeps cores) - the war is skipped
+	# Mirror the outcome of a won war: victory flag, Solid Progress, Missiolinis system active
+	set_country_flag = ITA_victory_in_ethiopia_flag
+	complete_national_focus = ITA_solid_progress
+	ITA_missiolinis_initialize_missiolinis_system = yes
 	give_guarantee = ALB
 }
 
+add_ideas = {
+	ITA_iri_fake_ns
+	ITA_re_fake_ns
+}
+
 1939.1.1 = {
+	remove_ideas = {
+		ITA_iri_fake_ns
+		ITA_re_fake_ns
+	}
 
 	add_political_power = 1198
 	add_command_power = 100
@@ -877,7 +891,7 @@ if = {
 	ITA_benito_mussolini = { unit_leader_event = { id = BBA_italo_ethiopian_war_events.01 days = 14 } }  # JAN 36 - Conquer Ethiopia  - APR/JUNE 36 - (120-170 days)
 }
 
-ITA_benito_mussolini = { unit_leader_event = { id = BBA_italy_missiolinis.11 days = 185 random_days = 5 } } # JUN 36 - Conquer Ethiopia  - DEC 36 - (170 days)
+#ITA_benito_mussolini = { unit_leader_event = { id = BBA_italy_missiolinis.11 days = 185 random_days = 5 } } # JUN 36 - Conquer Ethiopia  - DEC 36 - (170 days) #TPMP: disabled, Ethiopia is conquered at start
 #ITA_benito_mussolini = { unit_leader_event = { id = BBA_italy_missiolinis.21 days = 370 random_days = 5 } } # JAN 37 - Pacify Ethiopia - DEC 39 - (720 days) #MM: This is now triggered after war with MTTH
 ITA_benito_mussolini = { unit_leader_event = { id = BBA_italy_missiolinis.31 days = 370 random_days = 5 } } # JAN 37 - Industrialization - DEC 37 - (350 days)
 ITA_benito_mussolini = { unit_leader_event = { id = BBA_italy_missiolinis.41 days = 735 random_days = 5 } } # JAN 38 - Increase Army - DEC 38 (350 days)

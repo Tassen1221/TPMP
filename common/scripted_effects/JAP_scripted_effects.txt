@@ -6379,3 +6379,99 @@ JAP_faction_demand_add_to_successful_missions = {
 JAP_faction_demand_add_to_failed_missions = {
 	add_to_variable = { JAP_faction_demand_failed_missions = 1 }
 }
+
+JAP_persimmon_war_with_the_soviets = { ### Shared reward of JAP_a_green_persimmon and JAP_the_persimmon_has_ripened.
+	declare_war_on = {
+		target = SOV
+		type = annex_everything
+	}
+
+	custom_effect_tooltip = generic_skip_one_line_tt
+
+	every_state = {
+		limit = {
+			OR = {
+				state = 408
+				state = 409
+				state = 655
+				state = 657
+				state = 560
+				state = 561
+				state = 563
+				state = 564
+				state = 566
+				state = 565
+				state = 574
+				state = 876
+				state = 877
+				state = 644
+				state = 562
+				state = 874
+				state = 637
+				state = 822
+				state = 875
+			}
+			is_owned_by = SOV
+			NOT = {
+				is_claimed_by = ROOT
+				is_core_of = ROOT
+			}
+		}
+		add_claim_by = ROOT
+	}
+
+	IF = {
+		limit = {
+			has_completed_focus = JAP_utilize_our_polish_friendship
+		}
+		custom_effect_tooltip = generic_skip_one_line_tt
+		POL = {
+			country_event = {
+				id = SEA_japan_foreign_policy.86
+				hours = 6
+			}
+		}
+	}
+
+	custom_effect_tooltip = generic_skip_one_line_tt
+
+	custom_effect_tooltip = JAP_peace_out_soviets_dec_tt
+}
+
+# Called from on_naval_invasion and on_paradrop in 14_sea_on_actions.txt.
+# Scope is the state being landed in, ROOT is the country doing the landing.
+JAP_takasago_volunteers_landing_check = {
+	if = {
+		limit = {
+			state = 524 # Taiwan
+			is_owned_by = JAP
+			ROOT = { has_war_with = JAP }
+			NOT = { has_state_flag = JAP_takasago_volunteers_raised }
+		}
+		set_state_flag = JAP_takasago_volunteers_raised
+		JAP = { country_event = { id = SEA_japan.2 hours = 0 } }
+	}
+}
+
+# Called from on_naval_invasion and on_paradrop in 14_sea_on_actions.txt.
+# Scope is the state being landed in, ROOT is the country doing the landing.
+JAP_home_islands_landing_check = {
+	if = {
+		limit = {
+			JAP_is_home_islands_state = yes
+			is_owned_by = JAP
+			ROOT = {
+				has_war_with = JAP
+				NOT = { original_tag = JAP }
+			}
+			JAP = {
+				NOT = { has_government = democratic }
+				NOT = { has_country_flag = JAP_home_islands_invaded }
+			}
+		}
+		JAP = {
+			set_country_flag = JAP_home_islands_invaded
+			country_event = { id = SEA_japan.3 hours = 0 }
+		}
+	}
+}

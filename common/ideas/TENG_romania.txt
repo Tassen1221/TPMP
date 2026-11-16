@@ -14,7 +14,7 @@ ideas = {
 
 			removal_cost = -1
 
-			picture = generic_war_economy
+			picture = hol_caved_to_the_germans
 
 			modifier = {
 				industrial_capacity_factory = -0.50
@@ -117,7 +117,7 @@ ideas = {
 			picture = generic_nationalization
 
 			modifier = {
-				production_speed_arms_factory_factor = 0.1
+				production_speed_arms_factory_factor = 0.075
 			}
 
 			on_add = {
@@ -152,6 +152,8 @@ ideas = {
 			modifier = {
 				consumer_goods_factor = -0.15
 				stability_factor = 0.05
+				production_factory_max_efficiency_factor = -0.15
+				production_factory_efficiency_gain_factor = 0.2
 			}
 		}
 
@@ -252,8 +254,31 @@ ideas = {
 			modifier = {
 				navy_max_range_factor = 0.25
 				industrial_capacity_dockyard = 0.2
+				production_speed_dockyard_factor = 0.2 
 				production_factory_max_efficiency_factor = -0.05
 				consumer_goods_factor = 0.25
+			}
+		}
+
+		TPMP_ROM_abandoned_naval_expansion_idea = {
+
+			allowed = {
+				original_tag = ROM
+			}
+
+			allowed_civil_war = {
+
+			}
+
+			removal_cost = -1
+
+			picture = generic_coastal_navy
+
+			modifier = {
+				navy_max_range_factor = 0.25
+				industrial_capacity_dockyard = -0.10
+				production_factory_max_efficiency_factor = -0.02
+				consumer_goods_factor = 0.05
 			}
 		}
 
@@ -274,6 +299,27 @@ ideas = {
 			modifier = {
 				industrial_capacity_factory = -0.5
 				consumer_goods_factor = 0.5
+			}
+		}
+
+		TPMP_ROM_deployment_costs = {
+
+			allowed = {
+				original_tag = ROM
+			}
+
+			allowed_civil_war = {
+
+			}
+
+			removal_cost = -1
+
+			picture = SWE_varnplikt
+
+			modifier = {
+				industrial_capacity_factory = -0.5
+				consumer_goods_factor = 0.35
+				production_speed_buildings_factor = -0.5
 			}
 		}
 
@@ -310,6 +356,28 @@ ideas = {
 				tag = ROM
 				license_production_speed = -0.20
 				license_purchase_cost = 1.0
+			}
+		}
+
+		TPMP_ROM_the_final_push_idea = {
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			picture = ARG_anti_soviet
+
+			targeted_modifier = {
+				tag = SOV
+				attack_bonus_against = 0.1
+				defense_bonus_against = 0.1
+			}
+			targeted_modifier = {
+				tag = UKR
+				attack_bonus_against = 0.1
+				defense_bonus_against = 0.1
 			}
 		}
 	}

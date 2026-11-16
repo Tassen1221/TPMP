@@ -2293,49 +2293,26 @@ technologies = {
 		}
 
 		ai_will_do = {
-			factor = 2
+			factor = 5
 
 			modifier = {
-				factor = 0.5
+				factor = 0.1
 				has_war = no
 			}
 
 			modifier = {
-				factor = 2
-				tag = USA
+				factor = 15
+				tag = USA				
+				date > 1942.1.1
 			}
 			modifier = {
-				has_war_with = JAP
-				factor = 2
+				factor = 15
+				tag = ENG				
+				date > 1941.6.1
 			}
 			modifier = {
-				factor = 50
+				factor = 15
 				tag = JAP
-				OR = {
-					has_war_with = USA
-					CHI = {
-						OR = {
-							has_capitulated = yes
-							exists = no
-		                    is_subject_of = JAP
-						}
-					}
-				}
-			}
-
-			modifier = {
-				factor = 2
-				tag = ENG
-			}
-
-			modifier = {
-				factor = 10
-				OR = {
-					tag = ENG
-					tag = USA
-				}
-				has_war_with = GER
-				GER = { has_war_with = SOV }
 			}
 		}
 

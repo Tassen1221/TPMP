@@ -6,23 +6,24 @@ German_historical = {
 		original_tag = GER
 	}
 	enable = {
-		OR = {
-			AND = {
-				is_historical_focus_on = yes
-				OR = {
-					NOT = { has_dlc = "Waking the Tiger" }
-					has_game_rule = {
-						rule = GER_ai_behavior
-						option = DEFAULT
-					}
-				}	
-			}
-			has_country_flag = GER_AI_RANDOM_FASCIST
-			has_game_rule = {
-				rule = GER_ai_behavior
-				option = FASCIST
-			}
-		}
+		# OR = {
+		# 	AND = {
+		# 		is_historical_focus_on = yes
+		# 		OR = {
+		# 			NOT = { has_dlc = "Waking the Tiger" }
+		# 			has_game_rule = {
+		# 				rule = GER_ai_behavior
+		# 				option = DEFAULT
+		# 			}
+		# 		}	
+		# 	}
+		# 	has_country_flag = GER_AI_RANDOM_FASCIST
+		# 	has_game_rule = {
+		# 		rule = GER_ai_behavior
+		# 		option = FASCIST
+		# 	}
+		# }
+		always = yes
 	}
 	abort = {
 		OR = {
@@ -109,13 +110,22 @@ German_historical = {
 		GER_the_triumphant_will					#35		Do this if it's ever possible
 
 		#1936 									Days 	Historical Dates
+		GER_remilitarize_the_rhineland
+		GER_fuhrerprinzip
+		GER_ascension_of_todt
+		GER_reorganize_the_wehrmacht
+		GER_anschluss
+		GER_demand_sudetenland
+		GER_first_vienna_award
+		GER_fate_of_czechoslovakia
+		GER_party_chancellor_hess
 		GER_the_four_year_plan					#35 	AUG 36
-		GER_remilitarize_the_rhineland			#35 	MAR 36
+		# GER_remilitarize_the_rhineland			#35 	MAR 36
 		GER_construct_the_reichsautobahn		#35
 		GER_autarky_efforts						#35
 		GER_institute_price_controls			#35
-		GER_fuhrerprinzip						#35
-		GER_party_chancellor_bormann			#14
+		# GER_fuhrerprinzip						#35
+		# GER_party_chancellor_bormann			#14
 		GER_accelerate_the_rearmament_program	#35		AUG 36
 		GER_kdf_wagen_factories					#35 	construction started in 38, but GER needs dem Civs
 		GER_develop_modern_maneuver_warfare		#35
@@ -124,7 +134,7 @@ German_historical = {
 		#1937
 		GER_adopt_new_panzer_doctrine			#35 	panzerwaffe was formed in 36
 		GER_coal_liquefaction					#35
-		GER_ascension_of_todt					#14		(whenever)
+		# GER_ascension_of_todt					#14		(whenever)
 		GER_fortify_the_vaterland				#35 	started in 36, works almost whenever
 		GER_expanding_the_luftwaffe				#35
 		GER_establish_the_reichswerke			#35 	JUL 37
@@ -135,18 +145,18 @@ German_historical = {
 
 		#1938
 		GER_concentrated_armament_program		#35
-		GER_reorganize_the_wehrmacht			#35 	JAN-FEB 38		
-		GER_anschluss							#70 	MAR 38
+		# GER_reorganize_the_wehrmacht			#35 	JAN-FEB 38		
+		# GER_anschluss							#70 	MAR 38
 		GER_panzer_troops_school				#35 	(works whenever)
 		GER_aeronautical_research_institute		#35		Should be earlier, but we need to balance tank production
 		GER_bribe_senior_officers				#35
-		GER_demand_sudetenland					#70 	SEP/OCT 38
-		GER_first_vienna_award					#35 	NOV 38
+		# GER_demand_sudetenland					#70 	SEP/OCT 38
+		# GER_first_vienna_award					#35 	NOV 38
 		#At some point this year Speer will replace Todt via Industrailist Intrigue Event
 
 		#1939
 		GER_develop_heraeus_facilities			#70		(whenever)
-		GER_fate_of_czechoslovakia				#70 	MAR 39
+		# GER_fate_of_czechoslovakia				#70 	MAR 39
 		GER_reassert_eastern_claims				#35 	MAR 39
 		GER_molotov_ribbentrop_pact				#35 	AUG 39
 		GER_danzig_or_war						#70 	MAR 39 - Germany invaded in SEP 39 (complete on AUG 31st)

@@ -285,9 +285,6 @@ TPMP_eastern_front_decision_category = {
         visible = {
             has_war_with = SOV
 			date < 1942.01.01
-			NOT = {
-				has_completed_focus = TPMP_GER_hold_our_ground
-			}
         }
         available = {
 			has_war_with = SOV
@@ -295,9 +292,6 @@ TPMP_eastern_front_decision_category = {
 			controls_state = 246
 			controls_state = 242
 			controls_state = 205
-			NOT = {
-				has_completed_focus = TPMP_GER_hold_our_ground
-			}
         }
 		custom_cost_trigger = {
 			has_political_power > 49
@@ -415,8 +409,10 @@ TPMP_eastern_front_decision_category = {
         }
         visible = {
             has_war_with = SOV
-			has_completed_focus = TPMP_GER_hold_our_ground
         }
+		available = {
+			NOT = { has_idea = TPMP_GER_barbarossa_idea }
+		}
 		custom_cost_trigger = {
 			has_political_power > 49
 			command_power > 49
@@ -493,9 +489,9 @@ TPMP_eastern_front_decision_category = {
         }
         visible = {
             has_war_with = SOV
-			has_completed_focus = TPMP_GER_hold_our_ground
         }
         available = {
+			NOT = { has_idea = TPMP_GER_barbarossa_idea }
 			has_country_flag = TPMP_directive_39_flag
         }
 		custom_cost_trigger = {
@@ -514,18 +510,13 @@ TPMP_eastern_front_decision_category = {
 			}
         }
     }
-}
-
-TPMP_eastern_front_logistics_decision_category = {
+	# Activated by the TPMP_GER_eastern_logistics focus; re-activates itself every 30 days until the Eastern Front Terrain attack malus reaches 0.
 	TPMP_eastern_front_logistics_mission = {
 		allowed = {
 			tag = GER
 		}
 		activation = {
-			has_completed_focus = TPMP_GER_eastern_logistics
-			NOT = {
-				has_country_flag = TPMP_eastern_front_logistics_mission_flag
-			}
+			always = no
 		}
 		available = {
 			hidden_trigger = {
@@ -533,303 +524,17 @@ TPMP_eastern_front_logistics_decision_category = {
 			}
 		}
 		icon = GFX_decision_hol_draw_up_staff_plans
-		days_mission_timeout = 90
+		days_mission_timeout = 30
 		timeout_effect = {
 			custom_effect_tooltip = TPMP_eastern_front_logistics_mission_tt
 			add_to_variable = { global.TPMP_eastern_front_attack_var_0 = 0.01 }
 			calculate_eastern_front_variables = yes
 			hidden_effect = {
 				activate_mission = TPMP_eastern_front_logistics_mission
-				clr_country_flag = TPMP_eastern_trucks_flag
-				clr_country_flag = TPMP_eastern_trains_flag
-				clr_country_flag = TPMP_eastern_horses_flag
-				clr_country_flag = TPMP_advanced_logistics_flag
 			}
 		}
 		cancel_trigger = {
 			check_variable = { global.TPMP_eastern_front_attack_var_0 = 0 }
 		}
-		cancel_effect = {
-			set_country_flag = TPMP_eastern_front_logistics_mission_flag
-		}
 	}
-    TPMP_eastern_trucks_decision_0 = {
-        allowed = {
-            tag = GER
-        }
-        visible = {
-            has_completed_focus = TPMP_GER_eastern_logistics
-			has_active_mission = TPMP_eastern_front_logistics_mission
-        }
-        available = {
-			has_equipment = {
-				motorized_equipment > 749
-			}
-			NOT = {
-				has_country_flag = TPMP_eastern_trucks_flag
-			}
-        }
-        icon = GFX_decision_generic_trucks
-        complete_effect = {
-			add_equipment_to_stockpile = {
-				type = motorized_equipment
-				amount = -750
-			}
-			add_days_mission_timeout = {
-				mission = TPMP_eastern_front_logistics_mission
-				days = -10
-			}
-			set_country_flag = TPMP_eastern_trucks_flag
-        }
-    }
-	TPMP_eastern_trucks_decision_1 = {
-        allowed = {
-            tag = GER
-        }
-        visible = {
-            has_completed_focus = TPMP_GER_eastern_logistics
-			has_active_mission = TPMP_eastern_front_logistics_mission
-        }
-        available = {
-			has_equipment = {
-				motorized_equipment > 1499
-			}
-			NOT = {
-				has_country_flag = TPMP_eastern_trucks_flag
-			}
-        }
-        icon = GFX_decision_generic_trucks
-        complete_effect = {
-			add_equipment_to_stockpile = {
-				type = motorized_equipment
-				amount = -1500
-			}
-			add_days_mission_timeout = {
-				mission = TPMP_eastern_front_logistics_mission
-				days = -15
-			}
-			set_country_flag = TPMP_eastern_trucks_flag
-        }
-    }
-    TPMP_eastern_trains_decision_0 = {
-        allowed = {
-            tag = GER
-        }
-        visible = {
-            has_completed_focus = TPMP_GER_eastern_logistics
-			has_active_mission = TPMP_eastern_front_logistics_mission
-        }
-        available = {
-			has_equipment = {
-				train_equipment > 49
-			}
-			NOT = {
-				has_country_flag = TPMP_eastern_trains_flag
-			}
-        }
-        icon = GFX_decision_generic_train
-        complete_effect = {
-			add_equipment_to_stockpile = {
-				type = train_equipment
-				amount = -50
-			}
-			add_days_mission_timeout = {
-				mission = TPMP_eastern_front_logistics_mission
-				days = -10
-			}
-			set_country_flag = TPMP_eastern_trains_flag
-        }
-    }
-	TPMP_eastern_trains_decision_1 = {
-        allowed = {
-            tag = GER
-        }
-        visible = {
-            has_completed_focus = TPMP_GER_eastern_logistics
-			has_active_mission = TPMP_eastern_front_logistics_mission
-        }
-        available = {
-			has_equipment = {
-				train_equipment > 99
-			}
-			NOT = {
-				has_country_flag = TPMP_eastern_trains_flag
-			}
-        }
-        icon = GFX_decision_generic_train
-        complete_effect = {
-			add_equipment_to_stockpile = {
-				type = train_equipment
-				amount = -100
-			}
-			add_days_mission_timeout = {
-				mission = TPMP_eastern_front_logistics_mission
-				days = -15
-			}
-			set_country_flag = TPMP_eastern_trains_flag
-        }
-    }
-	TPMP_eastern_horses_decision_0 = {
-        allowed = {
-            tag = GER
-        }
-        visible = {
-            has_completed_focus = TPMP_GER_eastern_logistics
-			has_active_mission = TPMP_eastern_front_logistics_mission
-        }
-        available = {
-			NOT = {
-				has_country_flag = TPMP_eastern_horses_flag
-			}
-        }
-        icon = GFX_decision_generic_cavalry
-        complete_effect = {
-			if = {
-				limit = {
-					NOT = {
-						has_idea = TPMP_eastern_horses_idea
-					}
-				}
-				add_timed_idea = {
-					idea = TPMP_eastern_horses_idea
-					days = 30
-				}
-			}
-			else_if = {
-				limit = {
-					has_idea = TPMP_eastern_horses_idea
-				}
-				modify_timed_idea = {
-					idea = TPMP_eastern_horses_idea
-					days = 30
-				}
-
-			}
-			add_days_mission_timeout = {
-				mission = TPMP_eastern_front_logistics_mission
-				days = -10
-			}
-			set_country_flag = TPMP_eastern_horses_flag
-        }
-    }
-	TPMP_eastern_horses_decision_1 = {
-        allowed = {
-            tag = GER
-        }
-        visible = {
-            has_completed_focus = TPMP_GER_eastern_logistics
-			has_active_mission = TPMP_eastern_front_logistics_mission
-        }
-        available = {
-			NOT = {
-				has_country_flag = TPMP_eastern_horses_flag
-			}
-        }
-        icon = GFX_decision_generic_cavalry
-        complete_effect = {
-			if = {
-				limit = {
-					NOT = {
-						has_idea = TPMP_eastern_horses_idea
-					}
-				}
-				add_timed_idea = {
-					idea = TPMP_eastern_horses_idea
-					days = 60
-				}
-			}
-			else_if = {
-				limit = {
-					has_idea = TPMP_eastern_horses_idea
-				}
-				modify_timed_idea = {
-					idea = TPMP_eastern_horses_idea
-					days = 60
-				}
-
-			}
-			add_days_mission_timeout = {
-				mission = TPMP_eastern_front_logistics_mission
-				days = -15
-			}
-			set_country_flag = TPMP_eastern_horses_flag
-        }
-    }
-	TPMP_eastern_horses_decision_2 = {
-        allowed = {
-            tag = GER
-        }
-        visible = {
-            has_completed_focus = TPMP_GER_eastern_logistics
-			has_active_mission = TPMP_eastern_front_logistics_mission
-			check_variable = {
-				num_battalions_with_type@cavalry > 99
-			}
-        }
-        available = {
-        }
-        icon = GFX_decision_generic_cavalry
-		fire_only_once = yes
-        complete_effect = {
-			add_timed_idea = {
-				idea = TPMP_eastern_ponies_idea
-				days = 180
-			}
-			add_days_mission_timeout = {
-				mission = TPMP_eastern_front_logistics_mission
-				days = -10
-			}
-        }
-    }
-	TPMP_advanced_logistics_decision = {
-        allowed = {
-            tag = GER
-        }
-        visible = {
-            has_completed_focus = TPMP_GER_eastern_logistics
-			has_active_mission = TPMP_eastern_front_logistics_mission
-        }
-        available = {
-			OR = {
-				has_tech = tech_logistics_company2
-				has_tech = tech_logistics_company3
-				has_tech = tech_logistics_company4
-			}
-			NOT = {
-				has_country_flag = TPMP_advanced_logistics_flag
-			}
-        }
-        icon = GFX_decision_generic_research
-        complete_effect = {
-			custom_effect_tooltip = TPMP_advanced_logistics_decision_tt
-			if = {
-				limit = {
-					has_tech = tech_logistics_company4
-				}
-				add_days_mission_timeout = {
-					mission = TPMP_eastern_front_logistics_mission
-					days = -30
-				}
-			}
-			else_if = {
-				limit = {
-					has_tech = tech_logistics_company3
-				}
-				add_days_mission_timeout = {
-					mission = TPMP_eastern_front_logistics_mission
-					days = -20
-				}
-			}
-			else_if = {
-				limit = {
-					has_tech = tech_logistics_company2
-				}
-				add_days_mission_timeout = {
-					mission = TPMP_eastern_front_logistics_mission
-					days = -10
-				}
-			}
-			set_country_flag = TPMP_advanced_logistics_flag
-        }
-    }
 }

@@ -662,7 +662,7 @@ ideas = {
 							}
 						}
 					}
-					owner = { controls_state = CHI.mio_locations^6 } # 613 Shanghai
+					owner = { controls_state = CHI.mio_locations^7 } # 613 Shanghai
 				}
 				IF = {
 					limit = {
@@ -670,8 +670,8 @@ ideas = {
 						has_dlc = "No Compromise, No Surrender"
 					}
 					OR = {
-						owner = { has_completed_focus = CHI_relocate_factories_from_the_coast }
-						owner = { controls_state = CHI.mio_locations^6 } # 613 Shanghai
+						owner = { has_country_flag = CHI_relocated_kiangnan_shipyard }
+						owner = { controls_state = CHI.mio_locations^7 } # 613 Shanghai
 					}
 				}
 			}
@@ -718,7 +718,7 @@ ideas = {
 						has_dlc = "No Compromise, No Surrender"
 					}
 					OR = {
-						owner = { has_completed_focus = CHI_relocate_factories_from_the_coast }
+						owner = { has_country_flag = CHI_relocated_dagu_shipyard }
 						owner = { controls_state = 608 } # Beijing
 					}
 				}
@@ -782,7 +782,7 @@ ideas = {
 						has_dlc = "No Compromise, No Surrender"
 					}
 					OR = {
-						owner = { has_completed_focus = CHI_relocate_factories_from_the_coast }
+						owner = { has_country_flag = CHI_relocated_taiyuan_arsenal }
 						owner = { controls_state = CHI.mio_locations^2 } # 615 Shanxi
 					}
 				}
@@ -829,7 +829,7 @@ ideas = {
 						has_dlc = "No Compromise, No Surrender"
 					}
 					OR = {
-						owner = { has_completed_focus = CHI_relocate_factories_from_the_coast }
+						owner = { has_country_flag = CHI_relocated_liaoning_arsenal }
 						owner = { controls_state = CHI.mio_locations^3 } # 715 Liaobei
 					}
 				}
@@ -886,7 +886,7 @@ ideas = {
 						has_dlc = "No Compromise, No Surrender"
 					}
 					OR = {
-						owner = { has_completed_focus = CHI_relocate_factories_from_the_coast }
+						owner = { has_country_flag = CHI_relocated_hanyan_arsenal }
 						owner = { controls_state = CHI.mio_locations^4 } # 1036 Wuhan
 					}
 				}
@@ -931,7 +931,7 @@ ideas = {
 						has_dlc = "No Compromise, No Surrender"
 					}
 					OR = {
-						owner = { has_completed_focus = CHI_relocate_factories_from_the_coast }
+						owner = { has_country_flag = CHI_relocated_mukden_arsenal }
 						owner = { controls_state = CHI.mio_locations^5 } #716 Liaoning
 					}
 				}
@@ -968,7 +968,7 @@ ideas = {
 						FROM = { original_tag = CHI }
 					}
 					OR = {
-						owner = { has_completed_focus = CHI_relocate_factories_from_the_coast }
+						owner = { has_country_flag = CHI_relocated_china_automobile_corporation }
 						owner = { controls_state = CHI.mio_locations^7 } # 613 Shanghai
 					}
 				}
@@ -1006,7 +1006,7 @@ ideas = {
 						FROM = { original_tag = CHI }
 					}
 					OR = {
-						owner = { has_completed_focus = CHI_relocate_factories_from_the_coast }
+						owner = { has_country_flag = CHI_relocated_jinling_arsenal }
 						owner = { controls_state = CHI.mio_locations^6 }  # 1035 Nanjing
 					}
 				}
@@ -1019,6 +1019,58 @@ ideas = {
 				#WTT_TODO_CD: a special trait to make more distinct from above somehow?		
 			traits = { support_equipment_manufacturer }
 			
+		}
+
+		CHI_beining_railway_tangshan_manufacturing_plant = {
+
+			picture = PRC_china_railway_construction_corporation
+
+			allowed = {
+				OR = {
+					is_literally_china = yes
+					tag = MAN
+					original_tag = PRC
+				}
+				has_dlc = "No Compromise, No Surrender"
+			}
+
+			available = {
+				IF = {
+					limit = {
+						FROM = { NOT = { original_tag = CHI } }
+					}
+					owner = { controls_state = 609 } # East Hebei/Tangshan  
+				}
+				IF = {
+					limit = {
+						FROM = { original_tag = CHI }
+					}
+					OR = {
+						owner = { has_country_flag = CHI_relocated_beining_railway_tangshan }
+						owner = { controls_state = 609 } # East Hebei/Tangshan  
+					}
+				}
+			}
+
+			research_bonus = {
+				train_tech = 0.15
+				support_tech = 0.07
+			}
+
+			equipment_bonus = {
+				train_equipment = {
+					build_cost_ic = -0.10
+					armor_value = 0.10
+					air_attack = 0.10
+					instant = yes
+				}
+			}
+
+			traits = { train_equipment_manufacturer }
+
+			ai_will_do = {
+				factor = 0
+			}
 		}
 	}
 
@@ -1093,7 +1145,7 @@ ideas = {
 						FROM = { original_tag = CHI }
 					}
 					OR = {
-						owner = { has_completed_focus = CHI_relocate_factories_from_the_coast }
+						owner = { has_country_flag = CHI_relocated_shanghai_arsenal }
 						owner = { controls_state = CHI.mio_locations^7 } # 613 Shanghai
 					}
 				}
@@ -1254,7 +1306,10 @@ ideas = {
 						original_tag = CHI
 					}
 					has_completed_focus = CHI_camco_primacy
-					owner = { controls_state = CHI.mio_locations^8 } # #596 Zhejiang
+					OR = {
+						owner = { has_country_flag = CHI_relocated_camco }
+						owner = { controls_state = CHI.mio_locations^8 } # #596 Zhejiang
+					}
 				}
 				else = {
 					tag = event_target:WTT_current_china_leader
@@ -1293,7 +1348,10 @@ ideas = {
 						original_tag = CHI
 					}
 					has_completed_focus = CHI_SINAW_primacy
-					owner = { controls_state = CHI.mio_locations^9 } # #600 Jiangxi
+					OR = {
+						owner = { has_country_flag = CHI_relocated_sinaw }
+						owner = { controls_state = CHI.mio_locations^9 } # #600 Jiangxi
+					}
 				}
 				else = {
 					tag = event_target:WTT_current_china_leader

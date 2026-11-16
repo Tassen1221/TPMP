@@ -28,91 +28,90 @@ country_event = {
 			base = 10
 		}
 		if = {
-			limit = { ROOT = { tag = HOL }
+			limit = {
+				INS = { is_puppet_of = ROOT }
 			}
 			FROM = { puppet = INS }
 		}
 
 		if = {
-			limit = { ROOT = { tag = ENG }
+			limit = {
+				MAL = { is_puppet_of = ROOT }
 			}
 			FROM = { puppet = MAL }
 		}
 
 		if = {
-			limit = { ROOT = { tag = FRA } }
-			if = {
-				limit = {
-					670 = {
-						is_fully_controlled_by = FRA
-					}
+			limit = {
+				670 = {
+					is_fully_controlled_by = ROOT
 				}
-				FROM = { transfer_state = 670 }
 			}
-			if = {
-				limit = {
-					1017 = {
-						is_fully_controlled_by = FRA
-					}
+			FROM = { transfer_state = 670 }
+		}
+		if = {
+			limit = {
+				1017 = {
+					is_fully_controlled_by = ROOT
 				}
-				FROM = { transfer_state = 1017 }
 			}
-			if = {
-				limit = {
-					671 = {
-						is_fully_controlled_by = FRA
-					}
+			FROM = { transfer_state = 1017 }
+		}
+		if = {
+			limit = {
+				671 = {
+					is_fully_controlled_by = ROOT
 				}
-				FROM = { transfer_state = 671 }
 			}
-			if = {
-				limit = {
-					286 = {
-						is_fully_controlled_by = FRA
-					}
+			FROM = { transfer_state = 671 }
+		}
+		if = {
+			limit = {
+				286 = {
+					is_fully_controlled_by = ROOT
 				}
-				FROM = { transfer_state = 286 }
 			}
-			if = {
-				limit = {
-					741 = {
-						is_fully_controlled_by = FRA
-					}
+			FROM = { transfer_state = 286 }
+		}
+		if = {
+			limit = {
+				741 = {
+					is_fully_controlled_by = ROOT
 				}
-				FROM = { transfer_state = 741 }
 			}
-			if = {
-				limit = {
-					1066 = {
-						is_fully_controlled_by = FRA
-					}
+			FROM = { transfer_state = 741 }
+		}
+		if = {
+			limit = {
+				1066 = {
+					is_fully_controlled_by = ROOT
 				}
-				FROM = { transfer_state = 1066 }
 			}
-			if = {
-				limit = {
-					1067 = {
-						is_fully_controlled_by = FRA
-					}
+			FROM = { transfer_state = 1066 }
+		}
+		if = {
+			limit = {
+				1067 = {
+					is_fully_controlled_by = ROOT
 				}
-				FROM = { transfer_state = 1067 }
 			}
-			if = {
-				limit = {
-					1068 = {
-						is_fully_controlled_by = FRA
-					}
+			FROM = { transfer_state = 1067 }
+		}
+		if = {
+			limit = {
+				1068 = {
+					is_fully_controlled_by = ROOT
 				}
-				FROM = { transfer_state = 1068 }
 			}
-			if = {
-				limit = {
-					1069 = {
-						is_fully_controlled_by = FRA
-					}
+			FROM = { transfer_state = 1068 }
+		}
+		if = {
+			limit = {
+				1069 = {
+					is_fully_controlled_by = ROOT
 				}
-				FROM = { transfer_state = 1069 }
 			}
+			FROM = { transfer_state = 1069 }
 		}
 		FROM = { country_event = { id = wtt_japan.2 days = 1 } }
 	}
@@ -457,6 +456,21 @@ country_event = {
 		name = wtt_japan.13.a
 		ai_chance = {
 			base = 10
+		}
+
+		hidden_effect = { ### Lets the northern focuses open again without waiting out the pact timer.
+			if = {
+				limit = {
+					FROM = { original_tag = SOV }
+				}
+				set_country_flag = JAP_soviet_japanese_neutrality_pact_refused_flag
+			}
+			else_if = {
+				limit = {
+					FROM = { original_tag = CHI }
+				}
+				set_country_flag = JAP_chinese_japanese_neutrality_pact_refused_flag
+			}
 		}
 	}
 
@@ -2639,7 +2653,7 @@ country_event = {
 		army_experience = 50
 	}
 	option = {
-		name = japan_border_conflict.3.b
+		name = japan_border_conflict.4.b
 		trigger = {
 			original_tag = SOV
 		}

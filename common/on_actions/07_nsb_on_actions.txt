@@ -1313,29 +1313,6 @@ on_actions = {
 			}
 			if = {
 				limit = {
-					POL = {
-						is_subject_of = GER
-						is_ai = no #So that there's no weird transfer of states between AIs
-					}
-					GER = { is_ai = yes }
-				}
-				GER = {
-					every_controlled_state = {
-						limit = {
-							OR = {
-								is_core_of = POL
-								is_claimed_by = POL
-							}
-							NOT = { is_core_of = GER }
-						}
-						POL = {
-							transfer_state = PREV
-						}
-					}
-				}
-			}
-			if = {
-				limit = {
 					is_baltic_country = yes
 					is_subject_of = SOV
 					SOV = { is_ai = yes }
@@ -1388,6 +1365,7 @@ on_actions = {
 							is_baltic_country = yes
 							is_subject_of = SOV
 							is_ai = yes
+							has_civil_war = no
 						}
 						save_global_event_target_as = BALTIC_country_to_transfer
 						random_country = {
@@ -1409,7 +1387,7 @@ on_actions = {
 								target = PREV
 								transfer_troops = yes
 							}
-							country_event = { id = baltic.8 } #This lets the player know that they were given a baltic state. 
+							#country_event = { id = baltic.8 } #This lets the player know that they were given a baltic state. 
 						}
 					}
 				}
@@ -1798,8 +1776,36 @@ on_actions = {
 		}
 	}
 
-	on_monthly_SOV = { 
-		effect = { 
+	on_monthly_USA = {
+		effect = {
+			if = {
+				limit = {
+					has_dlc = "No Step Back"
+					is_ai = yes
+					has_tech = mediumtank2_tech # TPMP: vanilla improved_medium_tank_chassis
+					NOT = { has_country_flag = USA_sherman_licensed_to_ENG }
+					ENG = {
+						exists = yes
+						is_ai = yes
+						is_in_faction_with = USA
+					}
+				}
+				# One-shot, so a license ENG later cancels is not handed out again
+				set_country_flag = USA_sherman_licensed_to_ENG
+				create_production_license = {
+					target = ENG
+					cost_factor = 0
+					equipment = {
+						type = medium_tank_chassis_2
+						version_name = "M4 Sherman"
+					}
+				}
+			}
+		}
+	}
+
+	on_monthly_SOV = {
+		effect = {
 			IF = {
 				limit = { has_global_flag = SOV_soviet_civil_war }
 				# nationalist uprisings 

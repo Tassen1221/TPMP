@@ -1,36 +1,19 @@
 recalculate_congressional_ui = {
 	for_loop_effect = {
 		start = 0
-		end = USA.left_wing_democrat_support_var
-		set_variable = {
-			USA.congress_frame_array^v = 1
-		}
-	}
-	set_temp_variable = { next_end = USA.left_wing_democrat_support_var }
-	add_to_temp_variable = { next_end = USA.new_deal_democrat_support_var }
-	for_loop_effect = {
-		start = USA.left_wing_democrat_support_var
-		end = next_end
+		end = USA.new_deal_democrat_support_var
 		set_variable = {
 			USA.congress_frame_array^v = 2
 		}
 	}
-	set_temp_variable = { next_start = next_end }
+	set_temp_variable = { next_start = USA.new_deal_democrat_support_var }
+	set_temp_variable = { next_end = next_start }
 	add_to_temp_variable = { next_end = USA.conservative_democrat_support_var }
 	for_loop_effect = {
 		start = next_start
 		end = next_end
 		set_variable = {
 			USA.congress_frame_array^v = 3
-		}
-	}
-	set_temp_variable = { next_start = next_end }
-	add_to_temp_variable = { next_end = USA.progressive_republican_support_var }
-	for_loop_effect = {
-		start = next_start
-		end = next_end
-		set_variable = {
-			USA.congress_frame_array^v = 4
 		}
 	}
 	set_temp_variable = { next_start = next_end }
@@ -42,15 +25,468 @@ recalculate_congressional_ui = {
 			USA.congress_frame_array^v = 5
 		}
 	}
-	set_temp_variable = { next_start = next_end }
-	add_to_temp_variable = { next_end = USA.isolationist_republican_support_var }
-	for_loop_effect = {
-		start = next_start
-		end = next_end
-		set_variable = {
-			USA.congress_frame_array^v = 6
+}
+ndd_to_cd_support_tiny = {
+	custom_effect_tooltip = ndd_to_cd_support_tiny_tt
+	IF = {
+		limit = {
+			check_variable = {
+				new_deal_democrat_support_var > 0
+			}
+		}
+		add_to_variable = {
+			conservative_democrat_support_var = 1
+		}
+		add_to_variable = {
+			new_deal_democrat_support_var = -1
 		}
 	}
+	recalculate_congressional_ui = yes
+}
+ndd_to_cd_support_small = {
+	custom_effect_tooltip = ndd_to_cd_support_small_tt
+	for_loop_effect = {
+		end = 3
+		IF = {
+			limit = {
+				check_variable = {
+					new_deal_democrat_support_var > 0
+				}
+			}
+			add_to_variable = {
+				conservative_democrat_support_var = 1
+			}
+			add_to_variable = {
+				new_deal_democrat_support_var = -1
+			}
+		}
+	}
+	recalculate_congressional_ui = yes
+}
+ndd_to_cd_support = {
+	custom_effect_tooltip = ndd_to_cd_support_tt
+	for_loop_effect = {
+		end = 5
+		IF = {
+			limit = {
+				check_variable = {
+					new_deal_democrat_support_var > 0
+				}
+			}
+			add_to_variable = {
+				conservative_democrat_support_var = 1
+			}
+			add_to_variable = {
+				new_deal_democrat_support_var = -1
+			}
+		}
+	}
+	recalculate_congressional_ui = yes
+}
+ndd_to_cd_support_large = {
+	custom_effect_tooltip = ndd_to_cd_support_large_tt
+	for_loop_effect = {
+		end = 10
+		IF = {
+			limit = {
+				check_variable = {
+					new_deal_democrat_support_var > 0
+				}
+			}
+			add_to_variable = {
+				conservative_democrat_support_var = 1
+			}
+			add_to_variable = {
+				new_deal_democrat_support_var = -1
+			}
+		}
+	}
+	recalculate_congressional_ui = yes
+}
+cd_to_ndd_support_tiny = {
+	custom_effect_tooltip = cd_to_ndd_support_tiny_tt
+	IF = {
+		limit = {
+			check_variable = {
+				conservative_democrat_support_var > 0
+			}
+		}
+		add_to_variable = {
+			new_deal_democrat_support_var = 1
+		}
+		add_to_variable = {
+			conservative_democrat_support_var = -1
+		}
+	}
+	recalculate_congressional_ui = yes
+}
+cd_to_ndd_support_small = {
+	custom_effect_tooltip = cd_to_ndd_support_small_tt
+	for_loop_effect = {
+		end = 3
+		IF = {
+			limit = {
+				check_variable = {
+					conservative_democrat_support_var > 0
+				}
+			}
+			add_to_variable = {
+				new_deal_democrat_support_var = 1
+			}
+			add_to_variable = {
+				conservative_democrat_support_var = -1
+			}
+		}
+	}
+	recalculate_congressional_ui = yes
+}
+cd_to_ndd_support = {
+	custom_effect_tooltip = cd_to_ndd_support_tt
+	for_loop_effect = {
+		end = 5
+		IF = {
+			limit = {
+				check_variable = {
+					conservative_democrat_support_var > 0
+				}
+			}
+			add_to_variable = {
+				new_deal_democrat_support_var = 1
+			}
+			add_to_variable = {
+				conservative_democrat_support_var = -1
+			}
+		}
+	}
+	recalculate_congressional_ui = yes
+}
+cd_to_ndd_support_large = {
+	custom_effect_tooltip = cd_to_ndd_support_large_tt
+	for_loop_effect = {
+		end = 10
+		IF = {
+			limit = {
+				check_variable = {
+					conservative_democrat_support_var > 0
+				}
+			}
+			add_to_variable = {
+				new_deal_democrat_support_var = 1
+			}
+			add_to_variable = {
+				conservative_democrat_support_var = -1
+			}
+		}
+	}
+	recalculate_congressional_ui = yes
+}
+cd_to_br_support_tiny = {
+	custom_effect_tooltip = cd_to_br_support_tiny_tt
+	IF = {
+		limit = {
+			check_variable = {
+				conservative_democrat_support_var > 0
+			}
+		}
+		add_to_variable = {
+			business_republican_support_var = 1
+		}
+		add_to_variable = {
+			conservative_democrat_support_var = -1
+		}
+	}
+	recalculate_congressional_ui = yes
+}
+cd_to_br_support_small = {
+	custom_effect_tooltip = cd_to_br_support_small_tt
+	for_loop_effect = {
+		end = 3
+		IF = {
+			limit = {
+				check_variable = {
+					conservative_democrat_support_var > 0
+				}
+			}
+			add_to_variable = {
+				business_republican_support_var = 1
+			}
+			add_to_variable = {
+				conservative_democrat_support_var = -1
+			}
+		}
+	}
+	recalculate_congressional_ui = yes
+}
+cd_to_br_support = {
+	custom_effect_tooltip = cd_to_br_support_tt
+	for_loop_effect = {
+		end = 5
+		IF = {
+			limit = {
+				check_variable = {
+					conservative_democrat_support_var > 0
+				}
+			}
+			add_to_variable = {
+				business_republican_support_var = 1
+			}
+			add_to_variable = {
+				conservative_democrat_support_var = -1
+			}
+		}
+	}
+	recalculate_congressional_ui = yes
+}
+cd_to_br_support_large = {
+	custom_effect_tooltip = cd_to_br_support_large_tt
+	for_loop_effect = {
+		end = 10
+		IF = {
+			limit = {
+				check_variable = {
+					conservative_democrat_support_var > 0
+				}
+			}
+			add_to_variable = {
+				business_republican_support_var = 1
+			}
+			add_to_variable = {
+				conservative_democrat_support_var = -1
+			}
+		}
+	}
+	recalculate_congressional_ui = yes
+}
+br_to_cd_support_tiny = {
+	custom_effect_tooltip = br_to_cd_support_tiny_tt
+	IF = {
+		limit = {
+			check_variable = {
+				business_republican_support_var > 0
+			}
+		}
+		add_to_variable = {
+			conservative_democrat_support_var = 1
+		}
+		add_to_variable = {
+			business_republican_support_var = -1
+		}
+	}
+	recalculate_congressional_ui = yes
+}
+br_to_cd_support_small = {
+	custom_effect_tooltip = br_to_cd_support_small_tt
+	for_loop_effect = {
+		end = 3
+		IF = {
+			limit = {
+				check_variable = {
+					business_republican_support_var > 0
+				}
+			}
+			add_to_variable = {
+				conservative_democrat_support_var = 1
+			}
+			add_to_variable = {
+				business_republican_support_var = -1
+			}
+		}
+	}
+	recalculate_congressional_ui = yes
+}
+br_to_cd_support = {
+	custom_effect_tooltip = br_to_cd_support_tt
+	for_loop_effect = {
+		end = 5
+		IF = {
+			limit = {
+				check_variable = {
+					business_republican_support_var > 0
+				}
+			}
+			add_to_variable = {
+				conservative_democrat_support_var = 1
+			}
+			add_to_variable = {
+				business_republican_support_var = -1
+			}
+		}
+	}
+	recalculate_congressional_ui = yes
+}
+br_to_cd_support_large = {
+	custom_effect_tooltip = br_to_cd_support_large_tt
+	for_loop_effect = {
+		end = 10
+		IF = {
+			limit = {
+				check_variable = {
+					business_republican_support_var > 0
+				}
+			}
+			add_to_variable = {
+				conservative_democrat_support_var = 1
+			}
+			add_to_variable = {
+				business_republican_support_var = -1
+			}
+		}
+	}
+	recalculate_congressional_ui = yes
+}
+ndd_to_br_support_tiny = {
+	custom_effect_tooltip = ndd_to_br_support_tiny_tt
+	IF = {
+		limit = {
+			check_variable = {
+				new_deal_democrat_support_var > 0
+			}
+		}
+		add_to_variable = {
+			business_republican_support_var = 1
+		}
+		add_to_variable = {
+			new_deal_democrat_support_var = -1
+		}
+	}
+	recalculate_congressional_ui = yes
+}
+ndd_to_br_support_small = {
+	custom_effect_tooltip = ndd_to_br_support_small_tt
+	for_loop_effect = {
+		end = 3
+		IF = {
+			limit = {
+				check_variable = {
+					new_deal_democrat_support_var > 0
+				}
+			}
+			add_to_variable = {
+				business_republican_support_var = 1
+			}
+			add_to_variable = {
+				new_deal_democrat_support_var = -1
+			}
+		}
+	}
+	recalculate_congressional_ui = yes
+}
+ndd_to_br_support = {
+	custom_effect_tooltip = ndd_to_br_support_tt
+	for_loop_effect = {
+		end = 5
+		IF = {
+			limit = {
+				check_variable = {
+					new_deal_democrat_support_var > 0
+				}
+			}
+			add_to_variable = {
+				business_republican_support_var = 1
+			}
+			add_to_variable = {
+				new_deal_democrat_support_var = -1
+			}
+		}
+	}
+	recalculate_congressional_ui = yes
+}
+ndd_to_br_support_large = {
+	custom_effect_tooltip = ndd_to_br_support_large_tt
+	for_loop_effect = {
+		end = 10
+		IF = {
+			limit = {
+				check_variable = {
+					new_deal_democrat_support_var > 0
+				}
+			}
+			add_to_variable = {
+				business_republican_support_var = 1
+			}
+			add_to_variable = {
+				new_deal_democrat_support_var = -1
+			}
+		}
+	}
+	recalculate_congressional_ui = yes
+}
+br_to_ndd_support_tiny = {
+	custom_effect_tooltip = br_to_ndd_support_tiny_tt
+	IF = {
+		limit = {
+			check_variable = {
+				business_republican_support_var > 0
+			}
+		}
+		add_to_variable = {
+			new_deal_democrat_support_var = 1
+		}
+		add_to_variable = {
+			business_republican_support_var = -1
+		}
+	}
+	recalculate_congressional_ui = yes
+}
+br_to_ndd_support_small = {
+	custom_effect_tooltip = br_to_ndd_support_small_tt
+	for_loop_effect = {
+		end = 3
+		IF = {
+			limit = {
+				check_variable = {
+					business_republican_support_var > 0
+				}
+			}
+			add_to_variable = {
+				new_deal_democrat_support_var = 1
+			}
+			add_to_variable = {
+				business_republican_support_var = -1
+			}
+		}
+	}
+	recalculate_congressional_ui = yes
+}
+br_to_ndd_support = {
+	custom_effect_tooltip = br_to_ndd_support_tt
+	for_loop_effect = {
+		end = 5
+		IF = {
+			limit = {
+				check_variable = {
+					business_republican_support_var > 0
+				}
+			}
+			add_to_variable = {
+				new_deal_democrat_support_var = 1
+			}
+			add_to_variable = {
+				business_republican_support_var = -1
+			}
+		}
+	}
+	recalculate_congressional_ui = yes
+}
+br_to_ndd_support_large = {
+	custom_effect_tooltip = br_to_ndd_support_large_tt
+	for_loop_effect = {
+		end = 10
+		IF = {
+			limit = {
+				check_variable = {
+					business_republican_support_var > 0
+				}
+			}
+			add_to_variable = {
+				new_deal_democrat_support_var = 1
+			}
+			add_to_variable = {
+				business_republican_support_var = -1
+			}
+		}
+	}
+	recalculate_congressional_ui = yes
 }
 recalculate_electoral_ui = {
 	set_variable = { USA.TPMP_USA_electoral_bar_frame_var = USA.TPMP_USA_electoral_support_var }

@@ -318,6 +318,7 @@ set_grand_doctrine = new_operational_integrity
 		complete_national_focus = ROM_appoint_german_friendly_government
 		complete_national_focus = ROM_invite_german_advisors
 		complete_national_focus = ROM_iron_guard
+		complete_national_focus = ROM_crack_down_on_extremism
 
 		#King stuff
 		unlock_national_focus = ROM_institute_royal_dictatorship
@@ -421,6 +422,10 @@ if = {
 			special_type_slot_1 = empty
 		}
 	}
+
+	add_equipment_to_stockpile = { type = small_plane_airframe_0 amount = 48 producer = POL variant_name = "PZL P.11" }
+	add_equipment_to_stockpile = { type = small_plane_airframe_0 amount = 24 producer = ROM variant_name = "IAR 14" }
+
 	create_equipment_variant = {
 		name = "IAR 14B"
 		type = cv_small_plane_airframe_0

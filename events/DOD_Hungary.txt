@@ -384,8 +384,8 @@ country_event = {
 
 	option = {
 		name = DOD_hungary.12.a
-		hidden_effect = { puppet = CZE }
-		set_autonomy = { target = CZE autonomy_state = autonomy_dominion }
+		hidden_effect = { puppet = { target = CZE end_wars = no } }
+		set_autonomy = { target = CZE autonomy_state = autonomy_dominion end_wars = no }
 		if = {
 			limit = {
 				is_in_faction = yes

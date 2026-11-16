@@ -47,8 +47,44 @@ news_event = {
 #FIN - Continuation War
 news_event = {
 	id = aat_news.100
-	title = aat_news.100.t
-	desc = aat_news.100.desc
+	title = {
+		text = aat_news.100.t
+		trigger = {
+			has_global_flag = SOV_winter_war_flag
+		}
+	}
+	title = {
+		text = AAT_finland_continuation_war.05.t.2	#intentional
+		trigger = {
+			NOT = { has_global_flag = SOV_winter_war_flag }
+		}
+	}
+	desc = {
+		text = aat_news.100.desc
+		trigger = {
+			has_global_flag = SOV_winter_war_flag
+		}
+	}
+	desc = {
+		text = aat_news.100.desc.2
+		trigger = {
+			NOT = { has_global_flag = SOV_winter_war_flag }
+			SOV = {
+				owns_state = 146
+			}
+		}
+	}
+	desc = {
+		text = aat_news.100.desc.3
+		trigger = {
+			NOT = {
+				has_global_flag = SOV_winter_war_flag
+				SOV = {
+					owns_state = 146
+				}
+			}
+		}
+	}
 	picture = GFX_news_event_FIN_continuation_war_murmansk
 	
 	major = yes

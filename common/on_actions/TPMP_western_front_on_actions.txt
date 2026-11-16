@@ -1,0 +1,55 @@
+on_actions = {
+	#Libyan ports changing hands affect Italy's homeland defences
+	on_state_control_changed = {
+		effect = {
+			if = {
+				limit = {
+					FROM.FROM = {
+						OR = {
+							state = 448 #Tripoli
+							state = 450 #Benghazi
+							state = 451 #Tobruk
+						}
+						NOT = { has_state_flag = TPMP_ITA_port_lost_flag }
+					}
+				}
+				#Allies take Axis held port
+				if = {
+					limit = {
+						OR = {
+							tag = ENG
+							is_in_faction_with = ENG
+							tag = USA
+							is_in_faction_with = USA
+							tag = FRA
+							is_in_faction_with = FRA
+						}
+						FROM = {
+							OR = {
+								tag = GER
+								is_in_faction_with = GER
+								tag = ITA
+								is_in_faction_with = ITA
+							}
+						}
+					}
+					FROM.FROM = {
+						set_state_flag = TPMP_ITA_port_lost_flag
+					}
+					ITA = {
+						subtract_from_variable = { TPMP_ITA_homeland_attack_var = 1.0 }
+						subtract_from_variable = { TPMP_ITA_homeland_defence_var = 1.0 }
+						clamp_variable = {
+							var = TPMP_ITA_homeland_attack_var
+							min = 0
+						}
+						clamp_variable = {
+							var = TPMP_ITA_homeland_defence_var
+							min = 0
+						}
+					}
+				}
+			}
+		}
+	}
+}

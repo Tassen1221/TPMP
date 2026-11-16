@@ -274,4 +274,32 @@ on_actions = {
 			}
 		}
 	}
+	# Fall Blau (1 July 1942) and Unternehmen Zitadelle (1 July 1943) fire automatically while at war with the Soviet Union.
+	# Monthly tick: the 1 July tick fires it (window opens 30 June); 1 August is the only fallback, matching the old focus bypass dates.
+	on_monthly_GER = {
+		effect = {
+			if = {
+				limit = {
+					has_war_with = SOV
+					has_capitulated = no
+					date > 1942.6.30
+					date < 1942.9.1
+					NOT = { has_country_flag = TPMP_fall_blau_fired_flag }
+				}
+				set_country_flag = TPMP_fall_blau_fired_flag
+				country_event = TPMP_GER.1
+			}
+			if = {
+				limit = {
+					has_war_with = SOV
+					has_capitulated = no
+					date > 1943.6.30
+					date < 1943.9.1
+					NOT = { has_country_flag = TPMP_zitadelle_fired_flag }
+				}
+				set_country_flag = TPMP_zitadelle_fired_flag
+				country_event = TPMP_GER.2
+			}
+		}
+	}
 }

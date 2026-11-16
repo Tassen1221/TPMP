@@ -274,7 +274,7 @@ country_event = {
 				}
 				country_event = {
 					id = GOE_generic_events.1
-					hours = 4
+					days = 7
 				}
 			}
 		}
@@ -416,7 +416,10 @@ country_event = {
 	
 	option = { # Become Vichy
 		name = france.13.a
-		trigger = { is_ai = no }
+		trigger = {
+			is_ai = no
+			has_civil_war = no
+		}
 		set_country_flag = become_vichy
 		set_global_flag = fall_of_france
 		save_global_event_target_as = vichy_france
@@ -455,6 +458,12 @@ country_event = {
 	picture = GFX_report_event_german_parade_paris
 	
 	is_triggered_only = yes
+
+	trigger = {
+		FRA = {
+			has_civil_war = no
+		}
+	}
 	
 	# option = { # Agree
 	# 	name = france.14.a
@@ -1181,13 +1190,6 @@ country_event = {
 				set_capital = { state = 272 }
 			}
 			country_event = france.20
-			every_owned_state = {
-				limit = { 
-					is_controlled_by = ITA 
-					is_core_of = FRA
-				}
-				set_state_flag = vichy_italian_conquest
-			}
 		}
 		custom_effect_tooltip = establishing_vichy_tt
 
@@ -1214,6 +1216,16 @@ country_event = {
 							state = 680
 							state = 553
 							state = 554
+							state = 286
+							state = 670
+							state = 671
+							state = 728
+							state = 741
+							state = 1017
+							state = 1066
+							state = 1067
+							state = 1068
+							state = 1069
 						}
 						# Keep French Indochina out of Vichy while Siam's limited war over it is ongoing
 						NOT = {
@@ -1228,6 +1240,23 @@ country_event = {
 									has_variable = limited_war_target
 									var:limited_war_target = { original_tag = FRA }
 								}
+							}
+						}
+						NOT = {
+							AND = {
+								OR = {
+									state = 286
+									state = 670
+									state = 671
+									state = 728
+									state = 741
+									state = 1017
+									state = 1066
+									state = 1067
+									state = 1068
+									state = 1069
+								}
+								NOT = { is_owned_by = FRA }
 							}
 						}
 					}
@@ -1267,30 +1296,20 @@ country_event = {
 					}
 					add_core_of = PREV
 				}
-				if = { 
-					limit = { ITA = { has_war_with = FRA } }
-					every_owned_state = {
-						limit = {
-							OR = {
-								state = 21
-								state = 1
-								state = 735
-								state = 851
-							}
-							has_state_flag = vichy_italian_conquest
-						}
-						ITA = { transfer_state = PREV }
-					}
-					
-					if = {
-						limit = {
-							21 = { is_controlled_by = ITA }
-							851 = { is_controlled_by = ITA }
-							735 = { is_controlled_by = ITA } 
-						}
-						ITA = { transfer_state = 32 }
-					}
-					
+				# TPMP: Italy always gets its share when France falls, war or not, occupied or not
+				ITA = {
+					transfer_state = 1 # Corsica
+					transfer_state = 735 # Savoy
+					transfer_state = 32 # Alpes
+					transfer_state = 851 # Var
+					transfer_state = 21 # Bouches-du-Rhone
+					transfer_state = 458 # Tunisia
+					transfer_state = 665 # Gabès
+					transfer_state = 459 # Algiers
+					transfer_state = 460 # Constantine
+					transfer_state = 513 # Tlemcen
+					transfer_state = 461 # Casablanca
+					transfer_state = 462 # Marrakech
 				}
 				every_owned_state = {
 					limit = {

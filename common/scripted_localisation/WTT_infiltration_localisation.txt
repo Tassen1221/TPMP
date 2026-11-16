@@ -11,21 +11,19 @@
 defined_text = { # Country
 	name = GetDiscoveredInfiltration
 	text = {
-		trigger = {			
-			any_state = {
-				OR = {
-					state = 283
-					state = 597
-					state = 598
-					state = 607
-					state = 608
-					state = 614
-					state = 615
-					state = 621
-					state = 744
-					state = 746
-				}
-				has_state_flag = discovered_infiltration
+		trigger = {
+			# Direct state scopes instead of iterating every state in the game
+			OR = {
+				283 = { has_state_flag = discovered_infiltration }
+				597 = { has_state_flag = discovered_infiltration }
+				598 = { has_state_flag = discovered_infiltration }
+				607 = { has_state_flag = discovered_infiltration }
+				608 = { has_state_flag = discovered_infiltration }
+				614 = { has_state_flag = discovered_infiltration }
+				615 = { has_state_flag = discovered_infiltration }
+				621 = { has_state_flag = discovered_infiltration }
+				744 = { has_state_flag = discovered_infiltration }
+				746 = { has_state_flag = discovered_infiltration }
 			}
 		}
 		localization_key = CHI_communist_infiltration_states
@@ -114,19 +112,17 @@ defined_text = {
 	text = {
 		trigger = {
 			state = 283
-			any_state = {
-				OR = {
-					state = 597
-					state = 598
-					state = 607
-					state = 608
-					state = 614
-					state = 615
-					state = 621
-					state = 744
-					state = 746
-				}
-				has_state_flag = discovered_infiltration
+			# Direct state scopes instead of iterating every state in the game
+			OR = {
+				597 = { has_state_flag = discovered_infiltration }
+				598 = { has_state_flag = discovered_infiltration }
+				607 = { has_state_flag = discovered_infiltration }
+				608 = { has_state_flag = discovered_infiltration }
+				614 = { has_state_flag = discovered_infiltration }
+				615 = { has_state_flag = discovered_infiltration }
+				621 = { has_state_flag = discovered_infiltration }
+				744 = { has_state_flag = discovered_infiltration }
+				746 = { has_state_flag = discovered_infiltration }
 			}
 		}
 		localization_key = CHI_communist_infiltration_state_comma
@@ -134,18 +130,15 @@ defined_text = {
 	text = {
 		trigger = {
 			state = 597
-			any_state = {
-				OR = {
-					state = 598
-					state = 607
-					state = 608
-					state = 614
-					state = 615
-					state = 621
-					state = 744
-					state = 746
-				}
-				has_state_flag = discovered_infiltration
+			OR = {
+				598 = { has_state_flag = discovered_infiltration }
+				607 = { has_state_flag = discovered_infiltration }
+				608 = { has_state_flag = discovered_infiltration }
+				614 = { has_state_flag = discovered_infiltration }
+				615 = { has_state_flag = discovered_infiltration }
+				621 = { has_state_flag = discovered_infiltration }
+				744 = { has_state_flag = discovered_infiltration }
+				746 = { has_state_flag = discovered_infiltration }
 			}
 		}
 		localization_key = CHI_communist_infiltration_state_comma
@@ -153,17 +146,14 @@ defined_text = {
 	text = {
 		trigger = {
 			state = 598
-			any_state = {
-				OR = {
-					state = 607
-					state = 608
-					state = 614
-					state = 615
-					state = 621
-					state = 744
-					state = 746
-				}
-				has_state_flag = discovered_infiltration
+			OR = {
+				607 = { has_state_flag = discovered_infiltration }
+				608 = { has_state_flag = discovered_infiltration }
+				614 = { has_state_flag = discovered_infiltration }
+				615 = { has_state_flag = discovered_infiltration }
+				621 = { has_state_flag = discovered_infiltration }
+				744 = { has_state_flag = discovered_infiltration }
+				746 = { has_state_flag = discovered_infiltration }
 			}
 		}
 		localization_key = CHI_communist_infiltration_state_comma
@@ -171,16 +161,13 @@ defined_text = {
 	text = {
 		trigger = {
 			state = 607
-			any_state = {
-				OR = {
-					state = 608
-					state = 614
-					state = 615
-					state = 621
-					state = 744
-					state = 746
-				}
-				has_state_flag = discovered_infiltration
+			OR = {
+				608 = { has_state_flag = discovered_infiltration }
+				614 = { has_state_flag = discovered_infiltration }
+				615 = { has_state_flag = discovered_infiltration }
+				621 = { has_state_flag = discovered_infiltration }
+				744 = { has_state_flag = discovered_infiltration }
+				746 = { has_state_flag = discovered_infiltration }
 			}
 		}
 		localization_key = CHI_communist_infiltration_state_comma
@@ -188,15 +175,12 @@ defined_text = {
 	text = {
 		trigger = {
 			state = 608
-			any_state = {
-				OR = {
-					state = 614
-					state = 615
-					state = 621
-					state = 744
-					state = 746
-				}
-				has_state_flag = discovered_infiltration
+			OR = {
+				614 = { has_state_flag = discovered_infiltration }
+				615 = { has_state_flag = discovered_infiltration }
+				621 = { has_state_flag = discovered_infiltration }
+				744 = { has_state_flag = discovered_infiltration }
+				746 = { has_state_flag = discovered_infiltration }
 			}
 		}
 		localization_key = CHI_communist_infiltration_state_comma
@@ -204,14 +188,11 @@ defined_text = {
 	text = {
 		trigger = {
 			state = 614
-			any_state = {
-				OR = {
-					state = 615
-					state = 621
-					state = 744
-					state = 746
-				}
-				has_state_flag = discovered_infiltration
+			OR = {
+				615 = { has_state_flag = discovered_infiltration }
+				621 = { has_state_flag = discovered_infiltration }
+				744 = { has_state_flag = discovered_infiltration }
+				746 = { has_state_flag = discovered_infiltration }
 			}
 		}
 		localization_key = CHI_communist_infiltration_state_comma
@@ -219,13 +200,10 @@ defined_text = {
 	text = {
 		trigger = {
 			state = 615
-			any_state = {
-				OR = {
-					state = 621
-					state = 744
-					state = 746
-				}
-				has_state_flag = discovered_infiltration
+			OR = {
+				621 = { has_state_flag = discovered_infiltration }
+				744 = { has_state_flag = discovered_infiltration }
+				746 = { has_state_flag = discovered_infiltration }
 			}
 		}
 		localization_key = CHI_communist_infiltration_state_comma
@@ -233,12 +211,9 @@ defined_text = {
 	text = {
 		trigger = {
 			state = 621
-			any_state = {
-				OR = {
-					state = 744
-					state = 746
-				}
-				has_state_flag = discovered_infiltration
+			OR = {
+				744 = { has_state_flag = discovered_infiltration }
+				746 = { has_state_flag = discovered_infiltration }
 			}
 		}
 		localization_key = CHI_communist_infiltration_state_comma

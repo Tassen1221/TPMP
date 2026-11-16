@@ -941,17 +941,15 @@ characters = {
 		}
 
 		advisor={
-			allowed = {
-				has_dlc = "Graveyard of Empires" 
-			} 
 			slot = political_advisor
 			idea_token = IRQ_maruf_al_rusafi
+			allowed = {
+				original_tag = IRQ
+				has_dlc = "Graveyard of Empires"
+			}
 
 			traits  = {
 				IRQ_poet_of_freedom
-			}
-			allowed = { 
-				original_tag = IRQ
 			}
 			available = {
 				NOT = {
@@ -960,6 +958,11 @@ characters = {
 			}
 			ai_will_do  = {
 				factor  = 0.000
+				# His poetry rallies the push for independence once the world war is over
+				modifier = {
+					IRQ_PER_should_seek_independence = yes
+					add = 10
+				}
 			}
 		}
 	}

@@ -887,6 +887,108 @@ defined_text = { # Country
 	}
 }
 
+# Picks the entry container for one slot of the signatory grid in MTG_naval_treaties_ui, an empty key drops the slot.
+defined_text = { # Country
+	name = GetMTGNavalTreatyMemberEntry
+	# Compared live so the badge can never disagree with the strength line in the tooltip, the daily flag only drives the refresh.
+	text = {
+		trigger = {
+			exists = yes
+			has_naval_treaty_trigger = yes
+			has_naval_treaty_over_allowance_trigger = yes
+		}
+		localization_key = "mtg_naval_treaty_member_entry_over"
+	}
+	text = {
+		trigger = {
+			exists = yes
+			has_naval_treaty_trigger = yes
+		}
+		localization_key = "mtg_naval_treaty_member_entry"
+	}
+	text = {
+		trigger = {
+			always = yes
+		}
+		localization_key = ""
+	}
+}
+
+# The cheating tiers deliberately report as their public equivalent so the panel never leaks who is over the limits.
+defined_text = { # Country
+	name = GetMTGNavalTreatyMemberStatus
+	# Reads the public flag only, an undetected violation still reports as plain adherence.
+	text = {
+		trigger = {
+			has_country_flag = MTG_treaty_violation_exposed
+		}
+		localization_key = MTG_NAVAL_TREATY_STATUS_EXPOSED
+	}
+	text = {
+		trigger = {
+			OR = {
+				has_idea = MTG_naval_treaty_adherent_reduced
+				has_idea = MTG_naval_treaty_cheating_reduced
+			}
+		}
+		localization_key = MTG_NAVAL_TREATY_STATUS_ESCALATOR
+	}
+	text = {
+		trigger = {
+			always = yes
+		}
+		localization_key = MTG_NAVAL_TREATY_STATUS_ADHERENT
+	}
+}
+
+# The exposure route differs by whether the intelligence systems exist at all, so the cheat tooltip cannot state one fixed rule.
+defined_text = { # Country
+	name = GetMTGNavalTreatyExposureRoute
+	text = {
+		trigger = {
+			has_dlc = "La Resistance"
+		}
+		localization_key = MTG_NAVAL_TREATY_EXPOSURE_INTEL
+	}
+	text = {
+		trigger = {
+			always = yes
+		}
+		localization_key = MTG_NAVAL_TREATY_EXPOSURE_TIME
+	}
+}
+
+defined_text = { # Country
+	name = GetMTGNavalTreatyMemberStrength
+	text = {
+		trigger = {
+			OR = {
+				AND = {
+					tag = ENG
+					ENG = {
+						has_naval_treaty_trigger = yes
+					}
+				}
+				AND = {
+					tag = USA
+					NOT = {
+						ENG = {
+							has_naval_treaty_trigger = yes
+						}
+					}
+				}
+			}
+		}
+		localization_key = MTG_NAVAL_TREATY_STRENGTH_BENCHMARK
+	}
+	text = {
+		trigger = {
+			always = yes
+		}
+		localization_key = MTG_NAVAL_TREATY_STRENGTH_RATIO
+	}
+}
+
 defined_text = { # Country
 	name = GetStresaMembers
 	text = {
@@ -1786,6 +1888,84 @@ defined_text = {
 	}
 	text = {
 		localization_key = GFX_news_event_generic_handshake
+	}
+}
+
+# Collaboration government event picture, keyed off the occupied country's capital continent.
+defined_text = {
+	name = GetCollaborationGovernmentEventPicture
+	text = {
+		trigger = {
+			FROM.FROM = {
+				capital_scope = {
+					is_on_continent = europe
+				}
+			}
+		}
+		localization_key = GFX_report_event_generic_parliament
+	}
+	text = {
+		trigger = {
+			FROM.FROM = {
+				capital_scope = {
+					is_on_continent = north_america
+				}
+			}
+		}
+		localization_key = GFX_report_event_canada_treaty
+	}
+	text = {
+		trigger = {
+			FROM.FROM = {
+				capital_scope = {
+					is_on_continent = south_america
+				}
+			}
+		}
+		localization_key = GFX_report_event_ARG_coup_detat
+	}
+	text = {
+		trigger = {
+			FROM.FROM = {
+				capital_scope = {
+					is_on_continent = australia
+				}
+			}
+		}
+		localization_key = GFX_report_event_ast_parliament_house
+	}
+	text = {
+		trigger = {
+			FROM.FROM = {
+				capital_scope = {
+					is_on_continent = africa
+				}
+			}
+		}
+		localization_key = GFX_report_event_generic_african_unity
+	}
+	text = {
+		trigger = {
+			FROM.FROM = {
+				capital_scope = {
+					is_on_continent = asia
+				}
+			}
+		}
+		localization_key = GFX_report_event_asian_politicians
+	}
+	text = {
+		trigger = {
+			FROM.FROM = {
+				capital_scope = {
+					is_on_continent = middle_east
+				}
+			}
+		}
+		localization_key = GFX_report_event_generic_troops_in_iraq
+	}
+	text = {
+		localization_key = GFX_report_event_generic_conference
 	}
 }
 

@@ -30,7 +30,6 @@ ideas = {
 					limit = {
 						has_dlc = "Thunder at Our Gates"
 						original_tag = SIA
-						NOT = { has_idea = disarmed_nation }
 					}
 					if = {
 						limit = { check_variable = { SIA_current_manpower_law > -1 } }
@@ -130,7 +129,7 @@ ideas = {
 			}
 
 			modifier = {
-				conscription = 0.015
+				conscription = 0.02
 			}
 
 			default = yes
@@ -148,7 +147,6 @@ ideas = {
 					limit = {
 						has_dlc = "Thunder at Our Gates"
 						original_tag = SIA
-						NOT = { has_idea = volunteer_only }
 					}
 					if = {
 						limit = { check_variable = { SIA_current_manpower_law > 0 } }
@@ -301,7 +299,10 @@ ideas = {
 			}
 
 			modifier = {
-				conscription = 0.025
+				conscription = 0.035
+				industrial_capacity_factory = -0.05
+				industrial_capacity_dockyard = -0.05
+				production_speed_buildings_factor = -0.05
 			}
 
 			ai_will_do = {
@@ -374,7 +375,6 @@ ideas = {
 					limit = {
 						has_dlc = "Thunder at Our Gates"
 						original_tag = SIA
-						NOT = { has_idea = limited_conscription }
 					}
 					if = {
 						limit = { check_variable = { SIA_current_manpower_law > 1 } }
@@ -660,9 +660,10 @@ ideas = {
 
 			modifier = {
 				conscription = 0.05
-				#industrial_capacity_factory = -0.1
-				#production_speed_buildings_factor = -0.1
-				training_time_factor = 0.1
+				industrial_capacity_factory = -0.1
+				industrial_capacity_dockyard = -0.1
+				production_speed_buildings_factor = -0.1
+				production_factory_max_efficiency_factor = -0.05
 			}
 
 			cancel_if_invalid = no
@@ -678,7 +679,6 @@ ideas = {
 					limit = {
 						has_dlc = "Thunder at Our Gates"
 						original_tag = SIA
-						NOT = { has_idea = extensive_conscription }
 					}
 					if = {
 						limit = { check_variable = { SIA_current_manpower_law > 2 } }
@@ -969,10 +969,10 @@ ideas = {
 
 			modifier = {
 				conscription = 0.075
-				industrial_capacity_factory = -0.1
-				industrial_capacity_dockyard = -0.1
-				production_speed_buildings_factor = -0.1
-				training_time_factor = 0.2
+				industrial_capacity_factory = -0.2
+				industrial_capacity_dockyard = -0.2
+				production_speed_buildings_factor = -0.2
+				production_factory_max_efficiency_factor = -0.1
 			}
 
 			cancel_if_invalid = no
@@ -988,7 +988,6 @@ ideas = {
 					limit = {
 						has_dlc = "Thunder at Our Gates"
 						original_tag = SIA
-						NOT = { has_idea = service_by_requirement }
 					}
 					if = {
 						limit = { check_variable = { SIA_current_manpower_law > 3 } }
@@ -1220,7 +1219,6 @@ ideas = {
 					limit = {
 						has_dlc = "Thunder at Our Gates"
 						original_tag = SIA
-						NOT = { has_idea = all_adults_serve }
 					}
 					if = {
 						limit = { check_variable = { SIA_current_manpower_law > 4 } }
@@ -1241,12 +1239,11 @@ ideas = {
 			level = 2
 
 			modifier = {
-				conscription = 0.1
+				conscription = 0.09
 				industrial_capacity_factory = -0.3
 				industrial_capacity_dockyard = -0.3
 				production_speed_buildings_factor = -0.3
-				#XP from reinforcement penalty (small)
-				training_time_factor = 0.3
+				production_factory_max_efficiency_factor = -0.15
 			}
 
 			cancel_if_invalid = no
@@ -1452,7 +1449,6 @@ ideas = {
 					limit = {
 						has_dlc = "Thunder at Our Gates"
 						original_tag = SIA
-						NOT = { has_idea = scraping_the_barrel }
 					}
 					if = {
 						limit = { check_variable = { SIA_current_manpower_law > 5 } }
@@ -1473,11 +1469,11 @@ ideas = {
 			level = 1
 
 			modifier = {
-				conscription = 0.15
+				conscription = 0.105
 				industrial_capacity_factory = -0.5
 				industrial_capacity_dockyard = -0.5
 				production_speed_buildings_factor = -0.5
-				training_time_factor = 0.5
+				production_factory_max_efficiency_factor = -0.25
 			}
 
 			cancel_if_invalid = no

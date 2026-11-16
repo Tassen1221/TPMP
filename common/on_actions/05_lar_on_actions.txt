@@ -1541,6 +1541,51 @@ on_actions = {
 			}
 		}	
 	}
+	
+	# ROOT is the winner, FROM is the loser. Runs before the conference object exists, so no pc_ triggers are usable here.
+	on_before_peace_conference_start = {
+		effect = {
+			### France needs a claim to be a candidate at all - without a core or claim the other Allies never even evaluate giving Indochina to her
+			if = {
+				limit = {
+					ROOT = { original_tag = FRA }
+				}
+				every_state = {
+					limit = {
+						FRA_is_indochina_state = yes
+						owner = { tag = FROM }
+						NOT = { is_claimed_by = ROOT }
+					}
+					add_claim_by = ROOT
+					set_state_flag = FRA_indochina_pc_claim_flag
+				}
+			}
+		}
+	}
+	
+	# ROOT is the winner, FROM is the loser. Fires after every peace action has been applied, so ownership is final here.
+	on_peaceconference_ended = {
+		effect = {
+			### Drop the claims we added at conference start, or they linger as post-war wargoal fuel against whoever kept the states
+			if = {
+				limit = {
+					ROOT = { original_tag = FRA }
+				}
+				every_state = {
+					limit = {
+						has_state_flag = FRA_indochina_pc_claim_flag
+					}
+					clr_state_flag = FRA_indochina_pc_claim_flag
+					if = {
+						limit = {
+							NOT = { is_owned_by = ROOT }
+						}
+						remove_claim_by = ROOT
+					}
+				}
+			}
+		}
+	}
 
 	# scope is operative
 	# from scope is the country 

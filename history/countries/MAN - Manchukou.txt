@@ -145,7 +145,12 @@ set_convoys = 30
 
 
 	if = {
-		limit = { has_dlc = "Waking the Tiger" }
+		limit = {
+			has_dlc = "Waking the Tiger"
+			NOT = {
+				has_dlc = "No Compromise, No Surrender"
+			}
+		}
 
 		
 		#No bandits

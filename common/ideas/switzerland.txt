@@ -750,8 +750,13 @@ ideas = {
 #########################        TRADE         ###########################
 ##########################################################################
 		SWI_active_trade_agreement = {
-			allowed = {
-				tag = SWI 
+			available = { 
+				any_other_country = {
+					OR = {
+						has_idea = SWI_trading_with_switzerland_military
+						has_idea = SWI_trading_with_switzerland_civilian
+					}
+				}
 			}
 			removal_cost = -1 
 			picture = can_wartime_prices_and_trade_board
@@ -761,7 +766,9 @@ ideas = {
 		}
 
 		SWI_trading_with_switzerland_military = {
-			allowed = { always = yes }
+			available = { 
+				NOT = {	has_war_with = SWI }
+			}
 			removal_cost = -1
 			picture = SOV_third_five_year_plan_military
 			modifier = {
@@ -772,7 +779,7 @@ ideas = {
 		}			
 
 		SWI_trading_with_switzerland_civilian = {
-			allowed = { 
+			available = { 
 				NOT = {	has_war_with = SWI }
 			}
 			removal_cost = -1 

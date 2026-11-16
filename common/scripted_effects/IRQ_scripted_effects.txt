@@ -107,3 +107,305 @@ IRQ_modify_air_force_modifier_version = {
 		custom_effect_tooltip = IRQ_royal_air_force_IRQ_intro_tt
 	}
 }
+
+IRQ_count_hired_political_advisors_effect = {
+	set_variable = { IRQ_hired_political_advisors = 0 }
+	every_character = {
+		limit = {
+			is_political_advisor = yes
+		}
+		ROOT = {
+			add_to_variable = { IRQ_hired_political_advisors = 1 }
+		}
+	}
+}
+
+# An AI Iraq seats al-Rusafi, taking a free political seat or else standing down a random advisor who can be dismissed
+IRQ_rusafi_takes_a_seat_effect = {
+	if = {
+		limit = {
+			NOT = {
+				IRQ_maruf_al_rusafi = {
+					is_hired_as_advisor = yes
+				}
+			}
+		}
+		IRQ_count_hired_political_advisors_effect = yes
+		if = {
+			limit = {
+				check_variable = { IRQ_hired_political_advisors > 2 }
+			}
+			random_character = {
+				limit = {
+					is_political_advisor = yes
+					advisor_can_be_fired = {
+						slot = political_advisor
+					}
+				}
+				set_character_flag = IRQ_makes_way_for_rusafi
+			}
+			if = {
+				limit = {
+					ARM_calouste_gulbenkian = {
+						has_character_flag = IRQ_makes_way_for_rusafi
+					}
+				}
+				deactivate_advisor = ARM_calouste_gulbenkian
+			}
+			if = {
+				limit = {
+					IRQ_abd_al_ilah = {
+						has_character_flag = IRQ_makes_way_for_rusafi
+					}
+				}
+				deactivate_advisor = IRQ_abd_al_ilah_regent
+			}
+			if = {
+				limit = {
+					IRQ_ali_abn_hussein = {
+						has_character_flag = IRQ_makes_way_for_rusafi
+					}
+				}
+				deactivate_advisor = IRQ_ali_abn_hussein
+			}
+			if = {
+				limit = {
+					IRQ_ali_mahmud_al_shaykh = {
+						has_character_flag = IRQ_makes_way_for_rusafi
+					}
+				}
+				deactivate_advisor = IRQ_ali_mahmud_al_shaykh
+			}
+			if = {
+				limit = {
+					IRQ_amir_al_illah = {
+						has_character_flag = IRQ_makes_way_for_rusafi
+					}
+				}
+				deactivate_advisor = IRQ_amir_al_illah
+			}
+			if = {
+				limit = {
+					IRQ_bakr_sidqi = {
+						has_character_flag = IRQ_makes_way_for_rusafi
+					}
+				}
+				deactivate_advisor = IRQ_bakr_sidqi_pm
+			}
+			if = {
+				limit = {
+					IRQ_faisal_ii = {
+						has_character_flag = IRQ_makes_way_for_rusafi
+					}
+				}
+				deactivate_advisor = IRQ_faisal_ii
+			}
+			if = {
+				limit = {
+					IRQ_fritz_grobba = {
+						has_character_flag = IRQ_makes_way_for_rusafi
+					}
+				}
+				deactivate_advisor = IRQ_fritz_grobba
+			}
+			if = {
+				limit = {
+					IRQ_ghazi_i = {
+						has_character_flag = IRQ_makes_way_for_rusafi
+					}
+				}
+				deactivate_advisor = IRQ_ghazi_i
+			}
+			if = {
+				limit = {
+					IRQ_hamdi_al_pachachi = {
+						has_character_flag = IRQ_makes_way_for_rusafi
+					}
+				}
+				deactivate_advisor = IRQ_hamdi_al_pachachi
+			}
+			if = {
+				limit = {
+					IRQ_hikmat_suleiman = {
+						has_character_flag = IRQ_makes_way_for_rusafi
+					}
+				}
+				deactivate_advisor = IRQ_hikmat_suleiman
+			}
+			if = {
+				limit = {
+					IRQ_husain_al_rahhal = {
+						has_character_flag = IRQ_makes_way_for_rusafi
+					}
+				}
+				deactivate_advisor = IRQ_husain_al_rahhal
+			}
+			if = {
+				limit = {
+					IRQ_ibrahim_al_ghandanfari = {
+						has_character_flag = IRQ_makes_way_for_rusafi
+					}
+				}
+				deactivate_advisor = IRQ_ibrahim_al_ghandanfari
+			}
+			if = {
+				limit = {
+					IRQ_jafar_al_timman = {
+						has_character_flag = IRQ_makes_way_for_rusafi
+					}
+				}
+				deactivate_advisor = IRQ_jafar_al_timman
+			}
+			if = {
+				limit = {
+					IRQ_jamil_abdul_wahab = {
+						has_character_flag = IRQ_makes_way_for_rusafi
+					}
+				}
+				deactivate_advisor = IRQ_jamil_abdul_wahab
+			}
+			if = {
+				limit = {
+					IRQ_jamil_al_midfai = {
+						has_character_flag = IRQ_makes_way_for_rusafi
+					}
+				}
+				deactivate_advisor = IRQ_jamil_al_midfai
+			}
+			if = {
+				limit = {
+					IRQ_kamil_al_jaderji = {
+						has_character_flag = IRQ_makes_way_for_rusafi
+					}
+				}
+				deactivate_advisor = IRQ_kamil_al_jaderji
+			}
+			if = {
+				limit = {
+					IRQ_max_von_oppenheim = {
+						has_character_flag = IRQ_makes_way_for_rusafi
+					}
+				}
+				deactivate_advisor = IRQ_max_von_oppenheim
+			}
+			if = {
+				limit = {
+					IRQ_mohamed_hadid = {
+						has_character_flag = IRQ_makes_way_for_rusafi
+					}
+				}
+				deactivate_advisor = IRQ_mohamed_hadid
+			}
+			if = {
+				limit = {
+					IRQ_mohamed_mahdi_kubba = {
+						has_character_flag = IRQ_makes_way_for_rusafi
+					}
+				}
+				deactivate_advisor = IRQ_mohamed_mahdi_kubba
+			}
+			if = {
+				limit = {
+					IRQ_muhammad_amin_zaki = {
+						has_character_flag = IRQ_makes_way_for_rusafi
+					}
+				}
+				deactivate_advisor = IRQ_muhammad_amin_zaki
+			}
+			if = {
+				limit = {
+					IRQ_muhammad_husayn_kashif_al_ghita = {
+						has_character_flag = IRQ_makes_way_for_rusafi
+					}
+				}
+				deactivate_advisor = IRQ_muhammad_husayn_kashif_al_ghita
+			}
+			if = {
+				limit = {
+					IRQ_naji_al_suwaidi = {
+						has_character_flag = IRQ_makes_way_for_rusafi
+					}
+				}
+				deactivate_advisor = IRQ_naji_al_suwaidi
+			}
+			if = {
+				limit = {
+					IRQ_nuri_as_said = {
+						has_character_flag = IRQ_makes_way_for_rusafi
+					}
+				}
+				deactivate_advisor = IRQ_nuri_as_said
+			}
+			if = {
+				limit = {
+					IRQ_saib_shawkat = {
+						has_character_flag = IRQ_makes_way_for_rusafi
+					}
+				}
+				deactivate_advisor = IRQ_saib_shawkat
+			}
+			if = {
+				limit = {
+					IRQ_salah_al_din_al_sabbagh = {
+						has_character_flag = IRQ_makes_way_for_rusafi
+					}
+				}
+				deactivate_advisor = IRQ_salah_al_din_al_sabbagh
+			}
+			if = {
+				limit = {
+					IRQ_sharaf_bin_rajeh = {
+						has_character_flag = IRQ_makes_way_for_rusafi
+					}
+				}
+				deactivate_advisor = IRQ_sharaf_bin_rajeh
+			}
+			if = {
+				limit = {
+					IRQ_taha_al_hashemi = {
+						has_character_flag = IRQ_makes_way_for_rusafi
+					}
+				}
+				deactivate_advisor = IRQ_taha_al_hashemi
+			}
+			if = {
+				limit = {
+					IRQ_tawfiq_al_suawaidi = {
+						has_character_flag = IRQ_makes_way_for_rusafi
+					}
+				}
+				deactivate_advisor = IRQ_tawfiq_al_suawaidi
+			}
+			if = {
+				limit = {
+					IRQ_yusuf_salman_yusuf = {
+						has_character_flag = IRQ_makes_way_for_rusafi
+					}
+				}
+				deactivate_advisor = IRQ_yusuf_salman_yusuf
+			}
+			if = {
+				limit = {
+					PAL_amin_al_husseini = {
+						has_character_flag = IRQ_makes_way_for_rusafi
+					}
+				}
+				deactivate_advisor = PAL_amin_al_husseini
+			}
+			every_character = {
+				limit = {
+					has_character_flag = IRQ_makes_way_for_rusafi
+				}
+				clr_character_flag = IRQ_makes_way_for_rusafi
+			}
+			IRQ_count_hired_political_advisors_effect = yes
+		}
+		if = {
+			limit = {
+				check_variable = { IRQ_hired_political_advisors < 3 }
+			}
+			activate_advisor = IRQ_maruf_al_rusafi
+		}
+		clear_variable = IRQ_hired_political_advisors
+	}
+}

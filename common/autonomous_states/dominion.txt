@@ -29,6 +29,40 @@ autonomy_state = {
 			has_completed_focus = RAJ_red_in_the_shadows
 			add = 10
 		}
+		modifier = {
+			original_tag = CAN
+			OR = {
+				has_completed_focus = CAN_burn_the_royal_portraits
+				has_completed_focus = CAN_swastika_clubs
+			}
+			add = 10
+		}
+		modifier = {
+			original_tag = SAF
+			OR = {
+				has_completed_focus = SAF_empower_the_workers
+				has_completed_focus = SAF_support_the_afrikaner_broederbond
+			}
+			add = 10
+		}
+		modifier = {
+			original_tag = NZL
+			OR = {
+				has_completed_focus = NZL_the_lee_affair
+				has_completed_focus = NZL_in_the_darkness
+			}
+			add = 10
+		}
+		modifier = {
+			original_tag = RAJ
+			date > 1947.7.1
+			NOT = { has_completed_focus = RAJ_his_majestys_loyal_government }
+			add = 10
+		}
+		modifier = {
+			IRQ_PER_should_seek_independence = yes
+			add = 10
+		}
 	}
 	
 	ai_overlord_wants_lower = {

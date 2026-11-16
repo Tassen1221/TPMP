@@ -628,9 +628,37 @@ save_global_event_target_as = WTT_current_china_leader
 
 set_convoys = 40
 
+if = {
+	limit = {
+		has_dlc = "No Compromise, No Surrender"
+	}
+	add_ideas = {
+		CHI_neglected_countryside_fake_ns
+		CHI_corruption_in_the_armed_forces_fake_ns
+		CHI_nine_power_treaty_sea_fake_ns
+	}
+}
+
 1939.1.1 = {
+	if = {
+		limit = {
+			has_dlc = "No Compromise, No Surrender"
+		}
+		remove_ideas = {
+			CHI_neglected_countryside_fake_ns
+			CHI_corruption_in_the_armed_forces_fake_ns
+			CHI_nine_power_treaty_sea_fake_ns
+		}
+		add_ideas = {
+			CHI_corruption_in_the_administration_fake_ns
+			CHI_protracted_warfare_idea_fake_ns
+			CHI_gung_ho_idea_fake_ns
+		}
+	}
 	
 	set_global_flag = CHI_xian_fired #Don't trigger the Xi'an Incident again
+	set_global_flag = chi_yellow_river_blown
+	set_country_flag = CHI_relocated_jinling_arsenal
 
 	IF = {
 		limit = {

@@ -68,7 +68,7 @@
 		cost = 5
 
 		ai_will_do = {
-			factor = 9
+			factor = 15
 		}
 
 		available = {
@@ -213,7 +213,7 @@
 		cost = 5
 
 		ai_will_do = {
-			factor = 10
+			factor = 2
 		}
 
 		available = {
@@ -273,10 +273,10 @@
 				add_dynamic_modifier = {
 					modifier = TPMP_ROM_muntenia_industrial_modifier_2
 				}
-				add_extra_state_shared_building_slots = 2
+				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = industrial_complex
-					level = 2
+					level = 1
 					instant_build = yes
 				}
 			}
@@ -290,17 +290,17 @@
 		y = 1
 		relative_position_id = TPMP_ROM_locomotive_import_ban
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
-			factor = 10
+			factor = 2
 		}
 
 		available = {
 			NOT = { has_country_flag = TPMP_ROM_instability }
 
 		}
-		
+
 		bypass = {
 
 		}
@@ -311,7 +311,7 @@
 
 
 		completion_reward = {
-			add_offsite_building = { type = industrial_complex level = 2 }
+			add_offsite_building = { type = industrial_complex level = 1 }
 			add_tech_bonus = {
 				bonus = 1.0
 				uses = 1
@@ -330,7 +330,7 @@
 		cost = 5
 
 		ai_will_do = {
-			factor = 13
+			factor = 15
 		}
 
 		available = {
@@ -349,6 +349,7 @@
 
 		completion_reward = {
 			46 = {
+				add_extra_state_shared_building_slots = 1
 				add_resource = {
 					type = oil
 					amount = 240
@@ -384,7 +385,7 @@
 		cost = 10
 
 		ai_will_do = {
-			factor = 200
+			factor = 15
 		}
 
 		available = {
@@ -498,24 +499,6 @@
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		complete_tooltip = {
-			random_state = {
-				limit = {
-					has_state_flag = ROM_hunedoara_steel_works_IC
-				}
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = industrial_complex
-					level = 2
-					instant_build = yes
-				}
-				add_resource = {
-					type = steel
-					amount = 80
-				}
-			}
-		}
-
 		completion_reward = {
 			random_owned_controlled_state = {
 				prioritize = { 84 }
@@ -551,7 +534,7 @@
 		cost = 10
 
 		ai_will_do = {
-			factor = 50
+			factor = 2s
 		}
 
 		available = {
@@ -569,7 +552,7 @@
 
 
 		completion_reward = {
-			add_offsite_building = { type = industrial_complex level = 2 }
+			add_offsite_building = { type = industrial_complex level = 1 }
 			if = {
 				limit = {
 					46 = {
@@ -644,7 +627,7 @@
 		cost = 10
 
 		ai_will_do = {
-			factor = 90
+			factor = 2
 		}
 
 		available = {
@@ -666,10 +649,10 @@
 				add_dynamic_modifier = {
 					modifier = TPMP_ROM_tohan_complex_modifier
 				}
-				add_extra_state_shared_building_slots = 2
+				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = arms_factory
-					level = 2
+					level = 1
 					instant_build = yes
 				}
 			}
@@ -714,7 +697,7 @@
 		cost = 10
 
 		ai_will_do = {
-			factor = 90
+			factor = 10
 		}
 
 		available = {
@@ -858,7 +841,7 @@
 		cost = 5
 
 		ai_will_do = {
-			factor = 10
+			factor = 2
 		}
 
 		available = {
@@ -896,7 +879,7 @@
 		cost = 10
 
 		ai_will_do = {
-			factor = 10
+			factor = 100
 		}
 
 		available = {
@@ -983,15 +966,12 @@
 		cost = 5
 
 		ai_will_do = {
-			factor = 10
+			factor = 2
 		}
 
 		available = {
 			NOT = { has_country_flag = TPMP_ROM_instability }
-			OR = {
-				has_completed_focus = TPMP_ROM_the_generals_ultimatum
-				has_completed_focus = TPMP_ROM_present_a_scapegoat
-			}
+			has_completed_focus = TPMP_ROM_present_a_scapegoat
 		}
 
 		bypass = {
@@ -1004,10 +984,10 @@
 
 		completion_reward = {
 			46 = {
-				add_extra_state_shared_building_slots = 2
+				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = arms_factory
-					level = 2
+					level = 1
 					instant_build = yes
 				}
 			}
@@ -1025,6 +1005,10 @@
 		relative_position_id = TPMP_ROM_wohlthat_agreement
 
 		cost = 10
+
+		ai_will_do = {
+			factor = 2
+		}
 
 		available = {
 			NOT = { has_country_flag = TPMP_ROM_instability }
@@ -1059,6 +1043,10 @@
 
 		cost = 5
 
+		ai_will_do = {
+			factor = 2
+		}
+
 		available = {
 			NOT = { has_country_flag = TPMP_ROM_instability }
 		}
@@ -1077,7 +1065,7 @@
 		cost = 10
 
 		ai_will_do = {
-			factor = 10
+			factor = 2
 		}
 
 		available = {
@@ -1141,7 +1129,7 @@
 		cost = 5
 
 		ai_will_do = {
-			factor = 10
+			factor = 2
 		}
 
 		available = {
@@ -1203,7 +1191,7 @@
 		cost = 10
 
 		ai_will_do = {
-			factor = 10
+			factor = 2
 		}
 
 		available = {
@@ -1240,7 +1228,7 @@
 		cost = 10
 
 		ai_will_do = {
-			factor = 10
+			factor = 2
 		}
 
 		available = {
@@ -1273,7 +1261,7 @@
 		cost = 10
 
 		ai_will_do = {
-			factor = 10
+			factor = 2
 		}
 
 		available = {
@@ -1561,10 +1549,10 @@
 
 		completion_reward = {
 			81 = {
-				add_extra_state_shared_building_slots = 1
+				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = arms_factory
-					level = 1
+					level = 2
 					instant_build = yes
 				}
 			}
@@ -1850,8 +1838,6 @@
 				remove_ideas = TPMP_ROM_camarilla_marinescu
 				remove_ideas = TPMP_ROM_camarilla_marinescu_renewed
 			}
-
-			custom_effect_tooltip = TPMP_ROM_the_1st_wave_partially_finished_tt
 		}
 	}
 	focus = {
@@ -1929,10 +1915,10 @@
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 			46 = {
-				add_extra_state_shared_building_slots = 3
+				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = arms_factory
-					level = 3
+					level = 1
 					instant_build = yes
 				}
 			}
@@ -2011,10 +1997,10 @@
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 			46 = {
-				add_extra_state_shared_building_slots = 2
+				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = arms_factory
-					level = 2
+					level = 1
 					instant_build = yes
 				}
 			}
@@ -2384,15 +2370,94 @@
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 			add_ideas = TPMP_ROM_german_controlled_military_idea
-			set_technology = {
-				antitank0_tech = 1
-				heavyantiair1_tech = 1
-				armored_car1 = 1
-				tech_recon = 1
-				headquarters1_tech = 1
-				tech_military_police = 1
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = TPMP_ROM_german_army_integration_tech_tt
+			hidden_effect = {
+				set_technology = {
+					armored_car1 = 1
+					tech_recon = 1
+					headquarters1_tech = 1
+					tech_military_police = 1
+					antitank0_tech = 1
+					antitank2_tech = 1
+					heavyantiair1_tech = 1
+					infantrygun2_tech = 1
+					infantrysupport2_tech = 1
+					infantryat1_tech = 1
+					infantrycqc1_tech = 1
+					infantrycqc2_tech = 1
+				}
+
+				create_equipment_variant = {
+					name = "Roşiori Eq."
+					type = line_infantry_equipment_1
+					parent_version = 0
+					allow_without_tech = yes
+					modules = {
+						soldier_type_slot_0 = general_purpose_machine_gun_1
+						soldier_type_slot_1 = general_purpose_machine_gun_1
+						soldier_type_slot_2 = general_purpose_machine_gun_1
+						soldier_type_slot_3 = semi_auto_1
+						soldier_type_slot_4 = semi_auto_1
+						soldier_type_slot_5 = semi_auto_1
+						soldier_type_slot_6 = semi_auto_1
+						soldier_type_slot_7 = semi_auto_1
+						soldier_type_slot_8 = semi_auto_1
+						soldier_type_slot_9 = at_rifle_1
+						uniform_type_slot = camouflage
+						sidearm_type_slot = pistol_2
+						support_type_slot_0 = infantry_heavy_machine_gun
+						support_type_slot_1 = rations
+					}
+				}
+
+				create_equipment_variant = {
+					name = "Călăraşi Moto Eq."
+					type = mobile_infantry_equipment_1
+					parent_version = 0
+					allow_without_tech = yes
+					modules = {
+						soldier_type_slot_0 = light_machine_gun_1
+						soldier_type_slot_1 = light_machine_gun_1
+						soldier_type_slot_2 = light_machine_gun_1
+						soldier_type_slot_3 = light_machine_gun_1
+						soldier_type_slot_4 = submachine_gun_1
+						soldier_type_slot_5 = submachine_gun_1
+						soldier_type_slot_6 = submachine_gun_1
+						soldier_type_slot_7 = submachine_gun_1
+						soldier_type_slot_8 = submachine_gun_1
+						soldier_type_slot_9 = at_rifle_1
+						uniform_type_slot = camouflage
+						sidearm_type_slot = machine_pistol_side
+						support_type_slot_0 = mortar
+						support_type_slot_1 = satchel_charge
+					}
+				}
+
+				create_equipment_variant = {
+					name = "Vânători Eq."
+					type = special_infantry_equipment_1
+					parent_version = 0
+					allow_without_tech = yes
+					modules = {
+						soldier_type_slot_0 = light_machine_gun_1
+						soldier_type_slot_1 = light_machine_gun_1
+						soldier_type_slot_2 = light_machine_gun_1
+						soldier_type_slot_3 = light_machine_gun_1
+						soldier_type_slot_4 = submachine_gun_1
+						soldier_type_slot_5 = submachine_gun_1
+						soldier_type_slot_6 = submachine_gun_1
+						soldier_type_slot_7 = submachine_gun_1
+						soldier_type_slot_8 = submachine_gun_1
+						soldier_type_slot_9 = submachine_gun_1
+						uniform_type_slot = camouflage
+						sidearm_type_slot = machine_pistol_side
+						support_type_slot_0 = satchel_charge
+						support_type_slot_1 = specialized_rations
+					}
+				}
 			}
-			custom_effect_tooltip = TPMP_ROM_the_1st_wave_partially_finished_tt
 		}
 	}
 
@@ -2407,7 +2472,7 @@
 		cost = 5
 
 		ai_will_do = {
-			factor = 1
+			factor = 5
 		}
 
 		available = {
@@ -2423,61 +2488,59 @@
 
 		completion_reward = {
 			custom_effect_tooltip = TPMP_ROM_the_1st_wave_tt
-			set_variable = { TPMP_ROM_wave_deployments_remaining = 3 }
-			if = {
-				limit = {
-					NOT = { has_country_flag = TPMP_ROM_trained_infantry_template_created }
+
+			division_template = {
+				name = "Roşiori '40"
+				division_names_group = ROM_INF_01
+				priority = 2
+
+				regiments = {
+					infantry = { x = 0 y = 0 }
+					infantry = { x = 0 y = 1 }
+					infantry = { x = 0 y = 2 }
+					infantry = { x = 0 y = 3 }
+					infantry = { x = 0 y = 4 }
+					infantry = { x = 1 y = 0 }
+					infantry = { x = 1 y = 1 }
+					infantry = { x = 1 y = 2 }
+					infantry = { x = 1 y = 3 }
+					infantry = { x = 1 y = 4 }
+
+					anti_tank_brigade = { x = 2 y = 0 }
+					anti_tank_brigade = { x = 2 y = 1 }
+					anti_tank_brigade = { x = 2 y = 2 }
+					anti_tank_brigade = { x = 3 y = 0 }
+					anti_tank_brigade = { x = 3 y = 1 }
+					anti_tank_brigade = { x = 3 y = 2 }
+					anti_tank_brigade = { x = 4 y = 0 }
+					anti_tank_brigade = { x = 4 y = 1 }
+					anti_tank_brigade = { x = 4 y = 2 }
+					anti_tank_brigade = { x = 4 y = 3 }
 				}
-				set_country_flag = TPMP_ROM_trained_infantry_template_created
-				division_template = {
-					name = "TPMP_ROM_german_trained_infantry"
-					division_names_group = ROM_INF_01
-					priority = 2
 
-					regiments = {
-						infantry = { x = 0 y = 0 }
-						infantry = { x = 0 y = 1 }
-						infantry = { x = 0 y = 2 }
-						infantry = { x = 0 y = 3 }
-						infantry = { x = 0 y = 4 }
-						infantry = { x = 1 y = 0 }
-						infantry = { x = 1 y = 1 }
-						infantry = { x = 1 y = 2 }
-						infantry = { x = 1 y = 3 }
-						infantry = { x = 1 y = 4 }
+				regimental_support = {
+					heavy_anti_air = { x = 0 y = 0 }
+					heavy_anti_air = { x = 1 y = 0 }
+					heavy_anti_air = { x = 2 y = 0 }
+					heavy_anti_air = { x = 3 y = 0 }
+					heavy_anti_air = { x = 4 y = 0 }
+				}
 
-						anti_tank_brigade = { x = 2 y = 0 }
-						anti_tank_brigade = { x = 2 y = 1 }
-						anti_tank_brigade = { x = 2 y = 2 }
-						anti_tank_brigade = { x = 3 y = 0 }
-						anti_tank_brigade = { x = 3 y = 1 }
-						anti_tank_brigade = { x = 3 y = 2 }
-						anti_tank_brigade = { x = 4 y = 0 }
-						anti_tank_brigade = { x = 4 y = 1 }
-						anti_tank_brigade = { x = 4 y = 2 }
-						anti_tank_brigade = { x = 4 y = 3 }
-					}
-
-					regimental_support = {
-						heavy_anti_air = { x = 0 y = 0 }
-						heavy_anti_air = { x = 1 y = 0 }
-						heavy_anti_air = { x = 2 y = 0 }
-						heavy_anti_air = { x = 3 y = 0 }
-						heavy_anti_air = { x = 4 y = 0 }
-					}
-
-					support = {
-						engineer = { x = 0 y = 0 }
-						armored_car_recon = { x = 0 y = 1 }
-						headquarters = { x = 0 y = 2 }
-						military_police = { x = 0 y = 3 }
-					}
+				support = {
+					engineer = { x = 0 y = 0 }
+					armored_car_recon = { x = 0 y = 1 }
+					headquarters = { x = 0 y = 2 }
+					military_police = { x = 0 y = 3 }
 				}
 			}
-			hidden_effect = {
-				activate_mission = TPMP_ROM_wave_deployment_mission
+
+			capital_scope = {
+				create_unit = {
+					division = "division_template = \"Roşiori '40\" start_experience_factor = 0.3"
+					owner = ROOT
+					count = 24
+				}
 			}
-			custom_effect_tooltip = TPMP_ROM_the_1st_wave_partially_finished_tt
 		}
 	}
 
@@ -2508,7 +2571,14 @@
 		available_if_capitulated = no
 
 		completion_reward = {
-			custom_effect_tooltip = TPMP_ROM_the_1st_wave_partially_finished_tt
+			custom_effect_tooltip = TPMP_ROM_beg_for_modern_equipment_tt
+			country_event = { id = TPMP_ROM.7 }
+
+			hidden_effect = {
+				set_technology = {
+					mechanised_infantry = 1
+				}
+			}
 		}
 	}
 
@@ -2524,7 +2594,7 @@
 		cost = 5
 
 		ai_will_do = {
-			factor = 1
+			factor = 5
 		}
 
 		available = {
@@ -2539,7 +2609,52 @@
 		available_if_capitulated = no
 
 		completion_reward = {
-			custom_effect_tooltip = TPMP_ROM_the_1st_wave_partially_finished_tt
+			custom_effect_tooltip = TPMP_ROM_romanians_make_do_tt
+
+			division_template = {
+				name = "Rezervişti"
+				division_names_group = ROM_INF_01
+				priority = 2
+				regiments = {
+					militia = { x = 0 y = 0 }
+					militia = { x = 0 y = 1 }
+					militia = { x = 0 y = 2 }
+					militia = { x = 0 y = 3 }
+					militia = { x = 1 y = 0 }
+					militia = { x = 1 y = 1 }
+					militia = { x = 1 y = 2 }
+					militia = { x = 1 y = 3 }
+					militia = { x = 2 y = 0 }
+					militia = { x = 2 y = 1 }
+					militia = { x = 2 y = 2 }
+					militia = { x = 2 y = 3 }
+					artillery_brigade = { x = 3 y = 0 }
+					artillery_brigade = { x = 3 y = 1 }
+					artillery_brigade = { x = 3 y = 2 }
+					artillery_brigade = { x = 4 y = 0 }
+					artillery_brigade = { x = 4 y = 1 }
+					artillery_brigade = { x = 4 y = 2 }
+				}
+				regimental_support = {
+					heavy_anti_air = { x = 0 y = 0 }
+					heavy_anti_air = { x = 1 y = 0 }
+					heavy_anti_air = { x = 2 y = 0 }
+				}
+				support = {
+					engineer = { x = 0 y = 0 }
+					recon = { x = 0 y = 1 }
+					headquarters = { x = 0 y = 2 }
+					military_police = { x = 0 y = 3 }
+				}
+			}
+
+			capital_scope = {
+				create_unit = {
+					division = "division_template = \"Rezervişti\" start_experience_factor = 0.3"
+					owner = ROOT
+					count = 36
+				}
+			}
 		}
 	}
 
@@ -2554,11 +2669,13 @@
 		cost = 5
 
 		ai_will_do = {
-			factor = 1
+			factor = 5
 		}
 
 		available = {
 			NOT = { has_country_flag = TPMP_ROM_instability }
+			has_war_with = SOV
+			NOT = { has_idea = TPMP_GER_barbarossa_idea }
 		}
 
 		bypass = {
@@ -2569,7 +2686,65 @@
 		available_if_capitulated = no
 
 		completion_reward = {
-			custom_effect_tooltip = TPMP_ROM_the_1st_wave_partially_finished_tt
+			custom_effect_tooltip = TPMP_ROM_the_final_push_tt
+
+			add_timed_idea = {
+				idea = TPMP_ROM_the_final_push_idea
+				days = 360
+			}
+
+			division_template = {
+				name = "Roşiori '43"
+				division_names_group = ROM_INF_01
+				priority = 2
+
+				regiments = {
+					infantry = { x = 0 y = 0 }
+					infantry = { x = 0 y = 1 }
+					infantry = { x = 0 y = 2 }
+					infantry = { x = 0 y = 3 }
+					infantry = { x = 0 y = 4 }
+					infantry = { x = 1 y = 0 }
+					infantry = { x = 1 y = 1 }
+					infantry = { x = 1 y = 2 }
+					infantry = { x = 1 y = 3 }
+					infantry = { x = 1 y = 4 }
+
+					anti_tank_brigade = { x = 2 y = 0 }
+					anti_tank_brigade = { x = 2 y = 1 }
+					anti_tank_brigade = { x = 2 y = 2 }
+					anti_tank_brigade = { x = 3 y = 0 }
+					anti_tank_brigade = { x = 3 y = 1 }
+					anti_tank_brigade = { x = 3 y = 2 }
+					anti_tank_brigade = { x = 4 y = 0 }
+					anti_tank_brigade = { x = 4 y = 1 }
+					anti_tank_brigade = { x = 4 y = 2 }
+					anti_tank_brigade = { x = 4 y = 3 }
+				}
+
+				regimental_support = {
+					heavy_anti_air = { x = 0 y = 0 }
+					heavy_anti_air = { x = 1 y = 0 }
+					heavy_anti_air = { x = 2 y = 0 }
+					heavy_anti_air = { x = 3 y = 0 }
+					heavy_anti_air = { x = 4 y = 0 }
+				}
+
+				support = {
+					engineer = { x = 0 y = 0 }
+					armored_car_recon = { x = 0 y = 1 }
+					headquarters = { x = 0 y = 2 }
+					military_police = { x = 0 y = 3 }
+				}
+			}
+
+			capital_scope = {
+				create_unit = {
+					division = "division_template = \"Roşiori '43\" start_experience_factor = 0.3"
+					owner = ROOT
+					count = 12
+				}
+			}
 		}
 	}
 
@@ -2776,6 +2951,8 @@
 		completion_reward = {
 			custom_effect_tooltip = TPMP_ROM_modify_legionarii_modifier_tt
 			add_to_variable = { TPMP_ROM_legionarii_army_armor_attack_factor = 0.05 tooltip = army_armor_attack_factor_tt }
+			add_to_variable = { TPMP_ROM_legionarii_motorized_attack_factor = 0.05 tooltip = motorized_attack_factor_tt }
+			add_to_variable = { TPMP_ROM_legionarii_mechanized_attack_factor = 0.05 tooltip = mechanized_attack_factor_tt }
 		}
 	}
 
@@ -2839,13 +3016,13 @@
 		completion_reward = {
 			add_unit_bonus = {
 				infantry = {
-					breakthrough = 0.2
+					breakthrough = 0.1
 				}
 				category_special_forces = {
-					breakthrough = 0.2
+					breakthrough = 0.1
 				}
 				category_mobile_infantry = {
-					breakthrough = 0.2
+					breakthrough = 0.1
 				}
 			}
 		}
@@ -2888,9 +3065,9 @@
 	focus = {
 		id = TPMP_ROM_echipa_legionara_din_spania
 		icon = GFX_focus_ARG_invite_spanish_nationalists
-		prerequisite = { focus = TPMP_ROM_army_maneuvers }
+		# prerequisite = { focus = TPMP_ROM_army_maneuvers }
 		x = 4
-		y = 1
+		y = 0
 		relative_position_id = TPMP_ROM_army_maneuvers
 
 		cost = 5
@@ -2911,13 +3088,30 @@
 		bypass = {
 		}
 
+		cancelable = no
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
 
+		select_effect = {
+			add_ideas = TPMP_ROM_volunteers_in_spain_nationalist
+			set_rule = { can_send_volunteers = yes }
+		}
+
 		completion_reward = {
+			custom_effect_tooltip = TPMP_ROM_echipa_legionara_din_spania_select_tt
+			effect_tooltip = {
+				add_ideas = TPMP_ROM_volunteers_in_spain_nationalist
+				set_rule = { can_send_volunteers = yes }
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
 			SPA = {
 				add_manpower = 3000
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_timed_idea = {
+				idea = TPMP_ROM_deployment_costs
+				days = 70
 			}
 			add_ai_strategy = {
 				type = befriend
@@ -2929,9 +3123,9 @@
 				id = SPA
 				value = 100
 			}
-			add_manpower = -3000
-			add_ideas = TPMP_ROM_volunteers_in_spain_nationalist
-			set_rule = { can_send_volunteers = yes }
+			# add_manpower = -3000
+			# add_ideas = TPMP_ROM_volunteers_in_spain_nationalist
+			# set_rule = { can_send_volunteers = yes }
 		}
 	}
 
@@ -3378,6 +3572,9 @@
 
 		available = {
 			NOT = { has_country_flag = TPMP_ROM_instability }
+			84 = { is_owned_by = ROOT }
+			NOT = { has_idea = TPMP_ROM_deployment_costs }
+			divisions_in_state = { size < 1 state = 84 }
 		}
 
 		bypass = {
@@ -3389,53 +3586,181 @@
 
 		completion_reward = {
 			custom_effect_tooltip = TPMP_ROM_vanatori_de_munte_tt
-			division_template = {
-				name = "Vanatori de munte"
-				priority = 2
-				division_names_group = ROM_MTN_01
-				regiments = {
-					mountaineers = { x = 0 y = 0 }
-					mountaineers = { x = 0 y = 1 }
-					mountaineers = { x = 0 y = 2 }
-					mountaineers = { x = 0 y = 3 }
-					mountaineers = { x = 0 y = 4 }
 
-					mountaineers = { x = 1 y = 0 }
-					mountaineers = { x = 1 y = 1 }
-					mountaineers = { x = 1 y = 2 }
-					mountaineers = { x = 1 y = 3 }
-					mountaineers = { x = 1 y = 4 }
-
-					mountaineers = { x = 2 y = 0 }
-					mountaineers = { x = 2 y = 1 }
-					mountaineers = { x = 2 y = 2 }
-					mountaineers = { x = 2 y = 3 }
-					mountaineers = { x = 2 y = 4 }
+			hidden_effect = {
+				if = {
+					limit = { NOT = { has_tech = armored_car1 } }
+					add_equipment_to_stockpile = { type = gw_armored_car_equipment amount = 60 producer = GER }
 				}
-				support = {
-					engineer = { x = 0 y = 0 }
-					recon = { x = 0 y = 1 }
-				}
-				regimental_support = {
-					artillery = { x = 0 y = 0 }
+				if = {
+					limit = { NOT = { has_tech = heavyantiair1_tech } }
+					add_equipment_to_stockpile = { type = heavy_anti_air_equipment_1 amount = 180 producer = GER }
 				}
 			}
-			random_owned_controlled_state = {
-				limit = { ROOT = { has_full_control_of_state = PREV } }
-				prioritize = { 46 }
-				create_unit = {
-					division = "name = \"Vanatori de munte\" division_template = \"Vanatori de munte\" start_experience_factor = 1.0"
-					owner = ROM
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+
+			if = {
+				limit = { has_tech = rocketartillery1_tech }
+				division_template = {
+					name = "Vanatori de munte"
+					is_locked = yes
+					priority = 2
+					division_names_group = ROM_MTN_01
+					regiments = {
+						mountaineers = { x = 0 y = 0 }
+						mountaineers = { x = 0 y = 1 }
+						mountaineers = { x = 0 y = 2 }
+						mountaineers = { x = 0 y = 3 }
+						mountaineers = { x = 0 y = 4 }
+
+						mountaineers = { x = 1 y = 0 }
+						mountaineers = { x = 1 y = 1 }
+						mountaineers = { x = 1 y = 2 }
+						mountaineers = { x = 1 y = 3 }
+						mountaineers = { x = 1 y = 4 }
+
+						rocket_artillery_brigade = { x = 2 y = 0 }
+						rocket_artillery_brigade = { x = 2 y = 1 }
+						rocket_artillery_brigade = { x = 2 y = 2 }
+
+						rocket_artillery_brigade = { x = 3 y = 0 }
+						rocket_artillery_brigade = { x = 3 y = 1 }
+						rocket_artillery_brigade = { x = 3 y = 2 }
+						rocket_artillery_brigade = { x = 3 y = 3 }
+
+						rocket_artillery_brigade = { x = 4 y = 0 }
+						rocket_artillery_brigade = { x = 4 y = 1 }
+						rocket_artillery_brigade = { x = 4 y = 2 }
+					}
+					regimental_support = {
+						heavy_anti_air = { x = 0 y = 0 }
+						heavy_anti_air = { x = 1 y = 0 }
+						heavy_anti_air = { x = 2 y = 0 }
+						heavy_anti_air = { x = 3 y = 0 }
+						commandos = { x = 4 y = 0 }
+					}
+					support = {
+						engineer = { x = 0 y = 0 }
+						armored_car_recon = { x = 0 y = 1 }
+						headquarters = { x = 0 y = 2 }
+						military_police = { x = 0 y = 3 }
+						field_hospital = { x = 0 y = 4 }
+						logistics_company = { x = 0 y = 5 }
+					}
 				}
-				create_unit = {
-					division = "name = \"Vanatori de munte\" division_template = \"Vanatori de munte\" start_experience_factor = 1.0"
-					owner = ROM
-				}
-				create_unit = {
-					division = "name = \"Vanatori de munte\" division_template = \"Vanatori de munte\" start_experience_factor = 1.0"
-					owner = ROM
+				84 = {
+					create_unit = {
+						division = "name = \"Vanatori de munte\" division_template = \"Vanatori de munte\" start_experience_factor = 1.0"
+						owner = ROM
+					}
+					create_unit = {
+						division = "name = \"Vanatori de munte\" division_template = \"Vanatori de munte\" start_experience_factor = 1.0"
+						owner = ROM
+					}
+					create_unit = {
+						division = "name = \"Vanatori de munte\" division_template = \"Vanatori de munte\" start_experience_factor = 1.0"
+						owner = ROM
+					}
+					hidden_effect = {
+						every_state_division = {
+							add_history_entry = {
+								key = TPMP_ROM_vanatori_de_munte_history
+								subject = "Vanatori de munte"
+								allow = yes
+							}
+							add_unit_medal_to_latest_entry = {
+								unit_medals = TPMP_ROM_steel_divisions_medal
+							}
+						}
+					}
 				}
 			}
+			else = {
+				division_template = {
+					name = "Vanatori de munte"
+					is_locked = yes
+					priority = 2
+					division_names_group = ROM_MTN_01
+					regiments = {
+						mountaineers = { x = 0 y = 0 }
+						mountaineers = { x = 0 y = 1 }
+						mountaineers = { x = 0 y = 2 }
+						mountaineers = { x = 0 y = 3 }
+						mountaineers = { x = 0 y = 4 }
+
+						mountaineers = { x = 1 y = 0 }
+						mountaineers = { x = 1 y = 1 }
+						mountaineers = { x = 1 y = 2 }
+						mountaineers = { x = 1 y = 3 }
+						mountaineers = { x = 1 y = 4 }
+
+						artillery_brigade = { x = 2 y = 0 }
+						artillery_brigade = { x = 2 y = 1 }
+						artillery_brigade = { x = 2 y = 2 }
+
+						artillery_brigade = { x = 3 y = 0 }
+						artillery_brigade = { x = 3 y = 1 }
+						artillery_brigade = { x = 3 y = 2 }
+						artillery_brigade = { x = 3 y = 3 }
+
+						artillery_brigade = { x = 4 y = 0 }
+						artillery_brigade = { x = 4 y = 1 }
+						artillery_brigade = { x = 4 y = 2 }
+					}
+					regimental_support = {
+						heavy_anti_air = { x = 0 y = 0 }
+						heavy_anti_air = { x = 1 y = 0 }
+						heavy_anti_air = { x = 2 y = 0 }
+						heavy_anti_air = { x = 3 y = 0 }
+						commandos = { x = 4 y = 0 }
+					}
+					support = {
+						engineer = { x = 0 y = 0 }
+						armored_car_recon = { x = 0 y = 1 }
+						headquarters = { x = 0 y = 2 }
+						military_police = { x = 0 y = 3 }
+						field_hospital = { x = 0 y = 4 }
+						logistics_company = { x = 0 y = 5 }
+					}
+				}
+				84 = {
+					create_unit = {
+						division = "name = \"Vanatori de munte\" division_template = \"Vanatori de munte\" start_experience_factor = 1.0"
+						owner = ROM
+					}
+					create_unit = {
+						division = "name = \"Vanatori de munte\" division_template = \"Vanatori de munte\" start_experience_factor = 1.0"
+						owner = ROM
+					}
+					create_unit = {
+						division = "name = \"Vanatori de munte\" division_template = \"Vanatori de munte\" start_experience_factor = 1.0"
+						owner = ROM
+					}
+					hidden_effect = {
+						every_state_division = {
+							add_history_entry = {
+								key = TPMP_ROM_vanatori_de_munte_history
+								subject = "Vanatori de munte"
+								allow = yes
+							}
+							add_unit_medal_to_latest_entry = {
+								unit_medals = TPMP_ROM_steel_divisions_medal
+							}
+						}
+					}
+				}
+			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+
+			add_timed_idea = {
+				idea = TPMP_ROM_deployment_costs
+				days = 70
+			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+
 			add_tech_bonus = {
 				name = TPMP_ROM_venatori_de_munte
 				bonus = 1.0
@@ -3444,7 +3769,7 @@
 				category = cat_mountaineers_tech
 			}
 
-			custom_effect_tooltip = TPMP_ROM_alexandru_nasta_general_tt
+			custom_effect_tooltip = generic_skip_one_line_tt
 
 			custom_effect_tooltip = available_military_high_command
 			show_ideas_tooltip = TPMP_ROM_alexandru_nasta
@@ -3498,6 +3823,9 @@
 
 		available = {
 			NOT = { has_country_flag = TPMP_ROM_instability }
+			81 = { is_owned_by = ROOT }
+			NOT = { has_idea = TPMP_ROM_deployment_costs }
+			divisions_in_state = { size < 1 state = 81 }
 		}
 
 		bypass = {
@@ -3508,7 +3836,100 @@
 		available_if_capitulated = no
 
 		completion_reward = {
-			custom_effect_tooltip = TPMP_ROM_gheorghe_stavrescu_general_tt
+			custom_effect_tooltip = TPMP_ROM_corpul_vi_teritorial_tt
+
+			hidden_effect = {
+				set_technology = {
+					antitank0_tech = 1
+				}
+				if = {
+					limit = { NOT = { has_tech = armored_car1 } }
+					add_equipment_to_stockpile = { type = gw_armored_car_equipment amount = 160 producer = GER }
+				}
+				if = {
+					limit = { NOT = { has_tech = heavyantiair1_tech } }
+					add_equipment_to_stockpile = { type = heavy_anti_air_equipment_1 amount = 600 producer = GER }
+				}
+			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+
+			division_template = {
+				name = "Teritoriali"
+				is_locked = yes
+				division_names_group = ROM_INF_01
+				priority = 2
+
+				regiments = {
+					infantry = { x = 0 y = 0 }
+					infantry = { x = 0 y = 1 }
+					infantry = { x = 0 y = 2 }
+					infantry = { x = 0 y = 3 }
+					infantry = { x = 0 y = 4 }
+					infantry = { x = 1 y = 0 }
+					infantry = { x = 1 y = 1 }
+					infantry = { x = 1 y = 2 }
+					infantry = { x = 1 y = 3 }
+					infantry = { x = 1 y = 4 }
+
+					anti_tank_brigade = { x = 2 y = 0 }
+					anti_tank_brigade = { x = 2 y = 1 }
+					anti_tank_brigade = { x = 2 y = 2 }
+					anti_tank_brigade = { x = 3 y = 0 }
+					anti_tank_brigade = { x = 3 y = 1 }
+					anti_tank_brigade = { x = 3 y = 2 }
+					anti_tank_brigade = { x = 4 y = 0 }
+					anti_tank_brigade = { x = 4 y = 1 }
+					anti_tank_brigade = { x = 4 y = 2 }
+					anti_tank_brigade = { x = 4 y = 3 }
+				}
+
+				regimental_support = {
+					heavy_anti_air = { x = 0 y = 0 }
+					heavy_anti_air = { x = 1 y = 0 }
+					heavy_anti_air = { x = 2 y = 0 }
+					heavy_anti_air = { x = 3 y = 0 }
+					heavy_anti_air = { x = 4 y = 0 }
+				}
+
+				support = {
+					engineer = { x = 0 y = 0 }
+					armored_car_recon = { x = 0 y = 1 }
+					headquarters = { x = 0 y = 2 }
+					military_police = { x = 0 y = 3 }
+					field_hospital = { x = 0 y = 4 }
+					logistics_company = { x = 0 y = 5 }
+				}
+			}
+
+			81 = {
+				create_unit = {
+					division = "division_template = \"Teritoriali\" start_experience_factor = 0.3 start_equipment_factor = 0"
+					owner = ROOT
+					count = 8
+				}
+				hidden_effect = {
+					every_state_division = {
+						add_history_entry = {
+							key = TPMP_ROM_corpul_vi_teritorial_history
+							subject = "Teritoriali"
+							allow = yes
+						}
+						add_unit_medal_to_latest_entry = {
+							unit_medals = TPMP_ROM_steel_divisions_medal
+						}
+					}
+				}
+			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+
+			add_timed_idea = {
+				idea = TPMP_ROM_deployment_costs
+				days = 70
+			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
 
 			custom_effect_tooltip = available_military_high_command
 			show_ideas_tooltip = TPMP_ROM_gheorghe_stavrescu
@@ -3532,6 +3953,9 @@
 
 		available = {
 			NOT = { has_country_flag = TPMP_ROM_instability }
+			971 = { is_owned_by = ROOT }
+			NOT = { has_idea = TPMP_ROM_deployment_costs }
+			divisions_in_state = { size < 1 state = 971 }
 		}
 
 		bypass = {
@@ -3542,7 +3966,18 @@
 		available_if_capitulated = no
 
 		completion_reward = {
-			custom_effect_tooltip = TPMP_ROM_radu_korne_general_tt
+			custom_effect_tooltip = TPMP_ROM_1_blindata_romania_mare_tt
+
+			country_event = { id = TPMP_ROM.8 }
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+
+			add_timed_idea = {
+				idea = TPMP_ROM_deployment_costs
+				days = 70
+			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
 
 			custom_effect_tooltip = available_military_high_command
 			show_ideas_tooltip = TPMP_ROM_radu_korne
@@ -3566,6 +4001,9 @@
 
 		available = {
 			NOT = { has_country_flag = TPMP_ROM_instability }
+			83 = { is_owned_by = ROOT }
+			NOT = { has_idea = TPMP_ROM_deployment_costs }
+			divisions_in_state = { size < 1 state = 83 }
 		}
 
 		bypass = {
@@ -3576,7 +4014,97 @@
 		available_if_capitulated = no
 
 		completion_reward = {
-			custom_effect_tooltip = TPMP_ROM_corneliu_teodorini_general_tt
+			custom_effect_tooltip = TPMP_ROM_div_8_cav_purtata_tt
+
+			hidden_effect = {
+				if = {
+					limit = { NOT = { has_tech = armored_car1 } }
+					add_equipment_to_stockpile = { type = gw_armored_car_equipment amount = 160 producer = GER }
+				}
+				if = {
+					limit = { NOT = { has_tech = heavyantiair1_tech } }
+					add_equipment_to_stockpile = { type = heavy_anti_air_equipment_1 amount = 1080 producer = GER }
+				}
+			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+
+			division_template = {
+				name = "Călăraşi Moto"
+				is_locked = yes
+				division_names_group = ROM_INF_01
+				priority = 2
+
+				regiments = {
+					motorized = { x = 0 y = 0 }
+					motorized = { x = 0 y = 1 }
+					motorized = { x = 0 y = 2 }
+					motorized = { x = 1 y = 0 }
+					motorized = { x = 1 y = 1 }
+					motorized = { x = 1 y = 2 }
+					motorized = { x = 1 y = 3 }
+					motorized = { x = 2 y = 0 }
+					motorized = { x = 2 y = 1 }
+					motorized = { x = 2 y = 2 }
+
+					mot_artillery_brigade = { x = 3 y = 0 }
+					mot_artillery_brigade = { x = 3 y = 1 }
+					mot_artillery_brigade = { x = 3 y = 2 }
+					mot_artillery_brigade = { x = 3 y = 3 }
+					mot_artillery_brigade = { x = 3 y = 4 }
+					mot_artillery_brigade = { x = 4 y = 0 }
+					mot_artillery_brigade = { x = 4 y = 1 }
+					mot_artillery_brigade = { x = 4 y = 2 }
+					mot_heavy_anti_air_brigade = { x = 4 y = 3 }
+					mot_heavy_anti_air_brigade = { x = 4 y = 4 }
+				}
+
+				regimental_support = {
+					heavy_anti_air = { x = 0 y = 0 }
+					heavy_anti_air = { x = 1 y = 0 }
+					heavy_anti_air = { x = 2 y = 0 }
+					heavy_anti_air = { x = 3 y = 0 }
+					heavy_anti_air = { x = 4 y = 0 }
+				}
+
+				support = {
+					engineer = { x = 0 y = 0 }
+					armored_car_recon = { x = 0 y = 1 }
+					headquarters = { x = 0 y = 2 }
+					military_police = { x = 0 y = 3 }
+					signal_company = { x = 0 y = 4 }
+					maintenance_company = { x = 0 y = 5 }
+				}
+			}
+
+			83 = {
+				create_unit = {
+					division = "division_template = \"Călăraşi Moto\" start_experience_factor = 0.3"
+					owner = ROOT
+					count = 8
+				}
+				hidden_effect = {
+					every_state_division = {
+						add_history_entry = {
+							key = TPMP_ROM_div_8_cav_purtata_history
+							subject = "Călăraşi Moto"
+							allow = yes
+						}
+						add_unit_medal_to_latest_entry = {
+							unit_medals = TPMP_ROM_steel_divisions_medal
+						}
+					}
+				}
+			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+
+			add_timed_idea = {
+				idea = TPMP_ROM_deployment_costs
+				days = 70
+			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
 
 			custom_effect_tooltip = available_military_high_command
 			show_ideas_tooltip = TPMP_ROM_corneliu_teodorini
@@ -3639,7 +4167,7 @@
 		x = 37
 		y = 0
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 0
@@ -3715,7 +4243,7 @@
 		y = 1
 		relative_position_id = TPMP_ROM_allied_blueprints
 
-		cost = 14.29
+		cost = 10
 
 		ai_will_do = {
 			factor = 0
@@ -3774,6 +4302,50 @@
 	}
 
 	focus = {
+		id = TPMP_ROM_naval_rd_facilities
+		icon = GFX_focus_generic_navy_research_bonus
+		prerequisite = { focus = TPMP_ROM_allied_blueprints }
+		x = 2
+		y = 1
+		relative_position_id = TPMP_ROM_allied_blueprints
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 0
+		}
+
+		available = {
+			NOT = { has_country_flag = TPMP_ROM_instability }
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_breakthrough_progress = {
+				specialization = specialization_naval
+				value = 1
+			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+			random_owned_controlled_state = {
+				prioritize = { 971 }
+				limit = {
+					ROOT = { has_full_control_of_state = PREV }
+				}
+				construct_building_in_random_province = {
+					naval_facility = 1
+				}
+			}
+		}
+	}
+
+	focus = {
 		id = TPMP_ROM_black_sea_dominance
 		icon = GFX_focus_SIA_use_ships_as_generators
 		prerequisite = { focus = TPMP_ROM_plan_maresesti }
@@ -3781,7 +4353,7 @@
 		y = 1
 		relative_position_id = TPMP_ROM_plan_maresesti
 
-		cost = 14.29
+		cost = 10
 
 		ai_will_do = {
 			factor = 0
@@ -4049,6 +4621,7 @@
 		id = TPMP_ROM_small_natural_tunnel
 		icon = GFX_focus_generic_battleship_guns
 		prerequisite = { focus = TPMP_ROM_black_sea_dominance }
+		mutually_exclusive = { focus = TPMP_ROM_good_enough }
 		x = 0
 		y = 1
 		relative_position_id = TPMP_ROM_black_sea_dominance
@@ -4166,9 +4739,51 @@
 	}
 
 	focus = {
+		id = TPMP_ROM_good_enough
+		icon = GFX_focus_generic_naval_discipline
+		prerequisite = { focus = TPMP_ROM_black_sea_dominance }
+		mutually_exclusive = { focus = TPMP_ROM_small_natural_tunnel }
+		x = 2
+		y = 1
+		relative_position_id = TPMP_ROM_black_sea_dominance
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 0
+		}
+
+		available = {
+			NOT = { has_country_flag = TPMP_ROM_instability }
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = TPMP_ROM_plan_maresesti_idea
+				add_idea = TPMP_ROM_abandoned_naval_expansion_idea
+			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+			971 = {
+				remove_building = {
+					type = dockyard
+					level = 6
+				}
+			}
+		}
+	}
+
+	focus = {
 		id = TPMP_ROM_expand_the_airforce
 		icon = GFX_goal_generic_air_production
-		x = 3
+		x = 4
 		y = 0
 		relative_position_id = TPMP_ROM_allied_blueprints
 
@@ -4298,7 +4913,7 @@
 		id = TPMP_ROM_iar_80
 		icon = GFX_goal_generic_air_fighter2
 		prerequisite = { focus = TPMP_ROM_trust_in_iar }
-		x = -1
+		x = 0
 		y = 1
 		relative_position_id = TPMP_ROM_trust_in_iar
 
@@ -4400,7 +5015,7 @@
 		id = TPMP_ROM_aquire_ju_52s
 		icon = GFX_focus_generic_long_range_aircraft
 		prerequisite = { focus = TPMP_ROM_trust_in_iar }
-		x = 1
+		x = 2
 		y = 1
 		relative_position_id = TPMP_ROM_trust_in_iar
 
@@ -4434,7 +5049,7 @@
 		id = TPMP_ROM_allied_expertise
 		icon = GFX_goal_generic_air_fighter
 		prerequisite = { focus = TPMP_ROM_trust_in_iar }
-		x = 3
+		x = 4
 		y = 1
 		relative_position_id = TPMP_ROM_trust_in_iar
 

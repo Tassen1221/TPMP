@@ -102,12 +102,12 @@ ideas = {
 					limit = {
 						has_dlc = "Thunder at Our Gates"
 						original_tag = SIA
-						NOT = { has_idea = civilian_economy }
 					}
 					if = {
-						limit = { check_variable = { SIA_current_economy_law > 0 } }	
-						SIA_decrease_military_approval = yes
+						limit = { check_variable = { SIA_current_economy_law > 0 } }
 						SIA_increase_civilian_approval = yes
+						SIA_decrease_military_approval = yes
+
 					}
 					else = {
 						SIA_increase_military_approval = yes
@@ -218,7 +218,6 @@ ideas = {
 					limit = {
 						has_dlc = "Thunder at Our Gates"
 						original_tag = SIA
-						NOT = { has_idea = low_economic_mobilisation }
 					}
 					if = {
 						limit = { check_variable = { SIA_current_economy_law > 1 } }
@@ -372,7 +371,6 @@ ideas = {
 					limit = {
 						has_dlc = "Thunder at Our Gates"
 						original_tag = SIA
-						NOT = { has_idea = partial_economic_mobilisation }
 					}
 					if = {
 						limit = { check_variable = { SIA_current_economy_law > 2 } }
@@ -584,7 +582,6 @@ ideas = {
 					limit = {
 						has_dlc = "Thunder at Our Gates"
 						original_tag = SIA
-						NOT = { has_idea = war_economy }
 					}
 					if = {
 						limit = { check_variable = { SIA_current_economy_law > 3 } }
@@ -704,7 +701,6 @@ ideas = {
 					limit = {
 						has_dlc = "Thunder at Our Gates"
 						original_tag = SIA
-						NOT = { has_idea = tot_economic_mobilisation }
 					}
 					if = {
 						limit = { check_variable = { SIA_current_economy_law > 4 } }
@@ -808,11 +804,11 @@ ideas = {
 
 			modifier = {
 				consumer_goods_expected_value = 0.15
-				conscription = -0.02
-				production_speed_arms_factory_factor = 0.1
+				conscription = -0.03
+				production_speed_arms_factory_factor = 0.05
 				conversion_cost_civ_to_mil_factor = -0.3
 				conversion_cost_mil_to_civ_factor = -0.3
-				industrial_capacity_factory = 0.15
+				industrial_capacity_factory = 0.1
 				factory_energy_consumption = 0.25
 			}
 			cancel_if_invalid = no
@@ -1107,6 +1103,13 @@ ideas = {
 			ai_will_do = {
    				factor = 1
 
+				modifier = {
+					original_tag = JAP
+					has_idea = export_focus
+					has_active_mission = JAP_government_faction_demands_trade_law_change
+					factor = 10
+				}
+
    				modifier = {
 					factor = 300
 
@@ -1143,21 +1146,20 @@ ideas = {
 					limit = {
 						has_dlc = "Thunder at Our Gates"
 						original_tag = SIA
-						NOT = { has_idea = free_trade }
 					}
 					if = {
-						limit = { check_variable = { SIA_current_trade_law > -1 } }
+						limit = { check_variable = { SIA_current_trade_law > 0 } }
 
 
+						SIA_increase_civilian_approval = yes
+						SIA_decrease_military_approval = yes
+					}
+					else = {
 						SIA_increase_military_approval = yes
 						SIA_decrease_civilian_approval = yes
 					}
-					else = {
-						SIA_decrease_military_approval = yes
-						SIA_increase_civilian_approval = yes
-					}
 
-					set_variable = { SIA_current_trade_law = -1 }
+					set_variable = { SIA_current_trade_law = 0 }
 				}
    			}
 		}
@@ -1219,6 +1221,13 @@ ideas = {
    				factor = 1
 
 				modifier = {
+					original_tag = JAP
+					has_idea = limited_exports
+					has_active_mission = JAP_government_faction_demands_trade_law_change
+					factor = 10
+				}
+
+				modifier = {
 					factor = 0
 
 					is_major = no
@@ -1245,21 +1254,20 @@ ideas = {
 					limit = {
 						has_dlc = "Thunder at Our Gates"
 						original_tag = SIA
-						NOT = { has_idea = export_focus }
 					}
 					if = {
-						limit = { check_variable = { SIA_current_trade_law > 0 } }
+						limit = { check_variable = { SIA_current_trade_law > 1 } }
 
 
+						SIA_increase_civilian_approval = yes
+						SIA_decrease_military_approval = yes
+					}
+					else = {
 						SIA_increase_military_approval = yes
 						SIA_decrease_civilian_approval = yes
 					}
-					else = {
-						SIA_decrease_military_approval = yes
-						SIA_increase_civilian_approval = yes
-					}
 
-					set_variable = { SIA_current_trade_law = 0 }
+					set_variable = { SIA_current_trade_law = 1 }
 				}
    			}
 		}
@@ -1343,6 +1351,13 @@ ideas = {
 			ai_will_do = {
    				factor = 1
 
+				modifier = {
+					original_tag = JAP
+					has_idea = closed_economy
+					has_active_mission = JAP_government_faction_demands_trade_law_change
+					factor = 10
+				}
+
    				modifier = {
 					add = -1
 
@@ -1387,21 +1402,20 @@ ideas = {
 					limit = {
 						has_dlc = "Thunder at Our Gates"
 						original_tag = SIA
-						NOT = { has_idea = limited_exports }
 					}
 					if = {
-						limit = { check_variable = { SIA_current_trade_law > 1 } }
+						limit = { check_variable = { SIA_current_trade_law > 2 } }
 
 
-						SIA_increase_military_approval = yes
-						SIA_decrease_civilian_approval = yes
-					}
-					else = {
 						SIA_decrease_military_approval = yes
 						SIA_increase_civilian_approval = yes
 					}
+					else = {
+						SIA_increase_military_approval = yes
+						SIA_decrease_civilian_approval = yes
+					}
 
-					set_variable = { SIA_current_trade_law = 1 }
+					set_variable = { SIA_current_trade_law = 2 }
 				}
    			}
 		}
@@ -1638,21 +1652,20 @@ ideas = {
 					limit = {
 						has_dlc = "Thunder at Our Gates"
 						original_tag = SIA
-						NOT = { has_idea = closed_economy }
 					}
 					if = {
-						limit = { check_variable = { SIA_current_trade_law > 2 } }
+						limit = { check_variable = { SIA_current_trade_law > 3 } }
 
 
-						SIA_increase_military_approval = yes
-						SIA_decrease_civilian_approval = yes
-					}
-					else = {
 						SIA_decrease_military_approval = yes
 						SIA_increase_civilian_approval = yes
 					}
+					else = {
+						SIA_increase_military_approval = yes
+						SIA_decrease_civilian_approval = yes
+					}
 
-					set_variable = { SIA_current_trade_law = 2 }
+					set_variable = { SIA_current_trade_law = 3 }
 				}
    			}
 		}

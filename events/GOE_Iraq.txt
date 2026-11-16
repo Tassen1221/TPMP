@@ -2208,3 +2208,48 @@ country_event = {
 		add_political_power = 25
 	}
 }
+
+# Al-Rusafi's verses rally Iraq towards full independence while it answers to an overlord
+country_event = {
+	id = IRQ_political_events.80
+	title = IRQ_political_events.80.t
+	desc = IRQ_political_events.80.desc
+	picture = GFX_report_event_generic_read_write
+
+	fire_only_once = yes
+
+	trigger = {
+		original_tag = IRQ
+		is_subject = yes
+		NOT = { has_government = fascism }
+		has_civil_war = no
+		has_character = IRQ_maruf_al_rusafi
+	}
+
+	mean_time_to_happen = {
+		days = 7
+	}
+
+	option = {
+		name = IRQ_political_events.80.a
+		ai_chance = {
+			base = 1
+		}
+		add_autonomy_score = {
+			value = 250
+			localization = IRQ_rusafi_verses_of_independence
+		}
+		if = {
+			limit = {
+				is_ai = yes
+			}
+			hidden_effect = {
+				IRQ_rusafi_takes_a_seat_effect = yes
+			}
+		}
+		else = {
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = IRQ_maruf_al_rusafi
+		}
+	}
+}

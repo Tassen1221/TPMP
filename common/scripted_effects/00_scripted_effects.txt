@@ -643,6 +643,75 @@ get_best_alliance_match_communism_effect = { #arguably a trigger, but it does st
 	}
 }
 
+# Sets the badge flag the signatory panel reads, bumping the refresh counter only when the state actually flips.
+MTG_naval_treaty_mark_over_allowance_effect = {
+	hidden_effect = {
+		if = {
+			limit = {
+				NOT = { has_country_flag = MTG_over_treaty_allowance }
+			}
+			set_country_flag = MTG_over_treaty_allowance
+			add_to_variable = { global.MTG_naval_treaty_ui_version = 1 }
+		}
+	}
+}
+
+MTG_naval_treaty_clear_over_allowance_effect = {
+	hidden_effect = {
+		if = {
+			limit = {
+				has_country_flag = MTG_over_treaty_allowance
+			}
+			clr_country_flag = MTG_over_treaty_allowance
+			add_to_variable = { global.MTG_naval_treaty_ui_version = 1 }
+		}
+	}
+}
+
+# Daily compliance check for one signatory, the benchmark selection mirrors the treaty missions rather than inventing a second rule.
+MTG_naval_treaty_sync_ui_compliance_effect = {
+	hidden_effect = {
+		if = {
+			limit = {
+				has_naval_treaty_over_allowance_trigger = yes
+			}
+			MTG_naval_treaty_mark_over_allowance_effect = yes
+		}
+		else = {
+			MTG_naval_treaty_clear_over_allowance_effect = yes
+		}
+	}
+}
+
+# Keeps the signatory list behind MTG_naval_treaties_ui in step with the treaty ideas, safe to call from anywhere.
+MTG_naval_treaty_sync_ui_membership_effect = {
+	hidden_effect = {
+		if = {
+			limit = {
+				exists = yes
+				has_naval_treaty_trigger = yes
+				NOT = { is_in_array = { array = global.MTG_naval_treaty_members value = THIS } }
+			}
+			add_to_array = { global.MTG_naval_treaty_members = THIS }
+			add_to_variable = { global.MTG_naval_treaty_ui_version = 1 }
+		}
+		else_if = {
+			limit = {
+				is_in_array = { array = global.MTG_naval_treaty_members value = THIS }
+				# Annexed signatories keep their idea, so existence has to be checked separately or dead tags pile up.
+				OR = {
+					NOT = { exists = yes }
+					NOT = { has_naval_treaty_trigger = yes }
+				}
+			}
+			remove_from_array = { global.MTG_naval_treaty_members = THIS }
+			add_to_variable = { global.MTG_naval_treaty_ui_version = 1 }
+			# Leaving the treaty clears the treaty-derived badge, otherwise a rejoining country shows a stale one
+			MTG_naval_treaty_clear_over_allowance_effect = yes
+		}
+	}
+}
+
 remove_naval_treaty_effect = {
 	if = {
 		limit = {
@@ -669,6 +738,8 @@ remove_naval_treaty_effect = {
 		remove_ideas = MTG_naval_treaty_cheating_reduced
 	}
 	set_country_flag = MTG_naval_treaty_abandoned
+	# The idea on_remove already syncs, this covers the case where the hook fires before the idea is actually gone.
+	MTG_naval_treaty_sync_ui_membership_effect = yes
 }
 
 civil_war_anti_exploiter_punitive_action = {
@@ -2809,7 +2880,7 @@ bba_get_cas_USA_effect = { #creates a CAS design if necessary and exports a numb
 						fixed_auxiliary_weapon_slot_1 = small_bomb_bay
 						fixed_auxiliary_weapon_slot_2 = small_bomb_bay
 						engine_type_slot = engine_4_2x
-						special_type_slot_1 = hmg_defense_turret_2x
+						special_type_slot_1 = hmg_defense_turret
 					}
 					icon = "GFX_USA_CAS3_medium"
 				}

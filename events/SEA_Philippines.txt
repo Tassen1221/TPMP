@@ -1721,10 +1721,15 @@ country_event = { #Fall of Manila
 		name = SEA_PHI_political_events.54.a
 		complete_national_focus = PHI_subject_surrender
 		hidden_effect = {
-        	add_timed_idea = {		#hidden so safe to reuse
-        		idea = BEL_surrender_ns
-        		days = 14
-    		}
+			if = {	#a faction leader that forces its own capitulation drags every member of its faction down with it
+				limit = {
+					is_faction_leader = no
+				}
+				add_timed_idea = {		#hidden so safe to reuse
+					idea = BEL_surrender_ns
+					days = 14
+				}
+			}
 		}
 	}
 }

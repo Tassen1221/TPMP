@@ -141,7 +141,9 @@ MAN_banditry_category = {
 		icon = generic_civil_support
 
 		available = {
-			always = no
+			hidden_trigger = {
+				always = no
+			}
 		}
 
 		days_mission_timeout = MAN_main_control_timer?180
@@ -151,17 +153,24 @@ MAN_banditry_category = {
 		}
 
 		cancel_trigger = {
-			divisions_in_state = {
-				state = 714	
-				size < 6
+			custom_trigger_tooltip = {
+				tooltip = {
+					localization_key = divisions_in_state_alternate_loc
+					STATE = "[714.GetName]"
+					AMOUNT = 6
+				}
+				divisions_in_state = {
+					state = 714	
+					size < 6
+				}
 			}
 		}
 
 		highlight_states = {
- highlight_state_targets = {
-			state = 714
-		} 
-}
+			highlight_state_targets = {
+				state = 714
+			} 
+		}
 
 		visible = {
 			
@@ -322,8 +331,10 @@ MAN_banditry_category = {
 
 		icon = generic_civil_support
 
-		available = {			
-			always = no
+		available = {
+			hidden_trigger = {
+				always = no
+			}
 		}
 
 		days_mission_timeout = MAN_main_control_timer?180
@@ -333,9 +344,16 @@ MAN_banditry_category = {
 		}
 
 		cancel_trigger = {
-			divisions_in_state = {
-				state = 717	
-				size < 6
+			custom_trigger_tooltip = {
+				tooltip = {
+					localization_key = divisions_in_state_alternate_loc
+					STATE = "[717.GetName]"
+					AMOUNT = 6
+				}
+				divisions_in_state = {
+					state = 717	
+					size < 6
+				}
 			}
 		}
 
@@ -504,8 +522,10 @@ MAN_banditry_category = {
 
 		icon = generic_civil_support
 
-		available = {			
-			always = no
+		available = {
+			hidden_trigger = {
+				always = no
+			}
 		}
 
 		days_mission_timeout = MAN_main_control_timer?180
@@ -515,9 +535,16 @@ MAN_banditry_category = {
 		}
 
 		cancel_trigger = {
-			divisions_in_state = {
-				state = 610	
-				size < 6
+			custom_trigger_tooltip = {
+				tooltip = {
+					localization_key = divisions_in_state_alternate_loc
+					STATE = "[610.GetName]"
+					AMOUNT = 6
+				}
+				divisions_in_state = {
+					state = 610	
+					size < 6
+				}
 			}
 		}
 
