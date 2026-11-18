@@ -1795,6 +1795,561 @@ SOV = {
 	}
 }
 
+UKR = {
+	light_tank_chassis = {
+		pool = {
+			icons = { 
+				GFX_SOV_basic_light_tank_medium #T-26 (Basic Light Tank)
+				GFX_SOV_improved_light_tank_medium #BT-7 (Improved Light Tank)
+				GFX_SOV_advanced_light_tank_medium #T-60 Scout (Advanced Light Tank)
+			}
+			models = {
+				SOV_light_armor_entity #BT-7 (Improved Light Tank)
+			}
+		}
+	}
+	light_tank_chassis_1936 = {
+		pool = {
+			icons = { 
+				GFX_SOV_basic_light_tank_medium #T-26 (Basic Light Tank) -> Pick oldest tank
+			}
+		}
+		pool = {
+			weight = 2
+			icons = { 
+				GFX_gwtank_medium
+			}
+		}
+	}
+	light_tank_chassis_1936 = {
+		pool = {
+			icons = { 
+				GFX_SOV_basic_light_tank_medium #T-26 (Basic Light Tank)
+			}
+		}
+		pool = {
+			weight = 0.5
+			icons = { 
+				GFX_SOV_light_ACC_camo
+				GFX_SOV_light_ACC
+				GFX_SOV_light_ACB_camo
+				GFX_SOV_light_ACB
+				GFX_SOV_light_ACA_camo
+				GFX_SOV_light_ACA
+				GFX_SOV_light_ABC_camo
+				GFX_SOV_light_ABC
+				GFX_SOV_light_ABB_camo
+				GFX_SOV_light_ABB
+				GFX_SOV_light_ABA_camo
+				GFX_SOV_light_ABA
+				GFX_SOV_light_AAC_camo
+				GFX_SOV_light_AAC
+				GFX_SOV_light_AAB_camo
+				GFX_SOV_light_AAB
+			}
+		}
+	}
+	light_tank_chassis_1938 = {
+		pool = {
+			icons = { 
+				GFX_SOV_improved_light_tank_medium #BT-7 (Improved Light Tank)
+			}
+			models = {
+				SOV_light_armor_entity #BT-7 (Improved Light Tank)
+			}
+		}
+		pool = {
+			weight = 0.5
+			icons = { 
+				GFX_SOV_light_BCC_camo
+				GFX_SOV_light_BCC
+				GFX_SOV_light_BCB_camo
+				GFX_SOV_light_BCB
+				GFX_SOV_light_BCA_camo
+				GFX_SOV_light_BCA
+				GFX_SOV_light_BBC_camo
+				GFX_SOV_light_BBC
+				GFX_SOV_light_BBA_camo
+				GFX_SOV_light_BBA
+				GFX_SOV_light_BAC_camo
+				GFX_SOV_light_BAC
+				GFX_SOV_light_BAB_camo
+				GFX_SOV_light_BAB
+				GFX_SOV_light_BAA_camo
+				GFX_SOV_light_BAA
+			}
+		}
+	}
+	light_tank_chassis_1940 = {
+		pool = {
+			icons = { 
+				GFX_SOV_advanced_light_tank_medium #T-60 Scout (Advanced Light Tank)
+			}
+		}
+		pool = {
+			weight = 0.5
+			icons = { 
+				GFX_SOV_light_CCB_camo
+				GFX_SOV_light_CCB
+				GFX_SOV_light_CAA_camo
+				GFX_SOV_light_CAA
+				GFX_SOV_light_CBC_camo
+				GFX_SOV_light_CBC
+				GFX_SOV_light_CBB_camo
+				GFX_SOV_light_CBB
+				GFX_SOV_light_CBA_camo
+				GFX_SOV_light_CBA
+				GFX_SOV_light_CAC_camo
+				GFX_SOV_light_CAC
+				GFX_SOV_light_CAB_camo
+				GFX_SOV_light_CAB
+				GFX_SOV_light_CCA_camo
+				GFX_SOV_light_CCA
+			}
+		}
+	}
+
+	light_tank_aa_chassis = {
+		pool = {
+			icons = { 
+				GFX_SOV_light_AA_A # Basic Light AA Tank
+				GFX_SOV_light_AA_B # Improved Light AA Tank
+				GFX_SOV_light_AA_C # Advanced Light AA Tank
+			}
+		}
+	}
+	light_tank_aa_chassis_1936 = {
+		pool = {
+			icons = { 
+				GFX_SOV_light_AA_A # Basic Light AA Tank -> Pick oldest tank
+			}
+		}
+	}
+	light_tank_aa_chassis_1936 = {
+		pool = {
+			icons = { 
+				GFX_SOV_light_AA_A # Basic Light AA Tank
+			}
+		}
+	}
+	light_tank_aa_chassis_1938 = {
+		pool = {
+			icons = { 
+				GFX_SOV_light_AA_B # Improved Light AA Tank
+			}
+		}
+	}
+	light_tank_aa_chassis_1940 = {
+		pool = {
+			icons = { 
+				GFX_SOV_light_AA_C # Advanced Light AA Tank
+			}
+		}
+	}
+
+	light_tank_destroyer_chassis = {
+		pool = {
+			weight = 0.9 
+			icons = { 
+				GFX_SOV_basic_light_tank_medium #T-26 (Basic Light Tank)
+				GFX_SOV_improved_light_tank_medium #BT-7 (Improved Light Tank)
+				GFX_SOV_advanced_light_tank_medium #T-60 Scout (Advanced Light Tank)
+			}
+			models = {
+				SOV_light_armor_entity #BT-7 (Improved Light Tank) // Basic Backup model 
+			}
+		}
+	}
+
+	light_tank_amphibious_chassis = { #This is the chassis from NSB modules, not the one in the tech tree
+		pool = {
+			icons = { 
+				GFX_SOV_light_amphibious_AAA
+				GFX_SOV_light_amphibious_AAB
+				GFX_SOV_light_amphibious_AAC
+				GFX_SOV_light_amphibious_ABA
+				GFX_SOV_light_amphibious_ABB
+				GFX_SOV_light_amphibious_ABC
+				GFX_SOV_light_amphibious_ACA
+				GFX_SOV_light_amphibious_ACB
+				GFX_SOV_light_amphibious_ACC
+			}
+		}
+	}
+
+	medium_tank_chassis = {
+		pool = {
+			icons = { 
+				GFX_SOV_basic_medium_tank_medium #T-32 (Basic Medium Tank)
+				GFX_SOV_improved_medium_tank_medium #T-34 (Improved Medium Tank)
+				GFX_SOV_advanced_medium_tank_medium #T-44 (Advanced Medium Tank)
+			}
+			models = {
+				SOV_medium_gw_armor_0_entity #T-28
+				SOV_medium_armor_entity #T-34 (Improved Medium Tank)
+			}
+		}
+	}
+	medium_tank_chassis_1936 = {
+		pool = {
+			icons = {
+				GFX_SOV_medium_gwtank_medium #T-28 (GW Medium Tank)
+			}
+			models = {
+				SOV_medium_gw_armor_0_entity #T-28
+			}
+		}
+	}
+	medium_tank_chassis_1936 = {
+		pool = {
+			icons = { 
+				GFX_SOV_basic_medium_tank_medium #T-32 (Basic Medium Tank)
+			}
+		}
+		pool = {
+			weight = 0.5
+			icons = { 
+				GFX_SOV_medium_ACC_camo
+				GFX_SOV_medium_ACC
+				GFX_SOV_medium_ACB_camo
+				GFX_SOV_medium_ACB
+				GFX_SOV_medium_ACA_camo
+				GFX_SOV_medium_ACA
+				GFX_SOV_medium_ABC_camo
+				GFX_SOV_medium_ABC
+				GFX_SOV_medium_ABB_camo
+				GFX_SOV_medium_ABB
+				GFX_SOV_medium_ABA_camo
+				GFX_SOV_medium_ABA
+				GFX_SOV_medium_AAC_camo
+				GFX_SOV_medium_AAC
+				GFX_SOV_medium_AAB_camo
+				GFX_SOV_medium_AAB
+			}
+		}
+	}
+	medium_tank_chassis_1938 = {
+		pool = {
+			icons = { 
+				GFX_SOV_improved_medium_tank_medium #T-34 (Improved Medium Tank)
+			}
+			models = {
+				SOV_medium_armor_entity #T-34 (Improved Medium Tank)
+			}
+		}
+		pool = {
+			weight = 0.5
+			icons = { 
+				GFX_SOV_medium_BCC_camo
+				GFX_SOV_medium_BCC
+				GFX_SOV_medium_BCB_camo
+				GFX_SOV_medium_BCB
+				GFX_SOV_medium_BCA_camo
+				GFX_SOV_medium_BCA
+				GFX_SOV_medium_BBC_camo
+				GFX_SOV_medium_BBC
+				GFX_SOV_medium_BBA_camo
+				GFX_SOV_medium_BBA
+				GFX_SOV_medium_BAC_camo
+				GFX_SOV_medium_BAC
+				GFX_SOV_medium_BAB_camo
+				GFX_SOV_medium_BAB
+				GFX_SOV_medium_BAA_camo
+				GFX_SOV_medium_BAA
+			}
+		}
+	}
+	medium_tank_chassis_1940 = {
+		pool = {
+			icons = { 
+				GFX_SOV_advanced_medium_tank_medium #T-44 (Advanced Medium Tank)
+			}
+		}
+		pool = {
+			weight = 0.5
+			icons = { 
+				GFX_SOV_medium_CCB_camo
+				GFX_SOV_medium_CCB
+				GFX_SOV_medium_CCA_camo
+				GFX_SOV_medium_CCA
+				GFX_SOV_medium_CBC_camo
+				GFX_SOV_medium_CBC
+				GFX_SOV_medium_CBB_camo
+				GFX_SOV_medium_CBB
+				GFX_SOV_medium_CBA_camo
+				GFX_SOV_medium_CBA
+				GFX_SOV_medium_CAC_camo
+				GFX_SOV_medium_CAC
+				GFX_SOV_medium_CAB_camo
+				GFX_SOV_medium_CAB
+				GFX_SOV_medium_CAA_camo
+				GFX_SOV_medium_CAA
+			}
+		}
+	}
+
+	medium_tank_aa_chassis = {
+		pool = {
+			icons = { 
+				GFX_SOV_medium_AA_B # Improved Medium AA Tank
+				GFX_SOV_medium_AA_C # Advanced Medium AA Tank
+			}
+		}
+	}
+	medium_tank_aa_chassis_1936 = {
+		pool = {
+			icons = { 
+				GFX_SOV_medium_AA_B # Improved Medium AA Tank -> Pick oldest tank
+			}
+		}
+	}
+	medium_tank_aa_chassis_1936 = {
+		pool = {
+			icons = { 
+				GFX_SOV_medium_AA_B # Improved Medium AA Tank -> Pick oldest tank
+			}
+		}
+	}
+	medium_tank_aa_chassis_1938 = {
+		pool = {
+			icons = { 
+				GFX_SOV_medium_AA_B # Improved Medium AA Tank
+			}
+		}
+	}
+	medium_tank_aa_chassis_1940 = {
+		pool = {
+			icons = { 
+				GFX_SOV_medium_AA_C # Advanced Medium AA Tank
+			}
+		}
+	}
+	
+	heavy_tank_chassis = {
+		pool = {
+			icons = { 
+				GFX_SOV_basic_heavy_tank_medium #T-35 (Basic Heavy Tank)
+				GFX_SOV_improved_heavy_tank_medium #KV-1(Improved Heavy Tank)
+				GFX_SOV_advanced_heavy_tank_medium #IS (Advanced Heavy Tank)
+			}
+			models = {
+				SOV_heavy_armor_entity #KV-1(Improved Heavy Tank)
+			}
+		}
+		pool = { #New KV-2 - The script for this tank will be overwritten by allied_tank_icons if active, which makes assets easier to work with in order to get the appropriate order
+			weight = 0.8
+			icons = {
+				GFX_SOV_improved_heavy_art_medium #KV-2 (Improved Heavy SPG)
+			}
+			models = {
+				SOV_heavy_sp_artillery_brigade_1_entity #KV-2 (Improved Heavy SPG)
+			}
+		}
+	}
+	heavy_tank_chassis_1936 = {
+		pool = {
+			icons = { 
+				GFX_SOV_basic_heavy_tank_medium #T-35 (Basic Heavy Tank) -> Pick oldest tank
+			}
+		}
+	}
+	heavy_tank_chassis_1936 = {
+		pool = {
+			icons = { 
+				GFX_SOV_basic_heavy_tank_medium #T-35 (Basic Heavy Tank)
+			}
+		}
+		pool = {
+			weight = 0.5
+			icons = {
+				GFX_SOV_heavy_ACC_camo
+				GFX_SOV_heavy_ACC
+				GFX_SOV_heavy_ACB_camo
+				GFX_SOV_heavy_ACB
+				GFX_SOV_heavy_ACA_camo
+				GFX_SOV_heavy_ACA
+				GFX_SOV_heavy_ABC_camo
+				GFX_SOV_heavy_ABC
+				GFX_SOV_heavy_ABB_camo
+				GFX_SOV_heavy_ABB
+				GFX_SOV_heavy_ABA_camo
+				GFX_SOV_heavy_ABA
+				GFX_SOV_heavy_AAC_camo
+				GFX_SOV_heavy_AAC
+				GFX_SOV_heavy_AAB_camo
+				GFX_SOV_heavy_AAB
+			}
+		}
+	}
+
+	heavy_tank_chassis_1938 = {
+		pool = {
+			icons = { 
+				GFX_SOV_improved_heavy_tank_medium #KV-1(Improved Heavy Tank)
+			}
+			models = {
+				SOV_heavy_armor_entity #KV-1(Improved Heavy Tank)
+			}
+		}
+		pool = {
+			weight = 0.5
+			icons = {
+				GFX_SOV_heavy_BCC_camo
+				GFX_SOV_heavy_BCC
+				GFX_SOV_heavy_BCB_camo
+				GFX_SOV_heavy_BCB
+				GFX_SOV_heavy_BCA_camo
+				GFX_SOV_heavy_BCA
+				GFX_SOV_heavy_BBC_camo
+				GFX_SOV_heavy_BBC
+				GFX_SOV_heavy_BBA_camo
+				GFX_SOV_heavy_BBA
+				GFX_SOV_heavy_BAC_camo
+				GFX_SOV_heavy_BAC
+				GFX_SOV_heavy_BAB_camo
+				GFX_SOV_heavy_BAB
+				GFX_SOV_heavy_BAA_camo
+				GFX_SOV_heavy_BAA
+			}
+		}
+	}
+
+	heavy_tank_chassis_1940 = {
+		pool = {
+			icons = { 
+				GFX_SOV_advanced_heavy_tank_medium #IS (Advanced Heavy Tank)
+			}
+		}
+		pool = {
+			weight = 0.5
+			icons = {
+				GFX_SOV_heavy_CCB_camo
+				GFX_SOV_heavy_CCB
+				GFX_SOV_heavy_CCA_camo
+				GFX_SOV_heavy_CCA
+				GFX_SOV_heavy_CBC_camo
+				GFX_SOV_heavy_CBC
+				GFX_SOV_heavy_CBB_camo
+				GFX_SOV_heavy_CBB
+				GFX_SOV_heavy_CBA_camo
+				GFX_SOV_heavy_CBA
+				GFX_SOV_heavy_CAC_camo
+				GFX_SOV_heavy_CAC
+				GFX_SOV_heavy_CAB_camo
+				GFX_SOV_heavy_CAB
+				GFX_SOV_heavy_CAA_camo
+				GFX_SOV_heavy_CAA
+			}
+		}
+	}
+
+	heavy_tank_artillery_chassis = {
+		pool = {
+			icons = {
+				GFX_SOV_improved_heavy_art_medium #KV-2 (Improved Heavy SPG)
+			}
+			models = {
+				SOV_heavy_sp_artillery_brigade_1_entity #KV-2 (Improved Heavy SPG)
+			}
+		}
+	}
+	heavy_tank_artillery_chassis_1938 = {
+		pool = {
+			icons = {
+				GFX_SOV_improved_heavy_art_medium #KV-2 (Improved Heavy SPG)
+			}
+			models = {
+				SOV_heavy_sp_artillery_brigade_1_entity #KV-2 (Improved Heavy SPG)
+			}
+		}
+	}
+
+	heavy_tank_aa_chassis = {
+		pool = {
+			icons = { 
+				GFX_SOV_heavy_AA_A # Basic Heavy AA Tank
+				GFX_SOV_heavy_AA_B # Improved Heavy AA Tank
+				GFX_SOV_heavy_AA_B2 # Improved Heavy AA Tank 2
+				GFX_SOV_heavy_AA_C # Advanced Heavy AA Tank
+			}
+		}
+	}
+	heavy_tank_aa_chassis_1936 = {
+		pool = {
+			icons = { 
+				GFX_SOV_heavy_AA_A # Basic Heavy AA Tank -> Pick oldest tank
+			}
+		}
+	}
+	heavy_tank_aa_chassis_1936 = {
+		pool = {
+			icons = { 
+				GFX_SOV_heavy_AA_A # Basic Heavy AA Tank
+			}
+		}
+	}
+	heavy_tank_aa_chassis_1938 = {
+		pool = {
+			icons = { 
+				GFX_SOV_heavy_AA_B # Improved Heavy AA Tank
+				GFX_SOV_heavy_AA_B2 # Improved Heavy AA Tank 2
+			}
+		}
+	}
+	heavy_tank_aa_chassis_1940 = {
+		pool = {
+			icons = { 
+				GFX_SOV_heavy_AA_C # Advanced Heavy AA Tank
+			}
+		}
+	}
+
+	super_heavy_tank_chassis = {
+		pool = {
+			icons = { 
+				GFX_SOV_super_heavy_tank_medium #IS-7 (Super Heavy Tank)
+			}
+			models = {
+				SOV_super_heavy_armor_entity #IS-7 (Super Heavy Tank)
+			}
+		}
+	}
+
+	medium_tank_chassis_1944 = {
+		pool = {
+			icons = { 
+				GFX_SOV_main_battle_tank_medium #T-54 (Modern Tank)
+			}
+			models = {
+				SOV_medium_armor_entity #T-34 (Improved Medium Tank) // Basic Fallback Option 
+				SOV_modern_armor_entity #T-54 (Modern Tank)
+			}
+		}
+	}
+	medium_tank_chassis_1944 = {
+		pool = {
+			weight = 0.9 
+			models = {
+				SOV_medium_armor_entity #T-34 (Improved Medium Tank) // Basic Fallback Option 
+				SOV_modern_armor_entity #T-54 (Modern Tank) // Basic Fallback Option 
+			}
+		}
+	}
+
+	medium_tank_chassis_1940 = {
+		pool = {
+			limit = {has_dlc = "Man the Guns"}
+			icons = {
+				GFX_SOV_amphibious_tank_2_medium #PT-76 (Amphibious Tank II) #Sorted like this so that by default 2D icon and 3D model match (Amphibious Tank I)
+				GFX_SOV_amphibious_tank_medium #T-40 (Amphibious Tank I)
+			}
+			models = {
+				SOV_amphibious_armor_entity #T-40 (Amphibious Tank I)
+			}
+		}
+	}
+}
+
 USA = {
 	light_tank_chassis = {
 		pool = {
@@ -3221,6 +3776,366 @@ FRA = {
 }
 
 JAP = {
+	light_tank_chassis = {
+		pool = {
+
+			models = {
+				"JAP_light_armor_entity" # // Basic Fallback
+			}
+		}
+	}
+	light_tank_chassis_1936 = {
+		pool = {
+			icons = { 
+				GFX_JAP_light_AAB
+				GFX_JAP_light_AAB_camo
+				GFX_JAP_light_AAC
+				GFX_JAP_light_AAC_camo
+				GFX_JAP_light_ABA
+				GFX_JAP_light_ABA_camo
+				GFX_JAP_light_ABB
+				GFX_JAP_light_ABB_camo
+				GFX_JAP_light_ABC
+				GFX_JAP_light_ABC_camo
+				GFX_JAP_light_ACA
+				GFX_JAP_light_ACA_camo
+				GFX_JAP_light_ACB
+				GFX_JAP_light_ACB_camo
+				GFX_JAP_light_ACC
+				GFX_JAP_light_ACC_camo
+				GFX_JAP_basic_light_tank_medium
+			}
+			models = {
+				"JAP_light_armor_entity"
+			}
+		}
+	}
+
+	light_tank_chassis_1938 = {
+		pool = {
+			icons = { 
+				GFX_JAP_light_BAB
+				GFX_JAP_light_BAB_camo
+				GFX_JAP_light_BAC
+				GFX_JAP_light_BAC_camo
+				GFX_JAP_light_BBA
+				GFX_JAP_light_BBA_camo
+				GFX_JAP_light_BAA
+				GFX_JAP_light_BAA_camo
+				GFX_JAP_light_BBC
+				GFX_JAP_light_BBC_camo
+				GFX_JAP_light_BCA
+				GFX_JAP_light_BCA_camo
+				GFX_JAP_light_BCB
+				GFX_JAP_light_BCB_camo
+				GFX_JAP_light_BCC
+				GFX_JAP_light_BCC_camo
+				GFX_JAP_improved_light_tank_medium
+			}
+			models = {
+				"JAP_light_armor_entity"
+			}
+		}
+	}
+	
+	light_tank_destroyer_chassis_1938 = {
+		pool = {
+			icons = { GFX_JAP_light_BAB_camo }
+		}
+	}	
+	
+	light_tank_artillery_chassis_1938 = {
+		pool = {
+			icons = {
+				GFX_JAP_light_BBC
+			}
+		}
+	}
+
+	light_tank_chassis_1940 = {
+		pool = {
+			icons = { 
+				GFX_JAP_advanced_light_tank_medium
+				GFX_JAP_light_CAB
+				GFX_JAP_light_CAB_camo
+				GFX_JAP_light_CAC
+				GFX_JAP_light_CAC_camo
+				GFX_JAP_light_CBA
+				GFX_JAP_light_CBA_camo
+				GFX_JAP_light_CBB
+				GFX_JAP_light_CBB_camo
+				GFX_JAP_light_CBC
+				GFX_JAP_light_CBC_camo
+				GFX_JAP_light_CCA
+				GFX_JAP_light_CCA_camo
+				GFX_JAP_light_CCB
+				GFX_JAP_light_CCB_camo
+				GFX_JAP_light_CAA
+				GFX_JAP_light_CAA_camo
+			}
+			models = {
+				"JAP_light_armor_entity"
+			}
+		}
+	}
+	medium_tank_chassis = {
+		pool = {
+			icons = { 
+				GFX_JAP_basic_medium_tank_medium
+				GFX_JAP_medium_AAB
+				GFX_JAP_medium_AAB_camo
+				GFX_JAP_medium_AAC
+				GFX_JAP_medium_AAC_camo
+				GFX_JAP_medium_ABA
+				GFX_JAP_medium_ABA_camo
+				GFX_JAP_medium_ABB
+				GFX_JAP_medium_ABB_camo
+				GFX_JAP_medium_ABC
+				GFX_JAP_medium_ABC_camo
+				GFX_JAP_medium_ACA
+				GFX_JAP_medium_ACA_camo
+				GFX_JAP_medium_ACB
+				GFX_JAP_medium_ACB_camo
+				GFX_JAP_medium_ACC
+				GFX_JAP_medium_ACC_camo
+			}
+			models = {
+				"JAP_medium_armor_entity"
+			}
+		}
+	}
+
+	medium_tank_chassis_1936 = {
+		pool = {
+			icons = { 
+				GFX_JAP_basic_medium_tank_medium
+				GFX_JAP_medium_AAB
+				GFX_JAP_medium_AAB_camo
+				GFX_JAP_medium_AAC
+				GFX_JAP_medium_AAC_camo
+				GFX_JAP_medium_ABA
+				GFX_JAP_medium_ABA_camo
+				GFX_JAP_medium_ABB
+				GFX_JAP_medium_ABB_camo
+				GFX_JAP_medium_ABC
+				GFX_JAP_medium_ABC_camo
+				GFX_JAP_medium_ACA
+				GFX_JAP_medium_ACA_camo
+				GFX_JAP_medium_ACB
+				GFX_JAP_medium_ACB_camo
+				GFX_JAP_medium_ACC
+				GFX_JAP_medium_ACC_camo
+			}
+			models = {
+				"JAP_medium_armor_entity"
+			}
+		}
+	}
+	medium_tank_chassis_1936 = {
+		pool = {
+			icons = { 
+				GFX_JAP_basic_medium_tank_medium
+				GFX_JAP_medium_AAB
+				GFX_JAP_medium_AAB_camo
+				GFX_JAP_medium_AAC
+				GFX_JAP_medium_AAC_camo
+				GFX_JAP_medium_ABA
+				GFX_JAP_medium_ABA_camo
+				GFX_JAP_medium_ABB
+				GFX_JAP_medium_ABB_camo
+				GFX_JAP_medium_ABC
+				GFX_JAP_medium_ABC_camo
+				GFX_JAP_medium_ACA
+				GFX_JAP_medium_ACA_camo
+				GFX_JAP_medium_ACB
+				GFX_JAP_medium_ACB_camo
+				GFX_JAP_medium_ACC
+				GFX_JAP_medium_ACC_camo
+			}
+			models = {
+				"JAP_medium_armor_entity"
+			}
+		}
+	}
+
+	medium_tank_chassis_1938 = {
+		pool = {
+			icons = { 
+				GFX_JAP_improved_medium_tank_medium
+				GFX_JAP_medium_BAB
+				GFX_JAP_medium_BAB_camo
+				GFX_JAP_medium_BAC
+				GFX_JAP_medium_BAC_camo
+				GFX_JAP_medium_BBA
+				GFX_JAP_medium_BBA_camo
+				GFX_JAP_medium_BAA
+				GFX_JAP_medium_BAA_camo
+				GFX_JAP_medium_BBC
+				GFX_JAP_medium_BBC_camo
+				GFX_JAP_medium_BCA
+				GFX_JAP_medium_BCA_camo
+				GFX_JAP_medium_BCB
+				GFX_JAP_medium_BCB_camo
+				GFX_JAP_medium_BCC
+				GFX_JAP_medium_BCC_camo
+			}
+			models = {
+				"JAP_medium_armor_entity"
+			}
+		}
+	}
+
+	medium_tank_chassis_1940 = {
+		pool = {
+			icons = { 
+				GFX_JAP_advanced_medium_tank_medium
+				GFX_JAP_medium_CAB
+				GFX_JAP_medium_CAB_camo
+				GFX_JAP_medium_CAC
+				GFX_JAP_medium_CAC_camo
+				GFX_JAP_medium_CBA
+				GFX_JAP_medium_CBA_camo
+				GFX_JAP_medium_CBB
+				GFX_JAP_medium_CBB_camo
+				GFX_JAP_medium_CBC
+				GFX_JAP_medium_CBC_camo
+				GFX_JAP_medium_CCA
+				GFX_JAP_medium_CCA_camo
+				GFX_JAP_medium_CCB
+				GFX_JAP_medium_CCB_camo
+				GFX_JAP_medium_CAA
+				GFX_JAP_medium_CAA_camo
+			}
+			models = {
+				"JAP_medium_armor_entity"
+			}
+		}
+	}
+	heavy_tank_chassis_1936 = {
+		pool = {
+			icons = { 
+				GFX_JAP_basic_heavy_tank_medium
+				GFX_JAP_heavy_AAB
+				GFX_JAP_heavy_AAB_camo
+				GFX_JAP_heavy_AAC
+				GFX_JAP_heavy_AAC_camo
+				GFX_JAP_heavy_ABA
+				GFX_JAP_heavy_ABA_camo
+				GFX_JAP_heavy_ABB
+				GFX_JAP_heavy_ABB_camo
+				GFX_JAP_heavy_ABC
+				GFX_JAP_heavy_ABC_camo
+				GFX_JAP_heavy_ACA
+				GFX_JAP_heavy_ACA_camo
+				GFX_JAP_heavy_ACB
+				GFX_JAP_heavy_ACB_camo
+				GFX_JAP_heavy_ACC
+				GFX_JAP_heavy_ACC_camo
+			}
+			models = {
+				"JAP_heavy_armor_entity"
+			}
+		}
+	}
+	heavy_tank_chassis_1936 = {
+		pool = {
+			icons = { 
+				GFX_JAP_heavy_AAB
+				GFX_JAP_heavy_AAB_camo
+				GFX_JAP_heavy_AAC
+				GFX_JAP_heavy_AAC_camo
+				GFX_JAP_heavy_ABA
+				GFX_JAP_heavy_ABA_camo
+				GFX_JAP_heavy_ABB
+				GFX_JAP_heavy_ABB_camo
+				GFX_JAP_heavy_ABC
+				GFX_JAP_heavy_ABC_camo
+				GFX_JAP_heavy_ACA
+				GFX_JAP_heavy_ACA_camo
+				GFX_JAP_heavy_ACB
+				GFX_JAP_heavy_ACB_camo
+				GFX_JAP_heavy_ACC
+				GFX_JAP_heavy_ACC_camo
+				GFX_JAP_basic_heavy_tank_medium
+			}
+			models = {
+				"JAP_heavy_armor_entity"
+			}
+		}
+	}
+
+	heavy_tank_chassis_1938 = {
+		pool = {
+			icons = { 
+				GFX_JAP_heavy_BAB
+				GFX_JAP_heavy_BAB_camo
+				GFX_JAP_heavy_BAC
+				GFX_JAP_heavy_BAC_camo
+				GFX_JAP_heavy_BBA
+				GFX_JAP_heavy_BBA_camo
+				GFX_JAP_heavy_BAA
+				GFX_JAP_heavy_BAA_camo
+				GFX_JAP_heavy_BBC
+				GFX_JAP_heavy_BBC_camo
+				GFX_JAP_heavy_BCA
+				GFX_JAP_heavy_BCA_camo
+				GFX_JAP_heavy_BCB
+				GFX_JAP_heavy_BCB_camo
+				GFX_JAP_heavy_BCC
+				GFX_JAP_heavy_BCC_camo
+				GFX_JAP_improved_heavy_tank_medium
+			}
+			models = {
+				"JAP_heavy_armor_entity"
+			}
+		}
+	}
+
+	heavy_tank_chassis_1940 = {
+		pool = {
+			icons = { 
+				GFX_JAP_advanced_heavy_tank_medium
+				GFX_JAP_heavy_CAB
+				GFX_JAP_heavy_CAB_camo
+				GFX_JAP_heavy_CAC
+				GFX_JAP_heavy_CAC_camo
+				GFX_JAP_heavy_CBA
+				GFX_JAP_heavy_CBA_camo
+				GFX_JAP_heavy_CBB
+				GFX_JAP_heavy_CBB_camo
+				GFX_JAP_heavy_CBC
+				GFX_JAP_heavy_CBC_camo
+				GFX_JAP_heavy_CCA
+				GFX_JAP_heavy_CCA_camo
+				GFX_JAP_heavy_CCB
+				GFX_JAP_heavy_CCB_camo
+				GFX_JAP_heavy_CAA
+				GFX_JAP_heavy_CAA_camo
+			}
+			models = {
+				"JAP_heavy_armor_entity"
+			}
+		}
+	}
+
+	super_heavy_tank_chassis = {
+		pool = {
+			icons = { 
+				GFX_JAP_super_heavy_tank_medium
+			}
+		}
+	}
+
+	medium_tank_chassis_1944 = {
+		pool = {
+			icons = { 
+				GFX_JAP_main_battle_tank_medium
+			}
+		}
+	}
+}
+
+MAN = {
 	light_tank_chassis = {
 		pool = {
 
