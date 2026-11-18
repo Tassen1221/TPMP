@@ -80,7 +80,7 @@ default = {
 
 	light_tank_flame_chassis = {
 		pool = {
-			weight = 1
+			weight = 0.1
 			icons = {
 				GFX_light_flame_tank_medium
 			}
@@ -172,7 +172,7 @@ default = {
 
 	medium_tank_flame_chassis = {
 		pool = {
-			weight = 1
+			weight = 0.1
 			icons = {
 				GFX_medium_flame_tank_medium
 			}
@@ -264,7 +264,7 @@ default = {
 
 	heavy_tank_flame_chassis = {
 		pool = {
-			weight = 1
+			weight = 0.1
 			icons = {
 				GFX_heavy_flame_tank_medium
 			}
@@ -289,6 +289,30 @@ default = {
 			}
 		}
 	}
+	light_tank_chassis = {
+		pool = {
+			weight = 0.1
+			models = { 
+				light_armor_entity
+			}
+		}
+	}	
+	medium_tank_chassis = {
+		pool = {
+			weight = 0.1
+			 models = { 
+				medium_armor_entity
+			}
+		}
+	}	
+	heavy_tank_chassis = {
+		pool = {
+			weight = 0.1
+			models = { 
+				heavy_armor_entity
+			}
+		}
+	}
 
 	land_cruiser_chassis_1945 = {
 		pool = {
@@ -301,6 +325,115 @@ default = {
 		}
 	}
 }
+##################### AA, SPA, TD chassis
+
+	light_tank_destroyer_chassis = {
+		pool = {
+			weight = 0.1
+			models = {
+				light_armor_entity #Generic
+			}
+		}
+	}
+
+	light_tank_artillery_chassis = {
+		pool = {
+			weight = 0.1
+			models = {
+				light_armor_entity #Generic
+			}
+		}
+	}
+
+	light_tank_aa_chassis = {
+		pool = {
+			weight = 0.1
+			models = {
+				light_armor_entity #Generic
+			}
+		}
+	}
+
+	medium_tank_destroyer_chassis = {
+		pool = {
+			weight = 0.1
+			models = {
+				medium_armor_entity #Generic
+			}
+		}
+	}
+
+	medium_tank_artillery_chassis = {
+		pool = {
+			weight = 0.1
+			models = {
+				medium_armor_entity #Generic
+			}
+		}
+	}
+
+	medium_tank_aa_chassis = {
+		pool = {
+			weight = 0.1
+			models = {
+				medium_armor_entity #Generic
+			}
+		}
+	}
+
+	heavy_tank_destroyer_chassis = {
+		pool = {
+			weight = 0.1
+			models = {
+				heavy_armor_entity #Generic
+			}
+		}
+	}
+
+	heavy_tank_artillery_chassis = {
+		pool = {
+			weight = 0.1
+			models = {
+				heavy_armor_entity #Generic
+			}
+		}
+	}
+
+	heavy_tank_aa_chassis = {
+		pool = {
+			weight = 0.1
+			models = {
+				heavy_armor_entity #Generic
+			}
+		}
+	}
+
+	super_heavy_tank_destroyer_chassis = {
+		pool = {
+			weight = 0.1
+			models = {
+				heavy_armor_entity #Generic
+			}
+		}
+	}
+
+	super_heavy_tank_artillery_chassis = {
+		pool = {
+			weight = 0.1
+			models = {
+				heavy_armor_entity #Generic
+			}
+		}
+	}
+
+	super_heavy_tank_aa_chassis = {
+		pool = {
+			weight = 0.1
+			models = {
+				heavy_armor_entity #Generic
+			}
+		}
+	}
 
 GER = {
 	light_tank_chassis = {
@@ -356,6 +489,7 @@ GER = {
 	}
 	light_tank_chassis_1938 = {
 		pool = {
+			weight = 2
 			icons = { 
 				GFX_GER_improved_light_tank_medium #Panzer II
 			}
