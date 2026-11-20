@@ -2321,6 +2321,28 @@ on_actions = {
 							set_country_flag = ROM_AI_RANDOM_COMMUNIST
 							set_add_communist_weight_small = yes
 						}
+						25 = {
+							modifier = {
+								factor = 0
+								NOT = {
+									has_dlc = "To The Bitter End"
+								}
+							}
+							modifier = {
+								factor = 0.25
+								game_weight_can_add_fascist = no
+							}
+							set_country_flag = ROM_AI_RANDOM_FASCIST_CODREANU
+						}
+						25 = {
+							modifier = {
+								factor = 0
+								NOT = {
+									has_dlc = "To The Bitter End"
+								}
+							}
+							set_country_flag = ROM_AI_RANDOM_MONARCHIST_RELAX
+						}
 					}
 				}
 			}

@@ -2914,6 +2914,34 @@ country_event = {
 							CZE = {		#PfOT
 								has_completed_focus = CZE_supply_fighters_for_allies
 							}
+							ROM = {		#TTBE
+								has_completed_focus = ROM_back_czechoslovakia
+								OR = {
+									has_equipment = {
+										small_plane_airframe > 99
+									}
+									has_deployed_air_force_size = {
+										size > 99
+										type = fighter
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			#TTBE
+			modifier = {
+				add = 1.75
+				ROM = {
+					has_completed_focus = ROM_back_czechoslovakia
+					OR = {
+						has_equipment = {
+							small_plane_airframe > 99
+						}
+						has_deployed_air_force_size = {
+							size > 99
+							type = fighter
 						}
 					}
 				}
@@ -4815,8 +4843,21 @@ country_event = {
 					state = 71
 					state = 73
 				}
-				NOT = {
-					is_controlled_by = HUN
+				or = {
+					is_fully_controlled_by = ROOT
+					is_fully_controlled_by = CZE
+					AND = {
+						CZE = {
+							has_subject = SLO
+						}
+						is_fully_controlled_by = SLO
+					}
+					AND = {
+						CZE = {
+							has_subject = RUT
+						}
+						is_fully_controlled_by = RUT
+					}
 				}
 			}
 		}
@@ -5302,19 +5343,15 @@ country_event = {
 				OR = {
 					is_fully_controlled_by = FROM
 					is_fully_controlled_by = CZE
-					if = {
-						limit = {
-							SLO = {
-								is_subject_of = CZE
-							}
+					AND = {
+						SLO = {
+							is_subject_of = CZE
 						}
 						is_fully_controlled_by = SLO
 					}
-					if = {
-						limit = {
-							RUT = {
-								is_subject_of = CZE
-							}
+					AND = {
+						RUT = {
+							is_subject_of = CZE
 						}
 						is_fully_controlled_by = RUT
 					}

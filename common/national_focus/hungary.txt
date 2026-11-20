@@ -1803,9 +1803,13 @@ focus_tree = {
 		}
 
 		available = {
-			NOT = { has_war_with = GER }
 			is_subject = no
 			is_in_faction = no
+			OR = {
+				has_government = neutrality
+				has_government = fascism
+			}
+			NOT = { has_war_with = GER }
 			NOT = {
 				any_other_country = {
 					is_in_faction_with = GER

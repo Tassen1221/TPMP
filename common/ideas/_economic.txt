@@ -1381,6 +1381,17 @@ ideas = {
 					is_major = yes
 				}
 				modifier = {
+					factor = 1000
+					original_tag = SOV
+					has_war = no
+					NOT = { has_idea = closed_economy }
+					OR = {
+						NOT = { country_exists = FRA }
+						FRA = { has_capitulated = yes }
+						FRA = { is_subject = yes }
+					}
+				}
+				modifier = {
 					add = 1500
 
 					# revert from closed_economy if we have large allies

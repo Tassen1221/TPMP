@@ -2604,18 +2604,15 @@ focus_tree = {
 						tag = ROM
 					}
 					NOT = {
-						OR = {
-							AND = {
-								is_in_faction_with = GER
-								GER = { has_government = fascism }
-							}
-							AND = {
-								is_in_faction_with = ITA
-								ITA = { has_government = fascism }
-							}
-							GRE = { 
-								has_country_flag = GRE_britain_rebuffed
-							}
+						has_war_with = ROOT
+						has_country_flag = GRE_britain_rebuffed
+						AND = {
+							is_in_faction_with = GER
+							GER = { has_government = fascism }
+						}
+						AND = {
+							is_in_faction_with = ITA
+							ITA = { has_government = fascism }
 						}
 					}
 				}
@@ -7386,6 +7383,7 @@ focus_tree = {
 
 		available = {
 			any_country_with_original_tag_of = {
+				exists = yes
 				target = {NZL SAF RAJ AST CAN MAL PAL JOR KUW BRM}
 				is_in_faction_with = ROOT
 			}
@@ -7599,6 +7597,7 @@ focus_tree = {
 		prerequisite = { focus = uk_commonwealth_focus }
 		available = {
 			any_country_with_original_tag = {
+				exists = yes
 				original_tag_to_check = RAJ
 				is_in_faction_with = ROOT
 			}
@@ -7782,6 +7781,7 @@ focus_tree = {
 		prerequisite = { focus = uk_commonwealth_focus }
 		available = {
 			any_country_with_original_tag = {
+				exists = yes
 				original_tag_to_check = AST
 				is_in_faction_with = ROOT
 			}
@@ -8002,6 +8002,7 @@ focus_tree = {
 		prerequisite = { focus = uk_commonwealth_focus }
 		available = {
 			any_country_with_original_tag = {
+				exists = yes
 				original_tag_to_check = CAN
 				is_in_faction_with = ROOT
 			}
@@ -8109,6 +8110,7 @@ focus_tree = {
 		prerequisite = { focus = uk_commonwealth_focus }
 		available = {
 			any_country_with_original_tag = {
+				exists = yes
 				original_tag_to_check = SAF
 				is_in_faction_with = ROOT
 			}

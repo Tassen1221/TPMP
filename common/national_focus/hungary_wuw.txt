@@ -10921,12 +10921,16 @@ focus_tree = {
 		}
 
 		available = {
+			is_subject = no
+			is_in_faction = no
+			OR = {
+				has_government = neutrality
+				has_government = fascism
+			}
 			NOT = { 
 				has_war_with = GER 
 				has_country_flag = HUN_can_not_trust_germany_again_flag
 			}
-			is_subject = no
-			is_in_faction = no
 			NOT = {
 				any_other_country = {
 					is_in_faction_with = GER

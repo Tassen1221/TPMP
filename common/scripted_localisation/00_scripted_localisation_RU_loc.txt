@@ -537,3 +537,25 @@ defined_text = {
 		localization_key = bangladesh_RU_Prep
 	}
 }
+
+defined_text = {
+	name = GetSovietArmyBasedOnIdeology_RU_END_NOM
+	text = {
+		trigger = {
+			has_government = democratic
+		}
+		localization_key = RU_Adj_Ending_Iy
+	}
+	text = {
+		trigger = {
+			OR = {
+				has_government = fascism
+				has_government = neutrality
+			}
+		}
+		localization_key = RU_Adj_Ending_Iy
+	}
+	text = {
+		localization_key = RU_Adj_Ending_Yy
+	}
+}

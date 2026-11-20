@@ -11906,7 +11906,29 @@ focus_tree = {
 			add_to_variable = { FIN_finnish_army_initiative_factor = 0.02 tooltip = initiative_factor_tt }
 			add_to_variable = { FIN_finnish_army_recon_factor_while_entrenched = 0.1 tooltip = recon_factor_while_entrenched_tt }
 			add_to_variable = { FIN_finnish_army_modifier_army_sub_unit_long_range_patrol_support_attack_factor = 0.1 tooltip = modifier_army_sub_unit_long_range_patrol_support_attack_factor_tt }
-			add_to_variable = { FIN_finnish_army_modifier_army_sub_unit_long_range_patrol_support_defence_factor = 0.1 tooltip = modifier_army_sub_unit_long_range_patrol_support_defence_factor_tt }		
+			add_to_variable = { FIN_finnish_army_modifier_army_sub_unit_long_range_patrol_support_defence_factor = 0.1 tooltip = modifier_army_sub_unit_long_range_patrol_support_defence_factor_tt }
+
+			add_mastery_bonus = {
+				name = FIN_sissi
+				bonus = 0.2
+				days = 180
+				track = infantry
+			}
+
+			if = {
+				limit = {
+					OR = {
+						has_dlc = "No Compromise, No Surrender"
+						has_dlc = "Arms Against Tyranny"
+					}
+				}
+				add_mastery_bonus = {
+					name = FIN_sissi
+					bonus = 0.2
+					days = 180
+					folder = special_forces
+				}
+			}
 
 			show_unit_leaders_tooltip = FIN_erkki_raappana
 		}
@@ -11939,6 +11961,13 @@ focus_tree = {
 				bonus = 0.5
 				uses = 1 # was 2
 				category = cat_armour_tech
+			}
+
+			add_mastery_bonus = {
+				name = FIN_national_armor_focus
+				bonus = 0.2
+				days = 180
+				track = armor
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt

@@ -1019,11 +1019,18 @@ death_or_dishonor_or_cake = {
 	happened = {
 		custom_trigger_tooltip = {
 			tooltip = achievement_carol_II_is_leader
-			has_country_leader = { id = 550 }			
-		}		
-		NOT = { has_completed_focus = ROM_force_abdication }
-		NOT = { has_completed_focus = ROM_handle_the_king }
-		NOT = { has_completed_focus = ROM_all_parties_must_end }
+			has_country_leader = { id = 550 }
+		}
+		if = {
+            limit = {
+				NOT = {
+					has_dlc = "To The Bitter End"
+				}
+            }
+            NOT = { has_completed_focus = ROM_force_abdication }
+            NOT = { has_completed_focus = ROM_handle_the_king }
+            NOT = { has_completed_focus = ROM_all_parties_must_end }
+        }
 
 		any_state = {
 			is_core_of = BUL
@@ -8281,5 +8288,287 @@ steiner = {
 		controls_state = 16 	#paris
 		controls_state = 126 	#london
 		controls_state = 219 	#moscow
+	}
+}
+
+dacii = {
+	id = 295
+	possible = {
+		original_tag = ROM
+		is_ironman = yes
+		difficulty > 1
+		has_start_date < 1936.01.02
+		has_any_custom_difficulty_setting = no
+		game_rules_allow_achievements = yes
+		has_dlc = "To The Bitter End"
+	}
+
+	happened = {
+		custom_trigger_tooltip = {
+			tooltip = has_formed_dacia_tt
+			has_cosmetic_tag = ROM_DACIA
+		}
+	}
+}
+
+what_would_maniu_think = {
+	id = 296
+	possible = {
+		original_tag = ROM
+		is_ironman = yes
+		difficulty > 1
+		has_start_date < 1936.01.02
+		has_any_custom_difficulty_setting = no
+		game_rules_allow_achievements = yes
+		has_dlc = "To The Bitter End"
+	}
+
+	happened = {
+		OR = {
+			has_completed_focus = ROM_maintain_regional_stability
+			has_completed_focus = ROM_dominance_over_the_balkans
+		}
+
+		custom_trigger_tooltip = {
+			tooltip = surgical_strike_tt
+			check_variable = { ROM_countries_defeated_low_casualties > 3 }
+		}
+	}
+}
+
+before_1947 = {
+	id = 297
+	possible = {
+		original_tag = ROM
+		is_ironman = yes
+		difficulty > 1
+		has_start_date < 1936.01.02
+		has_any_custom_difficulty_setting = no
+		game_rules_allow_achievements = yes
+		has_dlc = "To The Bitter End"
+	}
+
+	happened = {
+		has_completed_focus = ROM_the_peoples_revolution
+		has_completed_focus = ROM_purge_the_prison_faction
+		has_completed_focus = ROM_reorganize_the_communist_party
+
+		SOV = {
+			is_subject_of = ROM
+		}
+	}
+}
+
+rome_mania = {
+	id = 298
+	possible = {
+		original_tag = ROM
+		is_ironman = yes
+		difficulty > 1
+		has_start_date < 1936.01.02
+		has_any_custom_difficulty_setting = no
+		game_rules_allow_achievements = yes
+		has_dlc = "To The Bitter End"
+	}
+
+	happened = {
+		797 = {
+			is_owned_and_controlled_by = ROM
+		}
+		219 = {
+			is_owned_and_controlled_by = ROM
+		}
+		2 = {
+			is_owned_and_controlled_by = ROM
+		}
+	}
+}
+
+balkan_domination = {
+	id = 299
+	possible = {
+		original_tag = ROM
+		is_ironman = yes
+		difficulty > 1
+		has_start_date < 1936.01.02
+		has_any_custom_difficulty_setting = no
+		game_rules_allow_achievements = yes
+		has_dlc = "To The Bitter End"
+	}
+
+	happened = {
+		custom_trigger_tooltip = {
+			tooltip = united_balkans_rom_tt
+			# Romania
+			46 = {
+				is_owned_and_controlled_by = ROOT
+			}
+			76 = {
+				is_owned_and_controlled_by = ROOT
+			}
+			77 = {
+				is_owned_and_controlled_by = ROOT
+			}
+			78 = {
+				is_owned_and_controlled_by = ROOT
+			}
+			79 = {
+				is_owned_and_controlled_by = ROOT
+			}
+			80 = {
+				is_owned_and_controlled_by = ROOT
+			}
+			81 = {
+				is_owned_and_controlled_by = ROOT
+			}
+			82 = {
+				is_owned_and_controlled_by = ROOT
+			}
+			83 = {
+				is_owned_and_controlled_by = ROOT
+			}
+			84 = {
+				is_owned_and_controlled_by = ROOT
+			}
+			766 = {
+				is_owned_and_controlled_by = ROOT
+			}
+			971 = {
+				is_owned_and_controlled_by = ROOT
+			}
+		}
+		custom_trigger_tooltip = {
+			tooltip = united_balkans_yug_tt
+			# Yugoslavia 
+			45 = {
+				is_owned_and_controlled_by = ROOT
+			}
+			102 = {
+				is_owned_and_controlled_by = ROOT
+			}
+			103 = {
+				is_owned_and_controlled_by = ROOT
+			}
+			104 = {
+				is_owned_and_controlled_by = ROOT
+			}
+			105 = {
+				is_owned_and_controlled_by = ROOT
+			}
+			106 = {
+				is_owned_and_controlled_by = ROOT
+			}
+			107 = {
+				is_owned_and_controlled_by = ROOT
+			}
+			108 = {
+				is_owned_and_controlled_by = ROOT
+			}
+			109 = {
+				is_owned_and_controlled_by = ROOT
+			}
+			764 = {
+				is_owned_and_controlled_by = ROOT
+			}
+			802 = {
+				is_owned_and_controlled_by = ROOT
+			}
+			803 = {
+				is_owned_and_controlled_by = ROOT
+			}
+			804 = {
+				is_owned_and_controlled_by = ROOT
+			}
+			853 = {
+				is_owned_and_controlled_by = ROOT
+			}
+			970 = {
+				is_owned_and_controlled_by = ROOT
+			}
+		}
+		custom_trigger_tooltip = {
+			tooltip = united_balkans_bul_tt
+			# Bulgaria
+			48 = {
+				is_owned_and_controlled_by = ROOT
+			}
+			211 = {
+				is_owned_and_controlled_by = ROOT
+			}
+			212 = {
+				is_owned_and_controlled_by = ROOT
+			}
+			801 = {
+				is_owned_and_controlled_by = ROOT
+			}
+		}
+		custom_trigger_tooltip = {
+			tooltip = united_balkans_hun_tt
+			# Hungary
+			43 = {
+				is_owned_and_controlled_by = ROOT
+			}
+			154 = {
+				is_owned_and_controlled_by = ROOT
+			}
+			155 = {
+				is_owned_and_controlled_by = ROOT
+			}
+			973 = {
+				is_owned_and_controlled_by = ROOT
+			}
+			974 = {
+				is_owned_and_controlled_by = ROOT
+			}
+		}
+		custom_trigger_tooltip = {
+			tooltip = united_balkans_alb_tt
+			# Albania
+			44 = {
+				is_owned_and_controlled_by = ROOT
+			}
+			805 = {
+				is_owned_and_controlled_by = ROOT
+			}
+			934 = {
+				is_owned_and_controlled_by = ROOT
+			}
+		}
+		custom_trigger_tooltip = {
+			tooltip = united_balkans_gre_tt
+			# Greece
+			43 = {
+				is_owned_and_controlled_by = ROOT
+			}
+			182 = {
+				is_owned_and_controlled_by = ROOT
+			}
+			184 = {
+				is_owned_and_controlled_by = ROOT
+			}
+			185 = {
+				is_owned_and_controlled_by = ROOT
+			}
+			186 = {
+				is_owned_and_controlled_by = ROOT
+			}
+			187 = {
+				is_owned_and_controlled_by = ROOT
+			}
+			731 = {
+				is_owned_and_controlled_by = ROOT
+			}
+		}
+		custom_trigger_tooltip = {
+			tooltip = united_balkans_tur_tt
+			# Turkey
+			341 = {
+				is_owned_and_controlled_by = ROOT
+			}
+			797 = {
+				is_owned_and_controlled_by = ROOT
+			}
+		}
+		
 	}
 }

@@ -2142,7 +2142,7 @@ country_event = {
 ##       ##     ## ##    ##  ##        ##  ##    ##  ##   ###    ##        ##     ## ##        ##     ##     ##  ##    ## ##    ## 
 ##        #######  ##     ## ######## ####  ######   ##    ##    ##         #######  ######## ####    ##    ####  ######   ######  
 
-# SOV is pressuring our government - Event for Targeted country ### (ITA uses this too)
+# SOV is pressuring our government - Event for Targeted country ### (ITA&CZE&ROM&FIN use this too)
 country_event = {
 	id = NSB_soviet_foreign_politics_events.1
 	title = NSB_soviet_foreign_politics_events.1.t
@@ -2156,11 +2156,14 @@ country_event = {
 		trigger = {
 			FROM = {
 				is_faction_leader = yes
+				NOT = {	#we're not interested in that
+					original_tag = ROM
+				}
 			}
 		}
 
 		ai_chance = {
-			base = 10
+			base = 20
 			modifier = {
 				factor = 2
 				strength_ratio = {
@@ -2244,23 +2247,60 @@ country_event = {
 		ai_chance = {
 			base = 10
 			modifier = {
-				factor = 5
+				factor = 2
 				OR = {
 					FROM = {
 						has_government = communism
-						communism > 0.5
+						ROOT = {
+							communism > 0.5
+						}
 					}
 					FROM = {
 						has_government = democratic
-						democratic > 0.5
+						ROOT = {
+							democratic > 0.5
+						}
 					}
 					FROM = {
 						has_government = fascism
-						fascism > 0.5
+						ROOT = {
+							fascism > 0.5
+						}
 					}
 					FROM = {
 						has_government = neutrality
-						neutrality > 0.5
+						ROOT = {
+							neutrality > 0.5
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 2
+				OR = {
+					FROM = {
+						has_government = communism
+						ROOT = {
+							communism > 0.25
+						}
+					}
+					FROM = {
+						has_government = democratic
+						ROOT = {
+							democratic > 0.25
+						}
+					}
+					FROM = {
+						has_government = fascism
+						ROOT = {
+							fascism > 0.25
+						}
+					}
+					FROM = {
+						has_government = neutrality
+						ROOT = {
+							neutrality > 0.25
+						}
 					}
 				}
 			}
@@ -2269,6 +2309,20 @@ country_event = {
 				has_opinion = {
 					target = FROM
 					value > 75
+				}
+			}
+			modifier = {
+				factor = 1.5
+				strength_ratio = {
+					tag = FROM
+					ratio < 0.75
+				}
+			}
+			modifier = {
+				factor = 2
+				strength_ratio = {
+					tag = FROM
+					ratio < 0.5
 				}
 			}
 			modifier = { #Appropriate PC for Foreign Affairs
