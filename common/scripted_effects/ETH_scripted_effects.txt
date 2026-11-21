@@ -1623,6 +1623,90 @@ ETH_get_ships_from_country = { #MOved this here from event in ETH. This works wi
 			USA = { set_country_flag = sold_ships_to_us@ROOT }
 		}
 	}
+	ELSE_IF = {
+		limit = {
+			 FROM = {
+			 	tag = ITA
+			 }
+		}
+		ITA = {
+			create_ship = {
+				type = ship_hull_light_1
+				equipment_variant = "Curtatone Class"
+				creator = ITA
+				name = "Curtatone Class I"
+			}
+			create_ship = {
+				type = ship_hull_light_1
+				equipment_variant = "Curtatone Class"
+				creator = ITA
+				name = "Curtatone Class II"
+			}
+			create_ship = {
+				type = ship_hull_light_1
+				equipment_variant = "Curtatone Class"
+				creator = ITA
+				name = "Curtatone Class III"
+			}
+			create_ship = {
+				type = ship_hull_light_1
+				equipment_variant = "Curtatone Class"
+				creator = ITA
+				name = "Curtatone Class IV"
+			}
+			create_ship = {
+				type = ship_hull_light_1
+				equipment_variant = "Curtatone Class"
+				creator = ITA
+				name = "Curtatone Class V"
+			}
+			create_ship = {
+				type = ship_hull_light_1
+				equipment_variant = "Curtatone Class"
+				creator = ITA
+				name = "Curtatone Class VI"
+			}
+		
+			#Transfer US Destroyers
+			transfer_ship={
+			  prefer_name = "Curtatone Class I"
+			  type = destroyer
+			  target = ROOT
+			  exclude_refitting = no
+			}
+			transfer_ship={
+			  prefer_name = "Curtatone Class II"
+			  type = destroyer
+			  target = ROOT
+			  exclude_refitting = no
+			}
+			transfer_ship={
+			  prefer_name = "Curtatone Class III"
+			  type = destroyer
+			  target = ROOT
+			  exclude_refitting = no
+			}
+			transfer_ship={
+			  prefer_name = "Curtatone Class IV"
+			  type = destroyer
+			  target = ROOT
+			  exclude_refitting = no
+			}
+			transfer_ship={
+			  prefer_name = "Curtatone Class V"
+			  type = destroyer
+			  target = ROOT
+			  exclude_refitting = no
+			}
+			transfer_ship={
+			  prefer_name = "Curtatone Class VI"
+			  type = destroyer
+			  target = ROOT
+			  exclude_refitting = no
+			}
+			ITA = { set_country_flag = sold_ships_to_us@ROOT }
+		}
+	}
 }
 
 ETH_transfer_promised_states = {

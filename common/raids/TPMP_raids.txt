@@ -65,17 +65,17 @@ types = {
 			success = {
 				base = 0.5
 				experience = {
-					weight = 0.1
-					start_weight = -0.1
 					reference = 1.0
+					start_weight = -0.1
+					weight = 0.1
 				}
 				air_defence = {
-					reference = 100
-					start_weight = -0.05
-					weight = 0.05
+					reference = 50
+					start_weight = -0.1
+					weight = 0.1
 				}
 				air_agility = {
-					reference = 100
+					reference = 50
 					start_weight = -0.1
 					weight = 0.1
 				}
@@ -83,7 +83,6 @@ types = {
 					start_weight = -0.1
 					weight = 0.1
 				}
-
 				air_superiority = {
 					reference = 1.0
 					start_weight = -1.0
@@ -92,19 +91,12 @@ types = {
 
 				# Target
 				interception = {
-					reference = 10
-					weight = -0.25
+					reference = 100
+					weight = -0.2
 				}
 				anti_air = {
-					weight = -0.05
-				}
-				radar = {
-					weight = -0.05
-				}
-				intel = {
-					weight = 0.2
-					#start_reference = 50
-					reference = 100
+					reference = 5
+					weight = -0.1
 				}
 			}
 			critical = {
@@ -116,7 +108,7 @@ types = {
 			failure = {
 				actor_effects = {
 					raid_damage_units = {
-						plane_loss = 0.75
+						plane_loss = 1.0
 						ratio = yes
 					}
 

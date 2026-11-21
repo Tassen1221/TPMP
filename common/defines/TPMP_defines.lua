@@ -496,3 +496,9 @@ NDefines.NMarket.IC_TO_CIC_FACTOR = 1.0                    	-- The factor for ma
 NDefines.NMarket.LOW_PRICE_LEVEL_FACTOR = 0.5                   -- The factor of base equipment price for low price level. Should be in range (0,1]
 NDefines.NMarket.HIGH_PRICE_LEVEL_FACTOR = 2.00                 -- The factor of base equipment price for high price level. Should be more than 1.
 NDefines.NMarket.PURCHASE_CONTRACT_SUBSIDY_BONUS_SPEED_FACTOR = 10.0			-- The factor of speed bonus from subsidies
+
+-- Raid risk dial: smaller swings than vanilla (vanilla is 0 / 0.1 / 0.25 for both)
+NDefines.NRaids.RAID_MEDIUM_RISK_SETTING_SUCCESS_MODIFIER = 0.05	-- How much the success chance is modified when the dial is set to "medium"
+NDefines.NRaids.RAID_HIGH_RISK_SETTING_SUCCESS_MODIFIER = 0.1		-- How much the success chance is modified when the dial is set to "high"
+NDefines.NRaids.RAID_MEDIUM_RISK_SETTING_DISASTER_MODIFIER = 0.05	-- How much the disaster risk is modified when the dial is set to "medium"
+NDefines.NRaids.RAID_HIGH_RISK_SETTING_DISASTER_MODIFIER = 0.1		-- How much the disaster risk is modified when the dial is set to "high"

@@ -1058,6 +1058,19 @@ country_event = {
 			}
 			add_stability = 0.01
 		}
+		if = {
+			limit = {
+				has_dlc = "To The Bitter End"
+			}
+			custom_effect_tooltip = {
+				localization_key = ROM_modify_relation
+				TARGET = CZE
+				AMOUNT = -2
+			}
+			CZE = {
+				add_to_variable = { ROM_relation_var = -2 }
+			}
+		}
 
 		diplomatic_relation = {
 			country = CZE
@@ -1960,6 +1973,21 @@ country_event = {	#restoration of the Austro-Hungarian customs union
 			base = 2
 		}
 		set_country_flag = CZE_trade_agreement
+		hidden_effect = {
+			if = {
+				limit = {
+					original_tag = ROM
+				}
+				if = {
+					limit = {
+						FROM = {
+							has_idea = ROM_trade_agreement
+						}
+					}
+					remove_ideas = ROM_trade_agreement
+				}
+			}
+		}
 		if = {
 			limit = {
 				NOT = {

@@ -428,7 +428,7 @@ focus_tree = {
 		x = -2
 		y = 2
 		relative_position_id = SOV_third_five_year_plan
-		cost = 10
+		cost = 5
 
 		mutually_exclusive = { focus = SOV_shift_to_armaments_production }
 
@@ -509,6 +509,19 @@ focus_tree = {
 			add_to_variable = { SOV_fyp_production_factory_max_efficiency_factor = 0.05 }
 			add_to_variable = { SOV_fyp_line_change_production_efficiency_factor = 0.1 }
 			custom_effect_tooltip = SOV_industrial_modernization_ns_tt
+			if = {
+				limit = {
+					217 = { is_controlled_by = ROOT }
+				}
+				217 = {
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
 
 			add_tech_bonus = {
 				name = SOV_industrial_modernization
@@ -626,7 +639,7 @@ focus_tree = {
 		x = 2
 		y = 2
 		relative_position_id = SOV_third_five_year_plan
-		cost = 10
+		cost = 5
 
 		mutually_exclusive = { focus = SOV_reorganize_the_pc_of_heavy_industry}
 
@@ -663,6 +676,19 @@ focus_tree = {
 				}
 			}
 			custom_effect_tooltip = SOV_shift_to_armaments_production_ns_tt
+			if = {
+				limit = {
+					217 = { is_controlled_by = ROOT }
+				}
+				217 = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
 
 			add_tech_bonus = {
 				name = SOV_shift_to_armaments_production
@@ -697,7 +723,7 @@ focus_tree = {
 		completion_reward = {
 			add_to_variable = { SOV_fyp_production_factory_efficiency_gain_factor = 0.05 } #Add efficiency gain
 			add_to_variable = { SOV_fyp_production_factory_start_efficiency_factor = 0.05 } #Add efficiency start
-			add_to_variable = { SOV_fyp_industrial_capacity_factory = 0.02 } #Add small output bonus
+			add_to_variable = { SOV_fyp_industrial_capacity_factory = 0.10 } #Add small output bonus
 			custom_effect_tooltip = SOV_optimize_production_lines_ns_tt
 
 			add_tech_bonus = {
@@ -738,8 +764,8 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_INDUSTRY}
 
 		completion_reward = {
-			set_variable = { SOV_fyp_industrial_capacity_factory = 0.05 }
-			set_variable = { SOV_fyp_industrial_capacity_dockyard = 0.05 }
+			add_to_variable = { SOV_fyp_industrial_capacity_factory = 0.05 }
+			add_to_variable = { SOV_fyp_industrial_capacity_dockyard = 0.05 }
 
 			custom_effect_tooltip = SOV_steel_casting_industry_ns_tt
 
@@ -4027,7 +4053,7 @@ focus_tree = {
 					category = cat_infantry_tech
 				}
 			}
-			
+
 			219 = {
 				if = {
 					limit = {
@@ -4037,10 +4063,10 @@ focus_tree = {
 							include_locked = yes
 						}
 					}
-					add_extra_state_shared_building_slots = 1
+					add_extra_state_shared_building_slots = 2
 					add_building_construction = {
 						type = arms_factory
-						level = 1
+						level = 2
 						instant_build = yes
 					}
 				}
@@ -7471,7 +7497,7 @@ focus_tree = {
 		x = 2
 		y = 1
 		relative_position_id = SOV_the_military_conspiracy
-		cost = 5
+		cost = 2
 
 		available = {
 			has_government = communism
@@ -13690,6 +13716,9 @@ focus_tree = {
 
 		bypass = {
 			OR = {
+				NOT = {		#primarily for TTBE content but might fix some rare weird situations as well
+					owns_state = 834
+				}
 				AND = {
 					78 = { #Bessarabia
 						owner = {

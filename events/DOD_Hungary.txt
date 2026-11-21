@@ -1372,8 +1372,69 @@ country_event = {
 		name = DOD_hungary.45.a
 		ai_chance = {
 			base = 70
+			modifier = {
+				add = 30
+				has_government = FROM
+			}
+			modifier = {
+				factor = 0.4
+				OR = {
+					AND = {
+						FROM = {
+							has_government = communism
+						}
+						NOT = {
+							has_government = communism
+						}
+					}
+					AND = {
+						FROM = {
+							has_government = fascism
+						}
+						NOT = {
+							has_government = fascism
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 0
+				any_country = {
+					OR = {
+						tag = HUN
+						is_ally_with = HUN
+						has_guaranteed = HUN
+					}
+					strength_ratio = {
+						tag = ROM
+						ratio > 1
+					}
+					strength_ratio = {
+						tag = ROOT
+						ratio > 1
+					}
+				}
+			}
 		}
-		FROM = { add_to_faction = PREV }
+		hidden_effect = {
+			if = {
+				limit = {
+					FROM = {
+						NOT = {
+							has_government = ROOT
+						}
+					}
+				}
+				add_ai_strategy = {	#cancels out ideology difference
+					type = alliance
+					id = FROM
+					value = 100
+				}
+			}
+		}
+		FROM = {
+			add_to_faction = PREV
+		}
 	}
 
 	option = {#no 

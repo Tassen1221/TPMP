@@ -3971,7 +3971,10 @@ GER_reichskommissariats = {
 			custom_trigger_tooltip = {
 				tooltip = GER_reichskommissariat_highlighted_required_states
 				93 = {
-					is_controlled_by_ROOT_or_subject = yes
+					OR = {
+						is_controlled_by_ROOT_or_subject = yes
+						GER_is_volyn_kept_by_aligned_poland = yes
+					}
 				}
 				199 = {
 					is_controlled_by_ROOT_or_subject = yes
@@ -4022,23 +4025,10 @@ GER_reichskommissariats = {
 		}
 
 		highlight_states = {
-			highlight_state_targets = {
-				state = 93
-				state = 199
-				state = 201
-				state = 202
-				state = 193
-				state = 203
-				state = 197
-				state = 225
-				state = 259
-				state = 226
-				state = 196
-				state = 200
-				state = 221
-				state = 228
-				state = 227
-				state = 137
+			highlight_states_trigger = {
+				GER_is_RKU_state = yes
+				NOT = { GER_is_soviet_greater_romania_state = yes }
+				NOT = { GER_is_volyn_kept_by_aligned_poland = yes }
 			}
 		}
 
