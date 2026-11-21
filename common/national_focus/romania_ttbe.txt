@@ -852,10 +852,6 @@ focus_tree = {
 				limit = {
 					has_dlc = "Arms Against Tyranny"
 				}
-				unlock_military_industrial_organization_tooltip = mio:ROM_galati_shipyard_organization
-				mio:ROM_galati_shipyard_organization = {
-					add_mio_size = 1
-				}
 			}
 			else = {
 				custom_effect_tooltip = available_designer
@@ -1050,7 +1046,6 @@ focus_tree = {
 					mid_2_custom_slot = ship_anti_air_1
 					rear_1_custom_slot = ship_medium_battery_1
 				}
-				design_team = mio:ROM_galati_shipyard_organization
 			}
 			add_equipment_production = {
 				equipment = {
@@ -1067,7 +1062,6 @@ focus_tree = {
 				limit = {
 					has_dlc = "Arms Against Tyranny"
 				}
-				unlock_military_industrial_organization_tooltip = mio:ROM_Braila_organization
 			}
 			else = {
 				custom_effect_tooltip = available_designer
@@ -1093,7 +1087,6 @@ focus_tree = {
 				limit = {
 					has_dlc = "Arms Against Tyranny"
 				}
-				unlock_military_industrial_organization_tooltip = mio:ROM_iar_organization
 			}
 			else = {
 				custom_effect_tooltip = available_designer
@@ -1152,10 +1145,6 @@ focus_tree = {
 				limit = {
 					has_dlc = "Arms Against Tyranny"
 				}
-				mio:ROM_icar_organization = {
-					add_mio_size = 2
-				}
-				custom_effect_tooltip = generic_skip_one_line_tt
 			}
 			else = {
 				if = {
@@ -1217,15 +1206,6 @@ focus_tree = {
 				tooltip = license_production_speed_tt
 			}
 
-			if = {
-				limit = {
-					has_dlc = "Arms Against Tyranny"
-				}
-				custom_effect_tooltip = generic_skip_one_line_tt
-				mio:ROM_icar_organization = {
-					complete_mio_trait = generic_mio_trait_license_production_focus
-				}
-			}
 			if = {
 				limit = {
 					has_dlc = "By Blood Alone"
@@ -1361,13 +1341,6 @@ focus_tree = {
 				limit = {
 					has_dlc = "Arms Against Tyranny"
 				}
-				mio:ROM_iar_organization = {
-					#add_mio_size = 1
-					complete_mio_trait = generic_mio_trait_heavily_armed_aircraft
-					add_mio_funds_gain_factor = 0.15
-					add_mio_research_bonus = 0.05
-				}
-				custom_effect_tooltip = generic_skip_one_line_tt
 			}
 			else = {
 				if = {
@@ -1519,7 +1492,6 @@ focus_tree = {
 				create_equipment_variant = {
 					name = "IAR 80C"
 					type = small_plane_airframe_2
-					design_team = mio:ROM_iar_organization
 					allow_without_tech = no
 					modules = {
 						fixed_main_weapon_slot = light_mg_4x
@@ -1534,7 +1506,6 @@ focus_tree = {
 				create_equipment_variant = {
 					name = "IAR 81A"
 					type = small_plane_cas_airframe_2
-					design_team = mio:ROM_iar_organization
 					allow_without_tech = no
 					modules = {
 						fixed_main_weapon_slot = bomb_locks
@@ -1583,25 +1554,6 @@ focus_tree = {
 				tooltip = air_bombing_targetting_tt
 			}
 			custom_effect_tooltip = generic_skip_one_line_tt
-			if = {
-				limit = {
-					has_dlc = "Arms Against Tyranny"
-				}
-				if = {
-					limit = {
-						has_completed_focus = ROM_expand_icar_into_military_production
-					}
-					mio:ROM_icar_organization = {
-						add_mio_funds = 500
-					}
-				}
-				else = {
-					mio:ROM_iar_organization = {
-						add_mio_funds = 500
-					}
-				}
-				custom_effect_tooltip = generic_skip_one_line_tt
-			}
 			if = {
 				limit = {
 					NOT = {
