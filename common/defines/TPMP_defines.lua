@@ -252,7 +252,7 @@ NDefines.NProduction.MAX_MIL_FACTORIES_PER_LINE = 50
 
 NDefines.NProduction.RESOURCE_TO_ENERGY_COEFFICIENT = 1.0	-- How much energy per coal produces
 
-NDefines.NProduction.BASE_FACTORY_MAX_EFFICIENCY_FACTOR = 50	-- Base max efficiency for factories expressed in %.
+NDefines.NProduction.BASE_FACTORY_MAX_EFFICIENCY_FACTOR = 40	-- Base max efficiency for factories expressed in %.
 
 NDefines.NProduction.BASE_FACTORY_SPEED_MIL = 5		-- Base factory speed multiplier (how much hoi3 style IC each factory gives).
 NDefines.NProduction.BASE_FACTORY_SPEED_NAV = 5		-- vanilla is 2.5

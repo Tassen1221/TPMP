@@ -28,7 +28,8 @@ TPMP_generic_industry_organization = {
 	initial_trait = {
 		name = generic_mio_initial_trait_industry
 		
-		equipment_bonus = {
+		production_bonus = {
+			production_efficiency_cap_factor = 0.1
 		}
 	}
 
@@ -198,7 +199,7 @@ TPMP_generic_industry_organization = {
 			production_efficiency_cap_factor = 0.1
 			production_capacity_factor = 0.15
 		}
-		limit_to_equipment_type = { small_plane_cas_airframe cv_small_plane_cas_airframe small_plane_naval_bomber_airframe cv_small_plane_naval_bomber_airframe medium_plane_airframe helicopter_equipment }
+		limit_to_equipment_type = { small_plane_cas_airframe cv_small_plane_cas_airframe small_plane_naval_bomber_airframe cv_small_plane_naval_bomber_airframe }
 	}
 	trait = {
 		token = generic_mio_trait_industry_3c
@@ -221,7 +222,7 @@ TPMP_generic_industry_organization = {
 			production_efficiency_cap_factor = 0.1
 			production_capacity_factor = 0.15
 		}
-		limit_to_equipment_type = { motorized_equipment TPMP_cat_eq_all_mech }
+		limit_to_equipment_type = { motorized_equipment TPMP_cat_eq_all_mech armored_car_equipment }
 	}
 	trait = {
 		token = generic_mio_trait_industry_4c
@@ -267,7 +268,7 @@ TPMP_generic_industry_organization = {
 			production_efficiency_cap_factor = 0.1
 			production_capacity_factor = 0.15
 		}
-		limit_to_equipment_type = { large_plane_airframe transport_plane_equipment }
+		limit_to_equipment_type = { medium_plane_airframe large_plane_airframe transport_plane_equipment }
 	}
 	trait = {
 		token = generic_mio_trait_industry_1b
