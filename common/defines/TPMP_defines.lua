@@ -199,6 +199,8 @@ NDefines.NAir.ANTI_AIR_MAXIMUM_DAMAGE_REDUCTION_FACTOR = 0.90	-- Maximum damage 
 NDefines.NMilitary.ANTI_AIR_TARGETTING_TO_CHANCE = 0.1		-- Balancing value to determine the chance of ground AA hitting an attacking airplane, affecting both the effective average damage done by AA to airplanes, and the reduction of damage done by airplanes due to AA support
 NDefines.NMilitary.ANTI_AIR_ATTACK_TO_AMOUNT = 0.0005		-- Balancing value to convert equipment stat anti_air_attack to the random % value of airplanes being hit.
 
+NDefines.NAir.TOP_SPEED_DAMAGE_BONUS_FACTOR = 0			-- A factor for scaling the top speed of a plane into damage buff. If an attacking wing has a speed advantage of any form their speed value will be converted into a percentage bonus with this modifier
+
 NDefines.NAir.COMBAT_DAMAGE_SCALE = 0.25			-- Higher value = more shot down planes
 NDefines.NAir.COMBAT_DAMAGE_SCALE_CARRIER = 5			-- same as above but used inside naval combat for carrier battles
 
@@ -254,8 +256,12 @@ NDefines.NProduction.RESOURCE_TO_ENERGY_COEFFICIENT = 1.0	-- How much energy per
 
 NDefines.NProduction.BASE_FACTORY_MAX_EFFICIENCY_FACTOR = 40	-- Base max efficiency for factories expressed in %.
 
-NDefines.NProduction.BASE_FACTORY_SPEED_MIL = 5		-- Base factory speed multiplier (how much hoi3 style IC each factory gives).
-NDefines.NProduction.BASE_FACTORY_SPEED_NAV = 5		-- vanilla is 2.5
+NDefines.NProduction.BASE_FACTORY_SPEED = 2.5		-- Base (unpowered) civilian factory speed multiplier. vanilla is 4
+NDefines.NProduction.BASE_FACTORY_SPEED_MIL = 2.5	-- Base factory speed multiplier (how much hoi3 style IC each factory gives).
+NDefines.NProduction.BASE_FACTORY_SPEED_NAV = 2.5	-- vanilla is 2.5
+NDefines.NProduction.POWERED_FACTORY_SPEED = 5		-- Powered civilian factory speed multiplier. vanilla is 5
+NDefines.NProduction.POWERED_FACTORY_SPEED_MIL = 5	-- Powered factory speed multiplier. vanilla is 4.5; kept equal to the base value above
+NDefines.NProduction.POWERED_FACTORY_SPEED_NAV = 5	-- vanilla is 2.5
 
 NDefines.NProduction.INFRA_MAX_CONSTRUCTION_COST_EFFECT = 1	-- Building in a state with higher infrastructure will reduce the cost of shared buildings.
 
@@ -489,8 +495,14 @@ NDefines.NTechnology.BASE_YEAR_AHEAD_PENALTY_FACTOR = 4.0	-- Base year ahead pen
 NDefines.NIndustrialOrganisation.ASSIGN_DESIGN_TEAM_PP_COST_PER_DAY = 0			-- Cost in Political Power daily generation when one MIO is assigned to a research slot. If 0, cost is entirely disabled.
 NDefines.NIndustrialOrganisation.DESIGN_TEAM_RESEARCH_BONUS = 0.1				-- Research bonus for applying a Design Team that matches the technology
 NDefines.NIndustrialOrganisation.ENABLE_TASK_CAPACITY = true					-- Enable limited task capacity for MIOs
-NDefines.NIndustrialOrganisation.DEFAULT_INITIAL_TASK_CAPACITY = 2
+NDefines.NIndustrialOrganisation.DEFAULT_INITIAL_TASK_CAPACITY = 1
 
+NDefines.NIndustrialOrganisation.FUNDS_FOR_SIZE_UP = 1000			-- Funds needed for a MIO to increment its size and get points to unlock traits
+NDefines.NIndustrialOrganisation.FUNDS_FOR_SIZE_UP_LEVEL_FACTOR = 500		-- How much each level mutliplies the funds for size up
+NDefines.NIndustrialOrganisation.FUNDS_FOR_SIZE_UP_LEVEL_POW = 1.2		-- the power we applie to the mio size when calculating funds to level up.
+
+NDefines.NIndustrialOrganisation.FUNDS_FOR_RESEARCH_COMPLETION_PER_RESEARCH_COST = 1000     	-- Funds added to MIO when the Design Team has completed a research, multiplied by research_cost in technology template
+NDefines.NIndustrialOrganisation.FUNDS_FROM_MANUFACTURER_PER_IC_PER_DAY = 0.1			-- Funds added to MIO when a manufacturer is attached to a production line. Added every day proportional to IC produced.
 
 NDefines.NMarket.IC_TO_CIC_FACTOR = 1.0                    	-- The factor for mapping IC cost to CIC cost. Should be a positive number.
 NDefines.NMarket.LOW_PRICE_LEVEL_FACTOR = 0.5                   -- The factor of base equipment price for low price level. Should be in range (0,1]

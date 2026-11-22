@@ -1,0 +1,264 @@
+# TPMP support MIO. Own traits span x=0 to x=6; merging traits need ALL parents.
+# The shared treelet (columns 9-10) is repeated at the bottom with the same tokens and names.
+
+TPMP_generic_support_organization = {
+	icon = GFX_idea_generic_motorized_equipment_manufacturer_2
+
+	allowed = {
+		always = no # Archetype only: countries get their own copy, see <TAG>_organization.txt
+	}
+
+	equipment_type = { TPMP_cat_eq_all_support armored_car_equipment motorized_equipment train_equipment railway_gun }
+	research_categories = { cat_motorized_tech cat_armored_car_tech cat_special_forces_tech cat_train_tech }
+
+	initial_trait = {
+		name = generic_mio_initial_trait_support
+
+		equipment_bonus = {
+			build_cost_ic = -0.03
+		}
+	}
+	trait = {
+		token = generic_mio_trait_support_1a
+		name = generic_mio_trait_support_1a
+		icon = GFX_generic_mio_department_icon_support_equipment
+
+		position = { x=0 y=0 }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		on_complete = {
+			hidden_effect = {
+				FROM = {
+					every_military_industrial_organization = {
+						limit = { has_mio_equipment_type = train_equipment }
+						set_mio_flag = TPMP_MIO_selected_flag
+					}
+				}
+				clr_mio_flag = TPMP_MIO_selected_flag
+			}
+		}
+		limit_to_equipment_type = { TPMP_cat_eq_all_support }
+		equipment_bonus = {
+			build_cost_ic = -0.03
+			reliability = 0.05
+		}
+	}
+	trait = {
+		token = generic_mio_trait_support_1b
+		name = generic_mio_trait_support_1b
+		icon = GFX_generic_mio_department_icon_motorized
+
+		position = { x=2 y=0 }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		on_complete = {
+			hidden_effect = {
+				FROM = {
+					every_military_industrial_organization = {
+						limit = { has_mio_equipment_type = train_equipment }
+						set_mio_flag = TPMP_MIO_selected_flag
+					}
+				}
+				clr_mio_flag = TPMP_MIO_selected_flag
+			}
+		}
+		limit_to_equipment_type = { armored_car_equipment motorized_equipment }
+		equipment_bonus = {
+			build_cost_ic = -0.03
+			reliability = 0.05
+		}
+	}
+	trait = {
+		token = generic_mio_trait_support_1c
+		name = generic_mio_trait_support_1c
+		icon = GFX_military_industrial_organization_train
+
+		position = { x=4 y=0 }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		on_complete = {
+			hidden_effect = {
+				FROM = {
+					every_military_industrial_organization = {
+						limit = { has_mio_equipment_type = train_equipment }
+						set_mio_flag = TPMP_MIO_selected_flag
+					}
+				}
+				clr_mio_flag = TPMP_MIO_selected_flag
+			}
+		}
+		limit_to_equipment_type = { train_equipment }
+		equipment_bonus = {
+			build_cost_ic = -0.03
+			reliability = 0.05
+		}
+	}
+	trait = {
+		token = generic_mio_trait_support_1d
+		name = generic_mio_trait_support_1d
+		icon = GFX_military_industrial_organization_train
+
+		position = { x=6 y=0 }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		on_complete = {
+			hidden_effect = {
+				FROM = {
+					every_military_industrial_organization = {
+						limit = { has_mio_equipment_type = train_equipment }
+						set_mio_flag = TPMP_MIO_selected_flag
+					}
+				}
+				clr_mio_flag = TPMP_MIO_selected_flag
+			}
+		}
+		limit_to_equipment_type = { railway_gun }
+		equipment_bonus = {
+			build_cost_ic = -0.03
+			reliability = 0.05
+		}
+	}
+	trait = {
+		token = generic_mio_trait_support_3a
+		name = generic_mio_trait_support_3a
+		icon = GFX_generic_mio_trait_icon_build_cost_ic
+
+		position = { x=1 y=2 }
+		all_parents = { generic_mio_trait_support_1a generic_mio_trait_support_1b }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		limit_to_equipment_type = { TPMP_cat_eq_all_support armored_car_equipment motorized_equipment }
+		equipment_bonus = {
+			build_cost_ic = -0.05
+		}
+	}
+	trait = {
+		token = generic_mio_trait_support_3b
+		name = generic_mio_trait_support_3b
+		icon = GFX_generic_mio_trait_icon_build_cost_ic
+
+		position = { x=5 y=2 }
+		all_parents = { generic_mio_trait_support_1c generic_mio_trait_support_1d }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		limit_to_equipment_type = { train_equipment railway_gun }
+		equipment_bonus = {
+			build_cost_ic = -0.05
+		}
+	}
+	trait = {
+		token = generic_mio_trait_support_5a
+		name = generic_mio_trait_support_5a
+		icon = GFX_generic_mio_department_icon_motorized_engine
+
+		position = { x=2 y=4 }
+		any_parent = { generic_mio_trait_support_1b }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		limit_to_equipment_type = { armored_car_equipment motorized_equipment }
+		equipment_bonus = {
+			maximum_speed = 0.2
+		}
+	}
+	trait = {
+		token = generic_mio_trait_support_5b
+		name = generic_mio_trait_support_5b
+		icon = GFX_generic_mio_department_icon_tank_general_spg
+
+		position = { x=6 y=4 }
+		any_parent = { generic_mio_trait_support_1d }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		limit_to_equipment_type = { railway_gun }
+		equipment_bonus = {
+			railway_gun_attack = 0.1
+		}
+	}
+	# Shared treelet (same in every MIO)
+	trait = {
+		token = generic_mio_trait_shared_1a
+		name = generic_mio_trait_shared_1a
+		icon = GFX_generic_mio_trait_icon_efficiency_gain
+
+		position = { x=8 y=0 }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		on_complete = {
+			hidden_effect = {
+				FROM = {
+					every_military_industrial_organization = {
+						limit = { has_mio_equipment_type = train_equipment }
+						set_mio_flag = TPMP_MIO_selected_flag
+					}
+				}
+				clr_mio_flag = TPMP_MIO_selected_flag
+			}
+		}
+		production_bonus = {
+			production_efficiency_gain_factor = 0.1
+		}
+		organization_modifier = {
+			military_industrial_organization_funds_gain = 0.1
+		}
+	}
+	trait = {
+		token = generic_mio_trait_shared_2a
+		name = generic_mio_trait_shared_2a
+		icon = GFX_generic_mio_department_icon_facilities
+
+		position = { x=9 y=1 }
+		any_parent = { generic_mio_trait_shared_1a }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		organization_modifier = {
+			military_industrial_organization_research_bonus = 0.1
+			military_industrial_organization_task_capacity = 1
+		}
+	}
+	trait = {
+		token = generic_mio_trait_shared_3a
+		name = generic_mio_trait_shared_3a
+		icon = GFX_generic_mio_trait_icon_production_capacity
+
+		position = { x=8 y=2 }
+		any_parent = { generic_mio_trait_shared_1a }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		production_bonus = {
+			production_capacity_factor = 0.05
+		}
+	}
+}

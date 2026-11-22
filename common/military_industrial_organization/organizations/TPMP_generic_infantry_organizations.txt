@@ -1,0 +1,742 @@
+# TPMP infantry MIOs. Own traits sit on x=3 (left), x=4 (centre), x=5 (right).
+# The shared treelet (columns 9-10) is repeated at the bottom of each MIO with the same tokens and names.
+
+TPMP_generic_standard_infantry_organization = {
+	icon = GFX_idea_generic_infantry_equipment_manufacturer_1
+
+	allowed = {
+		always = no # Archetype only: countries get their own copy, see <TAG>_organization.txt
+	}
+
+	equipment_type = { mobile_infantry_equipment special_infantry_equipment infantry_equipment }
+	research_categories = { cat_infantry_tech }
+
+	initial_trait = {
+		name = generic_mio_initial_trait_standard_infantry
+
+		equipment_bonus = {
+			defense = 0.05
+			soft_attack = 0.1
+		}
+	}
+	trait = {
+		token = generic_mio_trait_standard_infantry_1a
+		name = generic_mio_trait_standard_infantry_1a
+		icon = GFX_generic_mio_department_icon_infantry
+
+		position = { x=4 y=0 }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		on_complete = {
+			hidden_effect = {
+				FROM = {
+					every_military_industrial_organization = {
+						limit = { has_mio_equipment_type = infantry_equipment }
+						set_mio_flag = TPMP_MIO_selected_flag
+					}
+				}
+				clr_mio_flag = TPMP_MIO_selected_flag
+			}
+		}
+		equipment_bonus = {
+			defense = 0.05
+		}
+	}
+	trait = {
+		token = generic_mio_trait_standard_infantry_2a
+		name = generic_mio_trait_standard_infantry_2a
+		icon = GFX_generic_mio_trait_icon_defense
+
+		position = { x=3 y=1 }
+		any_parent = { generic_mio_trait_standard_infantry_1a }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		equipment_bonus = {
+			defense = 0.05
+		}
+	}
+	trait = {
+		token = generic_mio_trait_standard_infantry_2b
+		name = generic_mio_trait_standard_infantry_2b
+		icon = GFX_generic_mio_trait_icon_breakthrough
+
+		position = { x=5 y=1 }
+		any_parent = { generic_mio_trait_standard_infantry_1a }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		equipment_bonus = {
+			breakthrough = 0.05
+		}
+	}
+	trait = {
+		token = generic_mio_trait_standard_infantry_3a
+		name = generic_mio_trait_standard_infantry_3a
+		icon = GFX_generic_mio_department_icon_infantry_quality
+
+		position = { x=3 y=2 }
+		any_parent = { generic_mio_trait_standard_infantry_2a }
+		mutually_exclusive = { generic_mio_trait_standard_infantry_3b }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		equipment_bonus = {
+			defense = 0.05
+		}
+	}
+	trait = {
+		token = generic_mio_trait_standard_infantry_3b
+		name = generic_mio_trait_standard_infantry_3b
+		icon = GFX_generic_mio_trait_icon_maximum_speed
+
+		position = { x=5 y=2 }
+		any_parent = { generic_mio_trait_standard_infantry_2b }
+		mutually_exclusive = { generic_mio_trait_standard_infantry_3a }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+	trait = {
+		token = generic_mio_trait_standard_infantry_4a
+		name = generic_mio_trait_standard_infantry_4a
+		icon = GFX_generic_mio_trait_icon_soft_attack
+
+		position = { x=3 y=3 }
+		any_parent = { generic_mio_trait_standard_infantry_3a generic_mio_trait_standard_infantry_3b }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		equipment_bonus = {
+			soft_attack = 0.05
+		}
+	}
+	trait = {
+		token = generic_mio_trait_standard_infantry_4b
+		name = generic_mio_trait_standard_infantry_4b
+		icon = GFX_generic_mio_department_icon_infantry_offense
+
+		position = { x=5 y=3 }
+		any_parent = { generic_mio_trait_standard_infantry_3a generic_mio_trait_standard_infantry_3b }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		equipment_bonus = {
+			soft_attack = 0.05
+		}
+	}
+	trait = {
+		token = generic_mio_trait_standard_infantry_5a
+		name = generic_mio_trait_standard_infantry_5a
+		icon = GFX_generic_mio_trait_icon_defense
+
+		position = { x=3 y=4 }
+		any_parent = { generic_mio_trait_standard_infantry_4a }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		equipment_bonus = {
+			defense = 0.05
+		}
+	}
+	trait = {
+		token = generic_mio_trait_standard_infantry_5b
+		name = generic_mio_trait_standard_infantry_5b
+		icon = GFX_generic_mio_department_icon_infantry_technology
+
+		position = { x=5 y=4 }
+		any_parent = { generic_mio_trait_standard_infantry_4b }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		equipment_bonus = {
+			breakthrough = 0.05
+			soft_attack = 0.05
+		}
+	}
+	# Shared treelet (same in every MIO)
+	trait = {
+		token = generic_mio_trait_shared_1a
+		name = generic_mio_trait_shared_1a
+		icon = GFX_generic_mio_trait_icon_efficiency_gain
+
+		position = { x=8 y=0 }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		on_complete = {
+			hidden_effect = {
+				FROM = {
+					every_military_industrial_organization = {
+						limit = { has_mio_equipment_type = infantry_equipment }
+						set_mio_flag = TPMP_MIO_selected_flag
+					}
+				}
+				clr_mio_flag = TPMP_MIO_selected_flag
+			}
+		}
+		production_bonus = {
+			production_efficiency_gain_factor = 0.1
+		}
+		organization_modifier = {
+			military_industrial_organization_funds_gain = 0.1
+		}
+	}
+	trait = {
+		token = generic_mio_trait_shared_2a
+		name = generic_mio_trait_shared_2a
+		icon = GFX_generic_mio_department_icon_facilities
+
+		position = { x=9 y=1 }
+		any_parent = { generic_mio_trait_shared_1a }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		organization_modifier = {
+			military_industrial_organization_research_bonus = 0.1
+			military_industrial_organization_task_capacity = 1
+		}
+	}
+	trait = {
+		token = generic_mio_trait_shared_3a
+		name = generic_mio_trait_shared_3a
+		icon = GFX_generic_mio_trait_icon_production_capacity
+
+		position = { x=8 y=2 }
+		any_parent = { generic_mio_trait_shared_1a }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		production_bonus = {
+			production_capacity_factor = 0.05
+		}
+	}
+}
+
+TPMP_generic_production_infantry_organization = {
+	icon = GFX_idea_generic_infantry_equipment_manufacturer_3
+
+	allowed = {
+		always = no # Archetype only: countries get their own copy, see <TAG>_organization.txt
+	}
+
+	equipment_type = { mobile_infantry_equipment special_infantry_equipment infantry_equipment }
+	research_categories = { cat_infantry_tech }
+
+	initial_trait = {
+		name = generic_mio_initial_trait_production_infantry
+
+		equipment_bonus = {
+			soft_attack = 0.05
+			build_cost_ic = -0.05
+		}
+	}
+	trait = {
+		token = generic_mio_trait_production_infantry_1a
+		name = generic_mio_trait_production_infantry_1a
+		icon = GFX_generic_mio_department_icon_infantry_quality
+
+		position = { x=3 y=0 }
+		mutually_exclusive = { generic_mio_trait_production_infantry_1b generic_mio_trait_production_infantry_1c }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		on_complete = {
+			FROM = {
+				add_equipment_to_stockpile = {
+					type = special_infantry_equipment_1
+					amount = 10000
+				}
+			}
+			hidden_effect = {
+				FROM = {
+					every_military_industrial_organization = {
+						limit = { has_mio_equipment_type = infantry_equipment }
+						set_mio_flag = TPMP_MIO_selected_flag
+					}
+				}
+				clr_mio_flag = TPMP_MIO_selected_flag
+			}
+		}
+		equipment_bonus = {
+			build_cost_ic = -0.03
+		}
+	}
+	trait = {
+		token = generic_mio_trait_production_infantry_1b
+		name = generic_mio_trait_production_infantry_1b
+		icon = GFX_generic_mio_department_icon_infantry
+
+		position = { x=4 y=0 }
+		mutually_exclusive = { generic_mio_trait_production_infantry_1a generic_mio_trait_production_infantry_1c }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		on_complete = {
+			FROM = {
+				add_equipment_to_stockpile = {
+					type = line_infantry_equipment_1
+					amount = 10000
+				}
+			}
+			hidden_effect = {
+				FROM = {
+					every_military_industrial_organization = {
+						limit = { has_mio_equipment_type = infantry_equipment }
+						set_mio_flag = TPMP_MIO_selected_flag
+					}
+				}
+				clr_mio_flag = TPMP_MIO_selected_flag
+			}
+		}
+		equipment_bonus = {
+			build_cost_ic = -0.03
+		}
+	}
+	trait = {
+		token = generic_mio_trait_production_infantry_1c
+		name = generic_mio_trait_production_infantry_1c
+		icon = GFX_generic_mio_department_icon_motorized
+
+		position = { x=5 y=0 }
+		mutually_exclusive = { generic_mio_trait_production_infantry_1a generic_mio_trait_production_infantry_1b }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		on_complete = {
+			FROM = {
+				add_equipment_to_stockpile = {
+					type = mobile_infantry_equipment_1
+					amount = 10000
+				}
+			}
+			hidden_effect = {
+				FROM = {
+					every_military_industrial_organization = {
+						limit = { has_mio_equipment_type = infantry_equipment }
+						set_mio_flag = TPMP_MIO_selected_flag
+					}
+				}
+				clr_mio_flag = TPMP_MIO_selected_flag
+			}
+		}
+		equipment_bonus = {
+			build_cost_ic = -0.03
+		}
+	}
+	trait = {
+		token = generic_mio_trait_production_infantry_2a
+		name = generic_mio_trait_production_infantry_2a
+		icon = GFX_generic_mio_trait_icon_breakthrough
+
+		position = { x=4 y=1 }
+		any_parent = { generic_mio_trait_production_infantry_1a generic_mio_trait_production_infantry_1b generic_mio_trait_production_infantry_1c }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		equipment_bonus = {
+			breakthrough = 0.1
+			reliability = 0.05
+		}
+	}
+	trait = {
+		token = generic_mio_trait_production_infantry_3a
+		name = generic_mio_trait_production_infantry_3a
+		icon = GFX_generic_mio_department_icon_infantry_production
+
+		position = { x=4 y=2 }
+		any_parent = { generic_mio_trait_production_infantry_2a }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		equipment_bonus = {
+			build_cost_ic = -0.05
+		}
+	}
+	trait = {
+		token = generic_mio_trait_production_infantry_4a
+		name = generic_mio_trait_production_infantry_4a
+		icon = GFX_generic_mio_trait_icon_reliability
+
+		position = { x=4 y=3 }
+		any_parent = { generic_mio_trait_production_infantry_3a }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		equipment_bonus = {
+			soft_attack = 0.05
+			reliability = 0.05
+		}
+	}
+	trait = {
+		token = generic_mio_trait_production_infantry_5a
+		name = generic_mio_trait_production_infantry_5a
+		icon = GFX_generic_mio_trait_icon_defense
+
+		position = { x=4 y=4 }
+		any_parent = { generic_mio_trait_production_infantry_4a }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		equipment_bonus = {
+			defense = 0.05
+		}
+	}
+	# Shared treelet (same in every MIO)
+	trait = {
+		token = generic_mio_trait_shared_1a
+		name = generic_mio_trait_shared_1a
+		icon = GFX_generic_mio_trait_icon_efficiency_gain
+
+		position = { x=8 y=0 }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		on_complete = {
+			hidden_effect = {
+				FROM = {
+					every_military_industrial_organization = {
+						limit = { has_mio_equipment_type = infantry_equipment }
+						set_mio_flag = TPMP_MIO_selected_flag
+					}
+				}
+				clr_mio_flag = TPMP_MIO_selected_flag
+			}
+		}
+		production_bonus = {
+			production_efficiency_gain_factor = 0.1
+		}
+		organization_modifier = {
+			military_industrial_organization_funds_gain = 0.1
+		}
+	}
+	trait = {
+		token = generic_mio_trait_shared_2a
+		name = generic_mio_trait_shared_2a
+		icon = GFX_generic_mio_department_icon_facilities
+
+		position = { x=9 y=1 }
+		any_parent = { generic_mio_trait_shared_1a }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		organization_modifier = {
+			military_industrial_organization_research_bonus = 0.1
+			military_industrial_organization_task_capacity = 1
+		}
+	}
+	trait = {
+		token = generic_mio_trait_shared_3a
+		name = generic_mio_trait_shared_3a
+		icon = GFX_generic_mio_trait_icon_production_capacity
+
+		position = { x=8 y=2 }
+		any_parent = { generic_mio_trait_shared_1a }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		production_bonus = {
+			production_capacity_factor = 0.05
+		}
+	}
+}
+
+TPMP_generic_advanced_infantry_organization = {
+	icon = GFX_idea_generic_infantry_equipment_manufacturer_2
+
+	allowed = {
+		always = no # Archetype only: countries get their own copy, see <TAG>_organization.txt
+	}
+
+	equipment_type = { mobile_infantry_equipment special_infantry_equipment infantry_equipment }
+	research_categories = { cat_infantry_tech }
+
+	initial_trait = {
+		name = generic_mio_initial_trait_advanced_infantry
+
+		equipment_bonus = {
+			soft_attack = 0.15
+		}
+	}
+	trait = {
+		token = generic_mio_trait_advanced_infantry_1a
+		name = generic_mio_trait_advanced_infantry_1a
+		icon = GFX_generic_mio_department_icon_infantry_offense
+
+		position = { x=4 y=0 }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		on_complete = {
+			hidden_effect = {
+				FROM = {
+					every_military_industrial_organization = {
+						limit = { has_mio_equipment_type = infantry_equipment }
+						set_mio_flag = TPMP_MIO_selected_flag
+					}
+				}
+				clr_mio_flag = TPMP_MIO_selected_flag
+			}
+		}
+		equipment_bonus = {
+			breakthrough = 0.05
+			soft_attack = 0.1
+		}
+	}
+	trait = {
+		token = generic_mio_trait_advanced_infantry_2a
+		name = generic_mio_trait_advanced_infantry_2a
+		icon = GFX_generic_mio_trait_icon_maximum_speed
+
+		position = { x=3 y=1 }
+		any_parent = { generic_mio_trait_advanced_infantry_1a }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		equipment_bonus = {
+			breakthrough = 0.05
+			maximum_speed = 0.05
+		}
+	}
+	trait = {
+		token = generic_mio_trait_advanced_infantry_2b
+		name = generic_mio_trait_advanced_infantry_2b
+		icon = GFX_generic_mio_trait_icon_soft_attack
+
+		position = { x=5 y=1 }
+		any_parent = { generic_mio_trait_advanced_infantry_1a }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		equipment_bonus = {
+			soft_attack = 0.1
+		}
+	}
+	trait = {
+		token = generic_mio_trait_advanced_infantry_3a
+		name = generic_mio_trait_advanced_infantry_3a
+		icon = GFX_generic_mio_trait_icon_breakthrough
+
+		position = { x=3 y=2 }
+		any_parent = { generic_mio_trait_advanced_infantry_2a }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		equipment_bonus = {
+			breakthrough = 0.1
+		}
+	}
+	trait = {
+		token = generic_mio_trait_advanced_infantry_3b
+		name = generic_mio_trait_advanced_infantry_3b
+		icon = GFX_generic_mio_trait_icon_hard_attack
+
+		position = { x=5 y=2 }
+		any_parent = { generic_mio_trait_advanced_infantry_2b }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		equipment_bonus = {
+			hard_attack = 1.0
+			ap_attack = 1.0
+		}
+	}
+	trait = {
+		token = generic_mio_trait_advanced_infantry_4a
+		name = generic_mio_trait_advanced_infantry_4a
+		icon = GFX_generic_mio_department_icon_infantry_quality
+
+		position = { x=3 y=3 }
+		any_parent = { generic_mio_trait_advanced_infantry_3a }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		equipment_bonus = {
+			breakthrough = 0.05
+			maximum_speed = 0.05
+		}
+	}
+	trait = {
+		token = generic_mio_trait_advanced_infantry_4b
+		name = generic_mio_trait_advanced_infantry_4b
+		icon = GFX_generic_mio_trait_icon_defense
+
+		position = { x=5 y=3 }
+		any_parent = { generic_mio_trait_advanced_infantry_3b }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		equipment_bonus = {
+			soft_attack = 0.05
+			defense = 0.05
+		}
+	}
+	trait = {
+		token = generic_mio_trait_advanced_infantry_5a
+		name = generic_mio_trait_advanced_infantry_5a
+		icon = GFX_generic_mio_department_icon_infantry
+
+		position = { x=3 y=4 }
+		any_parent = { generic_mio_trait_advanced_infantry_4a }
+		mutually_exclusive = { generic_mio_trait_advanced_infantry_5b }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		equipment_bonus = {
+			soft_attack = 0.1
+		}
+	}
+	trait = {
+		token = generic_mio_trait_advanced_infantry_5b
+		name = generic_mio_trait_advanced_infantry_5b
+		icon = GFX_generic_mio_department_icon_infantry_technology
+
+		position = { x=5 y=4 }
+		any_parent = { generic_mio_trait_advanced_infantry_4b }
+		mutually_exclusive = { generic_mio_trait_advanced_infantry_5a }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		on_complete = {
+			FROM = {
+				add_tech_bonus = {
+					name = generic_mio_trait_advanced_infantry_5b
+					bonus = 1.0
+					ahead_reduction = 1
+					uses = 1
+					technology = assaultrifle1_tech
+					technology = assaultrifle2_tech
+				}
+			}
+		}
+	}
+	# Shared treelet (same in every MIO)
+	trait = {
+		token = generic_mio_trait_shared_1a
+		name = generic_mio_trait_shared_1a
+		icon = GFX_generic_mio_trait_icon_efficiency_gain
+
+		position = { x=8 y=0 }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		on_complete = {
+			hidden_effect = {
+				FROM = {
+					every_military_industrial_organization = {
+						limit = { has_mio_equipment_type = infantry_equipment }
+						set_mio_flag = TPMP_MIO_selected_flag
+					}
+				}
+				clr_mio_flag = TPMP_MIO_selected_flag
+			}
+		}
+		production_bonus = {
+			production_efficiency_gain_factor = 0.1
+		}
+		organization_modifier = {
+			military_industrial_organization_funds_gain = 0.1
+		}
+	}
+	trait = {
+		token = generic_mio_trait_shared_2a
+		name = generic_mio_trait_shared_2a
+		icon = GFX_generic_mio_department_icon_facilities
+
+		position = { x=9 y=1 }
+		any_parent = { generic_mio_trait_shared_1a }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		organization_modifier = {
+			military_industrial_organization_research_bonus = 0.1
+			military_industrial_organization_task_capacity = 1
+		}
+	}
+	trait = {
+		token = generic_mio_trait_shared_3a
+		name = generic_mio_trait_shared_3a
+		icon = GFX_generic_mio_trait_icon_production_capacity
+
+		position = { x=8 y=2 }
+		any_parent = { generic_mio_trait_shared_1a }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		production_bonus = {
+			production_capacity_factor = 0.05
+		}
+	}
+}

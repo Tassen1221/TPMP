@@ -1,0 +1,929 @@
+# TPMP naval MIOs. Own traits sit on x=3 (left), x=4 (centre), x=5 (right).
+# The shared treelet (columns 9-10) is repeated at the bottom of each MIO with the same tokens and names.
+
+TPMP_generic_battlefleet_ship_organization = {
+	icon = GFX_idea_generic_naval_manufacturer_2
+
+	allowed = {
+		always = no # Archetype only: countries get their own copy, see <TAG>_organization.txt
+	}
+
+	equipment_type = { submarine screen_ship capital_ship carrier }
+	research_categories = { naval_equipment }
+
+	initial_trait = {
+		name = generic_mio_initial_trait_battlefleet_ship
+
+		equipment_bonus = {
+			hg_attack = 0.1
+			naval_range = 0.1
+		}
+	}
+	trait = {
+		token = generic_mio_trait_battlefleet_ship_1a
+		name = generic_mio_trait_battlefleet_ship_1a
+		icon = GFX_generic_mio_trait_icon_armor_value
+
+		position = { x=3 y=0 }
+		mutually_exclusive = { generic_mio_trait_battlefleet_ship_1b }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		on_complete = {
+			hidden_effect = {
+				FROM = {
+					every_military_industrial_organization = {
+						limit = { has_mio_equipment_type = capital_ship }
+						set_mio_flag = TPMP_MIO_selected_flag
+					}
+				}
+				clr_mio_flag = TPMP_MIO_selected_flag
+			}
+		}
+		equipment_bonus = {
+			armor_value = 0.25
+		}
+	}
+	trait = {
+		token = generic_mio_trait_battlefleet_ship_1b
+		name = generic_mio_trait_battlefleet_ship_1b
+		icon = GFX_generic_mio_trait_icon_batteries_hit_chance
+
+		position = { x=5 y=0 }
+		mutually_exclusive = { generic_mio_trait_battlefleet_ship_1a }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		on_complete = {
+			hidden_effect = {
+				FROM = {
+					every_military_industrial_organization = {
+						limit = { has_mio_equipment_type = capital_ship }
+						set_mio_flag = TPMP_MIO_selected_flag
+					}
+				}
+				clr_mio_flag = TPMP_MIO_selected_flag
+			}
+		}
+		equipment_bonus = {
+			naval_light_gun_hit_chance_factor = 0.1
+			lg_armor_piercing = 0.1
+		}
+	}
+	trait = {
+		token = generic_mio_trait_battlefleet_ship_2a
+		name = generic_mio_trait_battlefleet_ship_2a
+		icon = GFX_generic_mio_trait_icon_max_strength
+
+		position = { x=4 y=1 }
+		any_parent = { generic_mio_trait_battlefleet_ship_1a generic_mio_trait_battlefleet_ship_1b }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		equipment_bonus = {
+			max_strength = 0.25
+		}
+	}
+	trait = {
+		token = generic_mio_trait_battlefleet_ship_3a
+		name = generic_mio_trait_battlefleet_ship_3a
+		icon = GFX_generic_mio_department_icon_ship_general
+
+		position = { x=3 y=2 }
+		any_parent = { generic_mio_trait_battlefleet_ship_2a }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		equipment_bonus = {
+			max_strength = 0.1
+		}
+	}
+	trait = {
+		token = generic_mio_trait_battlefleet_ship_3b
+		name = generic_mio_trait_battlefleet_ship_3b
+		icon = GFX_generic_mio_trait_icon_lg_attack
+
+		position = { x=5 y=2 }
+		any_parent = { generic_mio_trait_battlefleet_ship_2a }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		equipment_bonus = {
+			lg_attack = 0.1
+		}
+	}
+	trait = {
+		token = generic_mio_trait_battlefleet_ship_4a
+		name = generic_mio_trait_battlefleet_ship_4a
+		icon = GFX_generic_mio_trait_icon_hg_attack
+
+		position = { x=3 y=3 }
+		any_parent = { generic_mio_trait_battlefleet_ship_3a }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		equipment_bonus = {
+			hg_attack = 0.1
+		}
+	}
+	trait = {
+		token = generic_mio_trait_battlefleet_ship_4b
+		name = generic_mio_trait_battlefleet_ship_4b
+		icon = GFX_generic_mio_department_icon_ship_capital_ship_armor
+
+		position = { x=5 y=3 }
+		any_parent = { generic_mio_trait_battlefleet_ship_3b }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		equipment_bonus = {
+			armor_value = 0.15
+		}
+	}
+	trait = {
+		token = generic_mio_trait_battlefleet_ship_5a
+		name = generic_mio_trait_battlefleet_ship_5a
+		icon = GFX_generic_mio_department_icon_ship_capital_ship_offense
+
+		position = { x=3 y=4 }
+		any_parent = { generic_mio_trait_battlefleet_ship_4a }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		equipment_bonus = {
+			naval_heavy_gun_hit_chance_factor = 0.1
+		}
+	}
+	trait = {
+		token = generic_mio_trait_battlefleet_ship_5b
+		name = generic_mio_trait_battlefleet_ship_5b
+		icon = GFX_generic_mio_trait_icon_naval_range
+
+		position = { x=5 y=4 }
+		any_parent = { generic_mio_trait_battlefleet_ship_4b }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		equipment_bonus = {
+			naval_range = 0.1
+		}
+	}
+	# Shared treelet (same in every MIO)
+	trait = {
+		token = generic_mio_trait_shared_1a
+		name = generic_mio_trait_shared_1a
+		icon = GFX_generic_mio_trait_icon_efficiency_gain
+
+		position = { x=8 y=0 }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		on_complete = {
+			hidden_effect = {
+				FROM = {
+					every_military_industrial_organization = {
+						limit = { has_mio_equipment_type = capital_ship }
+						set_mio_flag = TPMP_MIO_selected_flag
+					}
+				}
+				clr_mio_flag = TPMP_MIO_selected_flag
+			}
+		}
+		production_bonus = {
+			production_efficiency_gain_factor = 0.1
+		}
+		organization_modifier = {
+			military_industrial_organization_funds_gain = 0.1
+		}
+	}
+	trait = {
+		token = generic_mio_trait_shared_2a
+		name = generic_mio_trait_shared_2a
+		icon = GFX_generic_mio_department_icon_facilities
+
+		position = { x=9 y=1 }
+		any_parent = { generic_mio_trait_shared_1a }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		organization_modifier = {
+			military_industrial_organization_research_bonus = 0.1
+			military_industrial_organization_task_capacity = 1
+		}
+	}
+	trait = {
+		token = generic_mio_trait_shared_3a
+		name = generic_mio_trait_shared_3a
+		icon = GFX_generic_mio_trait_icon_production_capacity
+
+		position = { x=8 y=2 }
+		any_parent = { generic_mio_trait_shared_1a }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		production_bonus = {
+			production_capacity_factor = 0.05
+		}
+	}
+}
+
+TPMP_generic_carrier_ship_organization = {
+	icon = GFX_idea_generic_naval_manufacturer_1
+
+	allowed = {
+		always = no # Archetype only: countries get their own copy, see <TAG>_organization.txt
+	}
+
+	equipment_type = { submarine screen_ship capital_ship carrier }
+	research_categories = { naval_equipment }
+
+	initial_trait = {
+		name = generic_mio_initial_trait_carrier_ship
+
+		limit_to_equipment_type = { carrier }
+		equipment_bonus = {
+			carrier_size = 1
+		}
+	}
+	trait = {
+		token = generic_mio_trait_carrier_ship_1a
+		name = generic_mio_trait_carrier_ship_1a
+		icon = GFX_generic_mio_department_icon_ship_capital_ship_utility
+
+		position = { x=4 y=0 }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		on_complete = {
+			hidden_effect = {
+				FROM = {
+					every_military_industrial_organization = {
+						limit = { has_mio_equipment_type = capital_ship }
+						set_mio_flag = TPMP_MIO_selected_flag
+					}
+				}
+				clr_mio_flag = TPMP_MIO_selected_flag
+			}
+		}
+		equipment_bonus = {
+			max_strength = 0.25
+		}
+	}
+	trait = {
+		token = generic_mio_trait_carrier_ship_2a
+		name = generic_mio_trait_carrier_ship_2a
+		icon = GFX_generic_mio_department_icon_ship_carrier
+
+		position = { x=3 y=1 }
+		any_parent = { generic_mio_trait_carrier_ship_1a }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		equipment_bonus = {
+			carrier_size = 1
+		}
+	}
+	trait = {
+		token = generic_mio_trait_carrier_ship_2b
+		name = generic_mio_trait_carrier_ship_2b
+		icon = GFX_generic_mio_trait_icon_surface_visibility
+
+		position = { x=4 y=1 }
+		any_parent = { generic_mio_trait_carrier_ship_1a }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		equipment_bonus = {
+			surface_visibility = -0.05
+		}
+	}
+	trait = {
+		token = generic_mio_trait_carrier_ship_2c
+		name = generic_mio_trait_carrier_ship_2c
+		icon = GFX_generic_mio_department_icon_ship_screen_ship_weapons
+
+		position = { x=5 y=1 }
+		any_parent = { generic_mio_trait_carrier_ship_1a }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		equipment_bonus = {
+			lg_attack = 0.1
+		}
+	}
+	trait = {
+		token = generic_mio_trait_carrier_ship_3a
+		name = generic_mio_trait_carrier_ship_3a
+		icon = GFX_generic_mio_trait_icon_anti_air_attack
+
+		position = { x=3 y=2 }
+		any_parent = { generic_mio_trait_carrier_ship_2a }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		equipment_bonus = {
+			anti_air_attack = 0.25
+		}
+	}
+	trait = {
+		token = generic_mio_trait_carrier_ship_3b
+		name = generic_mio_trait_carrier_ship_3b
+		icon = GFX_generic_mio_department_icon_ship_capital_ship_weapons
+
+		position = { x=5 y=2 }
+		any_parent = { generic_mio_trait_carrier_ship_2c }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		equipment_bonus = {
+			hg_attack = 0.1
+		}
+	}
+	trait = {
+		token = generic_mio_trait_carrier_ship_4a
+		name = generic_mio_trait_carrier_ship_4a
+		icon = GFX_generic_mio_department_icon_ship_general_quality
+
+		position = { x=4 y=3 }
+		any_parent = { generic_mio_trait_carrier_ship_3a generic_mio_trait_carrier_ship_3b }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		equipment_bonus = {
+			max_strength = 0.25
+		}
+	}
+	trait = {
+		token = generic_mio_trait_carrier_ship_5a
+		name = generic_mio_trait_carrier_ship_5a
+		icon = GFX_generic_mio_trait_icon_night_penalty
+
+		position = { x=4 y=4 }
+		any_parent = { generic_mio_trait_carrier_ship_4a }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		equipment_bonus = {
+			surface_visibility = -0.05
+		}
+	}
+	# Shared treelet (same in every MIO)
+	trait = {
+		token = generic_mio_trait_shared_1a
+		name = generic_mio_trait_shared_1a
+		icon = GFX_generic_mio_trait_icon_efficiency_gain
+
+		position = { x=8 y=0 }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		on_complete = {
+			hidden_effect = {
+				FROM = {
+					every_military_industrial_organization = {
+						limit = { has_mio_equipment_type = capital_ship }
+						set_mio_flag = TPMP_MIO_selected_flag
+					}
+				}
+				clr_mio_flag = TPMP_MIO_selected_flag
+			}
+		}
+		production_bonus = {
+			production_efficiency_gain_factor = 0.1
+		}
+		organization_modifier = {
+			military_industrial_organization_funds_gain = 0.1
+		}
+	}
+	trait = {
+		token = generic_mio_trait_shared_2a
+		name = generic_mio_trait_shared_2a
+		icon = GFX_generic_mio_department_icon_facilities
+
+		position = { x=9 y=1 }
+		any_parent = { generic_mio_trait_shared_1a }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		organization_modifier = {
+			military_industrial_organization_research_bonus = 0.1
+			military_industrial_organization_task_capacity = 1
+		}
+	}
+	trait = {
+		token = generic_mio_trait_shared_3a
+		name = generic_mio_trait_shared_3a
+		icon = GFX_generic_mio_trait_icon_production_capacity
+
+		position = { x=8 y=2 }
+		any_parent = { generic_mio_trait_shared_1a }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		production_bonus = {
+			production_capacity_factor = 0.05
+		}
+	}
+}
+
+TPMP_generic_raiding_ship_organization = {
+	icon = GFX_idea_generic_naval_manufacturer_3
+
+	allowed = {
+		always = no # Archetype only: countries get their own copy, see <TAG>_organization.txt
+	}
+
+	equipment_type = { submarine screen_ship capital_ship carrier }
+	research_categories = { naval_equipment }
+
+	initial_trait = {
+		name = generic_mio_initial_trait_raiding_ship
+
+		equipment_bonus = {
+			surface_visibility = -0.05
+			naval_speed = 0.1
+		}
+	}
+	trait = {
+		token = generic_mio_trait_raiding_ship_1a
+		name = generic_mio_trait_raiding_ship_1a
+		icon = GFX_generic_mio_trait_icon_sub_visibility
+
+		position = { x=3 y=0 }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		on_complete = {
+			hidden_effect = {
+				FROM = {
+					every_military_industrial_organization = {
+						limit = { has_mio_equipment_type = capital_ship }
+						set_mio_flag = TPMP_MIO_selected_flag
+					}
+				}
+				clr_mio_flag = TPMP_MIO_selected_flag
+			}
+		}
+		equipment_bonus = {
+			sub_visibility = -0.1
+			torpedo_attack = 0.05
+		}
+	}
+	trait = {
+		token = generic_mio_trait_raiding_ship_1b
+		name = generic_mio_trait_raiding_ship_1b
+		icon = GFX_generic_mio_trait_icon_naval_speed
+
+		position = { x=4 y=0 }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		on_complete = {
+			hidden_effect = {
+				FROM = {
+					every_military_industrial_organization = {
+						limit = { has_mio_equipment_type = capital_ship }
+						set_mio_flag = TPMP_MIO_selected_flag
+					}
+				}
+				clr_mio_flag = TPMP_MIO_selected_flag
+			}
+		}
+		equipment_bonus = {
+			surface_visibility = -0.05
+			naval_speed = 0.05
+		}
+	}
+	trait = {
+		token = generic_mio_trait_raiding_ship_1c
+		name = generic_mio_trait_raiding_ship_1c
+		icon = GFX_generic_mio_trait_icon_torpedo_attack
+
+		position = { x=5 y=0 }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		on_complete = {
+			hidden_effect = {
+				FROM = {
+					every_military_industrial_organization = {
+						limit = { has_mio_equipment_type = capital_ship }
+						set_mio_flag = TPMP_MIO_selected_flag
+					}
+				}
+				clr_mio_flag = TPMP_MIO_selected_flag
+			}
+		}
+		equipment_bonus = {
+			torpedo_attack = 0.15
+		}
+	}
+	trait = {
+		token = generic_mio_trait_raiding_ship_3a
+		name = generic_mio_trait_raiding_ship_3a
+		icon = GFX_generic_mio_trait_icon_max_strength
+
+		position = { x=4 y=2 }
+		any_parent = { generic_mio_trait_raiding_ship_1a generic_mio_trait_raiding_ship_1b generic_mio_trait_raiding_ship_1c }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		equipment_bonus = {
+			max_strength = 0.25
+		}
+	}
+	trait = {
+		token = generic_mio_trait_raiding_ship_5a
+		name = generic_mio_trait_raiding_ship_5a
+		icon = GFX_generic_mio_department_icon_ship_capital_screen_weapons
+
+		position = { x=4 y=4 }
+		any_parent = { generic_mio_trait_raiding_ship_3a }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		equipment_bonus = {
+			lg_attack = 0.1
+			hg_attack = 0.1
+		}
+	}
+	# Shared treelet (same in every MIO)
+	trait = {
+		token = generic_mio_trait_shared_1a
+		name = generic_mio_trait_shared_1a
+		icon = GFX_generic_mio_trait_icon_efficiency_gain
+
+		position = { x=8 y=0 }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		on_complete = {
+			hidden_effect = {
+				FROM = {
+					every_military_industrial_organization = {
+						limit = { has_mio_equipment_type = capital_ship }
+						set_mio_flag = TPMP_MIO_selected_flag
+					}
+				}
+				clr_mio_flag = TPMP_MIO_selected_flag
+			}
+		}
+		production_bonus = {
+			production_efficiency_gain_factor = 0.1
+		}
+		organization_modifier = {
+			military_industrial_organization_funds_gain = 0.1
+		}
+	}
+	trait = {
+		token = generic_mio_trait_shared_2a
+		name = generic_mio_trait_shared_2a
+		icon = GFX_generic_mio_department_icon_facilities
+
+		position = { x=9 y=1 }
+		any_parent = { generic_mio_trait_shared_1a }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		organization_modifier = {
+			military_industrial_organization_research_bonus = 0.1
+			military_industrial_organization_task_capacity = 1
+		}
+	}
+	trait = {
+		token = generic_mio_trait_shared_3a
+		name = generic_mio_trait_shared_3a
+		icon = GFX_generic_mio_trait_icon_production_capacity
+
+		position = { x=8 y=2 }
+		any_parent = { generic_mio_trait_shared_1a }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		production_bonus = {
+			production_capacity_factor = 0.05
+		}
+	}
+}
+
+TPMP_generic_escort_ship_organization = {
+	icon = GFX_idea_generic_naval_manufacturer_1
+
+	allowed = {
+		always = no # Archetype only: countries get their own copy, see <TAG>_organization.txt
+	}
+
+	equipment_type = { submarine screen_ship capital_ship carrier }
+	research_categories = { naval_equipment }
+
+	initial_trait = {
+		name = generic_mio_initial_trait_escort_ship
+
+		equipment_bonus = {
+			build_cost_ic = -0.05
+			reliability = 0.1
+			naval_range = -0.2
+		}
+	}
+	trait = {
+		token = generic_mio_trait_escort_ship_1a
+		name = generic_mio_trait_escort_ship_1a
+		icon = GFX_generic_mio_trait_icon_build_cost_ic
+
+		position = { x=4 y=0 }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		on_complete = {
+			hidden_effect = {
+				FROM = {
+					every_military_industrial_organization = {
+						limit = { has_mio_equipment_type = capital_ship }
+						set_mio_flag = TPMP_MIO_selected_flag
+					}
+				}
+				clr_mio_flag = TPMP_MIO_selected_flag
+			}
+		}
+		equipment_bonus = {
+			build_cost_ic = -0.03
+		}
+	}
+	trait = {
+		token = generic_mio_trait_escort_ship_2a
+		name = generic_mio_trait_escort_ship_2a
+		icon = GFX_generic_mio_department_icon_ship_general_production
+
+		position = { x=3 y=1 }
+		any_parent = { generic_mio_trait_escort_ship_1a }
+		mutually_exclusive = { generic_mio_trait_escort_ship_2b }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		equipment_bonus = {
+			build_cost_ic = -0.05
+			naval_range = -0.05
+		}
+	}
+	trait = {
+		token = generic_mio_trait_escort_ship_2b
+		name = generic_mio_trait_escort_ship_2b
+		icon = GFX_generic_mio_trait_icon_sub_detection
+
+		position = { x=5 y=1 }
+		any_parent = { generic_mio_trait_escort_ship_1a }
+		mutually_exclusive = { generic_mio_trait_escort_ship_2a }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		equipment_bonus = {
+			sub_detection = 0.2
+			naval_range = 0.1
+		}
+	}
+	trait = {
+		token = generic_mio_trait_escort_ship_3a
+		name = generic_mio_trait_escort_ship_3a
+		icon = GFX_generic_mio_department_icon_ship_general_materials
+
+		position = { x=3 y=2 }
+		any_parent = { generic_mio_trait_escort_ship_2a generic_mio_trait_escort_ship_2b }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		equipment_bonus = {
+			build_cost_ic = -0.05
+			naval_range = -0.05
+		}
+	}
+	trait = {
+		token = generic_mio_trait_escort_ship_3b
+		name = generic_mio_trait_escort_ship_3b
+		icon = GFX_generic_mio_department_icon_ship_general
+
+		position = { x=4 y=2 }
+		any_parent = { generic_mio_trait_escort_ship_2a generic_mio_trait_escort_ship_2b }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		equipment_bonus = {
+			max_strength = 0.25
+		}
+	}
+	trait = {
+		token = generic_mio_trait_escort_ship_3c
+		name = generic_mio_trait_escort_ship_3c
+		icon = GFX_generic_mio_trait_icon_sub_attack
+
+		position = { x=5 y=2 }
+		any_parent = { generic_mio_trait_escort_ship_2a generic_mio_trait_escort_ship_2b }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		equipment_bonus = {
+			sub_attack = 0.2
+			naval_range = 0.1
+		}
+	}
+	trait = {
+		token = generic_mio_trait_escort_ship_4a
+		name = generic_mio_trait_escort_ship_4a
+		icon = GFX_generic_mio_trait_icon_lg_attack
+
+		position = { x=4 y=3 }
+		any_parent = { generic_mio_trait_escort_ship_3a generic_mio_trait_escort_ship_3c }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		equipment_bonus = {
+			lg_attack = 0.1
+		}
+	}
+	trait = {
+		token = generic_mio_trait_escort_ship_5a
+		name = generic_mio_trait_escort_ship_5a
+		icon = GFX_generic_mio_department_icon_ship_screen_ship_offense
+
+		position = { x=3 y=4 }
+		any_parent = { generic_mio_trait_escort_ship_4a }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		equipment_bonus = {
+			naval_light_gun_hit_chance_factor = 0.1
+		}
+	}
+	trait = {
+		token = generic_mio_trait_escort_ship_5b
+		name = generic_mio_trait_escort_ship_5b
+		icon = GFX_generic_mio_department_icon_ship_screen_ship_weapons
+
+		position = { x=4 y=4 }
+		any_parent = { generic_mio_trait_escort_ship_4a }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		equipment_bonus = {
+			lg_attack = 0.1
+		}
+	}
+	trait = {
+		token = generic_mio_trait_escort_ship_5c
+		name = generic_mio_trait_escort_ship_5c
+		icon = GFX_generic_mio_trait_icon_hg_attack
+
+		position = { x=5 y=4 }
+		any_parent = { generic_mio_trait_escort_ship_4a }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		equipment_bonus = {
+			hg_attack = 0.1
+		}
+	}
+	# Shared treelet (same in every MIO)
+	trait = {
+		token = generic_mio_trait_shared_1a
+		name = generic_mio_trait_shared_1a
+		icon = GFX_generic_mio_trait_icon_efficiency_gain
+
+		position = { x=8 y=0 }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		on_complete = {
+			hidden_effect = {
+				FROM = {
+					every_military_industrial_organization = {
+						limit = { has_mio_equipment_type = capital_ship }
+						set_mio_flag = TPMP_MIO_selected_flag
+					}
+				}
+				clr_mio_flag = TPMP_MIO_selected_flag
+			}
+		}
+		production_bonus = {
+			production_efficiency_gain_factor = 0.1
+		}
+		organization_modifier = {
+			military_industrial_organization_funds_gain = 0.1
+		}
+	}
+	trait = {
+		token = generic_mio_trait_shared_2a
+		name = generic_mio_trait_shared_2a
+		icon = GFX_generic_mio_department_icon_facilities
+
+		position = { x=9 y=1 }
+		any_parent = { generic_mio_trait_shared_1a }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		organization_modifier = {
+			military_industrial_organization_research_bonus = 0.1
+			military_industrial_organization_task_capacity = 1
+		}
+	}
+	trait = {
+		token = generic_mio_trait_shared_3a
+		name = generic_mio_trait_shared_3a
+		icon = GFX_generic_mio_trait_icon_production_capacity
+
+		position = { x=8 y=2 }
+		any_parent = { generic_mio_trait_shared_1a }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		production_bonus = {
+			production_capacity_factor = 0.05
+		}
+	}
+}

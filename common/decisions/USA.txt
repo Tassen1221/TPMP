@@ -509,6 +509,7 @@ TPMP_USA_congress_category = {
                 limit = {
                     NOT = {
                         OR = {
+                            is_military_industrial_organization = TPMP_generic_industry_organization
                             has_mio_equipment_type = capital_ship
                             has_mio_equipment_type = screen_ship
                             has_mio_equipment_type = carrier
@@ -522,7 +523,7 @@ TPMP_USA_congress_category = {
                         }
                     }
                 }
-                add_mio_size = 1
+                add_mio_funds = 1000
             }
             add_offsite_building = {
                 type = arms_factory
@@ -582,6 +583,7 @@ TPMP_USA_congress_category = {
         complete_effect = {
             every_military_industrial_organization = {
                 limit = {
+                    NOT = { is_military_industrial_organization = TPMP_generic_industry_organization }
                     OR = {
                         has_mio_equipment_type = capital_ship
                         has_mio_equipment_type = screen_ship
@@ -595,7 +597,7 @@ TPMP_USA_congress_category = {
                         has_mio_equipment_type = mio_cat_eq_all_battleship
                     }
                 }
-                add_mio_size = 1
+                add_mio_funds = 1000
             }
             add_offsite_building = {
                 type = dockyard

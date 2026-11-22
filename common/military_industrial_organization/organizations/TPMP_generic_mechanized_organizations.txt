@@ -1,0 +1,409 @@
+# TPMP mechanized MIOs. Own traits sit on x=3 (left), x=4 (centre), x=5 (right).
+# The shared treelet (columns 9-10) is repeated at the bottom of each MIO with the same tokens and names.
+
+TPMP_generic_light_mechanized_organization = {
+	icon = GFX_idea_generic_motorized_equipment_manufacturer_3
+
+	allowed = {
+		always = no # Archetype only: countries get their own copy, see <TAG>_organization.txt
+	}
+
+	equipment_type = { TPMP_cat_eq_all_mech }
+	research_categories = { cat_mechanized_tech }
+
+	initial_trait = {
+		name = generic_mio_initial_trait_light_mechanized
+
+		equipment_bonus = {
+			build_cost_ic = -0.03
+			maximum_speed = 0.1
+		}
+	}
+	trait = {
+		token = generic_mio_trait_light_mechanized_1a
+		name = generic_mio_trait_light_mechanized_1a
+		icon = GFX_generic_mio_department_icon_mechanized_production
+
+		position = { x=4 y=0 }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		on_complete = {
+			hidden_effect = {
+				FROM = {
+					every_military_industrial_organization = {
+						limit = { has_mio_equipment_type = TPMP_cat_eq_all_mech }
+						set_mio_flag = TPMP_MIO_selected_flag
+					}
+				}
+				clr_mio_flag = TPMP_MIO_selected_flag
+			}
+		}
+		equipment_bonus = {
+			build_cost_ic = -0.03
+			reliability = 0.05
+		}
+	}
+	trait = {
+		token = generic_mio_trait_light_mechanized_3a
+		name = generic_mio_trait_light_mechanized_3a
+		icon = GFX_generic_mio_department_icon_mechanized_engine
+
+		position = { x=4 y=2 }
+		any_parent = { generic_mio_trait_light_mechanized_1a }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		equipment_bonus = {
+			build_cost_ic = -0.03
+			maximum_speed = 0.05
+		}
+	}
+	trait = {
+		token = generic_mio_trait_light_mechanized_5a
+		name = generic_mio_trait_light_mechanized_5a
+		icon = GFX_generic_mio_trait_icon_soft_attack
+
+		position = { x=3 y=4 }
+		any_parent = { generic_mio_trait_light_mechanized_3a }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		equipment_bonus = {
+			soft_attack = 0.1
+			air_attack = 0.1
+			maximum_speed = 0.05
+		}
+	}
+	trait = {
+		token = generic_mio_trait_light_mechanized_5b
+		name = generic_mio_trait_light_mechanized_5b
+		icon = GFX_generic_mio_trait_icon_build_cost_ic
+
+		position = { x=4 y=4 }
+		any_parent = { generic_mio_trait_light_mechanized_3a }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		equipment_bonus = {
+			build_cost_ic = -0.03
+		}
+	}
+	trait = {
+		token = generic_mio_trait_light_mechanized_5c
+		name = generic_mio_trait_light_mechanized_5c
+		icon = GFX_generic_mio_trait_icon_hard_attack
+
+		position = { x=5 y=4 }
+		any_parent = { generic_mio_trait_light_mechanized_3a }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		equipment_bonus = {
+			hard_attack = 0.1
+			ap_attack = 0.1
+			reliability = 0.05
+		}
+	}
+	# Shared treelet (same in every MIO)
+	trait = {
+		token = generic_mio_trait_shared_1a
+		name = generic_mio_trait_shared_1a
+		icon = GFX_generic_mio_trait_icon_efficiency_gain
+
+		position = { x=8 y=0 }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		on_complete = {
+			hidden_effect = {
+				FROM = {
+					every_military_industrial_organization = {
+						limit = { has_mio_equipment_type = TPMP_cat_eq_all_mech }
+						set_mio_flag = TPMP_MIO_selected_flag
+					}
+				}
+				clr_mio_flag = TPMP_MIO_selected_flag
+			}
+		}
+		production_bonus = {
+			production_efficiency_gain_factor = 0.1
+		}
+		organization_modifier = {
+			military_industrial_organization_funds_gain = 0.1
+		}
+	}
+	trait = {
+		token = generic_mio_trait_shared_2a
+		name = generic_mio_trait_shared_2a
+		icon = GFX_generic_mio_department_icon_facilities
+
+		position = { x=9 y=1 }
+		any_parent = { generic_mio_trait_shared_1a }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		organization_modifier = {
+			military_industrial_organization_research_bonus = 0.1
+			military_industrial_organization_task_capacity = 1
+		}
+	}
+	trait = {
+		token = generic_mio_trait_shared_3a
+		name = generic_mio_trait_shared_3a
+		icon = GFX_generic_mio_trait_icon_production_capacity
+
+		position = { x=8 y=2 }
+		any_parent = { generic_mio_trait_shared_1a }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		production_bonus = {
+			production_capacity_factor = 0.05
+		}
+	}
+}
+
+TPMP_generic_heavy_mechanized_organization = {
+	icon = GFX_idea_generic_motorized_equipment_manufacturer_1
+
+	allowed = {
+		always = no # Archetype only: countries get their own copy, see <TAG>_organization.txt
+	}
+
+	equipment_type = { TPMP_cat_eq_all_mech }
+	research_categories = { cat_mechanized_tech }
+
+	initial_trait = {
+		name = generic_mio_initial_trait_heavy_mechanized
+
+		equipment_bonus = {
+			armor_value = 0.25
+			defense = 0.05
+		}
+	}
+	trait = {
+		token = generic_mio_trait_heavy_mechanized_1a
+		name = generic_mio_trait_heavy_mechanized_1a
+		icon = GFX_generic_mio_department_icon_mechanized_hull
+
+		position = { x=4 y=0 }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		on_complete = {
+			hidden_effect = {
+				FROM = {
+					every_military_industrial_organization = {
+						limit = { has_mio_equipment_type = TPMP_cat_eq_all_mech }
+						set_mio_flag = TPMP_MIO_selected_flag
+					}
+				}
+				clr_mio_flag = TPMP_MIO_selected_flag
+			}
+		}
+		equipment_bonus = {
+			armor_value = 0.25
+		}
+	}
+	trait = {
+		token = generic_mio_trait_heavy_mechanized_2a
+		name = generic_mio_trait_heavy_mechanized_2a
+		icon = GFX_generic_mio_trait_icon_defense
+
+		position = { x=3 y=1 }
+		any_parent = { generic_mio_trait_heavy_mechanized_1a }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		equipment_bonus = {
+			soft_attack = 0.05
+			defense = 0.1
+		}
+	}
+	trait = {
+		token = generic_mio_trait_heavy_mechanized_2b
+		name = generic_mio_trait_heavy_mechanized_2b
+		icon = GFX_generic_mio_department_icon_mechanized
+
+		position = { x=5 y=1 }
+		any_parent = { generic_mio_trait_heavy_mechanized_1a }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		equipment_bonus = {
+			soft_attack = 0.05
+			breakthrough = 0.25
+		}
+	}
+	trait = {
+		token = generic_mio_trait_heavy_mechanized_3a
+		name = generic_mio_trait_heavy_mechanized_3a
+		icon = GFX_generic_mio_department_icon_anti_tank
+
+		position = { x=3 y=2 }
+		any_parent = { generic_mio_trait_heavy_mechanized_2a }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		equipment_bonus = {
+			hard_attack = 0.05
+			ap_attack = 0.05
+			defense = 0.1
+		}
+	}
+	trait = {
+		token = generic_mio_trait_heavy_mechanized_3b
+		name = generic_mio_trait_heavy_mechanized_3b
+		icon = GFX_generic_mio_trait_icon_ap_attack
+
+		position = { x=5 y=2 }
+		any_parent = { generic_mio_trait_heavy_mechanized_2b }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		equipment_bonus = {
+			hard_attack = 0.05
+			ap_attack = 0.05
+			breakthrough = 0.25
+		}
+	}
+	trait = {
+		token = generic_mio_trait_heavy_mechanized_4a
+		name = generic_mio_trait_heavy_mechanized_4a
+		icon = GFX_generic_mio_department_icon_anti_air
+
+		position = { x=3 y=3 }
+		any_parent = { generic_mio_trait_heavy_mechanized_3a generic_mio_trait_heavy_mechanized_3b }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		equipment_bonus = {
+			air_attack = 0.1
+		}
+	}
+	trait = {
+		token = generic_mio_trait_heavy_mechanized_4b
+		name = generic_mio_trait_heavy_mechanized_4b
+		icon = GFX_generic_mio_trait_icon_armor_value
+
+		position = { x=4 y=3 }
+		any_parent = { generic_mio_trait_heavy_mechanized_3a generic_mio_trait_heavy_mechanized_3b }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		equipment_bonus = {
+			armor_value = 0.25
+		}
+	}
+	trait = {
+		token = generic_mio_trait_heavy_mechanized_5a
+		name = generic_mio_trait_heavy_mechanized_5a
+		icon = GFX_generic_mio_trait_icon_hardness
+
+		position = { x=4 y=4 }
+		any_parent = { generic_mio_trait_heavy_mechanized_4b }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		equipment_bonus = {
+			armor_value = 0.25
+			hardness = 0.1
+		}
+	}
+	# Shared treelet (same in every MIO)
+	trait = {
+		token = generic_mio_trait_shared_1a
+		name = generic_mio_trait_shared_1a
+		icon = GFX_generic_mio_trait_icon_efficiency_gain
+
+		position = { x=8 y=0 }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		on_complete = {
+			hidden_effect = {
+				FROM = {
+					every_military_industrial_organization = {
+						limit = { has_mio_equipment_type = TPMP_cat_eq_all_mech }
+						set_mio_flag = TPMP_MIO_selected_flag
+					}
+				}
+				clr_mio_flag = TPMP_MIO_selected_flag
+			}
+		}
+		production_bonus = {
+			production_efficiency_gain_factor = 0.1
+		}
+		organization_modifier = {
+			military_industrial_organization_funds_gain = 0.1
+		}
+	}
+	trait = {
+		token = generic_mio_trait_shared_2a
+		name = generic_mio_trait_shared_2a
+		icon = GFX_generic_mio_department_icon_facilities
+
+		position = { x=9 y=1 }
+		any_parent = { generic_mio_trait_shared_1a }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		organization_modifier = {
+			military_industrial_organization_research_bonus = 0.1
+			military_industrial_organization_task_capacity = 1
+		}
+	}
+	trait = {
+		token = generic_mio_trait_shared_3a
+		name = generic_mio_trait_shared_3a
+		icon = GFX_generic_mio_trait_icon_production_capacity
+
+		position = { x=8 y=2 }
+		any_parent = { generic_mio_trait_shared_1a }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		production_bonus = {
+			production_capacity_factor = 0.05
+		}
+	}
+}
