@@ -1,0 +1,34 @@
+has_higher_level_conscription = {
+	OR = {
+		AND = {
+			check_variable = { TPMP_conscription_law_var > 6 }
+			OR = {
+				has_idea = volunteer_only
+				has_idea = ETH_chitet_law
+				has_idea = ETH_chitet_law_peace_time
+				has_idea = SWI_citizen_militia_1
+				has_idea = SWI_citizen_militia_2
+			}
+		}
+		AND = {
+			check_variable = { TPMP_conscription_law_var > 5 }
+			has_idea = limited_conscription
+		}
+		AND = {
+			check_variable = { TPMP_conscription_law_var > 4 }
+			has_idea = extensive_conscription
+		}
+		AND = {
+			check_variable = { TPMP_conscription_law_var > 3 }
+			has_idea = service_by_requirement
+		}
+		AND = {
+			check_variable = { TPMP_conscription_law_var > 2 }
+			has_idea = all_adults_serve
+		}
+		AND = {
+			check_variable = { TPMP_conscription_law_var > 1 }
+			has_idea = scraping_the_barrel
+		}
+	}
+}

@@ -11,6 +11,10 @@ ideas = {
 			level = 7
 
 			available = {
+				hidden_trigger = {
+					set_temp_variable = { TPMP_conscription_law_var = 7 }
+					NOT = { has_higher_level_conscription = yes }
+				}
 				#has_manpower_for_recruit_change_to = { value = 0.005 group = mobilization_laws }
 			}
 
@@ -20,6 +24,8 @@ ideas = {
 
 			cancel_if_invalid = no
 			on_add = {
+				custom_effect_tooltip = TPMP_conscription_no_decrease_tt
+				custom_effect_tooltip = generic_skip_zero_line_tt
 				if = {
 					limit = { SIA_should_add_national_savings_bond = yes }
 					SIA_refresh_nsb_spirit = yes
@@ -53,6 +59,10 @@ ideas = {
 			level = 6
 
 			available = {
+				hidden_trigger = {
+					set_temp_variable = { TPMP_conscription_law_var = 6 }
+					NOT = { has_higher_level_conscription = yes }
+				}
 				#has_manpower_for_recruit_change_to =  { value = 0.015 group = mobilization_laws }
 				IF = {
 					limit = {
@@ -137,6 +147,8 @@ ideas = {
 			cancel_if_invalid = no
 
 			on_add = {
+				custom_effect_tooltip = TPMP_conscription_no_decrease_tt
+				custom_effect_tooltip = generic_skip_zero_line_tt
 				if = {
 					limit = { SIA_should_add_national_savings_bond = yes }
 					SIA_refresh_nsb_spirit = yes
@@ -170,6 +182,10 @@ ideas = {
 			level = 5
 
 			available = {
+				hidden_trigger = {
+					set_temp_variable = { TPMP_conscription_law_var = 5 }
+					NOT = { has_higher_level_conscription = yes }
+				}
 				#has_manpower_for_recruit_change_to =  { value = 0.025 group = mobilization_laws }
 				has_war_support > 0.1
 				NOT = { has_idea = undisturbed_isolation }
@@ -365,6 +381,8 @@ ideas = {
 			}
 
 			on_add = {
+				custom_effect_tooltip = TPMP_conscription_no_decrease_tt
+				custom_effect_tooltip = generic_skip_zero_line_tt
 				if = {
 					limit = { SIA_should_add_national_savings_bond = yes }
 					SIA_refresh_nsb_spirit = yes
@@ -395,6 +413,10 @@ ideas = {
 		extensive_conscription = {
 
 			available = {
+				hidden_trigger = {
+					set_temp_variable = { TPMP_conscription_law_var = 4 }
+					NOT = { has_higher_level_conscription = yes }
+				}
 				#has_manpower_for_recruit_change_to = { value = 0.05 group = mobilization_laws }
 				OR = {
 					has_government = fascism
@@ -684,6 +706,8 @@ ideas = {
 			cancel_if_invalid = no
 
 			on_add = {
+				custom_effect_tooltip = TPMP_conscription_no_decrease_tt
+				custom_effect_tooltip = generic_skip_zero_line_tt
 				if = {
 					limit = { SIA_should_add_national_savings_bond = yes }
 					SIA_refresh_nsb_spirit = yes
@@ -714,6 +738,10 @@ ideas = {
 
 
 			available = {
+				hidden_trigger = {
+					set_temp_variable = { TPMP_conscription_law_var = 3 }
+					NOT = { has_higher_level_conscription = yes }
+				}
 				#has_manpower_for_recruit_change_to =  { value = 0.1 group = mobilization_laws }
 				OR = {
 					has_government = fascism
@@ -993,6 +1021,8 @@ ideas = {
 			cancel_if_invalid = no
 
 			on_add = {
+				custom_effect_tooltip = TPMP_conscription_no_decrease_tt
+				custom_effect_tooltip = generic_skip_zero_line_tt
 				if = {
 					limit = { SIA_should_add_national_savings_bond = yes }
 					SIA_refresh_nsb_spirit = yes
@@ -1023,6 +1053,10 @@ ideas = {
 
 
 			available = {
+				hidden_trigger = {
+					set_temp_variable = { TPMP_conscription_law_var = 2 }
+					NOT = { has_higher_level_conscription = yes }
+				}
 				#has_manpower_for_recruit_change_to =  { value = 0.2 group = mobilization_laws }
 				has_war = yes
 				OR = {
@@ -1214,6 +1248,8 @@ ideas = {
 			}
 
 			on_add = {
+				custom_effect_tooltip = TPMP_conscription_no_decrease_tt
+				custom_effect_tooltip = generic_skip_zero_line_tt
 				if = {
 					limit = {
 						has_dlc = "Arms Against Tyranny"
@@ -1267,6 +1303,10 @@ ideas = {
 		scraping_the_barrel = {
 
 			available = {
+				hidden_trigger = {
+					set_temp_variable = { TPMP_conscription_law_var = 1 }
+					NOT = { has_higher_level_conscription = yes }
+				}
 				#has_manpower_for_recruit_change_to =  { value = 0.25 group = mobilization_laws }
 				has_war = yes
 				OR = {
@@ -1444,6 +1484,8 @@ ideas = {
 			}
 
 			on_add = {
+				custom_effect_tooltip = TPMP_conscription_no_decrease_tt
+				custom_effect_tooltip = generic_skip_zero_line_tt
 				if = {
 					limit = {
 						has_dlc = "Arms Against Tyranny"

@@ -54,22 +54,10 @@ TPMP_generic_industry_organization = {
 	trait = {
 		token = generic_mio_trait_industry_2a
 		name = generic_mio_trait_industry_2a
-		icon = GFX_generic_mio_trait_icon_efficiency_gain
-
-		position = { x=1 y=1 }
-		any_parent = { generic_mio_trait_industry_1a }
-
-		production_bonus = {
-			production_efficiency_gain_factor = 0.05
-		}
-	}
-	trait = {
-		token = generic_mio_trait_industry_3a
-		name = generic_mio_trait_industry_3a
 		icon = GFX_generic_mio_department_icon_infantry_production
 
-		position = { x=0 y=2 }
-		any_parent = { generic_mio_trait_industry_2a }
+		position = { x=0 y=1 }
+		any_parent = { generic_mio_trait_industry_1a }
 
 		available = {
 			NOT = {
@@ -81,18 +69,18 @@ TPMP_generic_industry_organization = {
 		}
 
 		production_bonus = {
-			production_efficiency_cap_factor = 0.1
-			production_capacity_factor = 0.15
+			production_efficiency_cap_factor = 0.07
+			production_capacity_factor = 0.1
 		}
 		limit_to_equipment_type = { TPMP_cat_eq_all_inf TPMP_cat_eq_all_support special_equipment }
 	}
 	trait = {
-		token = generic_mio_trait_industry_4a
-		name = generic_mio_trait_industry_4a
+		token = generic_mio_trait_industry_3a
+		name = generic_mio_trait_industry_3a
 		icon = GFX_generic_mio_department_icon_tank_light_tank_production
 
-		position = { x=0 y=3 }
-		any_parent = { generic_mio_trait_industry_2a }
+		position = { x=0 y=2 }
+		any_parent = { generic_mio_trait_industry_1a }
 
 		available = {
 			NOT = {
@@ -104,18 +92,18 @@ TPMP_generic_industry_organization = {
 		}
 
 		production_bonus = {
-			production_efficiency_cap_factor = 0.1
-			production_capacity_factor = 0.15
+			production_efficiency_cap_factor = 0.07
+			production_capacity_factor = 0.1
 		}
 		limit_to_equipment_type = { light_tank_chassis armored_car_equipment }
 	}
 	trait = {
-		token = generic_mio_trait_industry_5a
-		name = generic_mio_trait_industry_5a
+		token = generic_mio_trait_industry_4a
+		name = generic_mio_trait_industry_4a
 		icon = GFX_generic_mio_department_icon_plane_fighter_production
 
-		position = { x=0 y=4 }
-		any_parent = { generic_mio_trait_industry_2a }
+		position = { x=0 y=3 }
+		any_parent = { generic_mio_trait_industry_1a }
 
 		available = {
 			NOT = {
@@ -127,18 +115,18 @@ TPMP_generic_industry_organization = {
 		}
 
 		production_bonus = {
-			production_efficiency_cap_factor = 0.1
-			production_capacity_factor = 0.15
+			production_efficiency_cap_factor = 0.07
+			production_capacity_factor = 0.1
 		}
 		limit_to_equipment_type = { small_plane_airframe cv_small_plane_airframe medium_plane_fighter_airframe }
 	}
 	trait = {
-		token = generic_mio_trait_industry_3b
-		name = generic_mio_trait_industry_3b
+		token = generic_mio_trait_industry_2b
+		name = generic_mio_trait_industry_2b
 		icon = GFX_generic_mio_department_icon_artillery_production
 
-		position = { x=1 y=2 }
-		any_parent = { generic_mio_trait_industry_2a }
+		position = { x=1 y=1 }
+		any_parent = { generic_mio_trait_industry_1a }
 
 		available = {
 			NOT = {
@@ -150,18 +138,18 @@ TPMP_generic_industry_organization = {
 		}
 
 		production_bonus = {
-			production_efficiency_cap_factor = 0.1
-			production_capacity_factor = 0.15
+			production_efficiency_cap_factor = 0.07
+			production_capacity_factor = 0.1
 		}
-		limit_to_equipment_type = { TPMP_cat_eq_all_arty TPMP_cat_eq_all_AT TPMP_cat_eq_all_AA railway_gun_equipment }
+		limit_to_equipment_type = { TPMP_cat_eq_all_gun railway_gun_equipment }
 	}
 	trait = {
-		token = generic_mio_trait_industry_4b
-		name = generic_mio_trait_industry_4b
+		token = generic_mio_trait_industry_3b
+		name = generic_mio_trait_industry_3b
 		icon = GFX_generic_mio_department_icon_tank_medium_tank_production
 
-		position = { x=1 y=3 }
-		any_parent = { generic_mio_trait_industry_2a }
+		position = { x=1 y=2 }
+		any_parent = { generic_mio_trait_industry_1a }
 
 		available = {
 			NOT = {
@@ -173,18 +161,18 @@ TPMP_generic_industry_organization = {
 		}
 
 		production_bonus = {
-			production_efficiency_cap_factor = 0.1
-			production_capacity_factor = 0.15
+			production_efficiency_cap_factor = 0.07
+			production_capacity_factor = 0.1
 		}
 		limit_to_equipment_type = { medium_tank_chassis }
 	}
 	trait = {
-		token = generic_mio_trait_industry_5b
-		name = generic_mio_trait_industry_5b
+		token = generic_mio_trait_industry_4b
+		name = generic_mio_trait_industry_4b
 		icon = GFX_generic_mio_department_icon_plane_cas_production
 
-		position = { x=1 y=4 }
-		any_parent = { generic_mio_trait_industry_2a }
+		position = { x=1 y=3 }
+		any_parent = { generic_mio_trait_industry_1a }
 
 		available = {
 			NOT = {
@@ -196,18 +184,18 @@ TPMP_generic_industry_organization = {
 		}
 
 		production_bonus = {
-			production_efficiency_cap_factor = 0.1
-			production_capacity_factor = 0.15
+			production_efficiency_cap_factor = 0.07
+			production_capacity_factor = 0.1
 		}
 		limit_to_equipment_type = { small_plane_cas_airframe cv_small_plane_cas_airframe small_plane_naval_bomber_airframe cv_small_plane_naval_bomber_airframe }
 	}
 	trait = {
-		token = generic_mio_trait_industry_3c
-		name = generic_mio_trait_industry_3c
+		token = generic_mio_trait_industry_2c
+		name = generic_mio_trait_industry_2c
 		icon = GFX_generic_mio_department_icon_motorized_mechanized_production
 
-		position = { x=2 y=2 }
-		any_parent = { generic_mio_trait_industry_2a }
+		position = { x=2 y=1 }
+		any_parent = { generic_mio_trait_industry_1a }
 
 		available = {
 			NOT = {
@@ -219,18 +207,18 @@ TPMP_generic_industry_organization = {
 		}
 
 		production_bonus = {
-			production_efficiency_cap_factor = 0.1
-			production_capacity_factor = 0.15
+			production_efficiency_cap_factor = 0.07
+			production_capacity_factor = 0.1
 		}
 		limit_to_equipment_type = { motorized_equipment TPMP_cat_eq_all_mech armored_car_equipment }
 	}
 	trait = {
-		token = generic_mio_trait_industry_4c
-		name = generic_mio_trait_industry_4c
+		token = generic_mio_trait_industry_3c
+		name = generic_mio_trait_industry_3c
 		icon = GFX_generic_mio_department_icon_tank_heavy_tank_production
 
-		position = { x=2 y=3 }
-		any_parent = { generic_mio_trait_industry_2a }
+		position = { x=2 y=2 }
+		any_parent = { generic_mio_trait_industry_1a }
 
 		available = {
 			NOT = {
@@ -242,18 +230,18 @@ TPMP_generic_industry_organization = {
 		}
 
 		production_bonus = {
-			production_efficiency_cap_factor = 0.1
-			production_capacity_factor = 0.15
+			production_efficiency_cap_factor = 0.07
+			production_capacity_factor = 0.1
 		}
 		limit_to_equipment_type = { heavy_tank_chassis super_heavy_tank_chassis }
 	}
 	trait = {
-		token = generic_mio_trait_industry_5c
-		name = generic_mio_trait_industry_5c
+		token = generic_mio_trait_industry_4c
+		name = generic_mio_trait_industry_4c
 		icon = GFX_generic_mio_department_icon_plane_strategic_bomber_production
 
-		position = { x=2 y=4 }
-		any_parent = { generic_mio_trait_industry_2a }
+		position = { x=2 y=3 }
+		any_parent = { generic_mio_trait_industry_1a }
 
 		available = {
 			NOT = {
@@ -265,8 +253,8 @@ TPMP_generic_industry_organization = {
 		}
 
 		production_bonus = {
-			production_efficiency_cap_factor = 0.1
-			production_capacity_factor = 0.15
+			production_efficiency_cap_factor = 0.07
+			production_capacity_factor = 0.1
 		}
 		limit_to_equipment_type = { medium_plane_airframe large_plane_airframe transport_plane_equipment }
 	}
@@ -298,17 +286,6 @@ TPMP_generic_industry_organization = {
 
 		production_bonus = {
 			production_efficiency_cap_factor = 0.03
-		}
-	}
-	trait = {
-		token = generic_mio_trait_industry_5d
-		name = generic_mio_trait_industry_5d
-		icon = GFX_generic_mio_trait_icon_production_capacity
-
-		position = { x=3 y=4 }
-		any_parent = { generic_mio_trait_industry_3d }
-
-		production_bonus = {
 			production_capacity_factor = 0.05
 		}
 	}
@@ -324,13 +301,13 @@ TPMP_generic_industry_organization = {
 		}
 	}
 	trait = {
-		token = generic_mio_trait_industry_2b
-		name = generic_mio_trait_industry_2b
+		token = generic_mio_trait_industry_2d
+		name = generic_mio_trait_industry_2d
 		icon = GFX_generic_mio_trait_icon_production_capacity
 
 		position = { x=4 y=1 }
 		any_parent = { generic_mio_trait_industry_1c }
-		mutually_exclusive = { generic_mio_trait_industry_2c }
+		mutually_exclusive = { generic_mio_trait_industry_2e }
 
 		production_bonus = {
 			production_capacity_factor = 0.1
@@ -343,25 +320,24 @@ TPMP_generic_industry_organization = {
 		icon = GFX_generic_mio_trait_icon_production_capacity
 
 		position = { x=4 y=3 }
-		any_parent = { generic_mio_trait_industry_2b }
+		any_parent = { generic_mio_trait_industry_2d }
 
 		production_bonus = {
 			production_efficiency_cap_factor = 0.03
-			production_capacity_factor = 0.05
 			production_resource_need_factor = 0.05
 		}
 	}
 	trait = {
-		token = generic_mio_trait_industry_2c
-		name = generic_mio_trait_industry_2c
+		token = generic_mio_trait_industry_2e
+		name = generic_mio_trait_industry_2e
 		icon = GFX_generic_mio_trait_icon_resources
 
 		position = { x=5 y=1 }
 		any_parent = { generic_mio_trait_industry_1c }
-		mutually_exclusive = { generic_mio_trait_industry_2b }
+		mutually_exclusive = { generic_mio_trait_industry_2d }
 
 		production_bonus = {
-			production_resource_need_factor = -0.1
+			production_resource_need_factor = -0.05
 		}
 	}
 	trait = {
@@ -370,7 +346,7 @@ TPMP_generic_industry_organization = {
 		icon = GFX_generic_mio_trait_icon_resources
 
 		position = { x=5 y=3 }
-		any_parent = { generic_mio_trait_industry_2c }
+		any_parent = { generic_mio_trait_industry_2e }
 
 		production_bonus = {
 			production_resource_need_factor = -0.05
@@ -390,8 +366,8 @@ TPMP_generic_industry_organization = {
 		limit_to_equipment_type = { TPMP_cat_eq_all_ship }
 	}
 	trait = {
-		token = generic_mio_trait_industry_5e
-		name = generic_mio_trait_industry_5e
+		token = generic_mio_trait_industry_5a
+		name = generic_mio_trait_industry_5a
 		icon = GFX_generic_mio_department_icon_ship_general_technology
 
 		position = { x=6 y=4 }
@@ -403,53 +379,57 @@ TPMP_generic_industry_organization = {
 		limit_to_equipment_type = { TPMP_cat_eq_all_ship }
 	}
 	trait = {
-		token = generic_mio_trait_industry_2d
-		name = generic_mio_trait_industry_2d
-		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		token = generic_mio_trait_industry_2f
+		name = generic_mio_trait_industry_2f
+		icon = GFX_generic_mio_trait_icon_efficiency_gain
 
 		position = { x=7 y=1 }
 		any_parent = { generic_mio_trait_industry_1c }
-		mutually_exclusive = { generic_mio_trait_industry_2e }
+		mutually_exclusive = { generic_mio_trait_industry_2g }
 
 		production_bonus = {
-			production_efficiency_cap_factor = 0.05
+			production_efficiency_gain_factor = 0.1
 		}
 	}
 	trait = {
 		token = generic_mio_trait_industry_4f
 		name = generic_mio_trait_industry_4f
-		icon = GFX_generic_mio_trait_icon_production_capacity
+		icon = GFX_generic_mio_department_icon_facilities
 
 		position = { x=7 y=3 }
-		any_parent = { generic_mio_trait_industry_2d }
+		any_parent = { generic_mio_trait_industry_2f }
 
-		production_bonus = {
-			production_capacity_factor = 0.05
+		on_complete = {
+			FROM = {
+				add_offsite_building = { type = arms_factory level = 5 }
+			}
 		}
 	}
 	trait = {
-		token = generic_mio_trait_industry_2e
-		name = generic_mio_trait_industry_2e
+		token = generic_mio_trait_industry_2g
+		name = generic_mio_trait_industry_2g
 		icon = GFX_generic_mio_department_icon_facilities
 
 		position = { x=8 y=1 }
 		any_parent = { generic_mio_trait_industry_1c }
-		mutually_exclusive = { generic_mio_trait_industry_2d }
+		mutually_exclusive = { generic_mio_trait_industry_2f }
 
-		organization_modifier = {
-			military_industrial_organization_task_capacity = 1
+		on_complete = {
+			FROM = {
+				add_offsite_building = { type = industrial_complex level = 3 }
+			}
 		}
 	}
 	trait = {
 		token = generic_mio_trait_industry_4g
 		name = generic_mio_trait_industry_4g
-		icon = GFX_generic_mio_department_icon_facilities
+		icon = GFX_generic_mio_trait_icon_production_capacity
 
 		position = { x=8 y=3 }
-		any_parent = { generic_mio_trait_industry_2e }
+		any_parent = { generic_mio_trait_industry_2g }
 
-		organization_modifier = {
-			military_industrial_organization_task_capacity = 1
+		production_bonus = {
+			production_capacity_factor = 0.05
 		}
 	}
 	trait = {
@@ -472,12 +452,12 @@ TPMP_generic_industry_organization = {
 		any_parent = { generic_mio_trait_industry_1d }
 
 		organization_modifier = {
-			military_industrial_organization_funds_gain = 0.1
+			military_industrial_organization_funds_gain = 0.15
 		}
 	}
 	trait = {
-		token = generic_mio_trait_industry_5f
-		name = generic_mio_trait_industry_5f
+		token = generic_mio_trait_industry_5b
+		name = generic_mio_trait_industry_5b
 		icon = GFX_generic_mio_department_icon_facilities
 
 		position = { x=9 y=4 }
