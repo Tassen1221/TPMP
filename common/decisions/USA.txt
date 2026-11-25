@@ -509,7 +509,7 @@ TPMP_USA_congress_category = {
                 limit = {
                     NOT = {
                         OR = {
-                            is_military_industrial_organization = TPMP_generic_industry_organization
+                            has_mio_equipment_type = TPMP_cat_eq_all_equipment
                             has_mio_equipment_type = capital_ship
                             has_mio_equipment_type = screen_ship
                             has_mio_equipment_type = carrier
@@ -583,7 +583,7 @@ TPMP_USA_congress_category = {
         complete_effect = {
             every_military_industrial_organization = {
                 limit = {
-                    NOT = { is_military_industrial_organization = TPMP_generic_industry_organization }
+                    NOT = { has_mio_equipment_type = TPMP_cat_eq_all_equipment }
                     OR = {
                         has_mio_equipment_type = capital_ship
                         has_mio_equipment_type = screen_ship

@@ -335,6 +335,11 @@ technologies = {
 		XOR = {
 			dispersed_industry
 		}
+		allow = {
+			NOT = {
+				has_tech = dispersed_industry
+			}
+		}
 		
 		folder = {
 			name = industry_folder
@@ -432,6 +437,12 @@ technologies = {
 		industrial_capacity_factory = 0.09
 		industrial_capacity_dockyard = 0.09
 		global_building_slots_factor = 0.2
+
+		on_research_complete = {
+			unlock_mio_policy_tooltip = {
+				policy = mio_policy_mature_manufacturing_techniques
+			}
+		}
 		
 		path = {
 			leads_to_tech = concentrated_industry4 
@@ -506,6 +517,12 @@ technologies = {
 		industrial_capacity_factory = 0.03
 		industrial_capacity_dockyard = 0.03
 		global_building_slots_factor = 0.2
+
+		on_research_complete = {
+			unlock_mio_policy_tooltip = {
+				policy = mio_policy_specialist_subsidiaries
+			}
+		}
 		
 		research_cost = 2
 		start_year = 1943
@@ -653,6 +670,11 @@ technologies = {
 		XOR = {
 			concentrated_industry
 		}
+		allow = {
+			NOT = {
+				has_tech = concentrated_industry
+			}
+		}
 		
 		folder = {
 			name = industry_folder
@@ -762,6 +784,9 @@ technologies = {
 		global_building_slots_factor = 0.2
 
 		on_research_complete = {
+			unlock_mio_policy_tooltip = {
+				policy = mio_policy_expanded_facilities
+			}
 			hidden_effect = {
 				swap_ideas = {
 					add_idea = TPMP_railway_gun_fix_idea_2
@@ -856,6 +881,9 @@ technologies = {
 		global_building_slots_factor = 0.2
 		
 		on_research_complete = {
+			unlock_mio_policy_tooltip = {
+				policy = mio_policy_corporate_subsidization
+			}
 			hidden_effect = {
 				swap_ideas = {
 					add_idea = TPMP_railway_gun_fix_idea_4

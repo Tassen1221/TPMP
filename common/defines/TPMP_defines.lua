@@ -503,6 +503,7 @@ NDefines.NIndustrialOrganisation.FUNDS_FOR_SIZE_UP_LEVEL_POW = 1.2		-- the power
 
 NDefines.NIndustrialOrganisation.FUNDS_FOR_RESEARCH_COMPLETION_PER_RESEARCH_COST = 1000     	-- Funds added to MIO when the Design Team has completed a research, multiplied by research_cost in technology template
 NDefines.NIndustrialOrganisation.FUNDS_FROM_MANUFACTURER_PER_IC_PER_DAY = 0.1			-- Funds added to MIO when a manufacturer is attached to a production line. Added every day proportional to IC produced.
+NDefines.NIndustrialOrganisation.DEFAULT_INITIAL_POLICY_ATTACH_COST = 50			-- Default start attach cost in PP for policies
 
 NDefines.NMarket.IC_TO_CIC_FACTOR = 1.0                    	-- The factor for mapping IC cost to CIC cost. Should be a positive number.
 NDefines.NMarket.LOW_PRICE_LEVEL_FACTOR = 0.5                   -- The factor of base equipment price for low price level. Should be in range (0,1]

@@ -1,0 +1,113 @@
+mio_policy_stringent_reinvestment = {
+	icon = GFX_mio_policy_ruthless_contracts
+	allowed = { has_mio_equipment_type = TPMP_cat_eq_all_equipment }
+	organization_modifier = {
+		military_industrial_organization_funds_gain = 0.15
+	}
+}
+mio_policy_general_assembly_line_optimisers = {
+	icon = GFX_mio_policy_assembly_line_optimisers
+	allowed = { has_mio_equipment_type = TPMP_cat_eq_all_equipment }
+	production_bonus = {
+		same_as_mio = {
+			production_efficiency_cap_factor = -0.1
+			production_capacity_factor = 0.2
+		}
+	}
+}
+mio_policy_general_vertical_integration = {
+	icon = GFX_mio_policy_vertical_integration
+	allowed = { has_mio_equipment_type = TPMP_cat_eq_all_equipment }
+	production_bonus = {
+		same_as_mio = {
+			production_resource_need_factor = -0.05
+			production_resource_penalty_factor = 0.25
+		}
+	}
+}
+#Concentrated MIO Policies
+mio_policy_mature_manufacturing_techniques = {
+	icon = GFX_mio_policy_heavy_gantry_cranes_land
+	allowed = { has_mio_equipment_type = TPMP_cat_eq_all_equipment }
+	visible = {
+		NOT = { is_mio_trait_completed = generic_mio_trait_industry_1b }
+	}
+	available = {
+		has_mio_size > 4
+		owner = { has_tech = concentrated_industry3 }
+	}
+	production_bonus = {
+		same_as_mio = {
+			production_efficiency_gain_factor = -0.25
+			production_cost_factor = -0.02
+		}
+	}
+}
+mio_policy_specialist_subsidiaries = {
+	icon = GFX_mio_policy_experimental_development_teams
+	cooldown = 365
+	allowed = { has_mio_equipment_type = TPMP_cat_eq_all_equipment }
+	visible = {
+		NOT = { is_mio_trait_completed = generic_mio_trait_industry_1b }
+	}
+	available = {
+		has_mio_size > 4
+		owner = { has_tech = concentrated_industry5 }
+		custom_trigger_tooltip = {
+			tooltip = TPMP_MIO_policy_once_tt
+			NOT = { has_mio_flag = TPMP_MIO_specialist_subsidiaries_flag }
+		}
+		custom_trigger_tooltip = {
+			tooltip = TPMP_MIO_concentrated_selected_tt
+			has_mio_flag = TPMP_MIO_concentrated_flag
+		}
+	}
+	on_add = {
+		custom_effect_tooltip = TPMP_MIO_specialist_subsidiaries_tt
+		hidden_effect = {
+			set_mio_flag = TPMP_MIO_specialist_subsidiaries_flag
+			clr_mio_flag = TPMP_MIO_concentrated_flag
+		}
+	}
+}
+#Dispersed MIO Policies
+mio_policy_expanded_facilities = {
+	icon = GFX_mio_policy_casting_specialists
+	allowed = { has_mio_equipment_type = TPMP_cat_eq_all_equipment }
+	visible = {
+		NOT = { is_mio_trait_completed = generic_mio_trait_industry_1a }
+	}
+	available = {
+		has_mio_size > 4
+		owner = { has_tech = dispersed_industry3 }
+	}
+	organization_modifier = {
+		military_industrial_organization_task_capacity = 1
+	}
+}
+mio_policy_corporate_subsidization = {
+	icon = GFX_mio_policy_ruthless_contracts
+	cooldown = 365
+	allowed = { has_mio_equipment_type = TPMP_cat_eq_all_equipment }
+	visible = {
+		NOT = { is_mio_trait_completed = generic_mio_trait_industry_1a }
+	}
+	available = {
+		has_mio_size > 4
+		owner = { has_tech = dispersed_industry5 }
+		custom_trigger_tooltip = {
+			tooltip = TPMP_MIO_policy_once_tt
+			NOT = { has_mio_flag = TPMP_MIO_corporate_subsidization_flag }
+		}
+	}
+	on_add = {
+		owner = {
+			every_military_industrial_organization = {
+				add_mio_size = 1
+			}
+		}
+		hidden_effect = {
+			set_mio_flag = TPMP_MIO_corporate_subsidization_flag
+		}
+	}
+}
