@@ -161,10 +161,7 @@ characters={
 				original_tag = ROM 
 			}
 			available = {
-				OR = {
-					has_completed_focus = ROM_propagate_anti_monarchial_ideas
-					has_completed_focus = ROM_strengthen_german_relations 
-				}
+				has_completed_focus = TPMP_ROM_night_of_the_green_knives
 				NOT = {
 					OR = {
 						has_government = communism
@@ -571,7 +568,7 @@ characters={
 			allowed = {
 				original_tag = ROM
 			}
-			cost = 75
+			cost = 150
 			traits = {
 				ROM_petrochemical_genius 
 			}
@@ -1649,7 +1646,10 @@ characters={
 			}
 
 			available = {
-				has_government = fascism
+				OR = {
+					has_government = fascism
+					has_completed_focus = TPMP_ROM_the_generals_ultimatum
+				}
 				NOT = {
 					has_country_flag = ROM_antonescu_gang_arrested
 				}			

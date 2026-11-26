@@ -138,7 +138,7 @@
 	
 	focus = {
 		id = TPMP_ROM_the_titan_plant
-		icon = GFX_goal_generic_construction
+		icon = GFX_focus_ROM_resita_industrial_area
 		prerequisite = { focus = TPMP_ROM_malaxa_and_resita }
 		x = -1
 		y = 1
@@ -204,7 +204,7 @@
 	}
 	focus = {
 		id = TPMP_ROM_locomotive_import_ban
-		icon = GFX_focus_IRQ_train
+		icon = GFX_focus_ROM_the_iron_road
 		prerequisite = { focus = TPMP_ROM_malaxa_and_resita }
 		x = 1
 		y = 1
@@ -321,7 +321,7 @@
 	}
 	focus = {
 		id = TPMP_ROM_ploesti_oil_field_development
-		icon = GFX_goal_generic_oil_refinery
+		icon = GFX_focus_ROM_increased_oil_extraction_efforts
 		prerequisite = { focus = TPMP_ROM_preserve_greater_romania }
 		x = 0
 		y = 1
@@ -376,7 +376,7 @@
 	}
 	focus = {
 		id = TPMP_ROM_civil_works
-		icon = GFX_goal_generic_construction
+		icon = GFX_focus_ROM_open_the_iasi_industrial_zone
 		prerequisite = { focus = TPMP_ROM_preserve_greater_romania }
 		x = 3
 		y = 1
@@ -408,33 +408,30 @@
 				uses = 1
 				category = construction_tech
 			}
-			random_owned_controlled_state = {
-				prioritize = { 79 46 81 }
+			if = {
 				limit = {
-					free_building_slots = {
-						building = industrial_complex
-						size > 1
-						include_locked = yes
-					}
+					controls_state = 79
 				}
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = industrial_complex
-					level = 2
-					instant_build = yes
+				79 = {
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = yes
+					}
 				}
 			}
 		}
 	}
 	focus = {
 		id = TPMP_ROM_danubian_transport_network
-		icon = GFX_goal_generic_construct_infrastructure
+		icon = GFX_focus_ROM_the_vein_of_the_nation
 		prerequisite = { focus = TPMP_ROM_civil_works }
 		x = 0
 		y = 1
 		relative_position_id = TPMP_ROM_civil_works
 
-		cost = 5
+		cost = 10
 
 		ai_will_do = {
 			factor = 10
@@ -469,6 +466,56 @@
 					instant_build = yes
 				}
 				set_state_category = town
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			build_railway = {
+				level = 5
+				build_only_on_allied = yes
+				path = { 9617 3663 9651 11652 9701 6747 3741 9716 }
+			}
+			hidden_effect = {
+				build_railway = {
+					level = 5
+					build_only_on_allied = yes
+					fallback = yes
+					start_province = 9716
+					target_province = 414
+				}
+			}
+			build_railway = {
+				level = 5
+				build_only_on_allied = yes
+				path = { 9617 6658 818 11588 6652 3645 11657 3649 9606 646 6682 6697 3696 }
+			}
+			build_railway = {
+				level = 5
+				build_only_on_allied = yes
+				fallback = yes
+				start_province = 9617
+				target_province = 6727
+			}
+			build_railway = {
+				level = 5
+				build_only_on_allied = yes
+				fallback = yes
+				start_province = 9617
+				target_province = 577
+			}
+			build_railway = {
+				level = 5
+				build_only_on_allied = yes
+				fallback = yes
+				start_province = 9617
+				target_province = 687
+			}
+			hidden_effect = {
+				build_railway = {
+					level = 5
+					build_only_on_allied = yes
+					fallback = yes
+					start_province = 9617
+					target_province = 6711
+				}
 			}
 		}
 	}
@@ -525,7 +572,7 @@
 	}
 	focus = {
 		id = TPMP_ROM_invite_foreign_motor_companies
-		icon = GFX_goal_generic_army_motorized
+		icon = GFX_focus_ROM_seize_ford
 		prerequisite = { focus = TPMP_ROM_danubian_transport_network }
 		x = 1
 		y = 1
@@ -618,7 +665,7 @@
 	}
 	focus = {
 		id = TPMP_ROM_tohran_complex
-		icon = GFX_focus_generic_reorient_production
+		icon = GFX_focus_ROM_expand_cugir_factories
 		prerequisite = { focus = TPMP_ROM_trade_treaty_with_germany }
 		x = -4
 		y = 1
@@ -769,7 +816,7 @@
 	}
 	focus = {
 		id = TPMP_ROM_fortify_the_borders
-		icon = GFX_goal_generic_construct_military
+		icon = GFX_focus_ROM_build_the_carol_line
 		prerequisite = { focus = TPMP_ROM_trade_treaty_with_germany }
 		x = 0
 		y = 1
@@ -832,7 +879,7 @@
 	}
 	focus = {
 		id = TPMP_ROM_expand_the_university_of_bucharest
-		icon = GFX_focus_research
+		icon = GFX_focus_ROM_improve_rural_literacy
 		prerequisite = { focus = TPMP_ROM_trade_treaty_with_germany }
 		x = 4
 		y = 1
@@ -1035,7 +1082,7 @@
 	}
 	focus = {
 		id = TPMP_ROM_domestic_small_arms
-		icon = GFX_goal_generic_production2
+		icon = GFX_focus_ROM_dissolve_the_paramilitaries
 		prerequisite = { focus = TPMP_ROM_expand_resita_works }
 		x = -1
 		y = 1
@@ -1181,7 +1228,7 @@
 
 	focus = {
 		id = TPMP_ROM_found_solagra
-		icon = GFX_focus_generic_farmland
+		icon = GFX_focus_ROM_develop_synthetic_rubber
 		prerequisite = { focus = TPMP_ROM_german_romanian_oil_exploitation_company }
 
 		x = -2
@@ -1225,7 +1272,7 @@
 		y = 1
 		relative_position_id = TPMP_ROM_german_romanian_oil_exploitation_company
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 2
@@ -1312,10 +1359,10 @@
 
 		completion_reward = {
 			custom_effect_tooltip = TPMP_ROM_sideline_titulescu_tooltip
-			custom_effect_tooltip = generic_skip_one_line_tt
-			custom_effect_tooltip = TPMP_ROM_sideline_titulescu_warning_tt
+			#custom_effect_tooltip = generic_skip_one_line_tt
+			#custom_effect_tooltip = TPMP_ROM_sideline_titulescu_warning_tt
 
-			custom_effect_tooltip = generic_skip_one_line_tt
+			#custom_effect_tooltip = generic_skip_one_line_tt
 			set_country_flag = TPMP_ROM_titulescu_sidelined
 			if = {
 				limit = { has_idea = TPMP_ROM_camarilla_titulescu }
@@ -1373,7 +1420,7 @@
 	}
 	focus = {
 		id = TPMP_ROM_alliance_with_the_PNC
-		icon = GFX_goal_generic_dangerous_deal
+		icon = GFX_focus_ROM_form_an_unofficial_coalition
 		prerequisite = { focus = TPMP_ROM_1937_romanian_general_election }
 		x = -2
 		y = 1
@@ -1414,7 +1461,7 @@
 	}
 	focus = {
 		id = TPMP_ROM_the_national_legionary_state
-		icon = GFX_focus_generic_fascist_troops
+		icon = GFX_focus_ROM_codreanu_ascendant
 		prerequisite = { focus = TPMP_ROM_alliance_with_the_PNC }
 		x = 0
 		y = 1
@@ -1496,7 +1543,7 @@
 	}
 	focus = {
 		id = TPMP_ROM_romanian_science
-		icon = GFX_focus_research2
+		icon = GFX_focus_ROM_funding_for_the_academies
 		prerequisite = { focus = TPMP_ROM_alliance_with_the_PNC focus = TPMP_ROM_institute_royal_dictatorship }
 		x = 2
 		y = 1
@@ -1521,6 +1568,14 @@
 
 		completion_reward = {
 			add_research_slot = 1
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_tech_bonus = {
+				name = TPMP_ROM_romanian_science
+				bonus = 1.0
+				uses = 4
+				ahead_reduction = 1
+				category = cat_maintenance_company_tech
+			}
 		}
 	}
 	focus = {
@@ -1735,7 +1790,7 @@
 	}
 	focus = {
 		id = TPMP_ROM_revise_the_constitution
-		icon = GFX_goal_generic_forceful_treaty
+		icon = GFX_focus_ROM_constitutional_reform
 		prerequisite = { focus = TPMP_ROM_institute_royal_dictatorship }
 		mutually_exclusive = { focus = TPMP_ROM_combat_favoritism }
 		x = -1
@@ -2107,7 +2162,7 @@
 
 	focus = {
 		id = TPMP_ROM_crack_down_on_extremism
-		icon = GFX_goal_generic_political_pressure
+		icon = GFX_focus_ROM_combat_the_iron_guard
 		prerequisite = { focus = TPMP_ROM_the_generals_ultimatum }
 		x = -1
 		y = 1
@@ -2188,7 +2243,7 @@
 
 	focus = {
 		id = TPMP_ROM_all_parties_must_end
-		icon = GFX_focus_rom_parties_end
+		icon = GFX_focus_ROM_limit_carols_reckless_spending
 		prerequisite = { focus = TPMP_ROM_his_majestys_loyal_government }
 		prerequisite = { focus = TPMP_ROM_camarilla_renewed }
 		x = 1
@@ -2281,7 +2336,7 @@
 
 	focus = {
 		id = TPMP_ROM_army_maneuvers
-		icon = GFX_goal_generic_army_doctrines
+		icon = GFX_focus_ROM_secure_our_gains
 		x = 23
 		y = 0
 
@@ -2309,7 +2364,7 @@
 
 	focus = {
 		id = TPMP_ROM_form_peasant_militias
-		icon = GFX_goal_generic_political_pressure
+		icon = GFX_focus_ROM_appease_the_farmers
 		prerequisite = { focus = TPMP_ROM_army_maneuvers }
 		x = -4
 		y = 1
@@ -2366,9 +2421,9 @@
 		available_if_capitulated = no
 
 		completion_reward = {
-			custom_effect_tooltip = TPMP_ROM_german_army_integration_lock_tt
+			#custom_effect_tooltip = TPMP_ROM_german_army_integration_lock_tt
 
-			custom_effect_tooltip = generic_skip_one_line_tt
+			#custom_effect_tooltip = generic_skip_one_line_tt
 			add_ideas = TPMP_ROM_german_controlled_military_idea
 
 			custom_effect_tooltip = generic_skip_one_line_tt
@@ -2777,9 +2832,9 @@
 		available_if_capitulated = no
 
 		completion_reward = {
-			custom_effect_tooltip = TPMP_ROM_the_sentinel_of_the_motherland_lock_tt
+			#custom_effect_tooltip = TPMP_ROM_the_sentinel_of_the_motherland_lock_tt
 
-			custom_effect_tooltip = generic_skip_one_line_tt
+			#custom_effect_tooltip = generic_skip_one_line_tt
 			add_dynamic_modifier = {
 				modifier = TPMP_ROM_garda_regala_dm
 			}
@@ -2821,7 +2876,7 @@
 
 	focus = {
 		id = TPMP_ROM_dress_to_impress
-		icon = GFX_focus_AUS_bring_generals_out_of_retirement
+		icon = GFX_focus_ROM_mobilize_the_royal_guard
 		prerequisite = { focus = TPMP_ROM_national_conscription_reform }
 		x = 0
 		y = 1
@@ -2852,7 +2907,7 @@
 
 	focus = {
 		id = TPMP_ROM_loyal_royal_army
-		icon = GFX_focus_TENG_ROM_guy_pushup_flag
+		icon = GFX_focus_ROM_arsenal_of_the_crown
 		prerequisite = { focus = TPMP_ROM_dress_to_impress }
 		x = 0
 		y = 1
@@ -2912,9 +2967,9 @@
 		available_if_capitulated = no
 
 		completion_reward = {
-			custom_effect_tooltip = TPMP_ROM_legion_of_the_archangel_michael_lock_tt
+			#custom_effect_tooltip = TPMP_ROM_legion_of_the_archangel_michael_lock_tt
 
-			custom_effect_tooltip = generic_skip_one_line_tt
+			#custom_effect_tooltip = generic_skip_one_line_tt
 			add_dynamic_modifier = {
 				modifier = TPMP_ROM_legionarii_dm
 			}
@@ -2924,7 +2979,7 @@
 
 	focus = {
 		id = TPMP_ROM_chariots_chariots
-		icon = GFX_focus_generic_tankette
+		icon = GFX_focus_ROM_the_combined_arms_experiment
 		prerequisite = { focus = TPMP_ROM_legion_of_the_archangel_michael }
 		mutually_exclusive = { focus = TPMP_ROM_our_mountain_home }
 		x = -1
@@ -2958,7 +3013,7 @@
 
 	focus = {
 		id = TPMP_ROM_our_mountain_home
-		icon = GFX_focus_generic_mountain_troops
+		icon = GFX_focus_ROM_expand_the_vanatore_de_munte
 		prerequisite = { focus = TPMP_ROM_legion_of_the_archangel_michael }
 		mutually_exclusive = { focus = TPMP_ROM_chariots_chariots }
 		x = 1
@@ -3030,7 +3085,7 @@
 
 	focus = {
 		id = TPMP_ROM_blessed_steel
-		icon = GFX_focus_generic_phoenix
+		icon = GFX_focus_ROM_purge_the_prison_faction
 		prerequisite = { focus = TPMP_ROM_shock_battalions }
 		x = 0
 		y = 1
@@ -3131,7 +3186,7 @@
 
 	focus = {
 		id = TPMP_ROM_army_modernisation
-		icon = GFX_focus_HABSBURG_the_modern_hussar
+		icon = GFX_focus_ROM_divert_to_the_army
 		prerequisite = { focus = TPMP_ROM_army_maneuvers }
 		x = 6
 		y = 1
@@ -3219,7 +3274,7 @@
 
 	focus = {
 		id = TPMP_ROM_artillery_modenisation
-		icon = GFX_goal_generic_army_artillery2
+		icon = GFX_focus_ROM_the_queen_of_the_battlefield
 		prerequisite = { focus = TPMP_ROM_the_orita }
 		x = 0
 		y = 1
@@ -3269,7 +3324,8 @@
 				name = TPMP_ROM_artillery_modenisation
 				bonus = 0.5
 				uses = 3
-				category = cat_artillery_tech
+				category = cat_howitzer_tech
+				category = cat_rocketry_tech
 			}
 		}
 	}
@@ -3334,7 +3390,7 @@
 
 	focus = {
 		id = TPMP_ROM_a_mobile_alternative
-		icon = GFX_focus_generic_self_propelled_gun
+		icon = GFX_focus_ROM_domestic_tank_designs
 		prerequisite = { focus = TPMP_ROM_aquire_modern_tanks }
 		mutually_exclusive = { focus = TPMP_ROM_modern_at_guns }
 		x = 0
@@ -4117,7 +4173,7 @@
 
 	focus = {
 		id = TPMP_ROM_expand_galati_shipyards
-		icon = GFX_goal_generic_construct_naval_dockyard
+		icon = GFX_focus_ROM_invest_in_galati_shipyards
 		x = 35
 		y = 0
 
@@ -4782,7 +4838,7 @@
 
 	focus = {
 		id = TPMP_ROM_expand_the_airforce
-		icon = GFX_goal_generic_air_production
+		icon = GFX_focus_ROM_reform_the_scouts_of_romania
 		x = 4
 		y = 0
 		relative_position_id = TPMP_ROM_allied_blueprints
@@ -4862,7 +4918,7 @@
 
 	focus = {
 		id = TPMP_ROM_trust_in_iar
-		icon = GFX_focus_generic_air_partners
+		icon = GFX_focus_ROM_new_iar_production_facilities
 		prerequisite = { focus = TPMP_ROM_expand_the_airforce }
 		x = 0
 		y = 1
@@ -4911,7 +4967,7 @@
 
 	focus = {
 		id = TPMP_ROM_iar_80
-		icon = GFX_goal_generic_air_fighter2
+		icon = GFX_focus_ROM_the_iar_80_and_iar_81
 		prerequisite = { focus = TPMP_ROM_trust_in_iar }
 		x = 0
 		y = 1
@@ -5047,7 +5103,7 @@
 
 	focus = {
 		id = TPMP_ROM_allied_expertise
-		icon = GFX_goal_generic_air_fighter
+		icon = GFX_focus_SMB_purchase_aircraft
 		prerequisite = { focus = TPMP_ROM_trust_in_iar }
 		x = 4
 		y = 1
