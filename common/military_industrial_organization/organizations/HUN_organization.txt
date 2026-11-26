@@ -3,9 +3,9 @@
 
 ### Tanks ###
 
-HUN_weiss_manfred_tankosztaly_organization = {
+HUN_fiat_organization = {
 	include = TPMP_generic_standard_tank_organization
-	icon = GFX_idea_mw_aircraft
+	icon = GFX_idea_fiat
 
 	allowed = {
 		original_tag = HUN
@@ -21,9 +21,9 @@ HUN_mavag_army_division_organization = {
 	}
 }
 
-HUN_fiat_organization = {
+HUN_weiss_manfred_tankosztaly_organization = {
 	include = TPMP_generic_production_tank_organization
-	icon = GFX_idea_fiat
+	icon = GFX_idea_mw_aircraft
 
 	allowed = {
 		original_tag = HUN
@@ -52,18 +52,18 @@ HUN_dunai_gepgyar_organization = {
 
 ### Artillery ###
 
-HUN_diosgyori_tuzergyar_organization = {
+HUN_rheinmetall_organization = {
 	include = TPMP_generic_standard_artillery_organization
-	icon = GFX_idea_HUN_digep_artillery
+	icon = GFX_idea_rheinmetall
 
 	allowed = {
 		original_tag = HUN
 	}
 }
 
-HUN_rheinmetall_organization = {
+HUN_diosgyori_tuzergyar_organization = {
 	include = TPMP_generic_firepower_artillery_organization
-	icon = GFX_idea_rheinmetall
+	icon = GFX_idea_HUN_digep_artillery
 
 	allowed = {
 		original_tag = HUN
@@ -109,6 +109,22 @@ HUN_ganz_danubius_organization = {
 
 	allowed = {
 		original_tag = HUN
+	}
+
+	available = {
+		IF = {
+			limit = {
+				AND = {
+					has_dlc = "Death or Dishonor"
+					NOT = { has_dlc = "Gotterdammerung" }
+				}
+			}
+			owner = { has_completed_focus = HUN_naval_warfare }
+		}
+		IF = {
+			limit = { has_dlc = "Gotterdammerung" }
+			owner = { has_completed_focus = wuw_HUN_enlarge_the_ganz_danubius_division }
+		}
 	}
 }
 

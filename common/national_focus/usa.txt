@@ -4725,6 +4725,7 @@ focus_tree = {
 			custom_effect_tooltip = generic_skip_one_line_tt
 			every_military_industrial_organization = {
 				limit = {
+					NOT = { has_mio_equipment_type = TPMP_cat_eq_all_equipment } #never the industry designer
 					OR = {
 						has_mio_equipment_type = mio_cat_eq_all_small_plane
 						has_mio_equipment_type = mio_cat_eq_all_medium_plane

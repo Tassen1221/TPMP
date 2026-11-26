@@ -3165,6 +3165,12 @@ focus_tree = {
 		}		
 		completion_reward = {
 			custom_effect_tooltip = ukr_mio_subsidities_tt																	
+			hidden_effect = {
+				every_military_industrial_organization = {
+					limit = { NOT = { has_mio_equipment_type = TPMP_cat_eq_all_equipment } } #never the industry designer
+					add_mio_funds = 2000
+				}
+			}
 		}
 	}
 
@@ -3184,6 +3190,12 @@ focus_tree = {
 		}
 		completion_reward = {
 			custom_effect_tooltip = ukr_mio_development_fund_tt																
+			hidden_effect = {
+				every_military_industrial_organization = {
+					limit = { NOT = { has_mio_equipment_type = TPMP_cat_eq_all_equipment } } #never the industry designer
+					add_mio_size = 1
+				}
+			}
 		}
 	}
 

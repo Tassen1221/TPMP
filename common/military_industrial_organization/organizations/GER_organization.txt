@@ -12,9 +12,9 @@ GER_daimler_benz_organization = {
 	}
 }
 
-GER_henschel_organization = {
+GER_man_organization = {
 	include = TPMP_generic_firepower_tank_organization
-	icon = GFX_idea_henschel
+	icon = GFX_idea_GER_MAN
 
 	allowed = {
 		original_tag = GER
@@ -24,6 +24,37 @@ GER_henschel_organization = {
 GER_porsche_organization = {
 	include = TPMP_generic_assault_tank_organization
 	icon = GFX_idea_porsche
+
+	allowed = {
+		original_tag = GER
+	}
+
+	# Country-unique traits (gold outline)
+	add_trait = {
+		token = GER_mio_trait_electric_drive_specialization
+		name = GER_mio_trait_electric_drive_specialization
+		icon = GFX_generic_mio_department_icon_tank_heavy_tank_engine
+		special_trait_background = yes
+
+		position = { x=0 y=1 }
+		relative_position_id = generic_mio_trait_assault_tank_2a
+		any_parent = { generic_mio_trait_assault_tank_2a }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		equipment_bonus = {
+			breakthrough = 0.05
+			maximum_speed = 0.1
+			reliability = -0.05
+		}
+	}
+}
+
+GER_henschel_organization = {
+	include = TPMP_generic_heavy_tank_organization
+	icon = GFX_idea_henschel
 
 	allowed = {
 		original_tag = GER
@@ -108,6 +139,37 @@ GER_messerschmitt_organization = {
 	allowed = {
 		original_tag = GER
 	}
+
+	# Country-unique traits (gold outline)
+	add_trait = {
+		token = GER_mio_trait_extended_service_life
+		name = GER_mio_trait_extended_service_life
+		icon = GFX_generic_mio_department_icon_plane_fighter_production
+		special_trait_background = yes
+
+		position = { x=-3 y=0 }
+		relative_position_id = generic_mio_trait_agility_aircraft_1a
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		on_complete = {
+			custom_effect_tooltip = TPMP_MIO_selected_tt
+			hidden_effect = {
+				FROM = {
+					every_military_industrial_organization = {
+						limit = { TPMP_MIO_is_aircraft_category = yes }
+						set_mio_flag = TPMP_MIO_selected_flag
+					}
+				}
+				clr_mio_flag = TPMP_MIO_selected_flag
+			}
+		}
+		equipment_bonus = {
+			build_cost_ic = -0.05
+		}
+	}
 }
 
 GER_focke_wulf_organization = {
@@ -116,6 +178,44 @@ GER_focke_wulf_organization = {
 
 	allowed = {
 		original_tag = GER
+	}
+
+	# Country-unique traits (gold outline)
+	add_trait = {
+		token = GER_mio_trait_high_altitude_cruising
+		name = GER_mio_trait_high_altitude_cruising
+		icon = GFX_generic_mio_trait_icon_air_range
+		special_trait_background = yes
+
+		position = { x=-2 y=1 }
+		relative_position_id = generic_mio_trait_range_aircraft_2a
+		any_parent = { generic_mio_trait_range_aircraft_2a }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		equipment_bonus = {
+			air_range = 0.1
+		}
+	}
+	add_trait = {
+		token = GER_mio_trait_mw_50
+		name = GER_mio_trait_mw_50
+		icon = GFX_generic_mio_department_icon_plane_fighter_engine
+		special_trait_background = yes
+
+		position = { x=0 y=1 }
+		relative_position_id = generic_mio_trait_range_aircraft_4b
+		any_parent = { generic_mio_trait_range_aircraft_4b }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
 	}
 }
 

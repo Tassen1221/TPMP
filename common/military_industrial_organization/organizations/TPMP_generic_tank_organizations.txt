@@ -35,7 +35,7 @@ TPMP_generic_standard_tank_organization = {
 			hidden_effect = {
 				FROM = {
 					every_military_industrial_organization = {
-						limit = { has_mio_equipment_type = light_tank_chassis }
+						limit = { TPMP_MIO_is_tank_category = yes }
 						set_mio_flag = TPMP_MIO_selected_flag
 					}
 				}
@@ -176,7 +176,7 @@ TPMP_generic_standard_tank_organization = {
 			hidden_effect = {
 				FROM = {
 					every_military_industrial_organization = {
-						limit = { has_mio_equipment_type = light_tank_chassis }
+						limit = { TPMP_MIO_is_tank_category = yes }
 						set_mio_flag = TPMP_MIO_selected_flag
 					}
 				}
@@ -259,7 +259,7 @@ TPMP_generic_firepower_tank_organization = {
 			hidden_effect = {
 				FROM = {
 					every_military_industrial_organization = {
-						limit = { has_mio_equipment_type = light_tank_chassis }
+						limit = { TPMP_MIO_is_tank_category = yes }
 						set_mio_flag = TPMP_MIO_selected_flag
 					}
 				}
@@ -421,7 +421,7 @@ TPMP_generic_firepower_tank_organization = {
 			hidden_effect = {
 				FROM = {
 					every_military_industrial_organization = {
-						limit = { has_mio_equipment_type = light_tank_chassis }
+						limit = { TPMP_MIO_is_tank_category = yes }
 						set_mio_flag = TPMP_MIO_selected_flag
 					}
 				}
@@ -485,7 +485,7 @@ TPMP_generic_assault_tank_organization = {
 
 		equipment_bonus = {
 			breakthrough = 0.05
-			armor_value = 0.05
+			armor_value = 0.1
 		}
 	}
 	trait = {
@@ -505,7 +505,7 @@ TPMP_generic_assault_tank_organization = {
 			hidden_effect = {
 				FROM = {
 					every_military_industrial_organization = {
-						limit = { has_mio_equipment_type = light_tank_chassis }
+						limit = { TPMP_MIO_is_tank_category = yes }
 						set_mio_flag = TPMP_MIO_selected_flag
 					}
 				}
@@ -533,7 +533,7 @@ TPMP_generic_assault_tank_organization = {
 			hidden_effect = {
 				FROM = {
 					every_military_industrial_organization = {
-						limit = { has_mio_equipment_type = light_tank_chassis }
+						limit = { TPMP_MIO_is_tank_category = yes }
 						set_mio_flag = TPMP_MIO_selected_flag
 					}
 				}
@@ -541,8 +541,8 @@ TPMP_generic_assault_tank_organization = {
 			}
 		}
 		equipment_bonus = {
-			armor_value = 0.12
-			build_cost_ic = 0.03
+			armor_value = 0.1
+			breakthrough = -0.1
 		}
 	}
 	trait = {
@@ -676,7 +676,7 @@ TPMP_generic_assault_tank_organization = {
 			hidden_effect = {
 				FROM = {
 					every_military_industrial_organization = {
-						limit = { has_mio_equipment_type = light_tank_chassis }
+						limit = { TPMP_MIO_is_tank_category = yes }
 						set_mio_flag = TPMP_MIO_selected_flag
 					}
 				}
@@ -759,7 +759,7 @@ TPMP_generic_production_tank_organization = {
 			hidden_effect = {
 				FROM = {
 					every_military_industrial_organization = {
-						limit = { has_mio_equipment_type = light_tank_chassis }
+						limit = { TPMP_MIO_is_tank_category = yes }
 						set_mio_flag = TPMP_MIO_selected_flag
 					}
 				}
@@ -856,7 +856,233 @@ TPMP_generic_production_tank_organization = {
 			hidden_effect = {
 				FROM = {
 					every_military_industrial_organization = {
-						limit = { has_mio_equipment_type = light_tank_chassis }
+						limit = { TPMP_MIO_is_tank_category = yes }
+						set_mio_flag = TPMP_MIO_selected_flag
+					}
+				}
+				clr_mio_flag = TPMP_MIO_selected_flag
+			}
+		}
+		production_bonus = {
+			production_efficiency_gain_factor = 0.1
+		}
+		organization_modifier = {
+			military_industrial_organization_funds_gain = 0.1
+		}
+	}
+	trait = {
+		token = generic_mio_trait_shared_2a
+		name = generic_mio_trait_shared_2a
+		icon = GFX_generic_mio_department_icon_facilities
+
+		position = { x=9 y=1 }
+		any_parent = { generic_mio_trait_shared_1a }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		organization_modifier = {
+			military_industrial_organization_research_bonus = 0.1
+			military_industrial_organization_task_capacity = 1
+		}
+	}
+	trait = {
+		token = generic_mio_trait_shared_3a
+		name = generic_mio_trait_shared_3a
+		icon = GFX_generic_mio_trait_icon_production_capacity
+
+		position = { x=8 y=2 }
+		any_parent = { generic_mio_trait_shared_1a }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		production_bonus = {
+			production_capacity_factor = 0.05
+		}
+	}
+}
+
+TPMP_generic_heavy_tank_organization = {
+	icon = GFX_idea_generic_industrial_concern_1
+
+	allowed = {
+		always = no # Archetype only: countries get their own copy, see <TAG>_organization.txt
+	}
+
+	equipment_type = { heavy_tank_chassis super_heavy_tank_chassis }
+	research_categories = { cat_armour_tech }
+
+	initial_trait = {
+		name = generic_mio_initial_trait_heavy_tank
+
+		equipment_bonus = {
+			armor_value = 0.05
+			hard_attack = 0.03
+			reliability = -0.1
+		}
+	}
+	trait = {
+		token = generic_mio_trait_heavy_tank_1a
+		name = generic_mio_trait_heavy_tank_1a
+		icon = GFX_generic_mio_department_icon_tank_heavy_tank_at
+
+		position = { x=4 y=0 }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		on_complete = {
+			custom_effect_tooltip = TPMP_MIO_selected_tt
+			hidden_effect = {
+				FROM = {
+					every_military_industrial_organization = {
+						limit = { TPMP_MIO_is_tank_category = yes }
+						set_mio_flag = TPMP_MIO_selected_flag
+					}
+				}
+				clr_mio_flag = TPMP_MIO_selected_flag
+			}
+		}
+		equipment_bonus = {
+			hard_attack = 0.05
+		}
+	}
+	trait = {
+		token = generic_mio_trait_heavy_tank_2a
+		name = generic_mio_trait_heavy_tank_2a
+		icon = GFX_generic_mio_trait_icon_ap_attack
+
+		position = { x=3 y=1 }
+		any_parent = { generic_mio_trait_heavy_tank_1a }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		equipment_bonus = {
+			ap_attack = 0.1
+		}
+	}
+	trait = {
+		token = generic_mio_trait_heavy_tank_2b
+		name = generic_mio_trait_heavy_tank_2b
+		icon = GFX_generic_mio_department_icon_tank_heavy_tank_armor
+
+		position = { x=4 y=1 }
+		any_parent = { generic_mio_trait_heavy_tank_1a }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		equipment_bonus = {
+			armor_value = 0.05
+		}
+	}
+	trait = {
+		token = generic_mio_trait_heavy_tank_2c
+		name = generic_mio_trait_heavy_tank_2c
+		icon = GFX_generic_mio_trait_icon_soft_attack
+
+		position = { x=5 y=1 }
+		any_parent = { generic_mio_trait_heavy_tank_1a }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		equipment_bonus = {
+			soft_attack = 0.03
+		}
+	}
+	trait = {
+		token = generic_mio_trait_heavy_tank_4a
+		name = generic_mio_trait_heavy_tank_4a
+		icon = GFX_generic_mio_trait_icon_hard_attack
+
+		position = { x=3 y=3 }
+		any_parent = { generic_mio_trait_heavy_tank_2a }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		equipment_bonus = {
+			hard_attack = 0.05
+		}
+	}
+	trait = {
+		token = generic_mio_trait_heavy_tank_4b
+		name = generic_mio_trait_heavy_tank_4b
+		icon = GFX_generic_mio_trait_icon_armor_value
+
+		position = { x=4 y=3 }
+		any_parent = { generic_mio_trait_heavy_tank_2b }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		equipment_bonus = {
+			armor_value = 0.05
+		}
+	}
+	trait = {
+		token = generic_mio_trait_heavy_tank_4c
+		name = generic_mio_trait_heavy_tank_4c
+		icon = GFX_generic_mio_department_icon_tank_heavy_tank_spg
+
+		position = { x=5 y=3 }
+		any_parent = { generic_mio_trait_heavy_tank_2c }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		equipment_bonus = {
+			soft_attack = 0.03
+		}
+	}
+	trait = {
+		token = generic_mio_trait_heavy_tank_5a
+		name = generic_mio_trait_heavy_tank_5a
+		icon = GFX_generic_mio_department_icon_tank_heavy_tank
+
+		position = { x=4 y=4 }
+		any_parent = { generic_mio_trait_heavy_tank_4a generic_mio_trait_heavy_tank_4b generic_mio_trait_heavy_tank_4c }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		equipment_bonus = {
+			breakthrough = 0.05
+			defense = 0.05
+			armor_value = 0.05
+		}
+	}
+	# Shared treelet (same in every MIO)
+	trait = {
+		token = generic_mio_trait_shared_1a
+		name = generic_mio_trait_shared_1a
+		icon = GFX_generic_mio_trait_icon_efficiency_gain
+
+		position = { x=8 y=0 }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		on_complete = {
+			custom_effect_tooltip = TPMP_MIO_selected_tt
+			hidden_effect = {
+				FROM = {
+					every_military_industrial_organization = {
+						limit = { TPMP_MIO_is_tank_category = yes }
 						set_mio_flag = TPMP_MIO_selected_flag
 					}
 				}

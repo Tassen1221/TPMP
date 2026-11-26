@@ -10,14 +10,84 @@ SOV_morozov_design_bureau_organization = {
 	allowed = {
 		original_tag = SOV
 	}
+
+	# Country-unique traits (gold outline)
+	add_trait = {
+		token = SOV_mio_trait_merged_tank_and_materiel_plants
+		name = SOV_mio_trait_merged_tank_and_materiel_plants
+		icon = GFX_generic_mio_trait_icon_build_cost_ic
+		special_trait_background = yes
+
+		position = { x=1 y=0 }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+			FROM = { has_completed_focus = SOV_merge_tank_and_materiel_plants }
+			hidden_trigger = { FROM = { NOT = { has_country_flag = SOV_merged_tank_and_materiel_plants_flag } } }
+		}
+
+		on_complete = {
+			custom_effect_tooltip = TPMP_MIO_selected_tt
+			hidden_effect = {
+				FROM = {
+					every_military_industrial_organization = {
+						limit = { TPMP_MIO_is_tank_category = yes }
+						set_mio_flag = TPMP_MIO_selected_flag
+					}
+				}
+				clr_mio_flag = TPMP_MIO_selected_flag
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = generic_trait_will_not_be_available_in_other_organizations
+			FROM = { set_country_flag = SOV_merged_tank_and_materiel_plants_flag }
+		}
+		equipment_bonus = {
+			build_cost_ic = -0.05
+		}
+	}
 }
 
-SOV_kirov_plant_organization = {
+SOV_okmo_organization = {
 	include = TPMP_generic_assault_tank_organization
-	icon = GFX_idea_SOV_kirov
+	icon = GFX_idea_okmo
 
 	allowed = {
 		original_tag = SOV
+	}
+
+	# Country-unique traits (gold outline)
+	add_trait = {
+		token = SOV_mio_trait_merged_tank_and_materiel_plants
+		name = SOV_mio_trait_merged_tank_and_materiel_plants
+		icon = GFX_generic_mio_trait_icon_build_cost_ic
+		special_trait_background = yes
+
+		position = { x=1 y=0 }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+			FROM = { has_completed_focus = SOV_merge_tank_and_materiel_plants }
+			hidden_trigger = { FROM = { NOT = { has_country_flag = SOV_merged_tank_and_materiel_plants_flag } } }
+		}
+
+		on_complete = {
+			custom_effect_tooltip = TPMP_MIO_selected_tt
+			hidden_effect = {
+				FROM = {
+					every_military_industrial_organization = {
+						limit = { TPMP_MIO_is_tank_category = yes }
+						set_mio_flag = TPMP_MIO_selected_flag
+					}
+				}
+				clr_mio_flag = TPMP_MIO_selected_flag
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = generic_trait_will_not_be_available_in_other_organizations
+			FROM = { set_country_flag = SOV_merged_tank_and_materiel_plants_flag }
+		}
+		equipment_bonus = {
+			build_cost_ic = -0.05
+		}
 	}
 }
 
@@ -27,6 +97,85 @@ SOV_stalingrad_tractor_factory_organization = {
 
 	allowed = {
 		original_tag = SOV
+	}
+
+	# Country-unique traits (gold outline)
+	add_trait = {
+		token = SOV_mio_trait_merged_tank_and_materiel_plants
+		name = SOV_mio_trait_merged_tank_and_materiel_plants
+		icon = GFX_generic_mio_trait_icon_build_cost_ic
+		special_trait_background = yes
+
+		position = { x=1 y=0 }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+			FROM = { has_completed_focus = SOV_merge_tank_and_materiel_plants }
+			hidden_trigger = { FROM = { NOT = { has_country_flag = SOV_merged_tank_and_materiel_plants_flag } } }
+		}
+
+		on_complete = {
+			custom_effect_tooltip = TPMP_MIO_selected_tt
+			hidden_effect = {
+				FROM = {
+					every_military_industrial_organization = {
+						limit = { TPMP_MIO_is_tank_category = yes }
+						set_mio_flag = TPMP_MIO_selected_flag
+					}
+				}
+				clr_mio_flag = TPMP_MIO_selected_flag
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = generic_trait_will_not_be_available_in_other_organizations
+			FROM = { set_country_flag = SOV_merged_tank_and_materiel_plants_flag }
+		}
+		equipment_bonus = {
+			build_cost_ic = -0.05
+		}
+	}
+}
+
+SOV_kirov_plant_organization = {
+	include = TPMP_generic_heavy_tank_organization
+	icon = GFX_idea_SOV_kirov
+
+	allowed = {
+		original_tag = SOV
+	}
+
+	# Country-unique traits (gold outline)
+	add_trait = {
+		token = SOV_mio_trait_merged_tank_and_materiel_plants
+		name = SOV_mio_trait_merged_tank_and_materiel_plants
+		icon = GFX_generic_mio_trait_icon_build_cost_ic
+		special_trait_background = yes
+
+		position = { x=1 y=0 }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+			FROM = { has_completed_focus = SOV_merge_tank_and_materiel_plants }
+			hidden_trigger = { FROM = { NOT = { has_country_flag = SOV_merged_tank_and_materiel_plants_flag } } }
+		}
+
+		on_complete = {
+			custom_effect_tooltip = TPMP_MIO_selected_tt
+			hidden_effect = {
+				FROM = {
+					every_military_industrial_organization = {
+						limit = { TPMP_MIO_is_tank_category = yes }
+						set_mio_flag = TPMP_MIO_selected_flag
+					}
+				}
+				clr_mio_flag = TPMP_MIO_selected_flag
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = generic_trait_will_not_be_available_in_other_organizations
+			FROM = { set_country_flag = SOV_merged_tank_and_materiel_plants_flag }
+		}
+		equipment_bonus = {
+			build_cost_ic = -0.05
+		}
 	}
 }
 
@@ -59,6 +208,41 @@ SOV_grabin_design_bureau_organization = {
 	allowed = {
 		original_tag = SOV
 	}
+
+	# Country-unique traits (gold outline)
+	add_trait = {
+		token = SOV_mio_trait_merged_tank_and_materiel_plants
+		name = SOV_mio_trait_merged_tank_and_materiel_plants
+		icon = GFX_generic_mio_trait_icon_build_cost_ic
+		special_trait_background = yes
+
+		position = { x=1 y=0 }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+			FROM = { has_completed_focus = SOV_merge_tank_and_materiel_plants }
+			hidden_trigger = { FROM = { NOT = { has_country_flag = SOV_merged_tank_and_materiel_plants_flag } } }
+		}
+
+		on_complete = {
+			custom_effect_tooltip = TPMP_MIO_selected_tt
+			hidden_effect = {
+				FROM = {
+					every_military_industrial_organization = {
+						limit = { TPMP_MIO_is_artillery_category = yes }
+						set_mio_flag = TPMP_MIO_selected_flag
+					}
+				}
+				clr_mio_flag = TPMP_MIO_selected_flag
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = generic_trait_will_not_be_available_in_other_organizations
+			FROM = { set_country_flag = SOV_merged_tank_and_materiel_plants_flag }
+		}
+		equipment_bonus = {
+			build_cost_ic = -0.05
+		}
+	}
 }
 
 SOV_firepower_artillery_organization = {
@@ -66,6 +250,41 @@ SOV_firepower_artillery_organization = {
 
 	allowed = {
 		original_tag = SOV
+	}
+
+	# Country-unique traits (gold outline)
+	add_trait = {
+		token = SOV_mio_trait_merged_tank_and_materiel_plants
+		name = SOV_mio_trait_merged_tank_and_materiel_plants
+		icon = GFX_generic_mio_trait_icon_build_cost_ic
+		special_trait_background = yes
+
+		position = { x=1 y=0 }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+			FROM = { has_completed_focus = SOV_merge_tank_and_materiel_plants }
+			hidden_trigger = { FROM = { NOT = { has_country_flag = SOV_merged_tank_and_materiel_plants_flag } } }
+		}
+
+		on_complete = {
+			custom_effect_tooltip = TPMP_MIO_selected_tt
+			hidden_effect = {
+				FROM = {
+					every_military_industrial_organization = {
+						limit = { TPMP_MIO_is_artillery_category = yes }
+						set_mio_flag = TPMP_MIO_selected_flag
+					}
+				}
+				clr_mio_flag = TPMP_MIO_selected_flag
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = generic_trait_will_not_be_available_in_other_organizations
+			FROM = { set_country_flag = SOV_merged_tank_and_materiel_plants_flag }
+		}
+		equipment_bonus = {
+			build_cost_ic = -0.05
+		}
 	}
 }
 
@@ -75,6 +294,41 @@ SOV_mytishchy_machine_building_plant_organization = {
 
 	allowed = {
 		original_tag = SOV
+	}
+
+	# Country-unique traits (gold outline)
+	add_trait = {
+		token = SOV_mio_trait_merged_tank_and_materiel_plants
+		name = SOV_mio_trait_merged_tank_and_materiel_plants
+		icon = GFX_generic_mio_trait_icon_build_cost_ic
+		special_trait_background = yes
+
+		position = { x=1 y=0 }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+			FROM = { has_completed_focus = SOV_merge_tank_and_materiel_plants }
+			hidden_trigger = { FROM = { NOT = { has_country_flag = SOV_merged_tank_and_materiel_plants_flag } } }
+		}
+
+		on_complete = {
+			custom_effect_tooltip = TPMP_MIO_selected_tt
+			hidden_effect = {
+				FROM = {
+					every_military_industrial_organization = {
+						limit = { TPMP_MIO_is_artillery_category = yes }
+						set_mio_flag = TPMP_MIO_selected_flag
+					}
+				}
+				clr_mio_flag = TPMP_MIO_selected_flag
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = generic_trait_will_not_be_available_in_other_organizations
+			FROM = { set_country_flag = SOV_merged_tank_and_materiel_plants_flag }
+		}
+		equipment_bonus = {
+			build_cost_ic = -0.05
+		}
 	}
 }
 
@@ -87,6 +341,41 @@ SOV_gaz_organization = {
 	allowed = {
 		original_tag = SOV
 	}
+
+	# Country-unique traits (gold outline)
+	add_trait = {
+		token = SOV_mio_trait_merged_tank_and_materiel_plants
+		name = SOV_mio_trait_merged_tank_and_materiel_plants
+		icon = GFX_generic_mio_trait_icon_build_cost_ic
+		special_trait_background = yes
+
+		position = { x=1 y=0 }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+			FROM = { has_completed_focus = SOV_merge_tank_and_materiel_plants }
+			hidden_trigger = { FROM = { NOT = { has_country_flag = SOV_merged_tank_and_materiel_plants_flag } } }
+		}
+
+		on_complete = {
+			custom_effect_tooltip = TPMP_MIO_selected_tt
+			hidden_effect = {
+				FROM = {
+					every_military_industrial_organization = {
+						limit = { TPMP_MIO_is_mechanized_category = yes }
+						set_mio_flag = TPMP_MIO_selected_flag
+					}
+				}
+				clr_mio_flag = TPMP_MIO_selected_flag
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = generic_trait_will_not_be_available_in_other_organizations
+			FROM = { set_country_flag = SOV_merged_tank_and_materiel_plants_flag }
+		}
+		equipment_bonus = {
+			build_cost_ic = -0.05
+		}
+	}
 }
 
 ### Aircraft ###
@@ -98,6 +387,41 @@ SOV_mig_design_bureau_organization = {
 	allowed = {
 		original_tag = SOV
 	}
+
+	# Country-unique traits (gold outline)
+	add_trait = {
+		token = SOV_mio_trait_merged_aircraft_plants
+		name = SOV_mio_trait_merged_aircraft_plants
+		icon = GFX_generic_mio_trait_icon_build_cost_ic
+		special_trait_background = yes
+
+		position = { x=1 y=0 }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+			FROM = { has_completed_focus = SOV_merge_aircraft_plants }
+			hidden_trigger = { FROM = { NOT = { has_country_flag = SOV_merged_aircraft_plants_flag } } }
+		}
+
+		on_complete = {
+			custom_effect_tooltip = TPMP_MIO_selected_tt
+			hidden_effect = {
+				FROM = {
+					every_military_industrial_organization = {
+						limit = { TPMP_MIO_is_aircraft_category = yes }
+						set_mio_flag = TPMP_MIO_selected_flag
+					}
+				}
+				clr_mio_flag = TPMP_MIO_selected_flag
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = generic_trait_will_not_be_available_in_other_organizations
+			FROM = { set_country_flag = SOV_merged_aircraft_plants_flag }
+		}
+		equipment_bonus = {
+			build_cost_ic = -0.05
+		}
+	}
 }
 
 SOV_yakovlev_design_bureau_organization = {
@@ -107,6 +431,41 @@ SOV_yakovlev_design_bureau_organization = {
 	allowed = {
 		original_tag = SOV
 	}
+
+	# Country-unique traits (gold outline)
+	add_trait = {
+		token = SOV_mio_trait_merged_aircraft_plants
+		name = SOV_mio_trait_merged_aircraft_plants
+		icon = GFX_generic_mio_trait_icon_build_cost_ic
+		special_trait_background = yes
+
+		position = { x=1 y=0 }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+			FROM = { has_completed_focus = SOV_merge_aircraft_plants }
+			hidden_trigger = { FROM = { NOT = { has_country_flag = SOV_merged_aircraft_plants_flag } } }
+		}
+
+		on_complete = {
+			custom_effect_tooltip = TPMP_MIO_selected_tt
+			hidden_effect = {
+				FROM = {
+					every_military_industrial_organization = {
+						limit = { TPMP_MIO_is_aircraft_category = yes }
+						set_mio_flag = TPMP_MIO_selected_flag
+					}
+				}
+				clr_mio_flag = TPMP_MIO_selected_flag
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = generic_trait_will_not_be_available_in_other_organizations
+			FROM = { set_country_flag = SOV_merged_aircraft_plants_flag }
+		}
+		equipment_bonus = {
+			build_cost_ic = -0.05
+		}
+	}
 }
 
 SOV_ilyushin_design_bureau_organization = {
@@ -115,6 +474,41 @@ SOV_ilyushin_design_bureau_organization = {
 
 	allowed = {
 		original_tag = SOV
+	}
+
+	# Country-unique traits (gold outline)
+	add_trait = {
+		token = SOV_mio_trait_merged_aircraft_plants
+		name = SOV_mio_trait_merged_aircraft_plants
+		icon = GFX_generic_mio_trait_icon_build_cost_ic
+		special_trait_background = yes
+
+		position = { x=1 y=0 }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+			FROM = { has_completed_focus = SOV_merge_aircraft_plants }
+			hidden_trigger = { FROM = { NOT = { has_country_flag = SOV_merged_aircraft_plants_flag } } }
+		}
+
+		on_complete = {
+			custom_effect_tooltip = TPMP_MIO_selected_tt
+			hidden_effect = {
+				FROM = {
+					every_military_industrial_organization = {
+						limit = { TPMP_MIO_is_aircraft_category = yes }
+						set_mio_flag = TPMP_MIO_selected_flag
+					}
+				}
+				clr_mio_flag = TPMP_MIO_selected_flag
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = generic_trait_will_not_be_available_in_other_organizations
+			FROM = { set_country_flag = SOV_merged_aircraft_plants_flag }
+		}
+		equipment_bonus = {
+			build_cost_ic = -0.05
+		}
 	}
 }
 
@@ -127,6 +521,41 @@ SOV_nevskoye_design_bureau_organization = {
 	allowed = {
 		original_tag = SOV
 	}
+
+	# Country-unique traits (gold outline)
+	add_trait = {
+		token = SOV_mio_trait_merged_naval_plants
+		name = SOV_mio_trait_merged_naval_plants
+		icon = GFX_generic_mio_trait_icon_build_cost_ic
+		special_trait_background = yes
+
+		position = { x=1 y=0 }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+			FROM = { has_completed_focus = SOV_merge_naval_plants }
+			hidden_trigger = { FROM = { NOT = { has_country_flag = SOV_merged_naval_plants_flag } } }
+		}
+
+		on_complete = {
+			custom_effect_tooltip = TPMP_MIO_selected_tt
+			hidden_effect = {
+				FROM = {
+					every_military_industrial_organization = {
+						limit = { TPMP_MIO_is_ship_category = yes }
+						set_mio_flag = TPMP_MIO_selected_flag
+					}
+				}
+				clr_mio_flag = TPMP_MIO_selected_flag
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = generic_trait_will_not_be_available_in_other_organizations
+			FROM = { set_country_flag = SOV_merged_naval_plants_flag }
+		}
+		equipment_bonus = {
+			build_cost_ic = -0.05
+		}
+	}
 }
 
 SOV_sevastopol_marine_plant_organization = {
@@ -135,6 +564,41 @@ SOV_sevastopol_marine_plant_organization = {
 
 	allowed = {
 		original_tag = SOV
+	}
+
+	# Country-unique traits (gold outline)
+	add_trait = {
+		token = SOV_mio_trait_merged_naval_plants
+		name = SOV_mio_trait_merged_naval_plants
+		icon = GFX_generic_mio_trait_icon_build_cost_ic
+		special_trait_background = yes
+
+		position = { x=1 y=0 }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+			FROM = { has_completed_focus = SOV_merge_naval_plants }
+			hidden_trigger = { FROM = { NOT = { has_country_flag = SOV_merged_naval_plants_flag } } }
+		}
+
+		on_complete = {
+			custom_effect_tooltip = TPMP_MIO_selected_tt
+			hidden_effect = {
+				FROM = {
+					every_military_industrial_organization = {
+						limit = { TPMP_MIO_is_ship_category = yes }
+						set_mio_flag = TPMP_MIO_selected_flag
+					}
+				}
+				clr_mio_flag = TPMP_MIO_selected_flag
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = generic_trait_will_not_be_available_in_other_organizations
+			FROM = { set_country_flag = SOV_merged_naval_plants_flag }
+		}
+		equipment_bonus = {
+			build_cost_ic = -0.05
+		}
 	}
 }
 

@@ -2105,6 +2105,12 @@ focus_tree = {
 				limit = {
 					has_dlc = "Arms Against Tyranny"
 				}
+				every_military_industrial_organization = {
+					limit = {
+						has_mio_trait = SOV_mio_trait_merged_aircraft_plants #All Aircraft MIOs have this trait
+					}
+					unlock_mio_trait_tooltip = SOV_mio_trait_merged_aircraft_plants
+				}
 			}
 			else = {
 				custom_effect_tooltip = SOV_merge_aircraft_plants_tt
@@ -3085,7 +3091,12 @@ focus_tree = {
 				limit = {
 					has_dlc = "Arms Against Tyranny"
 				}
-				
+				every_military_industrial_organization = {
+					limit = {
+						has_mio_trait = SOV_mio_trait_merged_naval_plants #All Ship MIOs have this trait
+					}
+					unlock_mio_trait_tooltip = SOV_mio_trait_merged_naval_plants
+				}
 			}
 			else = {
 				custom_effect_tooltip = SOV_merge_naval_plants_tt
@@ -4385,6 +4396,12 @@ focus_tree = {
 
 		completion_reward = {
 			custom_effect_tooltip = TPMP_SOV_merge_tank_plants_tt
+			every_military_industrial_organization = {
+				limit = {
+					has_mio_trait = SOV_mio_trait_merged_tank_and_materiel_plants #All Tank, Artillery and Mechanized MIOs have this trait
+				}
+				unlock_mio_trait_tooltip = SOV_mio_trait_merged_tank_and_materiel_plants
+			}
 		}
 	}
 

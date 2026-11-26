@@ -3,9 +3,9 @@
 
 ### Tanks ###
 
-BUL_fiat_organization = {
+BUL_ansaldo_organization = {
 	include = TPMP_generic_production_tank_organization
-	icon = GFX_idea_fiat
+	icon = GFX_idea_AUS_ansaldo
 
 	allowed = {
 		original_tag = BUL
@@ -62,6 +62,10 @@ BUL_kaproni_bulgarski_organization = {
 	allowed = {
 		original_tag = BUL
 	}
+
+	available = {
+		FROM = { has_completed_focus = BUL_kaproni_bulgarski }
+	}
 }
 
 ### Ships ###
@@ -71,6 +75,10 @@ BUL_varna_naval_dockyard_organization = {
 
 	allowed = {
 		original_tag = BUL
+	}
+
+	available = {
+		FROM = { has_completed_focus = BUL_expand_varna_naval_base }
 	}
 }
 

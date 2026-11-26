@@ -87,20 +87,96 @@ ENG_supermarine_organization = {
 	allowed = {
 		original_tag = ENG
 	}
-}
 
-ENG_de_havilland_organization = {
-	include = TPMP_generic_range_aircraft_organization
-	icon = GFX_idea_de_havilland
+	# Country-unique traits (gold outline)
+	add_trait = {
+		token = ENG_mio_trait_stressed_skin_construction
+		name = ENG_mio_trait_stressed_skin_construction
+		icon = GFX_generic_mio_department_icon_plane_fighter_materials
+		special_trait_background = yes
 
-	allowed = {
-		original_tag = ENG
+		position = { x=1 y=1 }
+		relative_position_id = generic_mio_trait_agility_aircraft_2c
+		any_parent = { generic_mio_trait_agility_aircraft_2c }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		equipment_bonus = {
+			air_agility = 0.1
+		}
+	}
+	add_trait = {
+		token = ENG_mio_trait_elliptical_wing
+		name = ENG_mio_trait_elliptical_wing
+		icon = GFX_generic_mio_trait_icon_air_defence
+		special_trait_background = yes
+
+		position = { x=0 y=1 }
+		relative_position_id = ENG_mio_trait_stressed_skin_construction
+		any_parent = { ENG_mio_trait_stressed_skin_construction }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		equipment_bonus = {
+			air_defence = 0.1
+		}
 	}
 }
 
 ENG_hawker_aircraft_organization = {
-	include = TPMP_generic_support_aircraft_organization
+	include = TPMP_generic_range_aircraft_organization
 	icon = GFX_idea_hawker
+
+	allowed = {
+		original_tag = ENG
+	}
+
+	# Country-unique traits (gold outline)
+	add_trait = {
+		token = ENG_mio_trait_large_engine
+		name = ENG_mio_trait_large_engine
+		icon = GFX_generic_mio_department_icon_plane_fighter_engine
+		special_trait_background = yes
+
+		position = { x=2 y=1 }
+		relative_position_id = generic_mio_trait_range_aircraft_3a
+		any_parent = { generic_mio_trait_range_aircraft_3a }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		equipment_bonus = {
+			thrust = 0.1
+		}
+	}
+	add_trait = {
+		token = ENG_mio_trait_thick_wings
+		name = ENG_mio_trait_thick_wings
+		icon = GFX_generic_mio_trait_icon_maximum_speed
+		special_trait_background = yes
+
+		position = { x=0 y=1 }
+		relative_position_id = generic_mio_trait_range_aircraft_1a
+		any_parent = { generic_mio_trait_range_aircraft_1a }
+
+		available = {
+			hidden_trigger = { NOT = { has_mio_flag = TPMP_MIO_selected_flag } }
+		}
+
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+	}
+}
+
+ENG_de_havilland_organization = {
+	include = TPMP_generic_support_aircraft_organization
+	icon = GFX_idea_de_havilland
 
 	allowed = {
 		original_tag = ENG

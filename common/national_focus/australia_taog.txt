@@ -3180,7 +3180,7 @@ focus_tree = {
 				name = AST_the_pacific_resistance
 				bonus = 1
 				uses = 2
-				category = infantry_weapons
+				category = cat_infantry_tech
 			}
 			add_tech_bonus = {
 				name = AST_the_pacific_resistance
@@ -10864,7 +10864,7 @@ focus = {
 			    bonus = 0.5
 			    ahead_reduction = 2w
 			    uses = 2
-				category = logistics_tech
+				category = cat_logistics_tech
 			}
 
 			hidden_effect = {
@@ -10931,7 +10931,7 @@ focus = {
 				name = AST_lee_enfield_no1_mark3
 			    bonus = 0.5
 			    uses = 1
-				category = infantry_weapons
+				category = cat_infantry_tech
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
@@ -11132,7 +11132,7 @@ focus = {
 			    bonus = 0.75
 			    ahead_reduction = 1
 			    uses = 1
-				category = infantry_weapons
+				category = cat_infantry_tech
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
@@ -11874,6 +11874,11 @@ focus = {
 			IF = {
 				limit = { has_dlc = "Arms Against Tyranny"}
 
+				mio:AST_commonwealth_aircraft_corporation_organization = {
+					add_mio_size = 1
+					add_mio_funds_gain_factor = 0.1
+					add_mio_research_bonus = 0.05
+				}
 			}
 
 			ELSE = {
@@ -12060,6 +12065,11 @@ focus = {
 			IF = {
 				limit = { has_dlc = "Arms Against Tyranny"}
 
+				mio:AST_government_aircraft_factories_organization = {
+					add_mio_size = 1
+					add_mio_funds_gain_factor = 0.1
+					add_mio_research_bonus = 0.05
+				}
 			}
 
 			ELSE = {
