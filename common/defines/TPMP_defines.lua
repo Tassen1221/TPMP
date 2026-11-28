@@ -258,10 +258,10 @@ NDefines.NProduction.BASE_FACTORY_MAX_EFFICIENCY_FACTOR = 40	-- Base max efficie
 
 NDefines.NProduction.BASE_FACTORY_SPEED = 2.5		-- Base (unpowered) civilian factory speed multiplier. vanilla is 4
 NDefines.NProduction.BASE_FACTORY_SPEED_MIL = 2.5	-- Base factory speed multiplier (how much hoi3 style IC each factory gives).
-NDefines.NProduction.BASE_FACTORY_SPEED_NAV = 2.5	-- vanilla is 2.5
+NDefines.NProduction.BASE_FACTORY_SPEED_NAV = 1.5	-- vanilla is 2.5
 NDefines.NProduction.POWERED_FACTORY_SPEED = 5		-- Powered civilian factory speed multiplier. vanilla is 5
 NDefines.NProduction.POWERED_FACTORY_SPEED_MIL = 5	-- Powered factory speed multiplier. vanilla is 4.5; kept equal to the base value above
-NDefines.NProduction.POWERED_FACTORY_SPEED_NAV = 5	-- vanilla is 2.5
+NDefines.NProduction.POWERED_FACTORY_SPEED_NAV = 3	-- vanilla is 2.5
 
 NDefines.NProduction.INFRA_MAX_CONSTRUCTION_COST_EFFECT = 1	-- Building in a state with higher infrastructure will reduce the cost of shared buildings.
 

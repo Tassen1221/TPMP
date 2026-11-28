@@ -11,7 +11,7 @@ mio_policy_land_armor_welding_specialists = {
 			has_mio_equipment_type = super_heavy_tank_chassis
 		} 	
 	}
-	available = { has_mio_size > 5}
+	available = { has_mio_size > 4 }
 	equipment_bonus = {
 		same_as_mio = {
 			armor_value = 0.1
@@ -32,7 +32,7 @@ mio_policy_land_casting_specialists = {
 			has_mio_equipment_type = super_heavy_tank_chassis
 		} 
 	}
-	available = { has_mio_size > 5}
+	available = { has_mio_size > 4}
 	equipment_bonus = {
 		same_as_mio = {
 			hardness = 0.05
@@ -40,89 +40,121 @@ mio_policy_land_casting_specialists = {
 	}
 }
 
-mio_policy_land_heavy_gantry_cranes = {
-	icon = GFX_mio_policy_heavy_gantry_cranes_land
-	allowed = { 
+# mio_policy_land_heavy_gantry_cranes = {
+# 	icon = GFX_mio_policy_heavy_gantry_cranes_land
+# 	allowed = { 
+# 		NOT = { has_mio_equipment_type = TPMP_cat_eq_all_equipment }
+# 		OR = {
+# 			has_mio_equipment_type = railway_gun_equipment
+# 			has_mio_equipment_type = train_equipment
+# 			has_mio_equipment_type = motorized_equipment
+# 			has_mio_equipment_type = mechanized_equipment
+# 			has_mio_equipment_type = motorized_equipment
+# 			has_mio_equipment_type = mechanized_equipment
+# 			has_mio_equipment_type = light_tank_chassis
+# 			has_mio_equipment_type = medium_tank_chassis
+# 			has_mio_equipment_type = heavy_tank_chassis
+# 			has_mio_equipment_type = super_heavy_tank_chassis
+# 		} 
+# 	 }
+# 	available = { has_mio_size > 4}
+# 	equipment_bonus = {
+# 		heavy_tank_chassis = {
+# 			production_efficiency_cap_factor = 0.1
+# 		}
+
+# 		super_heavy_tank_chassis = {
+# 			production_efficiency_cap_factor = 0.1
+# 		}
+
+# 		train_equipment = {
+# 			production_efficiency_cap_factor = 0.1
+# 		}
+
+# 		railway_gun_equipment = {
+# 			production_efficiency_cap_factor = 0.1
+# 		}
+# 	}
+# }
+
+# mio_policy_land_factory_applied_camouflage  = {
+# 	icon = GFX_mio_policy_factory_applied_camouflage
+# 	allowed = { 
+# 		NOT = { has_mio_equipment_type = TPMP_cat_eq_all_equipment }
+# 		OR = {
+# 			has_mio_equipment_type = motorized_equipment
+# 			has_mio_equipment_type = mechanized_equipment
+# 			has_mio_equipment_type = light_tank_chassis
+# 			has_mio_equipment_type = medium_tank_chassis
+# 			has_mio_equipment_type = heavy_tank_chassis
+# 			has_mio_equipment_type = super_heavy_tank_chassis
+# 		} 
+# 	 }
+# 	available = { has_mio_size > 4}
+# 	equipment_bonus = {
+# 		same_as_mio = {
+# 			defense = 0.1
+# 			breakthrough = 0.05
+# 		}
+# 		TPMP_cat_eq_all_tank = {
+# 			max_strength = 0.5
+# 		}
+# 	}
+# }
+
+# mio_policy_land_cutting_corners  = {
+# 	icon = GFX_mio_policy_cutting_corners
+# 	allowed = { 
+# 		NOT = { has_mio_equipment_type = TPMP_cat_eq_all_equipment }
+# 		OR = {
+# 			has_mio_equipment_type = motorized_equipment
+# 			has_mio_equipment_type = mechanized_equipment
+# 			has_mio_equipment_type = light_tank_chassis
+# 			has_mio_equipment_type = medium_tank_chassis
+# 			has_mio_equipment_type = heavy_tank_chassis
+# 			has_mio_equipment_type = super_heavy_tank_chassis
+# 		} 
+# 	 }
+# 	available = { has_mio_size > 4}
+# 	equipment_bonus = {
+# 		same_as_mio = {
+# 			build_cost_ic = -0.05
+# 			reliability = -0.02
+# 			soft_attack = -0.02
+# 			hard_attack = -0.02
+# 			armor_value = -0.02
+# 		}
+# 	}
+# }
+mio_policy_SOV_quantity = {
+	icon = GFX_mio_policy_welding_specialists
+	allowed = {
 		NOT = { has_mio_equipment_type = TPMP_cat_eq_all_equipment }
-		OR = {
-			has_mio_equipment_type = railway_gun_equipment
-			has_mio_equipment_type = train_equipment
-			has_mio_equipment_type = motorized_equipment
-			has_mio_equipment_type = mechanized_equipment
-			has_mio_equipment_type = motorized_equipment
-			has_mio_equipment_type = mechanized_equipment
+		OR ={
 			has_mio_equipment_type = light_tank_chassis
 			has_mio_equipment_type = medium_tank_chassis
 			has_mio_equipment_type = heavy_tank_chassis
 			has_mio_equipment_type = super_heavy_tank_chassis
-		} 
-	 }
-	available = { has_mio_size > 5}
-	equipment_bonus = {
-		heavy_tank_chassis = {
-			production_efficiency_cap_factor = 0.1
 		}
-
-		super_heavy_tank_chassis = {
-			production_efficiency_cap_factor = 0.1
-		}
-
-		train_equipment = {
-			production_efficiency_cap_factor = 0.1
-		}
-
-		railway_gun_equipment = {
-			production_efficiency_cap_factor = 0.1
+		owner = {
+			original_tag = SOV
 		}
 	}
-}
-
-mio_policy_land_factory_applied_camouflage  = {
-	icon = GFX_mio_policy_factory_applied_camouflage
-	allowed = { 
-		NOT = { has_mio_equipment_type = TPMP_cat_eq_all_equipment }
-		OR = {
-			has_mio_equipment_type = motorized_equipment
-			has_mio_equipment_type = mechanized_equipment
-			has_mio_equipment_type = light_tank_chassis
-			has_mio_equipment_type = medium_tank_chassis
-			has_mio_equipment_type = heavy_tank_chassis
-			has_mio_equipment_type = super_heavy_tank_chassis
-		} 
-	 }
-	available = { has_mio_size > 5}
-	equipment_bonus = {
-		same_as_mio = {
-			defense = 0.1
-			breakthrough = 0.05
+	visible = {
+		owner = {
+			has_completed_focus = SOV_merge_tank_and_materiel_plants
 		}
+	}
+	available = {
+		has_mio_size > 4
+	}
+	equipment_bonus = {
 		TPMP_cat_eq_all_tank = {
-			max_strength = 0.5
-		}
-	}
-}
-
-mio_policy_land_cutting_corners  = {
-	icon = GFX_mio_policy_cutting_corners
-	allowed = { 
-		NOT = { has_mio_equipment_type = TPMP_cat_eq_all_equipment }
-		OR = {
-			has_mio_equipment_type = motorized_equipment
-			has_mio_equipment_type = mechanized_equipment
-			has_mio_equipment_type = light_tank_chassis
-			has_mio_equipment_type = medium_tank_chassis
-			has_mio_equipment_type = heavy_tank_chassis
-			has_mio_equipment_type = super_heavy_tank_chassis
-		} 
-	 }
-	available = { has_mio_size > 5}
-	equipment_bonus = {
-		same_as_mio = {
-			build_cost_ic = -0.05
-			reliability = -0.02
-			soft_attack = -0.02
-			hard_attack = -0.02
-			armor_value = -0.02
+			build_cost_ic = -0.1
+			reliability = -0.05
+			soft_attack = -0.05
+			hard_attack = -0.05
+			armor_value = -0.05
 		}
 	}
 }
